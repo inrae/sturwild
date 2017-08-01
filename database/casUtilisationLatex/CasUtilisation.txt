@@ -1,0 +1,30 @@
+Déclaration:
+
+Cas générale:
+	Lors d'une capture accidentelle, le pêcheur devra la déclarer auprès d'un organisme dont c'est le but, afin que ceux-ci les recenser. Suivant qui se connecte sur l'outil de déclaration, des fonctionnalités suplémentaires peuvent apparaître ou non. Par exemple, si le responsonble du projet à Irstea se connecte, celui-ci pourra envoyé une déclaration pré-rempli destiné à un organisme. 
+
+		Dans le cas où c'est Irstea qui enregistre la déclaration : 	
+			Dans ce cas là, l'étape de la validation ne se fait pas et la déclaration est directement enregistré dans la base après son édition. Puisque Irstea a un rôle de centralisation de l'information, il faut que le CNPMEM soit avertis lorsqu'une déclaration a été émise à Irstea. On peut maintenant emmetre deux cas/hyothèses : 
+					Si le responsable du projet se connecte, il a accès à l'intégralité du module.
+					Si une autre personne, membre ou pas, se connecte, il n'aura accès à rien ou à la partie déclaration à remplir.
+		
+		Dans le cas où c'est l'Ima ou le CNPMEM qui enregistre la déclaration :
+			Dans tous les cas, Irstea sera au courant de la création d'une déclaration exterieure. Par conséquent, le CNPMEM ou l'Ima n'a pas l'obligation de transmettre l'information.
+			Cependant, il faut obligatoirement une phase de contrôle et de validation pour que cette déclaration soit enregistrée dans la base de données.
+
+Contrôle : 
+
+Cas général : Après chaque déclaration exterieures, Irstea devra procéder à une phase de contrôle. Cette vérification sera effectué par le responsable en charge de ce projet. Evidemment, tous les utilisateurs de l'application n'auront pas accés à la fonction de contrôle. Seul le responsable du projet (et l'administrateur) auront cet avantage.
+	
+		Dans le cas où les informations renseignées par les organismes sont valables : 
+			Si tous les champs sont correctement renseignés dans la déclaration en ligne, le responsable la valide et va pouvoir stocker cette entrée dans la base de donnée. Cet ajout peut se faire automatiquement ou manuellement, selon le désir du responsable.
+
+		Dans le cas où les informations renseignées par les organismes sont incohérentes ou érronées : 
+			Irstea, ou le responsable, pourra reprendre contact avec l'organisme en charge de cette déclaration erronéee et réenverra celle-ci afin qu'elle soit corrigée.
+
+		Dans le cas où les informations renseignées par les organismes sont incomplètes : 
+			Irstea, ou le responsable, recontactera l'organisme en charge de cette déclaration afin qu'il apporte les informations manquantes en recueillant les informations auprès du pêcheur, ou du particulier, afin de complèter les champs manquants. L'organisme devra transmettre toutes les données manquantes lorsque celles-ci seront entièrement collectées.
+
+Export : 
+
+Cas général : A une fréquence régulière, c'est à dire tout les deux ou trois mois, ou sur une décision exceptionnelle, Irstea devra envoyé une copie de la base de données des captures aux organismes et aux partenaires qui lui sont liés. Pour un soucis de sécurité, il n'y aura qu'un "exemplaire" de la base de données. Tous les autres organismes n'auront qu'une image, une copie, de la base complète.

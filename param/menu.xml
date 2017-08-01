@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+<item module="declarationList" title="1" value="0">
+	<item module="declarationList" title="1" value="0" droits="consult"/>
+	<item module="declarationNbSturioByYear" value="110" title="111" droits="consult"/>
+</item>
+<item module="parametre" value="450" title="451" droits="param,gestion">
+	<item module="ciemList" value="460" title="461" droits="gestion"/>
+	<item module="paysList" value="470" title="471" droits="gestion"/>
+	<item module="milieuList" value="480" title="481" droits="gestion"/>
+	<item module="milieuDetailList" value="560" title="561" droits="gestion"/>
+	<item module="regionList" value="490" title="491" droits="gestion"/>
+	<!--item module="enginList" value="500" title="501" droits="gestion"/-->
+	<item module="especeList" value="510" title="511" droits="gestion"/>
+	<item module="devenirList" value="520" title="521" droits="gestion"/>
+	<item module="captureModeList" value="530" title="531" droits="gestion"/>
+	<item module="captureTypeList" value="540" title="541" droits="gestion"/>
+	<item module="captureEtatList" value="580" title="581" droits="gestion"/>
+	<item module="enginTypeList" value="570" title="571" droits="gestion"/>
+	<item module="evenementTypeList" value="550" title="551" droits="gestion"/>
+
+</item>
+
+<item module="administration" value="4" title="5" droits="admin">
+	<item module="loginList" droits="admin" title="3" value="2"/>
+	<item module="appliList" droits="admin" value="appliliste" title="applilistetitle"/>
+	<item module="aclloginList" droits="admin" value="aclloginliste" title="aclloginlistetitle"/>
+	<item module="groupList" droits="admin" value="groupliste" title="grouplistetitle"/>
+	<item module="phpinfo" droits="admin" value="phpinfo" title="phpinfotitle"/>
+</item>
+<item module="connexion" title="connexiontitle" value="connexionvalue" onlynoconnect="1"/>
+<item module="disconnect" title="7" value="6" loginrequis="1"/>
+<item module="apropos" title="21" value="20">
+	<item module="apropos" title="9" value="8"/>
+	<item module="quoideneuf" title="41" value="40"/>
+	<item module="setlanguagefr" title="frtitle" value="fr"/>
+	<item module="setlanguageen" title="entitle" value="en"/>
+</item>
+</menu>
