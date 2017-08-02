@@ -90,7 +90,7 @@ $SMARTY_param = array("templates"=> 'display/templates',
  */ 
 $APPLI_mail = "proto@proto.com";
 $APPLI_nom = "Prototype d'application";
-$APPLI_code = 'proto';
+$APPLI_code = 'sturwild';
 $APPLI_fds = "display/CSS/blue.css";
 $APPLI_address = "http://localhost/proto";
 $APPLI_modeDeveloppement = false;
