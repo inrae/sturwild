@@ -14,8 +14,7 @@ Exporter la liste au format CSV</a>
 &nbsp;
 <a href="index.php?module=individuExport"><img src="display/images/csv_text.png" height="25">Exporter les poissons correspondants au format CSV</a>
 {/if}
-<script>setDataTablesFull("declarationList", true, false, true)</script>
-<table class="tableliste" id="declarationList">
+<table  id="declarationList"class="table table-bordered table-hover datatable " >
 <thead>
 <tr>
 <th>N°</th>

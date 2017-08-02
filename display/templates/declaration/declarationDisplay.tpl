@@ -23,50 +23,32 @@ Retour à la liste</a>
 <a href=index.php?module=individuChange&individu_id=0&declaration_id={$data.declaration_id}>Nouvel esturgeon</a>
 
 {/if}
-<table class="tablemulticolonne" >
 
-<tr>
-<td>
-<fieldset>
+<fieldset class="col-sm-6">
 <legend>Événements</legend>
 {include file="declaration/evenementList.tpl"}
 </fieldset>
-</td>
-</tr>
 
-<tr>
-<td>
-<fieldset>
+<fieldset class="col-sm-6">
 <legend>Données générales - N° {$data.declaration_id}
 </legend>
 {include file="declaration/declarationGeneral.tpl"}
 </fieldset>
 
-</td>
-</tr>
 
-<tr>
-<td colspan="1">
-<fieldset>
+<fieldset class="col-sm-6">
 <legend>Localisation</legend>
 {include file="declaration/localisationDisplay.tpl"}
 </fieldset>
-</td>
-</tr>
-<tr>
-<td colspan="1">
-<fieldset>
+
+<fieldset class="col-sm-12">
 <legend>Détail des esturgeons capturés</legend>
 {include file="declaration/individuList.tpl"}
 </fieldset>
-</td>
-</tr>
-<tr>
-<td>
-<fieldset>
+
+<fieldset class="col-sm-12">
 <legend>Photos associées</legend>
 {include file="declaration/documentList.tpl"}
 </fieldset>
-</table>
-<br>
+
 
