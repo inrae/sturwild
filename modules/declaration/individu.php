@@ -100,10 +100,13 @@ switch ($t_module ["param"]) {
 		$_SESSION ["searchDeclaration"]->setParam ( $_REQUEST );
 		$dataSearch = $_SESSION ["searchDeclaration"]->getParam ();
 		if ($_SESSION ["searchDeclaration"]->isSearch () == 1) {
-			require_once 'modules/classes/export.class.php';
+			/*require_once 'modules/classes/export.class.php';
 			$export = new Export ();
 			$export->exportCSVinit ( "sturwild_individu", "tab" );
-			$export->exportCSV ( $dataClass->getDataToExport ( $dataSearch ), true );
+			$export->exportCSV ( $dataClass->getDataToExport ( $dataSearch ), true );*/
+		    $vue->setFilename("sturwild_individu-".date('d-m-Y' ) . ".csv");
+		    $vue->setDelimiter("tab");
+		    $vue->set($dataClass->getDataToExport ( $dataSearch ));
 		}
 		break;
 }

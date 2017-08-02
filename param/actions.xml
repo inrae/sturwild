@@ -71,7 +71,7 @@
 	<declarationChange action="modules/declaration/declaration.php" param="change" droits="gestion" type="smarty"/>
 	<declarationWrite action="modules/declaration/declaration.php" param="write" retourok="declarationDisplay" retourko="declarationChange" modulebefore="declarationChange"  droits="gestion"/>
 	<declarationDelete action="modules/declaration/declaration.php" param="delete" retoursuppr="declarationList" retourko="declarationChange" modulebefore="declarationChange"  droits="gestion"/>
-	<declarationExport action="modules/declaration/declaration.php" param="export" modulebefore="declarationList,individuExport"  droits="consult" ajax="1" type="ajax"/>
+	<declarationExport action="modules/declaration/declaration.php" param="export" modulebefore="declarationList,individuExport"  droits="consult" type="csv"/>
 	<declarationNbSturioByYear action="modules/declaration/declaration.php" param="sturioByYear" droits="consult" type="smarty"/>
 	<declarationDuplicate action="modules/declaration/declaration.php" param="duplicate" modulebefore="declarationWrite,declarationDisplay"  droits="gestion" retourok="declarationDisplay" />
 
@@ -85,10 +85,9 @@
 	<individuChange action="modules/declaration/individu.php" param="change" droits="gestion" type="smarty"/>
 	<individuWrite action="modules/declaration/individu.php" param="write" retourok="declarationDisplay" retourko="individuChange" modulebefore="individuChange"  droits="gestion"/>
 	<individuDelete action="modules/declaration/individu.php" param="delete" retoursuppr="declarationDisplay" retourko="individuChange" modulebefore="individuChange"  droits="gestion"/>
-	<individuExport action="modules/declaration/individu.php" param="export" droits="consult" moduleBefore="declarationList,declarationExport" ajax="1" type="ajax"/>
+	<individuExport action="modules/declaration/individu.php" param="export" droits="consult" moduleBefore="declarationList,declarationExport" type="csv"/>
 
 	<documentDelete action="modules/declaration/individu.php" param="documentDelete" retoursuppr="individuChange" retourko="individuChange" modulebefore="individuChange,declarationDisplay"  droits="gestion"/>
-	<documentGet action="modules/declaration/individu.php" param="documentGet"  droits="consult" ajax="1" type="ajax"/>
 
 	<localisationChange action="modules/declaration/localisation.php" param="change" droits="gestion" type="smarty"/>
 	<localisationWrite action="modules/declaration/localisation.php" param="write" retourok="declarationDisplay" retourko="localisationChange" modulebefore="localisationChange"  droits="gestion"/>

@@ -265,28 +265,31 @@ class VueAjaxJson extends Vue {
  */
 class VueCsv extends Vue {
 	private $filename;
-	function send($param = "") {
+	private $delimiter = ";";
+	function send($filename = "", $delimiter = "") {
 		if (count ( $this->data ) > 0) {
-			if (strlen ( $param ) == 0)
-				$param = $this->filename;
-			if (strlen ( $param ) == 0)
+			if (strlen ( $filename ) == 0)
+				$filename = $this->filename;
+			if (strlen ( $filename ) == 0)
 				$param = "export-" . date ( 'Y-m-d' ) . ".csv";
-				/*
+			if (strlen($delimiter)== 0)
+			    $delimiter = $this->delimiter;
+			/*
 			 * Preparation du fichier
 			 */
 			ob_clean ();
 			header ( 'Content-Type: text/csv' );
-			header ( 'Content-Disposition: attachment;filename=' . $param );
+			header ( 'Content-Disposition: attachment;filename=' . $filename );
 			$fp = fopen ( 'php://output', 'w' );
 			/*
 			 * Traitement de l'entete
 			 */
-			fputcsv ( $fp, array_keys ( $this->data [0] ) );
+			fputcsv ( $fp, array_keys ( $this->data [0] ), $delimiter );
 			/*
 			 * Traitement des lignes
 			 */
 			foreach ( $this->data as $value )
-				fputcsv ( $fp, $value );
+				fputcsv ( $fp, $value, $delimiter );
 			fclose ( $fp );
 			ob_flush ();
 		}
@@ -299,6 +302,16 @@ class VueCsv extends Vue {
 	function setFilename($filename) {
 		$this->filename = $filename;
 	}
+    /**
+     * Affecte le separateur de champ
+     * @param string $delimiter
+     */
+	function setDelimiter($delimiter) {
+	    if ($delimiter == "tab")
+	        $delimiter = "\t";
+	    $this->delimiter = $delimiter;
+	}
+	
 }
 class VuePdf extends Vue {
 	private $filename;
