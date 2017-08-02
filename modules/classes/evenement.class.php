@@ -91,9 +91,9 @@ class Evenement extends ObjetBDD {
 		if ($id > 0 && is_numeric($id)) {
 			$sql = "select * from evenement
 					left outer join evenement_type using (evenement_type_id)
-					where declaration_id = " . $id . "
+					where declaration_id = :declaration_id
 					order by evenement_date desc, evenement_type_id desc";
-			$data = $this->getListeParam ( $sql );
+			$data = $this->getListeParamAsPrepared( $sql, array("declaration_id"=>$id) );
 			/*
 			 * Recherche des des utilisateurs ayant cree les evenements
 			 */

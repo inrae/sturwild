@@ -9,8 +9,9 @@ switch ($t_module ["param"]) {
 		/*
 		 * Display the list of all records of the table
 		 */
-		$smarty->assign ( "data", $dataClass->getListe(3) );
-		$smarty->assign ( "corps", "param/paysList.tpl" );
+		$vue->set ( $dataClass->getListe(3), "data" );
+		$vue->set ( "param/paysList.tpl", "corps" );
+		
 		break;
 	case "change":
 		/*

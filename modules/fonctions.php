@@ -45,6 +45,8 @@ function sendMail($declaration_id) {
 				$log->setLog ( $_SESSION ["login"], "sendmail_to:".$dataLogin["mail"], $id );
 			} else {
 				$log->setLog ( $_SESSION ["login"], "error_sendmail_to:".$dataLogin["mail"], $id );
+				global $message;
+				$message->setSyslog("error_sendmail_to:".$dataLogin["mail"]);
 			}
 		}
 	}

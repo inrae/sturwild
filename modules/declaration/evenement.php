@@ -22,7 +22,8 @@ switch ($t_module["param"]) {
 		 * Lecture de la table des types d'evenement
 		 */
 		$evenement_type = new Evenement_type($bdd, $ObjetBDDParam);
-		$smarty->assign("evenement_type", $evenement_type->getListe(1));
+		$vue->set ( $evenement_type->getListe(1), "evenement_type" );
+		
 		break;
 	case "write":
 		/*

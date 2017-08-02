@@ -15,8 +15,9 @@ switch ($t_module ["param"]) {
 		/*
 		 * Display the list of all records of the table
 		 */
-		$smarty->assign ( "data", $dataClass->getListe(2) );
-		$smarty->assign ( "corps", "param/captureTypeList.tpl" );
+		$vue->set ( $dataClass->getListe(2), "data" );
+		$vue->set ( "param/captureTypeList.tpl", "corps" );
+		
 		break;
 	case "change":
 		/*

@@ -10,22 +10,29 @@
 require_once 'modules/classes/localisation.class.php';
 require_once 'modules/classes/individu.class.php';
 $ciem = new Ciem($bdd, $ObjetBDDParam);
-$smarty->assign("ciem", $ciem->getListe(2));
-$pays = new Pays($bdd, $ObjetBDDParam);
-$smarty->assign("pays", $pays->getListe(3));
-$region = new Region($bdd, $ObjetBDDParam);
-$smarty->assign("region", $region->getListe(2));
-$milieu = new Milieu($bdd, $ObjetBDDParam);
-$smarty->assign("milieu", $milieu->getListe(2));
-$statut = new Statut($bdd, $ObjetBDDParam);
-$espece = new Espece($bdd, $ObjetBDDParam);
-$smarty->assign("espece", $espece->getListe(2));
-$capture_etat = new Capture_etat($bdd, $ObjetBDDParam);
-$smarty->assign("capture_etat", $capture_etat->getListe(2));
-$engin_type = new Engin_type($bdd, $ObjetBDDParam);
-$smarty->assign("engin_type", $engin_type->getListe(2));
+$vue->set ($ciem->getListe(2) , "ciem" );
 
-$smarty->assign("statut", $statut->getListe(1));
-$smarty->assign("isSearch", $_SESSION["searchDeclaration"]->isSearch());
-$smarty->assign("annees", $_SESSION["searchDeclaration"]->getListeAnnee());
+$pays = new Pays($bdd, $ObjetBDDParam);
+$vue->set ( $pays->getListe(3), "pays" );
+
+$region = new Region($bdd, $ObjetBDDParam);
+$vue->set ( $region->getListe(2), "region" );
+
+$milieu = new Milieu($bdd, $ObjetBDDParam);
+$vue->set ( $milieu->getListe(2), "milieu" );
+
+$espece = new Espece($bdd, $ObjetBDDParam);
+$vue->set ( $espece->getListe(2), "espece" );
+
+$capture_etat = new Capture_etat($bdd, $ObjetBDDParam);
+$vue->set ( $capture_etat->getListe(2), "capture_etat" );
+
+$engin_type = new Engin_type($bdd, $ObjetBDDParam);
+$vue->set ( $engin_type->getListe(2), "engin_type" );
+
+$statut = new Statut($bdd, $ObjetBDDParam);
+$vue->set ( $statut->getListe(1), "statut" );
+$vue->set ( $_SESSION["searchDeclaration"]->isSearch(), "isSearch" );
+$vue->set ($_SESSION["searchDeclaration"]->getListeAnnee() , "annees" );
+
 ?>

@@ -21,15 +21,18 @@ switch ($t_module["param"]) {
 		if ($data[$keyName] == "") {
 			$data["nombre_capture"] = 1;
 			$data[$keyName] = $id;
-			$smarty->assign("data", $data);
+			$vue->set ($data , "data" );
+			
 		}
 		/*
 		 * Lecture des tables de parametre
 		*/
 		$espece = new Espece($bdd, $ObjetBDDParam);
-		$smarty->assign("espece", $espece->getListe(2));
+		$vue->set ( $espece->getListe(2), "espece" );
+		
 		$devenir = new Devenir($bdd, $ObjetBDDParam);
-		$smarty->assign("devenir", $devenir->getListe(1));
+		$vue->set ( $devenir->getListe(1), "devenir" );
+		
 		break;
 	case "write":
 		/*

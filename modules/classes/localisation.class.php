@@ -271,8 +271,8 @@ class Localisation extends ObjetBDD {
 					left outer join milieu using (milieu_id)
 					left outer join region using (region_id)
 					left outer join milieu_detail using (milieu_detail_id)
-					where declaration_id = ".$id;
-			return $this->lireParam($sql);
+					where declaration_id = :declaration_id";
+			return $this->lireParamAsPrepared($sql, array("declaration_id"=>$id));
 		}
 	}
 

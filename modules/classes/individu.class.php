@@ -127,9 +127,9 @@ class Individu extends ObjetBDD {
 					left outer join devenir using (devenir_id)
 					left outer join presence_marque using (presence_marque_id)
 					left outer join capture_etat using (capture_etat_id)
-					where declaration_id = " . $id . "
+					where declaration_id = :declaration_id
 					order by individu_id";
-			return $this->getListeParam ( $sql );
+			return $this->getListeParamAsPrepared( $sql, array("declaration_id"=>$id) );
 		} else
 			return null;
 	}
@@ -158,18 +158,18 @@ class Individu extends ObjetBDD {
 			/*
 			 * Preparation de la clause where
 			 */
-			$where = " where declaration_id in (";
+			$where = " where declaration_id in (:dataWhere)";
 			$first = true;
+			$dataWhere = "";
 			foreach ( $declarations as $key => $value ) {
-				$first == true ? $first = false : $where .= ", ";
-				$where .= $value ["declaration_id"];
+				$first == true ? $first = false : $dataWhere .= ", ";
+				$dataWhere .= $value ["declaration_id"];
 			}
-			$where .= ")";
 			$order = " order by declaration_id, individu_id";
 			/*
 			 * Traitement de la commande
 			 */
-			return $this->getListeParam ( $sql . $from . $where . $order );
+			return $this->getListeParamAsPrepared( $sql . $from . $where . $order, $dataWhere );
 		}
 	}
 }
@@ -249,8 +249,8 @@ class Lot extends ObjetBDD {
 			$sql = "select * from lot
 					left outer join espece using(espece_id)
 					left outer join devenir using (devenir_id)
-					where declaration_id = " . $id;
-			return $this->lireParam ( $sql );
+					where declaration_id = :declaration_id";
+			return $this->lireParamAsPrepared( $sql, array("declaration_id"=>$id) );
 		}
 	}
 }

@@ -20,21 +20,27 @@ switch ($t_module["param"]) {
 		$data = dataRead($dataClass, $id, "declaration/localisationChange.tpl");
 		if ($data[$keyName] == "") {
 			$data[$keyName] = $id;
-			$smarty->assign("data", $data);
+			$vue->set ( $data, "data" );
+			
 		}
 		/*
 		 * Lecture des tables de parametre
 		 */
 		$ciem = new Ciem($bdd, $ObjetBDDParam);
-		$smarty->assign("ciem", $ciem->getListe(2));
+		$vue->set ( $ciem->getListe(2), "ciem" );
+		
 		$pays = new Pays($bdd, $ObjetBDDParam);
-		$smarty->assign("pays", $pays->getListe(3));
+		$vue->set ( $pays->getListe(3), "pays" );
+		
 		$region = new Region($bdd, $ObjetBDDParam);
-		$smarty->assign("region", $region->getListe(2));
+		$vue->set ( $region->getListe(2), "region" );
+		
 		$milieu = new Milieu($bdd, $ObjetBDDParam);
-		$smarty->assign("milieu", $milieu->getListe(2));
+		$vue->set ( $milieu->getListe(2), "milieu" );
+		
 		$milieuDetail = new MilieuDetail($bdd, $ObjetBDDParam);
-		$smarty->assign("milieu_detail", $milieuDetail->getListe(2));
+		$vue->set ( $milieuDetail->getListe(2), "milieu_detail" );
+		
 		break;
 	case "write":
 		/*

@@ -18,6 +18,9 @@ switch ($t_module ["param"]) {
 		 */
 		$smarty->assign ( "data", $dataClass->getListe(2) );
 		$smarty->assign ( "corps", "param/enginTypeList.tpl" );
+		$vue->set ( $dataClass->getListe(2), "data" );
+		$vue->set ("param/enginTypeList.tpl" , "corps" );
+		
 		break;
 	case "change":
 		/*

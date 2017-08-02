@@ -23,18 +23,23 @@ switch ($t_module ["param"]) {
 		 */
 		require_once 'modules/classes/declaration.class.php';
 		$espece = new Espece ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "espece", $espece->getListe ( 2 ) );
+		$vue->set ($espece->getListe ( 2 ) , "espece" );
+		
 		$devenir = new Devenir ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "devenir", $devenir->getListe ( 1 ) );
+		$vue->set ( $devenir->getListe ( 1 ), "devenir" );
+		
 		$presence_marque = new Presence_marque ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "presence_marque", $presence_marque->getListe ( 1 ) );
+		$vue->set ( $presence_marque->getListe ( 1 ), "presence_marque" );
+		
 		$captureEtat = new Capture_etat ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "capture_etat", $captureEtat->getListe ( 2 ) );
+		$vue->set ( $captureEtat->getListe ( 2 ), "capture_etat" );
+		
 		
 		if ($id > 0) {
 			require_once 'modules/classes/document.class.php';
 			$document = new Document ( $bdd, $ObjetBDDParam );
-			$smarty->assign ( "dataDoc", $document->getListFromIndividu ( $id ) );
+			$vue->set ( $document->getListFromIndividu ( $id ), "dataDoc" );
+			
 		}
 		break;
 	case "write":

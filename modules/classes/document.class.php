@@ -119,7 +119,7 @@ class MimeType extends ObjetBDD {
 	/**
 	 * Constructeur de la classe
 	 *
-	 * @param Adodb_instance $bdd        	
+	 * @param  $bdd        	
 	 * @param array $param        	
 	 */
 	function __construct($bdd, $param = null) {
@@ -174,7 +174,7 @@ class Document extends ObjetBDD {
 	/**
 	 * Constructeur de la classe
 	 *
-	 * @param Adodb_instance $bdd        	
+	 * @param  $bdd        	
 	 * @param array $param        	
 	 */
 	function __construct($bdd, $param = null) {
@@ -236,8 +236,8 @@ class Document extends ObjetBDD {
 			$sql = "select document_id, individu_id, document_nom,  content_type, mime_type_id, extension
 				from " . $this->table . "
 				join mime_type using (mime_type_id)
-				where document_id = " . $id;
-			return $this->lireParam ( $sql );
+				where document_id = :document_id";
+			return $this->lireParamAsPrepared( $sql, array("document_id"=>$id) );
 		}
 	}
 	
@@ -252,8 +252,8 @@ class Document extends ObjetBDD {
 			$sql = "select document_id, individu_id, document_nom, document_description, size, document_date_import, content_type, mime_type_id
 				from " . $this->table . "
 				join mime_type using (mime_type_id)
-				where individu_id = " . $id . " order by document_id";
-			return $this->documentSearch($sql);
+				where individu_id = :individu_id order by document_id";
+			return $this->documentSearch($sql, array("individu_id"=>$id));
 		}
 	}
 
@@ -267,8 +267,8 @@ class Document extends ObjetBDD {
 			$sql = "select count(*) as document_nb
 					from ".$this->table."
 					natural join individu
-					where declaration_id = ".$declaration_id;
-			return $this->lireParam($sql);
+					where declaration_id = :declaration_id";
+			return $this->lireParamAsPrepared($sql, array("declaration_id"=>$declaration_id));
 		}
 	}
 
@@ -283,9 +283,9 @@ class Document extends ObjetBDD {
 				from " . $this->table . "
 				join mime_type using (mime_type_id)
 				join individu using (individu_id)
-				where declaration_id = ".$declaration_id."
+				where declaration_id = :declaration_id
 				order by individu_id, document_id";
-			return $this->documentSearch($sql);
+			return $this->documentSearch($sql, array("declaration_id"=>$declaration_id));
 		}
 	}
 
@@ -297,9 +297,9 @@ class Document extends ObjetBDD {
 	 * @param string $sql
 	 * @return array
 	 */
-	function documentSearch($sql) {
+	function documentSearch($sql, $param) {
 		if (strlen ($sql ) > 0) {
-			$data = $this->getListeParam ( $sql );
+			$data = $this->getListeParamAsPrepared( $sql, $param );
 			foreach ( $data as $key => $value ) {
 				$data [$key] ["photo_name"] = $this->writeFileImage ( $value ["document_id"], 0 );
 				if (in_array ( $value ["mime_type_id"], array (
@@ -380,8 +380,9 @@ class Document extends ObjetBDD {
 				 */
 				$id = parent::ecrire ( $data );
 				if ($id > 0) {
-					$sql = "update " . $this->table . " set data = '" . $dataDoc ["data"] . "', thumbnail = '" . $dataDoc ["thumbnail"] . "' where document_id = " . $id;
-					$this->executeSQL ( $sql );
+				    $dataDoc["document_id"] = $id;
+					$sql = "update  $this->table set data = :data, thumbnail = :thumbnail where document_id = :document_id";
+					$this->executeAsPrepared( $sql, $dataDoc );
 				}
 				return $id;
 			}
@@ -458,7 +459,7 @@ class Document extends ObjetBDD {
 					rewind($docRef);
 					$document = stream_get_contents($docRef);
 					if ($document == false)
-						printr("erreur de lecture ".$docRef);
+					    throw new Exception("erreur de lecture ".$docRef);
 				}
 				/*
 				 * Ecriture du document dans le dossier temporaire
