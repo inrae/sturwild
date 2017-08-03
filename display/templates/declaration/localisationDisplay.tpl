@@ -83,7 +83,12 @@ var imageStyle = new ol.style.Style({
 var attribution = new ol.control.Attribution({
   collapsible: false
 });
-
+var mousePosition = new ol.control.MousePosition( { 
+    coordinateFormat: ol.coordinate.createStringXY(2),
+    projection: 'EPSG:4326',
+    target: undefined,
+    undefinedHTML: '&nbsp;'
+});
 var map = new ol.Map({
   controls: ol.control.defaults({ attribution: false }).extend([attribution]),
   target: 'map',
@@ -92,6 +97,7 @@ var map = new ol.Map({
     zoom: zoom
   })
 });
+map.addControl(mousePosition);
 
 var layer = new ol.layer.Tile({
   source: new ol.source.OSM()

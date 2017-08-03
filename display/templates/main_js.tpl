@@ -80,7 +80,7 @@ $(document).ready(function() {
 		'maxlength' : "10"
 	});
 	
-	$(".date").datepicker( $.datepicker.regional['fr'] );
+	$(".date,.datepicker").datepicker( $.datepicker.regional['fr'] );
 	$.datepicker.setDefaults($.datepicker.regional['fr']);
 	$('.timepicker').attr('pattern', '[0-9][0-9]\:[0-9][0-9]\:[0-9][0-9]');
 	$.timepicker.setDefaults($.timepicker.regional['fr']);

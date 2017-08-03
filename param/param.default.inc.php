@@ -165,6 +165,7 @@ $MAIL_param = array("replyTo"=>"ne-pas-repondre.sturwild@irstea.fr",
 		"<br><br>Merci de ne pas répondre à ce mél, l'adresse d'envoi n'est pas relevée.".
 		'</body></html>'
 );
+$MAIL_enabled = 0;
 $MAPS_enabled = 0;
 $MAPS_url = "https://maps.googleapis.com/maps/api/js?key=CLE_IDENTIFICATION&callback=initMap";
 ?>

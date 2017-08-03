@@ -45,6 +45,15 @@ body {
 .green {
 	color: #A4C400;
 }
+input.num3 {
+	width: 2em;
+}
+input.num5 {
+	width: 5em;
+}
+input.num10 {
+	width: 10em;
+}
 .message {
 	font-style: italic;
 	color: #003A80;
