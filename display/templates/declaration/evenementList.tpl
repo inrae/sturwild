@@ -1,7 +1,7 @@
 {if $droits["gestion"] == 1}
 <a href=index.php?module=evenementChange&evenement_id=0&declaration_id={$data.declaration_id}>Nouvel événement...</a>
 {/if}
-<table class="tableliste">
+<table class="table table-bordered table-hover">
 <thead>
 <tr>
 {if $droits["gestion"] == 1}

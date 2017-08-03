@@ -1,7 +1,7 @@
 {if $droits["gestion"] == 1}
 <a href=index.php?module=individuChange&individu_id=0&declaration_id={$data.declaration_id}>Nouvel esturgeon...</a>
 {/if}
-<table class="tableliste" id="individuList">
+<table class="table table-bordered table-hover" id="individuList">
 <thead>
 <tr>
 <th class="center"><img src="display/images/edit.gif" height="20"></th>

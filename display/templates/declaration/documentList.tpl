@@ -20,7 +20,7 @@ $(document).ready(function() {
 } ) ;
 </script>
 
-<table id="documentList" class="tableliste">
+<table id="documentList" class="table table-bordered table-hover" >
 <thead>
 <tr>
 <th>N° poisson</th>
@@ -34,7 +34,7 @@ $(document).ready(function() {
 {/if}
 </tr>
 </thead>
-<tdata>
+<tbody>
 {section name=lst loop=$dataDoc}
 <tr>
 <td class="center">
@@ -72,5 +72,5 @@ $(document).ready(function() {
 {/if}
 </tr>
 {/section}
-</tdata>
+</tbody>
 </table>

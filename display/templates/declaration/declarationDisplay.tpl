@@ -9,6 +9,7 @@ $("#duplicate").on("click", function () {
 <img src="display/images/list.png" height="20">
 Retour à la liste</a>
 {if $droits.gestion ==1}
+<div class="col-md-12">
 <a id="duplicate" href="index.php?module=declarationDuplicate&declaration_id={$data.declaration_id}">
 <img src="display/images/copy.png" height="20">Dupliquer la déclaration</a>
 <br> 
@@ -21,22 +22,32 @@ Retour à la liste</a>
 <a href=index.php?module=evenementChange&evenement_id=0&declaration_id={$data.declaration_id}>Nouvel événement</a>
 &nbsp;
 <a href=index.php?module=individuChange&individu_id=0&declaration_id={$data.declaration_id}>Nouvel esturgeon</a>
-
+</div>
 {/if}
 
-<fieldset class="col-sm-6">
+<fieldset class="col-md-6 hidden-sm hidden-xs ">
+<legend>Données générales - N° {$data.declaration_id}
+</legend>
+{include file="declaration/declarationGeneral.tpl"}
+</fieldset>
+
+<fieldset class="col-md-6 hidden-sm hidden-xs ">
 <legend>Événements</legend>
 {include file="declaration/evenementList.tpl"}
 </fieldset>
-
-<fieldset class="col-sm-6">
+<fieldset class="hidden-md hidden-gd col-sm-12 ">
+<legend>Événements</legend>
+{include file="declaration/evenementList.tpl"}
+</fieldset>
+<fieldset class="hidden-md hidden-gd col-sm-12 ">
 <legend>Données générales - N° {$data.declaration_id}
 </legend>
 {include file="declaration/declarationGeneral.tpl"}
 </fieldset>
 
 
-<fieldset class="col-sm-6">
+
+<fieldset class="col-sm-12">
 <legend>Localisation</legend>
 {include file="declaration/localisationDisplay.tpl"}
 </fieldset>
