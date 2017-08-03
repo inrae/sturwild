@@ -18,7 +18,7 @@ require_once 'modules/classes/document.class.php';
 
 class Declaration extends ObjetBDD
 {
-
+    private $paramSearch = array();
     private $fromSearch = " from declaration
 				join statut using (statut_id)
 				left outer join localisation using (declaration_id)
@@ -200,7 +200,7 @@ class Declaration extends ObjetBDD
      * Recherche la liste des declarations selon les criteres de recherche fournis
      *
      * @param array $param
-     * @return tableau
+     * @return array
      */
     function search(array $param)
     {
@@ -213,7 +213,7 @@ class Declaration extends ObjetBDD
 				";
         $where = $this->getWhere($param);
         $order = " order by declaration_id desc";
-        $data = $this->getListeParamAsPrepared(sql . $this->fromSearch . $where . $order,$param);
+        $data = $this->getListeParamAsPrepared($sql . $this->fromSearch . $where . $order,$this->paramSearch);
         /*
          * Rajout du nombre de photos associees
          */
@@ -234,51 +234,75 @@ class Declaration extends ObjetBDD
     function getWhere($param)
     {
         $param = $this->encodeData($param);
+        $this->paramSearch = array();
         $and = "";
         /*
          * Preparation de la requete where
          */
         if (is_numeric($param["annee_debut"]) && is_numeric($param["annee_fin"])) {
             $where = " where annee between :annee_debut and :annee_fin";
+            $this->paramSearch["annee_debut"] = $param["annee_debut"];
+            $this->paramSearch["annee_fin"] = $param["annee_fin"];
+            
         }
         if ($param["statut_id"] > 0 && is_numeric($param["statut_id"])) {
             $where .= " $and statut_id = :statut_id";
             $and = " and ";
+            $this->paramSearch["statut_id"] = $param["statut_id"];
+            
         }
         if ($param["ciem_id"] > 0 && is_numeric($param["ciem_id"])) {
             $where .= " $and ciem_id = :ciem_id";
             $and = " and ";
+            $this->paramSearch["ciem_id"] = $param["ciem_id"];
+            
         }
         if ($param["pays_id"] > 0 && is_numeric($param["pays_id"])) {
             $where .= " $and pays_id = :pays_id";
             $and = " and ";
+            $this->paramSearch["pays_id"] = $param["pays_id"];
+            
         }
         if ($param["region_id"] > 0 && is_numeric($param["region_id"])) {
             $where .= " $and region_id = :region_id";
             $and = " and ";
+            $this->paramSearch["region_id"] = $param["region_id"];
+            
         }
         if ($param["milieu_id"] > 0 && is_numeric($param["milieu_id"])) {
             $where .= " $and milieu_id = :milieu_id";
             $and = " and ";
+            $this->paramSearch["milieu_id"] = $param["milieu_id"];
+            
         }
         if ($param["capture_etat_id"] > 0 && is_numeric($param["capture_etat_id"])) {
             $where .= " $and capture_etat_id = :capture_etat_id";
             $and = " and ";
+            $this->paramSearch["capture_etat_id"] = $param["capture_etat_id"];
+            
         }
         if ($param["espece_id"] > 0 && is_numeric($param["espece_id"])) {
             $where .= " $and espece_id = :espece_id";
             $and = " and ";
+            $this->paramSearch["espece_id"] = $param["espece_id"];
+            
         }
         if ($param["engin_type_id"] > 0 && is_numeric($param["engin_type_id"])) {
             $where .= " $and engin_type_id = :engin_type_id";
             $and = " and ";
+            $this->paramSearch["engin_type_id"] = $param["engin_type_id"];
+            
         }
         if (strlen($param["libelle"]) > 0) {
-            $param["libelle"] = "%".$param["libelle"]."%";
-            $where .= " $and (upper(pecheur_code) like upper(:libelle)";
-            $where .= " or upper(interlocuteur) like upper(:ibelle)";
-            if (is_numeric($param["libelle"]))
+            $libelle = "%".$param["libelle"]."%";
+            $this->paramSearch["libelleText1"] =$libelle;
+            $this->paramSearch["libelleText2"] = $libelle;
+                                    $where .= " $and (upper(pecheur_code) like upper(:libelleText1)";
+            $where .= " or upper(interlocuteur) like upper(:libelleText2)";
+            if (is_numeric($param["libelle"])) {
                 $where .= " or declaration_id = :libelle";
+                $this->paramSearch["libelle"] = $param["libelle"];
+            }
             $where .= ")";
         }
         return $where;
@@ -288,7 +312,7 @@ class Declaration extends ObjetBDD
      * Recupere les donnees pour export
      *
      * @param array $param
-     * @return tableau
+     * @return array
      */
     function getDataToExport($param)
     {
@@ -315,7 +339,7 @@ class Declaration extends ObjetBDD
 				";
         $where = $this->getWhere($param);
         $order = " order by declaration.declaration_id desc";
-        $data = $this->getListeParamAsPrepared($sql . $where . $order, $param);
+        $data = $this->getListeParamAsPrepared($sql . $where . $order, $this->paramSearch);
         return $data;
     }
 
@@ -323,7 +347,7 @@ class Declaration extends ObjetBDD
      * Retourne la liste des identifiants des declarations correspondants aux criteres de recherche
      * 
      * @param array $param
-     * @return tableau
+     * @return array
      */
     function getIdFromParam($param)
     {
@@ -345,7 +369,7 @@ class Declaration extends ObjetBDD
     /**
      * Calcule le nombre d'esturgeons d'Europe captures par annee
      * 
-     * @return tableau
+     * @return array
      */
     function getNbSturioByYear()
     {
