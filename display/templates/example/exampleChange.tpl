@@ -1,6 +1,6 @@
 <h2>Modification EXEMPLE</h2>
 <div class="row">
-<div class="col-md-12">
+<div class="col-sm-12">
 <a href="index.php?module=exampleList">
 <img src="display/images/list.png" height="25">
 Retour à la liste
@@ -20,16 +20,16 @@ Retour au détail </a>
 <input type="hidden" name="action" value="Write">
 
 <div class="form-group">
-<label for="event_date" class="control-label col-md-4">Date<span class="red">*</span> :</label>
-<div class="col-md-8">
+<label for="event_date" class="control-label col-sm-4">Date<span class="red">*</span> :</label>
+<div class="col-sm-8">
 <input id="example_date" name="example_date" required value="{$data.example_date}" class="form-control datepicker" >
 </div>
 </div>
 
 <!--  exemple de lecture d'une liste associee (boite deroulante) -->
 <div class="form-group">
-<label for="example_status_id" class="control-label col-md-4">Type d'évenement<span class="red">*</span> :</label>
-<div class="col-md-8">
+<label for="example_status_id" class="control-label col-sm-4">Type d'évenement<span class="red">*</span> :</label>
+<div class="col-sm-8">
 <select id="example_status_id" name="example_status_id" class="form-control">
 {section name=lst loop=$exampleStatus}
 <option value="{$exampleStatus[lst].example_status_id}" {if $exampleStatus[lst].example_status_id == $data.example_status_id}selected{/if}>
@@ -41,8 +41,8 @@ Retour au détail </a>
 </div>
 
 <div class="form-group">
-<label for="example_comment" class="control-label col-md-4">Commentaire :</label>
-<div class="col-md-8">
+<label for="example_comment" class="control-label col-sm-4">Commentaire :</label>
+<div class="col-sm-8">
 <textarea id="example_comment" name="example_comment"  class="form-control" rows="3">{$data.event_comment}</textarea>
 </div>
 </div>

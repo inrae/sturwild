@@ -15,8 +15,6 @@ switch ($t_module ["param"]) {
 		/*
 		 * Display the list of all records of the table
 		 */
-		$smarty->assign ( "data", $dataClass->getListe(1) );
-		$smarty->assign ( "corps", "param/evenementTypeList.tpl" );
 		$vue->set ( $dataClass->getListe(1), "data" );
 		$vue->set ( "param/evenementTypeList.tpl", "corps" );
 		

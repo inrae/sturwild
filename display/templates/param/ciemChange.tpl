@@ -1,32 +1,33 @@
-{if $data.ciem_id > 0}
-<h2>Modification d'une zone CIEM</h2>
-{/if}
-<a href="index.php?module=ciemList">Retour à la liste</a>
 
-<div class="formSaisie">
-<form method="post" action="index.php?module=ciemWrite">
+<h2>Création / modification d'une zone CIEM</h2>
+
+<div class="row">
+<div class="col-sm-12">
+<a href="index.php?module=ciemList">Retour à la liste</a>
+</div>
+
+<div class="col-sm-6">
+<form class="form-horizontal protoform" method="post" action="index.php">
 	<input type="hidden" name="ciem_id" id="ciem_id"
 		value="{$data.ciem_id}">
-	<dl>
-		<dt>Libelle de la zone CIEM <span class="red">*</span> :</dt>
-		<dd>
-			<input id="ciem_libelle" name="ciem_libelle"
+		<input type="hidden" name="moduleBase" value="ciem">
+<input type="hidden" name="action" value="Write">
+	<div class="form-group">
+<label for="ciem_libelle" class="control-label col-sm-4">
+		Libelle de la zone CIEM <span class="red">*</span> :</label>
+		<div class="col-sm-8">
+			<input class="form-control"  id="ciem_libelle" name="ciem_libelle"
 				value="{$data.ciem_libelle}" maxlength="255" autofocus required>
-		</dd>
-	</dl>
-	<div class="formBouton">
-			<input class="submit" type="submit" value="Enregistrer">
 		</div>
-		</form>
-		{if $data.ciem_id > 0}
-		<div class="formBouton">
- 			<form action="index.php" method="post" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
- 				<input type="hidden" name="id" value="{$data.ciem_id}"> 
- 				<input type="hidden" name="module" value="ciemDelete"> 
- 				<input class="submit" type="submit" value="Supprimer"> 
+	</div>
+	<div class="form-group center">
+      <button type="submit" class="btn btn-primary button-valid">{$LANG["message"].19}</button>
+      {if $data.ciem_id > 0 }
+      <button class="btn btn-danger button-delete">{$LANG["message"].20}</button>
+      {/if}
+ </div>
  			</form>
-		</div>
-		{/if}
-</div>
 <span class="red">*</span>
 <span class="messagebas">Champ obligatoire</span>
+</div>
+</div>

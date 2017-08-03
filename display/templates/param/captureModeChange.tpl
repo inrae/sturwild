@@ -1,30 +1,29 @@
 <h2>Modification d'un mode de capture</h2>
+<div class="row">
+<div class="col-sd-12">
 <a href="index.php?module=captureModeList">Retour à la liste</a>
-<div class="formSaisie">
-<form method="post" action="index.php?module=captureModeWrite">
-	<input type="hidden" name="capture_mode_id" id="capture_mode_id"
-		value="{$data.capture_mode_id}">
-		<input type="hidden" name="module" value="captureModeWrite">
-	<dl>
-		<dt>Mode de capture <span class="red">*</span> :</dt>
-		<dd>
-			<input id="capture_mode_libelle" name="capture_mode_libelle"
-				value="{$data.capture_mode_libelle}" maxlength="255" autofocus required>
-		</dd>
-	</dl>
-	<div class="formBouton">
-			<input class="submit" type="submit" value="Enregistrer">
-		</div>
-		</form>
-		{if $data.capture_mode_id > 0}
-		<div class="formBouton">
- 			<form action="index.php" method="post" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
- 				<input type="hidden" name="captureMode_id" value="{$data.capture_mode_id}"> 
- 				<input type="hidden" name="module" value="captureModeDelete"> 
- 				<input class="submit" type="submit" value="Supprimer"> 
- 			</form>
-		</div>
-		{/if}
 </div>
+<div class="col-sm-6">
+<form method="post" action="index.php" class="form-horizontal protoform">
+	<input type="hidden" name="capture_mode_id" id="capture_mode_id" value="{$data.capture_mode_id}">
+		<input type="hidden" name="moduleBase" value="captureMode">
+<input type="hidden" name="action" value="Write">
+	<div class="form-group">	
+	<label for="capture_mode_libelle" class="control-label col-sm-4">Mode de capture <span class="red">*</span> :
+	</label>
+	<div class="col-sm-8">
+			<input class="form-control" id="capture_mode_libelle" name="capture_mode_libelle"
+				value="{$data.capture_mode_libelle}" maxlength="255" autofocus required>
+		</div>
+	</div>
+	<div class="form-group center">
+      <button type="submit" class="btn btn-primary button-valid">{$LANG["message"].19}</button>
+      {if $data.capture_mode_id > 0 }
+      <button class="btn btn-danger button-delete">{$LANG["message"].20}</button>
+      {/if}
+ </div>
+</form>
 <span class="red">*</span>
 <span class="messagebas">Champ obligatoire</span>
+</div>
+</div>

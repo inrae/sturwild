@@ -1,30 +1,31 @@
 <h2>Modification d'un type d'engin de pêche</h2>
+<div class="row">
+<div class="col-sm-12">
 <a href="index.php?module=enginTypeList">Retour à la liste</a>
-<div class="formSaisie">
-<form method="post" action="index.php?module=enginTypeWrite">
+</div>
+
+<div class="col-sm-6">
+<form class="form-horizontal protoform" method="post" action="index.php">
 	<input type="hidden" name="engin_type_id" id="engin_type_id"
 		value="{$data.engin_type_id}">
-		<input type="hidden" name="module" value="enginTypeWrite">
-	<dl>
-		<dt>Type d'engin de pêche <span class="red">*</span> :</dt>
-		<dd>
-			<input id="engin_type_libelle" name="engin_type_libelle"
+		<input type="hidden" name="moduleBase" value="enginType">
+<input type="hidden" name="action" value="Write">
+<div class="form-group">
+<label for="engin_type_libelle" class="control-label col-sm-4">
+	Type d'engin de pêche <span class="red">*</span> :</label>
+		<div class="col-sm-8">
+			<input class="form-control" id="engin_type_libelle" name="engin_type_libelle"
 				value="{$data.engin_type_libelle}" maxlength="255" autofocus required>
-		</dd>
-	</dl>
-	<div class="formBouton">
-			<input class="submit" type="submit" value="Enregistrer">
 		</div>
-		</form>
-		{if $data.engin_type_id > 0}
-		<div class="formBouton">
- 			<form action="index.php" method="post" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
- 				<input type="hidden" name="enginType_id" value="{$data.engin_type_id}"> 
- 				<input type="hidden" name="module" value="enginTypeDelete"> 
- 				<input class="submit" type="submit" value="Supprimer"> 
- 			</form>
-		</div>
-		{/if}
-</div>
+	</div>
+<div class="form-group center">
+      <button type="submit" class="btn btn-primary button-valid">{$LANG["message"].19}</button>
+      {if $data.engin_type_id > 0 }
+      <button class="btn btn-danger button-delete">{$LANG["message"].20}</button>
+      {/if}
+ </div>
+</form>
 <span class="red">*</span>
 <span class="messagebas">Champ obligatoire</span>
+</div>
+</div>
