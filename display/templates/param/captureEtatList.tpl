@@ -3,10 +3,8 @@
 <a href="index.php?module=captureEtatChange&capture_etat_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("captureEtatListe");
-</script>
-<table id="captureEtatListe" class="tableaffichage">
+
+<table class="table table-bordered table-hover" id="captureEtatListe" >
 	<thead>
 		<tr>
 			<th>Libellé</th>

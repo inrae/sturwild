@@ -6,7 +6,7 @@
 <script>
 	setDataTablesFull("paysListe");
 </script>
-<table id="paysListe" class="tableaffichage">
+<table id="paysListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Libellé</th>

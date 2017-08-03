@@ -7,7 +7,7 @@ Nouveau</a>
 <script>
 	setDataTablesFull("regionListe");
 </script>
-<table id="regionListe" class="tableaffichage">
+<table id="regionListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Libellé</th>

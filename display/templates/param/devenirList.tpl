@@ -6,7 +6,7 @@ Nouveau</a>
 <script>
 	setDataTablesFull("devenirListe");
 </script>
-<table id="devenirListe" class="tableaffichage">
+<table id="devenirListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Libellé</th>

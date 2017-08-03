@@ -6,7 +6,7 @@
 <script>
 	setDataTablesFull("captureTypeListe");
 </script>
-<table id="captureTypeListe" class="tableaffichage">
+<table id="captureTypeListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Libellé</th>

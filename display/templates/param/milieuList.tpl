@@ -6,7 +6,7 @@ Nouveau</a>
 <script>
 	setDataTablesFull("milieuListe");
 </script>
-<table id="milieuListe" class="tableaffichage">
+<table id="milieuListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Libellé</th>
