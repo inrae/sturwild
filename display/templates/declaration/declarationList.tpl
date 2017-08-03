@@ -1,5 +1,6 @@
 {include file="declaration/declarationSearch.tpl"}
 {if $isSearch == 1}
+<div class="col-md-12">
 {if $droits["gestion"] == 1}
 <a href=index.php?module=declarationChange&declaration_id=0>
 <img src="display/images/new.png" height="25">
@@ -77,5 +78,5 @@ Exporter la liste au format CSV</a>
 {/section}
 </tbody>
 </table>
-<br>
+</div>
 {/if}

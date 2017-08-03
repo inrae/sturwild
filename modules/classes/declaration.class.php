@@ -213,7 +213,6 @@ class Declaration extends ObjetBDD
 				";
         $where = $this->getWhere($param);
         $order = " order by declaration_id desc";
-        $this->debug_mode = 2;
         $data = $this->getListeParamAsPrepared($sql . $this->fromSearch . $where . $order,$this->paramSearch);
         /*
          * Rajout du nombre de photos associees
