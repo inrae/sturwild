@@ -158,18 +158,19 @@ class Individu extends ObjetBDD {
 			/*
 			 * Preparation de la clause where
 			 */
-			$where = " where declaration_id in (:dataWhere)";
+			
 			$first = true;
 			$dataWhere = "";
 			foreach ( $declarations as $key => $value ) {
 				$first == true ? $first = false : $dataWhere .= ", ";
 				$dataWhere .= $value ["declaration_id"];
 			}
+			$where = " where declaration_id in ($dataWhere)";
 			$order = " order by declaration_id, individu_id";
 			/*
 			 * Traitement de la commande
 			 */
-			return $this->getListeParamAsPrepared( $sql . $from . $where . $order, $dataWhere );
+			return $this->getListeParam( $sql . $from . $where . $order );
 		}
 	}
 }

@@ -213,6 +213,7 @@ class Declaration extends ObjetBDD
 				";
         $where = $this->getWhere($param);
         $order = " order by declaration_id desc";
+        $this->debug_mode = 2;
         $data = $this->getListeParamAsPrepared($sql . $this->fromSearch . $where . $order,$this->paramSearch);
         /*
          * Rajout du nombre de photos associees
@@ -243,7 +244,7 @@ class Declaration extends ObjetBDD
             $where = " where annee between :annee_debut and :annee_fin";
             $this->paramSearch["annee_debut"] = $param["annee_debut"];
             $this->paramSearch["annee_fin"] = $param["annee_fin"];
-            
+            $and = " and ";
         }
         if ($param["statut_id"] > 0 && is_numeric($param["statut_id"])) {
             $where .= " $and statut_id = :statut_id";
@@ -353,7 +354,7 @@ class Declaration extends ObjetBDD
     {
         $sql = "select declaration_id ";
         $where = $this->getWhere($param);
-        return $this->getListeParamAsPrepared($sql . $this->fromSearch . $where, $param);
+        return $this->getListeParamAsPrepared($sql . $this->fromSearch . $where, $this->paramSearch);
     }
 
     /**
