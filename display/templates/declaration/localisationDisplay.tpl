@@ -1,66 +1,65 @@
+<div class="col-sm-12 col-md-6">
 {if $droits.gestion ==1}
 <a href="index.php?module=localisationChange&declaration_id={$data.declaration_id}">
 <img src="display/images/edit.gif" height="20">Modifier...
 </a>
 {/if}
-<table class="noborder"><tr><td>
-<div class="formDisplayNarrow">
-<dl>
+<div class="form-display">
+<dl class="dl-horizontal">
 	<dt>Pays :</dt>
 	<dd>{$localisation.pays_libelle}
 	</dd>
 	</dl>
-<dl>
+<dl class="dl-horizontal">
 	<dt>Zone CIEM :</dt>
 	<dd>{$localisation.ciem_libelle}</dd>	
 </dl>
-<dl>
+<dl class="dl-horizontal">
 	<dt>Région :</dt>
 	<dd>{$localisation.region_libelle}</dd>	
 </dl>
-<dl>
+<dl class="dl-horizontal">
 	<dt>Milieu :</dt>
 	<dd>{$localisation.milieu_libelle}</dd>	
 </dl>
-<dl>
+<dl class="dl-horizontal">
 	<dt>Milieu détaillé :</dt>
 	<dd>{$localisation.milieu_detail_libelle}</dd>	
 </dl>
-<dl>
+<dl class="dl-horizontal">
 	<dt>Détail de la zone :</dt>
 	<dd><span class="textareaDisplay">{$localisation.zone_detail}</span></dd>	
 </dl>
-<dl>
+<dl class="dl-horizontal">
 	<dt>Valeurs GPS :</dt>
 	<dd>{$localisation.longitude_gps}
 	<br>{$localisation.latitude_gps}
 	</dd>
 </dl>
-<dl>
-	<dt>Coordonnées déclarées :</dt>
+<dl class="dl-horizontal">
+	<dt>Coordonnées<br>déclarées :</dt>
 	<dd>{$localisation.longitude_declaree_dd}
 	<br>{$localisation.latitude_declaree_dd}
 	</dd>
 </dl>
-<dl>
-	<dt>Coordonnées estimées :</dt>
+<dl class="dl-horizontal">
+	<dt>Coordonnées<br>estimées :</dt>
 	<dd>{$localisation.longitude_estimee_dd}
 	<br>{$localisation.latitude_estimee_dd}
 	</dd>
 </dl>
-<dl>
-	<dt>Coordonnées retenues :</dt>
+<dl class="dl-horizontal">
+	<dt>Coordonnées<br>retenues :</dt>
 	<dd>{$localisation.longitude_dd}
 	<br>{$localisation.latitude_dd}
 	</dd>
 </dl>
-
-<dl></dl>
 </div>
-</td>
-<td style="width:400px;">
+</div>
+<div class="col-sm-12 col-md-6">
 <div id="map"  style="height:400px;"></div>
 {if strlen($localisation.longitude_dd) > 0 && strlen($localisation.latitude_dd) > 0 && $MAPS_enabled == 1}
+</div>
 <script>
 
 var imageStyle = new ol.style.Style({
@@ -127,6 +126,3 @@ map.addLayer(layer_point);
 
 </script>
 {/if}
-</td>
-</tr>
-</table>

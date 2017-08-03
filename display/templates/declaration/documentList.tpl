@@ -2,7 +2,6 @@
 <script src="display/javascript/magnific-popup/jquery.magnific-popup.min.js"></script> 
 <script>
 $(document).ready(function() { 
-	setDataTables("documentList");
 	$('.image-popup-no-margins').magnificPopup( {
 		type: 'image',
 		closeOnContentClick: true,

@@ -35,10 +35,14 @@
 <link rel="stylesheet" type="text/css" href="display/javascript/jquery-ui-1.12.0.custom/jquery-ui.theme.min.css"/>
 <link rel="stylesheet" type="text/css" href="display/javascript/jquery-timepicker-addon/jquery-ui-timepicker-addon.min.css"/>
 
+<!-- OpenLayers -->
+<script type="text/javascript" charset="utf-8" src="display/javascript/ol.js"></script>
+<link rel="stylesheet" type="text/css" href="display/CSS/ol.css">
+
+
 <!-- Code specifique -->
 <link rel="stylesheet" type="text/css" href="display/CSS/bootstrap-prototypephp.css" >
 <script type="text/javascript" src="display/javascript/bootstrap-prototypephp.js"></script>
-
 
 <!--  implementation automatique des classes -->
 <script>
