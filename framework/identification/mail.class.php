@@ -52,10 +52,9 @@ class Mail
      */
     function sendMail($dest, array $data)
     {
-        if (count($data) > 0) {
-            $message = str_replace(array_keys($data), array_values($data), $this->param["contents"]);
-            $subject = str_replace(array_keys($data), array_values($data), $this->param["subject"]);
-        }
+        $message = str_replace(array_keys($data), array_values($data), $this->param["contents"]);
+        $subject = str_replace(array_keys($data), array_values($data), $this->param["subject"]);
+        
         $message = wordwrap($message, 70, PHP_EOL);
         return mail($dest, $subject, $message, $this->getHeaders());
     }

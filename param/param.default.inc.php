@@ -168,7 +168,16 @@ $MAIL_param = array("replyTo"=>"ne-pas-repondre.sturwild@irstea.fr",
 $MAIL_enabled = 0;
 $MAPS_enabled = 0;
 $MAPS_url = "https://maps.googleapis.com/maps/api/js?key=CLE_IDENTIFICATION&callback=initMap";
-$CONNEXION_max_attemps = 3;
+/*
+ * Nombre maximum d'essais de connexion
+ */
+$CONNEXION_max_attemps = 6;
+/*
+ * Duree de blocage du compte (duree reinitialisee a chaque tentative)
+ */
 $CONNEXION_blocking_duration = 600;
-
+/*
+ * Laps de temps avant de renvoyer un mail a l'administrateur en cas de blocage de compte
+ */
+$APPLI_mailToAdminPeriod = 7200; 
 ?>

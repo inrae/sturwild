@@ -110,7 +110,7 @@ while (isset($module)) {
                         /*
                          * Verification si le nombre de tentatives de connexion n'a pas ete atteint
                          */
-                        if (! $log->isAccountBlocked($login,$CONNEXION_max_attemps, $CONNEXION_blocking_duration )) {
+                        if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration,$CONNEXION_max_attemps )) {
                             $_SESSION["login"] = $login;
                             $log->setLog($login, $module . "-connexion", "token-ok");
                         }
@@ -130,7 +130,7 @@ while (isset($module)) {
                     /*
                      * Verification si le nombre de tentatives de connexion n'a pas ete atteint
                      */
-                    if (! $log->isAccountBlocked($login,$CONNEXION_max_attemps, $CONNEXION_blocking_duration )) {
+                    if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration,$CONNEXION_max_attemps )) {
                         $_SESSION["login"] = $login;
                         $log->setLog($login, "connexion", "HEADER-ok");
                     }
@@ -153,7 +153,7 @@ while (isset($module)) {
                         /*
                          * Verification si le nombre de tentatives de connexion n'a pas ete atteint
                          */
-                        if (! $log->isAccountBlocked($_REQUEST["login"],$CONNEXION_max_attemps, $CONNEXION_blocking_duration )) {
+                        if (! $log->isAccountBlocked($_REQUEST["login"], $CONNEXION_blocking_duration,$CONNEXION_max_attemps )) {
                             try {
                                 $res = $identification->testLoginLdap($_REQUEST["login"], $_REQUEST["password"]);
                                 if ($res == - 1 && $ident_type == "LDAP-BDD") {
@@ -176,7 +176,7 @@ while (isset($module)) {
                         /*
                          * Verification si le nombre de tentatives de connexion n'a pas ete atteint
                          */
-                        if (! $log->isAccountBlocked($login,$CONNEXION_max_attemps, $CONNEXION_blocking_duration )) {
+                        if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration,$CONNEXION_max_attemps )) {
                             try {
                                 $res = $loginGestion->controlLogin($_REQUEST['login'], $_REQUEST['password']);
                                 if ($res) {

@@ -669,23 +669,30 @@ order by log_date desc limit 2";
          * Verification si le compte est bloque, et depuis quand
          */
         $accountBlocking = false;
-        $date = new DateTime();
-        $blockingTimeLimit = $date->getTimestamp() - $maxtime;
-        $ts = $this->getLastTimestampConnexionBlocking($login);
-        if ($ts > 0) {
-            
-            if ($ts > $blockingTimeLimit)
+        $date = new DateTime(now);
+        $date->sub(new DateInterval("PT". $maxtime."S"));
+        $sql = "select log_id from log where login = :login ".
+                " and nom_module = 'connexionBlocking'".
+                " and log_date > :blockingdate ".
+                " order by log_id desc limit 1";
+        $data = $this->lireParamAsPrepared($sql, array(
+            "login" => $login,
+            "blockingdate"=>$date->format("Y-m-d H:i:s")
+        ));
+        if ($data["log_id"] > 0)
                 $accountBlocking = true;
-        }
+        
         if (! $accountBlocking) {
-            $sql = "select extract(epoch from log_date) as ts, log_date, commentaire from log where login = :login and nom_module like '%connexion'
-                order by log_date desc limit :nbmax";
+            $sql = "select log_date, commentaire from log where login = :login 
+                    and nom_module like '%connexion'
+                    and log_date > :blockingdate
+                order by log_id desc limit :nbmax";
             $data = $this->getListeParamAsPrepared($sql, array(
                 "login" => $login,
-                "nbmax" => $nbMax
+                "nbmax" => $nbMax,
+                "blockingdate" => $date->format("Y-m-d H:i:s")
             ));
             $nb = 0;
-            
             /*
              * Recherche si une connexion a reussi
              */
@@ -694,14 +701,9 @@ order by log_date desc limit 2";
                     $is_blocked = false;
                     break;
                 }
-                /*
-                 * On arrete de compter si ts < $blockingTimeLimit
-                 */
-                if ($value["ts"] < $blockingTimeLimit)
-                    break;
                 $nb ++;
             }
-            if ($nb == $nbMax) {
+            if ($nb >= $nbMax) {
                 /*
                  * Verrouillage du compte
                  */
@@ -716,17 +718,18 @@ order by log_date desc limit 2";
      * Fonction de blocage d'un compte
      * - cree un enregistrement dans la table log
      * - envoie un mail aux administrateurs
+     *
      * @param string $login
      */
     function blockingAccount($login)
     {
         $this->setLog($login, "connexionBlocking");
-        global $message, $MAIL_enabled, $APPLI_code, $APPLI_mail, $APPLI_address;
+        global $message, $MAIL_enabled, $APPLI_code, $APPLI_mail, $APPLI_address, 
+        $APPLI_mailToAdminPeriod;
         $message->setSyslog("connexionBlocking for login $login");
-        if ($MAIL_enabled) {
+        if ($MAIL_enabled == 1) {
             require_once 'framework/identification/mail.class.php';
             require_once 'framework/droits/droits.class.php';
-            $date = date("Y-m-d H:i:s");
             $MAIL_param = array(
                 "replyTo" => "$APPLI_mail",
                 "subject" => "SECURITY REPORTING - $APPLI_code - account blocked",
@@ -741,36 +744,47 @@ order by log_date desc limit 2";
             /*
              * Envoi des mails aux administrateurs
              */
+            $lastDate = new DateTime(now);
+            if (isset($APPLI_mailToAdminPeriod)) {
+                $period = $APPLI_mailToAdminPeriod;
+            } else {
+                $period = 7200;
+            }
+            $interval = new DateInterval('PT'.$period.'S');
+            $lastDate ->sub($interval);
             $mail = new Mail($MAIL_param);
             $loginGestion = new LoginGestion($this->connection, $this->paramori);
             foreach ($logins as $key => $value) {
                 $admin = $value["login"];
                 $dataLogin = $loginGestion->lireByLogin($admin);
                 if (strlen($dataLogin["mail"]) > 0) {
-                    if (! $mail->sendMail($dataLogin["mail"], array())) {
-                        global $message;
-                        $message->setSyslog("error_sendmail_to_admin:" . $dataLogin["mail"]);
+                    /*
+                     * Recherche si un mail a deja ete adresse a l'administrateur pour ce blocage
+                     */
+                    $sql = 'select log_id, log_date from log' . 
+                    " where nom_module like '%sendMailAdminForBlocking'" . 
+                    ' and login = :login' . 
+                    ' and commentaire = :admin' . 
+                    ' and log_date > :lastdate' . 
+                    ' order by log_id desc limit 1';
+                    $logval = $this->lireParamAsPrepared($sql, array(
+                        "admin" => $admin,
+                        "login" => $login,
+                        "lastdate" => $lastDate->format("Y-m-d H:i:s")
+                    ));
+                    if (! $logval["log_id"] > 0) {
+                        if ($mail->sendMail($dataLogin["mail"], array())) {
+                            $this->setLog($login, "sendMailAdminForBlocking", $value["login"]);
+                        } else {
+                            global $message;
+                            $message->setSyslog("error_sendmail_to_admin:" . $dataLogin["mail"]);
+                        }
                     }
                 }
             }
         }
     }
-
-    /**
-     * Retourne l'heure de blocage du compte en timestamp
-     *
-     * @param string $login
-     * @return mixed
-     */
-    function getLastTimestampConnexionBlocking($login)
-    {
-        $sql = "select extract(epoch from log_date) as ts from log where login = :login and nom_module = 'connexionBlocking'
-                order by log_date desc limit 1";
-        $data = $this->lireParamAsPrepared($sql, array(
-            "login" => $login
-        ));
-        return ($data["ts"]);
-    }
+    
 }
 
 /**
