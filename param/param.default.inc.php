@@ -168,4 +168,7 @@ $MAIL_param = array("replyTo"=>"ne-pas-repondre.sturwild@irstea.fr",
 $MAIL_enabled = 0;
 $MAPS_enabled = 0;
 $MAPS_url = "https://maps.googleapis.com/maps/api/js?key=CLE_IDENTIFICATION&callback=initMap";
+$CONNEXION_max_attemps = 3;
+$CONNEXION_blocking_duration = 600;
+
 ?>

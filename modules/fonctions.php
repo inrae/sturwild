@@ -17,7 +17,7 @@ function sendMail($declaration_id)
          */
         require_once 'framework/droits/droits.class.php';
         require_once 'framework/identification/identification.class.php';
-        require_once 'modules/classes/mail.class.php';
+        require_once 'framework/identification/mail.class.php';
         require_once 'modules/classes/declaration.class.php';
         /*
          * Lecture du statut de la declaration
