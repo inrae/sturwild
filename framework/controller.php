@@ -56,6 +56,24 @@ while (isset($module)) {
     if (count($t_module) == 0)
         $message->set($LANG["message"][35] . " ($module)");
     /*
+     * Extraction des droits necessaires
+     */
+     $droits_array = explode(",", $t_module["droits"]);
+     /*
+      * Verification si l'identification est necessaire pour acceder a un module d'administration
+      */
+     $moduleAdmin = false;
+     if (in_array("admin", $droits_array)) {
+         $moduleAdmin = true;
+         if (isset($_SESSION["login"]) && in_array($ident_type, array("HEADER", "CAS")) ) {
+             /*
+              * Il n'est pas possible de re-authentifier l'utilisateur a partir d'une source
+              * externe : recuperation du login standard
+              */
+             $_SESSION["loginAdmin"] = $_SESSION["login"];
+         }
+     }
+    /*
      * Forcage de l'identification si identification en mode HEADER
      */
     if ($ident_type == "HEADER")
@@ -284,7 +302,7 @@ while (isset($module)) {
             $resident = 0;
             $motifErreur = "nologin";
         } else {
-            $droits_array = explode(",", $t_module["droits"]);
+            
             $resident = 0;
             foreach ($droits_array as $key => $value) {
                 if ($_SESSION["droits"][$value] == 1)
@@ -324,6 +342,14 @@ while (isset($module)) {
             $message->set($LANG["message"][38]);
         $message->setSyslog($e->getMessage());
     }
+    /*
+     * Verification s'il s'agit d'un module d'administration
+     */
+    if ($moduleAdmin && !isset($_SESSION["loginAdmin"])) {
+        $resident = 0;
+        $motifErreur = "adminko";
+    }
+    
     /*
      * fin d'analyse du module
      */
@@ -371,6 +397,9 @@ while (isset($module)) {
                 break;
             case "errorbefore":
                 $module = $APPLI_moduleErrorBefore;
+                break;
+            case "adminko":
+                $module = $APPLI_moduleAdminLogin;
                 break;
             default:
                 unset($module);
