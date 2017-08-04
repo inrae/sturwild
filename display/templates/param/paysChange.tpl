@@ -1,36 +1,38 @@
 <h2>Modification du pays{$data.ciem_id}</h2>
+<div class="row">
+<div class="col-sm-12">
 <a href="index.php?module=paysList">Retour à la liste</a>
-<div class="formSaisie">
-<form method="post" action="index.php?module=paysWrite">
+</div>
+<div class="col-sm-6">
+<form class="form-horizontal protoform" method="post" action="index.php">
 	<input type="hidden" name="pays_id" id="pays_id"
 		value="{$data.pays_id}">
-		<input type="hidden" name="module" value="paysWrite">
-	<dl>
-		<dt>Nom du pays <span class="red">*</span> :</dt>
-		<dd>
-			<input id="pays_libelle" name="pays_libelle"
+		<input type="hidden" name="moduleBase" value="pays">
+<input type="hidden" name="action" value="Write">
+	
+	<div class="form-group">
+<label for="event_date" class="control-label col-sm-4">
+		Nom du pays <span class="red">*</span> :</label>
+		<div class="col-sm-8">
+			<input class="form-control" id="pays_libelle" name="pays_libelle"
 				value="{$data.pays_libelle}" maxlength="255" autofocus required>
-		</dd>
-	</dl>
-	<dl>
-		<dt>Ordre de tri pour l'affichage <span class="red">*</span> :</dt>
-		<dd>
-		<input name="pays_order" value="{$data.pays_order}" required>
-		</dd>
-	</dl>
-	<div class="formBouton">
-			<input class="submit" type="submit" value="Enregistrer">
 		</div>
-		</form>
-		{if $data.pays_id > 0}
-		<div class="formBouton">
- 			<form action="index.php" method="post" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
- 				<input type="hidden" name="pays_id" value="{$data.pays_id}"> 
- 				<input type="hidden" name="module" value="paysDelete"> 
- 				<input class="submit" type="submit" value="Supprimer"> 
- 			</form>
+	</div>
+	<div class="form-group">
+<label for="event_date" class="control-label col-sm-4">
+		Ordre de tri pour l'affichage <span class="red">*</span> :</label>
+		<div class="col-sm-8">
+		<input class="form-control nombre" name="pays_order" value="{$data.pays_order}" required>
 		</div>
-		{/if}
-</div>
+	</div>
+<div class="form-group center">
+      <button type="submit" class="btn btn-primary button-valid">{$LANG["message"].19}</button>
+      {if $data.pays_id > 0 }
+      <button class="btn btn-danger button-delete">{$LANG["message"].20}</button>
+      {/if}
+ </div>
+</form>
 <span class="red">*</span>
 <span class="messagebas">Champ obligatoire</span>
+</div>
+</div>

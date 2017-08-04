@@ -16,7 +16,7 @@
 	<tr>
 		<td>
 		{if $droits.param == 1}
-		<a href="index.php?module=milieuDdetailChange&milieu_detail_id={$data[lst].milieu_detail_id}">
+		<a href="index.php?module=milieuDetailChange&milieu_detail_id={$data[lst].milieu_detail_id}">
 		{$data[lst].milieu_detail_libelle}</a>
 		{else}{$data[lst].milieu_detail_libelle}
 		{/if}</td>
