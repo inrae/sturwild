@@ -173,7 +173,7 @@ $MAPS_url = "https://maps.googleapis.com/maps/api/js?key=CLE_IDENTIFICATION&call
 /*
  * Nombre maximum d'essais de connexion
  */
-$CONNEXION_max_attemps = 6;
+$CONNEXION_max_attempts = 6;
 /*
  * Duree de blocage du compte (duree reinitialisee a chaque tentative)
  */
