@@ -653,7 +653,7 @@ class Log extends ObjetBDD
     {
         if (isset($_SESSION["login"])) {
             $sql = "select log_date, ipaddress from log where login = :login and nom_module like '%connexion' and commentaire like '%ok'
-order by log_date desc limit 2";
+order by log_id desc limit 2";
             $data = $this->getListeParamAsPrepared($sql, array(
                 "login" => $_SESSION["login"]
             ));
@@ -726,6 +726,7 @@ order by log_date desc limit 2";
         $this->setLog($login, "connexionBlocking");
         global $message, $MAIL_enabled, $APPLI_code, $APPLI_mail, $APPLI_address, 
         $APPLI_mailToAdminPeriod;
+        $date = date("Y-m-d H:i:s");
         $message->setSyslog("connexionBlocking for login $login");
         if ($MAIL_enabled == 1) {
             require_once 'framework/identification/mail.class.php';
@@ -734,7 +735,7 @@ order by log_date desc limit 2";
                 "replyTo" => "$APPLI_mail",
                 "subject" => "SECURITY REPORTING - $APPLI_code - account blocked",
                 "from" => "$APPLI_mail",
-                "contents" => "<html><body>" . "The account <b>$login<b> was blocked at $date for too many connection attemps" . '<br>Software : <a href="' . $APPLI_address . '">' . $APPLI_address . "</a>" . '</body></html>'
+                "contents" => "<html><body>" . "The account <b>$login<b> was blocked at $date for too many connection attempts" . '<br>Software : <a href="' . $APPLI_address . '">' . $APPLI_address . "</a>" . '</body></html>'
             );
             /*
              * Recherche de la liste des administrateurs

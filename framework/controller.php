@@ -110,7 +110,7 @@ while (isset($module)) {
                         /*
                          * Verification si le nombre de tentatives de connexion n'a pas ete atteint
                          */
-                        if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration,$CONNEXION_max_attemps )) {
+                        if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration, $CONNEXION_max_attemps)) {
                             $_SESSION["login"] = $login;
                             $log->setLog($login, $module . "-connexion", "token-ok");
                         }
@@ -130,16 +130,19 @@ while (isset($module)) {
                     /*
                      * Verification si le nombre de tentatives de connexion n'a pas ete atteint
                      */
-                    if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration,$CONNEXION_max_attemps )) {
+                    if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration, $CONNEXION_max_attemps)) {
                         $_SESSION["login"] = $login;
                         $log->setLog($login, "connexion", "HEADER-ok");
                     }
                 }
             } elseif ($ident_type == "CAS") {
-                /*
-                 * Verification du login aupres du serveur CAS
-                 */
-                $identification->getLogin();
+                if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration, $CONNEXION_max_attemps)) {
+                    
+                    /*
+                     * Verification du login aupres du serveur CAS
+                     */
+                    $identification->getLogin();
+                }
             } else {
                 /*
                  * On verifie si on est en retour de validation du login
@@ -153,7 +156,7 @@ while (isset($module)) {
                         /*
                          * Verification si le nombre de tentatives de connexion n'a pas ete atteint
                          */
-                        if (! $log->isAccountBlocked($_REQUEST["login"], $CONNEXION_blocking_duration,$CONNEXION_max_attemps )) {
+                        if (! $log->isAccountBlocked($_REQUEST["login"], $CONNEXION_blocking_duration, $CONNEXION_max_attemps)) {
                             try {
                                 $res = $identification->testLoginLdap($_REQUEST["login"], $_REQUEST["password"]);
                                 if ($res == - 1 && $ident_type == "LDAP-BDD") {
@@ -176,7 +179,7 @@ while (isset($module)) {
                         /*
                          * Verification si le nombre de tentatives de connexion n'a pas ete atteint
                          */
-                        if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration,$CONNEXION_max_attemps )) {
+                        if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration, $CONNEXION_max_attemps)) {
                             try {
                                 $res = $loginGestion->controlLogin($_REQUEST['login'], $_REQUEST['password']);
                                 if ($res) {

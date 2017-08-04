@@ -89,6 +89,7 @@ $SMARTY_param = array("templates"=> 'display/templates',
  * Variables de base de l'application
  */ 
 $APPLI_mail = "proto@proto.com";
+$APPLI_assist_address = "https://gitub.com/appli/issues/new";
 $APPLI_nom = "Prototype d'application";
 $APPLI_code = 'sturwild';
 $APPLI_fds = "display/CSS/blue.css";
@@ -108,7 +109,8 @@ $SMARTY_variables = array(
 		"enpied"=>"enpied.tpl",
 		"corps"=>"main.tpl",
 		"melappli"=>$APPLI_mail,
-		"ident_type"=>$ident_type
+		"ident_type"=>$ident_type,
+        "appliAssist"=>$APPLI_assist_address
 );
 /*
  * Variables liees a GACL et l'identification via base de donnees
