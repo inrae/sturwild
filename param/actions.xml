@@ -93,6 +93,7 @@
 	<localisationWrite action="modules/declaration/localisation.php" param="write" retourok="declarationDisplay" retourko="localisationChange" modulebefore="localisationChange"  droits="gestion"/>
 
 <!--  parametres -->
+	<parametre action="framework/default.php" type="smarty"/>
 	<ciemList action="modules/param/ciem.php" param="list" droits="gestion" type="smarty"/>
 	<ciemChange action="modules/param/ciem.php" param="change" droits="param" type="smarty"/>
 	<ciemWrite action="modules/param/ciem.php" param="write" retourok="ciemList" retourko="ciemChange" modulebefore="ciemChange"  droits="param"/>

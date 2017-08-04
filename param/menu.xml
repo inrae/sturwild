@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu>
 <item module="declarationList" title="1" value="0">
-	<item module="declarationList" title="1" value="0" droits="consult"/>
+	<item module="declarationList" title="1" value="0"/>
 	<item module="declarationNbSturioByYear" value="110" title="111" droits="consult"/>
 </item>
 <item module="parametre" value="450" title="451" droits="param,gestion">
