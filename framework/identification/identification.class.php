@@ -109,6 +109,8 @@ class Identification
      */
     function getLoginCas()
     {
+        phpCAS::setDebug();
+        phpCAS::setVerbose($true);
         phpCAS::client(CAS_VERSION_2_0, $this->CAS_address, $this->CAS_port, $this->CAS_uri);
         // if (phpCAS::isAuthenticated()==FALSE) {
         phpCAS::forceAuthentication();
@@ -177,8 +179,7 @@ class Identification
      */
     function disconnect($adresse_retour)
     {
-        global $message;
-        $LANG;
+        global $message, $LANG;
         if (! isset($this->ident_type)) {
             return 0;
         }

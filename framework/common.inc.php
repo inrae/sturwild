@@ -46,9 +46,7 @@ include_once ("framework/navigation/navigation.class.php");
 /**
  * Preparation de l'identification
  */
-include_once ("framework/identification/identification.class.php");
-if ($ident_type == "CAS")
-	include_once ($CAS_plugin);
+require_once "framework/identification/identification.class.php";
 
 /**
  * Initialisation des parametres generaux
@@ -117,7 +115,8 @@ $identification = new Identification ();
 
 $identification->setidenttype ( $ident_type );
 if ($ident_type == "CAS") {
-	$identification->init_CAS ( $CAS_address, $CAS_port, $CAS_uri );
+    require_once "vendor/jasig/phpcas/CAS.php";
+	$identification->init_CAS ( $CAS_address, $CAS_port, $APPLI_address );
 } elseif ($ident_type == "LDAP" || $ident_type == "LDAP-BDD") {
 	$identification->init_LDAP ( $LDAP["address"], $LDAP["port"], $LDAP["basedn"], $LDAP["user_attrib"], $LDAP["v3"], $LDAP["tls"] );
 }
