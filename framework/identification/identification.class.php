@@ -613,6 +613,21 @@ class LoginGestion extends ObjetBDD
 				where login = '" . $login . "'";
         return $this->lireParam($sql);
     }
+    /**
+     * Retourne un enregistrement a partir du mail
+     * @param string $mail
+     * @return array
+     */
+    function getFromMail($mail) {
+        $mail = $this->encodeData($mail);
+        if (strlen($mail) > 0) {
+            $sql = "select id, nom, prenom, mail, actif ".
+                " from logingestion".
+                " where mail = :mail".
+                " order by id desc limit 1";
+            return $this->lireParamAsPrepared($sql, array("mail"=>$mail));
+        }
+    }
 }
 
 /**
