@@ -97,7 +97,7 @@ while (isset($module)) {
      * Verification si le login est requis
      */
     if (strlen($t_module["droits"]) > 1 || $t_module["loginrequis"] == 1 || isset($_REQUEST["login"])) {
-        
+        $loginForm = false;
         /*
          * Affichage de l'ecran de saisie du login si necessaire
          */
@@ -111,6 +111,7 @@ while (isset($module)) {
              */
             $vue->set("ident/login.tpl", "corps");
             $vue->set($tokenIdentityValidity, "tokenIdentityValidity");
+            $loginForm = true;
             if ($t_module["retourlogin"] == 1)
                 $vue->set($_REQUEST["module"], "module");
             $message->set($LANG["login"][2]);
@@ -251,18 +252,7 @@ while (isset($module)) {
             $motifErreur = "errorbefore";
         }
     }
-    /*
-     * Enregistrement de l'acces au module
-     */
-    try {
-        $log->setLog($_SESSION["login"], $module, $motifErreur);
-    } catch (Exception $e) {
-        if ($OBJETBDD_debugmode > 0) {
-            $message->set($log->getErrorData(1));
-        } else
-            $message->set($LANG["message"][38]);
-        $message->setSyslog($e->getMessage());
-    }
+
     /*
      * Verification s'il s'agit d'un module d'administration
      */
@@ -282,7 +272,7 @@ while (isset($module)) {
                 "BDD",
                 "LDAP",
                 "LDAP-BDD"
-            )) && ! isset($_REQUEST["loginAdmin"])  ) {
+            )) && ! isset($_REQUEST["loginAdmin"]) && $loginForm == false ) {
                 /*
                  * saisie du login en mode admin
                  */
@@ -295,7 +285,7 @@ while (isset($module)) {
                 /*
                  * Recuperation de l'identification
                  */
-                if (strlen($identification->verifyLogin($_REQUEST["loginAdmin"], $_REQUEST["password"])) > 0) {
+                if (strlen($identification->verifyLogin($_REQUEST["loginAdmin"], $_REQUEST["password"], true)) > 0) {
                     $_SESSION["last_activity_admin"] = time();
                 } else {
                     $resident = 0 ;
@@ -309,14 +299,30 @@ while (isset($module)) {
     /*
      * fin d'analyse du module
      */
-    if (! $isAjax)
-        $_SESSION["moduleBefore"] = $module;
+    /*
+     * Enregistrement de l'acces au module
+     */
+    try {
+        $log->setLog($_SESSION["login"], $module, $motifErreur);
+    } catch (Exception $e) {
+        if ($OBJETBDD_debugmode > 0) {
+            $message->set($log->getErrorData(1));
+        } else
+            $message->set($LANG["message"][38]);
+            $message->setSyslog($e->getMessage());
+    }
+
     unset($module_coderetour);
     
     /*
      * Execution du module
      */
     if ($resident == 1) {
+        /*
+         * Mise a niveau de la variable stockant le module precedemment appele
+         */
+        if (! $isAjax)
+            $_SESSION["moduleBefore"] = $module;
         include $t_module["action"];
         unset($module);
         /*

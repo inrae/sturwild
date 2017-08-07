@@ -297,7 +297,7 @@ class Identification
      *
      * @return string
      */
-    function verifyLogin($loginEntered = "", $password = "")
+    function verifyLogin($loginEntered = "", $password = "",$modeAdmin = false)
     {
         global $log, $CONNEXION_blocking_duration, $CONNEXION_max_attempts;
         $login = "";
@@ -307,7 +307,7 @@ class Identification
         /*
          * Un cookie d'identification est-il fourni ?
          */
-        if (isset($_COOKIE["tokenIdentity"])) {
+        if (isset($_COOKIE["tokenIdentity"]) && ! $modeAdmin) {
             require_once 'framework/identification/token.class.php';
             $tokenClass = new Token();
             try {
