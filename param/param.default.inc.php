@@ -173,7 +173,7 @@ $MAPS_url = "https://maps.googleapis.com/maps/api/js?key=CLE_IDENTIFICATION&call
 /*
  * Nombre maximum d'essais de connexion
  */
-$CONNEXION_max_attempts = 6;
+$CONNEXION_max_attempts = 5;
 /*
  * Duree de blocage du compte (duree reinitialisee a chaque tentative)
  */
@@ -182,4 +182,5 @@ $CONNEXION_blocking_duration = 600;
  * Laps de temps avant de renvoyer un mail a l'administrateur en cas de blocage de compte
  */
 $APPLI_mailToAdminPeriod = 7200; 
+$APPLI_admin_ttl = 600; // Duree maxi d'inactivite pour acceder a un module d'administration
 ?>

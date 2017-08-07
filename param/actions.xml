@@ -16,7 +16,7 @@
 	<loginChangePasswordExec action="framework/identification/login.php" param="changePasswordExec" loginrequis="1" retourko="loginChangePassword" retourok="default" modulebefore="loginChangePassword" />
 
 	<administration action="modules/administration/index.php" droits="admin"
-		retourko="" retourok="" droitko="droitko" type="smarty"></administration>
+		retourko="" retourok="" droitko="droitko" type="smarty" retourlogin="1"/>
 	<gestion action="modules/gestion/index.php" droits="gestion" retourko=""
 		retourok="" droitko="droitko" type="smarty">
 	</gestion>

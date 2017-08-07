@@ -9,9 +9,9 @@
 
 /**
  * @class Identification
- * Gestion de l'identification - récupération du login en fonction du type d'accès
+ * Gestion de l'identification - recuperation du login en fonction du type d'acces
  *
- * @author Eric Quinton - eric.quinton@free.fr
+ * @author Eric Quinton -quinton.eric@gmail.com
  *        
  */
 class Identification
@@ -51,6 +51,8 @@ class Identification
 
     var $pagelogin;
 
+    public $identification_mode;
+
     function setpageloginBDD($page)
     {
         $this->pagelogin = $page;
@@ -68,11 +70,11 @@ class Identification
     /**
      * initialisation si utilisation d'un CAS
      *
-     * @param $cas_address adresse
+     * @param String $cas_address : adresse
      *            du CAS
-     * @param $CAS_port port
+     * @param int $CAS_port : port
      *            du CAS
-     * @return none
+     * @return null
      */
     function init_CAS($cas_address, $CAS_port, $CAS_uri)
     {
@@ -82,20 +84,15 @@ class Identification
         $this->ident_type = "CAS";
     }
 
+
     /**
-     * initialisation si utilisation d'un LDAP
-     *
-     * @param $LDAP_address adresse
-     *            du CAS
-     * @param $LDAP_port port
-     *            du serveur LDAP
-     * @param $LDAP_rdn chemin
-     *            complet de recherche, incluant le login
-     * @param $login login
-     *            qui sera retourné à l'application
-     * @param $password mot
-     *            de passe à tester
-     * @return none
+     * Initialisation du test de connexion ldap
+     * @param String $LDAP_address
+     * @param String $LDAP_port
+     * @param String $LDAP_basedn
+     * @param String $LDAP_user_attrib
+     * @param String $LDAP_v3
+     * @param String $LDAP_tls
      */
     function init_LDAP($LDAP_address, $LDAP_port, $LDAP_basedn, $LDAP_user_attrib, $LDAP_v3, $LDAP_tls)
     {
@@ -111,7 +108,7 @@ class Identification
     /**
      * Retourne le login en mode CAS ou BDD
      *
-     * @return login ou -1 - Le login est stocké en variable de session si ok
+     * @return string : $login
      */
     function getLogin()
     {
@@ -149,6 +146,15 @@ class Identification
         }
     }
 
+    function getLoginCas()
+    {
+        phpCAS::client(CAS_VERSION_2_0, $this->CAS_address, $this->CAS_port, $this->CAS_uri);
+        // if (phpCAS::isAuthenticated()==FALSE) {
+        phpCAS::forceAuthentication();
+        $login = phpCAS::getUser();
+        return $login;
+    }
+
     /**
      * Teste le login et le mot de passe sur un annuaire ldap
      *
@@ -158,6 +164,7 @@ class Identification
      */
     function testLoginLdap($login, $password)
     {
+        $loginOk = "";
         global $log, $LOG_duree, $message, $LANG;
         if (strlen($login) > 0 && strlen($password) > 0) {
             if (! isset($this->ident_type)) {
@@ -194,21 +201,17 @@ class Identification
             $dn = $this->LDAP_user_attrib . "=" . $login . "," . $this->LDAP_basedn;
             $rep = ldap_bind($ldap, $dn, $password);
             if ($rep == 1) {
-                $_SESSION["login"] = $login;
+                $loginOk = $login;
                 $log->setLog($login, "connexion", "ldap-ok");
-                $message->set($LANG["message"][10]);
                 /*
                  * Purge des anciens enregistrements dans log
                  */
                 $log->purge($LOG_duree);
-                return $login;
             } else {
                 $log->setLog($login, "connexion", "ldap-ko");
-                $message->set($LANG["message"][11]);
-                return - 1;
             }
-        } else
-            return - 1;
+        }
+        return $loginOk;
     }
 
     /**
@@ -261,11 +264,11 @@ class Identification
     /**
      * Initialisation de la classe gacl
      *
-     * @param $gacl instance
+     * @param $gacl : instance
      *            gacl
-     * @param $aco nom
+     * @param string $aco : nom
      *            de la catégorie de base contenant les objets à tester
-     * @param $aro nom
+     * @param string $aro : nom
      *            de la catégorie contenant les logins à tester
      */
     function setgacl(&$gacl, $aco, $aro)
@@ -278,9 +281,8 @@ class Identification
     /**
      * Teste les droits
      *
-     * @param $aco Catégorie
-     *            à tester
-     * @return 0 1
+     * @param string $aco : Categorie a tester
+     * @return int : 0 | 1
      */
     function getgacl($aco)
     {
@@ -288,6 +290,130 @@ class Identification
         if ($login == - 1)
             return - 1;
         return $this->gacl->acl_check($this->aco, $aco, $this->aro, $login);
+    }
+
+    /**
+     * Verifie l'identification
+     *
+     * @return string
+     */
+    function verifyLogin($loginEntered = "", $password = "")
+    {
+        global $log, $CONNEXION_blocking_duration, $CONNEXION_max_attempts;
+        $login = "";
+        $verify = false;
+        $ident_type = $this->ident_type;
+        
+        /*
+         * Un cookie d'identification est-il fourni ?
+         */
+        if (isset($_COOKIE["tokenIdentity"])) {
+            require_once 'framework/identification/token.class.php';
+            $tokenClass = new Token();
+            try {
+                $login = $tokenClass->openTokenFromJson($_COOKIE["tokenIdentity"]);
+                if (strlen($login) > 0) {
+                    /*
+                     * Verification si le nombre de tentatives de connexion n'a pas ete atteint
+                     */
+                    if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration, $CONNEXION_max_attempts)) {
+                        $verify = true;
+                        $log->setLog($login, $module . "-connexion", "token-ok");
+                    }
+                }
+            } catch (Exception $e) {
+                $log->setLog($login, $module . "-connexion", "token-ko");
+                $message->set($e->getMessage());
+            }
+        } elseif ($ident_type == "HEADER") {
+            /*
+             * Identification via les headers fournis par le serveur web
+             * dans le cas d'une identification derriere un proxy comme LemonLdap
+             */
+            global $ident_header_login_var;
+            $headers = getHeaders();
+            $login = $headers[strtoupper($ident_header_login_var)];
+            if (strlen($login) > 0) {
+                /*
+                 * Verification si le nombre de tentatives de connexion n'a pas ete atteint
+                 */
+                if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration, $CONNEXION_max_attempts)) {
+                    $log->setLog($login, "connexion", "HEADER-ok");
+                }
+            } else {
+                $log->setLog($login, "connexion", "HEADER-ko");
+            }
+        } elseif ($ident_type == "CAS") {
+            if (! $log->isAccountBlocked($login, $CONNEXION_blocking_duration, $CONNEXION_max_attempts)) {
+                
+                /*
+                 * Verification du login aupres du serveur CAS
+                 */
+                $login = $this->getLoginCas();
+            }
+        } else {
+            /*
+             * On verifie si on est en retour de validation du login
+             */
+            if (strlen($loginEntered) > 0) {
+                /*
+                 * Verification si le nombre de tentatives de connexion n'est pas atteint
+                 */
+                if (! $log->isAccountBlocked($loginEntered, $CONNEXION_blocking_duration, $CONNEXION_max_attempts)) {
+                    $verify = true;
+                    
+                    /*
+                     * Verification de l'identification aupres du serveur LDAP, ou LDAP puis BDD
+                     */
+                    if ($ident_type == "LDAP" || $ident_type == "LDAP-BDD") {
+                        
+                        try {
+                            $login = $this->testLoginLdap($loginEntered, $password);
+                            if (strlen($login) == 0 && $ident_type == "LDAP-BDD") {
+                                /*
+                                 * L'identification en annuaire LDAP a echoue : verification en base de donnees
+                                 */
+                                $login = $this->testBdd($loginEntered, $password);
+                            }
+                        } catch (Exception $e) {
+                            $message->setSyslog($e->getMessage());
+                        }
+                        
+                        /*
+                         * Verification de l'identification uniquement en base de donnees
+                         */
+                    } elseif ($ident_type == "BDD") {
+                        $login = $this->testBdd($loginEntered, $password);
+                    }
+                }
+            }
+        }
+ 
+        /*
+         * Si le nombre total d'essais a ete atteint, le login est refuse
+         */
+        if (! $verify)
+            $login = "";
+        return $login;
+    }
+
+    /**
+     * Teste la connexion via la base de donnees
+     */
+    function testBdd($login, $password)
+    {
+        global $bdd_gacl, $message;
+        $login = "";
+        $loginGestion = new LoginGestion($bdd_gacl);
+        try {
+            $res = $loginGestion->controlLogin($login, $password);
+            if ($res) {
+                $login = $_REQUEST["login"];
+            }
+        } catch (Exception $e) {
+            $message->setSyslog($e->getMessage());
+        }
+        return $login;
     }
 }
 
@@ -670,17 +796,14 @@ order by log_id desc limit 2";
          */
         $accountBlocking = false;
         $date = new DateTime(now);
-        $date->sub(new DateInterval("PT". $maxtime."S"));
-        $sql = "select log_id from log where login = :login ".
-                " and nom_module = 'connexionBlocking'".
-                " and log_date > :blockingdate ".
-                " order by log_id desc limit 1";
+        $date->sub(new DateInterval("PT" . $maxtime . "S"));
+        $sql = "select log_id from log where login = :login " . " and nom_module = 'connexionBlocking'" . " and log_date > :blockingdate " . " order by log_id desc limit 1";
         $data = $this->lireParamAsPrepared($sql, array(
             "login" => $login,
-            "blockingdate"=>$date->format("Y-m-d H:i:s")
+            "blockingdate" => $date->format("Y-m-d H:i:s")
         ));
         if ($data["log_id"] > 0)
-                $accountBlocking = true;
+            $accountBlocking = true;
         
         if (! $accountBlocking) {
             $sql = "select log_date, commentaire from log where login = :login 
@@ -724,8 +847,7 @@ order by log_id desc limit 2";
     function blockingAccount($login)
     {
         $this->setLog($login, "connexionBlocking");
-        global $message, $MAIL_enabled, $APPLI_code, $APPLI_mail, $APPLI_address, 
-        $APPLI_mailToAdminPeriod;
+        global $message, $MAIL_enabled, $APPLI_code, $APPLI_mail, $APPLI_address, $APPLI_mailToAdminPeriod;
         $date = date("Y-m-d H:i:s");
         $message->setSyslog("connexionBlocking for login $login");
         if ($MAIL_enabled == 1) {
@@ -751,8 +873,8 @@ order by log_id desc limit 2";
             } else {
                 $period = 7200;
             }
-            $interval = new DateInterval('PT'.$period.'S');
-            $lastDate ->sub($interval);
+            $interval = new DateInterval('PT' . $period . 'S');
+            $lastDate->sub($interval);
             $mail = new Mail($MAIL_param);
             $loginGestion = new LoginGestion($this->connection, $this->paramori);
             foreach ($logins as $key => $value) {
@@ -762,12 +884,7 @@ order by log_id desc limit 2";
                     /*
                      * Recherche si un mail a deja ete adresse a l'administrateur pour ce blocage
                      */
-                    $sql = 'select log_id, log_date from log' . 
-                    " where nom_module like '%sendMailAdminForBlocking'" . 
-                    ' and login = :login' . 
-                    ' and commentaire = :admin' . 
-                    ' and log_date > :lastdate' . 
-                    ' order by log_id desc limit 1';
+                    $sql = 'select log_id, log_date from log' . " where nom_module like '%sendMailAdminForBlocking'" . ' and login = :login' . ' and commentaire = :admin' . ' and log_date > :lastdate' . ' order by log_id desc limit 1';
                     $logval = $this->lireParamAsPrepared($sql, array(
                         "admin" => $admin,
                         "login" => $login,
@@ -785,7 +902,6 @@ order by log_id desc limit 2";
             }
         }
     }
-    
 }
 
 /**

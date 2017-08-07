@@ -174,6 +174,7 @@ $LANG["login"][45] ="Groupes disposant du droit";
 $LANG["login"][46] ="Conserver la connexion pendant";
 $LANG["login"][47] = "heures";
 $LANG["login"][48] = "Dernière connexion le :datelog depuis l'adresse IP :iplog. Si ce n'était pas vous, modifiez votre mot de passe ou contactez l'administrateur de l'application.";
+$LANG["login"][49] = "L'accès au module demandé nécessite une ré-identification. Veuillez saisir votre login et votre mot de passe";
 
 $LANG["ObjetBDDError"][0] = "Le champ ";
 $LANG["ObjetBDDError"][1] = " n'est pas numerique.";
