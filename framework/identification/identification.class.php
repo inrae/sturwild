@@ -81,7 +81,6 @@ class Identification
         $this->CAS_address = $cas_address;
         $this->CAS_port = $CAS_port;
         $this->CAS_uri = $CAS_uri;
-        $this->ident_type = "CAS";
     }
 
 
@@ -102,50 +101,12 @@ class Identification
         $this->LDAP_user_attrib = $LDAP_user_attrib;
         $this->LDAP_v3 = $LDAP_v3;
         $this->LDAP_tls = $LDAP_tls;
-        $this->ident_type = "LDAP";
     }
+
 
     /**
-     * Retourne le login en mode CAS ou BDD
-     *
-     * @return string : $login
+     * Gestion de la connexion en mode CAS
      */
-    function getLogin()
-    {
-        $ident_type = $this->ident_type;
-        if (! isset($ident_type)) {
-            echo "Cette fonction doit être appelée après soit init_LDAP, init_CAS, ou init_BDD";
-            die();
-        }
-        if (! isset($_SESSION["login"])) {
-            /*
-             * Récupération du login selon le type
-             */
-            if ($ident_type == "BDD" || $ident_type == "LDAP-BDD") {} elseif ($ident_type == "CAS") {
-                
-                phpCAS::client(CAS_VERSION_2_0, $this->CAS_address, $this->CAS_port, $this->CAS_uri);
-                // if (phpCAS::isAuthenticated()==FALSE) {
-                phpCAS::forceAuthentication();
-                // }
-                global $log, $LOG_duree;
-                $_SESSION["login"] = phpCAS::getUser();
-                $log->setLog($_SESSION["login"], "connexion", "cas-ok");
-            }
-        }
-        
-        if (isset($_SESSION["login"])) {
-            $this->login = $_SESSION["login"];
-            unset($_SESSION["menu"]);
-            /*
-             * Purge des anciens enregistrements dans log
-             */
-            $log->purge($LOG_duree);
-            return $_SESSION["login"];
-        } else {
-            return - 1;
-        }
-    }
-
     function getLoginCas()
     {
         phpCAS::client(CAS_VERSION_2_0, $this->CAS_address, $this->CAS_port, $this->CAS_uri);
@@ -167,10 +128,6 @@ class Identification
         $loginOk = "";
         global $log, $LOG_duree, $message, $LANG;
         if (strlen($login) > 0 && strlen($password) > 0) {
-            if (! isset($this->ident_type)) {
-                echo "Cette fonction doit être appelee apres init_LDAP";
-                die();
-            }
             $login = str_replace(array(
                 '\\',
                 '*',
@@ -206,7 +163,6 @@ class Identification
                 /*
                  * Purge des anciens enregistrements dans log
                  */
-                $log->purge($LOG_duree);
             } else {
                 $log->setLog($login, "connexion", "ldap-ko");
             }
@@ -361,7 +317,6 @@ class Identification
                  */
                 if (! $log->isAccountBlocked($loginEntered, $CONNEXION_blocking_duration, $CONNEXION_max_attempts)) {
                     $verify = true;
-                    
                     /*
                      * Verification de l'identification aupres du serveur LDAP, ou LDAP puis BDD
                      */
@@ -400,13 +355,13 @@ class Identification
     /**
      * Teste la connexion via la base de donnees
      */
-    function testBdd($login, $password)
+    function testBdd($loginEntered, $password)
     {
         global $bdd_gacl, $message;
         $login = "";
         $loginGestion = new LoginGestion($bdd_gacl);
         try {
-            $res = $loginGestion->controlLogin($login, $password);
+            $res = $loginGestion->controlLogin($loginEntered, $password);
             if ($res) {
                 $login = $_REQUEST["login"];
             }
@@ -470,7 +425,8 @@ class LoginGestion extends ObjetBDD
      */
     function controlLogin($login, $password)
     {
-        global $log, $LOG_duree, $message, $LANG;
+        global $log, $LOG_duree;
+        $retour = false;
         if (strlen($login) > 0 && strlen($password) > 0) {
             $login = $this->encodeData($login);
             // $password = md5($password);
@@ -479,15 +435,13 @@ class LoginGestion extends ObjetBDD
             $res = ObjetBDD::lireParam($sql);
             if ($res["login"] == $login) {
                 $log->setLog($login, "connexion", "db-ok");
-                $message->set($LANG["message"][10]);
-                return TRUE;
+                $retour = true;
             } else {
                 $log->setLog($login, "connexion", "db-ko");
-                $message->set($LANG["message"][11]);
-                return FALSE;
+
             }
-        } else
-            return false;
+        }
+        return $retour;
     }
 
     /**
