@@ -98,7 +98,8 @@ class Passwordlost extends ObjetBDD
                 return $data;
             } else
                 throw new Exception("token not found");
-        }
+        } else 
+            throw new Exception("token empty");
     }
 
     /**
