@@ -515,6 +515,8 @@ class LoginGestion extends ObjetBDD
                      */
                     if ($this->passwordVerify($_SESSION["login"], $pass1, $pass2)) {
                         $retour = $this->writeNewPassword($_SESSION["login"], $pass1);
+                    } else {
+                        $message->set($LANG["login"][51]);
                     }
                 } else {
                     $message->set($LANG["login"][19]);
@@ -606,7 +608,7 @@ class LoginGestion extends ObjetBDD
      */
     private function passwordVerify($login, $pass1, $pass2)
     {
-        global $message;
+        global $message, $LANG;
         $ok = false;
         /*
          * Verification que le mot de passe soit identique
@@ -1040,7 +1042,6 @@ class LoginOldPassword extends ObjetBDD
 				join logingestion on logingestion.id = o.id
 				where login = '" . $login . "'
 					and o.password = '" . $password_hash . "'";
-        printr($sql);
         $res = $this->lireParam($sql);
         return $res["nb"];
     }

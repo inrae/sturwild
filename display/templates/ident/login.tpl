@@ -32,7 +32,7 @@
   {/if}
   {if $lostPassword == 1 }
   <div class="form-group center">
-  <a href="index.php?module=passwordlostIslost">Perdu votre mot de passe ?</a>
+  <a href="index.php?module=passwordlostIslost">{$LANG["login"].59}</a>
   </div>
   {/if}
   <div class="form-group center">
