@@ -74,7 +74,7 @@ switch ($t_module["param"]) {
                     $vue->set("1", "passwordLost");
                     $vue->set($_REQUEST["token"], "token");
                 } else {
-                    $vue->set("default.tpl", "corps");
+                    $vue->set("main.tpl", "corps");
                     $message->set($LANG["login"][18]);
                 }
             } catch (Exception $e) {

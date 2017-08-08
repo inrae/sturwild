@@ -29,6 +29,9 @@ $LANG["menu"]["fr"] = "français";
 $LANG["menu"]["frtitle"] = "Libellés en français";
 $LANG["menu"]["en"] = "english";
 $LANG["menu"]["entitle"] = "labels in english";
+$LANG["menu"]["pwchange"] = "Modifier le mot de passe";
+$LANG["menu"]["pwchangetitle"] = "Modifiez votre mot de passe (identification locale uniquement)";
+
 $LANG["menu"][42] = "Module de recherche";
 $LANG["menu"][43] = "Intégrer un module de recherche";
 $LANG["menu"][44] = "Capture";
@@ -128,7 +131,7 @@ $LANG["message"]["no"] = "non";
 
 $LANG["login"][0] = "Login";
 $LANG["login"][1] = "Mot de passe";
-$LANG["login"][2] = "Veuillez utiliser votre login du domaine pour vous identifier";
+$LANG["login"][2] = "Personnel IRSTEA : veuillez utiliser votre login du domaine pour vous identifier";
 $LANG["login"][5] = "Nouveau login";
 $LANG["login"][6] = "login";
 $LANG["login"][7] = "Nom - prénom";
