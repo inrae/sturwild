@@ -11,7 +11,7 @@ CREATE SEQUENCE "passwordlost_passwordlost_id_seq";
 
 CREATE TABLE "passwordlost" (
                 "passwordlost_id" INTEGER NOT NULL DEFAULT nextval('"passwordlost_passwordlost_id_seq"'),
-                "id" INTEGER DEFAULT nextval('seq_logingestion_id'::regclass) NOT NULL,
+                "id" INTEGER NOT NULL,
                 "token" VARCHAR NOT NULL,
                 "expiration" TIMESTAMP NOT NULL,
                 "usedate" TIMESTAMP,
@@ -30,3 +30,4 @@ REFERENCES "logingestion" ("id")
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
+

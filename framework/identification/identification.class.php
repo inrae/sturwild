@@ -70,9 +70,11 @@ class Identification
     /**
      * initialisation si utilisation d'un CAS
      *
-     * @param String $cas_address : adresse
+     * @param String $cas_address
+     *            : adresse
      *            du CAS
-     * @param int $CAS_port : port
+     * @param int $CAS_port
+     *            : port
      *            du CAS
      * @return null
      */
@@ -83,9 +85,9 @@ class Identification
         $this->CAS_uri = $CAS_uri;
     }
 
-
     /**
      * Initialisation du test de connexion ldap
+     *
      * @param String $LDAP_address
      * @param String $LDAP_port
      * @param String $LDAP_basedn
@@ -102,7 +104,6 @@ class Identification
         $this->LDAP_v3 = $LDAP_v3;
         $this->LDAP_tls = $LDAP_tls;
     }
-
 
     /**
      * Gestion de la connexion en mode CAS
@@ -221,11 +222,14 @@ class Identification
     /**
      * Initialisation de la classe gacl
      *
-     * @param $gacl : instance
+     * @param $gacl :
+     *            instance
      *            gacl
-     * @param string $aco : nom
+     * @param string $aco
+     *            : nom
      *            de la catégorie de base contenant les objets à tester
-     * @param string $aro : nom
+     * @param string $aro
+     *            : nom
      *            de la catégorie contenant les logins à tester
      */
     function setgacl(&$gacl, $aco, $aro)
@@ -238,7 +242,8 @@ class Identification
     /**
      * Teste les droits
      *
-     * @param string $aco : Categorie a tester
+     * @param string $aco
+     *            : Categorie a tester
      * @return int : 0 | 1
      */
     function getgacl($aco)
@@ -254,7 +259,7 @@ class Identification
      *
      * @return string
      */
-    function verifyLogin($loginEntered = "", $password = "",$modeAdmin = false)
+    function verifyLogin($loginEntered = "", $password = "", $modeAdmin = false)
     {
         global $log, $CONNEXION_blocking_duration, $CONNEXION_max_attempts;
         $login = "";
@@ -344,7 +349,7 @@ class Identification
                 }
             }
         }
- 
+        
         /*
          * Si le nombre total d'essais a ete atteint, le login est refuse
          */
@@ -439,7 +444,6 @@ class LoginGestion extends ObjetBDD
                 $retour = true;
             } else {
                 $log->setLog($login, "connexion", "db-ko");
-
             }
         }
         return $retour;
@@ -462,13 +466,14 @@ class LoginGestion extends ObjetBDD
      *
      * @see ObjetBDD::ecrire()
      */
-    function ecrire($liste)
+    function ecrire($data)
     {
-        if (isset($liste["pass1"]) && isset($liste["pass2"]) && $liste["pass1"] == $liste["pass2"] && strlen($liste["pass1"]) > 3) {
-            $liste["password"] = hash("sha256", $liste["pass1"] . $liste["login"]);
+        if (isset($data["pass1"]) && isset($data["pass2"]) && $data["pass1"] == $data["pass2"]) {
+            if ($this->controleComplexite($data["pass1"]) > 2 && strlen($data["pass1"]) > 9)
+                $data["password"] = hash("sha256", $data["pass1"] . $data["login"]);
         }
-        $liste["datemodif"] = date('d-m-y');
-        return parent::ecrire($liste);
+        $data["datemodif"] = date('d-m-y');
+        return parent::ecrire($data);
     }
 
     /**
@@ -502,62 +507,14 @@ class LoginGestion extends ObjetBDD
         $retour = 0;
         if (isset($_SESSION["login"])) {
             $oldData = $this->lireByLogin($_SESSION["login"]);
-            if ($oldData["id"] > 0) {
-                $oldpassword_hash = hash("sha256", $oldpassword . $_SESSION["login"]);
+            if ($log->getLastConnexionType($_SESSION["login"]) == "db") {
+                $oldpassword_hash = $this->passwordHash($_SESSION["login"], $oldpassword);
                 if ($oldpassword_hash == $oldData["password"]) {
-                    
-                    $data = $oldData;
                     /*
-                     * Verification que le mot de passe soit identique
+                     * Verifications de validite du mot de passe
                      */
-                    if ($pass1 == $pass2) {
-                        /*
-                         * Verification de la longueur - minimum : 8 caracteres
-                         */
-                        if (strlen($pass1) > 7) {
-                            /*
-                             * Verification de la complexite du mot de passe
-                             */
-                            if ($this->controleComplexite($pass1) >= 3) {
-                                /*
-                                 * calcul du sha256 du mot de passe
-                                 */
-                                $password_hash = hash("sha256", $pass1 . $_SESSION["login"]);
-                                /*
-                                 * Verification que le mot de passe n'a pas deja ete employe
-                                 */
-                                $loginOldPassword = new LoginOldPassword($this->connection, $this->paramori);
-                                $nb = $loginOldPassword->testPassword($_SESSION["login"], $password_hash);
-                                if ($nb == 0) {
-                                    /*
-                                     * Lecture de l'ancien enregistrement
-                                     */
-                                    $oldData = $this->lireByLogin($_SESSION["login"]);
-                                    if ($oldData["id"] > 0) {
-                                        $data = $oldData;
-                                        $data["password"] = $password_hash;
-                                        $data["datemodif"] = date('d-m-y');
-                                        if ($this->ecrire($data) > 0) {
-                                            $retour = 1;
-                                            $log->setLog($login, "password_change", "ip:" . $_SESSION["remoteIP"]);
-                                            /*
-                                             * Ecriture de l'ancien mot de passe dans la table des anciens mots de passe
-                                             */
-                                            $loginOldPassword->setPassword($oldData["id"], $oldData["password"]);
-                                        }
-                                        $message->set($LANG["login"][20]);
-                                    }
-                                } else {
-                                    $message->set($LANG["login"][14]);
-                                }
-                            } else {
-                                $message->set($LANG["login"][15]);
-                            }
-                        } else {
-                            $message->set($LANG["login"][16]);
-                        }
-                    } else {
-                        $message->set($LANG["login"][17]);
+                    if ($this->passwordVerify($_SESSION["login"], $pass1, $pass2)) {
+                        $retour = $this->writeNewPassword($_SESSION["login"], $pass1);
                     }
                 } else {
                     $message->set($LANG["login"][19]);
@@ -566,7 +523,127 @@ class LoginGestion extends ObjetBDD
                 $message->set($LANG["login"][18]);
             }
         }
+        
         return $retour;
+    }
+    /**
+     * Calcule le hash d'un mot de passe
+     * @param string $login
+     * @param string $password
+     * @throws Exception
+     * @return string
+     */
+    function passwordHash ($login, $password) {
+        if (strlen ($login) == 0 || strlen($password) == 0) {
+            throw new Exception("password hashing not possible");
+        } else
+        return hash("sha256", $password . $login);
+    }
+
+    /**
+     * Declenche le changement de mot de passe apres perte
+     * 
+     * @param string $login
+     * @param string $pass1
+     * @param string $pass2
+     * @return number
+     */
+    function changePasswordAfterLost($login, $pass1, $pass2)
+    {
+        global $log, $LANG, $message;
+        $retour = 0;
+        if (strlen($login) > 0) {
+            if ($this->passwordVerify($login, $pass1, $pass2)) {
+                $retour = $this->writeNewPassword($login, $pass1);
+            }
+        }
+        return $retour;
+    }
+
+    /**
+     * Ecrit le nouveau mot de passe en base de donnees
+     * 
+     * @param string $login
+     * @param string $pass
+     * @return number
+     */
+    private function writeNewPassword($login, $pass)
+    {
+        global $log, $message, $LANG;
+        $retour = 0;
+        $oldData = $this->lireByLogin($login);
+        if ($log->getLastConnexionType($login) == "db") {
+            $data = $oldData;
+            $data["password"] = $this->passwordHash($login, $pass);
+            $data["datemodif"] = date('d-m-y');
+            if ($this->ecrire($data) > 0) {
+                $retour = 1;
+                $log->setLog($login, "password_change", "ip:" . $_SESSION["remoteIP"]);
+                /*
+                 * Ecriture du mot de passe dans la table des mots de passe deja utilises
+                 */
+                $loginOldPassword = new LoginOldPassword($this->connection, $this->paramori);
+                $loginOldPassword->setPassword($data["id"], $data["password"]);
+                
+                $message->set($LANG["login"][20]);
+            } else {
+                $message->set($LANG["login"][50]);
+            }
+        } else {
+            $message->set($LANG["login"][18]);
+        }
+        return $retour;
+    }
+
+    /**
+     * Fonction verifiant la validite du mot de passe fourni,
+     * avant changement
+     *
+     * @param string $login
+     * @param string $pass1
+     * @param string $pass2
+     * @return boolean
+     */
+    private function passwordVerify($login, $pass1, $pass2)
+    {
+        global $message;
+        $ok = false;
+        /*
+         * Verification que le mot de passe soit identique
+         */
+        if ($pass1 == $pass2) {
+            /*
+             * Verification de la longueur - minimum : 10 caracteres
+             */
+            if (strlen($pass1) > 9) {
+                /*
+                 * Verification de la complexite du mot de passe
+                 */
+                if ($this->controleComplexite($pass1) >= 3) {
+                    /*
+                     * calcul du sha256 du mot de passe
+                     */
+                    $password_hash = $this->passwordHash($login, $pass1);
+                    /*
+                     * Verification que le mot de passe n'a pas deja ete employe
+                     */
+                    $loginOldPassword = new LoginOldPassword($this->connection, $this->paramori);
+                    $nb = $loginOldPassword->testPassword($login, $password_hash);
+                    if ($nb == 0) {
+                        $ok = true;
+                    } else {
+                        $message->set($LANG["login"][14]);
+                    }
+                } else {
+                    $message->set($LANG["login"][15]);
+                }
+            } else {
+                $message->set($LANG["login"][16]);
+            }
+        } else {
+            $message->set($LANG["login"][17]);
+        }
+        return $ok;
     }
 
     /**
@@ -613,19 +690,25 @@ class LoginGestion extends ObjetBDD
 				where login = '" . $login . "'";
         return $this->lireParam($sql);
     }
+
     /**
      * Retourne un enregistrement a partir du mail
+     *
      * @param string $mail
      * @return array
      */
-    function getFromMail($mail) {
+    function getFromMail($mail)
+    {
+        
         $mail = $this->encodeData($mail);
         if (strlen($mail) > 0) {
-            $sql = "select id, nom, prenom, mail, actif ".
-                " from logingestion".
-                " where mail = :mail".
-                " order by id desc limit 1";
-            return $this->lireParamAsPrepared($sql, array("mail"=>$mail));
+            $sql = "select id, nom, prenom, mail, actif ";
+            $sql .= " from ".$this->table;
+            $sql .= " where mail = :mail";
+            $sql .= " order by id desc limit 1";
+            return $this->lireParamAsPrepared($sql, array(
+                "mail" => $mail
+            ));
         }
     }
 }
@@ -642,7 +725,7 @@ class Log extends ObjetBDD
     /**
      * Constructeur
      *
-     * @param connecteur $p_connection
+     * @param pdo $p_connection
      * @param array $param
      */
     function __construct($bdd, $param = NULL)
@@ -758,6 +841,37 @@ order by log_id desc limit 2";
         }
     }
 
+    /**
+     * Retourne le dernier type de connexion realisee pour un compte
+     *
+     * @param string $login
+     * @return string
+     */
+    function getLastConnexionType($login)
+    {
+        if (strlen($login) > 0) {
+            $sql = "select commentaire from log";
+            $sql .= " where login = :login and nom_module like '%connexion' and commentaire like '%ok'";
+            $sql .= "order by log_id desc limit 1";
+            $data = $this->lireParamAsPrepared($sql, array(
+                "login" => $login
+            ));
+            $commentaire = explode("-", $data["commentaire"]);
+            return $commentaire[0];
+        }
+    }
+
+    /**
+     * Recherche si le compte a fait l'objet de trop de tentatives de connexion
+     * Si c'est le cas, declenche le blocage du compte pour la duree indiquee
+     * La duree de blocage est reinitialisee a chaque tentative pendant la periode
+     * de contention
+     *
+     * @param string $login
+     * @param number $maxtime
+     * @param number $nbMax
+     * @return boolean
+     */
     function isAccountBlocked($login, $maxtime = 600, $nbMax = 10)
     {
         $is_blocked = true;
@@ -886,7 +1000,7 @@ class LoginOldPassword extends ObjetBDD
     /**
      * Constructeur
      *
-     * @param connexion $bdd
+     * @param pdo $bdd
      * @param array $ObjetBDDParam
      */
     function __construct($bdd, $param)
@@ -926,6 +1040,7 @@ class LoginOldPassword extends ObjetBDD
 				join logingestion on logingestion.id = o.id
 				where login = '" . $login . "'
 					and o.password = '" . $password_hash . "'";
+        printr($sql);
         $res = $this->lireParam($sql);
         return $res["nb"];
     }

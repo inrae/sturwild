@@ -36,6 +36,7 @@ $(document).ready(function() {
 <form id="formPassword" method="post" class="form-horizontal protoform" action="index.php">
 <input type="hidden" name="id" value="{$data.id}">
 {if $passwordLost == 1}
+<input type="hidden" name="token" value="{$token}">
 <input type="hidden" name="module" value="passwordlostReinitwrite">
 {else}
 <input type="hidden" name="module" value="loginChangePasswordExec">

@@ -61,10 +61,11 @@ class Passwordlost extends ObjetBDD
             require_once 'framework/identification/identification.class.php';
             $lg = new LoginGestion($this->connection, $this->paramori);
             $dl = $lg->getFromMail($mail);
-            if ($dl["id"]) {
+            if ($dl["id"] > 0) {
                 if ($dl["actif"] == 1) {
                     $this->auto_date = 0;
-                    $data = $this->getDefaultValue($id);
+                    $data = array();
+                    $data["id"] = $dl["id"];
                     $data["token"] = $this->generateToken();
                     $data["expiration"] = date("Y-m-d H:i:s", time() + $duree_token);
                     $this->ecrire($data);
@@ -86,15 +87,20 @@ class Passwordlost extends ObjetBDD
     function verifyToken($token)
     {
         if (strlen($token) > 0) {
-            $sql = "select * ";
+            $sql = "select passwordlost.*, login, actif ";
             $sql .= " from passwordlost ";
-            $sql .= " where token = :token and expiration < :expiration";
+            $sql .= " join logingestion using (id)";
+            $sql .= " where token = :token and expiration > :expiration";
             $sql .= " and usedate is null order by passwordlost_id desc limit 1";
             $data = $this->lireParamAsPrepared($sql, array(
                 "token" => $token,
                 "expiration" => date("Y-m-d H:i:s")
             ));
+            
             if ($data["passwordlost_id"] > 0) {
+                if ($data["actif"] == 0) {
+                    throw new Exception("account desactivated");
+                }
                 return $data;
             } else
                 throw new Exception("token not found");

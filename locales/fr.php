@@ -149,7 +149,7 @@ $LANG["login"][21] = "Générez un mot de passe aléatoire";
 $LANG["login"][22] = "Générez";
 $LANG["login"][23] = "Ancien mot de passe";
 $LANG["login"][24] = "Nouveau mot de passe";
-$LANG["login"][25] = "Le mot de passe doit avoir une longueur minimale de 8 caractères<br>
+$LANG["login"][25] = "Le mot de passe doit avoir une longueur minimale de 10 caractères<br>
 Il doit comprendre au minimum 3 types de caractères différents<br>
 (minuscule, majuscule, chiffre, ponctuation et autre symboles)";
 $LANG["login"][26] = "Droits attribués";
@@ -175,6 +175,7 @@ $LANG["login"][46] ="Conserver la connexion pendant";
 $LANG["login"][47] = "heures";
 $LANG["login"][48] = "Dernière connexion le :datelog depuis l'adresse IP :iplog. Si ce n'était pas vous, modifiez votre mot de passe ou contactez l'administrateur de l'application.";
 $LANG["login"][49] = "L'accès au module demandé nécessite une ré-identification. Veuillez saisir votre login et votre mot de passe";
+$LANG["login"][50] = "Echec de modification du mot de passe pour une raison inconnue. Si le problème persiste, contactez l'assistance";
 
 $LANG["ObjetBDDError"][0] = "Le champ ";
 $LANG["ObjetBDDError"][1] = " n'est pas numerique.";

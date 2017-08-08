@@ -16,20 +16,30 @@
 	<input  class="form-control" name="password" id="password" type="password" autocomplete="off" required maxlength="32">
 	</div>
 	</div>
-	<div class="form-group center">
+
 	<form id="theForm" method="POST" action="index.php">
 	<input type="hidden" name="module" value={$module}>
 	<input type="hidden" id="hiddenUsername" name="login"/>
 	<input type="hidden" id="hiddenPassword" name="password"/>
   {if $tokenIdentityValidity > 0}
+  	<div class="form-group center checkbox">
+  	<label>
   {$duration = $tokenIdentityValidity / 3600}
+  <input type="checkbox" name="loginByTokenRequested" value="1" checked>
   {$LANG.login.46} {$duration} {$LANG.login.47} 
-  <input class="form-control" type="checkbox" name="loginByTokenRequested" value="1" checked>
+  </label>
+  </div>
   {/if}
+  {if $lostPassword == 1 }
+  <div class="form-group center">
+  <a href="index.php?module=passwordlostIslost">Perdu votre mot de passe ?</a>
+  </div>
+  {/if}
+  <div class="form-group center">
 	<button type="submit" class="btn btn-primary button-valid">{$LANG["message"].19}</button>
+	</div>
 	</form>
 	
-	</div>
 	</div>
 </div>
 

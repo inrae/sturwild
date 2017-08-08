@@ -111,6 +111,7 @@ while (isset($module)) {
              */
             $vue->set("ident/login.tpl", "corps");
             $vue->set($tokenIdentityValidity, "tokenIdentityValidity");
+            $vue->set($APPLI_lostPassword, "lostPassword");
             $loginForm = true;
             if ($t_module["retourlogin"] == 1)
                 $vue->set($_REQUEST["module"], "module");

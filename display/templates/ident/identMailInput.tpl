@@ -1,5 +1,5 @@
 <fieldset class="col-sm-6">
-<legend>Texte du fieldset</legend>
+<legend>Mot de passe perdu - lancement de la procédure de récupération</legend>
 
 <form class="form-horizontal protoform" id="sendMail" method="post" action="index.php">
 <input type="hidden" name="module" value="passwordlostSendmail">
@@ -8,7 +8,7 @@
 Entrez votre mail<span class="red">*</span> :
 </label>
 <div class="col-sm-8">
-<input type="email" class="form-control" id="mail" name="mail" required autofocus>
+<input type="text" class="form-control" id="mail" name="mail" required autofocus>
 </div>
 </div>
 <div class="form-group center">
