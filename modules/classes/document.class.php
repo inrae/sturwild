@@ -351,8 +351,19 @@ class Document extends ObjetBDD {
 				$data ["document_description"] = $description;
 				$data ["document_date_import"] = date ( "d/m/Y" );
 				$data ["individu_id"] = $individu_id;
-				$dataDoc = array ();
-				
+				$dataDoc = array ("thumbnail"=>"","data"=>"");
+				/*
+				 * Recherche antivirale
+				 */
+				$virus = false;
+				try {
+				    testScan($file["tmp_name"]);
+				} catch (VirusException $ve) {
+				    $message->set($ve->getMessage());
+				    $virus = true;
+				} catch (FileException $fe) {
+				    $message->set($fe->getMessage());
+				}
 				/*
 				 * Recherche pour savoir s'il s'agit d'une image ou d'un pdf pour créer une vignette
 				 */
@@ -381,8 +392,8 @@ class Document extends ObjetBDD {
 				$id = parent::ecrire ( $data );
 				if ($id > 0) {
 				    $dataDoc["document_id"] = $id;
-					$sql = "update  $this->table set data = :data, thumbnail = :thumbnail where document_id = :document_id";
-					$this->executeAsPrepared( $sql, $dataDoc );
+				    $sql = "update " . $this->table . " set data = '" . $dataDoc ["data"] . "', thumbnail = '" . $dataDoc ["thumbnail"] . "' where document_id = " . $id;
+				    $this->executeSQL ( $sql );
 				}
 				return $id;
 			}
