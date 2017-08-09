@@ -1,6 +1,6 @@
 <h2>Modification d'un type de capture</h2>
 <div class="row">
-<div class="col-sd-12">
+<div class="col-sm-12">
 <a href="index.php?module=captureTypeList">Retour à la liste</a>
 </div>
 <div class="col-sm-6">

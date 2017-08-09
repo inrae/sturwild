@@ -547,10 +547,8 @@ class Capture_type extends ObjetBDD
      * @param PDO $link
      * @param array $param
      */
-    function __construct($link, $param = NULL)
+    function __construct($link, $param = array())
     {
-        if (! is_array($param))
-            $param = array();
         $this->table = "capture_type";
         $this->id_auto = 1;
         $this->colonnes = array(
