@@ -199,7 +199,6 @@ class Identification
         if (isset($_COOKIE["tokenIdentity"])) {
             setcookie("tokenIdentity", '', time() - 42000, "/");
         }
-        $message->set($LANG["message"][7]);
         // Finalement, on détruit la session.
         session_destroy();
         if ($this->ident_type == "CAS") {
