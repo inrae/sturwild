@@ -76,24 +76,24 @@
 	<declarationDisplay action="modules/declaration/declaration.php" param="display" droits="consult" type="smarty"/>	
 	<declarationChange action="modules/declaration/declaration.php" param="change" droits="gestion" type="smarty"/>
 	<declarationWrite action="modules/declaration/declaration.php" param="write" retourok="declarationDisplay" retourko="declarationChange" modulebefore="declarationChange"  droits="gestion"/>
-	<declarationDelete action="modules/declaration/declaration.php" param="delete" retoursuppr="declarationList" retourko="declarationChange" modulebefore="declarationChange"  droits="gestion"/>
+	<declarationDelete action="modules/declaration/declaration.php" param="delete" retourok="declarationList" retourko="declarationChange" modulebefore="declarationChange"  droits="gestion"/>
 	<declarationExport action="modules/declaration/declaration.php" param="export" modulebefore="declarationList,individuExport"  droits="consult" type="csv"/>
 	<declarationNbSturioByYear action="modules/declaration/declaration.php" param="sturioByYear" droits="consult" type="smarty"/>
 	<declarationDuplicate action="modules/declaration/declaration.php" param="duplicate" modulebefore="declarationWrite,declarationDisplay"  droits="gestion" retourok="declarationDisplay" />
 
 	<evenementChange action="modules/declaration/evenement.php" param="change" droits="gestion" type="smarty"/>
 	<evenementWrite action="modules/declaration/evenement.php" param="write" retourok="declarationDisplay" retourko="evenementChange" modulebefore="evenementChange"  droits="gestion"/>
-	<evenementDelete action="modules/declaration/evenement.php" param="delete" retoursuppr="declarationDisplay" retourko="evenementChange" modulebefore="evenementChange"  droits="gestion"/>
+	<evenementDelete action="modules/declaration/evenement.php" param="delete" retourok="declarationDisplay" retourko="evenementChange" modulebefore="evenementChange"  droits="gestion"/>
 
 	<lotChange action="modules/declaration/lot.php" param="change" droits="gestion" type="smarty"/>
 	<lotWrite action="modules/declaration/lot.php" param="write" retourok="declarationDisplay" retourko="lotChange" modulebefore="lotChange"  droits="gestion"/>
 
 	<individuChange action="modules/declaration/individu.php" param="change" droits="gestion" type="smarty"/>
 	<individuWrite action="modules/declaration/individu.php" param="write" retourok="declarationDisplay" retourko="individuChange" modulebefore="individuChange"  droits="gestion"/>
-	<individuDelete action="modules/declaration/individu.php" param="delete" retoursuppr="declarationDisplay" retourko="individuChange" modulebefore="individuChange"  droits="gestion"/>
+	<individuDelete action="modules/declaration/individu.php" param="delete" retourok="declarationDisplay" retourko="individuChange" modulebefore="individuChange"  droits="gestion"/>
 	<individuExport action="modules/declaration/individu.php" param="export" droits="consult" moduleBefore="declarationList,declarationExport" type="csv"/>
 
-	<documentDelete action="modules/declaration/individu.php" param="documentDelete" retoursuppr="individuChange" retourko="individuChange" modulebefore="individuChange,declarationDisplay"  droits="gestion"/>
+	<documentDelete action="modules/declaration/individu.php" param="documentDelete" retourok="individuChange" retourko="individuChange" modulebefore="individuChange,declarationDisplay"  droits="gestion"/>
 
 	<localisationChange action="modules/declaration/localisation.php" param="change" droits="gestion" type="smarty"/>
 	<localisationWrite action="modules/declaration/localisation.php" param="write" retourok="declarationDisplay" retourko="localisationChange" modulebefore="localisationChange"  droits="gestion"/>
@@ -103,70 +103,70 @@
 	<ciemList action="modules/param/ciem.php" param="list" droits="gestion" type="smarty"/>
 	<ciemChange action="modules/param/ciem.php" param="change" droits="param" type="smarty"/>
 	<ciemWrite action="modules/param/ciem.php" param="write" retourok="ciemList" retourko="ciemChange" modulebefore="ciemChange"  droits="param"/>
-	<ciemDelete action="modules/param/ciem.php" param="delete" retoursuppr="ciemList" retourko="ciemChange" modulebefore="ciemChange"  droits="param"/>
+	<ciemDelete action="modules/param/ciem.php" param="delete" retourok="ciemList" retourko="ciemChange" modulebefore="ciemChange"  droits="param"/>
 	
 	<paysList action="modules/param/pays.php" param="list"  droits="gestion" type="smarty"/>
 	<paysChange action="modules/param/pays.php" param="change" droits="param" type="smarty"/>
 	<paysWrite action="modules/param/pays.php" param="write" retourok="paysList" retourko="paysChange" modulebefore="paysChange"  droits="param"/>
-	<paysDelete action="modules/param/pays.php" param="delete" retoursuppr="paysList" retourko="paysChange" modulebefore="paysChange"  droits="param"/>
+	<paysDelete action="modules/param/pays.php" param="delete" retourok="paysList" retourko="paysChange" modulebefore="paysChange"  droits="param"/>
 	
 	
 	<milieuList action="modules/param/milieu.php" param="list" droits="gestion" type="smarty"/>
 	<milieuChange action="modules/param/milieu.php" param="change" droits="param" type="smarty"/>
 	<milieuWrite action="modules/param/milieu.php" param="write" retourok="milieuList" retourko="milieuChange" modulebefore="milieuChange"  droits="param"/>
-	<milieuDelete action="modules/param/milieu.php" param="delete" retoursuppr="milieuList" retourko="milieuChange" modulebefore="milieuChange" droits="param" />
+	<milieuDelete action="modules/param/milieu.php" param="delete" retourok="milieuList" retourko="milieuChange" modulebefore="milieuChange" droits="param" />
 
 	<milieuDetailList action="modules/param/milieuDetail.php" param="list" droits="gestion" type="smarty"/>
 	<milieuDetailChange action="modules/param/milieuDetail.php" param="change" droits="param" type="smarty"/>
 	<milieuDetailWrite action="modules/param/milieuDetail.php" param="write" retourok="milieuDetailList" retourko="milieuDetailChange" modulebefore="milieuDetailChange"  droits="param"/>
-	<milieuDetailDelete action="modules/param/milieuDetail.php" param="delete" retoursuppr="milieuDetailList" retourko="milieuDetailChange" modulebefore="milieuDetailChange" droits="param" />
+	<milieuDetailDelete action="modules/param/milieuDetail.php" param="delete" retourok="milieuDetailList" retourko="milieuDetailChange" modulebefore="milieuDetailChange" droits="param" />
 
 	
 	<regionList action="modules/param/region.php" param="list" droits="gestion" type="smarty"/>
 	<regionChange action="modules/param/region.php" param="change" droits="param" type="smarty"/>
 	<regionWrite action="modules/param/region.php" param="write" retourok="regionList" retourko="regionChange" modulebefore="regionChange"  droits="param"/>
-	<regionDelete action="modules/param/region.php" param="delete" retoursuppr="regionList" retourko="regionChange" modulebefore="regionChange"  droits="param"/>
+	<regionDelete action="modules/param/region.php" param="delete" retourok="regionList" retourko="regionChange" modulebefore="regionChange"  droits="param"/>
 	
 	<enginList action="modules/param/engin.php" param="list" droits="gestion"  type="smarty"/>
 	<enginChange action="modules/param/engin.php" param="change" droits="param" type="smarty"/>
 	<enginWrite action="modules/param/engin.php" param="write" retourok="enginList" retourko="enginChange" modulebefore="enginChange"  droits="param"/>
-	<enginDelete action="modules/param/engin.php" param="delete" retoursuppr="enginList" retourko="enginChange" modulebefore="enginChange"  droits="param"/>
+	<enginDelete action="modules/param/engin.php" param="delete" retourok="enginList" retourko="enginChange" modulebefore="enginChange"  droits="param"/>
 	
 	<especeList action="modules/param/espece.php" param="list" droits="gestion"  type="smarty"/>
 	<especeChange action="modules/param/espece.php" param="change" droits="param" type="smarty"/>
 	<especeWrite action="modules/param/espece.php" param="write" retourok="especeList" retourko="especeChange" modulebefore="especeChange" droits="param" />
-	<especeDelete action="modules/param/espece.php" param="delete" retoursuppr="especeList" retourko="especeChange" modulebefore="especeChange"  droits="param"/>
+	<especeDelete action="modules/param/espece.php" param="delete" retourok="especeList" retourko="especeChange" modulebefore="especeChange"  droits="param"/>
 
 	<devenirList action="modules/param/devenir.php" param="list" droits="gestion" type="smarty" />
 	<devenirChange action="modules/param/devenir.php" param="change" droits="param" type="smarty"/>
 	<devenirWrite action="modules/param/devenir.php" param="write" retourok="devenirList" retourko="devenirChange" modulebefore="devenirChange" droits="param" />
-	<devenirDelete action="modules/param/devenir.php" param="delete" retoursuppr="devenirList" retourko="devenirChange" modulebefore="devenirChange"  droits="param"/>
+	<devenirDelete action="modules/param/devenir.php" param="delete" retourok="devenirList" retourko="devenirChange" modulebefore="devenirChange"  droits="param"/>
 
 	<captureModeList action="modules/param/captureMode.php" param="list" droits="gestion" type="smarty" />
 	<captureModeChange action="modules/param/captureMode.php" param="change" droits="param" type="smarty"/>
 	<captureModeWrite action="modules/param/captureMode.php" param="write" retourok="captureModeList" retourko="captureModeChange" modulebefore="captureModeChange" droits="param" />
-	<captureModeDelete action="modules/param/captureMode.php" param="delete" retoursuppr="captureModeList" retourko="captureModeChange" modulebefore="captureModeChange"  droits="param"/>
+	<captureModeDelete action="modules/param/captureMode.php" param="delete" retourok="captureModeList" retourko="captureModeChange" modulebefore="captureModeChange"  droits="param"/>
 
 	<captureTypeList action="modules/param/captureType.php" param="list" droits="gestion" type="smarty" />
 	<captureTypeChange action="modules/param/captureType.php" param="change" droits="param" type="smarty"/>
 	<captureTypeWrite action="modules/param/captureType.php" param="write" retourok="captureTypeList" retourko="captureTypeChange" modulebefore="captureTypeChange" droits="param" />
-	<captureTypeDelete action="modules/param/captureType.php" param="delete" retoursuppr="captureTypeList" retourko="captureTypeChange" modulebefore="captureTypeChange"  droits="param"/>
+	<captureTypeDelete action="modules/param/captureType.php" param="delete" retourok="captureTypeList" retourko="captureTypeChange" modulebefore="captureTypeChange"  droits="param"/>
 
 	<captureEtatList action="modules/param/captureEtat.php" param="list" droits="gestion" type="smarty" />
 	<captureEtatChange action="modules/param/captureEtat.php" param="change" droits="param" type="smarty"/>
 	<captureEtatWrite action="modules/param/captureEtat.php" param="write" retourok="captureEtatList" retourko="captureEtatChange" modulebefore="captureEtatChange" droits="param" />
-	<captureEtatDelete action="modules/param/captureEtat.php" param="delete" retoursuppr="captureEtatList" retourko="captureEtatChange" modulebefore="captureEtatChange"  droits="param"/>
+	<captureEtatDelete action="modules/param/captureEtat.php" param="delete" retourok="captureEtatList" retourko="captureEtatChange" modulebefore="captureEtatChange"  droits="param"/>
 
 
 	<evenementTypeList action="modules/param/evenementType.php" param="list" droits="gestion" type="smarty" />
 	<evenementTypeChange action="modules/param/evenementType.php" param="change" droits="param" type="smarty"/>
 	<evenementTypeWrite action="modules/param/evenementType.php" param="write" retourok="evenementTypeList" retourko="evenementTypeChange" modulebefore="evenementTypeChange" droits="param" />
-	<evenementTypeDelete action="modules/param/evenementType.php" param="delete" retoursuppr="evenementTypeList" retourko="evenementTypeChange" modulebefore="evenementTypeChange"  droits="param"/>
+	<evenementTypeDelete action="modules/param/evenementType.php" param="delete" retourok="evenementTypeList" retourko="evenementTypeChange" modulebefore="evenementTypeChange"  droits="param"/>
 
 	<enginTypeList action="modules/param/enginType.php" param="list" droits="gestion" type="smarty" />
 	<enginTypeChange action="modules/param/enginType.php" param="change" droits="param" type="smarty"/>
 	<enginTypeWrite action="modules/param/enginType.php" param="write" retourok="enginTypeList" retourko="enginTypeChange" modulebefore="enginTypeChange" droits="param" />
-	<enginTypeDelete action="modules/param/enginType.php" param="delete" retoursuppr="enginTypeList" retourko="enginTypeChange" modulebefore="enginTypeChange"  droits="param"/>
+	<enginTypeDelete action="modules/param/enginType.php" param="delete" retourok="enginTypeList" retourko="enginTypeChange" modulebefore="enginTypeChange"  droits="param"/>
 
 </navigation>
 	
