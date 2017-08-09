@@ -43,7 +43,7 @@ templates_c/
 *~
 clear_templates_c.sh
 param.inc.php
-temp/
+temp/*
 
 
 ## Core latex/pdflatex auxiliary files:
