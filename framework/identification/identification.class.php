@@ -180,7 +180,6 @@ class Identification
      */
     function disconnect($adresse_retour)
     {
-        global $message, $LANG;
         if (! isset($this->ident_type)) {
             return 0;
         }
@@ -703,7 +702,7 @@ class LoginGestion extends ObjetBDD
         
         $mail = $this->encodeData($mail);
         if (strlen($mail) > 0) {
-            $sql = "select id, nom, prenom, mail, actif ";
+            $sql = "select id, nom, prenom, login, mail, actif ";
             $sql .= " from ".$this->table;
             $sql .= " where mail = :mail";
             $sql .= " order by id desc limit 1";
