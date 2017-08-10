@@ -337,6 +337,7 @@ class Document extends ObjetBDD {
 	 */
 	function ecrire($file, $individu_id, $description = NULL) {
 		if ($file ["error"] == 0 && $file ["size"] > 0 && $individu_id > 0 && is_numeric ( $individu_id )) {
+		    global $message;
 			/*
 			 * Recuperation de l'extension
 			 */
@@ -410,10 +411,9 @@ class Document extends ObjetBDD {
 	 *        	: 0 : photo plein format, 1 : photo en resolution 800, 2, : vignette
 	 * @return string
 	 */
-	function writeFileImage($id, $type = 0) {
+	function writeFileImage($id, $type = 0, $resolution = 800) {
 		if ($id > 0 && is_numeric ( $id )) {
 			$data = $this->getData ( $id );
-			$resolution = 800;
 			/*
 			 * Preparation du nom de la photo
 			 */
@@ -424,7 +424,7 @@ class Document extends ObjetBDD {
 					break;
 				case 2 :
 					$colonne = "thumbnail";
-					$filename = $this->temp . '/' . $id . '_vignette.png';
+					$filename = $this->temp . '/' . $id . '_vignette.'.$data["extension"];
 					break;
 				default :
 					$colonne = "data";
@@ -482,6 +482,60 @@ class Document extends ObjetBDD {
 			return $filename;
 		}
 	}
+	
+	
+	/**
+	 * Envoie un fichier au navigateur, pour affichage
+	 *
+	 * @param int $id
+	 *        	: cle de la photo
+	 * @param int $phototype
+	 *        	: 0 - photo originale, 1 - resolution fournie, 2 - vignette
+	 * @param boolean $attached
+	 * @param int $resolution
+	 *        	: resolution pour les photos redimensionnees
+	 */
+	function prepareDocument($id, $phototype = 0, $resolution = 800) {
+	    $id = $this->encodeData ( $id );
+	    $filename = $this->generateFileName ( $id, $phototype, $resolution );
+	    if (strlen ( $filename ) > 0 && is_numeric ( $id ) && $id > 0) {
+	        if (! file_exists ( $filename ))
+	            $this->writeFileImage ( $id, $phototype, $resolution );
+	    }
+	    if (file_exists ( $filename ))
+	        return $filename;
+	        
+	}
+	
+	/**
+	 * Calcule le nom de la photo
+	 *
+	 * @param int $id
+	 * @param int $phototype
+	 *        	: type de la photo - 0 : original, 1 : photo reduite, 2 : vignette
+	 * @param number $resolution
+	 * @return string
+	 */
+	function generateFileName($id, $phototype = 0, $resolution = 800) {
+	    /*
+	     * Preparation du nom de la photo
+	     */
+	    if (is_numeric ( $id ))
+	        $data = $this->getData ( $id );
+	    switch ($phototype) {
+	        case 0 :
+	                $filename = $this->temp . '/' . $id . "-" . $data ["document_nom"];
+	                break;
+	        case 1 :
+	            $filename = $this->temp . '/' . $id . "x" . $resolution. "." . $data["extension"];
+	            break;
+	        case 2 :
+	            $filename = $this->temp . '/' . $id . '_vignette.'.$data["extension"];
+	    }
+	    return $filename;
+	}
+	
+	
 }
 
 ?>

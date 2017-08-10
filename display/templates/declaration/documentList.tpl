@@ -46,13 +46,16 @@ $(document).ready(function() {
 <td style="text-align:center;">
 {if in_array($dataDoc[lst].mime_type_id, array(1,4,5,6,7))}
 {if $dataDoc[lst].mime_type_id != 1}
-<a class="image-popup-no-margins" href="{$dataDoc[lst].photo800_name}" title="aperçu de la photo : {substr($dataDoc[lst].photo800_name, strrpos($dataDoc[lst].photo_name, '/') + 1)}">
+<a class="image-popup-no-margins"
+   href="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=0&phototype=1"
+   title="aperçu de la photo"> 
+   <img src="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=0&phototype=2" height="30">
 {/if}
-<img src="{$dataDoc[lst].thumbnail_name}" height="30">
+
 {if $dataDoc[lst].mime_type_id != 1}</a>{/if}
 {/if}
 <td>
-<a href="{$dataDoc[lst].photo_name}" title="document original">
+<a href="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=1&phototype=0"" title="document original">
 {$dataDoc[lst].document_nom}
 </a>
 

@@ -94,6 +94,7 @@
 	<individuExport action="modules/declaration/individu.php" param="export" droits="consult" moduleBefore="declarationList,declarationExport" type="csv"/>
 
 	<documentDelete action="modules/declaration/individu.php" param="documentDelete" retourok="individuChange" retourko="individuChange" modulebefore="individuChange,declarationDisplay"  droits="gestion"/>
+	<documentGet action="modules/declaration/document.php" param="get" type="binaire" droits="gestion"/>	
 
 	<localisationChange action="modules/declaration/localisation.php" param="change" droits="gestion" type="smarty"/>
 	<localisationWrite action="modules/declaration/localisation.php" param="write" retourok="declarationDisplay" retourko="localisationChange" modulebefore="localisationChange"  droits="gestion"/>
