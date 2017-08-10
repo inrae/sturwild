@@ -424,7 +424,7 @@ class Document extends ObjetBDD {
 					break;
 				case 2 :
 					$colonne = "thumbnail";
-					$filename = $this->temp . '/' . $id . '_vignette.'.$data["extension"];
+					$filename = $this->temp . '/' . $id . '_vignette.png';
 					break;
 				default :
 					$colonne = "data";
@@ -530,7 +530,7 @@ class Document extends ObjetBDD {
 	            $filename = $this->temp . '/' . $id . "x" . $resolution. "." . $data["extension"];
 	            break;
 	        case 2 :
-	            $filename = $this->temp . '/' . $id . '_vignette.'.$data["extension"];
+	            $filename = $this->temp . '/' . $id . '_vignette.png';
 	    }
 	    return $filename;
 	}
