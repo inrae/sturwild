@@ -7,10 +7,6 @@ php_flag session.cookie_secure on
 php_flag register_globals off
 php_flag magic_quotes_gpc true
 php_flag display_errors Off
-Header unset Content-Security-Policy
-Header add Content-Security-Policy "default-src 'self'"
-Header unset X-Content-Security-Policy
-Header add X-Content-Security-Policy "default-src 'self'"
 Header unset X-WebKit-CSP
 Header add X-WebKit-CSP "default-src 'self'"
 Header unset ETag
@@ -20,7 +16,7 @@ Header set X-Frame-Options SAMEORIGIN
 Header set X-XSS-Protection "1; mode=block"
 Header set X-Content-Type-Options "nosniff"
 Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
-Header Strict-Transport-Security "max-age=63072000"
+Header set Strict-Transport-Security "max-age=63072000"
 <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css)$">
     Header set Cache-Control "max-age=604800, private"
 </FilesMatch>
