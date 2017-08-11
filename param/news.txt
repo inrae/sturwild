@@ -1,5 +1,15 @@
 News
 ===========
+Version 1.1 du 11 aout 2017
+---------------------------
+Réécriture de l'interface, implémentations de sécurités complémentaires :
+- basculement vers une interface de type "responsive", s'adaptant aux tailles d'écran
+- implémentation d'une fonction de blocage des comptes en cas d'atteinte d'un nombre défini d'échecs de connexion, avec envoi de mails aux administrateurs
+- l'accès aux modules d'administration nécessite une réidentification
+- pour les connexions réalisées à partir de la base de données interne, il est possible de demander une réinitialisation du mot de passe par l'envoi d'un jeton dans un mail
+- mise à niveau des bibliothèques tierces
+- implémentation de nombreux contrôles complémentaires de sécurité
+
 Version 1.0.3 du 11 avril 2016
 ------------------------------
 Améliorations :
