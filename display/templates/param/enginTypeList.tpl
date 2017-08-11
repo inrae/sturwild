@@ -3,9 +3,7 @@
 <a href="index.php?module=enginTypeChange&engin_type_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("enginTypeListe");
-</script>
+
 <table id="enginTypeListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>

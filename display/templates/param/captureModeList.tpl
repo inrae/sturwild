@@ -3,9 +3,7 @@
 <a href="index.php?module=captureModeChange&capture_mode_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("captureModeListe");
-</script>
+
 <table id="captureModeListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>

@@ -3,9 +3,7 @@
 <a href="index.php?module=devenirChange&devenir_id=0"><img src="display/images/new.png" height="20">
 Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("devenirListe");
-</script>
+
 <table id="devenirListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>

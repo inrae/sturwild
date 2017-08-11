@@ -3,9 +3,7 @@
 <a href="index.php?module=captureTypeChange&capture_type_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("captureTypeListe");
-</script>
+
 <table id="captureTypeListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>

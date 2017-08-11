@@ -4,9 +4,6 @@
 <img src="display/images/new.png" height="20">
 Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("regionListe");
-</script>
 <table id="regionListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>

@@ -3,9 +3,7 @@
 <a href="index.php?module=milieuDetailChange&milieu_detail_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("milieuDetailListe");
-</script>
+
 <table id="milieuDetailListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>

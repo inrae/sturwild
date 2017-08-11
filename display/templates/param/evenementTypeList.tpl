@@ -3,9 +3,7 @@
 <a href="index.php?module=evenementTypeChange&evenement_type_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("evenementTypeListe");
-</script>
+
 <table id="evenementTypeListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>

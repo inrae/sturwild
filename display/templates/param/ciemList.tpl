@@ -3,9 +3,7 @@
 <a href="index.php?module=ciemChange&ciem_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("ciemListe");
-</script>
+
 <table id="ciemListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>

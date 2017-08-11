@@ -3,9 +3,7 @@
 <a href="index.php?module=especeChange&espece_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-<script>
-	setDataTablesFull("especeListe");
-</script>
+
 <table id="especeListe"  class="table table-bordered table-hover">
 	<thead>
 		<tr>
