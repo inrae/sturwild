@@ -15,7 +15,7 @@ Exporter la liste au format CSV</a>
 &nbsp;
 <a href="index.php?module=individuExport"><img src="display/images/csv_text.png" height="25">Exporter les poissons correspondants au format CSV</a>
 {/if}
-<table  id="declarationList"class="table table-bordered table-hover datatable " >
+<table  id="declarationList" data-order='[[0,"desc"]]' class="table table-bordered table-hover datatable " >
 <thead>
 <tr>
 <th>N°</th>
