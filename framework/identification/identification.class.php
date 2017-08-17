@@ -367,7 +367,7 @@ class Identification
         try {
             $res = $loginGestion->controlLogin($loginEntered, $password);
             if ($res) {
-                $login = $_REQUEST["login"];
+                $login = $loginEntered;
             }
         } catch (Exception $e) {
             $message->setSyslog($e->getMessage());
