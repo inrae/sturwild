@@ -10,6 +10,10 @@ $("#duplicate").on("click", function () {
 <img src="display/images/list.png" height="20">
 Retour à la liste</a>
 {if $droits.gestion ==1}
+<a href=index.php?module=declarationChange&declaration_id=0>
+<img src="display/images/new.png" height="25">
+Nouvelle déclaration...
+</a>
 <a id="duplicate" href="index.php?module=declarationDuplicate&declaration_id={$data.declaration_id}">
 <img src="display/images/copy.png" height="20">Dupliquer la déclaration</a>
 <br> 

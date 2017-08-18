@@ -75,6 +75,11 @@ class Evenement extends ObjetBDD {
 			if ($dataDecl["statut_id"] < $data["evenement_type_id"] && $data["evenement_type_id"] < 5) {
 				$dataDecl["statut_id"] = $data["evenement_type_id"];
 				$declaration->ecrire($dataDecl);
+				/*
+				 * Traitement de l'envoi des mails
+				 */
+				if (in_array($data["evenement_type_id"], array (3, 4)))
+				    sendMail($data["declaration_id"]);
 			}
 		}
 		return $id;

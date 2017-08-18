@@ -426,6 +426,7 @@ class Declaration extends ObjetBDD
              */
             $evenement = new Evenement($this->connection, $this->paramori);
             $dataEvnmt = $evenement->getDefaultValue($id);
+            $dataEvnmt["evenement_type_id"] = $data["statut_id"];
             $evenement->ecrire($dataEvnmt);
         }
         return $id;

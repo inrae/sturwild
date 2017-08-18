@@ -7,7 +7,7 @@ function sendMail($declaration_id)
 {
     global $log;
     global $APPLI_address;
-    global $MAIL_param, $MAIL_enabled;
+    global $MAIL_param, $MAIL_enabled, $message;
     global $bdd, $bdd_gacl, $ObjetBDDParam;
     if ($MAIL_enabled) {
         $id = $declaration_id;
@@ -47,11 +47,12 @@ function sendMail($declaration_id)
                     $log->setLog($_SESSION["login"], "sendmail_to:" . $dataLogin["mail"], $id);
                 } else {
                     $log->setLog($_SESSION["login"], "error_sendmail_to:" . $dataLogin["mail"], $id);
-                    global $message;
+                    $message->set("Erreur d'envoi d'un mail vers ".$dataLogin["mail"]);
                     $message->setSyslog("error_sendmail_to:" . $dataLogin["mail"]);
                 }
             }
         }
+        $message->set("Envoi des mails réalisé pour informer du changement de statut de la déclaration");
     }
 }
 ?>

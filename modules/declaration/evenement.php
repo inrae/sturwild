@@ -29,30 +29,9 @@ switch ($t_module["param"]) {
 		/*
 		 * write record in database
 		 */
-		/*
-		 * Recherche le statut initial de la declaration
-		 */
-		require_once 'modules/classes/declaration.class.php';
-		$declaration_id = $_REQUEST["declaration_id"];
-		if ($declaration_id == 0) {
-			$statutOld = 0;
-		} else {
-			$declaration = new Declaration($bdd, $ObjetBDDParam);
-			$dataStatut = $declaration->lire ( $declaration_id );
-			$statutOld = $dataStatut ["statut_id"];
-		}
 		$id = dataWrite($dataClass, $_REQUEST);
-		if ($id >= 0) {
+		if ($id >= 0) 
 			$_REQUEST[$keyName] = $id;
-			/*
-			 * Traitement du changement de statut : envoi d'un message si le statut vaut 3 ou 4
-			 */
-			if (($_REQUEST ["evenement_type_id"] == 3 || $_REQUEST ["evenement_type_id"] == 4) && $statutOld != $_REQUEST ["evenement_type_id"]) {
-				sendMail($declaration_id);
-				$message->set("Envoi des mails réalisé pour informer du changement de statut de la déclaration");
-			}
-				
-		}
 		break;
 	case "delete":
 		/*
