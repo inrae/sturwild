@@ -1,5 +1,17 @@
 News
 ===========
+Version 1.1.1 du 18 aout 2017
+-----------------------------
+Améliorations :
+- ajout d'un bouton permettant la création d'une nouvelle déclaration directement depuis la visualisation d'une autre, pour éviter de repasser par la liste à chaque fois
+- ajout d'un message après envoi des mails
+- dans le corps de la déclaration, si le statut est directement positionné à validé, l'événement correspondant est créé et les mails sont envoyés
+
+Correction de bugs :
+- avec la version 1.1, la mise à jour du statut de la déclaration après création d'un événement échouait
+- l'envoi des mails lors de la création d'un événement était aléatoire (bug ancien, enfin correctement analysé...)
+- dans le module d'administration, l'interface web ne reçoit plus le mot de passe (chiffré) précédemment enregistré
+
 Version 1.1 du 11 aout 2017
 ---------------------------
 Réécriture de l'interface, implémentations de sécurités complémentaires :
