@@ -105,7 +105,7 @@ while (isset($module)) {
             "BDD",
             "LDAP",
             "LDAP-BDD"
-        )) && ! isset($_REQUEST["login"]) && strlen($_SESSION["login"]) == 0 ) {
+        )) && ! isset($_REQUEST["login"]) && strlen($_SESSION["login"]) == 0) {
             /*
              * Gestion de la saisie du login
              */
@@ -253,7 +253,7 @@ while (isset($module)) {
             $motifErreur = "errorbefore";
         }
     }
-
+    
     /*
      * Verification s'il s'agit d'un module d'administration
      */
@@ -273,7 +273,7 @@ while (isset($module)) {
                 "BDD",
                 "LDAP",
                 "LDAP-BDD"
-            )) && ! isset($_REQUEST["loginAdmin"]) && $loginForm == false ) {
+            )) && ! isset($_REQUEST["loginAdmin"]) && $loginForm == false) {
                 /*
                  * saisie du login en mode admin
                  */
@@ -281,7 +281,7 @@ while (isset($module)) {
                 $resident = 0;
                 if ($t_module["retourlogin"] == 1)
                     $vue->set($_REQUEST["module"], "module");
-                    $message->set($LANG["login"][49]);
+                $message->set($LANG["login"][49]);
             } else {
                 /*
                  * Recuperation de l'identification
@@ -289,13 +289,12 @@ while (isset($module)) {
                 if (strlen($identification->verifyLogin($_REQUEST["loginAdmin"], $_REQUEST["password"], true)) > 0) {
                     $_SESSION["last_activity_admin"] = time();
                 } else {
-                    $resident = 0 ;
+                    $resident = 0;
                     $motifErreur = "adminko";
                 }
             }
         }
     }
-
     
     /*
      * fin d'analyse du module
@@ -310,9 +309,9 @@ while (isset($module)) {
             $message->set($log->getErrorData(1));
         } else
             $message->set($LANG["message"][38]);
-            $message->setSyslog($e->getMessage());
+        $message->setSyslog($e->getMessage());
     }
-
+    
     unset($module_coderetour);
     
     /*

@@ -115,6 +115,8 @@
  * @author quinton
  *        
  */
+class DocumentException extends Exception {}
+
 class MimeType extends ObjetBDD {
 	/**
 	 * Constructeur de la classe
@@ -143,7 +145,7 @@ class MimeType extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -221,7 +223,7 @@ class Document extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -470,7 +472,7 @@ class Document extends ObjetBDD {
 					rewind($docRef);
 					$document = stream_get_contents($docRef);
 					if ($document == false)
-					    throw new Exception("erreur de lecture ".$docRef);
+					    throw new DocumentException("erreur de lecture ".$docRef);
 				}
 				/*
 				 * Ecriture du document dans le dossier temporaire

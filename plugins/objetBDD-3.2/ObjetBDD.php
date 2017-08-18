@@ -56,6 +56,8 @@
  *               parent::__construct($link,$param);
  *       }
  */
+class ObjetBDDException extends Exception{}
+
 class ObjetBDD {
 	/**
 	 * Attributs
@@ -381,7 +383,7 @@ class ObjetBDD {
 			if ($this->debug_mode > 0) {
 				$this->addMessage ( $message );
 			}
-			throw new Exception ( $message );
+			throw new ObjetBDDException ( $message );
 		}
 	}
 	/**
@@ -680,8 +682,7 @@ class ObjetBDD {
 								"colonne" => $key,
 								"valeur" => $value 
 						);
-						throw new Exception ( $key . " is not numeric (" . $value . ")" );
-						return - 1;
+						throw new ObjetBDDException ( $key . " is not numeric (" . $value . ")" );
 					}
 					
 					if ($where != "")
@@ -703,8 +704,7 @@ class ObjetBDD {
 							"colonne" => $this->cle,
 							"valeur" => $data [$this->cle] 
 					);
-					throw new Exception ( $this->cle . " is not numeric (" . $data [$this->cle] . ")" );
-					return - 1;
+					throw new ObjetBDDException ( $this->cle . " is not numeric (" . $data [$this->cle] . ")" );
 				}
 				if (strlen ( preg_replace ( "#[^A-Z]+#", "", $this->cle ) ) > 0)
 					$cle = $this->quoteIdentifier . $this->cle . $this->quoteIdentifier;
@@ -1049,7 +1049,7 @@ class ObjetBDD {
 			$test = @strpos ( $date, $this->sepValide [$j] );
 			if ($test === false)
 				$j ++;
-		} while ( $j < count ( $this->sepValide ) and ($test === false) );
+		} while ( $j < count ( $this->sepValide ) && ($test === false) );
 		$separateurLocal = $this->sepValide [$j];
 		$temp = @explode ( $separateurLocal, $date );
 		/*
@@ -1171,7 +1171,7 @@ class ObjetBDD {
 			$res = - 1;
 			if ($this->debug_mode > 0)
 				$this->addMessage ( $e->getMessage () );
-			throw new Exception ( $e->getMessage () );
+			throw new ObjetBDDException ( $e->getMessage () );
 		}
 		return $res;
 	}
@@ -1204,7 +1204,7 @@ class ObjetBDD {
 							"colonne" => $key,
 							"valeur" => $value 
 					);
-					throw new Exception ( "not numeric value - " . $key . ":" . $value );
+					throw new ObjetBDDException ( "not numeric value - " . $key . ":" . $value );
 				}
 			}
 			/*
@@ -1219,7 +1219,7 @@ class ObjetBDD {
 							"valeur" => $value,
 							"demande" => $this->colonnes [$key] ["longueur"] 
 					);
-					throw new Exception ( "string length to height (" . $this->colonnes [$key] ["longueur"] . ") - " . $key . ":" . $value );
+					throw new ObjetBDDException ( "string length to height (" . $this->colonnes [$key] ["longueur"] . ") - " . $key . ":" . $value );
 				}
 			}
 			
@@ -1235,7 +1235,7 @@ class ObjetBDD {
 							"valeur" => $value,
 							"demande" => $this->colonnes [$key] ["pattern"] 
 					);
-					throw new Exception ( "pattern not compliant (" . $this->colonnes [$key] ["pattern"] . ") - " . $key . ":" . $value );
+					throw new ObjetBDDException ( "pattern not compliant (" . $this->colonnes [$key] ["pattern"] . ") - " . $key . ":" . $value );
 				}
 			}
 			
@@ -1253,7 +1253,7 @@ class ObjetBDD {
 							"colonne" => $value 
 					);
 					$testok = false;
-					throw new Exception ( "field required - " . $key );
+					throw new ObjetBDDException ( "field required - " . $key );
 				}
 			}
 		}
@@ -1269,7 +1269,7 @@ class ObjetBDD {
 							"colonne" => $key 
 					);
 					$testok = false;
-					throw new Exception ( "field required - " . $key );
+					throw new ObjetBDDException ( "field required - " . $key );
 				}
 			}
 		}
@@ -1346,14 +1346,14 @@ class ObjetBDD {
 	 */
 	private function utf8Encode($data) {
 		return $data;
-		if (is_array ( $data )) {
+/*		if (is_array ( $data )) {
 			foreach ( $data as $key => $value ) {
 				$data [$key] = $this->utf8Encode ( $value );
 			}
 		} else {
 			$data = utf8_encode ( $data );
 		}
-		return $data;
+		return $data;*/
 	}
 	
 	/**
@@ -1382,27 +1382,23 @@ class ObjetBDD {
 		}
 		/* Verification des types */
 		if (strlen ( $id ) == 0) {
-			throw new Exception ( "key is empty" );
-			return false;
+			throw new ObjetBDDException ( "key is empty" );
 		}
 		if (is_numeric ( $id ) == false) {
-			throw new Exception ( "key is not numeric (" . $id );
-			return false;
+			throw new ObjetBDDException ( "key is not numeric (" . $id );
 		}
 		/*
 		 * Verification du tableau de valeurs
 		 */
 		if (! is_array ( $lignes ) && strlen ( $lignes ) > 0) {
-			throw new Exception ( "data is not an array" );
-			return false;
+			throw new ObjetBDDException ( "data is not an array" );
 		}
 		
 		if (! is_array ( $lignes ))
 			$lignes = array ();
 		foreach ( $lignes as $key => $value ) {
 			if (! is_numeric ( $value )) {
-				throw new Exception ( $key . "(" . $value . ") is not numeric" );
-				return false;
+				throw new ObjetBDDException ( $key . "(" . $value . ") is not numeric" );
 			}
 		}
 		// Preparation de la requete de lecture des relations existantes
@@ -1455,7 +1451,7 @@ class ObjetBDD {
 			} catch ( PDOException $e ) {
 				if ($this->debug_mode > 0)
 					$this->addMessage ( $e->getMessage () );
-				throw new Exception ( $e->getMessage () );
+				throw new ObjetBDDException ( $e->getMessage () );
 			}
 		}
 		/*
@@ -1478,7 +1474,7 @@ class ObjetBDD {
 			} catch ( PDOException $e ) {
 				if ($this->debug_mode > 0)
 					$this->addMessage ( $e->getMessage () );
-				throw new Exception ( $e->getMessage () );
+				throw new ObjetBDDException ( $e->getMessage () );
 			}
 		}
 	}
@@ -1664,7 +1660,7 @@ class ObjetBDD {
 			$this->lastResultExec = false;
 			if ($this->debug_mode > 0)
 				$this->addMessage ( $e->getMessage () );
-			throw new Exception ( $e->getMessage () );
+			throw new ObjetBDDException ( $e->getMessage () );
 		}
 	}
 	/**
