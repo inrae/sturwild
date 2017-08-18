@@ -64,7 +64,7 @@ class Evenement extends ObjetBDD {
 	 * (non-PHPdoc)
 	 * @see ObjetBDD::write()
 	 */
-	function write($data) {
+	function ecrire($data) {
 		$id = parent::ecrire($data);
 		if ($id > 0 && is_numeric($id)) {
 			/*

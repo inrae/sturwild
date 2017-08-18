@@ -820,6 +820,8 @@ class ObjetBDD {
 		if ($mode == "modif") {
 			$sql = "update " . $this->table . " set ";
 			$i = 0;
+			if ($this->debug_mode == 2)
+			    printr($data);
 			foreach ( $data as $key => $value ) {
 				if ($i > 0)
 					$sql .= ",";
@@ -829,8 +831,10 @@ class ObjetBDD {
 					$cle = $this->quoteIdentifier . $key . $this->quoteIdentifier;
 				else
 					$cle = $key;
-				if ($value == '' || is_null ( $value )) {
+				if ( strlen ( $value ) == 0) {
 					// Traitement des null
+				    if ($this->debug_mode == 2) 
+				        echo "<br>Null value for ".$key;
 					$sql .= $cle . "=null";
 				} else {
 					$ds [$key] = $value;
@@ -849,7 +853,7 @@ class ObjetBDD {
 			$sql .= " where " . $where;
 		}
 		if ($this->debug_mode == 2) {
-			echo "sql : " . $sql . "<br>ds : ";
+			echo "<br>sql : " . $sql . "<br>ds : ";
 			print_r ( $ds );
 			echo "<br>";
 		}

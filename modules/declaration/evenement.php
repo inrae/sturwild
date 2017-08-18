@@ -38,7 +38,7 @@ switch ($t_module["param"]) {
 			$statutOld = 0;
 		} else {
 			$declaration = new Declaration($bdd, $ObjetBDDParam);
-			$dataStatut = $declaration->lire ( $id );
+			$dataStatut = $declaration->lire ( $declaration_id );
 			$statutOld = $dataStatut ["statut_id"];
 		}
 		$id = dataWrite($dataClass, $_REQUEST);
@@ -47,8 +47,9 @@ switch ($t_module["param"]) {
 			/*
 			 * Traitement du changement de statut : envoi d'un message si le statut vaut 3 ou 4
 			 */
-			if (($_REQUEST ["evenement_type_id"] == 3 || $_REQUEST ["evenement_type_id"] == 4) && statutOld != $_REQUEST ["evenement_type_id"]) {
+			if (($_REQUEST ["evenement_type_id"] == 3 || $_REQUEST ["evenement_type_id"] == 4) && $statutOld != $_REQUEST ["evenement_type_id"]) {
 				sendMail($declaration_id);
+				$message->set("Envoi des mails réalisé pour informer du changement de statut de la déclaration");
 			}
 				
 		}

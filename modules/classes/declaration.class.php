@@ -172,7 +172,8 @@ class Declaration extends ObjetBDD
                     "declaration_mode" => $data["declaration_mode"],
                     "statut_id" => 1,
                     "nombre_capture" => 1,
-                    "espece_id" => 1
+                    "espece_id" => 1,
+                    "qualite_identification" => 1
                 );
                 /*
                  * Creation de la nouvelle declaration
@@ -321,7 +322,7 @@ class Declaration extends ObjetBDD
 				zone_detail,
 				capture_mode_libelle, capture_type_libelle, capture_etat_libelle,
 				statut_libelle, engin_type_libelle,
-				longitude_dd, latitude_dd, devenir_libelle
+				longitude_dd, latitude_dd, devenir_libelle, qualite_identification
 				from declaration
 				join statut using (statut_id)
 				left outer join localisation using (declaration_id)
@@ -411,13 +412,13 @@ class Declaration extends ObjetBDD
      *
      * @see ObjetBDD::write()
      */
-    function write($data)
+    function ecrire($data)
     {
         /*
          * Teste s'il s'agit d'une creation
          */
         $data["declaration_id"] == 0 ? $creation = true : $creation = false;
-        $id = $this->ecrire($data);
+        $id = parent::ecrire($data);
         
         if ($id > 0 && is_numeric($id) && $creation == true) {
             /*
