@@ -38,7 +38,12 @@ switch ($t_module ["param"]) {
 		if ($id > 0) {
 			require_once 'modules/classes/document.class.php';
 			$document = new Document ( $bdd, $ObjetBDDParam );
+			try {
 			$vue->set ( $document->getListFromIndividu ( $id ), "dataDoc" );
+			} catch (DocumentException $de) {
+			    $message->set("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système.");
+			    $message->setSyslog($de->getMessage());
+			}
 			
 		}
 		break;

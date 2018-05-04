@@ -58,7 +58,12 @@ switch ($t_module["param"]) {
         
         require_once 'modules/classes/document.class.php';
         $document = new Document($bdd, $ObjetBDDParam);
-        $vue->set($document->getListFromDeclaration($id), "dataDoc");
+        try {
+            $vue->set($document->getListFromDeclaration($id), "dataDoc");
+        } catch (DocumentException $de) {
+            $message->set("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système.");
+            $message->setSyslog($de->getMessage());
+        }
         
         /*
          * Ajout des coordonnees pour l'affichage de la carte
@@ -135,13 +140,15 @@ switch ($t_module["param"]) {
 		$_SESSION["searchDeclaration"]->setParam($_REQUEST);
         $dataSearch = $_SESSION["searchDeclaration"]->getParam();
         if ($_SESSION["searchDeclaration"]->isSearch() == 1) {
-            $vue->setFilename("sturwild_individu-".date('d-m-Y' ) . ".csv");
+            $vue->setFilename("sturwild_individu-" . date('d-m-Y') . ".csv");
             $vue->setDelimiter("tab");
-            $vue->set($dataClass->getDataToExport ( $dataSearch ));
-            /*require_once 'modules/classes/export.class.php';
-            $export = new Export();
-            $export->exportCSVinit("sturwild_declaration", "tab");
-            $export->exportCSV($dataClass->getDataToExport($dataSearch), true);*/
+            $vue->set($dataClass->getDataToExport($dataSearch));
+            /*
+             * require_once 'modules/classes/export.class.php';
+             * $export = new Export();
+             * $export->exportCSVinit("sturwild_declaration", "tab");
+             * $export->exportCSV($dataClass->getDataToExport($dataSearch), true);
+             */
         }
         break;
     case "sturioByYear":
