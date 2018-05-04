@@ -1,5 +1,10 @@
 News
 ===========
+Version 1.1.2 du 4 mai 2018
+-----------------------------
+Correction d'un bug :
+- l'importation d'une photo avec l'extension jpeg (à la place de jpg) ne fonctionnait pas, et plantait l'application
+
 Version 1.1.1 du 18 aout 2017
 -----------------------------
 Améliorations :
