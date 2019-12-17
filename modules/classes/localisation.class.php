@@ -8,16 +8,16 @@
 
 /**
  * ORM de gestion de la table ciem
- * 
+ *
  * @author quinton
- *        
+ *
  */
 class Ciem extends ObjetBDD {
 	/**
 	 * Constructeur
-	 * 
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 *
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -29,12 +29,12 @@ class Ciem extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"ciem_libelle" => array (
 						"type" => 0,
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -43,16 +43,16 @@ class Ciem extends ObjetBDD {
 
 /**
  * ORM de gestion de la table milieu
- * 
+ *
  * @author quinton
- *        
+ *
  */
 class Milieu extends ObjetBDD {
 	/**
 	 * Constructeur
-	 * 
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 *
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -64,12 +64,12 @@ class Milieu extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"milieu_libelle" => array (
 						"type" => 0,
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -113,17 +113,17 @@ class MilieuDetail extends ObjetBDD {
 
 /**
  * ORM de gestion de la table pays
- * 
+ *
  * @author quinton
- *        
- *        
+ *
+ *
  */
 class Pays extends ObjetBDD {
 	/**
 	 * Constructeur
-	 * 
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 *
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -135,16 +135,16 @@ class Pays extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"pays_libelle" => array (
 						"type" => 0,
-						"requis" => 1 
+						"requis" => 1
 				),
 				"pays_order" => array (
 						"type" => 1,
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -152,16 +152,16 @@ class Pays extends ObjetBDD {
 }
 /**
  * ORM de gestion de la table region
- * 
+ *
  * @author quinton
- *        
+ *
  */
 class Region extends ObjetBDD {
 	/**
 	 * Constructeur
-	 * 
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 *
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -173,12 +173,12 @@ class Region extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"region_libelle" => array (
 						"type" => 0,
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -187,16 +187,16 @@ class Region extends ObjetBDD {
 
 /**
  * ORM de gestion de la table localisation
- * 
+ *
  * @author quinton
- *        
+ *
  */
 class Localisation extends ObjetBDD {
 	/**
 	 * Constructeur
-	 * 
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 *
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -210,49 +210,50 @@ class Localisation extends ObjetBDD {
 						"key" => 1
 				),
 				"pays_id" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"ciem_id" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"region_id" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"milieu_id" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"milieu_detail_id" => array(
 						"type" => 1
 				),
 				"zone_detail" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"longitude_gps" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"latitude_gps" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"longitude_declaree_dd" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"latitude_declaree_dd" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"longitude_estimee_dd" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"latitude_estimee_dd" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"longitude_dd" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"latitude_dd" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"geom" => array ("type"=>4)
 		);
+		$this->srid = 4326;
 		$param ["fullDescription"] = 1;
 		$param["srid"] = 4326;
 		parent::__construct ( $link, $param );

@@ -1,11 +1,11 @@
 <script>
-function convertGPSSecondeToDD(valeur) { 
+function convertGPSSecondeToDD(valeur) {
 	var parts = valeur.split(/[^\d]+/);
 	var dd = parseFloat(parts[0]) + parseFloat(parseFloat(parts[1])/60) + parseFloat(parseFloat(parts[2])/3600);
 	//dd = parseFloat(dd);
 	var lastChar = valeur.substr(-1).toUpperCase();
 	dd = Math.round(dd * 1000000) / 1000000;
-	if (lastChar == "S" || lastChar == "W" || lastChar == "O") {  
+	if (lastChar == "S" || lastChar == "W" || lastChar == "O") {
 		dd *= -1;
 	};
 	return dd;
@@ -29,18 +29,18 @@ $(document).ready(function() {
 	$(":input").focus(function() {
 		hasfocus = $(this).attr("name");
 	});
-	$("#longitude_declaree_dd,#longitude_estimee_dd").change(function() { 
+	$("#longitude_declaree_dd,#longitude_estimee_dd").change(function() {
 		var valeur = $(this).val();
 		$('#longitude_dd').val( valeur );
 		positionChange();
-		
+
 	});
-	$("#latitude_declaree_dd,#latitude_estimee_dd").change(function() { 
+	$("#latitude_declaree_dd,#latitude_estimee_dd").change(function() {
 		var valeur = $(this).val();
 		$('#latitude_dd').val( valeur );
 		positionChange();
 	});
-	$("#longitude_gps").change(function () {  
+	$("#longitude_gps").change(function () {
 		//alert($("input[name='degreType']:checked").val());
 		if ($("input[name='degreType']:checked").val() == 1  ) {
 			$('#longitude_declaree_dd').val ( convertGPSDecimalToDD($(this).val()));
@@ -51,7 +51,7 @@ $(document).ready(function() {
 			$('#longitude_declaree_dd').change();
 		};
 	});
-	$("#latitude_gps").change(function () {  
+	$("#latitude_gps").change(function () {
 		if ($("input[name='degreType']:checked").val() == 1 ) {
 			$('#latitude_declaree_dd').val ( convertGPSDecimalToDD($(this).val()));
 		} else {
@@ -70,7 +70,7 @@ $(document).ready(function() {
 	$("#localisation").submit(function (event) {
 		$("#"+hasfocus).trigger("change");
 	});
-	
+
 });
 </script>
 <h2>Modification de la localisation - N° {$data.declaration_id}</h2>
@@ -90,7 +90,7 @@ $(document).ready(function() {
 				<input type="hidden" name="declaration_id" value="{$data.declaration_id}">
 				<input type="hidden" name="moduleBase" value="localisation">
 				<input type="hidden" name="action" value="Write">
-				
+
 				<div class="form-group">
 					<label for="pays_id" class="control-label col-sm-4">
 						Pays :
@@ -211,7 +211,7 @@ $(document).ready(function() {
 						<button type="button" id="latCalc" title="recalculer..."><img src="display/images/calculator.png" height="20"></button>
 						</td></tr>
 						</table>
-					</div>						
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="" class="control-label col-sm-4">
@@ -248,7 +248,7 @@ $(document).ready(function() {
 						</td><td><input id="latitude_estimee_dd" name="latitude_estimee_dd" title="latitude" placeholder="45.154" value="{$data.latitude_estimee_dd}" autocomplete="off">
 						</td></tr>
 						</table>
-					</div>						
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="" class="control-label col-sm-4">
@@ -267,19 +267,19 @@ $(document).ready(function() {
 						</td><td><input class="position" id="latitude_dd" name="latitude_dd" title="latitude" placeholder="45.154" value="{$data.latitude_dd}" autocomplete="off">
 						</td></tr>
 						</table>
-					</div>						
+					</div>
 				</div>
-				
+
 				<div class="form-group center">
       				<button type="submit" class="btn btn-primary button-valid">{$LANG["message"].19}</button>
 				 </div>
-			</form>	
+			</form>
 			</div>
 	</fieldset>
 
 
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>	
+<span class="messagebas">Champ obligatoire</span>
 </div>
 <!-- Ajout de la carte pour visualiser le point de capture -->
 <div class="col-sm-6" style="height:400px;" id="map"></div>
@@ -291,12 +291,12 @@ function transform_geometry(element) {
 
 	  element.getGeometry().transform(current_projection, new_projection);
 	}
-	
+
 function setPosition(lon, lat) {
 	var lonlat = ol.proj.transform([parseFloat(lon),parseFloat(lat)], 'EPSG:4326', 'EPSG:3857');
 			point.setCoordinates (lonlat3857);
 		   view.setCenter(lonlat3857);
-}	
+}
 
 function positionChange() {
 	var lon = $("#longitude_dd").val();
@@ -323,7 +323,7 @@ var imageStyle = new ol.style.Style({
   			fill: new ol.style.Fill({
   			color: [255 , 0 , 0 , 0.2]
   		}),
-  		stroke: new ol.style.Stroke({ 
+  		stroke: new ol.style.Stroke({
  	 		color: [255 , 0 , 0 , 1],
   			width: 1
   		})
@@ -359,7 +359,7 @@ var attribution = new ol.control.Attribution({
 collapsible: false
 });
 
-var mousePosition = new ol.control.MousePosition( { 
+var mousePosition = new ol.control.MousePosition( {
     coordinateFormat: ol.coordinate.createStringXY(2),
     projection: 'EPSG:4326',
     target: undefined,
@@ -385,4 +385,3 @@ var layerPoint = new ol.layer.Vector({
 features.forEach(transform_geometry);
 map.addLayer(layerPoint);
 </script>
-			

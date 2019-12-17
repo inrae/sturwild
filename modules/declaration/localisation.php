@@ -21,26 +21,26 @@ switch ($t_module["param"]) {
 		if ($data[$keyName] == "") {
 			$data[$keyName] = $id;
 			$vue->set ( $data, "data" );
-			
+
 		}
 		/*
 		 * Lecture des tables de parametre
 		 */
 		$ciem = new Ciem($bdd, $ObjetBDDParam);
 		$vue->set ( $ciem->getListe(2), "ciem" );
-		
+
 		$pays = new Pays($bdd, $ObjetBDDParam);
 		$vue->set ( $pays->getListe(3), "pays" );
-		
+
 		$region = new Region($bdd, $ObjetBDDParam);
 		$vue->set ( $region->getListe(2), "region" );
-		
+
 		$milieu = new Milieu($bdd, $ObjetBDDParam);
 		$vue->set ( $milieu->getListe(2), "milieu" );
-		
+
 		$milieuDetail = new MilieuDetail($bdd, $ObjetBDDParam);
 		$vue->set ( $milieuDetail->getListe(2), "milieu_detail" );
-		
+
 		break;
 	case "write":
 		/*
