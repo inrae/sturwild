@@ -40,8 +40,10 @@
 // hack by Vangelis Haniotakis to handle the absence of $_SERVER['REQUEST_URI']
 // in IIS
 //
-if (!isset($_SERVER['REQUEST_URI']) && isset($_SERVER['SCRIPT_NAME']) && isset($_SERVER['QUERY_STRING'])) {
-    $_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING'];
+if (php_sapi_name() != 'cli') {
+    if (!isset($_SERVER['REQUEST_URI'])) {
+        $_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING'];
+    }
 }
 
 // Add a E_USER_DEPRECATED for php versions <= 5.2
@@ -61,7 +63,7 @@ if (!defined('E_USER_DEPRECATED')) {
 /**
  * phpCAS version. accessible for the user by phpCAS::getVersion().
  */
-define('PHPCAS_VERSION', '1.3.5');
+define('PHPCAS_VERSION', '1.3.3');
 
 /**
  * @addtogroup public
@@ -135,11 +137,6 @@ define("SAML_SOAP_ENV_CLOSE", '</SOAP-ENV:Envelope>');
  * SAML Attributes
  */
 define("SAML_ATTRIBUTES", 'SAMLATTRIBS');
-
-/**
- * SAML Attributes
- */
-define("DEFAULT_ERROR", 'Internal script failure');
 
 /** @} */
 /**
@@ -219,7 +216,6 @@ define("PHPCAS_LANG_GERMAN", 'CAS_Languages_German');
 define("PHPCAS_LANG_JAPANESE", 'CAS_Languages_Japanese');
 define("PHPCAS_LANG_SPANISH", 'CAS_Languages_Spanish');
 define("PHPCAS_LANG_CATALAN", 'CAS_Languages_Catalan');
-define("PHPCAS_LANG_CHINESE_SIMPLIFIED", 'CAS_Languages_ChineseSimplified');
 
 /** @} */
 
@@ -245,13 +241,7 @@ define("PHPCAS_LANG_DEFAULT", PHPCAS_LANG_ENGLISH);
 /**
  * The default directory for the debug file under Unix.
  */
-function gettmpdir() {
-if (!empty($_ENV['TMP'])) { return realpath($_ENV['TMP']); }
-if (!empty($_ENV['TMPDIR'])) { return realpath( $_ENV['TMPDIR']); }
-if (!empty($_ENV['TEMP'])) { return realpath( $_ENV['TEMP']); }
-return "/tmp";
-}
-define('DEFAULT_DEBUG_DIR', gettmpdir()."/");
+define('DEFAULT_DEBUG_DIR', '/tmp/');
 
 /** @} */
 
@@ -281,7 +271,6 @@ class phpCAS
     /**
      * This variable is used by the interface class phpCAS.
      *
-     * @var CAS_Client
      * @hideinitializer
      */
     private static $_PHPCAS_CLIENT;
@@ -300,15 +289,6 @@ class phpCAS
      * @hideinitializer
      */
     private static $_PHPCAS_DEBUG;
-
-    /**
-     * This variable is used to enable verbose mode
-     * This pevents debug info to be show to the user. Since it's a security
-     * feature the default is false
-     *
-     * @hideinitializer
-     */
-    private static $_PHPCAS_VERBOSE = false;
 
 
     // ########################################################################
@@ -408,16 +388,6 @@ class phpCAS
         phpCAS :: traceEnd();
     }
 
-    /**
-     * Answer whether or not the client or proxy has been initialized
-     *
-     * @return bool
-     */
-    public static function isInitialized ()
-    {
-        return (is_object(self::$_PHPCAS_CLIENT));
-    }
-
     /** @} */
     // ########################################################################
     //  DEBUGGING
@@ -465,38 +435,10 @@ class phpCAS
             self::$_PHPCAS_DEBUG['filename'] = $filename;
             self::$_PHPCAS_DEBUG['indent'] = 0;
 
-            phpCAS :: trace('START ('.date("Y-m-d H:i:s").') phpCAS-' . PHPCAS_VERSION . ' ******************');
+            phpCAS :: trace('START phpCAS-' . PHPCAS_VERSION . ' ******************');
         }
     }
 
-    /**
-     * Enable verbose errors messages in the website output
-     * This is a security relevant since internal status info may leak an may
-     * help an attacker. Default is therefore false
-     *
-     * @param bool $verbose enable verbose output
-     *
-     * @return void
-     */
-    public static function setVerbose($verbose)
-    {
-        if ($verbose === true) {
-            self::$_PHPCAS_VERBOSE = true;
-        } else {
-            self::$_PHPCAS_VERBOSE = false;
-        }
-    }
-
-
-    /**
-     * Show is verbose mode is on
-     *
-     * @return boot verbose
-     */
-    public static function getVerbose()
-    {
-        return self::$_PHPCAS_VERBOSE;
-    }
 
     /**
      * Logs a string in debug mode.
@@ -542,7 +484,6 @@ class phpCAS
      */
     public static function error($msg)
     {
-        phpCAS :: traceBegin();
         $dbg = debug_backtrace();
         $function = '?';
         $file = '?';
@@ -558,12 +499,8 @@ class phpCAS
                 }
             }
         }
-        if (self::$_PHPCAS_VERBOSE) {
-            echo "<br />\n<b>phpCAS error</b>: <font color=\"FF0000\"><b>" . __CLASS__ . "::" . $function . '(): ' . htmlentities($msg) . "</b></font> in <b>" . $file . "</b> on line <b>" . $line . "</b><br />\n";
-        } else {
-            echo "<br />\n<b>Error</b>: <font color=\"FF0000\"><b>". DEFAULT_ERROR ."</b><br />\n";
-        }
-        phpCAS :: trace($msg . ' in ' . $file . 'on line ' . $line );
+        echo "<br />\n<b>phpCAS error</b>: <font color=\"FF0000\"><b>" . __CLASS__ . "::" . $function . '(): ' . htmlentities($msg) . "</b></font> in <b>" . $file . "</b> on line <b>" . $line . "</b><br />\n";
+        phpCAS :: trace($msg);
         phpCAS :: traceEnd();
 
         throw new CAS_GracefullTerminationException(__CLASS__ . "::" . $function . '(): ' . $msg);
@@ -583,8 +520,7 @@ class phpCAS
     }
 
     /**
-     * This method is used to indicate the start of the execution of a function
-     * in debug mode.
+     * This method is used to indicate the start of the execution of a function in debug mode.
      *
      * @return void
      */
@@ -994,25 +930,6 @@ class phpCAS
         }
     }
 
-
-    /**
-     * Set a callback function to be run when receiving CAS attributes
-     *
-     * The callback function will be passed an $success_elements
-     * payload of the response (\DOMElement) as its first parameter.
-     *
-     * @param string $function       Callback function
-     * @param array  $additionalArgs optional array of arguments
-     *
-     * @return void
-     */
-    public static function setCasAttributeParserCallback($function, array $additionalArgs = array())
-    {
-        phpCAS::_validateClientExists();
-
-        self::$_PHPCAS_CLIENT->setCasAttributeParserCallback($function, $additionalArgs);
-    }
-
     /**
      * Set a callback function to be run when a user authenticates.
      *
@@ -1313,11 +1230,7 @@ class phpCAS
 
     /**
      * Set the serviceValidate URL of the CAS server.
-     * Used for all CAS versions of URL validations.
-     * Examples:
-     * CAS 1.0 http://www.exemple.com/validate
-     * CAS 2.0 http://www.exemple.com/validateURL
-     * CAS 3.0 http://www.exemple.com/p3/serviceValidate
+     * Used only in CAS 1.0 validations
      *
      * @param string $url the serviceValidate URL
      *
@@ -1339,11 +1252,7 @@ class phpCAS
 
     /**
      * Set the proxyValidate URL of the CAS server.
-     * Used for all CAS versions of proxy URL validations
-     * Examples:
-     * CAS 1.0 http://www.exemple.com/
-     * CAS 2.0 http://www.exemple.com/proxyValidate
-     * CAS 3.0 http://www.exemple.com/p3/proxyValidate
+     * Used for all CAS 2.0 validations
      *
      * @param string $url the proxyValidate URL
      *
@@ -1456,7 +1365,7 @@ class phpCAS
      * This method is used to logout from CAS. Halts by redirecting to the CAS
      * server.
      *
-     * @param string $service a URL that will be transmitted to the CAS server
+     * @param service $service a URL that will be transmitted to the CAS server
      *
      * @return void
      */
@@ -1727,8 +1636,7 @@ class phpCAS
         phpCAS::_validateClientExists();
 
         if (self::$_PHPCAS_CLIENT->getServerVersion() !== CAS_VERSION_2_0
-            && self::$_PHPCAS_CLIENT->getServerVersion() !== CAS_VERSION_3_0
-        ) {
+            && self::$_PHPCAS_CLIENT->getServerVersion() !== CAS_VERSION_3_0) {
             phpCAS :: error('this method can only be used with the cas 2.0/3.0 protocols');
         }
         self::$_PHPCAS_CLIENT->getAllowedProxyChains()->allowProxyChain($proxy_chain);
@@ -1826,16 +1734,6 @@ class phpCAS
         if (!is_object(self::$_PHPCAS_CLIENT)) {
             throw new CAS_OutOfSequenceBeforeProxyException();
         }
-    }
-
-    /**
-     * For testing purposes, use this method to set the client to a test double
-     *
-     * @return void
-     */
-    public static function setCasClient(\CAS_Client $client)
-    {
-        self::$_PHPCAS_CLIENT = $client;
     }
 }
 // ########################################################################

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<menu>
+<menu xmlns:its="http://www.w3.org/2005/11/its" its:version="2.0">
+	<its:rules version="2.0">
+		<its:translateRule selector="//item/@label" translate="yes"/>
+		<its:translateRule selector="//item/@tooltip" translate="yes"/>
+	</its:rules>
 <item module="declarationList" title="1" value="0">
 	<item module="declarationList" title="1" value="0"/>
 	<item module="declarationNbSturioByYear" value="110" title="111" droits="consult"/>
@@ -10,7 +14,6 @@
 	<item module="milieuList" value="480" title="481" droits="gestion"/>
 	<item module="milieuDetailList" value="560" title="561" droits="gestion"/>
 	<item module="regionList" value="490" title="491" droits="gestion"/>
-	<!--item module="enginList" value="500" title="501" droits="gestion"/-->
 	<item module="especeList" value="510" title="511" droits="gestion"/>
 	<item module="devenirList" value="520" title="521" droits="gestion"/>
 	<item module="captureModeList" value="530" title="531" droits="gestion"/>
@@ -20,22 +23,29 @@
 	<item module="evenementTypeList" value="550" title="551" droits="gestion"/>
 
 </item>
-
-<item module="administration" value="4" title="5" droits="admin">
-	<item module="loginList" droits="admin" title="3" value="2"/>
-	<item module="appliList" droits="admin" value="appliliste" title="applilistetitle"/>
-	<item module="aclloginList" droits="admin" value="aclloginliste" title="aclloginlistetitle"/>
-	<item module="groupList" droits="admin" value="groupliste" title="grouplistetitle"/>
-	<item module="phpinfo" droits="admin" value="phpinfo" title="phpinfotitle"/>
-</item>
-<item module="connexion" title="connexiontitle" value="connexionvalue" onlynoconnect="1"/>
-<item module="disconnect" title="7" value="6" loginrequis="1">
-	<item module="loginChangePassword" loginrequis="1" title="pwchangetitle" value="pwchange" />
-</item>
-<item module="apropos" title="21" value="20">
-	<item module="apropos" title="9" value="8"/>
-	<item module="quoideneuf" title="41" value="40"/>
-	<item module="setlanguagefr" title="frtitle" value="fr"/>
-	<item module="setlanguageen" title="entitle" value="en"/>
-</item>
+	<item module="administration" label="Administration" tooltip="Administration de l'application" droits="admin">
+		<item module="loginList" droits="admin" label="Liste des comptes locaux" tooltip="Liste des logins - identification via la base de données"/>
+		<item module="appliList" droits="admin" label="ACL - droits" tooltip="applications et droits gérés"/>
+		<item module="aclloginList" droits="admin" label="ACL - logins" tooltip="Logins déclarés dans le module de gestion des droits"/>
+		<item module="groupList" droits="admin" label="ACL - groupes de logins" tooltip="Groupes de logins et logins rattachés aux groupes"/>
+		<item module="dbparamList" droits="admin" label="Paramètres de l'application" tooltip="Liste des paramètres pérennes de l'application" />
+		<item divider='1'/>
+		<item module="dbstructureSchema" droits="admin" label="Schéma de la base de données" tooltip="Schéma de la base de données"/>
+		<item module="dbstructureHtml" droits='admin' label="Structure de la base de données (HTML)" tooltip="Liste des tables et des colonnes"/>
+		<item module="dbstructureLatex" droits='admin' label="Structure de la base de données (Latex)" tooltip="Liste des tables et des colonnes sous forme de tableaux Latex"/>
+		<item module="dbstructureGacl" droits="admin" label="Structure de la base de données des droits (HTML)" tooltip="Liste des tables et des colonnes de la base de données de gestion des droits"/>
+		<item module="phpinfo" droits="admin" label="PHP info" tooltip="configuration générale du serveur PHP"/>
+	</item>
+	<item module="connexion" label="Connexion" tooltip="S'identifier dans l'application" onlynoconnect="1"/>
+	<item module="disconnect" label="Déconnexion" tooltip="Déconnexion de l'application" loginrequis="1">
+		<item module="getLastConnections" label="Dernières connexions" tooltip="Liste des dernières connexions réalisées" loginrequis="1"/>
+		<item module="loginChangePassword" loginrequis="1" label="Modifier le mot de passe" tooltip="Modifiez votre mot de passe (identification locale uniquement)" />
+	</item>
+	<item module="aide" label="?" tooltip="Aide">
+		<item module="apropos" label="A propos" tooltip="A propos de Collec-Science"/>
+		<item module="quoideneuf" label="Nouveautés" tooltip="Quoi de neuf dans l'application ?"/>
+		<item module="lexique" label="Lexique" tooltip="Lexique des termes utilisés dans le logiciel" />
+		<item module="setlanguagefr" label="Français" tooltip="Libellés en français"/>
+		<item module="setlanguageen" label="English" tooltip="Labels in English"/>
+	</item>
 </menu>

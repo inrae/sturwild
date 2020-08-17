@@ -1,63 +1,17 @@
-$(document).ready(function() {
 
-	$('.button-delete').keypress(function() {
-		if (confirm("Confirmez-vous la suppression ?") == true) {
-			$(this.form).find("input[name='action']").val("Delete");
-			$(this.form).submit();
-		} else
-			return false;
-	});
-	$(".button-delete").click(function() {
-		if (confirm("Confirmez-vous la suppression ?") == true) {
-			$(this.form).find("input[name='action']").val("Delete");
-			$(this.form).submit();
-		} else {
-			return false;
-		}
-	});
+$(document).ready(function() {
+	
 
 });
-/**
- * Fonction permettant de verifier que les mots de passe entres dans les deux
- * zones sont identiques
- * 
- * @param pass1
- * @param pass2
- * @returns {Boolean}
- */
-function verifieMdp(pass1, pass2) {
-	if (pass1.value != pass2.value && pass1.value.length > 0
-			&& pass2.value.length > 0) {
-		alert("\erreur: les mots de passes ne correspondent pas");
-		action.value = "X";
-		return false;
-	} else {
-		return true;
-	}
-}
-/**
- * Fonction verifiant la volonte de suppression
- * 
- * @returns {Boolean}
- */
-function confirmSuppression(texte) {
-	if (texte.length == 0)
-		texte = "Confirmez-vous la suppression ?";
-	return confirmEnvoi(texte);
-}
+
 /**
  * Fonction de generation aleatoire d'un mot de passe
  * 
  * @returns {String}
  */
-function GeneratePassword() {
-
-	if (parseInt(navigator.appVersion) <= 3) {
-		alert("Sorry this only works in 4.0+ browsers");
-	}
-
-	var length = 10;
+function GeneratePassword(length) {
 	var sPassword = "";
+	console.log(length);
 	// length =
 	// document.aForm.charLen.options[document.aForm.charLen.selectedIndex].value;
 
@@ -95,12 +49,12 @@ function getRandomNum() {
 }
 
 function checkPunc(num) {
-	if (((num >= 33) && (num <= 47)) || ((num >= 58) && (num <= 64))) {
+	if (num == 33 || ((num >= 35) && (num <= 47)) || ((num >= 58) && (num <= 64))) {
 		return true;
 	}
-	if (((num >= 91) && (num <= 96)) || ((num >= 123) && (num <= 126))) {
+	/*if (((num >= 91) && (num <= 96)) || ((num >= 123) && (num <= 126))) {
 		return true;
-	}
+	}*/
 	return false;
 }
 
@@ -163,8 +117,8 @@ function verifyLength(password) {
  * Fin de la fonction de generation aleatoire d'un mot de passe
  */
 
-function getPassword(password1, password2, display) {
-	sPassword = GeneratePassword();
+function getPassword(password1, password2, display, length) {
+	sPassword = GeneratePassword(length);
 	document.getElementById(password1).value = sPassword;
 	document.getElementById(password2).value = sPassword;
 	document.getElementById(display).value = sPassword;

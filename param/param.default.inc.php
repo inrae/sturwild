@@ -47,8 +47,6 @@ $LOG_duree = 365;
 $ident_header_login_var = "AUTH_USER";
 $ident_header_logout_address = "https://server/cas/logout";
 $ident_type = "BDD";
-$CAS_address = "http://localhost/CAS";
-$CAS_port = 443;
 $LDAP = array(
 		"address"=>"localhost",
 		"port" => 389,
@@ -104,12 +102,14 @@ $APPLI_titre = "Software Name";
  * Variables systematiques pour SMARTY
  */
 $SMARTY_variables = array(
-		"entete"=>"entete.tpl",
-		"enpied"=>"enpied.tpl",
-		"corps"=>"main.tpl",
-		"melappli"=>$APPLI_mail,
-		"ident_type"=>$ident_type,
-        "appliAssist"=>$APPLI_assist_address
+	"entete"=>"entete.tpl",
+	"enpied"=>"enpied.tpl",
+	"corps"=>"main.tpl",
+	"melappli"=>$APPLI_mail,
+	"ident_type"=>$ident_type,
+			"appliAssist"=>$APPLI_assist_address,
+			"display"=>"/display",
+			"favicon"=>"/favicon.png"
 );
 /*
  * Variables liees a GACL et l'identification via base de donnees
@@ -180,7 +180,19 @@ $CONNEXION_blocking_duration = 600;
 /*
  * Laps de temps avant de renvoyer un mail a l'administrateur en cas de blocage de compte
  */
-$APPLI_mailToAdminPeriod = 7200; 
+$APPLI_mailToAdminPeriod = 7200;
 $APPLI_admin_ttl = 600; // Duree maxi d'inactivite pour acceder a un module d'administration
 $APPLI_lostPassword = 0; // Autorise la recuperation d'un nouveau mot de passe en cas de perte
+
+$APPLI_passwordMinLength = 12;
+$APPLI_lostPassword = 1; // Autorise la recuperation d'un nouveau mot de passe en cas de perte
+$APPLI_hour_duration = 3600; // Duration of an hour for count all calls to a module
+$APPLI_day_duration = 36000; //Duration of a day for count all calls to a module
+$MAIL_enabled = 1; // send mails
+
+$CAS_address = "localhost/CAS"; // Address of CAS server
+$CAS_port = 443; //port of CAS server
+$CAS_debug = false; // Activation of debug mode
+$CAS_CApath=""; // path to the certificate of the CAS
+$GACL_disable_new_right = 0;
 ?>

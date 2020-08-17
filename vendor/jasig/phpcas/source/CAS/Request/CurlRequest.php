@@ -67,7 +67,7 @@ implements CAS_Request_RequestInterface
         /*********************************************************
          * initialize the CURL session
         *********************************************************/
-        $ch = $this->initAndConfigure();
+        $ch = $this->_initAndConfigure();
 
         /*********************************************************
          * Perform the query
@@ -99,7 +99,7 @@ implements CAS_Request_RequestInterface
      *
      * @return resource The cURL handle on success, false on failure
      */
-    public function initAndConfigure()
+    private function _initAndConfigure()
     {
         /*********************************************************
          * initialize the CURL session
@@ -129,7 +129,6 @@ implements CAS_Request_RequestInterface
             phpCAS::trace('CURL: Set CURLOPT_CAINFO ' . $this->caCertPath);
         } else {
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         }
 
         /*********************************************************
