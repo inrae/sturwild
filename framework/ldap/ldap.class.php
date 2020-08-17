@@ -56,14 +56,13 @@ class Ldap
     function connect()
     {
         $this->idldap = @ldap_connect($this->LDAP["address"], $this->LDAP["port"]);
+        /**
+         * Set options
+         */
+        ldap_set_option($this->idldap, LDAP_OPT_NETWORK_TIMEOUT, $this->LDAP["timeout"]);
+        ldap_set_option($this->idldap, LDAP_OPT_TIMELIMIT, $this->LDAP["timeout"]);
+        ldap_set_option($this->idldap, LDAP_OPT_TIMEOUT, $this->LDAP["timeout"]);
         if ($this->idldap > 0) {
-            /**
-             * Set options
-             */
-            ldap_set_option($this->idldap, LDAP_OPT_NETWORK_TIMEOUT, $this->LDAP["timeout"]);
-            ldap_set_option($this->idldap, LDAP_OPT_TIMELIMIT, $this->LDAP["timeout"]);
-            ldap_set_option($this->idldap, LDAP_OPT_TIMEOUT, $this->LDAP["timeout"]);
-
             if ($this->LDAP["v3"] == 1) {
                 ldap_set_option($this->idldap, LDAP_OPT_PROTOCOL_VERSION, 3);
             }

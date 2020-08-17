@@ -436,7 +436,7 @@ class Aclgroup extends ObjetBDD
                     }
                 }
             } else {
-                throw new LdapException("Connexion à l'annuaire LDAP impossible");
+                throw new LdapException(_("Connexion à l'annuaire LDAP impossible"));
             }
         }
         /*

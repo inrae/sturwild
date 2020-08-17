@@ -149,6 +149,12 @@ class Identification
                 }
             }
             $ldap = @ldap_connect($this->LDAP["address"], $this->LDAP["port"]);
+            /**
+             * Set options
+             */
+            ldap_set_option($ldap, LDAP_OPT_NETWORK_TIMEOUT, $this->LDAP["timeout"]);
+            ldap_set_option($ldap, LDAP_OPT_TIMELIMIT, $this->LDAP["timeout"]);
+            ldap_set_option($ldap, LDAP_OPT_TIMEOUT, $this->LDAP["timeout"]);
             if (!$ldap) {
                 throw new LdapException("Impossible de se connecter au serveur LDAP.");
             }
@@ -158,12 +164,7 @@ class Identification
             if ($this->LDAP["tls"]) {
                 ldap_start_tls($ldap);
             }
-            /**
-             * Set options
-             */
-            ldap_set_option($ldap, LDAP_OPT_NETWORK_TIMEOUT, $this->LDAP["timeout"]);
-            ldap_set_option($ldap, LDAP_OPT_TIMELIMIT, $this->LDAP["timeout"]);
-            ldap_set_option($ldap, LDAP_OPT_TIMEOUT, $this->LDAP["timeout"]);
+            
             /*
              * Pour OpenLDAP et Active Directory, "bind rdn" de la forme : user_attrib=login,basedn
              *     avec généralement user_attrib=uid pour OpenLDAP,
