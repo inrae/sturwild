@@ -395,6 +395,12 @@ class Aclgroup extends ObjetBDD
             include_once "framework/ldap/ldap.class.php";
             $ldap = new Ldap($ldapParam["address"], $ldapParam["basedn"]);
             $conn = $ldap->connect();
+            /**
+             * Set the parameters
+             */
+            ldap_set_option($conn, LDAP_OPT_NETWORK_TIMEOUT, $ldapParam["timeout"]);
+            ldap_set_option($conn, LDAP_OPT_TIMELIMIT, $ldapParam["timeout"]);
+            ldap_set_option($conn, LDAP_OPT_TIMEOUT, $ldapParam["timeout"]);
             if ($conn > 0) {
                 $attribut = array(
                     $ldapParam['commonNameAttrib'],

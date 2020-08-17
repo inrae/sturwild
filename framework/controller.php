@@ -83,7 +83,7 @@ try {
                 $request_uri = substr($request_uri, 1);
             }
             $uri = explode("/", $request_uri);
-            if (count($uri) > 2 && $uri[1] != $display) {
+            if (count($uri) > 2 && $uri[1] != "display") {
                 /**
                  * Extraction le cas echeant des variables GET
                  */

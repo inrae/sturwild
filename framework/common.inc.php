@@ -145,15 +145,7 @@ if ($ident_type == "CAS") {
     include_once "vendor/jasig/phpcas/CAS.php";
     $identification->init_CAS($CAS_address, $CAS_port, "", $CAS_debug, $CAS_CApath);
 } elseif ($ident_type == "LDAP" || $ident_type == "LDAP-BDD") {
-    $identification->init_LDAP(
-        $LDAP["address"],
-        $LDAP["port"],
-        $LDAP["basedn"],
-        $LDAP["user_attrib"],
-        $LDAP["v3"],
-        $LDAP["tls"],
-        $LDAP["upn_suffix"]
-    );
+    $identification->init_LDAP($LDAP);
 }
 /*
  * Chargement des fonction generiques
