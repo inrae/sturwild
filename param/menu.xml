@@ -4,23 +4,23 @@
 		<its:translateRule selector="//item/@label" translate="yes"/>
 		<its:translateRule selector="//item/@tooltip" translate="yes"/>
 	</its:rules>
-<item module="declarationList" title="1" value="0">
-	<item module="declarationList" title="1" value="0"/>
-	<item module="declarationNbSturioByYear" value="110" title="111" droits="consult"/>
+<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations">
+	<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations"/>
+	<item module="declarationNbSturioByYear" label="Nb Sturio par année" tooltip="Nombre d'Esturgeons d'Europe capturés par année" droits="consult"/>
 </item>
-<item module="parametre" value="450" title="451" droits="param,gestion">
-	<item module="ciemList" value="460" title="461" droits="gestion"/>
-	<item module="paysList" value="470" title="471" droits="gestion"/>
-	<item module="milieuList" value="480" title="481" droits="gestion"/>
-	<item module="milieuDetailList" value="560" title="561" droits="gestion"/>
-	<item module="regionList" value="490" title="491" droits="gestion"/>
-	<item module="especeList" value="510" title="511" droits="gestion"/>
-	<item module="devenirList" value="520" title="521" droits="gestion"/>
-	<item module="captureModeList" value="530" title="531" droits="gestion"/>
-	<item module="captureTypeList" value="540" title="541" droits="gestion"/>
-	<item module="captureEtatList" value="580" title="581" droits="gestion"/>
-	<item module="enginTypeList" value="570" title="571" droits="gestion"/>
-	<item module="evenementTypeList" value="550" title="551" droits="gestion"/>
+<item module="parametre" label="Paramètres" tooltip="Tables de paramètres" droits="param,gestion">
+	<item module="ciemList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="gestion" />
+	<item module="paysList" label="Pays" tooltip="Liste des pays" droits="gestion"/>
+	<item module="milieuList" label="Milieux" tooltip="Liste des milieux" droits="gestion"/>
+	<item module="milieuDetailList" label="Milieux détaillés" tooltip="Liste des milieux détaillés" droits="gestion"/>
+	<item module="regionList" label="Régions" tooltip="Liste des régions" droits="gestion"/>
+	<item module="especeList" label="Espèces" tooltip="Liste des espèces d'esturgeon" droits="gestion"/>
+	<item module="devenirList" label="Devenirs" tooltip="Liste des destinations des esturgeons capturés" droits="gestion"/>
+	<item module="captureModeList" label="Modes de capture" tooltip="Liste des modes de capture" droits="gestion"/>
+	<item module="captureTypeList" label="Types de capture" tooltip="Liste des types de capture" droits="gestion"/>
+	<item module="captureEtatList" label="États à la capture" tooltip="Liste des états à la capture" droits="gestion"/>
+	<item module="enginTypeList" label="Engins" tooltip="Liste des engins utilisés" droits="gestion"/>
+	<item module="evenementTypeList" label="Types d'événements" tooltip="Liste des types d'événements" droits="gestion"/>
 
 </item>
 	<item module="administration" label="Administration" tooltip="Administration de l'application" droits="admin">

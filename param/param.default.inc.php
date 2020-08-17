@@ -107,9 +107,9 @@ $SMARTY_variables = array(
 	"corps"=>"main.tpl",
 	"melappli"=>$APPLI_mail,
 	"ident_type"=>$ident_type,
-			"appliAssist"=>$APPLI_assist_address,
-			"display"=>"/display",
-			"favicon"=>"/favicon.png"
+	"appliAssist"=>$APPLI_assist_address,
+	"display"=>"/display",
+	"favicon"=>"/favicon.png"
 );
 /*
  * Variables liees a GACL et l'identification via base de donnees
@@ -144,8 +144,8 @@ $APPLI_notSSL = false;
  * Cles privee et publique utilisees 
  * pour la generation des jetons
  */
-$privateKey = "/etc/ssl/private/ssl-cert-snakeoil.key";
-$pubKey = "/etc/ssl/certs/ssl-cert-snakeoil.pem";
+$privateKey = "param/id_sturwild";
+$pubKey = "param/id_sturwild.pub";
 /*
  * Duree de validite du token d'identification
  */
