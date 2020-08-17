@@ -271,7 +271,7 @@ $(document).ready(function() {
 				</div>
 
 				<div class="form-group center">
-      				<button type="submit" class="btn btn-primary button-valid">{$LANG["message"].19}</button>
+      				<button type="submit" class="btn btn-primary button-valid">{t}Valider{/t}</button>
 				 </div>
 			</form>
 			</div>

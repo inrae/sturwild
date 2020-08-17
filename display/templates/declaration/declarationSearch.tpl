@@ -129,7 +129,7 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 </div>
 <div class="form-group">
-<input type="submit" class="btn btn-success col-sm-offset-4 col-sm-2" value="{$LANG['message'][21]}" autofocus>
+<input type="submit" class="btn btn-success col-sm-offset-4 col-sm-2" value="{t}Rechercher{/t}" autofocus>
  <label for="annee_fin" class="col-sm-2 control-label">à </label>
  <div class="col-sm-2">
 <select class="form-control" id="annee_fin" name="annee_fin">

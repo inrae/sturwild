@@ -9,28 +9,28 @@
 /*
  * Suppression des photos de plus de 24 heures dans le dossier temporaire
  */
-if (strlen ( $APPLI_nomDossierStockagePhotoTemp ) > 0) {
+/*
+ * Suppression des documents de plus de 24 heures dans le dossier temporaire
+ */
+if (strlen($APPLI_temp) > 0) {
 	$dureeVie = 3600 * 24; // Suppression de tous les fichiers de plus de 24 heures
 	/*
-	* Ouverture du dossier
-	*/
-	$dossier = opendir ( $APPLI_nomDossierStockagePhotoTemp );
-	while ( false !== ($entry = readdir ( $dossier )) ) {
-		$path = $APPLI_nomDossierStockagePhotoTemp . "/" . $entry;
-		$file = fopen($path, 'r');
-		$stat = fstat($file);
-		$atime = $stat["atime"];
-		fclose($file);
-		$infos = pathinfo ( $path );
-		$nomfichier = $infos["basename"];
-
-		if (! $nomfichier == "nodelete.txt" && ! is_dir($path)) {
-			$age = time () - $atime;
-			if ($age > $dureeVie) {
-				unlink ( $path );
+	 * Ouverture du dossier
+	 */
+	$dossier = opendir($APPLI_temp);
+	while (false !== ($entry = readdir($dossier))) {
+			$path = $APPLI_temp . "/" . $entry;
+			$file = fopen($path, 'r');
+			$stat = fstat($file);
+			$atime = $stat["atime"];
+			fclose($file);
+			$infos = pathinfo($path);
+			if (! is_dir($path) && ($infos["basename"] != ".htaccess")) {
+					$age = time() - $atime;
+					if ($age > $dureeVie) {
+							unlink($path);
+					}
 			}
-		}
 	}
-	closedir ( $dossier );
+	closedir($dossier);
 }
-?>

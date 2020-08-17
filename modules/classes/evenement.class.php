@@ -103,7 +103,7 @@ class Evenement extends ObjetBDD {
 			 * Recherche des des utilisateurs ayant cree les evenements
 			 */
 			global $bdd_gacl;
-			require_once 'framework/identification/identification.class.php';
+			require_once 'framework/identification/loginGestion.class.php';
 			$loginGestion = new LoginGestion ( $bdd_gacl, $this->paramori );
 			foreach ( $data as $key => $value ) {
 				if (strlen ( $value ["login"] ) > 0) {

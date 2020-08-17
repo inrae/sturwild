@@ -61,7 +61,8 @@ $LDAP = array(
 		"mailAttrib"=>"mail",
 		'attributgroupname' => "cn",
 		'attributloginname' => "memberuid",
-		'basedngroup' => 'ou=example,o=societe,c=fr'
+		'basedngroup' => 'ou=example,o=societe,c=fr',
+		"timeout"=>1
 );
 
 /*
@@ -182,7 +183,6 @@ $CONNEXION_blocking_duration = 600;
  */
 $APPLI_mailToAdminPeriod = 7200;
 $APPLI_admin_ttl = 600; // Duree maxi d'inactivite pour acceder a un module d'administration
-$APPLI_lostPassword = 0; // Autorise la recuperation d'un nouveau mot de passe en cas de perte
 
 $APPLI_passwordMinLength = 12;
 $APPLI_lostPassword = 1; // Autorise la recuperation d'un nouveau mot de passe en cas de perte
@@ -194,5 +194,6 @@ $CAS_address = "localhost/CAS"; // Address of CAS server
 $CAS_port = 443; //port of CAS server
 $CAS_debug = false; // Activation of debug mode
 $CAS_CApath=""; // path to the certificate of the CAS
-$GACL_disable_new_right = 0;
+$GACL_disable_new_right = 1;
+
 ?>
