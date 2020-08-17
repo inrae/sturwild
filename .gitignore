@@ -184,3 +184,5 @@ sympy-plots-for-*.tex/
 *.bak
 *.sav
 /.scannerwork/*
+/param/id_sturwild
+/param/id_sturwild.pub
