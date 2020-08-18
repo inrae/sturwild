@@ -117,8 +117,7 @@
  *        
  */
 class DocumentException extends Exception
-{
-}
+{ }
 
 class MimeType extends ObjetBDD
 {
@@ -151,7 +150,7 @@ class MimeType extends ObjetBDD
                 "requis" => 1
             )
         );
-        if (! is_array($param))
+        if (!is_array($param))
             $param = array();
         $param["fullDescription"] = 1;
         parent::__construct($bdd, $param);
@@ -185,7 +184,7 @@ class Document extends ObjetBDD
 {
 
     public $temp = "temp";
- // Chemin de stockage des images générées à la volée
+    // Chemin de stockage des images générées à la volée
     /**
      * Constructeur de la classe
      *
@@ -193,12 +192,13 @@ class Document extends ObjetBDD
      *            $bdd
      * @param array $param
      */
-    function __construct($bdd, $param = null)
+    function __construct($bdd, $param = array())
     {
-        $this->paramori = $param;
-        $this->param = $param;
+        global $APPLI_temp;
+        if (strlen($APPLI_temp) > 0) {
+            $this->temp = $APPLI_temp;
+        }
         $this->table = "document";
-        $this->id_auto = 1;
         $this->colonnes = array(
             "document_id" => array(
                 "type" => 1,
@@ -237,9 +237,6 @@ class Document extends ObjetBDD
                 "defaultValue" => 0
             )
         );
-        if (! is_array($param))
-            $param = array();
-        $param["fullDescription"] = 1;
         parent::__construct($bdd, $param);
     }
 
@@ -344,7 +341,7 @@ class Document extends ObjetBDD
                     7
                 )))
                     $data[$key]["thumbnail_name"] = $this->writeFileImage($value["document_id"], 2);
-                
+
                 if (in_array($value["mime_type_id"], array(
                     4,
                     5,
@@ -411,7 +408,7 @@ class Document extends ObjetBDD
                  * Ecriture du document
                  */
                 $dataBinaire = fread(fopen($file["tmp_name"], "r"), $file["size"]);
-                
+
                 $dataDoc["data"] = pg_escape_bytea($dataBinaire);
                 if ($extension == "pdf" || $extension == "png" || $extension == "jpg" || $extension == "jpeg") {
                     $image = new Imagick();
@@ -469,56 +466,64 @@ class Document extends ObjetBDD
                     $colonne = "data";
                     $filename = $this->temp . '/' . $id . "-" . $data["document_nom"];
             }
-            
+
             /*
              * Traitement des photos
              */
-            if (! file_exists($filename)) {
+            if (!file_exists($filename)) {
                 try {
                     $docRef = $this->getBlobReference($id, $colonne);
-                    if (($data["mime_type_id"] == 4 || $data["mime_type_id"] == 5 || $data["mime_type_id"] == 6)) {
-                        
-                        $image = new Imagick();
-                        $image->readImageFile($docRef);
-                        if ($type == 1) {
-                            /*
-                             * Redimensionnement de la photo pour l'amener a la resolution d'affichage
-                             */
-                            $resize = 0;
-                            $geo = $image->getimagegeometry();
-                            if ($geo["width"] > $resolution || $geo["height"] > $resolution) {
-                                $resize = 1;
-                                /*
+                    if ($docRef) {
+                        /**
+                         * Verify if the stream is not null
+                         */
+                        $content = fread($docRef, 10);
+                        if (strlen($content) > 0) {
+                            rewind($docRef);
+                            if (($data["mime_type_id"] == 4 || $data["mime_type_id"] == 5 || $data["mime_type_id"] == 6)) {
+                                $image = new Imagick();
+                                $image->readImageFile($docRef);
+                                if ($type == 1) {
+                                    /**
+                                     * Redimensionnement de la photo pour l'amener a la resolution d'affichage
+                                     */
+                                    $resize = 0;
+                                    $geo = $image->getimagegeometry();
+                                    if ($geo["width"] > $resolution || $geo["height"] > $resolution) {
+                                        $resize = 1;
+                                        /*
                                  * Calcul de la résolution dans les deux sens
                                  */
-                                if ($geo["width"] > $resolution) {
-                                    $resx = $resolution;
-                                    $resy = $geo["height"] * ($resolution / $geo["width"]);
-                                } else {
-                                    $resy = $resolution;
-                                    $resx = $geo["width"] * ($resolution / $geo["height"]);
+                                        if ($geo["width"] > $resolution) {
+                                            $resx = $resolution;
+                                            $resy = $geo["height"] * ($resolution / $geo["width"]);
+                                        } else {
+                                            $resy = $resolution;
+                                            $resx = $geo["width"] * ($resolution / $geo["height"]);
+                                        }
+                                    }
+                                    if ($resize == 1) {
+                                        $image->resizeImage($resx, $resy, imagick::FILTER_LANCZOS, 1);
+                                    }
                                 }
-                            }
-                            if ($resize == 1) {
-                                $image->resizeImage($resx, $resy, imagick::FILTER_LANCZOS, 1);
-                            }
-                        }
-                        $document = $image->getimageblob();
-                    } else {
-                        /*
+                                $document = $image->getimageblob();
+                            } else {
+                                /*
                          * Autres types de documents : ecriture directe du contenu
                          */
-                        rewind($docRef);
-                        $document = stream_get_contents($docRef);
-                        if ($document == false)
-                            throw new DocumentException("erreur de lecture " . $docRef);
+                                rewind($docRef);
+                                $document = stream_get_contents($docRef);
+                                if ($document == false)
+                                    throw new DocumentException("erreur de lecture " . $docRef);
+                            }
+                            /**
+                             * Ecriture du document dans le dossier temporaire
+                             */
+                            $handle = fopen($filename, 'wb');
+                            fwrite($handle, $document);
+                            fclose($handle);
+                        }
                     }
-                    /*
-                     * Ecriture du document dans le dossier temporaire
-                     */
-                    $handle = fopen($filename, 'wb');
-                    fwrite($handle, $document);
-                    fclose($handle);
                 } catch (ImagickException $ie) {
                     throw new DocumentException("Impossible de lire la photo $id : " . $ie->getMessage());
                 }
@@ -543,7 +548,7 @@ class Document extends ObjetBDD
         $id = $this->encodeData($id);
         $filename = $this->generateFileName($id, $phototype, $resolution);
         if (strlen($filename) > 0 && is_numeric($id) && $id > 0) {
-            if (! file_exists($filename))
+            if (!file_exists($filename))
                 $this->writeFileImage($id, $phototype, $resolution);
         }
         if (file_exists($filename))
@@ -579,6 +584,3 @@ class Document extends ObjetBDD
         return $filename;
     }
 }
-
-?>
-

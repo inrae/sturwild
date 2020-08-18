@@ -8,7 +8,7 @@
 <input type="hidden" name="parentType" value="{$parentType}">
 <dl>
 <dt>Fichier(s) à importer :
-<br>(doc, jpg, png, pdf, xls, xlsx, docx, odt, ods, csv)
+<br>(doc, jpg, jpeg, png, pdf, xls, xlsx, docx, odt, ods, csv)
 </dt>
 <dt><input type="file" name="documentName[]" size="40" multiple></dt>
 </dl>
