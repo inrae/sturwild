@@ -1,8 +1,8 @@
   <div class="container">
     <p class="text-muted">
-    {$LANG.message.23}
+      {t}Copyright © 2015-2020 - Tous droits réservés. Auteur : Éric Quinton, pour INRAE - Logiciel non diffusé{/t}
 <br>
-{$LANG.message.25}
+{t}En cas de problème :{/t}&nbsp;
 <a href="{$appliAssist}">{$appliAssist}</a>
  <ul class="nav pull-right scroll-top scrolltotop">
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
