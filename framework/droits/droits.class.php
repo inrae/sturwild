@@ -393,7 +393,7 @@ class Aclgroup extends ObjetBDD
              -             et donc echoue si l'annuaire requiere un login/mot de passe pour une recherche
              */
             include_once "framework/ldap/ldap.class.php";
-            $ldap = new Ldap($ldapParam["address"], $ldapParam["basedn"]);
+            $ldap = new Ldap($ldapParam);
             $conn = $ldap->connect();
             /**
              * Set the parameters
