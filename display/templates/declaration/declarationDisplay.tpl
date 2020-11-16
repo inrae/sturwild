@@ -1,6 +1,6 @@
 <script>
 $(document).ready(function() {
-$("#duplicate").on("click", function () { 
+$("#duplicate").on("click", function () {
 	return confirm("Confirmez-vous la duplication de cette déclaration ?");
 });
 });
@@ -16,7 +16,7 @@ Nouvelle déclaration...
 </a>
 <a id="duplicate" href="index.php?module=declarationDuplicate&declaration_id={$data.declaration_id}">
 <img src="display/images/copy.png" height="20">Dupliquer la déclaration</a>
-<br> 
+<br>
 <a href="index.php?module=declarationChange&declaration_id={$data.declaration_id}">Données générales</a>
 &nbsp;
 <a href="index.php?module=localisationChange&declaration_id={$data.declaration_id}">Localisation</a>
@@ -64,5 +64,3 @@ Nouvelle déclaration...
 <legend>Photos associées</legend>
 {include file="declaration/documentList.tpl"}
 </fieldset>
-
-

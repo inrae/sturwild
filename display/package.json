@@ -7,5 +7,24 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "datatables.net": "^1.10.22",
+    "datatables.net-bs": "^1.10.22",
+    "datatables.net-buttons": "^1.6.5",
+    "datatables.net-buttons-bs": "^1.6.5",
+    "datetime-moment": "^1.0.0",
+    "handlebars": "^4.7.6",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-dist": "^1.12.1",
+    "leaflet": "^1.7.1",
+    "leaflet-easyprint": "^2.1.9",
+    "leaflet-mouse-position": "^1.2.0",
+    "leaflet.polyline.snakeanim": "^0.2.0",
+    "leaflet.tilelayer.pouchdbcached": "^1.0.0",
+    "magnific-popup": "^1.1.0",
+    "moment": "^2.29.1",
+    "pouchdb": "^7.2.2",
+    "smartmenus": "^1.1.1"
+  }
 }

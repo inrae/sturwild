@@ -10,12 +10,26 @@
 <link rel="stylesheet" href="display/javascript/bootstrap/css/bootstrap-theme.min.css">
 <script src="display/javascript/bootstrap/js/bootstrap.min.js"></script>
 
+<!--alpaca -->
+<!--
+<script type="text/javascript" src="display/node_modules/handlebars/dist/handlebars.runtime.min.js"></script>
+<script type="text/javascript" src="display/node_modules/alpaca/dist/alpaca/bootstrap/alpaca.min.js"></script>
+<link rel="stylesheet" href="display/node_modules/alpaca/dist/alpaca/bootstrap/alpaca.min.css">
+-->
+
+<!-- openlayer -->
+<link rel="stylesheet" href="display/javascript/ol-v4.2.0-dist/ol.css">
+<script src="display/javascript/ol-v4.2.0-dist/ol.js"></script>
 <!-- leaflet -->
+<!--
 <link rel="stylesheet" href="display/node_modules/leaflet/dist/leaflet.css">
 <script src="display/node_modules/leaflet/dist/leaflet.js"></script>
 <script src="display/node_modules/pouchdb/dist/pouchdb.min.js"></script>
 <script src="display/node_modules/leaflet.tilelayer.pouchdbcached/L.TileLayer.PouchDBCached.js"></script>
+<script src="display/node_modules/leaflet.polyline.snakeanim/L.Polyline.SnakeAnim.js"></script>
 <script src="display/node_modules/leaflet-mouse-position/src/L.Control.MousePosition.js"></script>
+<script src="display/node_modules/leaflet-easyprint/dist/bundle.js"></script>
+-->
 <!-- extension pour le menu -->
 <script src="display/node_modules/smartmenus/dist/jquery.smartmenus.min.js" type="text/javascript"></script>
 <link type="text/css" href="display/node_modules/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css"
@@ -251,7 +265,25 @@
 			 * Initialisation des combobox
 			 */
 			$( ".combobox" ).combobox();
-
+			/**
+			 * Get a confirmation
+			 */
+			 $(".confirm").on("click keydown", function(event) {
+				 if (confirm("{t}Confirmez-vous l'opération ?{/t}") == false) {
+					 event.preventDefault();
+				 }
+			 });
+			/**
+			 * Add support of tabulation in textarea
+			 */
+			 $(".textarea-edit").keydown(function(event) {
+				if(event.keyCode===9){
+					var v=this.value,s=this.selectionStart,e=this.selectionEnd;
+					this.value=v.substring(0, s)+'\t'+v.substring(e);
+					this.selectionStart=this.selectionEnd=s+1;
+					return false;
+					}
+			 });
 		});
 	function encodeHtml( rawStr ) {
 		if ( rawStr && rawStr.length > 0 ) {
