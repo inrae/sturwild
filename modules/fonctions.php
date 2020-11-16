@@ -16,7 +16,7 @@ function sendMail($declaration_id)
          * envoi des mels aux personnes concernees
          */
         require_once 'framework/droits/droits.class.php';
-        require_once 'framework/identification/identification.class.php';
+        require_once 'framework/identification/loginGestion.class.php';
         require_once 'framework/identification/mail.class.php';
         require_once 'modules/classes/declaration.class.php';
         /*
