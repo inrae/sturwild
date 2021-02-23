@@ -10,14 +10,14 @@
  * ORM de gestion de la table individu
  *
  * @author quinton
- *        
+ *
  */
 class Individu extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -30,53 +30,53 @@ class Individu extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"declaration_id" => array (
 						"type" => 1,
 						"requis" => 1,
-						"parentAttrib" => 1 
+						"parentAttrib" => 1
 				),
 				"espece_id" => array (
 						"type" => 1,
-						"defaultValue" => 1 
+						"defaultValue" => 1
 				),
 				"presence_marque_id" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"devenir_id" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"capture_etat_id" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"masse" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"manipulation" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"numero_marque" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"longueur_individu" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"cohorte_estimee" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"cohorte_validee" => array (
-						"type" => 1 
+						"type" => 1
 				),
 				"historique" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"commentaire" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"qualite_identification" => array (
-						"type" => 1 
-				) 
+						"type" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -94,7 +94,7 @@ class Individu extends ObjetBDD {
 	}
 	/**
 	 * Surcharge de la fonction ecrire pour rajouter l'etat de la declaration dans le lot
-	 * 
+	 *
 	 * @see ObjetBDD::ecrire()
 	 */
 	function ecrire($data) {
@@ -113,11 +113,11 @@ class Individu extends ObjetBDD {
 		}
 		return $id;
 	}
-	
+
 	/**
 	 * Retourne la liste des individus rattaches a une declaration
 	 *
-	 * @param int $id        	
+	 * @param int $id
 	 * @return tableau|NULL
 	 */
 	function getListeFromDeclaration($id) {
@@ -135,8 +135,8 @@ class Individu extends ObjetBDD {
 	}
 	/**
 	 * Recherche les poissons associes aux declarations correspondant aux parametres fournis
-	 * 
-	 * @param unknown $param        	
+	 *
+	 * @param unknown $param
 	 * @return tableau
 	 */
 	function getDataToExport($param) {
@@ -147,7 +147,7 @@ class Individu extends ObjetBDD {
 		$declaration = new Declaration ( $this->connection, $this->paramori );
 		$declarations = $declaration->getIdFromParam ( $param );
 		if (count ( $declarations ) > 0) {
-			$sql = "select individu.*, 
+			$sql = "select individu.*,
 				presence_marque_libelle, espece_libelle, capture_etat_libelle, devenir_libelle";
 			$from = " from individu
 				left outer join espece using (espece_id )
@@ -158,10 +158,10 @@ class Individu extends ObjetBDD {
 			/*
 			 * Preparation de la clause where
 			 */
-			
+
 			$first = true;
 			$dataWhere = "";
-			foreach ( $declarations as $key => $value ) {
+			foreach ( $declarations as $value ) {
 				$first == true ? $first = false : $dataWhere .= ", ";
 				$dataWhere .= $value ["declaration_id"];
 			}
@@ -179,14 +179,14 @@ class Individu extends ObjetBDD {
  * ORM de gestion de la table lot
  *
  * @author quinton
- *        
+ *
  */
 class Lot extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -197,42 +197,42 @@ class Lot extends ObjetBDD {
 				"declaration_id" => array (
 						"type" => 1,
 						"requis" => 1,
-						"key" => 1 
+						"key" => 1
 				),
 				"espece_id" => array (
 						"type" => 1,
-						"defaultValue" => 1 
+						"defaultValue" => 1
 				),
 				"devenir_id" => array (
 						"type" => 1,
-						"defaultValue" => 1 
+						"defaultValue" => 1
 				),
 				"etat_capture_lot" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"nombre_capture" => array (
 						"type" => 1,
 						"requis" => 1,
-						"defaultValue" => 1 
+						"defaultValue" => 1
 				),
 				"longueur_gamme" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"masse_gamme" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"manipulation" => array (
-						"type" => 0 
+						"type" => 0
 				),
 				"qualite_identification" => array (
 						"type" => 1,
-						"defaultValue" => 0 
-				) 
+						"defaultValue" => 0
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
 	}
-	
+
 	/*
 	 * function write($data) {
 	 * printr($data);
@@ -242,7 +242,7 @@ class Lot extends ObjetBDD {
 	/**
 	 * Retourne le detail d'un lot
 	 *
-	 * @param int $id        	
+	 * @param int $id
 	 * @return array
 	 */
 	function getDetail($id) {
@@ -260,14 +260,14 @@ class Lot extends ObjetBDD {
  * ORM de gestion de la table espece
  *
  * @author quinton
- *        
+ *
  */
 class Espece extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -279,11 +279,11 @@ class Espece extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"espece_libelle" => array (
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -294,14 +294,14 @@ class Espece extends ObjetBDD {
  * ORM de gestion de la table devenir
  *
  * @author quinton
- *        
+ *
  */
 class Devenir extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -313,11 +313,11 @@ class Devenir extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"devenir_libelle" => array (
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -328,14 +328,14 @@ class Devenir extends ObjetBDD {
  * ORM de gestion de la table capture_etat
  *
  * @author quinton
- *        
+ *
  */
 class CaptureEtat extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -347,11 +347,11 @@ class CaptureEtat extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"capture_etat_libelle" => array (
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -362,14 +362,14 @@ class CaptureEtat extends ObjetBDD {
  * ORM de gestion de la table presence_marque
  *
  * @author quinton
- *        
+ *
  */
 class Presence_marque extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -381,11 +381,11 @@ class Presence_marque extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"presence_marque_libelle" => array (
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );

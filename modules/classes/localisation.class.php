@@ -305,7 +305,7 @@ class Localisation extends ObjetBDD {
 	 * (non-PHPdoc)
 	 * @see ObjetBDD::write()
 	 */
-	function write($data) {
+	function ecrire($data) {
 		if (strlen ($data["longitude_dd"]) > 0 && strlen($data["latitude_dd"]) > 0 ) {
 			$data["geom"] = "POINT(".$data["longitude_dd"]." ".$data["latitude_dd"].")";
 		}
