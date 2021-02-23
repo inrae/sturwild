@@ -1,5 +1,15 @@
 News
 ===========
+Version 1.3.0 du 23 février 2021
+--------------------------------
+Correction de bugs :
+- l'objet geom, dans la table localisation, n'était pas généré
+
+Nouveautés :
+- ajout de la table precision, pour indiquer la précision de la localisation gps
+- modification de l'affichage d'une déclaration, avec mise en place d'une boite d'onglets
+- intégration de la dernière version du framework, comprenant notamment l'identification à double facteur
+
 Version 1.2.0 du 18 août 2020
 -----------------------------
 Mise à jour technique, comprenant le remplacement du framework par la version la plus récente

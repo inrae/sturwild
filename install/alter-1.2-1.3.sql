@@ -62,3 +62,4 @@ ALTER TABLE sturwild.localisation ADD CONSTRAINT precision_fk FOREIGN KEY (preci
 REFERENCES sturwild.precision (precision_id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE DEFERRABLE INITIALLY IMMEDIATE;
 
+INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'1.3', E'2021-02-23');
