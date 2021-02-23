@@ -12,23 +12,23 @@
 	</dl>
 <dl class="dl-horizontal">
 	<dt>Zone CIEM :</dt>
-	<dd>{$localisation.ciem_libelle}</dd>	
+	<dd>{$localisation.ciem_libelle}</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Région :</dt>
-	<dd>{$localisation.region_libelle}</dd>	
+	<dd>{$localisation.region_libelle}</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Milieu :</dt>
-	<dd>{$localisation.milieu_libelle}</dd>	
+	<dd>{$localisation.milieu_libelle}</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Milieu détaillé :</dt>
-	<dd>{$localisation.milieu_detail_libelle}</dd>	
+	<dd>{$localisation.milieu_detail_libelle}</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Détail de la zone :</dt>
-	<dd><span class="textareaDisplay">{$localisation.zone_detail}</span></dd>	
+	<dd><span class="textareaDisplay">{$localisation.zone_detail}</span></dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Valeurs GPS :</dt>
@@ -54,6 +54,10 @@
 	<br>{$localisation.latitude_dd}
 	</dd>
 </dl>
+<dl class="dl-horizontal">
+	<dt>Précision de la localisation, si estimée lors de la saisie :</dt>
+	<dd>{$localisation.precision_name}</dd>
+</dl>
 </div>
 </div>
 <div class="col-sm-12 col-md-6">
@@ -69,7 +73,7 @@ var imageStyle = new ol.style.Style({
   			fill: new ol.style.Fill({
   			color: [255 , 0 , 0 , 0.2]
   		}),
-  		stroke: new ol.style.Stroke({ 
+  		stroke: new ol.style.Stroke({
  	 		color: [255 , 0 , 0 , 1],
   			width: 1
   		})
@@ -83,7 +87,7 @@ var imageStyle = new ol.style.Style({
 var attribution = new ol.control.Attribution({
   collapsible: false
 });
-var mousePosition = new ol.control.MousePosition( { 
+var mousePosition = new ol.control.MousePosition( {
     coordinateFormat: ol.coordinate.createStringXY(2),
     projection: 'EPSG:4326',
     target: undefined,

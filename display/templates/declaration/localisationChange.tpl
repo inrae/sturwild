@@ -97,7 +97,7 @@ $(document).ready(function() {
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="pays_id"  name="pays_id" autofocus>
-						<option value="" {if $data.pays_id == ""}selected{/if}>
+						<option value="" {if $data.pays_id == ""}selected{/if}>Sélectionnez...</option>
 						{section name=lst loop=$pays}
 						<option value="{$pays[lst].pays_id}" {if $pays[lst].pays_id == $data.pays_id}selected{/if}>
 						{$pays[lst].pays_libelle}
@@ -112,7 +112,7 @@ $(document).ready(function() {
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="ciem_id"  name="ciem_id" >
-						<option value="" {if $data.ciem_id == ""}selected{/if}>
+						<option value="" {if $data.ciem_id == ""}selected{/if}>Sélectionnez...</option>
 						{section name=lst loop=$ciem}
 						<option value="{$ciem[lst].ciem_id}" {if $ciem[lst].ciem_id == $data.ciem_id}selected{/if}>
 						{$ciem[lst].ciem_libelle}
@@ -127,7 +127,7 @@ $(document).ready(function() {
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="region_id"  name="region_id" >
-						<option value="" {if $data.region_id == ""}selected{/if}>
+						<option value="" {if $data.region_id == ""}selected{/if}>Sélectionnez...</option>
 						{section name=lst loop=$region}
 						<option value="{$region[lst].region_id}" {if $region[lst].region_id == $data.region_id}selected{/if}>
 						{$region[lst].region_libelle}
@@ -142,7 +142,7 @@ $(document).ready(function() {
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="milieu_id"  name="milieu_id" >
-						<option value="" {if $data.milieu_id == ""}selected{/if}>
+						<option value="" {if $data.milieu_id == ""}selected{/if}>Sélectionnez...</option>
 						{section name=lst loop=$milieu}
 						<option value="{$milieu[lst].milieu_id}" {if $milieu[lst].milieu_id == $data.milieu_id}selected{/if}>
 						{$milieu[lst].milieu_libelle}
@@ -157,7 +157,7 @@ $(document).ready(function() {
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="milieu_detail_id"  name="milieu_detail_id" >
-						<option value="" {if $data.milieu_detail_id == ""}selected{/if}>
+						<option value="" {if $data.milieu_detail_id == ""}selected{/if}>Sélectionnez...</option>
 						{section name=lst loop=$milieu_detail}
 						<option value="{$milieu_detail[lst].milieu_detail_id}" {if $milieu_detail[lst].milieu_detail_id == $data.milieu_detail_id}selected{/if}>
 						{$milieu_detail[lst].milieu_detail_libelle}
@@ -269,6 +269,18 @@ $(document).ready(function() {
 						</table>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="precision_id" class="control-label col-sm-4">Précision estimée du point GPS :</label>
+					<div class="col-sm-8">
+						<select id="precision_id" name="precision_id" class="form-control">
+							<option value="" {if $data.precision_id == ""}selected{/if}>Sélectionnez...</option>
+							{foreach $precisions as $precision}
+								<option value="{$precision.precision_id}" {if $data.precision_id == $precision.precision_id}selected{/if}>{$precision.precision_name}</option>
+							{/foreach}
+						</select>
+					</div>
+				</div>
+
 
 				<div class="form-group center">
       				<button type="submit" class="btn btn-primary button-valid">{t}Valider{/t}</button>

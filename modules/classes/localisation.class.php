@@ -251,10 +251,10 @@ class Localisation extends ObjetBDD {
 				"latitude_dd" => array (
 						"type" => 1
 				),
-				"geom" => array ("type"=>4)
+				"geom" => array ("type"=>4),
+				"precision_id"=>array("type"=>1)
 		);
 		$this->srid = 4326;
-		$param ["fullDescription"] = 1;
 		$param["srid"] = 4326;
 		parent::__construct ( $link, $param );
 	}
@@ -272,6 +272,7 @@ class Localisation extends ObjetBDD {
 					left outer join milieu using (milieu_id)
 					left outer join region using (region_id)
 					left outer join milieu_detail using (milieu_detail_id)
+					left outer join precision using (precision_id)
 					where declaration_id = :declaration_id";
 			return $this->lireParamAsPrepared($sql, array("declaration_id"=>$id));
 		}
@@ -292,7 +293,8 @@ class Localisation extends ObjetBDD {
 					"ciem_id"=>$data["ciem_id"],
 					"region_id"=>$data["region_id"],
 					"milieu_id"=>$data["milieu_id"],
-					"milieu_detaille_id"=>$data["milieu_detaille_id"]
+					"milieu_detaille_id"=>$data["milieu_detaille_id"],
+					"precision_id"=>$data["precision_id"]
 			);
 			$this->ecrire($dataNew);
 		}
@@ -310,4 +312,3 @@ class Localisation extends ObjetBDD {
 		return parent::ecrire($data);
 	}
 }
-?>

@@ -23,7 +23,7 @@ switch ($t_module["param"]) {
 			$vue->set ( $data, "data" );
 
 		}
-		/*
+		/**
 		 * Lecture des tables de parametre
 		 */
 		$ciem = new Ciem($bdd, $ObjetBDDParam);
@@ -40,7 +40,9 @@ switch ($t_module["param"]) {
 
 		$milieuDetail = new MilieuDetail($bdd, $ObjetBDDParam);
 		$vue->set ( $milieuDetail->getListe(2), "milieu_detail" );
-
+		require_once "modules/classes/precision.class.php";
+		$precision = new Precision($bdd, $ObjetBDDParam);
+		$vue->set($precision->getListe(1), "precisions");
 		break;
 	case "write":
 		/*
@@ -52,5 +54,3 @@ switch ($t_module["param"]) {
 		}
 		break;
 }
-
-?>
