@@ -311,6 +311,14 @@ try {
               $_SESSION["is_authenticated"] = true;
             }
           }
+        } else {
+          if (!isset($vue)) {
+            $isHtml = true;
+            $vue = new VueSmarty($SMARTY_param, $SMARTY_variables);
+          }
+          $vue->set("framework/ident/login.tpl", "corps");
+          $vue->set($tokenIdentityValidity, "tokenIdentityValidity");
+          $vue->set($APPLI_lostPassword, "lostPassword");
         }
       }
       if ($_SESSION["is_authenticated"]) {
