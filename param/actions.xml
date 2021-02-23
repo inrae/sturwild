@@ -1,4 +1,8 @@
 <navigation>
+    	<dbstructureHtml action="framework/utils/structure.php" param="html" retourlogin="1" type="smarty" schemas="sturwild" droits="param" maxCountByHour="60" maxCountByDay="600" />
+	<dbstructureGacl action="framework/utils/structure.php" param="gacl" retourlogin="1" type="smarty" droits="admin" schemas="sturwildgacl" maxCountByHour="60" maxCountByDay="600" />
+	<dbstructureLatex action="framework/utils/structure.php" param="latex" retourlogin="1" type="file" droits="param" schemas="sturwild" maxCountByHour="60" maxCountByDay="600" />
+	<dbstructureSchema action="framework/utils/structure.php" param="schema" realfilename="documentation/sturwild.png" generatedfilename="sturwild-database.png" retourlogin="1" type="binaire" droits="param" maxCountByHour="60" maxCountByDay="600" />
 
 	<!--  modules specifiques a l'application -->
 	<declarationList action="modules/declaration/declaration.php" param="list" droits="consult" retourlogin="1" type="smarty"/>

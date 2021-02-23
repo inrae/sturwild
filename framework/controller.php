@@ -523,7 +523,8 @@ try {
      * Enregistrement de l'acces au module
      */
     try {
-      $log->setLog($_SESSION["login"], $module, $motifErreur);
+      isset( $_SESSION["login"]) ? $logLogin = $_SESSION["login"] : $logLogin = "";
+      $log->setLog($logLogin, $module, $motifErreur);
     } catch (Exception $e) {
       if ($OBJETBDD_debugmode > 0) {
         $message->set($log->getErrorData(1), true);
