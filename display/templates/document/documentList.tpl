@@ -1,7 +1,5 @@
-<link rel="stylesheet" href="display/javascript/magnific-popup/magnific-popup.css"> 
-<script src="display/javascript/magnific-popup/jquery.magnific-popup.min.js"></script> 
 <script>
-$(document).ready(function() { 
+$(document).ready(function() {
 	setDataTables("documentList");
 	$('.image-popup-no-margins').magnificPopup( {
 		type: 'image',
@@ -31,7 +29,7 @@ $(document).ready(function() {
 	});
 } ) ;
 </script>
-{if $droits["gestion"] == 1 } 
+{if $droits["gestion"] == 1 }
 <a href="#" id="documentChangeActivate">Saisir un nouveau document...</a>
 <div id="documentChange" hidden="true">
 {include file="document/documentChange.tpl"}

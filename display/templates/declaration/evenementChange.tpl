@@ -1,8 +1,12 @@
 <h2>Modification d'un événement</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=declarationList">Retour à la liste des déclarations</a>
+<a href="index.php?module=declarationList">
+	<img src="display/images/list.png" height="25">
+	Retour à la liste des déclarations
+</a>
 <a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
+<img src="display/images/display.png" height="25">
 Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 </div>
 	<div class="col-sm-6">
@@ -34,7 +38,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				<input class="form-control datepicker" id="evenement_date" name="evenement_date" value="{$data.evenement_date}" required>
 				</div>
 				</div>
-				
+
 				<div class="form-group">
 				<label for="evenement_commentaire" class="control-label col-md-4">Commentaire :</label>
 				<div class="col-md-8">
@@ -52,6 +56,6 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 
 
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>	
-</div>	
+<span class="messagebas">Champ obligatoire</span>
+</div>
 </div>

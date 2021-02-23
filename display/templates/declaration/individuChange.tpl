@@ -1,9 +1,13 @@
 <h2>Modification d'un esturgeon</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=declarationList">Retour à la liste des déclarations</a>
+<a href="index.php?module=declarationList">
+	<img src="display/images/list.png" height="25">
+	Retour à la liste des déclarations
+</a>
 <a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
-Retour au détail de la déclaration - N° {$data.declaration_id}</a>
+<img src="display/images/display.png" height="25">
+Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 </div>
 <div class="col-sm-6">
 	<fieldset>
@@ -40,7 +44,7 @@ Retour au détail de la déclaration - N° {$data.declaration_id}</a>
 						</option>
 						<option value="1" {if $data.qualite_identification == 1}selected{/if}>
 							Détermination confirmée
-						</option>				
+						</option>
 						</select>
 					</div>
 				</div>
@@ -104,7 +108,7 @@ Retour au détail de la déclaration - N° {$data.declaration_id}</a>
 					<label for="cohorte" class="control-label col-sm-4">Cohorte estimée / validée :</label>
 					<div id="cohorte" class="col-sm-8">
 						<input id="cohorte_estimee" class="nombre" name="cohorte_estimee" value="{$data.cohorte_estimee}">
-						 / 
+						 /
 						<input id="cohorte_validee" class="nombre" name="cohorte_validee" value="{$data.cohorte_validee}">
 					</div>
 				</div>
@@ -119,7 +123,7 @@ Retour au détail de la déclaration - N° {$data.declaration_id}</a>
 					<div class="col-sm-8">
 						<textarea  id="commentaire" class="form-control" name="commentaire" rows="3" cols="50">{$data.commentaire}</textarea>
 					</div>
-				</div>	
+				</div>
 				<fieldset>
 				<legend>Photos attachées</legend>
 				<div class="form-group">
@@ -134,19 +138,19 @@ Retour au détail de la déclaration - N° {$data.declaration_id}</a>
 <input type="text" id="document_description" class="form-control" name="document_description" value="">
 </div>
 </div>
-</fieldset>	
+</fieldset>
 	<div class="form-group center">
       <button type="submit" class="btn btn-primary button-valid">{t}Valider{/t}</button>
       {if $data.individu_id > 0 }
       <button class="btn btn-danger button-delete">{t}Supprimer{/t}</button>
       {/if}
-      </div>		
-		</form>				
+      </div>
+		</form>
 	</fieldset>
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>	
+<span class="messagebas">Champ obligatoire</span>
 </div>
-	
+
 {if $data.individu_id > 0}
 <div class="col-sm-12">
 <fieldset><legend>Photos associées</legend>
@@ -157,4 +161,3 @@ Retour au détail de la déclaration - N° {$data.declaration_id}</a>
 
 
 </div>
-				

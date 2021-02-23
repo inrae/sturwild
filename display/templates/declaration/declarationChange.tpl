@@ -1,10 +1,13 @@
 <h2>Modification d'une déclaration</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=declarationList">Retour à la liste</a>
+<a href="index.php?module=declarationList">
+<img src="display/images/list.png" height="25">
+Retour à la liste</a>
 {if $data.declaration_id > 0}
-<a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">Retour
-	au détail</a>
+<a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
+<img src="display/images/display.png" height="25">
+Retour au détail</a>
 {/if}
 </div>
 
@@ -38,7 +41,7 @@
 					</label>
 					<div class="col-sm-8">
 						<select id="espece_id" name="espece_id" class="form-control" autofocus>
-						
+
 						{section name=lst loop=$espece}
 						<option value="{$espece[lst].espece_id}" {if $espece[lst].espece_id == $data.espece_id}selected{/if}>
 						{$espece[lst].espece_libelle}
@@ -56,7 +59,7 @@
 				</option>
 				<option value="1" {if $data.qualite_identification == 1}selected{/if}>
 				Détermination confirmée
-				</option>				
+				</option>
 				</select>
 				</div>
 				</div>
@@ -76,7 +79,7 @@
 				</select>
 				</div>
 				</div>
-							
+
 				<div class="form-group">
 					<label for="capture_date_zone" class="control-label col-sm-4">
 						Date de capture (période/heure) :
@@ -169,7 +172,7 @@
 						<input class="form-control" id="engin_maille" name="engin_maille" value="{$data.engin_maille}" placeholder="maille">
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<label for="espece_ciblee" class="control-label col-sm-4">
 						Espèce ciblée :
@@ -193,7 +196,7 @@
 					<div class="col-sm-8">
 						<textarea class="form-control" id="observation" name="observation" rows="3" cols="50">{$data.observation}</textarea>
 					</div>
-				</div>				
+				</div>
 				<fieldset>
 				<legend>Informations sur le lot d'esturgeons</legend>
 				<div class="form-group">

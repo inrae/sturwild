@@ -1,9 +1,12 @@
+<div class="row">
 {if $droits.gestion ==1}
 <a href="index.php?module=declarationChange&declaration_id={$data.declaration_id}">
 <img src="display/images/edit.gif" height="20">Modifier...
 </a>
 {/if}
-<div class="form-display">
+</div>
+<div class="row">
+<div class="form-display col-sm-6">
   <dl class="dl-horizontal">
     <dt>Statut  :</dt>
     <dd>{$data.statut_libelle}</dd>
@@ -91,4 +94,5 @@
       <dd>{$data.devenir_libelle}</dd>
     </dl>
   </fieldset>
+</div>
 </div>

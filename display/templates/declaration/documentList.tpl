@@ -1,7 +1,5 @@
-<link rel="stylesheet" href="display/javascript/magnific-popup/magnific-popup.css"> 
-<script src="display/javascript/magnific-popup/jquery.magnific-popup.min.js"></script> 
 <script>
-$(document).ready(function() { 
+$(document).ready(function() {
 	$('.image-popup-no-margins').magnificPopup( {
 		type: 'image',
 		closeOnContentClick: true,
@@ -48,7 +46,7 @@ $(document).ready(function() {
 {if $dataDoc[lst].mime_type_id != 1}
 <a class="image-popup-no-margins"
    href="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=0&phototype=1"
-   title="aperçu de la photo"> 
+   title="aperçu de la photo">
    <img src="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=0&phototype=2" height="30">
 {/if}
 

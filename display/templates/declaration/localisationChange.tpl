@@ -76,14 +76,15 @@ $(document).ready(function() {
 <h2>Modification de la localisation - N° {$data.declaration_id}</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=declarationList">Retour à la liste</a>
-
-<a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">Retour
-	au détail</a>
+<a href="index.php?module=declarationList">
+	<img src="display/images/list.png" height="25">
+	Retour à la liste des déclarations
+</a>
+<a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
+<img src="display/images/display.png" height="25">
+Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 </div>
 <div class="col-sm-6">
-	<fieldset>
-		<legend>Localisation</legend>
 		<div>
 
 			<form  class="form-horizontal protoform" id="localisation" method="post" action="index.php">
@@ -287,14 +288,13 @@ $(document).ready(function() {
 				 </div>
 			</form>
 			</div>
-	</fieldset>
 
 
 <span class="red">*</span>
 <span class="messagebas">Champ obligatoire</span>
 </div>
 <!-- Ajout de la carte pour visualiser le point de capture -->
-<div class="col-sm-6" style="height:400px;" id="map"></div>
+<div class="col-sm-6" style="height:600px;" id="map"></div>
 </div>
 <script>
 function transform_geometry(element) {
