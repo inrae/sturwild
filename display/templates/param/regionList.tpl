@@ -4,7 +4,9 @@
 <img src="display/images/new.png" height="20">
 Nouveau</a>
 {/if}
-<table id="regionListe"  class="table table-bordered table-hover">
+<div class="row">
+<div class="col-sm-6">
+<table id="regionListe"  class="table table-bordered datatable table-hover">
 	<thead>
 		<tr>
 			<th>Libellé</th>
@@ -21,3 +23,5 @@ Nouveau</a>
 	</tr>
 	{/section} </tbody>
 </table>
+</div>
+</div>

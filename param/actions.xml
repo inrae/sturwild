@@ -98,5 +98,11 @@
 	<enginTypeWrite action="modules/param/enginType.php" param="write" retourok="enginTypeList" retourko="enginTypeChange" modulebefore="enginTypeChange" droits="param" />
 	<enginTypeDelete action="modules/param/enginType.php" param="delete" retourok="enginTypeList" retourko="enginTypeChange" modulebefore="enginTypeChange"  droits="param"/>
 
+    <precisionList action="modules/param/precision.php" param="list" droits="gestion" type="smarty"/>
+	<precisionChange action="modules/param/precision.php" param="change" droits="param" type="smarty"/>
+	<precisionWrite action="modules/param/precision.php" param="write" retourok="precisionList" retourko="precisionChange" modulebefore="precisionChange"  droits="param"/>
+	<precisionDelete action="modules/param/precision.php" param="delete" retourok="precisionList" retourko="precisionChange" modulebefore="precisionChange"  droits="param"/>
+
+
 </navigation>
 

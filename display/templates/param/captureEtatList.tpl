@@ -3,8 +3,9 @@
 <a href="index.php?module=captureEtatChange&capture_etat_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-
-<table class="table table-bordered table-hover" id="captureEtatListe" >
+<div class="row">
+<div class="col-sm-6">
+<table class="table table-bordered table-hover datatable" id="captureEtatListe" >
 	<thead>
 		<tr>
 			<th>Libellé</th>
@@ -20,3 +21,5 @@
 	</tr>
 	{/section} </tbody>
 </table>
+</div>
+</div>

@@ -3,15 +3,18 @@
 <a href="index.php?module=evenementTypeChange&evenement_type_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
-
-<table id="evenementTypeListe"  class="table table-bordered table-hover">
+<div class="row">
+<div class="col-sm-6">
+<table id="evenementTypeListe"  class="table table-bordered datatable table-hover">
 	<thead>
 		<tr>
+			<th>id</th>
 			<th>Libellé</th>
 		</tr>
 	</thead>
 	<tbody> {section name=lst loop=$data}
 	<tr>
+		<td class="center">{$data[lst].evenement_type_id}</td>
 		<td>
 		{if $droits.param == 1}
 		<a href="index.php?module=evenementTypeChange&evenement_type_id={$data[lst].evenement_type_id}">
@@ -21,3 +24,5 @@
 	</tr>
 	{/section} </tbody>
 </table>
+</div>
+</div>

@@ -16,6 +16,8 @@
 	<item module="milieuList" label="Milieux" tooltip="Liste des milieux" droits="gestion"/>
 	<item module="milieuDetailList" label="Milieux détaillés" tooltip="Liste des milieux détaillés" droits="gestion"/>
 	<item module="regionList" label="Régions" tooltip="Liste des régions" droits="gestion"/>
+    <item module="precisionList" label="Précisions des localisations" tooltip="Liste des précisions des localisations" droits="gestion"/>
+    <item divider = "1"/>
 	<item module="especeList" label="Espèces" tooltip="Liste des espèces d'esturgeon" droits="gestion"/>
 	<item module="devenirList" label="Devenirs" tooltip="Liste des destinations des esturgeons capturés" droits="gestion"/>
 	<item module="captureModeList" label="Modes de capture" tooltip="Liste des modes de capture" droits="gestion"/>
