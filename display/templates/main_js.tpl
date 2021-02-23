@@ -10,32 +10,16 @@
 <link rel="stylesheet" href="display/javascript/bootstrap/css/bootstrap-theme.min.css">
 <script src="display/javascript/bootstrap/js/bootstrap.min.js"></script>
 
-<!--alpaca -->
-<!--
-<script type="text/javascript" src="display/node_modules/handlebars/dist/handlebars.runtime.min.js"></script>
-<script type="text/javascript" src="display/node_modules/alpaca/dist/alpaca/bootstrap/alpaca.min.js"></script>
-<link rel="stylesheet" href="display/node_modules/alpaca/dist/alpaca/bootstrap/alpaca.min.css">
--->
+<!-- extension pour le menu -->
+<script src="display/node_modules/smartmenus/dist/jquery.smartmenus.min.js" type="text/javascript"></script>
+<link type="text/css" href="display/node_modules/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css"
+  rel="stylesheet">
+<script src="display/node_modules/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.min.js"
+  type="text/javascript"></script>
 
 <!-- openlayer -->
 <link rel="stylesheet" href="display/javascript/ol-v4.2.0-dist/ol.css">
 <script src="display/javascript/ol-v4.2.0-dist/ol.js"></script>
-<!-- leaflet -->
-<!--
-<link rel="stylesheet" href="display/node_modules/leaflet/dist/leaflet.css">
-<script src="display/node_modules/leaflet/dist/leaflet.js"></script>
-<script src="display/node_modules/pouchdb/dist/pouchdb.min.js"></script>
-<script src="display/node_modules/leaflet.tilelayer.pouchdbcached/L.TileLayer.PouchDBCached.js"></script>
-<script src="display/node_modules/leaflet.polyline.snakeanim/L.Polyline.SnakeAnim.js"></script>
-<script src="display/node_modules/leaflet-mouse-position/src/L.Control.MousePosition.js"></script>
-<script src="display/node_modules/leaflet-easyprint/dist/bundle.js"></script>
--->
-<!-- extension pour le menu -->
-<script src="display/node_modules/smartmenus/dist/jquery.smartmenus.min.js" type="text/javascript"></script>
-<link type="text/css" href="display/node_modules/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css"
-	rel="stylesheet">
-<script src="display/node_modules/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.min.js"
-	type="text/javascript"></script>
 
 <!-- Datatables -->
 <script src="display/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>

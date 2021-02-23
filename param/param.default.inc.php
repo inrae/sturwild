@@ -13,7 +13,7 @@ $DEFAULT_formatdate = "fr";
 /*
  * Navigation a partir du fichier xml
  */
-$navigationxml = "param/actions.xml";
+$navigationxml = array("framework/actions.xml","param/actions.xml");
 /*
  * Duree de la session par defaut
  * @var unknown_type
@@ -62,7 +62,7 @@ $LDAP = array(
 		'attributgroupname' => "cn",
 		'attributloginname' => "memberuid",
 		'basedngroup' => 'ou=example,o=societe,c=fr',
-		"timeout"=>3
+		"timeout"=>2
 );
 
 /*
