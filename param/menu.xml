@@ -38,7 +38,9 @@
 		<item module="dbstructureHtml" droits='admin' label="Structure de la base de données (HTML)" tooltip="Liste des tables et des colonnes"/>
 		<item module="dbstructureLatex" droits='admin' label="Structure de la base de données (Latex)" tooltip="Liste des tables et des colonnes sous forme de tableaux Latex"/>
 		<item module="dbstructureGacl" droits="admin" label="Structure de la base de données des droits (HTML)" tooltip="Liste des tables et des colonnes de la base de données de gestion des droits"/>
+        <item divider="1"/>
 		<item module="phpinfo" droits="admin" label="PHP info" tooltip="configuration générale du serveur PHP"/>
+        <item module="logList" droits="admin" label="Logs" tooltip="Consultation des logs enregistrées"/>
 	</item>
     <item module="documentation_fr" label="documentation" tooltip="Documentations en ligne en français" language="fr">
         <item module="doctotp_fr" label="Comprendre la double authentification" tooltip="Comprendre le mécanisme de double authentification" language="fr"/>
