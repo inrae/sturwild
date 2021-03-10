@@ -169,7 +169,7 @@ Retour au détail</a>
 						</option>
 						{/section}
 						</select>
-						<input class="form-control" id="engin_maille" name="engin_maille" value="{$data.engin_maille}" placeholder="maille">
+						<input class="form-control" id="engin_maille" name="engin_maille" value="{$data.engin_maille}" placeholder="maille - précisez le mode de mesure">
 					</div>
 				</div>
 
