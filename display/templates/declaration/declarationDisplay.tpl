@@ -58,12 +58,6 @@ Nouvelle déclaration...
         </a>
       </li>
 			<li class="nav-item">
-        <a class="nav-link" id="tab-event" href="#nav-event"  data-toggle="tab" role="tab" aria-controls="nav-event" aria-selected="false">
-          <img src="display/images/display-red.png" height="25">
-          {t}Événements{/t}
-        </a>
-      </li>
-			<li class="nav-item">
         <a class="nav-link" id="tab-sturio" href="#nav-sturio"  data-toggle="tab" role="tab" aria-controls="nav-sturio" aria-selected="false">
           <img src="display/images/fish.png" height="25">
           {t}Esturgeons capturés{/t}
@@ -73,6 +67,12 @@ Nouvelle déclaration...
         <a class="nav-link" id="tab-photo" href="#nav-photo"  data-toggle="tab" role="tab" aria-controls="nav-photo" aria-selected="false">
           <img src="display/images/camera.png" height="25">
           {t}Photos associées{/t}
+        </a>
+      </li>
+			<li class="nav-item">
+        <a class="nav-link" id="tab-event" href="#nav-event"  data-toggle="tab" role="tab" aria-controls="nav-event" aria-selected="false">
+          <img src="display/images/display-red.png" height="25">
+          {t}Événements{/t}
         </a>
       </li>
 		</ul>
