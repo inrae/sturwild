@@ -5,11 +5,16 @@
  * Fichier modifie le 21 mars 2013 par Eric Quinton
  *
  */
+class FrameworkException extends Exception
+{
+}
+
 try {
   /**
    * Lecture des parametres
    */
   require_once "framework/common.inc.php";
+
   /**
    * Verification des donnees entrantes.
    * Codage UTF-8
@@ -47,6 +52,7 @@ try {
       $message->setSyslog($e->getMessage());
     }
   }
+
   /**
    * purge des logs
    */
@@ -228,24 +234,37 @@ try {
           $vue = new VueSmarty($SMARTY_param, $SMARTY_variables);
       }
     }
+
     /**
      * Verification si le login est requis
      */
-    if ((!empty($t_module["droits"]) || $t_module["loginrequis"] == 1) && !$_SESSION["is_authenticated"]) {
+    if ($_SESSION["cas_required"] == 1) {
+      $t_module["loginrequis"] = 1;
+      $_REQUEST["cas_required"] = 1;
+    }
+    if ((!empty($_REQUEST["login"]) || !empty($t_module["droits"]) || $t_module["loginrequis"] == 1) && !$_SESSION["is_authenticated"]) {
       /**
        * Affichage de l'ecran de saisie du login si necessaire
        */
       if (
-        in_array($ident_type, array("BDD", "LDAP", "LDAP-BDD",))
-        && !isset($_REQUEST["login"]) && empty($_SESSION["login"])
-        && !isset($_COOKIE["tokenIdentity"])
+        in_array($ident_type, array("BDD", "LDAP", "LDAP-BDD", "CAS-BDD"))
+        && empty($_REQUEST["login"])
+        && empty($_SESSION["login"])
+        && empty($_COOKIE["tokenIdentity"])
+        && empty ($_REQUEST["cas_required"])
       ) {
         /**
          * Gestion de la saisie du login
          */
+        if (!$vue) {
+          throw new FrameworkException(_("Message technique : la vue n'a pas été initialisée lors de la création de la page de login"));
+        }
         $vue->set("framework/ident/login.tpl", "corps");
         $vue->set($tokenIdentityValidity, "tokenIdentityValidity");
         $vue->set($APPLI_lostPassword, "lostPassword");
+        if ($ident_type == "CAS-BDD") {
+          $vue->set (1, "CAS_enabled");
+        }
         $loginForm = true;
         if ($t_module["retourlogin"] == 1) {
           $vue->set($_REQUEST["module"], "moduleCalled");
@@ -258,9 +277,20 @@ try {
         if (empty($_SESSION["login"])) {
           require_once "framework/identification/login.class.php";
           $login = new Login($bdd_gacl, $ObjetBDDParam);
-          $_SESSION["login"] = $login->getLogin($ident_type, false);
+          if (!empty($_REQUEST["token"]) && !empty($_REQUEST["login"])) {
+            $ident_type = "ws";
+          }
+          /**
+           * For CAS-BDD
+           */
+          if ($_REQUEST["cas_required"] == 1 || !empty($_REQUEST["ticket"])) {
+            $ident_type = "CAS";
+            $_SESSION["cas_required"] = 1;
+          }
+          $_SESSION["login"] = strtolower($login->getLogin($ident_type, false));
         }
         if (!empty($_SESSION["login"])) {
+          unset($_SESSION["cas_required"]);
           /**
            * Verify if the double authentication is mandatory
            */
@@ -270,8 +300,6 @@ try {
             if (isset($_POST["otpcode"])) {
               include_once "framework/identification/totp.class.php";
               $totp = new Gacltotp($privateKey, $pubKey);
-              include_once "framework/droits/acllogin.class.php";
-              $acllogin = new Acllogin($bdd_gacl, $ObjetBDDParam);
               try {
                 if ($totp->verifyOtp($totp->decodeTotpKey($acllogin->getTotpKey($_SESSION["login"])), $_POST["otpcode"])) {
                   $_SESSION["is_authenticated"] = true;
@@ -312,13 +340,21 @@ try {
             }
           }
         } else {
-          if (!isset($vue)) {
-            $isHtml = true;
-            $vue = new VueSmarty($SMARTY_param, $SMARTY_variables);
+          if ($ident_type == "ws") {
+            http_response_code(401);
+            $vue->set(array("error_code" => 401, "error_message" => _("Identification refusée")));
+          } else {
+            if (!isset($vue)) {
+              $isHtml = true;
+              $vue = new VueSmarty($SMARTY_param, $SMARTY_variables);
+            }
+            $vue->set("framework/ident/login.tpl", "corps");
+            $vue->set($tokenIdentityValidity, "tokenIdentityValidity");
+            $vue->set($APPLI_lostPassword, "lostPassword");
+            if ($ident_type == "CAS-BDD") {
+              $vue->set (1, "CAS_enabled");
+            }
           }
-          $vue->set("framework/ident/login.tpl", "corps");
-          $vue->set($tokenIdentityValidity, "tokenIdentityValidity");
-          $vue->set($APPLI_lostPassword, "lostPassword");
         }
       }
       if ($_SESSION["is_authenticated"]) {
@@ -326,10 +362,8 @@ try {
          * Treatment of all operations after authentication
          */
         $_SESSION["last_activity_admin"] = time();
-        if ($t_module["type"] == "ws") {
-          if (file_exists("modules/postLoginWS.php")) {
-            include 'modules/postLoginWS.php';
-          }
+        if ($t_module["type"] == "ws" && file_exists("modules/postLoginWS.php")) {
+          include 'modules/postLoginWS.php';
         }
         unset($_SESSION["menu"]);
         $message->set(_("Identification réussie !"));
@@ -380,7 +414,7 @@ try {
         /**
          * Preparation de l'identification par token
          */
-        if ($_POST["loginByTokenRequested"] == 1) {
+        if ($_POST["loginByTokenRequested"] == 1 || $ident_type == "HEADER") {
           include_once 'framework/identification/token.class.php';
           $tokenClass = new Token($privateKey, $pubKey);
           try {
@@ -390,9 +424,7 @@ try {
              */
             $cookieParam = session_get_cookie_params();
             $cookieParam["lifetime"] = $tokenIdentityValidity;
-            if (!$APPLI_modeDeveloppement) {
-              $cookieParam["secure"] = true;
-            }
+            $cookieParam["secure"] = true;
             $cookieParam["httponly"] = true;
             setcookie('tokenIdentity', $token, time() + $tokenIdentityValidity, $cookieParam["path"], $cookieParam["domain"], $cookieParam["secure"], $cookieParam["httponly"]);
           } catch (Exception $e) {
@@ -455,17 +487,19 @@ try {
     /**
      * Count all calls to the module
      */
-    if ($t_module["maxCountByHour"] > 0) {
-      if (!$log->getCallsToModule($module, $t_module["maxCountByHour"], $APPLI_hour_duration)) {
-        $resident = 0;
-        $motifErreur = "callsReached";
-      }
+    if (
+      $t_module["maxCountByHour"] > 0
+      && !$log->getCallsToModule($module, $t_module["maxCountByHour"], $APPLI_hour_duration)
+    ) {
+      $resident = 0;
+      $motifErreur = "callsReached";
     }
-    if ($t_module["maxCountByDay"] > 0) {
-      if (!$log->getCallsToModule($module, $t_module["maxCountByDay"], $APPLI_day_duration)) {
-        $resident = 0;
-        $motifErreur = "callsReached";
-      }
+    if (
+      $t_module["maxCountByDay"] > 0
+      && !$log->getCallsToModule($module, $t_module["maxCountByDay"], $APPLI_day_duration)
+    ) {
+      $resident = 0;
+      $motifErreur = "callsReached";
     }
 
     /**
@@ -523,7 +557,7 @@ try {
      * Enregistrement de l'acces au module
      */
     try {
-      isset( $_SESSION["login"]) ? $logLogin = $_SESSION["login"] : $logLogin = "";
+      isset($_SESSION["login"]) ? $logLogin = $_SESSION["login"] : $logLogin = "";
       $log->setLog($logLogin, $module, $motifErreur);
     } catch (Exception $e) {
       if ($OBJETBDD_debugmode > 0) {
@@ -681,11 +715,12 @@ try {
    * Generation des messages d'erreur pour Syslog
    */
   $message->sendSyslog();
+
 } catch (Exception $e) {
   /**
    * General exception
    */
-  echo _("Une erreur indéterminée s'est produite pendant le traitement de la requête. Si le problème persiste, consultez l'administrateur de l'application");
+ echo _("Une erreur indéterminée s'est produite pendant le traitement de la requête. Si le problème persiste, consultez l'administrateur de l'application");
   $message->setSyslog($e->getMessage());
   if ($APPLI_modeDeveloppement) {
     echo "<br>" . $e->getMessage();

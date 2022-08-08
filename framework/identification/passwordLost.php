@@ -53,7 +53,7 @@ switch ($t_module["param"]) {
                         } else {
                             $log->setLog("unknown", "passwordlostSendmail-ko", $dl["mail"]);
                             $message->set(_("Impossible d'envoyer le mail"), true);
-                            $message->setSyslog('passwordlost : send mail aborted to' . $dl["mail"]);
+                            $message->setSyslog('passwordlost : send mail aborted to ' . $dl["mail"]);
                         }
                     } else {
                         $log->setLog("unknown", "passwordlostSendmail-ko", "recipient empty");
@@ -63,6 +63,7 @@ switch ($t_module["param"]) {
             } catch (Exception $e) {
                 $log->setLog("unknown", "passwordlostSendmail-ko", "$mail");
                 $message->setSyslog($e->getMessage());
+                $message->set(_("La réinitialisation du mot de passe n'est pas possible, contactez le cas échéant l'administrateur de l'application"), true);
             }
         }
 

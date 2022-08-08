@@ -7,7 +7,8 @@ use ZxcvbnPhp\Zxcvbn;
  */
 class LoginGestion extends ObjetBDD
 {
-
+    private $privateKey = "/etc/ssl/private/ssl-cert-snakeoil.key";
+    private $publicKey = "/etc/ssl/certs/ssl-cert-snakeoil.pem";
     public function __construct($link, $param = array())
     {
         $this->table = "logingestion";
@@ -56,6 +57,12 @@ class LoginGestion extends ObjetBDD
         parent::__construct($link, $param);
     }
 
+    function setKeys(string $privateKey, string $publicKey): void
+    {
+        $this->privateKey = $privateKey;
+        $this->publicKey = $publicKey;
+    }
+
     /**
      * Vérification du login en mode base de données
      *
@@ -67,11 +74,11 @@ class LoginGestion extends ObjetBDD
     {
         global $log;
         $retour = false;
+        $login = strtolower($login);
         if (strlen($login) > 0 && strlen($password) > 0) {
             $sql = "select login, password, is_expired from LoginGestion where login = :login and actif = 1";
             $data = $this->lireParamAsPrepared($sql, array("login" => $login));
             if ($this->_testPassword($login, $password, $data["password"])) {
-                $data["is_expired"] == 1 ? $comment = "db-ok-expired" : $comment = "db-ok";
                 $retour = true;
             } else {
                 $log->setLog($login, "connection-db", "ko-account expired");
@@ -82,13 +89,14 @@ class LoginGestion extends ObjetBDD
     /**
      * verify the password
      *
-     * @param [string] $login
-     * @param [string] $password
-     * @param [string] $hash
+     * @param string $login
+     * @param string $password
+     * @param string $hash
      * @return boolean
      */
     private function _testPassword($login, $password, $hash)
     {
+        $login = strtolower($login);
         $ok = false;
         /**
          * Test the type of hash
@@ -135,15 +143,28 @@ class LoginGestion extends ObjetBDD
      */
     public function getLoginFromTokenWS($login, $token)
     {
+        $retour = false;
         if (strlen($token) > 0 && strlen($login) > 0) {
-            $sql = "select login from logingestion where is_clientws = '1' and actif = '1'
-            and login = :login
-            and tokenws = :tokenws";
-            return $this->lireParamAsPrepared($sql, array(
-                "login" => $login,
-                "tokenws" => $token,
+            $sql = "select tokenws from logingestion where is_clientws = '1' and actif = '1'
+            and login = :login";
+            $data = $this->lireParamAsPrepared($sql, array(
+                "login" => $login
             ));
+            /**
+             * decode the token
+             */
+            if (
+                openssl_private_decrypt(
+                    base64_decode($data["tokenws"]),
+                    $decrypted,
+                    $this->getKey("priv"),
+                    OPENSSL_PKCS1_OAEP_PADDING
+                ) && $decrypted == $token
+            ) {
+                $retour = true;
+            }
         }
+        return $retour;
     }
 
     /**
@@ -174,23 +195,82 @@ class LoginGestion extends ObjetBDD
                 $data["password"] = $this->_encryptPassword($data["pass1"]);
                 $data["is_expired"] = 1;
             } else {
-                throw new IdentificationException(_("Mot de passe insuffisamment complexe ou trop petit"));
+                throw new FrameworkException(_("Mot de passe insuffisamment complexe ou trop petit"));
             }
         }
         $data["datemodif"] = date($_SESSION["MASKDATELONG"]);
+        $data["login"] = strtolower($data["login"]);
         /*
          * Traitement de la generation du token d'identification ws
          */
-        if ($data["is_clientws"] == 1 && strlen($data["tokenws"]) == 0) {
-            $data["tokenws"] = bin2hex(openssl_random_pseudo_bytes(32));
-        } else {
-            $data["is_clientws"] = 0;
-        }
+        if ($data["is_clientws"] == 1)
+            if (strlen($data["tokenws"]) == 0) {
+                $token = bin2hex(openssl_random_pseudo_bytes(32));
+                if (openssl_public_encrypt($token, $crypted, $this->getKey("pub"), OPENSSL_PKCS1_OAEP_PADDING)) {
+                    $data["tokenws"] = base64_encode($crypted);
+                } else {
+                    throw new FrameworkException(_("Une erreur est survenue pendant le chiffrement du jeton d'identification"));
+                }
+            } else {
+                /**
+                 * unset the token, to avoid the storage
+                 */
+                unset($data["tokenws"]);
+            }
         return parent::ecrire($data);
+    }
+
+    function lire($id, $getDefault = true, $parentValue = 0)
+    {
+        $data = parent::lire($id, $getDefault, $parentValue);
+        if (!empty($data["tokenws"])) {
+            /**
+             * decode the token
+             */
+            if (openssl_private_decrypt(base64_decode($data["tokenws"]), $decrypted, $this->getKey("priv"), OPENSSL_PKCS1_OAEP_PADDING)) {
+                $data["tokenws"] = $decrypted;
+            } else {
+                throw new FrameworkException(_("Une erreur est survenue pendant le déchiffrement du jeton d'identification"));
+            }
+        }
+        return $data;
+    }
+
+    /**
+     * return the content of the specified key
+     *
+     * @param string $type
+     * @throws Exception
+     * @return string
+     */
+    private function getKey($type = "priv")
+    {
+        $contents = "";
+        if ($type == "priv" || $type == "pub") {
+            $type == "priv" ? $filename = $this->privateKey : $filename = $this->publicKey;
+            if (file_exists($filename)) {
+                $handle = fopen($filename, "r");
+                if ($handle) {
+                    $contents = fread($handle, filesize($filename));
+                    if (!$contents) {
+                        throw new FrameworkException("key " . $filename . " is empty");
+                    }
+                    fclose($handle);
+                } else {
+                    throw new FrameworkException($filename . " could not be open");
+                }
+            } else {
+                throw new FrameworkException("key " . $filename . " not found");
+            }
+        } else {
+            throw new FrameworkException("open key : type not specified");
+        }
+        return $contents;
     }
 
     function getDbconnectProvisionalNb($login)
     {
+        $login = strtolower($login);
         $sql = "select count(*) as dbconnect_provisional_nb
         from logingestion l
         join log on (l.login = log.login and log_date > datemodif
@@ -226,6 +306,7 @@ class LoginGestion extends ObjetBDD
 
     public function getFromLogin($login)
     {
+        $login = strtolower($login);
         if (strlen($login) > 0) {
             $sql = "select * from " . $this->table . " where login = :login";
             return $this->lireParamAsPrepared($sql, array("login" => $login));
@@ -247,7 +328,7 @@ class LoginGestion extends ObjetBDD
         if (isset($_SESSION["login"])) {
             $oldData = $this->lireByLogin($_SESSION["login"]);
             if ($log->getLastConnexionType($_SESSION["login"]) == "db") {
-                if ($this->_testPassword($_SESSION["login"], $oldpassword, $oldData["password"]) == true) {
+                if ($this->_testPassword($_SESSION["login"], $oldpassword, $oldData["password"])) {
                     /*
                      * Verifications de validite du mot de passe
                      */
@@ -278,10 +359,8 @@ class LoginGestion extends ObjetBDD
     public function changePasswordAfterLost($login, $pass1, $pass2)
     {
         $retour = 0;
-        if (strlen($login) > 0) {
-            if ($this->_passwordVerify($pass1, $pass2)) {
-                $retour = $this->writeNewPassword($login, $pass1);
-            }
+        if (!empty($login) > 0 && $this->_passwordVerify($pass1, $pass2)) {
+            $retour = $this->writeNewPassword($login, $pass1);
         }
         return $retour;
     }
@@ -296,6 +375,7 @@ class LoginGestion extends ObjetBDD
     private function writeNewPassword($login, $pass)
     {
         global $log, $message, $APPLI_address, $APPLI_title;
+        $login = strtolower($login);
         $retour = 0;
         $oldData = $this->lireByLogin($login);
         if ($log->getLastConnexionType($login) == "db") {
@@ -421,6 +501,7 @@ class LoginGestion extends ObjetBDD
      */
     public function lireByLogin($login)
     {
+        $login = strtolower($login);
         $login = $this->encodeData($login);
         $sql = "select * from " . $this->table . "
 				where login = '" . $login . "'";
@@ -462,6 +543,7 @@ class LoginGestion extends ObjetBDD
     {
         global $message, $MAIL_enabled, $APPLI_mail, $GACL_aco, $log;
         $moduleNameComplete = $GACL_aco . "-sendMailForPasswordChange";
+        $login = strtolower($login);
         if ($MAIL_enabled == 1) {
             try {
                 $dataLogin = $this->getFromLogin($login);

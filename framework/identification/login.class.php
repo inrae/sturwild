@@ -8,7 +8,9 @@ class Login
   function __construct($bdd, $param = array())
   {
     include_once "framework/identification/loginGestion.class.php";
+    global $privateKey, $pubKey;
     $this->loginGestion = new LoginGestion($bdd, $param);
+    $this->loginGestion->setKeys($privateKey, $pubKey);
     include_once "framework/droits/acllogin.class.php";
     $this->aclogin = new Acllogin($bdd, $param);
     global $log, $message;
@@ -25,10 +27,8 @@ class Login
      */
     if ($type_authentification == "ws") {
       $tauth = "swtoken";
-
-      $dataId = $this->loginGestion->getLoginFromTokenWS($_REQUEST["login"], $_REQUEST["token"]);
-      if (!empty($dataId["login"])) {
-        $login = $dataId["login"];
+      if ($this->loginGestion->getLoginFromTokenWS($_REQUEST["login"], $_REQUEST["token"])) {
+        $login = $_REQUEST["login"];
       }
     } elseif (isset($_COOKIE["tokenIdentity"])) {
       $tauth = "token";
@@ -47,9 +47,7 @@ class Login
          */
         $cookieParam = session_get_cookie_params();
         $cookieParam["lifetime"] = time() - 3600;
-        if (!$APPLI_modeDeveloppement) {
-          $cookieParam["secure"] = true;
-        }
+        $cookieParam["secure"] = true;
         $cookieParam["httponly"] = true;
         setcookie('tokenIdentity', "", $cookieParam["lifetime"], $cookieParam["path"], $cookieParam["domain"], $cookieParam["secure"], $cookieParam["httponly"]);
       }
@@ -66,20 +64,20 @@ class Login
         $tauth = "db";
         $login = $this->getLoginBDD($_POST["login"], $_POST["password"]);
       }
-    } elseif ($type_authentification == "BDD") {
+    } elseif ($type_authentification == "BDD" || $type_authentification == "CAS-BDD") {
       $tauth = "db";
       $login = $this->getLoginBDD($_POST["login"], $_POST["password"]);
     }
     if (!empty($login)) {
       if (!$this->log->isAccountBlocked($login, $CONNEXION_blocking_duration, $CONNEXION_max_attempts)) {
-        $this->log->setlog($login, "connection-". $tauth , "ok");
+        $this->log->setlog($login, "connection-" . $tauth, "ok");
       } else {
         $this->log->setLog($login, "connectionBlocking", "account blocked");
         $login = null;
       }
     } else {
       isset($_POST["login"]) ? $loginRequired = $_POST["login"] : $loginRequired = "unknown";
-      $this->log->setlog($loginRequired, "connection-". $tauth, "ko");
+      $this->log->setlog($loginRequired, "connection-" . $tauth, "ko");
       $this->message->set(_("L'identification n'a pas abouti. Vérifiez votre login et votre mot de passe"), true);
     }
     return $login;
@@ -161,13 +159,13 @@ class Login
    */
   public function getLoginCas($modeAdmin = false)
   {
-  include_once "vendor/jasig/phpcas/CAS.php";
-    global $CAS_address, $CAS_port, $CAS_address, $CAS_CApath, $CAS_debug;
+    include_once "vendor/jasig/phpcas/CAS.php";
+    global $CAS_address, $CAS_port, $CAS_address, $CAS_CApath, $CAS_debug, $CAS_uri;
     if ($CAS_debug) {
-      phpCAS::setDebug();
+      phpCAS::setDebug("temp/cas.log");
       phpCAS::setVerbose(true);
     }
-    phpCAS::client(CAS_VERSION_2_0, $CAS_address, $CAS_port, "");
+    phpCAS::client(CAS_VERSION_2_0, $CAS_address, $CAS_port, $CAS_uri, false);
     if (!empty($CAS_CApath)) {
       phpCAS::setCasServerCACert($CAS_CApath);
     } else {
@@ -179,7 +177,11 @@ class Login
       phpCAS::forceAuthentication();
     }
 
-    return phpCAS::getUser();
+    $user = phpCAS::getUser();
+    if (!empty($user)) {
+      $_SESSION["CAS_attributes"] = phpCAS::getAttributes();
+    }
+    return $user;
   }
 
   public function getLoginLdap($login, $password)
@@ -188,20 +190,20 @@ class Login
     $loginOk = "";
     if (strlen($login) > 0 && strlen($password) > 0) {
       $login = str_replace(
-        array('\\','*','(',')',),
-        array('\5c','\2a','\28','\29',),
+        array('\\', '*', '(', ')',),
+        array('\5c', '\2a', '\28', '\29',),
         $login
-    );
-    for ($i = 0; $i < strlen($login); $i++) {
+      );
+      for ($i = 0; $i < strlen($login); $i++) {
         $char = substr($login, $i, 1);
         if (ord($char) < 32) {
-            $hex = dechex(ord($char));
-            if (strlen($hex) == 1) {
-                $hex = '0' . $hex;
-            }
-            $login = str_replace($char, '\\' . $hex, $login);
+          $hex = dechex(ord($char));
+          if (strlen($hex) == 1) {
+            $hex = '0' . $hex;
+          }
+          $login = str_replace($char, '\\' . $hex, $login);
         }
-    }
+      }
       $ldap = @ldap_connect($LDAP["address"], $LDAP["port"]);
       /**
        * Set options
@@ -252,7 +254,7 @@ class Login
   function getLoginBDD($login, $password)
   {
     if ($this->loginGestion->controlLogin($login, $password)) {
-      return $login;
+      return strtolower($login);
     }
   }
 

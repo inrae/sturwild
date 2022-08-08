@@ -16,6 +16,7 @@ New features:
 - in development, adding the function printA to display the content of arrays or objects
 
 Operations to upgrade:
+- replace framework folder
 - replace /display/templates/framework folder
 - replace display/templates/entete.tpl
 - replace /display/templates/main_js.tpl (compare with your actual version before)

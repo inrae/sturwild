@@ -1,50 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 CAUTION: Do not modify this file unless you know what you are doing.
-         Unexpected results may occur if the code is changed deliberately.
+ Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="0,0" last-zoom="0.6" max-obj-count="48"
-	 default-schema="public" default-owner="postgres">
+<dbmodel pgmodeler-ver="0.9.4" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="48"
+	 default-owner="postgres">
 <role name="sturio_owner"
-      inherit="true"
-      encrypted="true"
-      password="********">
+ inherit="true"
+ encrypted="true"
+ password="********">
 </role>
 
 <role name="eric.quinton"
-      superuser="true"
-      createdb="true"
-      createrole="true"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      validity="2050-12-31 00:00:00"
-      password="********">
+ superuser="true"
+ createdb="true"
+ createrole="true"
+ inherit="true"
+ login="true"
+ encrypted="true"
+ validity="2050-12-31 00:00:00"
+ password="********">
 </role>
 
 <role name="sturio_sturat_rw"
-      inherit="true"
-      encrypted="true"
-      password="********">
+ inherit="true"
+ encrypted="true"
+ password="********">
 </role>
 
 <role name="sturio_gacl_g"
-      inherit="true"
-      encrypted="true"
-      password="********">
+ inherit="true"
+ encrypted="true"
+ password="********">
 </role>
 
 <role name="metabo"
-      login="true"
-      encrypted="true"
-      password="metaboPassword"
-      sql-disabled="true">
+ login="true"
+ encrypted="true"
+ password="metaboPassword"
+ sql-disabled="true">
 </role>
 
 <database name="sturio-sturwild" encoding="UTF8" lc-collate="fr_FR.UTF-8" lc-ctype="fr_FR.UTF-8" is-template="false" allow-conns="true">
 	<role name="sturio_owner"/>
 	<tablespace name="pg_default"/>
 </database>
+
+<schema name="public" layers="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="sturwild" layers="0" rect-visible="true" fill-color="#6de3cc">
+	<role name="&quot;eric.quinton&quot;"/>
+</schema>
+
+<schema name="metabo" layers="0" rect-visible="true" fill-color="#30bfd3">
+	<role name="metabo"/>
+</schema>
 
 <tag name="utils">
 	<style id="table-body" colors="#fcfcfc,#fcfcfc,#808080"/>
@@ -82,13 +93,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<style id="table-toggler-body" colors="#ffffff,#ffffff,#000000"/>
 	<style id="table-toggler-btns" colors="#ffffff,#ffffff,#000000"/>
 </tag>
-<schema name="public" layer="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
-</schema>
-
-<schema name="sturwild" layer="0" rect-visible="true" fill-color="#6de3cc">
-	<role name="&quot;eric.quinton&quot;"/>
-</schema>
-
 <extension name="postgis" cur-version="2.2.1">
 	<schema name="public"/>
 	<comment><![CDATA[PostGIS geometry, geography, and raster spatial types and functions]]></comment>
@@ -104,7 +108,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="capture_etat" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="capture_etat" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Table des états à la capture]]></comment>
@@ -126,7 +130,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="capture_mode" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="capture_mode" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Mode de capture des poissons]]></comment>
@@ -148,7 +152,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="capture_type" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="capture_type" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Type de capture (professionnelle, amateur, scientifique...)]]></comment>
@@ -170,7 +174,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="ciem" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="ciem" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Table des zones de peche CIEM]]></comment>
@@ -192,7 +196,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="declaration" layer="0" collapse-mode="2" max-obj-count="34" z-value="0">
+<table name="declaration" layers="0" collapse-mode="2" max-obj-count="34" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Informations liées à la déclaration.]]></comment>
@@ -318,7 +322,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="devenir" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="devenir" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Devenir des esturgeons capturés]]></comment>
@@ -340,7 +344,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="document" layer="0" collapse-mode="2" max-obj-count="10" z-value="0">
+<table name="document" layers="0" collapse-mode="2" max-obj-count="10" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Documents numériques rattachés à un poisson ou à un événement]]></comment>
@@ -385,7 +389,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="engin_type" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="engin_type" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Table des engins utilisés]]></comment>
@@ -407,7 +411,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="espece" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="espece" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="individu"/>
@@ -430,7 +434,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="evenement" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+<table name="evenement" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="declaration"/>
@@ -465,7 +469,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="evenement_type" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="evenement_type" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Types d'événements possibles sur une déclaration]]></comment>
@@ -487,7 +491,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="individu" layer="0" collapse-mode="2" max-obj-count="18" z-value="0">
+<table name="individu" layers="0" collapse-mode="2" max-obj-count="18" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="individu"/>
@@ -561,7 +565,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<comment><![CDATA[postgis type: Planar spatial data type.]]></comment>
 </usertype>
 
-<table name="localisation" layer="0" collapse-mode="2" max-obj-count="20" z-value="0">
+<table name="localisation" layers="0" collapse-mode="2" max-obj-count="20" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="lieu"/>
@@ -638,7 +642,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="milieu_detail" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="milieu_detail" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Milieu détaillé]]></comment>
@@ -655,7 +659,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="milieu" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="milieu" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Table des milieux]]></comment>
@@ -679,7 +683,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="mime_type" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="mime_type" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Table des types mime, pour les documents associés]]></comment>
@@ -706,7 +710,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="pays" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="pays" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Pays de pêche]]></comment>
@@ -732,7 +736,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="presence_marque" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="presence_marque" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Table des types de présence de marque (présent, non signalé, absent)]]></comment>
@@ -754,7 +758,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="region" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="region" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Grande région de pêche]]></comment>
@@ -777,7 +781,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="statut" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="statut" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Table des statuts de la déclaration]]></comment>
@@ -794,7 +798,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<view name="v_individu" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+<view name="v_individu" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<position x="800" y="1060"/>
@@ -888,37 +892,37 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</reference>
 </view>
 
-<relationship name="rel_v_individu_capture_etat" type="reltv" layer="0"
+<relationship name="rel_v_individu_capture_etat" type="reltv" layers="0"
 	 custom-color="#2f56a9"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.capture_etat"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_individu_devenir" type="reltv" layer="0"
+<relationship name="rel_v_individu_devenir" type="reltv" layers="0"
 	 custom-color="#9259b7"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.devenir"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_individu_espece" type="reltv" layer="0"
+<relationship name="rel_v_individu_espece" type="reltv" layers="0"
 	 custom-color="#8fd78a"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.espece"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_individu_individu" type="reltv" layer="0"
+<relationship name="rel_v_individu_individu" type="reltv" layers="0"
 	 custom-color="#6122c0"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.individu"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_individu_presence_marque" type="reltv" layer="0"
+<relationship name="rel_v_individu_presence_marque" type="reltv" layers="0"
 	 custom-color="#1682ae"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.presence_marque"
 	 src-required="false" dst-required="false"/>
 
-<view name="v_localisation" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+<view name="v_localisation" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<position x="1180" y="920"/>
@@ -1088,79 +1092,79 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</reference>
 </view>
 
-<relationship name="rel_v_localisation_capture_etat" type="reltv" layer="0"
+<relationship name="rel_v_localisation_capture_etat" type="reltv" layers="0"
 	 custom-color="#2697f7"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.capture_etat"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_capture_mode" type="reltv" layer="0"
+<relationship name="rel_v_localisation_capture_mode" type="reltv" layers="0"
 	 custom-color="#f609a0"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.capture_mode"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_capture_type" type="reltv" layer="0"
+<relationship name="rel_v_localisation_capture_type" type="reltv" layers="0"
 	 custom-color="#9c9d7d"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.capture_type"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_ciem" type="reltv" layer="0"
+<relationship name="rel_v_localisation_ciem" type="reltv" layers="0"
 	 custom-color="#ad6c45"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.ciem"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_declaration" type="reltv" layer="0"
+<relationship name="rel_v_localisation_declaration" type="reltv" layers="0"
 	 custom-color="#694fa3"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.declaration"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_devenir" type="reltv" layer="0"
+<relationship name="rel_v_localisation_devenir" type="reltv" layers="0"
 	 custom-color="#bf8aef"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.devenir"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_engin_type" type="reltv" layer="0"
+<relationship name="rel_v_localisation_engin_type" type="reltv" layers="0"
 	 custom-color="#ee0fb1"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.engin_type"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_espece" type="reltv" layer="0"
+<relationship name="rel_v_localisation_espece" type="reltv" layers="0"
 	 custom-color="#f9ed64"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.espece"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_localisation" type="reltv" layer="0"
+<relationship name="rel_v_localisation_localisation" type="reltv" layers="0"
 	 custom-color="#7ce833"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.localisation"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_milieu" type="reltv" layer="0"
+<relationship name="rel_v_localisation_milieu" type="reltv" layers="0"
 	 custom-color="#0cf1c4"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.milieu"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_pays" type="reltv" layer="0"
+<relationship name="rel_v_localisation_pays" type="reltv" layers="0"
 	 custom-color="#463217"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.pays"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_region" type="reltv" layer="0"
+<relationship name="rel_v_localisation_region" type="reltv" layers="0"
 	 custom-color="#8612a6"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.region"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_v_localisation_statut" type="reltv" layer="0"
+<relationship name="rel_v_localisation_statut" type="reltv" layers="0"
 	 custom-color="#2f741d"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.statut"
@@ -1171,7 +1175,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 </sequence>
 
-<table name="dbversion" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="dbversion" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment><![CDATA[Table des versions de la base de donnees]]></comment>
@@ -1192,11 +1196,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<schema name="metabo" layer="0" rect-visible="true" fill-color="#30bfd3">
-	<role name="metabo"/>
-</schema>
-
-<table name="request" layer="0" collapse-mode="2" max-obj-count="8" z-value="0">
+<table name="request" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
 	<schema name="sturwild"/>
 	<comment><![CDATA[Request table in database]]></comment>
 	<position x="40" y="1480"/>
@@ -1232,7 +1232,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="precision" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="precision" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="postgres"/>
 	<comment><![CDATA[Précision de la localisation du point GPS]]></comment>
@@ -1256,7 +1256,7 @@ Point GPS estimé > 10 km]]>
 	</initial-data>
 </table>
 
-<relationship name="precision_has_many_localisation" type="rel1n" layer="0"
+<relationship name="precision_has_many_localisation" type="rel1n" layers="0"
 	 src-col-pattern="{sc}"
 	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
 	 src-fk-pattern="{st}_fk"
@@ -1398,134 +1398,112 @@ Point GPS estimé > 10 km]]>
 	<columns names="region_id" ref-type="dst-columns"/>
 </constraint>
 
-<relationship name="rel_declaration_capture_etat" type="relfk" layer="0"
-	 custom-color="#e54e05"
+<relationship name="rel_declaration_capture_etat" type="relfk" layers="0"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.capture_etat" reference-fk="capture_etat_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_declaration_capture_mode" type="relfk" layer="0"
-	 custom-color="#44ba86"
+<relationship name="rel_declaration_capture_mode" type="relfk" layers="0"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.capture_mode" reference-fk="capture_mode_capture_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_declaration_capture_type" type="relfk" layer="0"
-	 custom-color="#e5676a"
+<relationship name="rel_declaration_capture_type" type="relfk" layers="0"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.capture_type" reference-fk="capture_type_capture_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="true"/>
 
-<relationship name="rel_declaration_devenir" type="relfk" layer="0"
-	 custom-color="#c1dd3c"
+<relationship name="rel_declaration_devenir" type="relfk" layers="0"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.devenir" reference-fk="devenir_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_declaration_engin_type" type="relfk" layer="0"
-	 custom-color="#2f57ef"
+<relationship name="rel_declaration_engin_type" type="relfk" layers="0"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.engin_type" reference-fk="engin_type_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_declaration_espece" type="relfk" layer="0"
-	 custom-color="#8d5504"
+<relationship name="rel_declaration_espece" type="relfk" layers="0"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.espece" reference-fk="espece_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_declaration_statut" type="relfk" layer="0"
-	 custom-color="#603917"
+<relationship name="rel_declaration_statut" type="relfk" layers="0"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.statut" reference-fk="statut_declaration_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="true"/>
 
-<relationship name="rel_document_individu" type="relfk" layer="0"
-	 custom-color="#ad3f93"
+<relationship name="rel_document_individu" type="relfk" layers="0"
 	 src-table="sturwild.document"
 	 dst-table="sturwild.individu" reference-fk="individu_document_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="true"/>
 
-<relationship name="rel_document_mime_type" type="relfk" layer="0"
-	 custom-color="#0baf25"
+<relationship name="rel_document_mime_type" type="relfk" layers="0"
 	 src-table="sturwild.document"
 	 dst-table="sturwild.mime_type" reference-fk="mime_type_document_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="true"/>
 
-<relationship name="rel_evenement_declaration" type="relfk" layer="0"
-	 custom-color="#e0d280"
+<relationship name="rel_evenement_declaration" type="relfk" layers="0"
 	 src-table="sturwild.evenement"
 	 dst-table="sturwild.declaration" reference-fk="evenement_capture_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_evenement_evenement_type" type="relfk" layer="0"
-	 custom-color="#a4a69e"
+<relationship name="rel_evenement_evenement_type" type="relfk" layers="0"
 	 src-table="sturwild.evenement"
 	 dst-table="sturwild.evenement_type" reference-fk="evenement_type_evenement_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="true"/>
 
-<relationship name="rel_individu_capture_etat" type="relfk" layer="0"
-	 custom-color="#d64a48"
+<relationship name="rel_individu_capture_etat" type="relfk" layers="0"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.capture_etat" reference-fk="capture_etat_individu_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_individu_declaration" type="relfk" layer="0"
-	 custom-color="#9583e8"
+<relationship name="rel_individu_declaration" type="relfk" layers="0"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.declaration" reference-fk="capture_individu_fk1"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="true"/>
 
-<relationship name="rel_individu_devenir" type="relfk" layer="0"
-	 custom-color="#986424"
+<relationship name="rel_individu_devenir" type="relfk" layers="0"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.devenir" reference-fk="devenir_individu_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_individu_espece" type="relfk" layer="0"
-	 custom-color="#f30b47"
+<relationship name="rel_individu_espece" type="relfk" layers="0"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.espece" reference-fk="espece_individu_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_individu_presence_marque" type="relfk" layer="0"
-	 custom-color="#9a45ee"
+<relationship name="rel_individu_presence_marque" type="relfk" layers="0"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.presence_marque" reference-fk="presence_marque_individu_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_localisation_ciem" type="relfk" layer="0"
-	 custom-color="#4932a1"
+<relationship name="rel_localisation_ciem" type="relfk" layers="0"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.ciem" reference-fk="ciem_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_localisation_declaration" type="relfk" layer="0"
-	 custom-color="#56fdb1"
+<relationship name="rel_localisation_declaration" type="relfk" layers="0"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.declaration" reference-fk="declaration_localisation_fk"
-	 src-required="false" dst-required="false"/>
+	 src-required="false" dst-required="true"/>
 
-<relationship name="rel_localisation_milieu_detail" type="relfk" layer="0"
-	 custom-color="#68cdb7"
+<relationship name="rel_localisation_milieu_detail" type="relfk" layers="0"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.milieu_detail" reference-fk="milieu_detail_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_localisation_milieu" type="relfk" layer="0"
-	 custom-color="#855f1b"
+<relationship name="rel_localisation_milieu" type="relfk" layers="0"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.milieu" reference-fk="milieu_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_localisation_pays" type="relfk" layer="0"
-	 custom-color="#ba43a1"
+<relationship name="rel_localisation_pays" type="relfk" layers="0"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.pays" reference-fk="pays_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_localisation_region" type="relfk" layer="0"
-	 custom-color="#e6c621"
+<relationship name="rel_localisation_region" type="relfk" layers="0"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.region" reference-fk="region_localisation_fk"
 	 src-required="false" dst-required="false"/>
