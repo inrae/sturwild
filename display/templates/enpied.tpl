@@ -1,6 +1,6 @@
 <div class="container">
   <p class="text-muted">
-    {t}Copyright © 2015-2021 - Tous droits réservés. Auteur : Éric Quinton, pour INRAE - Logiciel non diffusé{/t}
+    {t}Copyright © 2015-2022 - Tous droits réservés. Auteur : Éric Quinton, pour EABX - INRAE - Logiciel non diffusé{/t}
     <br>
     {t}En cas de problème :{/t}&nbsp;
     <a href="{$appliAssist}">{$appliAssist}</a>
