@@ -10,14 +10,14 @@ class SearchParam {
 	/**
 	 * Tableau des parametres geres par la classe
 	 * La liste des parametres doit etre declaree dans la fonction construct
-	 * 
+	 *
 	 * @var array
 	 */
 	public $param;
 	/**
 	 * Indique si la lecture des parametres a ete realisee au moins une fois
 	 * Permet ainsi de declencher ou non la recherche
-	 * 
+	 *
 	 * @var int
 	 */
 	public $isSearch;
@@ -32,8 +32,8 @@ class SearchParam {
 	}
 	/**
 	 * Stocke les parametres fournis
-	 * 
-	 * @param array $data        	
+	 *
+	 * @param array $data
 	 */
 	function setParam($data) {
 		foreach ( $this->param as $key => $value ) {
@@ -57,7 +57,7 @@ class SearchParam {
 	}
 	/**
 	 * Indique si la recherche a ete deja lancee
-	 * 
+	 *
 	 * @return int
 	 */
 	function isSearch() {
@@ -71,7 +71,7 @@ class SearchParam {
 class SearchDeclaration extends SearchParam {
 	function __construct() {
 		$annee = date("Y");
-		
+
 		$this->param = array (
 				"libelle"=>"",
 				"annee_debut"=>$annee - 1,
@@ -83,7 +83,7 @@ class SearchDeclaration extends SearchParam {
 				"statut_id"=>"",
 				"espece_id"=>"",
 				"capture_etat_id"=>"",
-				"engin_type_id"=>""		
+				"engin_type_id"=>""
 		);
 		parent::__construct ();
 	}
@@ -95,7 +95,7 @@ class SearchDeclaration extends SearchParam {
 	function getListeAnnee () {
 		$annee = date("Y");
 		$annees = array();
-		for($debut = 2006; $debut <= $annee; $debut ++) {
+		for($debut = 1980; $debut <= $annee; $debut ++) {
 			$annees[] = $debut;
 		}
 		return $annees;

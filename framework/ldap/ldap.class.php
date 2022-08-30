@@ -5,6 +5,8 @@
  *
  */
 
+use LDAP\Connection;
+
 /**
  *
  * @author eric.quinton
@@ -25,7 +27,7 @@ class Ldap
     /**
      * Identifiant de connexion de l'annuaire ldap
      *
-     * @var int
+     * @var Connection
      */
     var $idldap;
 
@@ -51,9 +53,9 @@ class Ldap
      * Fonction realisant la connexion a l'annuaire
      * Retourne -1 en cas d'echec
      *
-     * @return int
+     * @return Connection|null
      */
-    function connect()
+    function connect() :Connection|null
     {
         $this->idldap = @ldap_connect($this->LDAP["address"], $this->LDAP["port"]);
         /**
@@ -69,9 +71,6 @@ class Ldap
             if ($this->LDAP["tls"] == 1) {
                 ldap_start_tls($this->idldap);
             }
-        } else {
-            $this->message = "Impossible de se connecter au serveur LDAP<br>";
-            $this->idldap = -1;
         }
         return $this->idldap;
     }

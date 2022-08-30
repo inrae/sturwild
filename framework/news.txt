@@ -1,9 +1,6 @@
+Framework prototypephp © Eric Quinton, 2006-2021
 News
 ============
-Release v3.3.1 - August 2022, 8th
----------------------------------
-Upgrade of the framework
-
 Release v3.3.0 - February 2021
 ------------------------------
 New features:

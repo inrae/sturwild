@@ -10,14 +10,14 @@ require_once 'modules/classes/declaration.class.php';
  * ORM de gestion de la table evenement
  *
  * @author quinton
- *        
+ *
  */
 class Evenement extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -30,29 +30,29 @@ class Evenement extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"declaration_id" => array (
 						"type" => 1,
 						"requis" => 1,
-						"parentAttrib" => 1 
+						"parentAttrib" => 1
 				),
-				
+
 				"evenement_type_id" => array (
 						"type" => 1,
-						"defaultValue" => 1 
+						"defaultValue" => 1
 				),
 				"evenement_date" => array (
 						"type" => 2,
-						"defaultValue" => "getDateJour" 
+						"defaultValue" => "getDateJour"
 				),
 				"evenement_commentaire" => Array (
-						"type" => 0 
+						"type" => 0
 				),
 				"login" => array (
 						"type" => 0,
-						"defaultValue" => "getLogin" 
-				) 
+						"defaultValue" => "getLogin"
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );
@@ -83,13 +83,13 @@ class Evenement extends ObjetBDD {
 			}
 		}
 		return $id;
-		
+
 	}
-	
+
 	/**
 	 * Retourne la liste des evenements rattaches a une declaration
 	 *
-	 * @param int $id        	
+	 * @param int $id
 	 * @return tableau|NULL
 	 */
 	function getListeFromDeclaration($id) {
@@ -115,10 +115,10 @@ class Evenement extends ObjetBDD {
 		} else
 			return null;
 	}
-	
+
 	/**
 	 * Retourne le login, pour creer la valeur par defaut
-	 * 
+	 *
 	 * @return string
 	 */
 	function getLogin() {
@@ -129,16 +129,16 @@ class Evenement extends ObjetBDD {
 
 /**
  * ORM de gestion de la table evenement_type
- * 
+ *
  * @author quinton
- *        
+ *
  */
 class Evenement_type extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
-	 * @param PDO $link        	
-	 * @param array $param        	
+	 * @param PDO $link
+	 * @param array $param
 	 */
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -150,11 +150,11 @@ class Evenement_type extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 0 
+						"defaultValue" => 0
 				),
 				"evenement_type_libelle" => array (
-						"requis" => 1 
-				) 
+						"requis" => 1
+				)
 		);
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $link, $param );

@@ -9,6 +9,9 @@ class LoginGestion extends ObjetBDD
 {
     private $privateKey = "/etc/ssl/private/ssl-cert-snakeoil.key";
     private $publicKey = "/etc/ssl/certs/ssl-cert-snakeoil.pem";
+    public $nbattempts = 2;
+    public $attemptdelay = 6;
+
     public function __construct($link, $param = array())
     {
         $this->table = "logingestion";
@@ -52,7 +55,9 @@ class LoginGestion extends ObjetBDD
             "is_expired" => array(
                 "type" => 1,
                 "defaultValue" => "0"
-            )
+            ),
+            "nbattempts" => array("type" => 1),
+            "lastattempt" => array("type" => 3)
         );
         parent::__construct($link, $param);
     }
@@ -73,19 +78,57 @@ class LoginGestion extends ObjetBDD
     public function controlLogin($login, $password)
     {
         global $log;
-        $retour = false;
+        $passwordok = false;
+        $tests = true;
         $login = strtolower($login);
         if (strlen($login) > 0 && strlen($password) > 0) {
-            $sql = "select login, password, is_expired from LoginGestion where login = :login and actif = 1";
+            $sql = "select id, login, password, nbattempts, lastattempt, is_expired from LoginGestion where login = :login and actif = 1";
+            $this->auto_date = 0;
             $data = $this->lireParamAsPrepared($sql, array("login" => $login));
-            if ($this->_testPassword($login, $password, $data["password"])) {
-                $retour = true;
-            } else {
-                $log->setLog($login, "connection-db", "ko-account expired");
+            if (!$data["id"] > 0) {
+                $tests = false;
+            }
+            /**
+             * Verify if the number of attempts is reached
+             */
+            if ($tests && $data["nbattempts"] >= $this->nbattempts && !empty($data["lastattempt"])) {
+                $lastdate = strtotime($data["lastattempt"]) + $this->attemptdelay;
+                if ($lastdate > time()) {
+                    $this->addAttempt($data["id"]);
+                    $tests = false;
+                }
+            }
+            if ($tests) {
+                /**
+                 * Test the password
+                 */
+                if ($this->_testPassword($login, $password, $data["password"])) {
+                    $passwordok = true;
+                    $this->resetAttempt($data["id"]);
+                } else {
+                    $this->addAttempt($data["id"]);
+                }
             }
         }
-        return $retour;
+        if (!$passwordok) {
+            $log->setLog($login, "connection-db", "ko");
+        }
+        return $passwordok;
     }
+    function addAttempt($id)
+    {
+        $sql = "update logingestion set nbattempts = nbattempts + 1,
+                lastattempt = now()
+                where id = :id";
+        $this->executeAsPrepared($sql, array("id" => $id), true);
+    }
+    function resetAttempt($id)
+    {
+        $sql = "update logingestion set nbattempts = 0, lastattempt = null
+        where id = :id";
+        $this->executeAsPrepared($sql, array("id" => $id), true);
+    }
+
     /**
      * verify the password
      *
@@ -174,11 +217,9 @@ class LoginGestion extends ObjetBDD
      */
     public function getListeTriee()
     {
-        $sql = "select id,l.login,nom,prenom,mail,actif, is_clientws, count(*) as dbconnect_provisional_nb
-        from logingestion l
-        left outer join log on (l.login = log.login and log_date > datemodif
-                       and commentaire = 'db-ok-expired')
-        group by id, l.login, nom, prenom, mail, actif, is_clientws";
+        $sql = "select id,l.login,nom,prenom,mail,actif, is_clientws,
+                nbattempts, lastattempt
+                from logingestion l";
         return ObjetBDD::getListeParam($sql);
     }
 
@@ -203,7 +244,7 @@ class LoginGestion extends ObjetBDD
         /*
          * Traitement de la generation du token d'identification ws
          */
-        if ($data["is_clientws"] == 1)
+        if ($data["is_clientws"] == 1) {
             if (strlen($data["tokenws"]) == 0) {
                 $token = bin2hex(openssl_random_pseudo_bytes(32));
                 if (openssl_public_encrypt($token, $crypted, $this->getKey("pub"), OPENSSL_PKCS1_OAEP_PADDING)) {
@@ -217,6 +258,11 @@ class LoginGestion extends ObjetBDD
                  */
                 unset($data["tokenws"]);
             }
+        }
+        if ($data["resetattempts"] == 1) {
+            $data["nbattempts"] = 0;
+            $data["lastattempt"] = "";
+        }
         return parent::ecrire($data);
     }
 

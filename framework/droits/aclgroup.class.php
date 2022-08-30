@@ -76,7 +76,9 @@ class Aclgroup extends ObjetBDD
             include_once "framework/ldap/ldap.class.php";
             $ldap = new Ldap($ldapParam);
             $conn = $ldap->connect();
-
+            if (!$conn) {
+                throw new LdapException(_("Connexion à l'annuaire LDAP impossible"));
+            }
             /**
              * Set the parameters
              */

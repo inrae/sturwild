@@ -28,7 +28,7 @@ switch ($t_module["param"]) {
         include 'modules/declaration/declarationSearch.php';
         $vue->set($dataSearch, "dataSearch");
         $vue->set("declaration/declarationList.tpl", "corps");
-        
+
         break;
     case "display":
 		/*
@@ -36,14 +36,14 @@ switch ($t_module["param"]) {
 		 */
 		$vue->set($dataClass->getDetail($id), "data");
         $vue->set("declaration/declarationDisplay.tpl", "corps");
-        
+
         /*
          * Recuperation des autres informations a afficher
          */
         require_once 'modules/classes/localisation.class.php';
         $localisation = new Localisation($bdd, $ObjetBDDParam);
         $vue->set($localisation->getDetail($id), "localisation");
-        
+
         require_once 'modules/classes/individu.class.php';
         /*
          * $lot = new Lot($bdd, $ObjetBDDParam);
@@ -51,11 +51,11 @@ switch ($t_module["param"]) {
          */
         $individu = new Individu($bdd, $ObjetBDDParam);
         $vue->set($individu->getListeFromDeclaration($id), "individus");
-        
+
         require_once 'modules/classes/evenement.class.php';
         $evenement = new Evenement($bdd, $ObjetBDDParam);
         $vue->set($evenement->getListeFromDeclaration($id), "evenements");
-        
+
         require_once 'modules/classes/document.class.php';
         $document = new Document($bdd, $ObjetBDDParam);
         try {
@@ -64,13 +64,13 @@ switch ($t_module["param"]) {
             $message->set("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système.");
             $message->setSyslog($de->getMessage());
         }
-        
+
         /*
          * Ajout des coordonnees pour l'affichage de la carte
          */
         $vue->set($MAPS_url, "MAPS_url");
         $vue->set($MAPS_enabled, "MAPS_enabled");
-        
+
         break;
     case "change":
 		/*
@@ -101,7 +101,7 @@ switch ($t_module["param"]) {
          * Recuperation de la liste des annees
          */
         $vue->set($_SESSION["searchDeclaration"]->getListeAnnee(), "annees");
-        
+
         break;
     case "write":
 		/*
@@ -122,7 +122,7 @@ switch ($t_module["param"]) {
             /*
              * Traitement du changement de statut : envoi d'un message si le statut vaut 3 ou 4
              */
-            if (($_REQUEST["statut_id"] == 3 || $_REQUEST["statut_id"] == 4) && statutOld != $_REQUEST["statut_id"]) {
+            if (($_REQUEST["statut_id"] == 3 || $_REQUEST["statut_id"] == 4) && $statutOld != $_REQUEST["statut_id"]) {
                 sendMail($id);
             }
         }
@@ -157,7 +157,7 @@ switch ($t_module["param"]) {
 		 */
 		$vue->set($dataClass->getNbSturioByYear(), "data");
         $vue->set("declaration/nbSturioByYear.tpl", "corps");
-        
+
         break;
     case "duplicate":
 		/*

@@ -24,17 +24,17 @@ switch ($t_module ["param"]) {
 		require_once 'modules/classes/declaration.class.php';
 		$espece = new Espece ( $bdd, $ObjetBDDParam );
 		$vue->set ($espece->getListe ( 2 ) , "espece" );
-		
+
 		$devenir = new Devenir ( $bdd, $ObjetBDDParam );
 		$vue->set ( $devenir->getListe ( 1 ), "devenir" );
-		
+
 		$presence_marque = new Presence_marque ( $bdd, $ObjetBDDParam );
 		$vue->set ( $presence_marque->getListe ( 1 ), "presence_marque" );
-		
+
 		$captureEtat = new Capture_etat ( $bdd, $ObjetBDDParam );
 		$vue->set ( $captureEtat->getListe ( 2 ), "capture_etat" );
-		
-		
+
+
 		if ($id > 0) {
 			require_once 'modules/classes/document.class.php';
 			$document = new Document ( $bdd, $ObjetBDDParam );
@@ -44,7 +44,7 @@ switch ($t_module ["param"]) {
 			    $message->set("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système.");
 			    $message->setSyslog($de->getMessage());
 			}
-			
+
 		}
 		break;
 	case "write":
@@ -54,7 +54,7 @@ switch ($t_module ["param"]) {
 		$id = dataWrite ( $dataClass, $_REQUEST );
 		if ($id >= 0) {
 			$_REQUEST [$keyName] = $id;
-			
+
 			/*
 			 * Traitement des photos associees
 			 */
@@ -72,14 +72,14 @@ switch ($t_module ["param"]) {
 							'type' => $fdata ['type'] [$i],
 							'tmp_name' => $fdata ['tmp_name'] [$i],
 							'error' => $fdata ['error'] [$i],
-							'size' => $fdata ['size'] [$i] 
+							'size' => $fdata ['size'] [$i]
 					);
 				}
 			} else
 				$files [] = $fdata;
 			foreach ( $files as $file ) {
 				if (strlen ( $file ['name'] ) > 0)
-					$document->ecrire ( $file, $id, $_REQUEST ["document_description"] );
+					$document->documentWrite ( $file, $id, $_REQUEST ["document_description"] );
 			}
 			$log->setLog ( $_SESSION ["login"], get_class ( $dataClass ) . "-write", $id );
 		}
