@@ -23,8 +23,8 @@
   <dd>{$data.annee}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Date de capture {if strlen($data.capture_date_estimee)>0}(période/heure){/if} :</dt>
-    <dd>{$data.capture_date}{if strlen($data.capture_date_estimee)>0}&nbsp;({$data.capture_date_estimee}){/if}</dd>
+    <dt>Date de capture {if !empty($data.capture_date_estimee)}(période/heure){/if} :</dt>
+    <dd>{$data.capture_date}{if !empty($data.capture_date_estimee)}&nbsp;({$data.capture_date_estimee}){/if}</dd>
   </dl>
   <dl class="dl-horizontal">
     <dt>profondeur (ou gamme de profondeur) :</dt>

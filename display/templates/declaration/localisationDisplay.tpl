@@ -63,7 +63,7 @@
 <div class="col-sm-12 col-md-6">
 <div id="map"  style="height:600px;"></div>
 </div>
-{if strlen($localisation.longitude_dd) > 0 && strlen($localisation.latitude_dd) > 0 && $MAPS_enabled == 1}
+{if !empty($localisation.longitude_dd) && !empty($localisation.latitude_dd)  && $MAPS_enabled == 1}
 <script>
 
 var imageStyle = new ol.style.Style({

@@ -53,16 +53,16 @@ Exporter la liste au format CSV</a>
 </td>
 <td>
 {$data[lst].pays_libelle}
-{if (strlen($data[lst].ciem_libelle) > 0)}
+{if !empty($data[lst].ciem_libelle)}
  {$data[lst].ciem_libelle}
 {/if}
-{if (strlen($data[lst].region_libelle) > 0)}
+{if !empty($data[lst].region_libelle)}
  {$data[lst].region_libelle}
 {/if}
-{if (strlen($data[lst].milieu_libelle) > 0)}
+{if !empty($data[lst].milieu_libelle) }
  {$data[lst].milieu_libelle}
 {/if}
-{if (strlen($data[lst].milieu_detail_libelle) > 0)}
+{if !empty($data[lst].milieu_detail_libelle)}
  {$data[lst].milieu_detail_libelle}
 {/if}
  </td>
