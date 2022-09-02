@@ -21,7 +21,7 @@ $(document).ready(function() {
 		Cookies.set(moduleName + "Tab", $(this).attr("id"), { secure: true});
 	});
 	$("#tab-localisation").on("shown.bs.tab", function () {
-		{if strlen($localisation.longitude_dd) > 0 && strlen($localisation.latitude_dd) > 0 && $MAPS_enabled == 1}
+		{if !empty($localisation.longitude_dd)  && !empty($localisation.latitude_dd)  && $MAPS_enabled == 1}
 				setTimeout(function () { map.updateSize(); }, 400);
 		{/if}
   });
