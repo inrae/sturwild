@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 12:07+0100\n"
+"POT-Creation-Date: 2023-03-24 12:37+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1212,6 +1212,18 @@ msgstr "Events"
 #: ../../../display/templates/framework/logList.tpl:30
 msgid "Rechercher"
 msgstr "Search"
+
+#: ../../../display/templates/declaration/nbSturioByYear.tpl:5
+msgid "Année"
+msgstr "Year"
+
+#: ../../../display/templates/declaration/nbSturioByYear.tpl:6
+msgid "Espèce"
+msgstr "Species"
+
+#: ../../../display/templates/declaration/nbSturioByYear.tpl:7
+msgid "Nbre"
+msgstr "Number"
 
 #: ../../../display/templates/enpied.tpl:3
 msgid ""
@@ -5164,9 +5176,6 @@ msgstr "News..."
 
 #~ msgid "Nom du protocole"
 #~ msgstr "Protocol name"
-
-#~ msgid "Année"
-#~ msgstr "Year"
 
 #~ msgid ""
 #~ "Collection de\n"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 11:33+0100\n"
+"POT-Creation-Date: 2023-03-24 12:07+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -436,6 +436,10 @@ msgstr "English"
 #: ../../../param/menu.xml:63
 msgid "Labels in English"
 msgstr "Labels in English"
+
+#: ../../../doc/quoideneuf.php:67
+msgid "Impossible de lire le fichier contenant les news"
+msgstr "Unable to read the file containing the news"
 
 #: ../../../param/param.default.inc.php:10
 msgid "24/03/2023"
@@ -2000,6 +2004,10 @@ msgstr "Name of the variable"
 msgid "Contenu"
 msgstr "Content"
 
+#: ../../../display/templates/documentation/quoideneuf.tpl:1
+msgid "Les nouveautés..."
+msgstr "News..."
+
 #~ msgid "Schéma de la base de données"
 #~ msgstr "Database structure"
 
@@ -2634,9 +2642,6 @@ msgstr "Content"
 
 #~ msgid "La suppression des mouvements associés au container %s a échoué"
 #~ msgstr "The deletion of associated movements with the container %s failed"
-
-#~ msgid "Impossible de lire le fichier contenant les news"
-#~ msgstr "Unable to read the file containing the news"
 
 #~ msgid "Impossible de lire le fichier contenant le lexique"
 #~ msgstr "Unable to read the file containing the glossary"
@@ -4242,9 +4247,6 @@ msgstr "Content"
 
 #~ msgid "Date de dernière modification d'un échantillon"
 #~ msgstr "Date of last update of a sample"
-
-#~ msgid "Les nouveautés..."
-#~ msgstr "What's new?"
 
 #~ msgid "Modification des colonnes du modèle"
 #~ msgstr "Edit the columns of the model"

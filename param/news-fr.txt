@@ -8,6 +8,8 @@ Correction de bugs :
 
 Nouveautés :
 - début de la mise en place des traductions en anglais
+- modification de l'affichage de la liste des esturgeons capturés, avec ajout de toutes les espèces et intégration de fonctions d'exportation
+- désactivation du déclenchement de la recherche automatique lors de l'affichage de la liste des déclarations
 
 Version 1.4.0 du 30 août 2022
 ----------------------------

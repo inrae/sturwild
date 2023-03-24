@@ -3,11 +3,15 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.4" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="48"
-	 default-owner="postgres">
+<dbmodel pgmodeler-ver="1.0.2" use-changelog="false" last-position="0,0" last-zoom="0.7" max-obj-count="48"
+	 default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#e9b699"
+	 show-layer-names="false" show-layer-rects="false">
 <role name="sturio_owner"
  inherit="true"
- encrypted="true"
  password="********">
 </role>
 
@@ -17,26 +21,22 @@ CAUTION: Do not modify this file unless you know what you are doing.
  createrole="true"
  inherit="true"
  login="true"
- encrypted="true"
  validity="2050-12-31 00:00:00"
  password="********">
 </role>
 
 <role name="sturio_sturat_rw"
  inherit="true"
- encrypted="true"
  password="********">
 </role>
 
 <role name="sturio_gacl_g"
  inherit="true"
- encrypted="true"
  password="********">
 </role>
 
 <role name="metabo"
  login="true"
- encrypted="true"
  password="metaboPassword"
  sql-disabled="true">
 </role>
@@ -49,7 +49,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <schema name="public" layers="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
 </schema>
 
-<schema name="sturwild" layers="0" rect-visible="true" fill-color="#6de3cc">
+<schema name="sturwild" layers="0" fill-color="#6de3cc">
 	<role name="&quot;eric.quinton&quot;"/>
 </schema>
 
@@ -71,7 +71,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<style id="table-ext-body" colors="#fcfcfc,#fcfcfc,#808080"/>
 	<style id="table-name" colors="#000000"/>
 	<style id="table-schema-name" colors="#000000"/>
-	<style id="table-title" colors="#00aa7f,#00aa7f,#20486f"/>
+	<style id="table-title" colors="#2ec27e,#2ec27e,#20486f"/>
 	<style id="table-toggler-body" colors="#ffffff,#ffffff,#000000"/>
 	<style id="table-toggler-btns" colors="#ffffff,#ffffff,#000000"/>
 </tag>
@@ -80,7 +80,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<style id="table-ext-body" colors="#fcfcfc,#fcfcfc,#808080"/>
 	<style id="table-name" colors="#000000"/>
 	<style id="table-schema-name" colors="#000000"/>
-	<style id="table-title" colors="#aa0000,#aa0000,#20486f"/>
+	<style id="table-title" colors="#ed333b,#ed333b,#20486f"/>
 	<style id="table-toggler-body" colors="#ffffff,#ffffff,#000000"/>
 	<style id="table-toggler-btns" colors="#ffffff,#ffffff,#000000"/>
 </tag>
@@ -89,18 +89,18 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<style id="table-ext-body" colors="#fcfcfc,#fcfcfc,#808080"/>
 	<style id="table-name" colors="#000000"/>
 	<style id="table-schema-name" colors="#000000"/>
-	<style id="table-title" colors="#ff5500,#ff5500,#20486f"/>
+	<style id="table-title" colors="#ff7800,#ff7800,#20486f"/>
 	<style id="table-toggler-body" colors="#ffffff,#ffffff,#000000"/>
 	<style id="table-toggler-btns" colors="#ffffff,#ffffff,#000000"/>
 </tag>
 <extension name="postgis" cur-version="2.2.1">
 	<schema name="public"/>
-	<comment><![CDATA[PostGIS geometry, geography, and raster spatial types and functions]]></comment>
+	<comment> <![CDATA[PostGIS geometry, geography, and raster spatial types and functions]]> </comment>
 </extension>
 
 <extension name="tablefunc" cur-version="1.0">
 	<schema name="public"/>
-	<comment><![CDATA[functions that manipulate whole tables, including crosstab]]></comment>
+	<comment> <![CDATA[functions that manipulate whole tables, including crosstab]]> </comment>
 </extension>
 
 <sequence name="capture_etat_capture_etat_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
@@ -111,7 +111,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="capture_etat" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Table des états à la capture]]></comment>
+	<comment> <![CDATA[Table des états à la capture]]> </comment>
 	<tag name="individu"/>
 	<position x="40" y="920"/>
 	<column name="capture_etat_id" not-null="true" sequence="sturwild.capture_etat_capture_etat_id_seq">
@@ -133,9 +133,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="capture_mode" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Mode de capture des poissons]]></comment>
+	<comment> <![CDATA[Mode de capture des poissons]]> </comment>
 	<tag name="declaration"/>
-	<position x="420" y="60"/>
+	<position x="520" y="20"/>
 	<column name="capture_mode_id" not-null="true" sequence="sturwild.capture_mode_capture_mode_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -155,9 +155,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="capture_type" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Type de capture (professionnelle, amateur, scientifique...)]]></comment>
+	<comment> <![CDATA[Type de capture (professionnelle, amateur, scientifique...)]]> </comment>
 	<tag name="declaration"/>
-	<position x="800" y="60"/>
+	<position x="960" y="20"/>
 	<column name="capture_type_id" not-null="true" sequence="sturwild.capture_type_capture_type_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -177,9 +177,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="ciem" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Table des zones de peche CIEM]]></comment>
+	<comment> <![CDATA[Table des zones de peche CIEM]]> </comment>
 	<tag name="lieu"/>
-	<position x="1180" y="460"/>
+	<position x="1460" y="460"/>
 	<column name="ciem_id" not-null="true" sequence="sturwild.ciem_ciem_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -199,12 +199,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="declaration" layers="0" collapse-mode="2" max-obj-count="34" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Informations liées à la déclaration.]]></comment>
+	<comment> <![CDATA[Informations liées à la déclaration.]]> </comment>
 	<tag name="declaration"/>
-	<position x="420" y="180"/>
+	<position x="520" y="180"/>
 	<column name="declaration_id" not-null="true" sequence="sturwild.declaration_declaration_id_seq">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Identifiant de la capture.]]></comment>
+		<comment> <![CDATA[Identifiant de la capture.]]> </comment>
 	</column>
 	<column name="statut_id" not-null="true">
 		<type name="integer" length="0"/>
@@ -220,7 +220,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="espece_id">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Identifiant de l'espèce]]></comment>
+		<comment> <![CDATA[Identifiant de l'espèce]]> </comment>
 	</column>
 	<column name="capture_etat_id">
 		<type name="integer" length="0"/>
@@ -230,87 +230,87 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="capture_date">
 		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Date de capture.]]></comment>
+		<comment> <![CDATA[Date de capture.]]> </comment>
 	</column>
 	<column name="annee" not-null="true">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Année de pêche]]></comment>
+		<comment> <![CDATA[Année de pêche]]> </comment>
 	</column>
 	<column name="nombre_capture" not-null="true" default-value="1">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Nombre d'individu capturés]]></comment>
+		<comment> <![CDATA[Nombre d'individu capturés]]> </comment>
 	</column>
 	<column name="capture_date_estimee">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Estimation de la date de capture.]]></comment>
+		<comment> <![CDATA[Estimation de la date de capture.]]> </comment>
 	</column>
 	<column name="engin_maille">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Maille du filet, le cas échéant]]></comment>
+		<comment> <![CDATA[Maille du filet, le cas échéant]]> </comment>
 	</column>
 	<column name="espece_ciblee">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Espece normalement ciblée lors de la pêche.]]></comment>
+		<comment> <![CDATA[Espece normalement ciblée lors de la pêche.]]> </comment>
 	</column>
 	<column name="profondeur">
 		<type name="real" length="0"/>
-		<comment><![CDATA[Profondeur de pêche, en mètres]]></comment>
+		<comment> <![CDATA[Profondeur de pêche, en mètres]]> </comment>
 	</column>
 	<column name="prof_min">
 		<type name="real" length="0"/>
-		<comment><![CDATA[Profondeur minimum de pêche, en mètres]]></comment>
+		<comment> <![CDATA[Profondeur minimum de pêche, en mètres]]> </comment>
 	</column>
 	<column name="prof_max">
 		<type name="real" length="0"/>
-		<comment><![CDATA[Profondeur maximale de pêche, en mètres]]></comment>
+		<comment> <![CDATA[Profondeur maximale de pêche, en mètres]]> </comment>
 	</column>
 	<column name="lt_min">
 		<type name="real" length="0"/>
-		<comment><![CDATA[longueur totale minimale, en mm]]></comment>
+		<comment> <![CDATA[longueur totale minimale, en mm]]> </comment>
 	</column>
 	<column name="lt_max">
 		<type name="real" length="0"/>
-		<comment><![CDATA[Longueur totale maximale, en mm]]></comment>
+		<comment> <![CDATA[Longueur totale maximale, en mm]]> </comment>
 	</column>
 	<column name="masse_min">
 		<type name="real" length="0"/>
-		<comment><![CDATA[Masse minimale en kg]]></comment>
+		<comment> <![CDATA[Masse minimale en kg]]> </comment>
 	</column>
 	<column name="masse_max">
 		<type name="real" length="0"/>
-		<comment><![CDATA[Masse maximale en kg]]></comment>
+		<comment> <![CDATA[Masse maximale en kg]]> </comment>
 	</column>
 	<column name="pecheur_code">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Code du pêcheur]]></comment>
+		<comment> <![CDATA[Code du pêcheur]]> </comment>
 	</column>
 	<column name="interlocuteur">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Autre interlocuteur]]></comment>
+		<comment> <![CDATA[Autre interlocuteur]]> </comment>
 	</column>
 	<column name="interlocuteur_coord">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Coordonnées de l'autre interlocuteur]]></comment>
+		<comment> <![CDATA[Coordonnées de l'autre interlocuteur]]> </comment>
 	</column>
 	<column name="navire_port">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Port d'attache du navire de pêche]]></comment>
+		<comment> <![CDATA[Port d'attache du navire de pêche]]> </comment>
 	</column>
 	<column name="declaration_mode">
 		<type name="character varying" length="0"/>
 	</column>
 	<column name="observation">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Observations générales]]></comment>
+		<comment> <![CDATA[Observations générales]]> </comment>
 	</column>
 	<column name="manipulation">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Manipulation post-capture du lot capturé]]></comment>
+		<comment> <![CDATA[Manipulation post-capture du lot capturé]]> </comment>
 	</column>
 	<column name="qualite_identification" not-null="true" default-value="1">
 		<type name="smallint" length="0"/>
-		<comment><![CDATA[0 : identification de l'espèce incertaine
-1 : identification sûre]]></comment>
+		<comment> <![CDATA[0 : identification de l'espèce incertaine
+1 : identification sûre]]> </comment>
 	</column>
 	<constraint name="capture_id" type="pk-constr" table="sturwild.declaration">
 		<columns names="declaration_id" ref-type="src-columns"/>
@@ -325,7 +325,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="devenir" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Devenir des esturgeons capturés]]></comment>
+	<comment> <![CDATA[Devenir des esturgeons capturés]]> </comment>
 	<tag name="individu"/>
 	<position x="40" y="1060"/>
 	<column name="devenir_id" not-null="true" sequence="sturwild.devenir_devenir_id_seq">
@@ -347,9 +347,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="document" layers="0" collapse-mode="2" max-obj-count="10" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Documents numériques rattachés à un poisson ou à un événement]]></comment>
+	<comment> <![CDATA[Documents numériques rattachés à un poisson ou à un événement]]> </comment>
 	<tag name="individu"/>
-	<position x="420" y="1340"/>
+	<position x="520" y="1340"/>
 	<column name="document_id" not-null="true" sequence="sturwild.document_document_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -361,11 +361,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="document_nom" not-null="true">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Nom d'origine du document]]></comment>
+		<comment> <![CDATA[Nom d'origine du document]]> </comment>
 	</column>
 	<column name="document_description">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Description libre du document]]></comment>
+		<comment> <![CDATA[Description libre du document]]> </comment>
 	</column>
 	<column name="data">
 		<type name="bytea" length="0"/>
@@ -392,9 +392,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="engin_type" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Table des engins utilisés]]></comment>
+	<comment> <![CDATA[Table des engins utilisés]]> </comment>
 	<tag name="declaration"/>
-	<position x="800" y="720"/>
+	<position x="40" y="580"/>
 	<column name="engin_type_id" not-null="true" sequence="sturwild.engin_type_engin_type_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -418,11 +418,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<position x="40" y="720"/>
 	<column name="espece_id" not-null="true" sequence="sturwild.espece_espece_id_seq">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Identifiant de l'espèce]]></comment>
+		<comment> <![CDATA[Identifiant de l'espèce]]> </comment>
 	</column>
 	<column name="espece_libelle">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Nom complet de l'espèce.]]></comment>
+		<comment> <![CDATA[Nom complet de l'espèce.]]> </comment>
 	</column>
 	<constraint name="espece_id" type="pk-constr" table="sturwild.espece">
 		<columns names="espece_id" ref-type="src-columns"/>
@@ -453,11 +453,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="evenement_commentaire">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Commentaire général sur l'événement]]></comment>
+		<comment> <![CDATA[Commentaire général sur l'événement]]> </comment>
 	</column>
 	<column name="login">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Login de la personne ayant créé l'événement]]></comment>
+		<comment> <![CDATA[Login de la personne ayant créé l'événement]]> </comment>
 	</column>
 	<constraint name="evenement_id" type="pk-constr" table="sturwild.evenement">
 		<columns names="evenement_id" ref-type="src-columns"/>
@@ -472,7 +472,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="evenement_type" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Types d'événements possibles sur une déclaration]]></comment>
+	<comment> <![CDATA[Types d'événements possibles sur une déclaration]]> </comment>
 	<tag name="declaration"/>
 	<position x="40" y="180"/>
 	<column name="evenement_type_id" not-null="true" sequence="sturwild.evenement_type_evenement_type_id_seq">
@@ -495,13 +495,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="individu"/>
-	<position x="420" y="920"/>
+	<position x="520" y="920"/>
 	<column name="individu_id" not-null="true" sequence="sturwild.individu_individu_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="declaration_id" not-null="true">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Identifiant de la capture.]]></comment>
+		<comment> <![CDATA[Identifiant de la capture.]]> </comment>
 	</column>
 	<column name="espece_id">
 		<type name="integer" length="0"/>
@@ -517,11 +517,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="masse">
 		<type name="real" length="0"/>
-		<comment><![CDATA[Masse du poisson capturé, en grammes]]></comment>
+		<comment> <![CDATA[Masse du poisson capturé, en grammes]]> </comment>
 	</column>
 	<column name="manipulation">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Manipulation post-capture]]></comment>
+		<comment> <![CDATA[Manipulation post-capture]]> </comment>
 	</column>
 	<column name="numero_marque">
 		<type name="character varying" length="0"/>
@@ -531,24 +531,24 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="cohorte_estimee">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Cohorte estimée (année de naissance)]]></comment>
+		<comment> <![CDATA[Cohorte estimée (année de naissance)]]> </comment>
 	</column>
 	<column name="cohorte_validee">
 		<type name="smallint" length="0"/>
-		<comment><![CDATA[Cohorte validée par expertise (année de naissance)]]></comment>
+		<comment> <![CDATA[Cohorte validée par expertise (année de naissance)]]> </comment>
 	</column>
 	<column name="historique">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Historique du poisson]]></comment>
+		<comment> <![CDATA[Historique du poisson]]> </comment>
 	</column>
 	<column name="commentaire">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Commentaire général sur le poisson (état général, etc.)]]></comment>
+		<comment> <![CDATA[Commentaire général sur le poisson (état général, etc.)]]> </comment>
 	</column>
 	<column name="qualite_identification" not-null="true" default-value="1">
 		<type name="smallint" length="0"/>
-		<comment><![CDATA[0 : identification incertaine
-1 : identification sûre]]></comment>
+		<comment> <![CDATA[0 : identification incertaine
+1 : identification sûre]]> </comment>
 	</column>
 	<constraint name="individu_id" type="pk-constr" table="sturwild.individu">
 		<columns names="individu_id" ref-type="src-columns"/>
@@ -562,14 +562,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
  category="U" sql-disabled="true">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<comment><![CDATA[postgis type: Planar spatial data type.]]></comment>
+	<comment> <![CDATA[postgis type: Planar spatial data type.]]> </comment>
 </usertype>
 
 <table name="localisation" layers="0" collapse-mode="2" max-obj-count="20" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="lieu"/>
-	<position x="800" y="320"/>
+	<position x="960" y="320"/>
 	<column name="declaration_id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -590,39 +590,39 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="zone_detail">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Détail de la zone de pêche]]></comment>
+		<comment> <![CDATA[Détail de la zone de pêche]]> </comment>
 	</column>
 	<column name="longitude_gps">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Longitude au format degré, minute, seconde]]></comment>
+		<comment> <![CDATA[Longitude au format degré, minute, seconde]]> </comment>
 	</column>
 	<column name="latitude_gps">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Latitude au format degré, minute, seconde]]></comment>
+		<comment> <![CDATA[Latitude au format degré, minute, seconde]]> </comment>
 	</column>
 	<column name="longitude_declaree_dd">
 		<type name="double precision" length="0"/>
-		<comment><![CDATA[Longitude déclarée, au format décimal]]></comment>
+		<comment> <![CDATA[Longitude déclarée, au format décimal]]> </comment>
 	</column>
 	<column name="latitude_declaree_dd">
 		<type name="double precision" length="0"/>
-		<comment><![CDATA[Latitude déclarée, au format décimal]]></comment>
+		<comment> <![CDATA[Latitude déclarée, au format décimal]]> </comment>
 	</column>
 	<column name="longitude_estimee_dd">
 		<type name="double precision" length="0"/>
-		<comment><![CDATA[Longitude estimée, au format décimal]]></comment>
+		<comment> <![CDATA[Longitude estimée, au format décimal]]> </comment>
 	</column>
 	<column name="latitude_estimee_dd">
 		<type name="double precision" length="0"/>
-		<comment><![CDATA[Latitude estimée, au format décimal]]></comment>
+		<comment> <![CDATA[Latitude estimée, au format décimal]]> </comment>
 	</column>
 	<column name="longitude_dd">
 		<type name="double precision" length="0"/>
-		<comment><![CDATA[Longitude utilisée, au format décimal]]></comment>
+		<comment> <![CDATA[Longitude utilisée, au format décimal]]> </comment>
 	</column>
 	<column name="latitude_dd">
 		<type name="double precision" length="0"/>
-		<comment><![CDATA[Latitude utilisée, au format décimal]]></comment>
+		<comment> <![CDATA[Latitude utilisée, au format décimal]]> </comment>
 	</column>
 	<column name="geom">
 		<type name="public.geometry" length="0"/>
@@ -645,9 +645,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="milieu_detail" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Milieu détaillé]]></comment>
+	<comment> <![CDATA[Milieu détaillé]]> </comment>
 	<tag name="lieu"/>
-	<position x="1180" y="180"/>
+	<position x="1460" y="180"/>
 	<column name="milieu_detail_id" not-null="true" sequence="sturwild.milieu_detail_milieu_detail_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -662,16 +662,16 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="milieu" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Table des milieux]]></comment>
+	<comment> <![CDATA[Table des milieux]]> </comment>
 	<tag name="lieu"/>
-	<position x="1180" y="580"/>
+	<position x="1460" y="580"/>
 	<column name="milieu_id" not-null="true" sequence="sturwild.milieu_milieu_id_seq">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Identifiant du milieu]]></comment>
+		<comment> <![CDATA[Identifiant du milieu]]> </comment>
 	</column>
 	<column name="milieu_libelle" not-null="true">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Nom du milieu]]></comment>
+		<comment> <![CDATA[Nom du milieu]]> </comment>
 	</column>
 	<constraint name="milieu_id" type="pk-constr" table="sturwild.milieu">
 		<columns names="milieu_id" ref-type="src-columns"/>
@@ -686,7 +686,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="mime_type" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Table des types mime, pour les documents associés]]></comment>
+	<comment> <![CDATA[Table des types mime, pour les documents associés]]> </comment>
 	<tag name="individu"/>
 	<position x="40" y="1340"/>
 	<column name="mime_type_id" not-null="true" sequence="sturwild.mime_type_mime_type_id_seq">
@@ -694,11 +694,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="content_type" not-null="true">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[type mime officiel]]></comment>
+		<comment> <![CDATA[type mime officiel]]> </comment>
 	</column>
 	<column name="extension" not-null="true">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Extension du fichier correspondant]]></comment>
+		<comment> <![CDATA[Extension du fichier correspondant]]> </comment>
 	</column>
 	<constraint name="mime_type_pk" type="pk-constr" table="sturwild.mime_type">
 		<columns names="mime_type_id" ref-type="src-columns"/>
@@ -713,12 +713,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="pays" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Pays de pêche]]></comment>
+	<comment> <![CDATA[Pays de pêche]]> </comment>
 	<tag name="lieu"/>
-	<position x="1180" y="320"/>
+	<position x="1460" y="320"/>
 	<column name="pays_id" not-null="true" sequence="sturwild.pays_pays_id_seq">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Identifiant du pays]]></comment>
+		<comment> <![CDATA[Identifiant du pays]]> </comment>
 	</column>
 	<column name="pays_libelle" not-null="true">
 		<type name="character varying" length="0"/>
@@ -739,9 +739,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="presence_marque" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Table des types de présence de marque (présent, non signalé, absent)]]></comment>
+	<comment> <![CDATA[Table des types de présence de marque (présent, non signalé, absent)]]> </comment>
 	<tag name="individu"/>
-	<position x="800" y="920"/>
+	<position x="960" y="920"/>
 	<column name="presence_marque_id" not-null="true" sequence="sturwild.presence_marque_presence_marque_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -761,12 +761,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="region" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Grande région de pêche]]></comment>
+	<comment> <![CDATA[Grande région de pêche]]> </comment>
 	<tag name="lieu"/>
-	<position x="1180" y="720"/>
+	<position x="1460" y="720"/>
 	<column name="region_id" not-null="true" sequence="sturwild.region_region_id_seq">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[Identifiant de la région]]></comment>
+		<comment> <![CDATA[Identifiant de la région]]> </comment>
 	</column>
 	<column name="region_libelle" not-null="true">
 		<type name="character varying" length="0"/>
@@ -784,9 +784,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="statut" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Table des statuts de la déclaration]]></comment>
+	<comment> <![CDATA[Table des statuts de la déclaration]]> </comment>
 	<tag name="declaration"/>
-	<position x="800" y="180"/>
+	<position x="960" y="180"/>
 	<column name="statut_id" not-null="true" sequence="sturwild.statut_statut_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -801,9 +801,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <view name="v_individu" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<position x="800" y="1060"/>
+	<tag name="individu"/>
+	<position x="960" y="1060"/>
 	<reference>
-		<expression><![CDATA[ SELECT individu.espece_id,
+		<expression> <![CDATA[ SELECT individu.espece_id,
     individu.devenir_id,
     individu.capture_etat_id,
     individu.presence_marque_id,
@@ -826,7 +827,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
      LEFT JOIN sturwild.presence_marque USING (presence_marque_id))
      LEFT JOIN sturwild.capture_etat USING (capture_etat_id))
      LEFT JOIN sturwild.devenir USING (devenir_id))
-     LEFT JOIN sturwild.espece USING (espece_id));]]></expression>
+     LEFT JOIN sturwild.espece USING (espece_id));]]> </expression>
 	<column name="espece_id">
 		<type name="integer" length="0"/>
 	</column>
@@ -893,13 +894,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </view>
 
 <relationship name="rel_v_individu_capture_etat" type="reltv" layers="0"
-	 custom-color="#2f56a9"
+	 custom-color="#ff7800"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.capture_etat"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_individu_devenir" type="reltv" layers="0"
-	 custom-color="#9259b7"
+	 custom-color="#ff7800"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.devenir"
 	 src-required="false" dst-required="false"/>
@@ -911,13 +912,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_individu_individu" type="reltv" layers="0"
-	 custom-color="#6122c0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.individu"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_individu_presence_marque" type="reltv" layers="0"
-	 custom-color="#1682ae"
+	 custom-color="#ff7800"
 	 src-table="sturwild.v_individu"
 	 dst-table="sturwild.presence_marque"
 	 src-required="false" dst-required="false"/>
@@ -925,9 +926,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <view name="v_localisation" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<position x="1180" y="920"/>
+	<tag name="lieu"/>
+	<position x="1460" y="920"/>
 	<reference>
-		<expression><![CDATA[ SELECT localisation.declaration_id,
+		<expression> <![CDATA[ SELECT localisation.declaration_id,
     localisation.geom,
     localisation.longitude_dd,
     localisation.latitude_dd,
@@ -973,7 +975,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
      LEFT JOIN sturwild.ciem USING (ciem_id))
      LEFT JOIN sturwild.milieu USING (milieu_id))
      LEFT JOIN sturwild.region USING (region_id))
-     LEFT JOIN sturwild.devenir USING (devenir_id));]]></expression>
+     LEFT JOIN sturwild.devenir USING (devenir_id));]]> </expression>
 	<column name="declaration_id">
 		<type name="integer" length="0"/>
 	</column>
@@ -1093,19 +1095,19 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </view>
 
 <relationship name="rel_v_localisation_capture_etat" type="reltv" layers="0"
-	 custom-color="#2697f7"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.capture_etat"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_capture_mode" type="reltv" layers="0"
-	 custom-color="#f609a0"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.capture_mode"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_capture_type" type="reltv" layers="0"
-	 custom-color="#9c9d7d"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.capture_type"
 	 src-required="false" dst-required="false"/>
@@ -1117,31 +1119,31 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_declaration" type="reltv" layers="0"
-	 custom-color="#694fa3"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.declaration"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_devenir" type="reltv" layers="0"
-	 custom-color="#bf8aef"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.devenir"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_engin_type" type="reltv" layers="0"
-	 custom-color="#ee0fb1"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.engin_type"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_espece" type="reltv" layers="0"
-	 custom-color="#f9ed64"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.espece"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_localisation" type="reltv" layers="0"
-	 custom-color="#7ce833"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.localisation"
 	 src-required="false" dst-required="false"/>
@@ -1153,19 +1155,19 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_pays" type="reltv" layers="0"
-	 custom-color="#463217"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.pays"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_region" type="reltv" layers="0"
-	 custom-color="#8612a6"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.region"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_localisation_statut" type="reltv" layers="0"
-	 custom-color="#2f741d"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.v_localisation"
 	 dst-table="sturwild.statut"
 	 src-required="false" dst-required="false"/>
@@ -1178,18 +1180,18 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="dbversion" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
-	<comment><![CDATA[Table des versions de la base de donnees]]></comment>
-	<position x="420" y="1540"/>
+	<comment> <![CDATA[Table des versions de la base de donnees]]> </comment>
+	<position x="520" y="1620"/>
 	<column name="dbversion_id" not-null="true" sequence="sturwild.dbversion_dbversion_id_seq">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="dbversion_number" not-null="true">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Numero de la version]]></comment>
+		<comment> <![CDATA[Numero de la version]]> </comment>
 	</column>
 	<column name="dbversion_date" not-null="true">
 		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Date de la version]]></comment>
+		<comment> <![CDATA[Date de la version]]> </comment>
 	</column>
 	<constraint name="dbversion_pk" type="pk-constr" table="sturwild.dbversion">
 		<columns names="dbversion_id" ref-type="src-columns"/>
@@ -1198,34 +1200,34 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="request" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
 	<schema name="sturwild"/>
-	<comment><![CDATA[Request table in database]]></comment>
-	<position x="40" y="1480"/>
+	<comment> <![CDATA[Request table in database]]> </comment>
+	<position x="40" y="1620"/>
 	<column name="request_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
 	<column name="create_date" not-null="true">
 		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Date of create of the request]]></comment>
+		<comment> <![CDATA[Date of create of the request]]> </comment>
 	</column>
 	<column name="last_exec">
 		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Date of the last execution]]></comment>
+		<comment> <![CDATA[Date of the last execution]]> </comment>
 	</column>
 	<column name="title" not-null="true">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Title of the request]]></comment>
+		<comment> <![CDATA[Title of the request]]> </comment>
 	</column>
 	<column name="body" not-null="true">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Body of the request. Don't begin it by SELECT, which will be added automatically]]></comment>
+		<comment> <![CDATA[Body of the request. Don't begin it by SELECT, which will be added automatically]]> </comment>
 	</column>
 	<column name="login" not-null="true">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[Login of the creator of the request]]></comment>
+		<comment> <![CDATA[Login of the creator of the request]]> </comment>
 	</column>
 	<column name="datefields">
 		<type name="character varying" length="0"/>
-		<comment><![CDATA[List of the date fields used in the request, separated by a comma, for format it]]></comment>
+		<comment> <![CDATA[List of the date fields used in the request, separated by a comma, for format it]]> </comment>
 	</column>
 	<constraint name="request_pk" type="pk-constr" table="sturwild.request">
 		<columns names="request_id" ref-type="src-columns"/>
@@ -1235,9 +1237,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="precision" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
 	<role name="postgres"/>
-	<comment><![CDATA[Précision de la localisation du point GPS]]></comment>
+	<comment> <![CDATA[Précision de la localisation du point GPS]]> </comment>
 	<tag name="lieu"/>
-	<position x="1180" y="60"/>
+	<position x="1460" y="20"/>
 	<column name="precision_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -1260,7 +1262,7 @@ Point GPS estimé > 10 km]]>
 	 src-col-pattern="{sc}"
 	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
 	 src-fk-pattern="{st}_fk"
-	 custom-color="#bb3b81"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.precision"
 	 dst-table="sturwild.localisation"
 	 src-required="false" dst-required="false"
@@ -1399,51 +1401,61 @@ Point GPS estimé > 10 km]]>
 </constraint>
 
 <relationship name="rel_declaration_capture_etat" type="relfk" layers="0"
+	 custom-color="#c01c28"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.capture_etat" reference-fk="capture_etat_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_capture_mode" type="relfk" layers="0"
+	 custom-color="#c01c28"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.capture_mode" reference-fk="capture_mode_capture_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_capture_type" type="relfk" layers="0"
+	 custom-color="#c01c28"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.capture_type" reference-fk="capture_type_capture_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_declaration_devenir" type="relfk" layers="0"
+	 custom-color="#c01c28"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.devenir" reference-fk="devenir_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_engin_type" type="relfk" layers="0"
+	 custom-color="#c01c28"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.engin_type" reference-fk="engin_type_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_espece" type="relfk" layers="0"
+	 custom-color="#a51d2d"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.espece" reference-fk="espece_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_statut" type="relfk" layers="0"
+	 custom-color="#c01c28"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.statut" reference-fk="statut_declaration_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_document_individu" type="relfk" layers="0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.document"
 	 dst-table="sturwild.individu" reference-fk="individu_document_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_document_mime_type" type="relfk" layers="0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.document"
 	 dst-table="sturwild.mime_type" reference-fk="mime_type_document_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_evenement_declaration" type="relfk" layers="0"
+	 custom-color="#c01c28"
 	 src-table="sturwild.evenement"
 	 dst-table="sturwild.declaration" reference-fk="evenement_capture_fk"
 	 src-required="false" dst-required="false"/>
@@ -1454,56 +1466,67 @@ Point GPS estimé > 10 km]]>
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_individu_capture_etat" type="relfk" layers="0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.capture_etat" reference-fk="capture_etat_individu_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_individu_declaration" type="relfk" layers="0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.declaration" reference-fk="capture_individu_fk1"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_individu_devenir" type="relfk" layers="0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.devenir" reference-fk="devenir_individu_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_individu_espece" type="relfk" layers="0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.espece" reference-fk="espece_individu_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_individu_presence_marque" type="relfk" layers="0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.individu"
 	 dst-table="sturwild.presence_marque" reference-fk="presence_marque_individu_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_localisation_ciem" type="relfk" layers="0"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.ciem" reference-fk="ciem_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_localisation_declaration" type="relfk" layers="0"
+	 custom-color="#c01c28"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.declaration" reference-fk="declaration_localisation_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_localisation_milieu_detail" type="relfk" layers="0"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.milieu_detail" reference-fk="milieu_detail_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_localisation_milieu" type="relfk" layers="0"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.milieu" reference-fk="milieu_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_localisation_pays" type="relfk" layers="0"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.pays" reference-fk="pays_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_localisation_region" type="relfk" layers="0"
+	 custom-color="#2ec27e"
 	 src-table="sturwild.localisation"
 	 dst-table="sturwild.region" reference-fk="region_localisation_fk"
 	 src-required="false" dst-required="false"/>

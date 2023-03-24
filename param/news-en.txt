@@ -10,6 +10,8 @@ Bug fixes :
 
 New features :
 - start of the implementation of English translations
+- modification of the display of the list of sturgeon caught, with the addition of all species and the integration of export functions
+- deactivation of the automatic search triggering when displaying the list of declarations
 
 Version 1.4.0 of August 30, 2022
 ----------------------------

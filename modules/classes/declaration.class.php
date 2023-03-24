@@ -352,11 +352,11 @@ class Declaration extends ObjetBDD
    */
   function getNbSturioByYear()
   {
-    $sql = "select annee, sum(nombre_capture) as nombre_capture
+    $sql = "select annee, espece_libelle, sum(nombre_capture) as nombre_capture
 				from declaration
-				where espece_id = 1
-				group by annee
-				order by annee";
+        join espece using (espece_id)
+				group by annee, espece_libelle
+				order by annee, espece_libelle";
     return $this->getListeParam($sql);
   }
 
