@@ -121,9 +121,15 @@ print_r($cookieParam);*/
  * Recuperation des parametres de l'application definis dans un fichier ini
  */
 if (is_file($paramIniFile)) {
-    $paramAppli = parse_ini_file($paramIniFile);
+    $paramAppli = parse_ini_file($paramIniFile, true);
     foreach ($paramAppli as $key => $value) {
+        if (is_array($value)) {
+            foreach ($value as $k => $v) {
+                $$key[$k]=$v;
+            }
+        } else {
         $$key = $value;
+        }
     }
 }
 /*
@@ -182,17 +188,18 @@ if (!isset($bdd)) {
         $bdd = new PDO($BDD_dsn, $BDD_login, $BDD_passwd);
     } catch (PDOException $e) {
         if ($APPLI_modeDeveloppement) {
-            $message->set($e->getMessage());
+            $message->set($e->getMessage(), true);
         } else {
             $message->setSyslog($e->getMessage());
         }
         $etaconn = false;
+        throw new FrameworkException(_("La connexion à la base de données a échoué"));
     }
     if ($etaconn) {
         /*
          * Mise en place du schema par defaut
          */
-        if (strlen($BDD_schema) > 0) {
+        if (!empty($BDD_schema) ) {
             $bdd->exec("set search_path = " . $BDD_schema);
         }
         /*
@@ -202,17 +209,19 @@ if (!isset($bdd)) {
             $bdd_gacl = new PDO($GACL_dsn, $GACL_dblogin, $GACL_dbpasswd);
         } catch (PDOException $e) {
             if ($APPLI_modeDeveloppement) {
-                $message->set($e->getMessage());
+                $message->set($e->getMessage(), true);
             } else {
                 $message->setSyslog($e->getMessage());
             }
             $etaconn = false;
+             throw new FrameworkException(_("La connexion à la base de données des droits a échoué"));
         }
+
         if ($etaconn) {
             /*
              * Mise en place du schema par defaut
              */
-            if (strlen($GACL_schema) > 0) {
+            if (!empty($GACL_schema)) {
                 $bdd_gacl->exec("set search_path = " . $GACL_schema);
             }
         } else {
@@ -225,7 +234,9 @@ if (!isset($bdd)) {
 /*
  * Activation de la classe d'enregistrement des traces
  */
+if ($etaconn) {
 $log = new Log($bdd_gacl, $ObjetBDDParam);
+}
 
 /*
  * Verification de la duree maxi de la session
@@ -274,7 +285,7 @@ if (isset($_SESSION["navigation"]) && !$APPLI_modeDeveloppement) {
 /*
  * Traitement des parametres stockes dans la base de donnees
  */
-if (!$_SESSION["dbparamok"]) {
+if (!$_SESSION["dbparamok"] && $etaconn) {
     include_once 'framework/dbparam/dbparam.class.php';
     try {
         $dbparam = new DbParam($bdd, $ObjetBDDParam);
@@ -297,4 +308,6 @@ require_once 'framework/functionsDebug.php';
 /*
  * Chargement des traitements communs specifiques a l'application
  */
+if ($etaconn) {
 require "modules/common.inc.php";
+}

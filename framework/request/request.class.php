@@ -56,8 +56,8 @@ class Request extends ObjetBDD
         /**
          * Search the terms forbiden into the request
          */
-        if (preg_match("/(insert)|(update)|(delete)|(grant)|(revoke)|(create)|(drop)|(alter)/i", $data["body"]) == 1) {
-            throw new ObjetBDDException(_("La requête ne peut pas contenir d'ordres de modification de la base de données"));
+        if (preg_match("/(insert)|(update)|(delete)|(grant)|(revoke)|(create)|(drop)|(alter)|(log)|(logingestion)|(passwordlost)|(acllogin)|(truncate)|(cascade)/i", $data["body"]) == 1) {
+            throw new ObjetBDDException(_("La requête ne peut pas contenir d'ordres de modification de la base de données ni porter sur des tables contenant des informations confidentielles"));
         }
         /*
          * Suppression des contenus dangereux dans la commande SQL
@@ -78,7 +78,7 @@ class Request extends ObjetBDD
     {
         if ($request_id > 0 && is_numeric($request_id)) {
             $req = $this->lire($request_id);
-            if (strlen($req["body"]) > 0) {
+            if (!empty($req["body"])) {
                 /*
                  * Preparation des dates pour encodage
                  */

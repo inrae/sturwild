@@ -5,8 +5,6 @@
  *
  */
 
-use LDAP\Connection;
-
 /**
  *
  * @author eric.quinton
@@ -27,7 +25,7 @@ class Ldap
     /**
      * Identifiant de connexion de l'annuaire ldap
      *
-     * @var Connection
+     * @var LDAP\Connection
      */
     var $idldap;
 
@@ -37,6 +35,7 @@ class Ldap
      * @var string
      */
     var $message;
+    var $dn, $LDAP_basedn;
 
     /**
      * Constructeur de la classe
@@ -53,24 +52,27 @@ class Ldap
      * Fonction realisant la connexion a l'annuaire
      * Retourne -1 en cas d'echec
      *
-     * @return Connection|null
+     * @return LDAP\Connection
      */
-    function connect() :Connection|null
+    function connect()
     {
         $this->idldap = @ldap_connect($this->LDAP["address"], $this->LDAP["port"]);
         /**
          * Set options
          */
-        ldap_set_option($this->idldap, LDAP_OPT_NETWORK_TIMEOUT, $this->LDAP["timeout"]);
-        ldap_set_option($this->idldap, LDAP_OPT_TIMELIMIT, $this->LDAP["timeout"]);
-        ldap_set_option($this->idldap, LDAP_OPT_TIMEOUT, $this->LDAP["timeout"]);
-        if ($this->idldap > 0) {
+        if ($this->idldap) {
+            ldap_set_option($this->idldap, LDAP_OPT_NETWORK_TIMEOUT, $this->LDAP["timeout"]);
+            ldap_set_option($this->idldap, LDAP_OPT_TIMELIMIT, $this->LDAP["timeout"]);
+            ldap_set_option($this->idldap, LDAP_OPT_TIMEOUT, $this->LDAP["timeout"]);
             if ($this->LDAP["v3"] == 1) {
                 ldap_set_option($this->idldap, LDAP_OPT_PROTOCOL_VERSION, 3);
             }
             if ($this->LDAP["tls"] == 1) {
                 ldap_start_tls($this->idldap);
             }
+        } else {
+            $this->message = _("Impossible de se connecter au serveur LDAP");
+            $this->idldap = false;
         }
         return $this->idldap;
     }
@@ -164,7 +166,7 @@ class Ldap
         }
         $sr = ldap_search($this->idldap, $basedn, $filtre, $a_attribut);
         if ($sr) {
-        return ldap_get_entries($this->idldap, $sr);
+            return ldap_get_entries($this->idldap, $sr);
         } else {
             global $message;
             $message->setSyslog(ldap_error($this->idldap));

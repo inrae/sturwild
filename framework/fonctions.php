@@ -1,5 +1,6 @@
 <?php
 
+class FileException extends Exception {}
 /**
  * Ensemble de fonctions utilisees pour la gestion des fiches
  */
@@ -26,13 +27,16 @@
  *
  * @return mixed
  */
-function dataRead($dataClass, $id, $smartyPage, $idParent = null)
+function dataRead($dataClass, $id, $smartyPage, $idParent = 0)
 {
   global $vue, $OBJETBDD_debugmode, $message;
   if (isset($vue)) {
     if (is_numeric($id)) {
 
       try {
+        if (!is_numeric($idParent)) {
+          $idParent = 0;
+        }
         $data = $dataClass->lire($id, true, $idParent);
       } catch (FrameworkException | ObjetBDDException | PDOException $e) {
         if ($OBJETBDD_debugmode > 0) {
@@ -45,9 +49,12 @@ function dataRead($dataClass, $id, $smartyPage, $idParent = null)
         $message->setSyslog($e->getMessage());
       }
     }
-    /*
+    /**
          * Affectation des donnees a smarty
          */
+    if (!is_array($data)) {
+      $data = array();
+    }    
     $vue->set($data, "data");
     $vue->set($smartyPage, "corps");
     return $data;
@@ -266,6 +273,9 @@ function initGettext($langue)
   // $path = realpath("./locales") . "/C/LC_MESSAGES/$langue.mo";
   // var_dump( $path, file_exists( $path ) );
   putenv("LANG=C.UTF-8"); // putenv pour windows // non testé
+  if (empty($langue)) {
+    $langue = "en";
+  }
   bindtextdomain($langue, realpath("./locales"));
   bind_textdomain_codeset($langue, "UTF-8");
   textdomain($langue);
@@ -288,7 +298,7 @@ function check_encoding($data)
       }
     }
   } else {
-    if (strlen($data) > 0 && !mb_check_encoding($data, "UTF-8")) {
+    if (!empty($data) && !mb_check_encoding($data, "UTF-8")) {
       $result = false;
     }
   }
@@ -334,82 +344,6 @@ function htmlDecode($data)
     $data = htmlspecialchars_decode($data, ENT_QUOTES);
   }
   return $data;
-}
-
-/**
- * Fonction d'analyse des virus avec clamav
- *
- * @author quinton
- *
- *         Exemple d'usage :
- *
- *         $nomfiletest = "/tmp/eicar.com.txt";
- *         try {
- *         echo "analyse antivirale de $nomfiletest";
- *         testScan ( $nomfiletest );
- *         echo "Fichier sans virus reconnu par Clamav<br>";
- *         } catch ( FileException $f ) {
- *         echo $f->getMessage () . "<br>";
- *         } catch ( VirusException $v ) {
- *         echo $v->getMessage () . "<br>";
- *         } finally {
- *         echo "Fin du test";
- *         }
- */
-class VirusException extends Exception
-{
-}
-
-/**
- * Gestion des exceptions pour les manipulations de fichiers
- *
- * @var mixed
- */
-class FileException extends Exception
-{
-}
-
-/**
- * Test antiviral d'un fichier
- *
- * @param mixed $file
- *
- * @return mixed
- */
-function testScan($file)
-{
-  global $APPLI_virusScan;
-  if ($APPLI_virusScan) {
-    if (file_exists($file)) {
-      if (extension_loaded('clamav')) {
-        $retcode = cl_scanfile($file["tmp_name"], $virusname);
-        if ($retcode == CL_VIRUS) {
-          $message = $file["name"] . " : " . cl_pretcode($retcode) . ". Virus found name : " . $virusname;
-          throw new VirusException($message);
-        }
-      } else {
-        /*
-                 * Test avec clamscan
-                 */
-        $clamscan = "/usr/bin/clamscan";
-        $clamscan_options = "-i --no-summary";
-        if (file_exists($clamscan)) {
-          exec("$clamscan $clamscan_options $file", $output);
-          if (count($output) > 0) {
-            $message = $file["name"] . " : ";
-            foreach ($output as $value) {
-              $message .= $value . " ";
-            }
-            throw new VirusException($message);
-          }
-        } else {
-          throw new FileException("clamscan not found");
-        }
-      }
-    } else {
-      throw new FileException("$file not found");
-    }
-  }
 }
 
 /**
@@ -502,9 +436,9 @@ class ApiCurlException extends Exception
  * @param string $method
  * @param string $url
  * @param array $data
- * @return void
+ * @return bool|string
  */
-function apiCall($method, $url, $certificate_path = "", $data = array(), $modeDebug = false)
+function apiCall($method, $url, $certificate_path = "", $data = array(), $modeDebug = false) 
 {
   $curl = curl_init();
   if (!$curl) {
