@@ -88,10 +88,10 @@ $(document).ready(function() {
 		</form>
 	</div>
 </div>
-{if count($result) > 0}
+{if !empty($result)}
 	<div class="row">
 		<div class="col-lg-12">
-			<table id="crequestList" class="table table-bordered table-hover datatable-export-paging ">
+			<table id="crequestList" class="table table-bordered table-hover datatable-export">
 				<thead>
 					<tr>
 					{foreach $result[0] as $key=>$value}

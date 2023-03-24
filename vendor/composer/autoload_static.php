@@ -14,6 +14,7 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         '288267919fedd3829a7732b5fb202197' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/array.php',
         'a88cd08cfbf1600f7d5de6e587eee1fa' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/datetime.php',
         '47f619d9197b36cf5ab70738d7743fe2' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/libevent.php',
+        'f1f7d69cca064c8f779d4a4cba463e11' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/misc.php',
         '213c1c2258e2e5aa409a0af3e993b3a9' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/password.php',
         'ea6bb8a12ef9b68f6ada99058e530760' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/mssql.php',
         '9a29089eb3ce41a446744c68a00f118c' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/stats.php',
@@ -97,9 +98,10 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         '4af1dca6db8c527c6eed27bff85ff0e5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/yaz.php',
         'fe43ca06499ac37bc2dedd823af71eb5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/zip.php',
         '356736db98a6834f0a886b8d509b0ecd' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/zlib.php',
+        '524ac6b21329cb008bd2db60ee1704ac' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         'b2b3f01361f3aaeab67fde08ae76446f' => __DIR__ . '/..' . '/smarty-gettext/smarty-gettext/block.t.php',
         'd3114450b53a83020e2822546c24e1ad' => __DIR__ . '/..' . '/smarty-gettext/smarty-gettext/function.locale.php',
-        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -230,6 +232,10 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         'CAS_Request_Exception' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/Exception.php',
         'CAS_Request_MultiRequestInterface' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/MultiRequestInterface.php',
         'CAS_Request_RequestInterface' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/RequestInterface.php',
+        'CAS_ServiceBaseUrl_AllowedListDiscovery' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ServiceBaseUrl/AllowedListDiscovery.php',
+        'CAS_ServiceBaseUrl_Base' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ServiceBaseUrl/Base.php',
+        'CAS_ServiceBaseUrl_Interface' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ServiceBaseUrl/Interface.php',
+        'CAS_ServiceBaseUrl_Static' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ServiceBaseUrl/Static.php',
         'CAS_Session_PhpSession' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Session/PhpSession.php',
         'CAS_TypeMismatchException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/TypeMismatchException.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
