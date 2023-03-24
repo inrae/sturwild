@@ -5,9 +5,9 @@
 *
 * Parametres par defaut de l'application
 */
-$APPLI_version = "1.4.0";
+$APPLI_version = "1.4.1";
 $APPLI_dbversion = "1.4";
-$APPLI_versiondate = _("30/08/2022");
+$APPLI_versiondate = _("24/03/2023");
 $language = "fr";
 $DEFAULT_formatdate = "fr";
 /*
