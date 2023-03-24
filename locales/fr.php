@@ -10,5 +10,4 @@ $LANG["date"]["formatdate"] = "DD/MM/YYYY";
 $LANG["date"]["formatdatetime"] = "DD/MM/YYYY HH:mm:ss";
 $LANG["date"]["formatdatecourt"] = "dd/mm/yy";
 
-
 ?>

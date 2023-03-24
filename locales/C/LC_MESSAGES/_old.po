@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 11:26+0100\n"
+"POT-Creation-Date: 2023-03-24 11:33+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -109,7 +109,7 @@ msgstr "List of regions"
 #. (itstool) path: item/item@label
 #: ../../../param/menu.xml:19
 msgid "Précisions des localisations"
-msgstr "Localization accuracy:"
+msgstr "Localization accuracy"
 
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:19
@@ -390,17 +390,17 @@ msgstr "Help"
 #. (itstool) path: item/item@label
 #: ../../../param/menu.xml:59
 msgid "A propos"
-msgstr "About Collec-Science"
+msgstr "About"
 
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:59
-msgid "A propos de Collec-Science"
-msgstr "About Collec-Science"
+msgid "A propos de Sturwild"
+msgstr "About Sturwild"
 
 #. (itstool) path: item/item@label
 #: ../../../param/menu.xml:60
 msgid "Nouveautés"
-msgstr "What's new?"
+msgstr "News"
 
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:60
@@ -1212,10 +1212,10 @@ msgstr "Search"
 #: ../../../display/templates/enpied.tpl:3
 msgid ""
 "Copyright © 2015- 2023 - Tous droits réservés. Auteur : Éric Quinton, pour "
-"EABX - INRAE - Logiciel non diffusé"
+"EABX - INRAE - Logiciel diffusé sous licence AGPL"
 msgstr ""
-"Copyright © 2015-2023 - All rights reserved. Author: Eric Quinton, for INRAE "
-"- Software released under AGPL license"
+"Copyright © 2015-2023 - All rights reserved. Author: Eric Quinton, for EABX "
+"- INRAE - Software released under AGPL license"
 
 #: ../../../display/templates/enpied.tpl:5
 msgid "En cas de problème :"
@@ -1632,7 +1632,8 @@ msgid ""
 "Si vous n'êtes pas à l'origine de cette demande, veuillez contacter le "
 "responsable de l'application."
 msgstr ""
-"If you did not perform this operation, please contact the application manager"
+"If you did not perform this operation, please contact the application "
+"manager."
 
 #: ../../../display/templates/framework/mail/mail.tpl:44
 msgid "Ne répondez pas à ce mail, qui est généré automatiquement"
@@ -1669,7 +1670,8 @@ msgid ""
 "Si vous n'êtes pas à l'origine de cette opération, veuillez contacter le "
 "responsable de l'application."
 msgstr ""
-"If you did not perform this operation, please contact the application manager"
+"If you did not perform this operation, please contact the application "
+"manager."
 
 #: ../../../display/templates/framework/mail/newUser.tpl:2
 msgid ""
@@ -1830,11 +1832,11 @@ msgstr "List of available rights for the application"
 
 #: ../../../display/templates/framework/droits/appliDisplay.tpl:10
 msgid "Modifier..."
-msgstr "Edit"
+msgstr "Edit..."
 
 #: ../../../display/templates/framework/droits/appliDisplay.tpl:15
 msgid "Nouveau droit..."
-msgstr "New right"
+msgstr "New right..."
 
 #: ../../../display/templates/framework/droits/appliDisplay.tpl:21
 msgid "Nom du droit d'accès"
@@ -1846,7 +1848,7 @@ msgstr "List of groups of logins"
 
 #: ../../../display/templates/framework/droits/groupList.tpl:6
 msgid "Nouveau groupe racine..."
-msgstr "New root group"
+msgstr "New root group..."
 
 #: ../../../display/templates/framework/droits/groupList.tpl:12
 msgid "Nom du groupe"
@@ -1866,7 +1868,7 @@ msgstr "List of applications available in the rights management module"
 
 #: ../../../display/templates/framework/droits/appliList.tpl:6
 msgid "Nouvelle application..."
-msgstr "New application"
+msgstr "New application..."
 
 #: ../../../display/templates/framework/droits/appliList.tpl:11
 msgid "Modifier"

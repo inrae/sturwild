@@ -1,5 +1,14 @@
 News
 ===========
+Version 1.4.1 du 24 mars 2023
+-----------------------------
+Correction de bugs :
+- l'exportation des déclarations ne fonctionnait plus
+- diverses corrections techniques
+
+Nouveautés :
+- début de la mise en place des traductions en anglais
+
 Version 1.4.0 du 30 août 2022
 ----------------------------
 Correction de bug :
