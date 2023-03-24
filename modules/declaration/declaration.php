@@ -140,7 +140,7 @@ switch ($t_module["param"]) {
 		$_SESSION["searchDeclaration"]->setParam($_REQUEST);
         $dataSearch = $_SESSION["searchDeclaration"]->getParam();
         if ($_SESSION["searchDeclaration"]->isSearch() == 1) {
-            $vue->setFilename("sturwild_individu-" . date('d-m-Y') . ".csv");
+            $vue->setFilename("sturwild_declaration-" . date('d-m-Y') . ".csv");
             $vue->setDelimiter("tab");
             $vue->set($dataClass->getDataToExport($dataSearch));
             /*

@@ -1,3 +1,4 @@
+<!--
 <script>
 $(document).ready(function() { 
 	$("select").change(function () {
@@ -5,6 +6,7 @@ $(document).ready(function() {
 	} );
 } ) ;
 </script>
+-->
 
 <div >
 <fieldset>

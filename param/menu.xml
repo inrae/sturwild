@@ -4,44 +4,46 @@
 		<its:translateRule selector="//item/@label" translate="yes"/>
 		<its:translateRule selector="//item/@tooltip" translate="yes"/>
 	</its:rules>
-<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations">
-	<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations"/>
-	<item module="declarationNbSturioByYear" label="Nb Sturio par année" tooltip="Nombre d'Esturgeons d'Europe capturés par année" droits="consult"/>
-    <item divider="1"/>
-    <item module="requestList" label="Requêtes SQL" tooltip="Exécution de requêtes SQL dans la base de données" droits="param"/>
-</item>
-<item module="parametre" label="Paramètres" tooltip="Tables de paramètres" droits="param,gestion">
-	<item module="ciemList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="gestion" />
-	<item module="paysList" label="Pays" tooltip="Liste des pays" droits="gestion"/>
-	<item module="milieuList" label="Milieux" tooltip="Liste des milieux" droits="gestion"/>
-	<item module="milieuDetailList" label="Milieux détaillés" tooltip="Liste des milieux détaillés" droits="gestion"/>
-	<item module="regionList" label="Régions" tooltip="Liste des régions" droits="gestion"/>
-    <item module="precisionList" label="Précisions des localisations" tooltip="Liste des précisions des localisations" droits="gestion"/>
-    <item divider = "1"/>
-	<item module="especeList" label="Espèces" tooltip="Liste des espèces d'esturgeon" droits="gestion"/>
-	<item module="devenirList" label="Devenirs" tooltip="Liste des destinations des esturgeons capturés" droits="gestion"/>
-	<item module="captureModeList" label="Modes de capture" tooltip="Liste des modes de capture" droits="gestion"/>
-	<item module="captureTypeList" label="Types de capture" tooltip="Liste des types de capture" droits="gestion"/>
-	<item module="captureEtatList" label="États à la capture" tooltip="Liste des états à la capture" droits="gestion"/>
-	<item module="enginTypeList" label="Engins" tooltip="Liste des engins utilisés" droits="gestion"/>
-	<item module="evenementTypeList" label="Types d'événements" tooltip="Liste des types d'événements" droits="gestion"/>
-
-</item>
-	<item module="administration" label="Administration" tooltip="Administration de l'application" droits="admin">
-		<item module="loginList" droits="admin" label="Liste des comptes locaux" tooltip="Liste des logins - identification via la base de données"/>
-		<item module="appliList" droits="admin" label="ACL - droits" tooltip="applications et droits gérés"/>
-		<item module="aclloginList" droits="admin" label="ACL - logins" tooltip="Logins déclarés dans le module de gestion des droits"/>
-		<item module="groupList" droits="admin" label="ACL - groupes de logins" tooltip="Groupes de logins et logins rattachés aux groupes"/>
-		<item module="dbparamList" droits="admin" label="Paramètres de l'application" tooltip="Liste des paramètres pérennes de l'application" />
-		<item divider='1'/>
-		<item module="dbstructureSchema" droits="admin" label="Schéma de la base de données" tooltip="Schéma de la base de données"/>
-		<item module="dbstructureHtml" droits='admin' label="Structure de la base de données (HTML)" tooltip="Liste des tables et des colonnes"/>
-		<item module="dbstructureLatex" droits='admin' label="Structure de la base de données (Latex)" tooltip="Liste des tables et des colonnes sous forme de tableaux Latex"/>
-		<item module="dbstructureGacl" droits="admin" label="Structure de la base de données des droits (HTML)" tooltip="Liste des tables et des colonnes de la base de données de gestion des droits"/>
-        <item divider="1"/>
-		<item module="phpinfo" droits="admin" label="PHP info" tooltip="configuration générale du serveur PHP"/>
-        <item module="logList" droits="admin" label="Logs" tooltip="Consultation des logs enregistrées"/>
+	<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations">
+		<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations"/>
+		<item module="declarationNbSturioByYear" label="Nb Sturio par année" tooltip="Nombre d'Esturgeons d'Europe capturés par année" droits="consult"/>
+		<item divider="1"/>
+		<item module="requestList" label="Requêtes SQL" tooltip="Exécution de requêtes SQL dans la base de données" droits="param"/>
 	</item>
+	<item module="parametre" label="Paramètres" tooltip="Tables de paramètres" droits="param,gestion">
+		<item module="ciemList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="gestion" />
+		<item module="paysList" label="Pays" tooltip="Liste des pays" droits="gestion"/>
+		<item module="milieuList" label="Milieux" tooltip="Liste des milieux" droits="gestion"/>
+		<item module="milieuDetailList" label="Milieux détaillés" tooltip="Liste des milieux détaillés" droits="gestion"/>
+		<item module="regionList" label="Régions" tooltip="Liste des régions" droits="gestion"/>
+		<item module="precisionList" label="Précisions des localisations" tooltip="Liste des précisions des localisations" droits="gestion"/>
+		<item divider = "1"/>
+		<item module="especeList" label="Espèces" tooltip="Liste des espèces d'esturgeon" droits="gestion"/>
+		<item module="devenirList" label="Devenirs" tooltip="Liste des destinations des esturgeons capturés" droits="gestion"/>
+		<item module="captureModeList" label="Modes de capture" tooltip="Liste des modes de capture" droits="gestion"/>
+		<item module="captureTypeList" label="Types de capture" tooltip="Liste des types de capture" droits="gestion"/>
+		<item module="captureEtatList" label="États à la capture" tooltip="Liste des états à la capture" droits="gestion"/>
+		<item module="enginTypeList" label="Engins" tooltip="Liste des engins utilisés" droits="gestion"/>
+		<item module="evenementTypeList" label="Types d'événements" tooltip="Liste des types d'événements" droits="gestion"/>
+	</item>
+	<item module="administration" label="Administration" tooltip="Administration de l'application" droits="admin">
+		<item module="loginList" droits="admin" label="Liste des comptes locaux" tooltip="Liste des logins - identification via la base de données" />
+		<item module="appliList" droits="admin" label="ACL - droits" tooltip="applications et droits gérés" />
+		<item module="aclloginList" droits="admin" label="ACL - logins" tooltip="Logins déclarés dans le module de gestion des droits" />
+		<item module="groupList" droits="admin" label="ACL - groupes de logins" tooltip="Groupes de logins et logins rattachés aux groupes" />
+		<item divider='1' />
+		<item module="dbparamList" droits="admin" label="Paramètres de l'application" tooltip="Liste des paramètres pérennes de l'application" />
+		<item divider='1' />
+		<item module="logList" droits="admin" label="Logs" tooltip="Consultation des logs enregistrées" />
+		<item module="dbstructureGacl" droits="admin" label="Structure de la base de données des droits (HTML)" tooltip="Liste des tables et des colonnes de la base de données de gestion des droits" />
+		<item module="phpinfo" droits="admin" label="PHP info" tooltip="configuration générale du serveur PHP" />
+		<item divider="1"/>
+		<item module="systemShowServer" droits="admin" label="Variables SERVER" tooltip="Affichage des variables fournies par le serveur"/>
+		<item module="systemShowSession" droits="admin" label="Variables SESSION" tooltip="Affichage des variables de session"/>
+		<item divider="1"/>
+		<item module="backupDisplay" droits="admin" label="Backup" tooltip="Sauvegarde de la base de données" />
+	</item>
+
     <item module="documentation_fr" label="documentation" tooltip="Documentations en ligne en français" language="fr">
         <item module="doctotp_fr" label="Comprendre la double authentification" tooltip="Comprendre le mécanisme de double authentification" language="fr"/>
     </item>

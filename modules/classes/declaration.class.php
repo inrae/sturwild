@@ -235,7 +235,6 @@ class Declaration extends ObjetBDD
    */
   function getWhere($param)
   {
-    $param = $this->encodeData($param);
     $this->paramSearch = array();
     $and = "";
     /*
