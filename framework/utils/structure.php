@@ -28,10 +28,10 @@ switch ($t_module["param"]) {
                 "\\end{tabular}"
             )
         );
-        $vue->setParam(array("filename"=>"collec-dbstructure.tex"));
+        $vue->setParam(array("filename"=>"dbstructure.tex", "content_type"=>"text/html"));
         break;
     case "gacl":
-        $dataclass = new Structure($bdd_gacl, array(), $t_module["schemas"]);
+        $dataclass = new Structure($bdd_gacl, array());
         $dataclass->extractData($t_module["schemas"]);
         $data = $dataclass->generateSummaryHtml();
         $data .= $dataclass->generateHtml(

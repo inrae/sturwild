@@ -1,5 +1,5 @@
 <navigation>
-  <model action="index.php" param="list|display|change|write|delete|..." droits="gestion" retourko="model" retourlogin="1" retourok="model" loginrequis="1" type="html|smarty|ajax|pdf|csv|binaire" droitko="droitko" modulebefore="module1,module2" requiredVar="table_id" maxCountByHour="60" maxCountByDay="600" noDelayBeforeCall="1" />
+  <model action="index.php" param="list|display|change|write|delete|..." droits="gestion" retourko="model" retourlogin="1" retourok="model" loginrequis="1" type="html|smarty|ajax|pdf|csv|binaire|file" droitko="droitko" modulebefore="module1,module2" requiredVar="table_id" maxCountByHour="60" maxCountByDay="600" noDelayBeforeCall="1" />
 	<default action="framework/default.php" type="smarty"></default>
 	<droitko action="framework/droitko.php" type="smarty"></droitko>
 	<droits menudroits="admin" droits="admin" menulevel="0" menuorder="7" menuvalue="14" menutitle="15" />
@@ -94,8 +94,8 @@
     <doctotp_fr action="framework/utils/markdown.php" param="framework/documentation/totp_fr.md" type="smarty" retourko="default"/>
     <doctotp_en action="framework/utils/markdown.php" param="framework/documentation/totp_en.md" type="smarty" retourko="default"/>
 
-		<!-- System -->
-		<systemShowServer action="framework/utils/system.php" param="SERVER" droits="admin" type="smarty" retourko="default"/>
-		<systemShowSession action="framework/utils/system.php" param="SESSION" droits="admin" type="smarty" retourko="default"/>
+	<!-- System -->
+	<systemShowServer action="framework/utils/system.php" param="SERVER" droits="admin" type="smarty" retourko="default"/>
+	<systemShowSession action="framework/utils/system.php" param="SESSION" droits="admin" type="smarty" retourko="default"/>
 
 </navigation>
