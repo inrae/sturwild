@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 12:37+0100\n"
+"POT-Creation-Date: 2023-03-24 16:37+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -186,254 +186,284 @@ msgstr "Event types"
 msgid "Liste des types d'événements"
 msgstr "List of event types"
 
+#. (itstool) path: item/item@label
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:28 ../../../param/menu.xml:29
+msgid "Schéma de la base de données"
+msgstr "Database structure"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:30
+msgid "Structure de la base de données (HTML)"
+msgstr "Database structure (HTML)"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:30
+msgid "Liste des tables et des colonnes"
+msgstr "List of tables and columns"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:31
+msgid "Structure de la base de données (Latex)"
+msgstr "Database structure (Latex)"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:31
+msgid "Liste des tables et des colonnes sous forme de tableaux Latex"
+msgstr "List of the tables and the columns in Latex table format"
+
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:29
+#: ../../../param/menu.xml:34
 msgid "Administration"
 msgstr "Administration"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:29
+#: ../../../param/menu.xml:34
 msgid "Administration de l'application"
 msgstr "Application Administration"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:30
+#: ../../../param/menu.xml:35
 msgid "Liste des comptes locaux"
 msgstr "List of local accounts"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:30
+#: ../../../param/menu.xml:35
 msgid "Liste des logins - identification via la base de données"
 msgstr "List of logins - identification via the database"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:31
+#: ../../../param/menu.xml:36
 msgid "ACL - droits"
 msgstr "ACL - rights"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:31
+#: ../../../param/menu.xml:36
 msgid "applications et droits gérés"
 msgstr "applications and rights managed"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:32
+#: ../../../param/menu.xml:37
 msgid "ACL - logins"
 msgstr "ACL - logins"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:32
+#: ../../../param/menu.xml:37
 msgid "Logins déclarés dans le module de gestion des droits"
 msgstr "Logins declared in the rights management module"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:33
+#: ../../../param/menu.xml:38
 msgid "ACL - groupes de logins"
 msgstr "ACL - login groups"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:33
+#: ../../../param/menu.xml:38
 msgid "Groupes de logins et logins rattachés aux groupes"
 msgstr "Groups of logins and logins attached to groups"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:35
+#: ../../../param/menu.xml:40
 msgid "Paramètres de l'application"
 msgstr "Application Settings"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:35
+#: ../../../param/menu.xml:40
 msgid "Liste des paramètres pérennes de l'application"
 msgstr "List of long-term parameters of the application"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:37
+#: ../../../param/menu.xml:42
 msgid "Logs"
 msgstr "Logs"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:37
+#: ../../../param/menu.xml:42
 msgid "Consultation des logs enregistrées"
 msgstr "Consultation of recorded logs"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:38
+#: ../../../param/menu.xml:43
 msgid "Structure de la base de données des droits (HTML)"
 msgstr "Rights management database structure (HTML)"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:38
+#: ../../../param/menu.xml:43
 msgid ""
 "Liste des tables et des colonnes de la base de données de gestion des droits"
 msgstr "List of the tables and the columns of the rights management database"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:39
+#: ../../../param/menu.xml:44
 msgid "PHP info"
 msgstr "PHP info"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:39
+#: ../../../param/menu.xml:44
 msgid "configuration générale du serveur PHP"
 msgstr "general configuration of the PHP server"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:41
+#: ../../../param/menu.xml:46
 msgid "Variables SERVER"
 msgstr "SERVER variables"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:41
+#: ../../../param/menu.xml:46
 msgid "Affichage des variables fournies par le serveur"
 msgstr "Display the variables provided by the server"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:42
+#: ../../../param/menu.xml:47
 msgid "Variables SESSION"
 msgstr "SESSION variables"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:42
+#: ../../../param/menu.xml:47
 msgid "Affichage des variables de session"
 msgstr "Display the data of the session"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:44
+#: ../../../param/menu.xml:49
 msgid "Backup"
 msgstr "Backup"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:44 ../../../display/templates/framework/backup.tpl:1
+#: ../../../param/menu.xml:49 ../../../display/templates/framework/backup.tpl:1
 msgid "Sauvegarde de la base de données"
 msgstr "Backup of the database"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:47 ../../../param/menu.xml:50
+#: ../../../param/menu.xml:52 ../../../param/menu.xml:55
 msgid "documentation"
 msgstr "documentation"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:47
+#: ../../../param/menu.xml:52
 msgid "Documentations en ligne en français"
 msgstr "Online documentation in french"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:48 ../../../param/menu.xml:51
+#: ../../../param/menu.xml:53 ../../../param/menu.xml:56
 msgid "Comprendre la double authentification"
 msgstr "Understand the double authentication"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:48 ../../../param/menu.xml:51
+#: ../../../param/menu.xml:53 ../../../param/menu.xml:56
 msgid "Comprendre le mécanisme de double authentification"
 msgstr "Understand the mechanism of the double authentication"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:50
+#: ../../../param/menu.xml:55
 msgid "Documentations en ligne en anglais"
 msgstr "Online documentation in English"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:53 ../../../display/templates/entete.tpl:21
+#: ../../../param/menu.xml:58 ../../../display/templates/entete.tpl:21
 #: ../../../display/templates/entete.tpl:41
 #: ../../../display/templates/entete.tpl:42
 msgid "Connexion"
 msgstr "Sign in"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:53
+#: ../../../param/menu.xml:58
 msgid "S'identifier dans l'application"
 msgstr "Sign in to the app"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:54 ../../../display/templates/entete.tpl:37
+#: ../../../param/menu.xml:59 ../../../display/templates/entete.tpl:37
 #: ../../../display/templates/entete.tpl:38
 msgid "Déconnexion"
 msgstr "Sign out"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:54
+#: ../../../param/menu.xml:59
 msgid "Déconnexion de l'application"
 msgstr "Sign out of the app"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:55
+#: ../../../param/menu.xml:60
 msgid "Dernières connexions"
 msgstr "Last connections"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:55
+#: ../../../param/menu.xml:60
 msgid "Liste des dernières connexions réalisées"
 msgstr "List of last connections"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:56 ../../../display/templates/entete.tpl:33
+#: ../../../param/menu.xml:61 ../../../display/templates/entete.tpl:33
 #: ../../../display/templates/entete.tpl:34
 #: ../../../display/templates/framework/ident/loginChangePassword.tpl:86
 msgid "Modifier le mot de passe"
 msgstr "Change your password"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:56
+#: ../../../param/menu.xml:61
 msgid "Modifiez votre mot de passe (identification locale uniquement)"
 msgstr "Change your password (local identification only)"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:58
+#: ../../../param/menu.xml:63
 msgid "?"
 msgstr "?"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:58
+#: ../../../param/menu.xml:63
 msgid "Aide"
 msgstr "Help"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:59
+#: ../../../param/menu.xml:64
 msgid "A propos"
 msgstr "About"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:59
+#: ../../../param/menu.xml:64
 msgid "A propos de Sturwild"
 msgstr "About Sturwild"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:60
+#: ../../../param/menu.xml:65
 msgid "Nouveautés"
 msgstr "News"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:60
+#: ../../../param/menu.xml:65
 msgid "Quoi de neuf dans l'application ?"
 msgstr "What's new in the app?"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:61
+#: ../../../param/menu.xml:66
 msgid "Lexique"
 msgstr "Glossary"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:61
+#: ../../../param/menu.xml:66
 msgid "Lexique des termes utilisés dans le logiciel"
 msgstr "Glossary of terms used in the software"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:62
+#: ../../../param/menu.xml:67
 msgid "Français"
 msgstr "Français"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:62
+#: ../../../param/menu.xml:67
 msgid "Libellés en français"
 msgstr "Libellés en français"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:63
+#: ../../../param/menu.xml:68
 msgid "English"
 msgstr "English"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:63
+#: ../../../param/menu.xml:68
 msgid "Labels in English"
 msgstr "Labels in English"
 
@@ -670,7 +700,7 @@ msgstr "No account has been found for the considered mail"
 msgid "Le mail n'a pas été renseigné"
 msgstr "The mail has not been filled out"
 
-#: ../../../framework/vue.class.php:318
+#: ../../../framework/vue.class.php:327
 msgid ""
 "Une erreur a été détectée lors de la création de l'écran. Si le problème "
 "persiste, contactez l'administrateur de l'application."
@@ -678,7 +708,7 @@ msgstr ""
 "An error was detected when creating the screen. If the problem persists, "
 "please contact the application administrator."
 
-#: ../../../framework/vue.class.php:655
+#: ../../../framework/vue.class.php:665
 msgid "Problème rencontré lors de l'ouverture de finfo"
 msgstr "Problem occurred during the opening of finfo"
 
@@ -2019,21 +2049,6 @@ msgstr "Content"
 #: ../../../display/templates/documentation/quoideneuf.tpl:1
 msgid "Les nouveautés..."
 msgstr "News..."
-
-#~ msgid "Schéma de la base de données"
-#~ msgstr "Database structure"
-
-#~ msgid "Structure de la base de données (HTML)"
-#~ msgstr "Database structure (HTML)"
-
-#~ msgid "Liste des tables et des colonnes"
-#~ msgstr "List of tables and columns"
-
-#~ msgid "Structure de la base de données (Latex)"
-#~ msgstr "Database structure (Latex)"
-
-#~ msgid "Liste des tables et des colonnes sous forme de tableaux Latex"
-#~ msgstr "List of the tables and the columns in Latex table format"
 
 #~ msgid "Suppression non réalisée"
 #~ msgstr "Unrealized deletion"

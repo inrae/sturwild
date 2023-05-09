@@ -44,6 +44,25 @@ $LOG_duree = 365;
  * HEADER : l'identification est fournie dans une variable HEADER (derriere un proxy comme
  * LemonLdap, par exemple)
  */
+$ident_header_vars = array(
+	"login" => "MELLON_MAIL",
+	"mail" => "MELLON_MAIL",
+	"name" => "MELLON_cn",
+	"firstname"=>"MELLON_givenname",
+	"lastname" => "MELLON_sn",
+	"organization" => "MELLON_supannentiteaffectationprincipale",
+	"organizationGranted" => array(),
+	"createUser" => true,
+	"groupAttribute" => "MELLON_supannentiteaffectation",
+	"groupsGranted" => array()
+);
+$user_attributes = array (
+	"mail" => "mail",
+	"firstname"=>"givenName",
+	"lastname"=>"sn",
+	"name"=>"cn",
+	"groups"=>"supannentiteaffectation"
+);
 $ident_header_login_var = "AUTH_USER";
 $ident_header_logout_address = "https://server/cas/logout";
 $ident_type = "BDD";

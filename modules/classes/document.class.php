@@ -390,18 +390,6 @@ class Document extends ObjetBDD
                     "data" => ""
                 );
                 /*
-                 * Recherche antivirale
-                 */
-                $virus = false;
-                try {
-                    testScan($file["tmp_name"]);
-                } catch (VirusException $ve) {
-                    $message->set($ve->getMessage());
-                    $virus = true;
-                } catch (FileException $fe) {
-                    $message->set($fe->getMessage());
-                }
-                /*
                  * Recherche pour savoir s'il s'agit d'une image ou d'un pdf pour créer une vignette
                  */
                 $extension = strtolower($extension);
