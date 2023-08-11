@@ -333,17 +333,17 @@
         },
         {
             "name": "picqer/php-barcode-generator",
-            "version": "v2.2.4",
-            "version_normalized": "2.2.4.0",
+            "version": "v2.3.2",
+            "version_normalized": "2.3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/picqer/php-barcode-generator.git",
-                "reference": "b98f110cc5a79f723688fb17fd90b9325300d844"
+                "reference": "dab19f2afe42d2e3dda1504f5834e36f2ecf0553"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/b98f110cc5a79f723688fb17fd90b9325300d844",
-                "reference": "b98f110cc5a79f723688fb17fd90b9325300d844",
+                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/dab19f2afe42d2e3dda1504f5834e36f2ecf0553",
+                "reference": "dab19f2afe42d2e3dda1504f5834e36f2ecf0553",
                 "shasum": ""
             },
             "require": {
@@ -358,7 +358,7 @@
                 "ext-gd": "For JPG and PNG generators, GD or Imagick is required",
                 "ext-imagick": "For JPG and PNG generators, GD or Imagick is required"
             },
-            "time": "2022-07-01T08:27:26+00:00",
+            "time": "2023-07-25T06:37:46+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -410,7 +410,7 @@
             ],
             "support": {
                 "issues": "https://github.com/picqer/php-barcode-generator/issues",
-                "source": "https://github.com/picqer/php-barcode-generator/tree/v2.2.4"
+                "source": "https://github.com/picqer/php-barcode-generator/tree/v2.3.2"
             },
             "funding": [
                 {
@@ -1048,17 +1048,17 @@
         },
         {
             "name": "thecodingmachine/safe",
-            "version": "v2.4.0",
-            "version_normalized": "2.4.0.0",
+            "version": "v2.5.0",
+            "version_normalized": "2.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/safe.git",
-                "reference": "e788f3d09dcd36f806350aedb77eac348fafadd3"
+                "reference": "3115ecd6b4391662b4931daac4eba6b07a2ac1f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/e788f3d09dcd36f806350aedb77eac348fafadd3",
-                "reference": "e788f3d09dcd36f806350aedb77eac348fafadd3",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/3115ecd6b4391662b4931daac4eba6b07a2ac1f0",
+                "reference": "3115ecd6b4391662b4931daac4eba6b07a2ac1f0",
                 "shasum": ""
             },
             "require": {
@@ -1070,7 +1070,7 @@
                 "squizlabs/php_codesniffer": "^3.2",
                 "thecodingmachine/phpstan-strict-rules": "^1.0"
             },
-            "time": "2022-10-07T14:02:17+00:00",
+            "time": "2023-04-05T11:54:14+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1184,7 +1184,7 @@
             "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
             "support": {
                 "issues": "https://github.com/thecodingmachine/safe/issues",
-                "source": "https://github.com/thecodingmachine/safe/tree/v2.4.0"
+                "source": "https://github.com/thecodingmachine/safe/tree/v2.5.0"
             },
             "install-path": "../thecodingmachine/safe"
         }

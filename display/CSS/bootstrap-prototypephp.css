@@ -67,6 +67,9 @@ body {
 	font-size: small;
 	font-style: italic;
 }
+.selected {
+	background-color: #009EE0;
+}
 h2 {
 	font-size:large;
 }
@@ -129,7 +132,7 @@ legend {
 	background-position: 100% 50%;
 }
 
-.datetimepicker {
+.datetimepicker, .timepicker {
 	background-image: url("images/clock.png");
 	background-size: 1em;
 	background-repeat: no-repeat;
@@ -325,3 +328,11 @@ table a:visited {
 	background-repeat: no-repeat;
 	background-position: 100% 50%;
 }
+/* bootstrap hack: fix content width inside hidden tabs */
+.tab-content > .tab-pane:not(.active),
+.pill-content > .pill-pane:not(.active) {
+    display: block;
+    height: 0;
+    overflow-y: hidden;
+}
+/* bootstrap hack end */

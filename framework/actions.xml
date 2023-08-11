@@ -1,5 +1,5 @@
 <navigation>
-  <model action="index.php" param="list|display|change|write|delete|..." droits="gestion" retourko="model" retourlogin="1" retourok="model" loginrequis="1" type="html|smarty|ajax|pdf|csv|binaire|file" droitko="droitko" modulebefore="module1,module2" requiredVar="table_id" maxCountByHour="60" maxCountByDay="600" noDelayBeforeCall="1" />
+  <model action="index.php" param="list|display|change|write|delete|..." droits="gestion" retourko="model" retourlogin="1" retourok="model" loginrequis="1" type="html|smarty|ajax|pdf|csv|binaire" droitko="droitko" modulebefore="module1,module2" requiredVar="table_id" maxCountByHour="60" maxCountByDay="600" noDelayBeforeCall="1" />
 	<default action="framework/default.php" type="smarty"></default>
 	<droitko action="framework/droitko.php" type="smarty"></droitko>
 	<droits menudroits="admin" droits="admin" menulevel="0" menuorder="7" menuvalue="14" menutitle="15" />
@@ -19,13 +19,19 @@
 	<test action="test/test.php" retourko="" type="smarty"></test>
 	<connexion loginrequis="1" type="smarty" />
 	<disconnect action="framework/identification/disconnect.php" type="smarty" retourok="default" retourko="default" />
-	<apropos action="framework/apropos.php" type="smarty" />
+	<apropos action="framework/utils/about.php" type="smarty" />
+	<about action="framework/utils/about.php" type="smarty" />
 	<phpinfo action="framework/phpinfo.php" droits="admin" retourlogin="1" type="smarty" />
-	<quoideneuf action="doc/quoideneuf.php" retourlogin="1" type="smarty" />
+	<quoideneuf action="framework/utils/news.php" retourlogin="1" type="smarty" />
+	<news action="framework/utils/news.php" retourlogin="1" type="smarty" />
+
 	<getLastConnections action="framework/log/log.php" param="getLastConnections" loginrequis="1" type="smarty" />
 	<setlanguage action='framework/setlanguage.php' param="" retourlogin="1" type="smarty" retourok="default" />
 	<setlanguagefr action='framework/setlanguage.php' param="fr" retourlogin="1" type="smarty" retourok="default" />
 	<setlanguageen action='framework/setlanguage.php' param="en" retourlogin="1" type="smarty" retourok="default" />
+	<setlanguageus action='framework/setlanguage.php' param="us" retourlogin="1" type="smarty" retourok="default" />
+	
+
 
 
 	<exampleList action="modules/example/example.php" param="list" droits="consult" type="smarty" />
@@ -94,8 +100,8 @@
     <doctotp_fr action="framework/utils/markdown.php" param="framework/documentation/totp_fr.md" type="smarty" retourko="default"/>
     <doctotp_en action="framework/utils/markdown.php" param="framework/documentation/totp_en.md" type="smarty" retourko="default"/>
 
-	<!-- System -->
-	<systemShowServer action="framework/utils/system.php" param="SERVER" droits="admin" type="smarty" retourko="default"/>
-	<systemShowSession action="framework/utils/system.php" param="SESSION" droits="admin" type="smarty" retourko="default"/>
+		<!-- System -->
+		<systemShowServer action="framework/utils/system.php" param="SERVER" droits="admin" type="smarty" retourko="default"/>
+		<systemShowSession action="framework/utils/system.php" param="SESSION" droits="admin" type="smarty" retourko="default"/>
 
 </navigation>

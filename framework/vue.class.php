@@ -56,7 +56,7 @@ class Message
    */
   function get()
   {
-    if ($this->_displaySyslog) {
+    if ($this->displaySyslog) {
       return array_merge($this->_message, $this->_syslog);
     } else {
       return $this->_message;
@@ -83,7 +83,7 @@ class Message
   {
     $data = "";
     $i = 0;
-    if ($this->_displaySyslog) {
+    if ($this->displaySyslog) {
       $tableau = array_merge($this->_message, $this->_syslog);
     } else {
       $tableau = $this->_message;
@@ -149,7 +149,6 @@ class Vue
    * @var string|array
    */
   protected $data;
-  protected $param = array();
 
   /**
    * Assigne une valeur
@@ -174,14 +173,7 @@ class Vue
   function send($param = "")
   {
   }
-  function setParam(array $param = array())
-  {
-    if (!empty($param)) {
-      foreach ($param as $key => $value) {
-        $this->param[$key] = $value;
-      }
-    }
-  }
+
   /**
    * Return the content of a variable
    *
@@ -205,19 +197,18 @@ class Vue
    * @return string
    */
   function encodehtml($data)
-  {
-    if (!is_object($data)) {
-      if (is_array($data)) {
-        foreach ($data as $key => $value) {
+  {if (!is_object($data)) {
+    if (is_array($data)) {
+      foreach ($data as $key => $value) {
 
-          $data[$key] = $this->encodehtml($value);
-        }
-      } else {
-        $data = htmlspecialchars($data, ENT_QUOTES);
+        $data[$key] = $this->encodehtml($value);
       }
     } else {
-      $data = null;
+      $data = htmlspecialchars($data, ENT_QUOTES);
     }
+  } else {
+    $data = null;
+  }
     return $data;
   }
 }
@@ -324,7 +315,7 @@ class VueSmarty extends Vue
     try {
       $this->smarty->display($this->templateMain);
     } catch (Exception $e) {
-      printA(_("Une erreur a été détectée lors de la création de l'écran. Si le problème persiste, contactez l'administrateur de l'application."));
+      printr(_("Une erreur a été détectée lors de la création de l'écran. Si le problème persiste, contactez l'administrateur de l'application."));
       global $message;
       $message->setSyslog($e->getMessage());
     }
@@ -632,7 +623,7 @@ class VuePdf extends Vue
 class VueBinaire extends Vue
 {
 
-  protected $param = array(
+  private $param = array(
     "filename" => "", /* nom du fichier tel qu'il apparaitra dans le navigateur */
     "disposition" => "attachment", /* attachment : le fichier est telecharge, inline : le fichier est affiche */
     "tmp_name" => "", /* emplacement du fichier dans le serveur */
@@ -652,9 +643,8 @@ class VueBinaire extends Vue
    */
   function send($param = "")
   {
-    if (is_array($param)) {
-      $this->setParam($param);
-    }
+    //printr($this->param);
+
     !empty($this->param["tmp_name"]) ? $isReference = false : $isReference = true;
     /*
              * Recuperation du content-type s'il n'a pas ete fourni
@@ -682,9 +672,9 @@ class VueBinaire extends Vue
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
     header('Pragma: no-cache');
-    /**
-     * Envoi au navigateur
-     */
+    /*
+             * Envoi au navigateur
+             */
     ob_clean();
     flush();
     if (!$isReference) {
@@ -693,31 +683,55 @@ class VueBinaire extends Vue
       fpassthru($this->param["handle"]);
     }
   }
+
+  /**
+   * Met a jour les parametres necessaires pour l'export
+   *
+   * @param array $param
+   */
+  function setParam(?array $param)
+  {
+    if (is_array($param)) {
+      foreach ($param as $key => $value) {
+        $this->param[$key] = $value;
+      }
+    }
+  }
 }
 /**
  * Generate a file with an undetermined contain
  */
 class VueFile extends Vue
 {
-  function __construct()
-  {
-    $this->param = array(
-      "filename" => "export.txt", /* nom du fichier tel qu'il apparaitra dans le navigateur */
-      "disposition" => "attachment", /* attachment : le fichier est telecharge, inline : le fichier est affiche */
-      "content_type" => "",/* type mime */
-      "tmp_name" => "", /* Name of the file to send */
-    );
-  }
+  private $param = array(
+    "filename" => "export.txt", /* nom du fichier tel qu'il apparaitra dans le navigateur */
+    "disposition" => "attachment", /* attachment : le fichier est telecharge, inline : le fichier est affiche */
+    "content_type" => "",/* type mime */
+    "tmp_name" => "", /* Name of the file to send */
+  );
 
+  /**
+   * Met a jour les parametres necessaires pour l'export
+   *
+   * @param array $param
+   */
+  function setParam(?array $param)
+  {
+    if (is_array($param)) {
+      foreach ($param as $key => $value) {
+        $this->param[$key] = $value;
+      }
+    }
+  }
   /**
    * rewrite send for generate the file
    *
    * @param array $param: list of parameters of file
    * @return void
    */
-  function send($param = "")
+  function send($param = array())
   {
-    if (is_array($param)) {
+    if (count($param) > 0) {
       $this->setParam($param);
     }
     if (empty($this->param["content_type"])) {
@@ -735,15 +749,15 @@ class VueFile extends Vue
     } else {
       header('Content-Disposition: inline');
     }
-    /**
-     * Ajout des entetes de cache
-     */
+    /*
+         * Ajout des entetes de cache
+         */
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
     header('Pragma: no-cache');
-    /**
-     * Envoi au navigateur
-     */
+    /*
+         * Envoi au navigateur
+         */
     $fp = fopen('php://output', 'w');
     fwrite($fp, $this->data);
     fclose($fp);
