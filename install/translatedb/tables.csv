@@ -1,0 +1,26 @@
+tablename;description;table_translated;comment_translated
+capture_etat;Table des états à la capture;catch_state;Catch status table
+capture_mode;Mode de capture des poissons;catch_method;Method of catching fish
+capture_type;Type de capture (professionnelle, amateur, scientifique...);catch_type;Type of catch
+ciem;Table des zones de peche CIEM;ices;Table of ICES fishing zones
+dbparam;Table of parameters intrinsically associated to the instance;;
+dbversion;Table des versions de la base de donnees;;Table of database versions
+declaration;Informations liées à la déclaration.;declaration;Information relating to the declaration
+devenir;Devenir des esturgeons capturés;become;Fate of sturgeon caught
+document;Documents numériques rattachés à un poisson ou à un événement;;Numeric documents relating to a fish or an event
+engin_type;Table des engins utilisés;engine_type;Used engine table
+espece;;species;
+estuaire_area;;estuary_area;
+evenement;;event;
+evenement_type;Types d'événements possibles sur une déclaration;event_type;Types of events possible on a declaration
+individu;;fish;
+localisation;;location;
+milieu;Table des milieux;environment;Environment table
+milieu_detail;Milieu détaillé;environment_detail;Environment detail
+mime_type;Table des types mime, pour les documents associés;;Table of mime types for associated documents
+pays;Pays de pêche;country;Fishing country
+precision;Précision de la localisation du point GPS;accuracy;Accuracy of GPS point location
+presence_marque;Table des types de présence de marque (présent, non signalé, absent);mark_presence;Table of mark presence types (present, not indicated, absent)
+region;Grande région de pêche;region;Method of catching fish
+request;Request table in database;;
+statut;Table des statuts de la déclaration;status;Declaration status table
