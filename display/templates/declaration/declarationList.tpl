@@ -56,9 +56,6 @@ Exporter la liste au format CSV</a>
 {if !empty($data[lst].ciem_libelle)}
  {$data[lst].ciem_libelle}
 {/if}
-{if !empty($data[lst].region_libelle)}
- {$data[lst].region_libelle}
-{/if}
 {if !empty($data[lst].milieu_libelle) }
  {$data[lst].milieu_libelle}
 {/if}

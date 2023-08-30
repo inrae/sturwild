@@ -28,7 +28,6 @@ class Declaration extends ObjetBDD
 				left outer join ciem using (ciem_id)
 				left outer join milieu using (milieu_id)
 				left outer join milieu_detail using (milieu_detail_id)
-				left outer join region using (region_id)
 				left outer join engin_type using (engin_type_id)
 				left outer join capture_mode using (capture_mode_id)
 				left outer join capture_type using (capture_type_id)
@@ -209,7 +208,7 @@ class Declaration extends ObjetBDD
     $sql = "select declaration.declaration_id, statut_id, statut_libelle,
 				capture_date, annee, capture_date_estimee,
 				pecheur_code, interlocuteur,
-				pays_libelle, ciem_libelle, milieu_libelle, region_libelle,
+				pays_libelle, ciem_libelle, milieu_libelle,
 				nombre_capture, espece_libelle,
 				capture_etat_libelle, engin_type_libelle
 				";
@@ -261,11 +260,6 @@ class Declaration extends ObjetBDD
       $and = " and ";
       $this->paramSearch["pays_id"] = $param["pays_id"];
     }
-    if ($param["region_id"] > 0 && is_numeric($param["region_id"])) {
-      $where .= " $and region_id = :region_id";
-      $and = " and ";
-      $this->paramSearch["region_id"] = $param["region_id"];
-    }
     if ($param["milieu_id"] > 0 && is_numeric($param["milieu_id"])) {
       $where .= " $and milieu_id = :milieu_id";
       $and = " and ";
@@ -310,7 +304,7 @@ class Declaration extends ObjetBDD
   function getDataToExport($param)
   {
     $sql = "select declaration.*,
-				pays_libelle, ciem_libelle, milieu_libelle, region_libelle, milieu_detail_libelle,
+				pays_libelle, ciem_libelle, milieu_libelle, milieu_detail_libelle,
 				zone_detail,
 				capture_mode_libelle, capture_type_libelle, capture_etat_libelle,
 				statut_libelle, engin_type_libelle,

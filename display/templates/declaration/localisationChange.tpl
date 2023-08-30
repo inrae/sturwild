@@ -123,21 +123,6 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="region_id" class="control-label col-sm-4">
-						Région :
-					</label>
-					<div class="col-sm-8">
-						<select class="form-control" id="region_id"  name="region_id" >
-						<option value="" {if $data.region_id == ""}selected{/if}>Sélectionnez...</option>
-						{section name=lst loop=$region}
-						<option value="{$region[lst].region_id}" {if $region[lst].region_id == $data.region_id}selected{/if}>
-						{$region[lst].region_libelle}
-						</option>
-						{/section}
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
 					<label for="milieu_id" class="control-label col-sm-4">
 						Milieu :
 					</label>

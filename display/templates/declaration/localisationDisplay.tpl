@@ -15,10 +15,6 @@
 	<dd>{$localisation.ciem_libelle}</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Région :</dt>
-	<dd>{$localisation.region_libelle}</dd>
-</dl>
-<dl class="dl-horizontal">
 	<dt>Milieu :</dt>
 	<dd>{$localisation.milieu_libelle}</dd>
 </dl>
@@ -80,8 +76,9 @@ var imageStyle = new ol.style.Style({
 	})
 });
 //console.log("imageStyle", imageStyle);
-
- var coordonnee = [{$localisation.longitude_dd}, {$localisation.latitude_dd}];
+var long = "{$localisation.longitude_dd}";
+var lat = "{$localisation.latitude_dd}";
+ var coordonnee = [long, lat ];
 // console.log("coordonnees : ", coordonnee);
  var zoom = 9;
 var attribution = new ol.control.Attribution({

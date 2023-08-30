@@ -15,9 +15,6 @@ $vue->set ($ciem->getListe(2) , "ciem" );
 $pays = new Pays($bdd, $ObjetBDDParam);
 $vue->set ( $pays->getListe(3), "pays" );
 
-$region = new Region($bdd, $ObjetBDDParam);
-$vue->set ( $region->getListe(2), "region" );
-
 $milieu = new Milieu($bdd, $ObjetBDDParam);
 $vue->set ( $milieu->getListe(2), "milieu" );
 

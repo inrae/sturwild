@@ -95,19 +95,6 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 </div>
 
-<div class="form-group">
-<label for="region_id" class="col-sm-1 control-label">Région :</label>
-<div class="col-sm-2">
-<select class="form-control" id="region_id" name="region_id">
-<option value="" {if $dataSearch.region_id == ""}selected{/if}>Sélectionnez...</option>
-{section name=lst loop=$region}
-<option value={$region[lst].region_id} {if $dataSearch.region_id == $region[lst].region_id}selected{/if}>
-{$region[lst].region_libelle}
-</option>
-{/section}
-</select>
-</div>
-
 <label for="milieu_id" class="col-sm-1 control-label">Milieu :</label>
 <div class="col-sm-2">
 <select class="form-control" id="milieu_id" name="milieu_id">

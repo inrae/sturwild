@@ -79,7 +79,6 @@ class SearchDeclaration extends SearchParam {
 				"ciem_id"=>"",
 				"pays_id"=>"",
 				"milieu_id"=>"",
-				"region_id"=>"",
 				"statut_id"=>"",
 				"espece_id"=>"",
 				"capture_etat_id"=>"",

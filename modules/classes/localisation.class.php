@@ -150,40 +150,6 @@ class Pays extends ObjetBDD {
 		parent::__construct ( $link, $param );
 	}
 }
-/**
- * ORM de gestion de la table region
- *
- * @author quinton
- *
- */
-class Region extends ObjetBDD {
-	/**
-	 * Constructeur
-	 *
-	 * @param PDO $link
-	 * @param array $param
-	 */
-	function __construct($link, $param = NULL) {
-		if (! is_array ( $param ))
-			$param = array ();
-		$this->table = "sturwild.region";
-		$this->id_auto = 1;
-		$this->colonnes = array (
-				"region_id" => array (
-						"type" => 1,
-						"requis" => 1,
-						"key" => 1,
-						"defaultValue" => 0
-				),
-				"region_libelle" => array (
-						"type" => 0,
-						"requis" => 1
-				)
-		);
-		$param ["fullDescription"] = 1;
-		parent::__construct ( $link, $param );
-	}
-}
 
 /**
  * ORM de gestion de la table localisation
@@ -213,9 +179,6 @@ class Localisation extends ObjetBDD {
 						"type" => 1
 				),
 				"ciem_id" => array (
-						"type" => 1
-				),
-				"region_id" => array (
 						"type" => 1
 				),
 				"milieu_id" => array (
@@ -270,7 +233,6 @@ class Localisation extends ObjetBDD {
 					left outer join ciem using (ciem_id)
 					left outer join pays using (pays_id)
 					left outer join milieu using (milieu_id)
-					left outer join region using (region_id)
 					left outer join milieu_detail using (milieu_detail_id)
 					left outer join precision using (precision_id)
 					where declaration_id = :declaration_id";
@@ -291,7 +253,6 @@ class Localisation extends ObjetBDD {
 					"declaration_id"=>$idNew,
 					"pays_id"=>$data["pays_id"],
 					"ciem_id"=>$data["ciem_id"],
-					"region_id"=>$data["region_id"],
 					"milieu_id"=>$data["milieu_id"],
 					"milieu_detaille_id"=>$data["milieu_detaille_id"],
 					"precision_id"=>$data["precision_id"]
