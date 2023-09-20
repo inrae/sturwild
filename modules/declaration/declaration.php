@@ -12,10 +12,10 @@ $id = $_REQUEST[$keyName];
 
 switch ($t_module["param"]) {
     case "list":
-		/*
-		 * Display the list of all records of the table
-		 */
-		$_SESSION["searchDeclaration"]->setParam($_REQUEST);
+        /*
+         * Display the list of all records of the table
+         */
+        $_SESSION["searchDeclaration"]->setParam($_REQUEST);
         $dataSearch = $_SESSION["searchDeclaration"]->getParam();
         if ($_SESSION["searchDeclaration"]->isSearch() == 1) {
             $data = $dataClass->search($dataSearch);
@@ -31,10 +31,10 @@ switch ($t_module["param"]) {
 
         break;
     case "display":
-		/*
-		 * Display the detail of the record
-		 */
-		$vue->set($dataClass->getDetail($id), "data");
+        /*
+         * Display the detail of the record
+         */
+        $vue->set($dataClass->getDetail($id), "data");
         $vue->set("declaration/declarationDisplay.tpl", "corps");
 
         /*
@@ -61,7 +61,7 @@ switch ($t_module["param"]) {
         try {
             $vue->set($document->getListFromDeclaration($id), "dataDoc");
         } catch (DocumentException $de) {
-            $message->set("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système.");
+            $message->set(_("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système."));
             $message->setSyslog($de->getMessage());
         }
 
@@ -73,12 +73,12 @@ switch ($t_module["param"]) {
 
         break;
     case "change":
-		/*
-		 * open the form to modify the record
-		 * If is a new record, generate a new record with default value :
-		 * $_REQUEST["idParent"] contains the identifiant of the parent record
-		 */
-		dataRead($dataClass, $id, "declaration/declarationChange.tpl");
+        /*
+         * open the form to modify the record
+         * If is a new record, generate a new record with default value :
+         * $_REQUEST["idParent"] contains the identifiant of the parent record
+         */
+        dataRead($dataClass, $id, "declaration/declarationChange.tpl");
         /*
          * Lecture des tables de parametres
          */
@@ -104,13 +104,13 @@ switch ($t_module["param"]) {
 
         break;
     case "write":
-		/*
-		 * write record in database
-		 */
-		/*
-		 * Recherche de l'ancien status
-		 */
-		if ($id == 0) {
+        /*
+         * write record in database
+         */
+        /*
+         * Recherche de l'ancien status
+         */
+        if ($id == 0) {
             $statusOld = 0;
         } else {
             $dataStatus = $dataClass->lire($id);
@@ -128,16 +128,16 @@ switch ($t_module["param"]) {
         }
         break;
     case "delete":
-		/*
-		 * delete record
-		 */
-		dataDelete($dataClass, $id);
+        /*
+         * delete record
+         */
+        dataDelete($dataClass, $id);
         break;
     case "export":
-		/*
-		 * Exporte la liste des captures accidentelles au format CSV
-		 */
-		$_SESSION["searchDeclaration"]->setParam($_REQUEST);
+        /*
+         * Exporte la liste des captures accidentelles au format CSV
+         */
+        $_SESSION["searchDeclaration"]->setParam($_REQUEST);
         $dataSearch = $_SESSION["searchDeclaration"]->getParam();
         if ($_SESSION["searchDeclaration"]->isSearch() == 1) {
             $vue->setFilename("sturwild_declaration-" . date('d-m-Y') . ".csv");
@@ -152,26 +152,27 @@ switch ($t_module["param"]) {
         }
         break;
     case "sturioByYear":
-		/*
-		 * Recherche du nombre d'esturgeons captures par year
-		 */
-		$vue->set($dataClass->getNbSturioByYear(), "data");
+        /*
+         * Recherche du nombre d'esturgeons captures par year
+         */
+        $vue->set($dataClass->getNbSturioByYear(), "data");
         $vue->set("declaration/nbSturioByYear.tpl", "corps");
 
         break;
     case "duplicate":
-		/*
-		 * Duplication de la fiche courante
-		 */
-		if ($id > 0) {
+        /*
+         * Duplication de la fiche courante
+         */
+        if ($id > 0) {
             $newId = $dataClass->duplicate($id);
             if ($newId > 0) {
                 $_REQUEST["declaration_id"] = $newId;
-                $message->set("Déclaration dupliquée !");
+                $message->set(_("Déclaration dupliquée !"));
             } else {
-                $textMessage = "Echec de duplication de la déclaration<br>" . $dataClass->getErrorData(1);
-                $message->set($textMessage);
-                $message->setSyslog($textMessage);
+                $message->set(_("Echec de duplication de la déclaration"), true);
+                $message->set($dataClass->getErrorData(1));
+
+                $message->setSyslog($dataClass->getErrorData(1));
             }
         }
         $module_coderetour = 1;

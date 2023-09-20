@@ -47,12 +47,12 @@ function sendMail($declaration_id)
                     $log->setLog($_SESSION["login"], "sendmail_to:" . $dataLogin["mail"], $id);
                 } else {
                     $log->setLog($_SESSION["login"], "error_sendmail_to:" . $dataLogin["mail"], $id);
-                    $message->set("Erreur d'envoi d'un mail vers ".$dataLogin["mail"]);
+                    $message->set(sprintf(_("Erreur d'envoi d'un mail vers %s"),$dataLogin["mail"]),true);
                     $message->setSyslog("error_sendmail_to:" . $dataLogin["mail"]);
                 }
             }
         }
-        $message->set("Envoi des mails réalisé pour informer du changement de status de la déclaration");
+        $message->set(_("Envoi des mails réalisé pour informer du changement de status de la déclaration"));
     }
 }
 ?>

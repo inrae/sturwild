@@ -41,7 +41,7 @@ switch ($t_module ["param"]) {
 			try {
 			$vue->set ( $document->getListFromFish ( $id ), "dataDoc" );
 			} catch (DocumentException $de) {
-			    $message->set("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système.");
+			    $message->set(_("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système."), true);
 			    $message->setSyslog($de->getMessage());
 			}
 

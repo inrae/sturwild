@@ -1,3 +1,7 @@
+drop view sturwild.v_localisation;
+drop table sturwild.region cascade;
+
+
 alter table sturwild.capture_etat rename column capture_etat_id to capture_state_id;
 alter table sturwild.capture_etat rename column capture_etat_libelle to capture_state_name;
 alter table sturwild.capture_mode rename column capture_mode_id to capture_method_id;
@@ -117,4 +121,50 @@ alter table sturwild.presence_marque rename to tag_presence;
 alter sequence if exists sturwild.presence_marque_presence_marque_id_seq rename to tag_presence_tag_presence_id_seq;
 alter table sturwild.statut rename to status;
 alter sequence if exists sturwild.statut_statut_id_seq rename to status_status_id_seq;
-drop table sturwild.region cascade;
+
+create view sturwild.v_location as 
+( SELECT location.declaration_id,
+    location.geom,
+    location.longitude_dd,
+    location.latitude_dd,
+    country.country_name,
+    ices.ices_name,
+    environment.environment_name,
+    status.status_name,
+    capture_method.capture_method_name,
+    origin.origin_name,
+    gear_type.gear_type_name,
+    capture_state.capture_state_name,
+    fate.fate_name,
+    species.species_name,
+    declaration.capture_date,
+    declaration.year,
+    declaration.caught_number,
+    declaration.estimated_capture_date,
+    declaration.gear_mesh,
+    declaration.target_species,
+    declaration.depth,
+    declaration.depth_min,
+    declaration.depth_max,
+    declaration.length_min,
+    declaration.length_max,
+    declaration.weight_min,
+    declaration.weight_max,
+    declaration.fisher_code,
+    declaration.contact,
+    declaration.harbour_vessel,
+    declaration.declaration_mode,
+    declaration.handling,
+    declaration.identification_quality
+   FROM sturwild.location
+     JOIN sturwild.declaration USING (declaration_id)
+     LEFT JOIN sturwild.status USING (status_id)
+     LEFT JOIN sturwild.species USING (species_id)
+     LEFT JOIN sturwild.capture_method USING (capture_method_id)
+     LEFT JOIN sturwild.origin USING (origin_id)
+     LEFT JOIN sturwild.gear_type USING (gear_type_id)
+     LEFT JOIN sturwild.capture_state USING (capture_state_id)
+     LEFT JOIN sturwild.country USING (country_id)
+     LEFT JOIN sturwild.ices USING (ices_id)
+     LEFT JOIN sturwild.environment USING (environment_id)
+     LEFT JOIN sturwild.fate USING (fate_id));
