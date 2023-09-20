@@ -12,7 +12,7 @@
  * @author quinton
  *
  */
-class Individu extends ObjetBDD {
+class Fish extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
@@ -262,7 +262,7 @@ class Lot extends ObjetBDD {
  * @author quinton
  *
  */
-class Espece extends ObjetBDD {
+class Species extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
@@ -296,7 +296,7 @@ class Espece extends ObjetBDD {
  * @author quinton
  *
  */
-class Devenir extends ObjetBDD {
+class Fate extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
@@ -330,7 +330,7 @@ class Devenir extends ObjetBDD {
  * @author quinton
  *
  */
-class CaptureEtat extends ObjetBDD {
+class CaptureState extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
@@ -364,7 +364,7 @@ class CaptureEtat extends ObjetBDD {
  * @author quinton
  *
  */
-class Presence_marque extends ObjetBDD {
+class TagPresence extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *

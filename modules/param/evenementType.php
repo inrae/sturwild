@@ -6,7 +6,7 @@
  *  Creation 5 août 2015
  */
 include_once 'modules/classes/event.class.php';
-$dataClass = new Evenement_type( $bdd, $ObjetBDDParam );
+$dataClass = new Event_type( $bdd, $ObjetBDDParam );
 $keyName = "event_type_id";
 $id = $_REQUEST [$keyName];
 

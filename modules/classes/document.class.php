@@ -266,7 +266,7 @@ class Document extends ObjetBDD
      * @param int $id
      * @return array
      */
-    function getListFromIndividu($id)
+    function getListFromFish($id)
     {
         if ($id > 0 && is_numeric($id)) {
             $sql = "select document_id, fish_id, document_name, document_description, size, document_date_import, content_type, mime_type_id

@@ -41,7 +41,7 @@ switch ($t_module["param"]) {
          * Recuperation des autres informations a afficher
          */
         require_once 'modules/classes/location.class.php';
-        $location = new Localisation($bdd, $ObjetBDDParam);
+        $location = new Location($bdd, $ObjetBDDParam);
         $vue->set($location->getDetail($id), "location");
 
         require_once 'modules/classes/fish.class.php';
@@ -49,11 +49,11 @@ switch ($t_module["param"]) {
          * $lot = new Lot($bdd, $ObjetBDDParam);
          * $smarty->assign("dataLot", $lot->getDetail($id));
          */
-        $fish = new Individu($bdd, $ObjetBDDParam);
+        $fish = new Fish($bdd, $ObjetBDDParam);
         $vue->set($fish->getListeFromDeclaration($id), "fishs");
 
         require_once 'modules/classes/event.class.php';
-        $event = new Evenement($bdd, $ObjetBDDParam);
+        $event = new Event($bdd, $ObjetBDDParam);
         $vue->set($event->getListeFromDeclaration($id), "events");
 
         require_once 'modules/classes/document.class.php';
@@ -83,19 +83,19 @@ switch ($t_module["param"]) {
          * Lecture des tables de parametres
          */
         require_once "modules/classes/fish.class.php";
-        $status = new Statut($bdd, $ObjetBDDParam);
+        $status = new Status($bdd, $ObjetBDDParam);
         $vue->set($status->getListe(1), "status");
-        $captureMode = new Capture_mode($bdd, $ObjetBDDParam);
+        $captureMode = new Capture_method($bdd, $ObjetBDDParam);
         $vue->set($captureMode->getListe(2), "capture_method");
-        $captureType = new Capture_type($bdd, $ObjetBDDParam);
+        $captureType = new Origin($bdd, $ObjetBDDParam);
         $vue->set($captureType->getListe(2), "origin");
-        $enginType = new Engin_type($bdd, $ObjetBDDParam);
+        $enginType = new Gear_type($bdd, $ObjetBDDParam);
         $vue->set($enginType->getListe(2), "gear_type");
-        $species = new Espece($bdd, $ObjetBDDParam);
+        $species = new Species($bdd, $ObjetBDDParam);
         $vue->set($species->getListe(2), "species");
-        $fate = new Devenir($bdd, $ObjetBDDParam);
+        $fate = new Fate($bdd, $ObjetBDDParam);
         $vue->set($fate->getListe(1), "fate");
-        $captureEtat = new Capture_etat($bdd, $ObjetBDDParam);
+        $captureEtat = new Capture_state($bdd, $ObjetBDDParam);
         $vue->set($captureEtat->getListe(2), "capture_state");
         /*
          * Recuperation de la liste des years
@@ -113,8 +113,8 @@ switch ($t_module["param"]) {
 		if ($id == 0) {
             $statusOld = 0;
         } else {
-            $dataStatut = $dataClass->lire($id);
-            $statusOld = $dataStatut["status_id"];
+            $dataStatus = $dataClass->lire($id);
+            $statusOld = $dataStatus["status_id"];
         }
         $id = dataWrite($dataClass, $_REQUEST);
         if ($id >= 0) {

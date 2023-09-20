@@ -7,7 +7,7 @@
  */
  
 include_once 'modules/classes/declaration.class.php';
-$dataClass = new Engin_type( $bdd, $ObjetBDDParam );
+$dataClass = new Gear_type( $bdd, $ObjetBDDParam );
 $keyName = "gear_type_id";
 $id = $_REQUEST [$keyName];
 

@@ -1,6 +1,6 @@
 <?php
 include_once 'modules/classes/location.class.php';
-$dataClass = new Ciem ( $bdd, $ObjetBDDParam );
+$dataClass = new Ices ( $bdd, $ObjetBDDParam );
 $keyName = "ices_id";
 $id = $_REQUEST [$keyName];
 

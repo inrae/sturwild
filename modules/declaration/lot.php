@@ -27,10 +27,10 @@ switch ($t_module["param"]) {
 		/*
 		 * Lecture des tables de parametre
 		*/
-		$species = new Espece($bdd, $ObjetBDDParam);
+		$species = new Species($bdd, $ObjetBDDParam);
 		$vue->set ( $species->getListe(2), "species" );
 		
-		$fate = new Devenir($bdd, $ObjetBDDParam);
+		$fate = new Fate($bdd, $ObjetBDDParam);
 		$vue->set ( $fate->getListe(1), "fate" );
 		
 		break;

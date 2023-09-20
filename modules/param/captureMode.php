@@ -6,7 +6,7 @@
  *  Creation 5 août 2015
  */
 include_once 'modules/classes/declaration.class.php';
-$dataClass = new Capture_mode( $bdd, $ObjetBDDParam );
+$dataClass = new Capture_method( $bdd, $ObjetBDDParam );
 $keyName = "capture_method_id";
 $id = $_REQUEST [$keyName];
 

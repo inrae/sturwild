@@ -6,7 +6,7 @@
  *  Creation 10 août 2015
  */
 include_once 'modules/classes/location.class.php';
-$dataClass = new MilieuDetail( $bdd, $ObjetBDDParam );
+$dataClass = new EnvironmentDetail( $bdd, $ObjetBDDParam );
 $keyName = "environment_detail_id";
 $id = $_REQUEST [$keyName];
 

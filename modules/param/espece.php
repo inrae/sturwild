@@ -1,6 +1,6 @@
 <?php
 include_once 'modules/classes/fish.class.php';
-$dataClass = new Espece( $bdd, $ObjetBDDParam );
+$dataClass = new Species( $bdd, $ObjetBDDParam );
 $keyName = "species_id";
 $id = $_REQUEST [$keyName];
 

@@ -6,7 +6,7 @@
  *  Creation 5 août 2015
  */
 include_once 'modules/classes/declaration.class.php';
-$dataClass = new Capture_type( $bdd, $ObjetBDDParam );
+$dataClass = new Origin( $bdd, $ObjetBDDParam );
 $keyName = "origin_id";
 $id = $_REQUEST [$keyName];
 

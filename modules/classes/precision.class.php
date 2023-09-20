@@ -1,5 +1,5 @@
 <?php
-class Precision extends ObjetBDD {
+class Accuracy extends ObjetBDD {
 
 function __construct($pdo, $param = array()) {
 		$this->table = "accuracy";

@@ -7,7 +7,7 @@
  */
 
 include_once 'modules/classes/fish.class.php';
-$dataClass = new Devenir( $bdd, $ObjetBDDParam );
+$dataClass = new Fate( $bdd, $ObjetBDDParam );
 $keyName = "fate_id";
 $id = $_REQUEST [$keyName];
 

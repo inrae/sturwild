@@ -1,6 +1,6 @@
 <?php
 include_once 'modules/classes/location.class.php';
-$dataClass = new Pays ( $bdd, $ObjetBDDParam );
+$dataClass = new Country ( $bdd, $ObjetBDDParam );
 $keyName = "country_id";
 $id = $_REQUEST [$keyName];
 

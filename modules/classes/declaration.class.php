@@ -183,13 +183,13 @@ class Declaration extends ObjetBDD
           /*
                      * creation de l'event associe
                      */
-          $event = new Evenement($this->connection, $this->paramori);
-          $dataEvenement = $event->lire(0, true, $idNew);
-          $event->ecrire($dataEvenement);
+          $event = new Event($this->connection, $this->paramori);
+          $dataEvent = $event->lire(0, true, $idNew);
+          $event->ecrire($dataEvent);
           /*
                      * Duplication de la location
                      */
-          $location = new Localisation($this->connection, $this->paramori);
+          $location = new Location($this->connection, $this->paramori);
           $location->duplicate($id, $idNew);
         }
       }
@@ -388,7 +388,7 @@ class Declaration extends ObjetBDD
       /*
              * Generation de l'event de saisie
              */
-      $event = new Evenement($this->connection, $this->paramori);
+      $event = new Event($this->connection, $this->paramori);
       $dataEvnmt = $event->getDefaultValue($id);
       $dataEvnmt["event_type_id"] = $data["status_id"];
       $event->ecrire($dataEvnmt);
@@ -408,15 +408,15 @@ class Declaration extends ObjetBDD
       /*
              * Suppression des informations liees
              */
-      $event = new Evenement($this->connection, $this->paramori);
+      $event = new Event($this->connection, $this->paramori);
       $event->deleteFromField($id, "declaration_id");
       /*
              * $lot = new Lot ( $this->connection, $this->paramori );
              * $lot->supprimer ( $id );
              */
-      $fish = new Individu($this->connection, $this->paramori);
+      $fish = new Fish($this->connection, $this->paramori);
       $fish->supprimerChamp($id, "declaration_id");
-      $location = new Localisation($this->connection, $this->paramori);
+      $location = new Location($this->connection, $this->paramori);
       $location->supprimer($id);
       return parent::supprimer($id);
     } else
@@ -430,7 +430,7 @@ class Declaration extends ObjetBDD
  * @author quinton
  *
  */
-class Statut extends ObjetBDD
+class Status extends ObjetBDD
 {
 
   /**
@@ -467,7 +467,7 @@ class Statut extends ObjetBDD
  * @author quinton
  *
  */
-class Capture_mode extends ObjetBDD
+class Capture_method extends ObjetBDD
 {
 
   /**
@@ -504,7 +504,7 @@ class Capture_mode extends ObjetBDD
  * @author quinton
  *
  */
-class Capture_type extends ObjetBDD
+class Origin extends ObjetBDD
 {
 
   /**
@@ -539,7 +539,7 @@ class Capture_type extends ObjetBDD
  * @author quinton
  *
  */
-class Capture_etat extends ObjetBDD
+class Capture_state extends ObjetBDD
 {
 
   /**
@@ -576,7 +576,7 @@ class Capture_etat extends ObjetBDD
  * @author quinton
  *
  */
-class Engin_type extends ObjetBDD
+class Gear_type extends ObjetBDD
 {
 
   /**

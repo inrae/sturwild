@@ -12,7 +12,7 @@
  * @author quinton
  *
  */
-class Ciem extends ObjetBDD {
+class Ices extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
@@ -47,7 +47,7 @@ class Ciem extends ObjetBDD {
  * @author quinton
  *
  */
-class Milieu extends ObjetBDD {
+class Environment extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
@@ -82,7 +82,7 @@ class Milieu extends ObjetBDD {
  * @author quinton
  *
  */
-class MilieuDetail extends ObjetBDD {
+class EnvironmentDetail extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
@@ -118,7 +118,7 @@ class MilieuDetail extends ObjetBDD {
  *
  *
  */
-class Pays extends ObjetBDD {
+class Country extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *
@@ -157,7 +157,7 @@ class Pays extends ObjetBDD {
  * @author quinton
  *
  */
-class Localisation extends ObjetBDD {
+class Location extends ObjetBDD {
 	/**
 	 * Constructeur
 	 *

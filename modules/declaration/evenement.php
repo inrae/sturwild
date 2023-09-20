@@ -6,7 +6,7 @@
  *  Creation 7 août 2015
  */
 include_once 'modules/classes/event.class.php';
-$dataClass = new Evenement($bdd,$ObjetBDDParam);
+$dataClass = new Event($bdd,$ObjetBDDParam);
 $keyName = "event_id";
 $id = $_REQUEST[$keyName];
 
@@ -21,7 +21,7 @@ switch ($t_module["param"]) {
 		/*
 		 * Lecture de la table des types d'event
 		 */
-		$event_type = new Evenement_type($bdd, $ObjetBDDParam);
+		$event_type = new Event_type($bdd, $ObjetBDDParam);
 		$vue->set ( $event_type->getListe(1), "event_type" );
 		
 		break;

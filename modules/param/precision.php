@@ -1,6 +1,6 @@
 <?php
 include_once 'modules/classes/accuracy.class.php';
-$dataClass = new Precision ( $bdd, $ObjetBDDParam );
+$dataClass = new Accuracy ( $bdd, $ObjetBDDParam );
 $keyName = "accuracy_id";
 $id = $_REQUEST [$keyName];
 

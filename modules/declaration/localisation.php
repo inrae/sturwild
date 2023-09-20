@@ -6,7 +6,7 @@
  *  Creation 7 août 2015
  */
 include_once 'modules/classes/location.class.php';
-$dataClass = new Localisation($bdd,$ObjetBDDParam);
+$dataClass = new Location($bdd,$ObjetBDDParam);
 $keyName = "declaration_id";
 $id = $_REQUEST[$keyName];
 
@@ -26,19 +26,19 @@ switch ($t_module["param"]) {
 		/**
 		 * Lecture des tables de parametre
 		 */
-		$ices = new Ciem($bdd, $ObjetBDDParam);
+		$ices = new Ices($bdd, $ObjetBDDParam);
 		$vue->set ( $ices->getListe(2), "ices" );
 
-		$country = new Pays($bdd, $ObjetBDDParam);
+		$country = new Country($bdd, $ObjetBDDParam);
 		$vue->set ( $country->getListe(3), "country" );
 
-		$environment = new Milieu($bdd, $ObjetBDDParam);
+		$environment = new Environment($bdd, $ObjetBDDParam);
 		$vue->set ( $environment->getListe(2), "environment" );
 
-		$environmentDetail = new MilieuDetail($bdd, $ObjetBDDParam);
+		$environmentDetail = new EnvironmentDetail($bdd, $ObjetBDDParam);
 		$vue->set ( $environmentDetail->getListe(2), "environment_detail" );
 		require_once "modules/classes/accuracy.class.php";
-		$accuracy = new Precision($bdd, $ObjetBDDParam);
+		$accuracy = new Accuracy($bdd, $ObjetBDDParam);
 		$vue->set($accuracy->getListe(1), "accuracys");
 		break;
 	case "write":

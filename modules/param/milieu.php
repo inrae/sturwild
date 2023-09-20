@@ -1,6 +1,6 @@
 <?php
 include_once 'modules/classes/location.class.php';
-$dataClass = new Milieu( $bdd, $ObjetBDDParam );
+$dataClass = new Environment( $bdd, $ObjetBDDParam );
 $keyName = "environment_id";
 $id = $_REQUEST [$keyName];
 

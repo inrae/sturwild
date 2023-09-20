@@ -13,7 +13,7 @@ require_once 'modules/classes/declaration.class.php';
  * @author quinton
  *
  */
-class Evenement extends ObjetBDD
+class Event extends ObjetBDD
 {
 	/**
 	 * Constructeur
@@ -128,7 +128,7 @@ class Evenement extends ObjetBDD
  * @author quinton
  *
  */
-class Evenement_type extends ObjetBDD
+class Event_type extends ObjetBDD
 {
 	/**
 	 * Constructeur

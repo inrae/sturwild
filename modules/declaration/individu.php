@@ -6,7 +6,7 @@
  *  Creation 7 août 2015
  */
 include_once 'modules/classes/fish.class.php';
-$dataClass = new Individu ( $bdd, $ObjetBDDParam );
+$dataClass = new Fish ( $bdd, $ObjetBDDParam );
 $keyName = "fish_id";
 $id = $_REQUEST [$keyName];
 
@@ -22,16 +22,16 @@ switch ($t_module ["param"]) {
 		 * Lecture des tables de parametre
 		 */
 		require_once 'modules/classes/declaration.class.php';
-		$species = new Espece ( $bdd, $ObjetBDDParam );
+		$species = new Species ( $bdd, $ObjetBDDParam );
 		$vue->set ($species->getListe ( 2 ) , "species" );
 
-		$fate = new Devenir ( $bdd, $ObjetBDDParam );
+		$fate = new Fate ( $bdd, $ObjetBDDParam );
 		$vue->set ( $fate->getListe ( 1 ), "fate" );
 
-		$tag_presence = new Presence_marque ( $bdd, $ObjetBDDParam );
+		$tag_presence = new TagPresence ( $bdd, $ObjetBDDParam );
 		$vue->set ( $tag_presence->getListe ( 1 ), "tag_presence" );
 
-		$captureEtat = new Capture_etat ( $bdd, $ObjetBDDParam );
+		$captureEtat = new Capture_state ( $bdd, $ObjetBDDParam );
 		$vue->set ( $captureEtat->getListe ( 2 ), "capture_state" );
 
 
@@ -39,7 +39,7 @@ switch ($t_module ["param"]) {
 			require_once 'modules/classes/document.class.php';
 			$document = new Document ( $bdd, $ObjetBDDParam );
 			try {
-			$vue->set ( $document->getListFromIndividu ( $id ), "dataDoc" );
+			$vue->set ( $document->getListFromFish ( $id ), "dataDoc" );
 			} catch (DocumentException $de) {
 			    $message->set("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système.");
 			    $message->setSyslog($de->getMessage());
