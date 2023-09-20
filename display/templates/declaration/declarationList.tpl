@@ -13,7 +13,7 @@
 <img src="display/images/csv_text.png" height="25">
 Exporter la liste au format CSV</a>
 &nbsp;
-<a href="index.php?module=individuExport"><img src="display/images/csv_text.png" height="25">Exporter les poissons correspondants au format CSV</a>
+<a href="index.php?module=fishExport"><img src="display/images/csv_text.png" height="25">Exporter les poissons correspondants au format CSV</a>
 {/if}
 <table  id="declarationList" data-order='[[0,"desc"]]' class="table table-bordered table-hover datatable " >
 <thead>
@@ -41,36 +41,36 @@ Exporter la liste au format CSV</a>
 {$data[lst].declaration_id}
 </a>
 </td>
- <td>{$data[lst].espece_libelle}</td>
- <td>{$data[lst].capture_etat_libelle}</td>
-<td>{$data[lst].annee}</td>
+ <td>{$data[lst].species_name}</td>
+ <td>{$data[lst].capture_state_name}</td>
+<td>{$data[lst].year}</td>
 <td>
 {if strlen($data[lst].capture_date) > 0}
 {$data[lst].capture_date}
 {else}
-{$data[lst].capture_date_estimee}
+{$data[lst].estimated_capture_date}
 {/if}
 </td>
 <td>
-{$data[lst].pays_libelle}
-{if !empty($data[lst].ciem_libelle)}
- {$data[lst].ciem_libelle}
+{$data[lst].country_name}
+{if !empty($data[lst].ices_name)}
+ {$data[lst].ices_name}
 {/if}
-{if !empty($data[lst].milieu_libelle) }
- {$data[lst].milieu_libelle}
+{if !empty($data[lst].environment_name) }
+ {$data[lst].environment_name}
 {/if}
-{if !empty($data[lst].milieu_detail_libelle)}
- {$data[lst].milieu_detail_libelle}
+{if !empty($data[lst].environment_detail_name)}
+ {$data[lst].environment_detail_name}
 {/if}
  </td>
- <td class="center">{$data[lst].nombre_capture}</td>
+ <td class="center">{$data[lst].caught_number}</td>
  <td class="center">
  {if $data[lst].document_nb > 0}{$data[lst].document_nb}{/if}
  </td>
- <td>{$data[lst].engin_type_libelle}</td>
- <td>{$data[lst].pecheur_code}</td>
- <td>{$data[lst].interlocuteur}</td>
- <td>{$data[lst].statut_libelle}</td>
+ <td>{$data[lst].gear_type_name}</td>
+ <td>{$data[lst].fisher_code}</td>
+ <td>{$data[lst].contact}</td>
+ <td>{$data[lst].status_name}</td>
 </tr>
 {/section}
 </tbody>

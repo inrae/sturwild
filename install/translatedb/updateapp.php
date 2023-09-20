@@ -5,7 +5,7 @@ use translate\ImportException;
 include_once "import.class.php";
 $tablefilename = "tables.csv";
 $columnfilename = "colonnes.csv";
-$files = array("phpfilestest.txt", "tplfiles.txt");
+$filelists = array("phpfiles.txt", "tplfiles.txt");
 
 try {
     $tableClass = new Import($tablefilename, ";");
@@ -17,10 +17,10 @@ try {
      * Traitement de chaque fichier
      */
 
-    foreach ($files as $file) {
-        $fp = @fopen($file, "r");
+    foreach ($filelists as $filelist) {
+        $fp = @fopen($filelist, "r");
         if (!$fp) {
-            throw new ImportException("Impossible d'ouvrir le fichier $file");
+            throw new ImportException("Impossible d'ouvrir le fichier $filelist");
         }
         while (($filename = fgets($fp, 4096)) !== false) {
             $filename = substr($filename, 0, strlen($filename) - 1);

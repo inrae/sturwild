@@ -6,21 +6,21 @@
 
 <div class="col-sm-6">
 <form class="form-horizontal protoform" method="post" action="index.php">
-	<input type="hidden" name="engin_type_id" id="engin_type_id"
-		value="{$data.engin_type_id}">
+	<input type="hidden" name="gear_type_id" id="gear_type_id"
+		value="{$data.gear_type_id}">
 		<input type="hidden" name="moduleBase" value="enginType">
 <input type="hidden" name="action" value="Write">
 <div class="form-group">
-<label for="engin_type_libelle" class="control-label col-sm-4">
+<label for="gear_type_name" class="control-label col-sm-4">
 	Type d'engin de pêche <span class="red">*</span> :</label>
 		<div class="col-sm-8">
-			<input class="form-control" id="engin_type_libelle" name="engin_type_libelle"
-				value="{$data.engin_type_libelle}" maxlength="255" autofocus required>
+			<input class="form-control" id="gear_type_name" name="gear_type_name"
+				value="{$data.gear_type_name}" maxlength="255" autofocus required>
 		</div>
 	</div>
 <div class="form-group center">
       <button type="submit" class="btn btn-primary button-valid">{t}Valider{/t}</button>
-      {if $data.engin_type_id > 0 }
+      {if $data.gear_type_id > 0 }
       <button class="btn btn-danger button-delete">{t}Supprimer{/t}</button>
       {/if}
  </div>

@@ -12,7 +12,7 @@ function sendMail($declaration_id)
     if ($MAIL_enabled) {
         $id = $declaration_id;
         /*
-         * Le statut est modifie.
+         * Le status est modifie.
          * envoi des mels aux personnes concernees
          */
         require_once 'framework/droits/droits.class.php';
@@ -20,16 +20,16 @@ function sendMail($declaration_id)
         require_once 'framework/utils/mail.class.php';
         require_once 'modules/classes/declaration.class.php';
         /*
-         * Lecture du statut de la declaration
+         * Lecture du status de la declaration
          */
         $declaration = new Declaration($bdd, $ObjetBDDParam);
         $data = $declaration->lire($id);
-        $statut = new Statut($bdd, $ObjetBDDParam);
-        $dataStatut = $statut->lire($data["statut_id"]);
+        $status = new Statut($bdd, $ObjetBDDParam);
+        $dataStatut = $status->lire($data["status_id"]);
         $lien = $APPLI_address . "/index.php?module=declarationDisplay&declaration_id=" . $id;
         $dataMail = array(
             "@declaration_id" => $id,
-            "@statut_libelle" => $dataStatut["statut_libelle"],
+            "@status_name" => $dataStatut["status_name"],
             "@lien" => $lien
         );
         /*
@@ -52,7 +52,7 @@ function sendMail($declaration_id)
                 }
             }
         }
-        $message->set("Envoi des mails réalisé pour informer du changement de statut de la déclaration");
+        $message->set("Envoi des mails réalisé pour informer du changement de status de la déclaration");
     }
 }
 ?>

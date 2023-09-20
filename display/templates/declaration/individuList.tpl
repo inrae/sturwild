@@ -1,7 +1,7 @@
 {if $droits["gestion"] == 1}
-<a href=index.php?module=individuChange&individu_id=0&declaration_id={$data.declaration_id}>Nouvel esturgeon...</a>
+<a href=index.php?module=fishChange&fish_id=0&declaration_id={$data.declaration_id}>Nouvel esturgeon...</a>
 {/if}
-<table class="table table-bordered table-hover" id="individuList">
+<table class="table table-bordered table-hover" id="fishList">
 <thead>
 <tr>
 <th class="center"><img src="display/images/edit.gif" height="20"></th>
@@ -17,45 +17,45 @@
 </tr>
 </thead>
 <tbody>
-{section name=lst loop=$individus}
+{section name=lst loop=$fishs}
 <tr>
 <td class="center">
 {if $droits["gestion"] == 1}
-<a href="index.php?module=individuChange&individu_id={$individus[lst].individu_id}" title="Modifier">
+<a href="index.php?module=fishChange&fish_id={$fishs[lst].fish_id}" title="Modifier">
 <img src="display/images/edit.gif" height="20">
-{$individus[lst].individu_id}
+{$fishs[lst].fish_id}
 </a>
 {else}
-{$individus[lst].individu_id}
+{$fishs[lst].fish_id}
 {/if}
 </td>
 
-<td>{$individus[lst].espece_libelle}
-{if $individus[lst].qualite_identification == 1}
+<td>{$fishs[lst].species_name}
+{if $fishs[lst].identification_quality == 1}
 &nbsp;(Sûr){else}
 <br>(incertain)
 {/if}
  </td>
-  <td>{$individus[lst].longueur_individu}
- {if $individus[lst].masse <> ""}
- <br>{$individus[lst].masse}
+  <td>{$fishs[lst].fish_length}
+ {if $fishs[lst].weight <> ""}
+ <br>{$fishs[lst].weight}
  {/if}
  </td>
- <td>{$individus[lst].presence_marque_libelle}
-  {if $individus[lst].numero_marque <> ""}
- <br>{$individus[lst].numero_marque}
+ <td>{$fishs[lst].tag_presence_name}
+  {if $fishs[lst].tag_number <> ""}
+ <br>{$fishs[lst].tag_number}
  {/if}
  </td>
- <td class="center">{$individus[lst].cohorte_estimee}
-  {if $individus[lst].cohorte_validee <> ""}
- <br>{$individus[lst].cohorte_validee}
+ <td class="center">{$fishs[lst].estimated_cohort}
+  {if $fishs[lst].validated_cohort <> ""}
+ <br>{$fishs[lst].validated_cohort}
  {/if}
  </td>
- <td>{$individus[lst].capture_etat_libelle}</td>
-<td>{$individus[lst].manipulation}</td>
-<td>{$individus[lst].devenir_libelle}</td>
-<td>{$individus[lst].historique}</td>
-<td><span class="textareaDisplay">{$individus[lst].commentaire}</span></td>
+ <td>{$fishs[lst].capture_state_name}</td>
+<td>{$fishs[lst].handling}</td>
+<td>{$fishs[lst].fate_name}</td>
+<td>{$fishs[lst].background}</td>
+<td><span class="textareaDisplay">{$fishs[lst].remarks}</span></td>
 
 </tr>
 {/section}

@@ -1,5 +1,5 @@
 {if $droits["gestion"] == 1}
-<a href=index.php?module=evenementChange&evenement_id=0&declaration_id={$data.declaration_id}>Nouvel événement...</a>
+<a href=index.php?module=eventChange&event_id=0&declaration_id={$data.declaration_id}>Nouvel événement...</a>
 {/if}
 <table class="table table-bordered table-hover">
 <thead>
@@ -16,20 +16,20 @@
 </tr>
 </thead>
 <tbody>
-{section name=lst loop=$evenements}
+{section name=lst loop=$events}
 <tr>
 {if $droits["gestion"] == 1}
 <td class="center">
-<a href="index.php?module=evenementChange&evenement_id={$evenements[lst].evenement_id}">
+<a href="index.php?module=eventChange&event_id={$events[lst].event_id}">
 <img src="display/images/edit.gif" height="20">
 </a>
 </td>
 {/if}
-<td>{$evenements[lst].evenement_type_libelle}</td>
-<td>{$evenements[lst].evenement_date}</td>
-<td>{$evenements[lst].evenement_commentaire}</td>
+<td>{$events[lst].event_type_name}</td>
+<td>{$events[lst].event_date}</td>
+<td>{$events[lst].event_remarks}</td>
 {if $droits["gestion"] == 1}
-<td>{$evenements[lst].utilisateur}</td>
+<td>{$events[lst].utilisateur}</td>
 {/if}
 </tr>
 {/section}

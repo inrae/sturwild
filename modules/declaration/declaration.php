@@ -40,21 +40,21 @@ switch ($t_module["param"]) {
         /*
          * Recuperation des autres informations a afficher
          */
-        require_once 'modules/classes/localisation.class.php';
-        $localisation = new Localisation($bdd, $ObjetBDDParam);
-        $vue->set($localisation->getDetail($id), "localisation");
+        require_once 'modules/classes/location.class.php';
+        $location = new Localisation($bdd, $ObjetBDDParam);
+        $vue->set($location->getDetail($id), "location");
 
-        require_once 'modules/classes/individu.class.php';
+        require_once 'modules/classes/fish.class.php';
         /*
          * $lot = new Lot($bdd, $ObjetBDDParam);
          * $smarty->assign("dataLot", $lot->getDetail($id));
          */
-        $individu = new Individu($bdd, $ObjetBDDParam);
-        $vue->set($individu->getListeFromDeclaration($id), "individus");
+        $fish = new Individu($bdd, $ObjetBDDParam);
+        $vue->set($fish->getListeFromDeclaration($id), "fishs");
 
-        require_once 'modules/classes/evenement.class.php';
-        $evenement = new Evenement($bdd, $ObjetBDDParam);
-        $vue->set($evenement->getListeFromDeclaration($id), "evenements");
+        require_once 'modules/classes/event.class.php';
+        $event = new Evenement($bdd, $ObjetBDDParam);
+        $vue->set($event->getListeFromDeclaration($id), "events");
 
         require_once 'modules/classes/document.class.php';
         $document = new Document($bdd, $ObjetBDDParam);
@@ -82,25 +82,25 @@ switch ($t_module["param"]) {
         /*
          * Lecture des tables de parametres
          */
-        require_once "modules/classes/individu.class.php";
-        $statut = new Statut($bdd, $ObjetBDDParam);
-        $vue->set($statut->getListe(1), "statut");
+        require_once "modules/classes/fish.class.php";
+        $status = new Statut($bdd, $ObjetBDDParam);
+        $vue->set($status->getListe(1), "status");
         $captureMode = new Capture_mode($bdd, $ObjetBDDParam);
-        $vue->set($captureMode->getListe(2), "capture_mode");
+        $vue->set($captureMode->getListe(2), "capture_method");
         $captureType = new Capture_type($bdd, $ObjetBDDParam);
-        $vue->set($captureType->getListe(2), "capture_type");
+        $vue->set($captureType->getListe(2), "origin");
         $enginType = new Engin_type($bdd, $ObjetBDDParam);
-        $vue->set($enginType->getListe(2), "engin_type");
-        $espece = new Espece($bdd, $ObjetBDDParam);
-        $vue->set($espece->getListe(2), "espece");
-        $devenir = new Devenir($bdd, $ObjetBDDParam);
-        $vue->set($devenir->getListe(1), "devenir");
+        $vue->set($enginType->getListe(2), "gear_type");
+        $species = new Espece($bdd, $ObjetBDDParam);
+        $vue->set($species->getListe(2), "species");
+        $fate = new Devenir($bdd, $ObjetBDDParam);
+        $vue->set($fate->getListe(1), "fate");
         $captureEtat = new Capture_etat($bdd, $ObjetBDDParam);
-        $vue->set($captureEtat->getListe(2), "capture_etat");
+        $vue->set($captureEtat->getListe(2), "capture_state");
         /*
-         * Recuperation de la liste des annees
+         * Recuperation de la liste des years
          */
-        $vue->set($_SESSION["searchDeclaration"]->getListeAnnee(), "annees");
+        $vue->set($_SESSION["searchDeclaration"]->getListeAnnee(), "years");
 
         break;
     case "write":
@@ -108,21 +108,21 @@ switch ($t_module["param"]) {
 		 * write record in database
 		 */
 		/*
-		 * Recherche de l'ancien statut
+		 * Recherche de l'ancien status
 		 */
 		if ($id == 0) {
-            $statutOld = 0;
+            $statusOld = 0;
         } else {
             $dataStatut = $dataClass->lire($id);
-            $statutOld = $dataStatut["statut_id"];
+            $statusOld = $dataStatut["status_id"];
         }
         $id = dataWrite($dataClass, $_REQUEST);
         if ($id >= 0) {
             $_REQUEST[$keyName] = $id;
             /*
-             * Traitement du changement de statut : envoi d'un message si le statut vaut 3 ou 4
+             * Traitement du changement de status : envoi d'un message si le status vaut 3 ou 4
              */
-            if (($_REQUEST["statut_id"] == 3 || $_REQUEST["statut_id"] == 4) && $statutOld != $_REQUEST["statut_id"]) {
+            if (($_REQUEST["status_id"] == 3 || $_REQUEST["status_id"] == 4) && $statusOld != $_REQUEST["status_id"]) {
                 sendMail($id);
             }
         }
@@ -153,7 +153,7 @@ switch ($t_module["param"]) {
         break;
     case "sturioByYear":
 		/*
-		 * Recherche du nombre d'esturgeons captures par annee
+		 * Recherche du nombre d'esturgeons captures par year
 		 */
 		$vue->set($dataClass->getNbSturioByYear(), "data");
         $vue->set("declaration/nbSturioByYear.tpl", "corps");

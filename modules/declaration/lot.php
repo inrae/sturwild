@@ -5,7 +5,7 @@
  * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
  *  Creation 7 août 2015
  */
-include_once 'modules/classes/individu.class.php';
+include_once 'modules/classes/fish.class.php';
 $dataClass = new Lot($bdd,$ObjetBDDParam);
 $keyName = "declaration_id";
 $id = $_REQUEST[$keyName];
@@ -19,7 +19,7 @@ switch ($t_module["param"]) {
 		 */
 		$data = dataRead($dataClass, $id, "declaration/lotChange.tpl");
 		if ($data[$keyName] == "") {
-			$data["nombre_capture"] = 1;
+			$data["caught_number"] = 1;
 			$data[$keyName] = $id;
 			$vue->set ($data , "data" );
 			
@@ -27,11 +27,11 @@ switch ($t_module["param"]) {
 		/*
 		 * Lecture des tables de parametre
 		*/
-		$espece = new Espece($bdd, $ObjetBDDParam);
-		$vue->set ( $espece->getListe(2), "espece" );
+		$species = new Espece($bdd, $ObjetBDDParam);
+		$vue->set ( $species->getListe(2), "species" );
 		
-		$devenir = new Devenir($bdd, $ObjetBDDParam);
-		$vue->set ( $devenir->getListe(1), "devenir" );
+		$fate = new Devenir($bdd, $ObjetBDDParam);
+		$vue->set ( $fate->getListe(1), "fate" );
 		
 		break;
 	case "write":

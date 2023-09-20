@@ -5,9 +5,9 @@
  * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
  *  Creation 7 août 2015
  */
-include_once 'modules/classes/individu.class.php';
+include_once 'modules/classes/fish.class.php';
 $dataClass = new Individu ( $bdd, $ObjetBDDParam );
-$keyName = "individu_id";
+$keyName = "fish_id";
 $id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {
@@ -17,22 +17,22 @@ switch ($t_module ["param"]) {
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		$data = dataRead ( $dataClass, $id, "declaration/individuChange.tpl", $_REQUEST ["declaration_id"] );
+		$data = dataRead ( $dataClass, $id, "declaration/fishChange.tpl", $_REQUEST ["declaration_id"] );
 		/*
 		 * Lecture des tables de parametre
 		 */
 		require_once 'modules/classes/declaration.class.php';
-		$espece = new Espece ( $bdd, $ObjetBDDParam );
-		$vue->set ($espece->getListe ( 2 ) , "espece" );
+		$species = new Espece ( $bdd, $ObjetBDDParam );
+		$vue->set ($species->getListe ( 2 ) , "species" );
 
-		$devenir = new Devenir ( $bdd, $ObjetBDDParam );
-		$vue->set ( $devenir->getListe ( 1 ), "devenir" );
+		$fate = new Devenir ( $bdd, $ObjetBDDParam );
+		$vue->set ( $fate->getListe ( 1 ), "fate" );
 
-		$presence_marque = new Presence_marque ( $bdd, $ObjetBDDParam );
-		$vue->set ( $presence_marque->getListe ( 1 ), "presence_marque" );
+		$tag_presence = new Presence_marque ( $bdd, $ObjetBDDParam );
+		$vue->set ( $tag_presence->getListe ( 1 ), "tag_presence" );
 
 		$captureEtat = new Capture_etat ( $bdd, $ObjetBDDParam );
-		$vue->set ( $captureEtat->getListe ( 2 ), "capture_etat" );
+		$vue->set ( $captureEtat->getListe ( 2 ), "capture_state" );
 
 
 		if ($id > 0) {
@@ -107,9 +107,9 @@ switch ($t_module ["param"]) {
 		if ($_SESSION ["searchDeclaration"]->isSearch () == 1) {
 			/*require_once 'modules/classes/export.class.php';
 			$export = new Export ();
-			$export->exportCSVinit ( "sturwild_individu", "tab" );
+			$export->exportCSVinit ( "sturwild_fish", "tab" );
 			$export->exportCSV ( $dataClass->getDataToExport ( $dataSearch ), true );*/
-		    $vue->setFilename("sturwild_individu-".date('d-m-Y' ) . ".csv");
+		    $vue->setFilename("sturwild_fish-".date('d-m-Y' ) . ".csv");
 		    $vue->setDelimiter("tab");
 		    $vue->set($dataClass->getDataToExport ( $dataSearch ));
 		}

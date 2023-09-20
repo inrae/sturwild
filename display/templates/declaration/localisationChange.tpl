@@ -29,13 +29,13 @@ $(document).ready(function() {
 	$(":input").focus(function() {
 		hasfocus = $(this).attr("name");
 	});
-	$("#longitude_declaree_dd,#longitude_estimee_dd").change(function() {
+	$("#longitude_declared_dd,#longitude_estimated_dd").change(function() {
 		var valeur = $(this).val();
 		$('#longitude_dd').val( valeur );
 		positionChange();
 
 	});
-	$("#latitude_declaree_dd,#latitude_estimee_dd").change(function() {
+	$("#latitude_declared_dd,#latitude_estimated_dd").change(function() {
 		var valeur = $(this).val();
 		$('#latitude_dd').val( valeur );
 		positionChange();
@@ -43,22 +43,22 @@ $(document).ready(function() {
 	$("#longitude_gps").change(function () {
 		//alert($("input[name='degreType']:checked").val());
 		if ($("input[name='degreType']:checked").val() == 1  ) {
-			$('#longitude_declaree_dd').val ( convertGPSDecimalToDD($(this).val()));
+			$('#longitude_declared_dd').val ( convertGPSDecimalToDD($(this).val()));
 		} else {
-			$('#longitude_declaree_dd').val ( convertGPSSecondeToDD($(this).val()));
+			$('#longitude_declared_dd').val ( convertGPSSecondeToDD($(this).val()));
 		}
-		if ($('#longitude_declaree_dd').val() != "NaN" ) {
-			$('#longitude_declaree_dd').change();
+		if ($('#longitude_declared_dd').val() != "NaN" ) {
+			$('#longitude_declared_dd').change();
 		};
 	});
 	$("#latitude_gps").change(function () {
 		if ($("input[name='degreType']:checked").val() == 1 ) {
-			$('#latitude_declaree_dd').val ( convertGPSDecimalToDD($(this).val()));
+			$('#latitude_declared_dd').val ( convertGPSDecimalToDD($(this).val()));
 		} else {
-			$('#latitude_declaree_dd').val ( convertGPSSecondeToDD($(this).val()));
+			$('#latitude_declared_dd').val ( convertGPSSecondeToDD($(this).val()));
 		}
-		if ($('#latitude_declaree_dd').val() != "NaN" ) {
-			$('#latitude_declaree_dd').change();
+		if ($('#latitude_declared_dd').val() != "NaN" ) {
+			$('#latitude_declared_dd').change();
 		};
 	});
 	$("#longCalc").click( function () {
@@ -67,13 +67,13 @@ $(document).ready(function() {
 	$("#latCalc").click( function () {
 		$("#latitude_gps").trigger("change");
 	});
-	$("#localisation").submit(function (event) {
+	$("#location").submit(function (event) {
 		$("#"+hasfocus).trigger("change");
 	});
 
 });
 </script>
-<h2>Modification de la localisation - N° {$data.declaration_id}</h2>
+<h2>Modification de la location - N° {$data.declaration_id}</h2>
 <div class="row">
 <div class="col-sm-12">
 <a href="index.php?module=declarationList">
@@ -87,77 +87,77 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 <div class="col-sm-6">
 		<div>
 
-			<form  class="form-horizontal protoform" id="localisation" method="post" action="index.php">
+			<form  class="form-horizontal protoform" id="location" method="post" action="index.php">
 				<input type="hidden" name="declaration_id" value="{$data.declaration_id}">
-				<input type="hidden" name="moduleBase" value="localisation">
+				<input type="hidden" name="moduleBase" value="location">
 				<input type="hidden" name="action" value="Write">
 
 				<div class="form-group">
-					<label for="pays_id" class="control-label col-sm-4">
+					<label for="country_id" class="control-label col-sm-4">
 						Pays :
 					</label>
 					<div class="col-sm-8">
-						<select class="form-control" id="pays_id"  name="pays_id" autofocus>
-						<option value="" {if $data.pays_id == ""}selected{/if}>Sélectionnez...</option>
-						{section name=lst loop=$pays}
-						<option value="{$pays[lst].pays_id}" {if $pays[lst].pays_id == $data.pays_id}selected{/if}>
-						{$pays[lst].pays_libelle}
+						<select class="form-control" id="country_id"  name="country_id" autofocus>
+						<option value="" {if $data.country_id == ""}selected{/if}>Sélectionnez...</option>
+						{section name=lst loop=$country}
+						<option value="{$country[lst].country_id}" {if $country[lst].country_id == $data.country_id}selected{/if}>
+						{$country[lst].country_name}
 						</option>
 						{/section}
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="ciem_id" class="control-label col-sm-4">
+					<label for="ices_id" class="control-label col-sm-4">
 						Zone CIEM :
 					</label>
 					<div class="col-sm-8">
-						<select class="form-control" id="ciem_id"  name="ciem_id" >
-						<option value="" {if $data.ciem_id == ""}selected{/if}>Sélectionnez...</option>
-						{section name=lst loop=$ciem}
-						<option value="{$ciem[lst].ciem_id}" {if $ciem[lst].ciem_id == $data.ciem_id}selected{/if}>
-						{$ciem[lst].ciem_libelle}
+						<select class="form-control" id="ices_id"  name="ices_id" >
+						<option value="" {if $data.ices_id == ""}selected{/if}>Sélectionnez...</option>
+						{section name=lst loop=$ices}
+						<option value="{$ices[lst].ices_id}" {if $ices[lst].ices_id == $data.ices_id}selected{/if}>
+						{$ices[lst].ices_name}
 						</option>
 						{/section}
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="milieu_id" class="control-label col-sm-4">
+					<label for="environment_id" class="control-label col-sm-4">
 						Milieu :
 					</label>
 					<div class="col-sm-8">
-						<select class="form-control" id="milieu_id"  name="milieu_id" >
-						<option value="" {if $data.milieu_id == ""}selected{/if}>Sélectionnez...</option>
-						{section name=lst loop=$milieu}
-						<option value="{$milieu[lst].milieu_id}" {if $milieu[lst].milieu_id == $data.milieu_id}selected{/if}>
-						{$milieu[lst].milieu_libelle}
+						<select class="form-control" id="environment_id"  name="environment_id" >
+						<option value="" {if $data.environment_id == ""}selected{/if}>Sélectionnez...</option>
+						{section name=lst loop=$environment}
+						<option value="{$environment[lst].environment_id}" {if $environment[lst].environment_id == $data.environment_id}selected{/if}>
+						{$environment[lst].environment_name}
 						</option>
 						{/section}
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="milieu_detail_id" class="control-label col-sm-4">
+					<label for="environment_detail_id" class="control-label col-sm-4">
 						Milieu détaillé :
 					</label>
 					<div class="col-sm-8">
-						<select class="form-control" id="milieu_detail_id"  name="milieu_detail_id" >
-						<option value="" {if $data.milieu_detail_id == ""}selected{/if}>Sélectionnez...</option>
-						{section name=lst loop=$milieu_detail}
-						<option value="{$milieu_detail[lst].milieu_detail_id}" {if $milieu_detail[lst].milieu_detail_id == $data.milieu_detail_id}selected{/if}>
-						{$milieu_detail[lst].milieu_detail_libelle}
+						<select class="form-control" id="environment_detail_id"  name="environment_detail_id" >
+						<option value="" {if $data.environment_detail_id == ""}selected{/if}>Sélectionnez...</option>
+						{section name=lst loop=$environment_detail}
+						<option value="{$environment_detail[lst].environment_detail_id}" {if $environment_detail[lst].environment_detail_id == $data.environment_detail_id}selected{/if}>
+						{$environment_detail[lst].environment_detail_name}
 						</option>
 						{/section}
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="zone_detail" class="control-label col-sm-4">
+					<label for="area_detail" class="control-label col-sm-4">
 						Détail de la zone :
 					</label>
 					<div class="col-sm-8">
-					<textarea id="zone_detail" class="form-control" name="zone_detail" rows="3" cols="50">{$data.zone_detail}</textarea>
+					<textarea id="area_detail" class="form-control" name="area_detail" rows="3" cols="50">{$data.area_detail}</textarea>
 					</div>
 				</div>
 				<div class="form-group">
@@ -209,11 +209,11 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 						<td>
 						Long :
 						</td><td>
-						<input id="longitude_declaree_dd" name="longitude_declaree_dd" title="longitude" placeholder="-0.184" value="{$data.longitude_declaree_dd}" autocomplete="off">
+						<input id="longitude_declared_dd" name="longitude_declared_dd" title="longitude" placeholder="-0.184" value="{$data.longitude_declared_dd}" autocomplete="off">
 						</td></tr>
 						<tr><td>
 						Lat  :
-						</td><td><input id="latitude_declaree_dd" name="latitude_declaree_dd" title="latitude" placeholder="45.154" value="{$data.latitude_declaree_dd}" autocomplete="off">
+						</td><td><input id="latitude_declared_dd" name="latitude_declared_dd" title="latitude" placeholder="45.154" value="{$data.latitude_declared_dd}" autocomplete="off">
 						</td></tr>
 						</table>
 					</div>
@@ -227,11 +227,11 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 						<tr>
 						<td>
 						Long :
-						</td><td><input id="longitude_estimee_dd" name="longitude_estimee_dd" title="longitude" placeholder="-0.184" value="{$data.longitude_estimee_dd}" autocomplete="off">
+						</td><td><input id="longitude_estimated_dd" name="longitude_estimated_dd" title="longitude" placeholder="-0.184" value="{$data.longitude_estimated_dd}" autocomplete="off">
 						</td></tr>
 						<tr><td>
 						Lat  :
-						</td><td><input id="latitude_estimee_dd" name="latitude_estimee_dd" title="latitude" placeholder="45.154" value="{$data.latitude_estimee_dd}" autocomplete="off">
+						</td><td><input id="latitude_estimated_dd" name="latitude_estimated_dd" title="latitude" placeholder="45.154" value="{$data.latitude_estimated_dd}" autocomplete="off">
 						</td></tr>
 						</table>
 					</div>
@@ -256,12 +256,12 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="precision_id" class="control-label col-sm-4">Précision estimée du point GPS :</label>
+					<label for="accuracy_id" class="control-label col-sm-4">Précision estimée du point GPS :</label>
 					<div class="col-sm-8">
-						<select id="precision_id" name="precision_id" class="form-control">
-							<option value="" {if $data.precision_id == ""}selected{/if}>Sélectionnez...</option>
-							{foreach $precisions as $precision}
-								<option value="{$precision.precision_id}" {if $data.precision_id == $precision.precision_id}selected{/if}>{$precision.precision_name}</option>
+						<select id="accuracy_id" name="accuracy_id" class="form-control">
+							<option value="" {if $data.accuracy_id == ""}selected{/if}>Sélectionnez...</option>
+							{foreach $accuracys as $accuracy}
+								<option value="{$accuracy.accuracy_id}" {if $data.accuracy_id == $accuracy.accuracy_id}selected{/if}>{$accuracy.accuracy_name}</option>
 							{/foreach}
 						</select>
 					</div>

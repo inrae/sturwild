@@ -1,26 +1,26 @@
-<h2>Création / modification de la précision de la localisation</h2>
+<h2>Création / modification de la précision de la location</h2>
 
 <div class="row">
   <div class="col-sm-12">
-    <a href="index.php?module=precisionList">Retour à la liste</a>
+    <a href="index.php?module=accuracyList">Retour à la liste</a>
   </div>
 
   <div class="col-sm-6">
     <form class="form-horizontal protoform" method="post" action="index.php">
-      <input type="hidden" name="precision_id" id="precision_id" value="{$data.precision_id}">
-      <input type="hidden" name="moduleBase" value="precision">
+      <input type="hidden" name="accuracy_id" id="accuracy_id" value="{$data.accuracy_id}">
+      <input type="hidden" name="moduleBase" value="accuracy">
       <input type="hidden" name="action" value="Write">
       <div class="form-group">
-        <label for="precision_name" class="control-label col-sm-4">
+        <label for="accuracy_name" class="control-label col-sm-4">
           Libellé <span class="red">*</span> :</label>
         <div class="col-sm-8">
-          <input class="form-control" id="precision_name" name="precision_name" value="{$data.precision_name}"
+          <input class="form-control" id="accuracy_name" name="accuracy_name" value="{$data.accuracy_name}"
              autofocus required>
         </div>
       </div>
       <div class="form-group center">
         <button type="submit" class="btn btn-primary button-valid">{t}Valider{/t}</button>
-        {if $data.precision_id > 0 }
+        {if $data.accuracy_id > 0 }
         <button class="btn btn-danger button-delete">{t}Supprimer{/t}</button>
         {/if}
       </div>

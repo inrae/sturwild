@@ -12,27 +12,27 @@
  * @author quinton
  *
  */
-require_once 'modules/classes/evenement.class.php';
-require_once 'modules/classes/individu.class.php';
-require_once 'modules/classes/localisation.class.php';
+require_once 'modules/classes/event.class.php';
+require_once 'modules/classes/fish.class.php';
+require_once 'modules/classes/location.class.php';
 require_once 'modules/classes/document.class.php';
 
 class Declaration extends ObjetBDD
 {
   private $paramSearch = array();
   private $fromSearch = " from declaration
-				join statut using (statut_id)
-				left outer join localisation using (declaration_id)
-				left outer join espece using (espece_id)
-				left outer join pays using (pays_id)
-				left outer join ciem using (ciem_id)
-				left outer join milieu using (milieu_id)
-				left outer join milieu_detail using (milieu_detail_id)
-				left outer join engin_type using (engin_type_id)
-				left outer join capture_mode using (capture_mode_id)
-				left outer join capture_type using (capture_type_id)
-				left outer join capture_etat using (capture_etat_id)
-				left outer join devenir using (devenir_id)";
+				join status using (status_id)
+				left outer join location using (declaration_id)
+				left outer join species using (species_id)
+				left outer join country using (country_id)
+				left outer join ices using (ices_id)
+				left outer join environment using (environment_id)
+				left outer join environment_detail using (environment_detail_id)
+				left outer join gear_type using (gear_type_id)
+				left outer join capture_method using (capture_method_id)
+				left outer join origin using (origin_id)
+				left outer join capture_state using (capture_state_id)
+				left outer join fate using (fate_id)";
 
   /**
    * Constructeur
@@ -54,94 +54,94 @@ class Declaration extends ObjetBDD
         "key" => 1,
         "defaultValue" => 0
       ),
-      "statut_id" => array(
+      "status_id" => array(
         "type" => 0,
         "requis" => 1,
         "defaultValue" => 1
       ),
-      "capture_mode_id" => array(
+      "capture_method_id" => array(
         "type" => 1
       ),
-      "capture_type_id" => array(
+      "origin_id" => array(
         "type" => 1
       ),
-      "capture_etat_id" => array(
+      "capture_state_id" => array(
         "type" => 1
       ),
       "capture_date" => array(
         "type" => 2
       ),
-      "annee" => array(
+      "year" => array(
         "type" => 1,
         "defaultValue" => "getAnnee"
       ),
-      "capture_date_estimee" => array(
+      "estimated_capture_date" => array(
         "type" => 0
       ),
-      "engin_type_id" => array(
+      "gear_type_id" => array(
         "type" => 1
       ),
-      "engin_maille" => array(
+      "gear_mesh" => array(
         "type" => 0
       ),
-      "espece_ciblee" => array(
+      "target_species" => array(
         "type" => 0
       ),
-      "profondeur" => array(
+      "depth" => array(
         "type" => 1
       ),
-      "pecheur_code" => array(
+      "fisher_code" => array(
         "type" => 0
       ),
-      "interlocuteur" => array(
+      "contact" => array(
         "type" => 0
       ),
-      "interlocuteur_coord" => array(
+      "contact_coord" => array(
         "type" => 0
       ),
-      "navire_port" => array(
+      "harbour_vessel" => array(
         "type" => 0
       ),
       "declaration_mode" => array(
         "type" => 0
       ),
-      "observation" => array(
+      "remarks" => array(
         "type" => 0
       ),
-      "espece_id" => array(
+      "species_id" => array(
         "type" => 1,
         "defaultValue" => 1
       ),
-      "qualite_identification" => array(
+      "identification_quality" => array(
         "type" => 1
       ),
-      "prof_min" => array(
+      "depth_min" => array(
         "type" => 1
       ),
-      "prof_max" => array(
+      "depth_max" => array(
         "type" => 1
       ),
-      "lt_min" => array(
+      "length_min" => array(
         "type" => 1
       ),
-      "lt_max" => array(
+      "length_max" => array(
         "type" => 1
       ),
-      "masse_min" => array(
+      "weight_min" => array(
         "type" => 1
       ),
-      "masse_max" => array(
+      "weight_max" => array(
         "type" => 1
       ),
-      "nombre_capture" => array(
+      "caught_number" => array(
         "type" => 1,
         "requis" => 1,
         "defaultValue" => 1
       ),
-      "manipulation" => array(
+      "handling" => array(
         "type" => 0
       ),
-      "devenir_id" => array(
+      "fate_id" => array(
         "type" => 1,
         "defaultValue" => 1
       )
@@ -162,18 +162,18 @@ class Declaration extends ObjetBDD
 
         $dataNew = array(
           "declaration_id" => 0,
-          "annee" => $data["annee"],
-          "capture_type_id" => $data["capture_type_id"],
-          "capture_mode_id" => $data["capture_mode_id"],
-          "pecheur_code" => $data["pecheur_code"],
-          "interlocuteur" => $data["interlocuteur"],
-          "interlocuteur_coord" => $data["interlocuteur_coord"],
-          "navire_port" => $data["navire_port"],
+          "year" => $data["year"],
+          "origin_id" => $data["origin_id"],
+          "capture_method_id" => $data["capture_method_id"],
+          "fisher_code" => $data["fisher_code"],
+          "contact" => $data["contact"],
+          "contact_coord" => $data["contact_coord"],
+          "harbour_vessel" => $data["harbour_vessel"],
           "declaration_mode" => $data["declaration_mode"],
-          "statut_id" => 1,
-          "nombre_capture" => 1,
-          "espece_id" => 1,
-          "qualite_identification" => 1
+          "status_id" => 1,
+          "caught_number" => 1,
+          "species_id" => 1,
+          "identification_quality" => 1
         );
         /*
                  * Creation de la nouvelle declaration
@@ -181,16 +181,16 @@ class Declaration extends ObjetBDD
         $idNew = $this->ecrire($dataNew);
         if ($idNew > 0) {
           /*
-                     * creation de l'evenement associe
+                     * creation de l'event associe
                      */
-          $evenement = new Evenement($this->connection, $this->paramori);
-          $dataEvenement = $evenement->lire(0, true, $idNew);
-          $evenement->ecrire($dataEvenement);
+          $event = new Evenement($this->connection, $this->paramori);
+          $dataEvenement = $event->lire(0, true, $idNew);
+          $event->ecrire($dataEvenement);
           /*
-                     * Duplication de la localisation
+                     * Duplication de la location
                      */
-          $localisation = new Localisation($this->connection, $this->paramori);
-          $localisation->duplicate($id, $idNew);
+          $location = new Localisation($this->connection, $this->paramori);
+          $location->duplicate($id, $idNew);
         }
       }
     }
@@ -205,12 +205,12 @@ class Declaration extends ObjetBDD
    */
   function search(array $param)
   {
-    $sql = "select declaration.declaration_id, statut_id, statut_libelle,
-				capture_date, annee, capture_date_estimee,
-				pecheur_code, interlocuteur,
-				pays_libelle, ciem_libelle, milieu_libelle,
-				nombre_capture, espece_libelle,
-				capture_etat_libelle, engin_type_libelle
+    $sql = "select declaration.declaration_id, status_id, status_name,
+				capture_date, year, estimated_capture_date,
+				fisher_code, contact,
+				country_name, ices_name, environment_name,
+				caught_number, species_name,
+				capture_state_name, gear_type_name
 				";
     $where = $this->getWhere($param);
     $order = " order by declaration_id desc";
@@ -239,53 +239,53 @@ class Declaration extends ObjetBDD
     /*
          * Preparation de la requete where
          */
-    if (is_numeric($param["annee_debut"]) && is_numeric($param["annee_fin"])) {
-      $where = " where annee between :annee_debut and :annee_fin";
-      $this->paramSearch["annee_debut"] = $param["annee_debut"];
-      $this->paramSearch["annee_fin"] = $param["annee_fin"];
+    if (is_numeric($param["year_debut"]) && is_numeric($param["year_fin"])) {
+      $where = " where year between :year_debut and :year_fin";
+      $this->paramSearch["year_debut"] = $param["year_debut"];
+      $this->paramSearch["year_fin"] = $param["year_fin"];
       $and = " and ";
     }
-    if ($param["statut_id"] > 0 && is_numeric($param["statut_id"])) {
-      $where .= " $and statut_id = :statut_id";
+    if ($param["status_id"] > 0 && is_numeric($param["status_id"])) {
+      $where .= " $and status_id = :status_id";
       $and = " and ";
-      $this->paramSearch["statut_id"] = $param["statut_id"];
+      $this->paramSearch["status_id"] = $param["status_id"];
     }
-    if ($param["ciem_id"] > 0 && is_numeric($param["ciem_id"])) {
-      $where .= " $and ciem_id = :ciem_id";
+    if ($param["ices_id"] > 0 && is_numeric($param["ices_id"])) {
+      $where .= " $and ices_id = :ices_id";
       $and = " and ";
-      $this->paramSearch["ciem_id"] = $param["ciem_id"];
+      $this->paramSearch["ices_id"] = $param["ices_id"];
     }
-    if ($param["pays_id"] > 0 && is_numeric($param["pays_id"])) {
-      $where .= " $and pays_id = :pays_id";
+    if ($param["country_id"] > 0 && is_numeric($param["country_id"])) {
+      $where .= " $and country_id = :country_id";
       $and = " and ";
-      $this->paramSearch["pays_id"] = $param["pays_id"];
+      $this->paramSearch["country_id"] = $param["country_id"];
     }
-    if ($param["milieu_id"] > 0 && is_numeric($param["milieu_id"])) {
-      $where .= " $and milieu_id = :milieu_id";
+    if ($param["environment_id"] > 0 && is_numeric($param["environment_id"])) {
+      $where .= " $and environment_id = :environment_id";
       $and = " and ";
-      $this->paramSearch["milieu_id"] = $param["milieu_id"];
+      $this->paramSearch["environment_id"] = $param["environment_id"];
     }
-    if ($param["capture_etat_id"] > 0 && is_numeric($param["capture_etat_id"])) {
-      $where .= " $and capture_etat_id = :capture_etat_id";
+    if ($param["capture_state_id"] > 0 && is_numeric($param["capture_state_id"])) {
+      $where .= " $and capture_state_id = :capture_state_id";
       $and = " and ";
-      $this->paramSearch["capture_etat_id"] = $param["capture_etat_id"];
+      $this->paramSearch["capture_state_id"] = $param["capture_state_id"];
     }
-    if ($param["espece_id"] > 0 && is_numeric($param["espece_id"])) {
-      $where .= " $and espece_id = :espece_id";
+    if ($param["species_id"] > 0 && is_numeric($param["species_id"])) {
+      $where .= " $and species_id = :species_id";
       $and = " and ";
-      $this->paramSearch["espece_id"] = $param["espece_id"];
+      $this->paramSearch["species_id"] = $param["species_id"];
     }
-    if ($param["engin_type_id"] > 0 && is_numeric($param["engin_type_id"])) {
-      $where .= " $and engin_type_id = :engin_type_id";
+    if ($param["gear_type_id"] > 0 && is_numeric($param["gear_type_id"])) {
+      $where .= " $and gear_type_id = :gear_type_id";
       $and = " and ";
-      $this->paramSearch["engin_type_id"] = $param["engin_type_id"];
+      $this->paramSearch["gear_type_id"] = $param["gear_type_id"];
     }
     if (strlen($param["libelle"]) > 0) {
       $libelle = "%" . $param["libelle"] . "%";
       $this->paramSearch["libelleText1"] = $libelle;
       $this->paramSearch["libelleText2"] = $libelle;
-      $where .= " $and (upper(pecheur_code) like upper(:libelleText1)";
-      $where .= " or upper(interlocuteur) like upper(:libelleText2)";
+      $where .= " $and (upper(fisher_code) like upper(:libelleText1)";
+      $where .= " or upper(contact) like upper(:libelleText2)";
       if (is_numeric($param["libelle"])) {
         $where .= " or declaration_id = :libelle";
         $this->paramSearch["libelle"] = $param["libelle"];
@@ -304,11 +304,11 @@ class Declaration extends ObjetBDD
   function getDataToExport($param)
   {
     $sql = "select declaration.*,
-				pays_libelle, ciem_libelle, milieu_libelle, milieu_detail_libelle,
-				zone_detail,
-				capture_mode_libelle, capture_type_libelle, capture_etat_libelle,
-				statut_libelle, engin_type_libelle,
-				longitude_dd, latitude_dd, devenir_libelle, qualite_identification
+				country_name, ices_name, environment_name, environment_detail_name,
+				area_detail,
+				capture_method_name, origin_name, capture_state_name,
+				status_name, gear_type_name,
+				longitude_dd, latitude_dd, fate_name, identification_quality
 				";
     $where = $this->getWhere($param);
     $order = " order by declaration.declaration_id desc";
@@ -330,7 +330,7 @@ class Declaration extends ObjetBDD
   }
 
   /**
-   * Retourne l'annee courante
+   * Retourne l'year courante
    *
    * @return int
    */
@@ -340,17 +340,17 @@ class Declaration extends ObjetBDD
   }
 
   /**
-   * Calcule le nombre d'esturgeons d'Europe captures par annee
+   * Calcule le nombre d'esturgeons d'Europe captures par year
    *
    * @return array
    */
   function getNbSturioByYear()
   {
-    $sql = "select annee, espece_libelle, sum(nombre_capture) as nombre_capture
+    $sql = "select year, species_name, sum(caught_number) as caught_number
 				from declaration
-        join espece using (espece_id)
-				group by annee, espece_libelle
-				order by annee, espece_libelle";
+        join species using (species_id)
+				group by year, species_name
+				order by year, species_name";
     return $this->getListeParam($sql);
   }
 
@@ -370,7 +370,7 @@ class Declaration extends ObjetBDD
   }
 
   /**
-   * Surcharge de la fonction write pour creer un evenement de saisie
+   * Surcharge de la fonction write pour creer un event de saisie
    * lors de la creation
    * (non-PHPdoc)
    *
@@ -386,12 +386,12 @@ class Declaration extends ObjetBDD
 
     if ($id > 0 && is_numeric($id) && $creation == true) {
       /*
-             * Generation de l'evenement de saisie
+             * Generation de l'event de saisie
              */
-      $evenement = new Evenement($this->connection, $this->paramori);
-      $dataEvnmt = $evenement->getDefaultValue($id);
-      $dataEvnmt["evenement_type_id"] = $data["statut_id"];
-      $evenement->ecrire($dataEvnmt);
+      $event = new Evenement($this->connection, $this->paramori);
+      $dataEvnmt = $event->getDefaultValue($id);
+      $dataEvnmt["event_type_id"] = $data["status_id"];
+      $event->ecrire($dataEvnmt);
     }
     return $id;
   }
@@ -408,16 +408,16 @@ class Declaration extends ObjetBDD
       /*
              * Suppression des informations liees
              */
-      $evenement = new Evenement($this->connection, $this->paramori);
-      $evenement->deleteFromField($id, "declaration_id");
+      $event = new Evenement($this->connection, $this->paramori);
+      $event->deleteFromField($id, "declaration_id");
       /*
              * $lot = new Lot ( $this->connection, $this->paramori );
              * $lot->supprimer ( $id );
              */
-      $individu = new Individu($this->connection, $this->paramori);
-      $individu->supprimerChamp($id, "declaration_id");
-      $localisation = new Localisation($this->connection, $this->paramori);
-      $localisation->supprimer($id);
+      $fish = new Individu($this->connection, $this->paramori);
+      $fish->supprimerChamp($id, "declaration_id");
+      $location = new Localisation($this->connection, $this->paramori);
+      $location->supprimer($id);
       return parent::supprimer($id);
     } else
       return -1;
@@ -425,7 +425,7 @@ class Declaration extends ObjetBDD
 }
 
 /**
- * ORM de gestion de la table statut
+ * ORM de gestion de la table status
  *
  * @author quinton
  *
@@ -443,16 +443,16 @@ class Statut extends ObjetBDD
   {
     if (!is_array($param))
       $param = array();
-    $this->table = "statut";
+    $this->table = "status";
     $this->id_auto = 1;
     $this->colonnes = array(
-      "statut_id" => array(
+      "status_id" => array(
         "type" => 1,
         "requis" => 1,
         "key" => 1,
         "defaultValue" => 0
       ),
-      "statut_libelle" => array(
+      "status_name" => array(
         "requis" => 1
       )
     );
@@ -462,7 +462,7 @@ class Statut extends ObjetBDD
 }
 
 /**
- * ORM de gestion de la table statut
+ * ORM de gestion de la table status
  *
  * @author quinton
  *
@@ -480,16 +480,16 @@ class Capture_mode extends ObjetBDD
   {
     if (!is_array($param))
       $param = array();
-    $this->table = "capture_mode";
+    $this->table = "capture_method";
     $this->id_auto = 1;
     $this->colonnes = array(
-      "capture_mode_id" => array(
+      "capture_method_id" => array(
         "type" => 1,
         "requis" => 1,
         "key" => 1,
         "defaultValue" => 0
       ),
-      "capture_mode_libelle" => array(
+      "capture_method_name" => array(
         "requis" => 1
       )
     );
@@ -499,7 +499,7 @@ class Capture_mode extends ObjetBDD
 }
 
 /**
- * ORM de gestion de la table capture_type
+ * ORM de gestion de la table origin
  *
  * @author quinton
  *
@@ -515,16 +515,16 @@ class Capture_type extends ObjetBDD
    */
   function __construct($link, $param = array())
   {
-    $this->table = "capture_type";
+    $this->table = "origin";
     $this->id_auto = 1;
     $this->colonnes = array(
-      "capture_type_id" => array(
+      "origin_id" => array(
         "type" => 1,
         "requis" => 1,
         "key" => 1,
         "defaultValue" => 0
       ),
-      "capture_type_libelle" => array(
+      "origin_name" => array(
         "requis" => 1
       )
     );
@@ -534,7 +534,7 @@ class Capture_type extends ObjetBDD
 }
 
 /**
- * ORM de gestion de la table capture_etat
+ * ORM de gestion de la table capture_state
  *
  * @author quinton
  *
@@ -552,16 +552,16 @@ class Capture_etat extends ObjetBDD
   {
     if (!is_array($param))
       $param = array();
-    $this->table = "capture_etat";
+    $this->table = "capture_state";
     $this->id_auto = 1;
     $this->colonnes = array(
-      "capture_etat_id" => array(
+      "capture_state_id" => array(
         "etat" => 1,
         "requis" => 1,
         "key" => 1,
         "defaultValue" => 0
       ),
-      "capture_etat_libelle" => array(
+      "capture_state_name" => array(
         "requis" => 1
       )
     );
@@ -571,7 +571,7 @@ class Capture_etat extends ObjetBDD
 }
 
 /**
- * ORM de gestion de la table engin_type
+ * ORM de gestion de la table gear_type
  *
  * @author quinton
  *
@@ -589,16 +589,16 @@ class Engin_type extends ObjetBDD
   {
     if (!is_array($param))
       $param = array();
-    $this->table = "engin_type";
+    $this->table = "gear_type";
     $this->id_auto = 1;
     $this->colonnes = array(
-      "engin_type_id" => array(
+      "gear_type_id" => array(
         "type" => 1,
         "requis" => 1,
         "key" => 1,
         "defaultValue" => 0
       ),
-      "engin_type_libelle" => array(
+      "gear_type_name" => array(
         "requis" => 1
       )
     );

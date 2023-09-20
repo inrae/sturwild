@@ -1,16 +1,16 @@
 <?php
-include_once 'modules/classes/precision.class.php';
+include_once 'modules/classes/accuracy.class.php';
 $dataClass = new Precision ( $bdd, $ObjetBDDParam );
-$keyName = "precision_id";
+$keyName = "accuracy_id";
 $id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {
 	case "list":
 		$vue->set ( $dataClass->getListe(), "data" );
-		$vue->set ( "param/precisionList.tpl", "corps" );
+		$vue->set ( "param/accuracyList.tpl", "corps" );
 		break;
 	case "change":
-		dataRead ( $dataClass, $id, "param/precisionChange.tpl" );
+		dataRead ( $dataClass, $id, "param/accuracyChange.tpl" );
 		break;
 	case "write":
 		dataWrite ( $dataClass, $_REQUEST );

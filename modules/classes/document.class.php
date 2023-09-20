@@ -86,7 +86,7 @@
  document_id           serial     NOT NULL,
  mime_type_id          integer    NOT NULL,
  document_date_import  date       NOT NULL,
- document_nom          varchar    NOT NULL,
+ document_name          varchar    NOT NULL,
  document_description  varchar,
  data                  bytea,
  size                  integer,
@@ -107,7 +107,7 @@
  ON DELETE NO ACTION;
 
  COMMENT ON TABLE document IS 'Documents numériques rattachés à un poisson ou à un événement';
- COMMENT ON COLUMN document.document_nom IS 'Nom d''origine du document';
+ COMMENT ON COLUMN document.document_name IS 'Nom d''origine du document';
  COMMENT ON COLUMN document.document_description IS 'Description libre du document';
  */
 /**
@@ -207,7 +207,7 @@ class Document extends ObjetBDD
                 "requis" => 1,
                 "defaultValue" => 0
             ),
-            "individu_id" => array(
+            "fish_id" => array(
                 "type" => 1,
                 "requis" => 1,
                 "parentAttrib" => 1
@@ -220,7 +220,7 @@ class Document extends ObjetBDD
                 "type" => 2,
                 "requis" => 1
             ),
-            "document_nom" => array(
+            "document_name" => array(
                 "type" => 0,
                 "requis" => 1
             ),
@@ -250,7 +250,7 @@ class Document extends ObjetBDD
     function getData($id)
     {
         if ($id > 0 && is_numeric($id)) {
-            $sql = "select document_id, individu_id, document_nom,  content_type, mime_type_id, extension
+            $sql = "select document_id, fish_id, document_name,  content_type, mime_type_id, extension
 				from " . $this->table . "
 				join mime_type using (mime_type_id)
 				where document_id = :document_id";
@@ -269,12 +269,12 @@ class Document extends ObjetBDD
     function getListFromIndividu($id)
     {
         if ($id > 0 && is_numeric($id)) {
-            $sql = "select document_id, individu_id, document_nom, document_description, size, document_date_import, content_type, mime_type_id
+            $sql = "select document_id, fish_id, document_name, document_description, size, document_date_import, content_type, mime_type_id
 				from " . $this->table . "
 				join mime_type using (mime_type_id)
-				where individu_id = :individu_id order by document_id";
+				where fish_id = :fish_id order by document_id";
             return $this->documentSearch($sql, array(
-                "individu_id" => $id
+                "fish_id" => $id
             ));
         }
     }
@@ -290,7 +290,7 @@ class Document extends ObjetBDD
         if (is_numeric($declaration_id) && $declaration_id > 0) {
             $sql = "select count(*) as document_nb
 					from " . $this->table . "
-					natural join individu
+					natural join fish
 					where declaration_id = :declaration_id";
             return $this->lireParamAsPrepared($sql, array(
                 "declaration_id" => $declaration_id
@@ -307,12 +307,12 @@ class Document extends ObjetBDD
     function getListFromDeclaration($declaration_id)
     {
         if ($declaration_id > 0 && is_numeric($declaration_id)) {
-            $sql = "select document_id, individu_id, document_nom, document_description, size, document_date_import, content_type, mime_type_id
+            $sql = "select document_id, fish_id, document_name, document_description, size, document_date_import, content_type, mime_type_id
 				from " . $this->table . "
 				join mime_type using (mime_type_id)
-				join individu using (individu_id)
+				join fish using (fish_id)
 				where declaration_id = :declaration_id
-				order by individu_id, document_id";
+				order by fish_id, document_id";
             return $this->documentSearch($sql, array(
                 "declaration_id" => $declaration_id
             ));
@@ -362,14 +362,14 @@ class Document extends ObjetBDD
      *            : tableau contenant les informations sur le fichier importé
      *
      * @param
-     *            int individu_id : cle de l'enregistrement pere
+     *            int fish_id : cle de l'enregistrement pere
      * @param
      *            string description : description du contenu du document
      * @return int
      */
-    function documentWrite($file, $individu_id, $description = NULL)
+    function documentWrite($file, $fish_id, $description = NULL)
     {
-        if ($file["error"] == 0 && $file["size"] > 0 && $individu_id > 0 && is_numeric($individu_id)) {
+        if ($file["error"] == 0 && $file["size"] > 0 && $fish_id > 0 && is_numeric($fish_id)) {
             global $message;
             /*
              * Recuperation de l'extension
@@ -379,12 +379,12 @@ class Document extends ObjetBDD
             $mime_type_id = $mimeType->getTypeMime($extension);
             if ($mime_type_id > 0) {
                 $data = array();
-                $data["document_nom"] = $file["name"];
+                $data["document_name"] = $file["name"];
                 $data["size"] = $file["size"];
                 $data["mime_type_id"] = $mime_type_id;
                 $data["document_description"] = $description;
                 $data["document_date_import"] = date("d/m/Y");
-                $data["individu_id"] = $individu_id;
+                $data["fish_id"] = $fish_id;
                 $dataDoc = array(
                     "thumbnail" => "",
                     "data" => ""
@@ -453,7 +453,7 @@ class Document extends ObjetBDD
                     break;
                 default:
                     $colonne = "data";
-                    $filename = $this->temp . '/' . $id . "-" . $data["document_nom"];
+                    $filename = $this->temp . '/' . $id . "-" . $data["document_name"];
             }
 
             /*
@@ -563,7 +563,7 @@ class Document extends ObjetBDD
             $data = $this->getData($id);
         switch ($phototype) {
             case 0:
-                $filename = $this->temp . '/' . $id . "-" . $data["document_nom"];
+                $filename = $this->temp . '/' . $id . "-" . $data["document_name"];
                 break;
             case 1:
                 $filename = $this->temp . '/' . $id . "x" . $resolution . "." . $data["extension"];

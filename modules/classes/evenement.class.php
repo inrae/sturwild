@@ -8,7 +8,7 @@
  */
 require_once 'modules/classes/declaration.class.php';
 /**
- * ORM de gestion de la table evenement
+ * ORM de gestion de la table event
  *
  * @author quinton
  *
@@ -26,10 +26,10 @@ class Evenement extends ObjetBDD
 		if (!is_array($param))
 			$param = array();
 		$this->paramori = $param;
-		$this->table = "evenement";
+		$this->table = "event";
 		$this->id_auto = 1;
 		$this->colonnes = array(
-			"evenement_id" => array(
+			"event_id" => array(
 				"type" => 1,
 				"requis" => 1,
 				"key" => 1,
@@ -41,15 +41,15 @@ class Evenement extends ObjetBDD
 				"parentAttrib" => 1
 			),
 
-			"evenement_type_id" => array(
+			"event_type_id" => array(
 				"type" => 1,
 				"defaultValue" => 1
 			),
-			"evenement_date" => array(
+			"event_date" => array(
 				"type" => 2,
 				"defaultValue" => "getDateJour"
 			),
-			"evenement_commentaire" => array(
+			"event_remarks" => array(
 				"type" => 0
 			),
 			"login" => array(
@@ -62,8 +62,8 @@ class Evenement extends ObjetBDD
 	}
 
 	/**
-	 * Surcharge de la fonction write pour mettre a niveau le statut de
-	 * la declaration en fonction de l'evenement cree
+	 * Surcharge de la fonction write pour mettre a niveau le status de
+	 * la declaration en fonction de l'event cree
 	 * (non-PHPdoc)
 	 * @see ObjetBDD::write()
 	 */
@@ -72,17 +72,17 @@ class Evenement extends ObjetBDD
 		$id = parent::ecrire($data);
 		if ($id > 0 && is_numeric($id)) {
 			/*
-			 * Mise a niveau du statut de la declaration en fonction du type d'evenement
+			 * Mise a niveau du status de la declaration en fonction du type d'event
 			 */
 			$declaration = new Declaration($this->connection, $this->paramori);
 			$dataDecl = $declaration->lire($data["declaration_id"]);
-			if ($dataDecl["statut_id"] < $data["evenement_type_id"] && $data["evenement_type_id"] < 5) {
-				$dataDecl["statut_id"] = $data["evenement_type_id"];
+			if ($dataDecl["status_id"] < $data["event_type_id"] && $data["event_type_id"] < 5) {
+				$dataDecl["status_id"] = $data["event_type_id"];
 				$declaration->ecrire($dataDecl);
 				/*
 				 * Traitement de l'envoi des mails
 				 */
-				if (in_array($data["evenement_type_id"], array(3, 4)))
+				if (in_array($data["event_type_id"], array(3, 4)))
 					sendMail($data["declaration_id"]);
 			}
 		}
@@ -90,7 +90,7 @@ class Evenement extends ObjetBDD
 	}
 
 	/**
-	 * Retourne la liste des evenements rattaches a une declaration
+	 * Retourne la liste des events rattaches a une declaration
 	 *
 	 * @param int $id
 	 * @return array
@@ -98,13 +98,13 @@ class Evenement extends ObjetBDD
 	function getListeFromDeclaration($id)
 	{
 		if ($id > 0 && is_numeric($id)) {
-			$sql = "select * from evenement
-					left outer join evenement_type using (evenement_type_id)
+			$sql = "select * from event
+					left outer join event_type using (event_type_id)
 					where declaration_id = :declaration_id
-					order by evenement_date desc, evenement_type_id desc";
+					order by event_date desc, event_type_id desc";
 			$data = $this->getListeParamAsPrepared($sql, array("declaration_id" => $id));
 			/*
-			 * Recherche des des utilisateurs ayant cree les evenements
+			 * Recherche des des utilisateurs ayant cree les events
 			 */
 			global $bdd_gacl;
 			require_once 'framework/identification/loginGestion.class.php';
@@ -123,7 +123,7 @@ class Evenement extends ObjetBDD
 }
 
 /**
- * ORM de gestion de la table evenement_type
+ * ORM de gestion de la table event_type
  *
  * @author quinton
  *
@@ -140,16 +140,16 @@ class Evenement_type extends ObjetBDD
 	{
 		if (!is_array($param))
 			$param = array();
-		$this->table = "evenement_type";
+		$this->table = "event_type";
 		$this->id_auto = 1;
 		$this->colonnes = array(
-			"evenement_type_id" => array(
+			"event_type_id" => array(
 				"type" => 1,
 				"requis" => 1,
 				"key" => 1,
 				"defaultValue" => 0
 			),
-			"evenement_type_libelle" => array(
+			"event_type_name" => array(
 				"requis" => 1
 			)
 		);

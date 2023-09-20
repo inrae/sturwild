@@ -1,7 +1,7 @@
 <?php
-include_once 'modules/classes/localisation.class.php';
+include_once 'modules/classes/location.class.php';
 $dataClass = new Pays ( $bdd, $ObjetBDDParam );
-$keyName = "pays_id";
+$keyName = "country_id";
 $id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {
@@ -10,7 +10,7 @@ switch ($t_module ["param"]) {
 		 * Display the list of all records of the table
 		 */
 		$vue->set ( $dataClass->getListe(3), "data" );
-		$vue->set ( "param/paysList.tpl", "corps" );
+		$vue->set ( "param/countryList.tpl", "corps" );
 		
 		break;
 	case "change":
@@ -19,7 +19,7 @@ switch ($t_module ["param"]) {
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		dataRead ( $dataClass, $id, "param/paysChange.tpl" );
+		dataRead ( $dataClass, $id, "param/countryChange.tpl" );
 		break;
 	case "write":
 		dataWrite ( $dataClass, $_REQUEST );

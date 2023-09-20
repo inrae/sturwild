@@ -7,7 +7,7 @@
  */
 include_once 'modules/classes/declaration.class.php';
 $dataClass = new Capture_type( $bdd, $ObjetBDDParam );
-$keyName = "capture_type_id";
+$keyName = "origin_id";
 $id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {

@@ -63,7 +63,7 @@ $(document).ready(function() {
 {/if}
 <td>
 <a href="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].photo_name}&attached=1" title="document original">
-{$dataDoc[lst].document_nom}
+{$dataDoc[lst].document_name}
 </a>
 </td>
 <td>{$dataDoc[lst].document_description}</td>

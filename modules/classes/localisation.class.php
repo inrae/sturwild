@@ -7,7 +7,7 @@
  */
 
 /**
- * ORM de gestion de la table ciem
+ * ORM de gestion de la table ices
  *
  * @author quinton
  *
@@ -22,16 +22,16 @@ class Ciem extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "ciem";
+		$this->table = "ices";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"ciem_id" => array (
+				"ices_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"ciem_libelle" => array (
+				"ices_name" => array (
 						"type" => 0,
 						"requis" => 1
 				)
@@ -42,7 +42,7 @@ class Ciem extends ObjetBDD {
 }
 
 /**
- * ORM de gestion de la table milieu
+ * ORM de gestion de la table environment
  *
  * @author quinton
  *
@@ -57,16 +57,16 @@ class Milieu extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "milieu";
+		$this->table = "environment";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"milieu_id" => array (
+				"environment_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"milieu_libelle" => array (
+				"environment_name" => array (
 						"type" => 0,
 						"requis" => 1
 				)
@@ -77,7 +77,7 @@ class Milieu extends ObjetBDD {
 }
 
 /**
- * ORM de gestion de la table milieu_detail
+ * ORM de gestion de la table environment_detail
  *
  * @author quinton
  *
@@ -92,16 +92,16 @@ class MilieuDetail extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "milieu_detail";
+		$this->table = "environment_detail";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"milieu_detail_id" => array (
+				"environment_detail_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"milieu_detail_libelle" => array (
+				"environment_detail_name" => array (
 						"type" => 0,
 						"requis" => 1
 				)
@@ -112,7 +112,7 @@ class MilieuDetail extends ObjetBDD {
 }
 
 /**
- * ORM de gestion de la table pays
+ * ORM de gestion de la table country
  *
  * @author quinton
  *
@@ -128,20 +128,20 @@ class Pays extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "pays";
+		$this->table = "country";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"pays_id" => array (
+				"country_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"pays_libelle" => array (
+				"country_name" => array (
 						"type" => 0,
 						"requis" => 1
 				),
-				"pays_order" => array (
+				"country_order" => array (
 						"type" => 1,
 						"requis" => 1
 				)
@@ -152,7 +152,7 @@ class Pays extends ObjetBDD {
 }
 
 /**
- * ORM de gestion de la table localisation
+ * ORM de gestion de la table location
  *
  * @author quinton
  *
@@ -167,7 +167,7 @@ class Localisation extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "localisation";
+		$this->table = "location";
 		$this->id_auto = 0;
 		$this->colonnes = array (
 				"declaration_id" => array (
@@ -175,19 +175,19 @@ class Localisation extends ObjetBDD {
 						"requis" => 1,
 						"key" => 1
 				),
-				"pays_id" => array (
+				"country_id" => array (
 						"type" => 1
 				),
-				"ciem_id" => array (
+				"ices_id" => array (
 						"type" => 1
 				),
-				"milieu_id" => array (
+				"environment_id" => array (
 						"type" => 1
 				),
-				"milieu_detail_id" => array(
+				"environment_detail_id" => array(
 						"type" => 1
 				),
-				"zone_detail" => array (
+				"area_detail" => array (
 						"type" => 0
 				),
 				"longitude_gps" => array (
@@ -196,16 +196,16 @@ class Localisation extends ObjetBDD {
 				"latitude_gps" => array (
 						"type" => 0
 				),
-				"longitude_declaree_dd" => array (
+				"longitude_declared_dd" => array (
 						"type" => 1
 				),
-				"latitude_declaree_dd" => array (
+				"latitude_declared_dd" => array (
 						"type" => 1
 				),
-				"longitude_estimee_dd" => array (
+				"longitude_estimated_dd" => array (
 						"type" => 1
 				),
-				"latitude_estimee_dd" => array (
+				"latitude_estimated_dd" => array (
 						"type" => 1
 				),
 				"longitude_dd" => array (
@@ -215,7 +215,7 @@ class Localisation extends ObjetBDD {
 						"type" => 1
 				),
 				"geom" => array ("type"=>4),
-				"precision_id"=>array("type"=>1)
+				"accuracy_id"=>array("type"=>1)
 		);
 		$this->srid = 4326;
 		$param["srid"] = 4326;
@@ -223,25 +223,25 @@ class Localisation extends ObjetBDD {
 	}
 
 	/**
-	 * Retourne le detail de la localisation
+	 * Retourne le detail de la location
 	 * @param int $id
 	 * @return array
 	 */
 	function getDetail ($id) {
 		if ($id > 0 && is_numeric($id)) {
-			$sql = "select * from localisation
-					left outer join ciem using (ciem_id)
-					left outer join pays using (pays_id)
-					left outer join milieu using (milieu_id)
-					left outer join milieu_detail using (milieu_detail_id)
-					left outer join precision using (precision_id)
+			$sql = "select * from location
+					left outer join ices using (ices_id)
+					left outer join country using (country_id)
+					left outer join environment using (environment_id)
+					left outer join environment_detail using (environment_detail_id)
+					left outer join accuracy using (accuracy_id)
 					where declaration_id = :declaration_id";
 			return $this->lireParamAsPrepared($sql, array("declaration_id"=>$id));
 		}
 	}
 
 	/**
-	 * Fonction permettant de dupliquer une localisation
+	 * Fonction permettant de dupliquer une location
 	 * pour creation a partir d'une autre declaration
 	 * @param int $id
 	 * @param int $idNew
@@ -251,11 +251,11 @@ class Localisation extends ObjetBDD {
 			$data = $this->lire($id);
 			$dataNew = array (
 					"declaration_id"=>$idNew,
-					"pays_id"=>$data["pays_id"],
-					"ciem_id"=>$data["ciem_id"],
-					"milieu_id"=>$data["milieu_id"],
-					"milieu_detaille_id"=>$data["milieu_detaille_id"],
-					"precision_id"=>$data["precision_id"]
+					"country_id"=>$data["country_id"],
+					"ices_id"=>$data["ices_id"],
+					"environment_id"=>$data["environment_id"],
+					"environment_detaille_id"=>$data["environment_detaille_id"],
+					"accuracy_id"=>$data["accuracy_id"]
 			);
 			$this->ecrire($dataNew);
 		}

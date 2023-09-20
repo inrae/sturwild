@@ -70,34 +70,34 @@ class SearchParam {
 }
 class SearchDeclaration extends SearchParam {
 	function __construct() {
-		$annee = date("Y");
+		$year = date("Y");
 
 		$this->param = array (
 				"libelle"=>"",
-				"annee_debut"=>$annee - 1,
-				"annee_fin"=>$annee,
-				"ciem_id"=>"",
-				"pays_id"=>"",
-				"milieu_id"=>"",
-				"statut_id"=>"",
-				"espece_id"=>"",
-				"capture_etat_id"=>"",
-				"engin_type_id"=>""
+				"year_debut"=>$year - 1,
+				"year_fin"=>$year,
+				"ices_id"=>"",
+				"country_id"=>"",
+				"environment_id"=>"",
+				"status_id"=>"",
+				"species_id"=>"",
+				"capture_state_id"=>"",
+				"gear_type_id"=>""
 		);
 		parent::__construct ();
 	}
 
 	/**
-	 * Renvoie un tableau simple avec les 20 dernieres annees
+	 * Renvoie un tableau simple avec les 20 dernieres years
 	 * @return array
 	 */
 	function getListeAnnee () {
-		$annee = date("Y");
-		$annees = array();
-		for($debut = 1980; $debut <= $annee; $debut ++) {
-			$annees[] = $debut;
+		$year = date("Y");
+		$years = array();
+		for($debut = 1980; $debut <= $year; $debut ++) {
+			$years[] = $debut;
 		}
-		return $annees;
+		return $years;
 	}
 }
 

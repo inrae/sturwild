@@ -7,7 +7,7 @@
  */
 
 /**
- * ORM de gestion de la table individu
+ * ORM de gestion de la table fish
  *
  * @author quinton
  *
@@ -23,10 +23,10 @@ class Individu extends ObjetBDD {
 		if (! is_array ( $param ))
 			$param = array ();
 		$this->paramori = $param;
-		$this->table = "individu";
+		$this->table = "fish";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"individu_id" => array (
+				"fish_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
@@ -37,44 +37,44 @@ class Individu extends ObjetBDD {
 						"requis" => 1,
 						"parentAttrib" => 1
 				),
-				"espece_id" => array (
+				"species_id" => array (
 						"type" => 1,
 						"defaultValue" => 1
 				),
-				"presence_marque_id" => array (
+				"presence_tag_d" => array (
 						"type" => 1
 				),
-				"devenir_id" => array (
+				"fate_id" => array (
 						"type" => 1
 				),
-				"capture_etat_id" => array (
+				"capture_state_id" => array (
 						"type" => 1
 				),
-				"masse" => array (
+				"weight" => array (
 						"type" => 1
 				),
-				"manipulation" => array (
+				"handling" => array (
 						"type" => 0
 				),
-				"numero_marque" => array (
+				"tag_number" => array (
 						"type" => 0
 				),
-				"longueur_individu" => array (
+				"fish_length" => array (
 						"type" => 1
 				),
-				"cohorte_estimee" => array (
+				"estimated_cohort" => array (
 						"type" => 1
 				),
-				"cohorte_validee" => array (
+				"validated_cohort" => array (
 						"type" => 1
 				),
-				"historique" => array (
+				"background" => array (
 						"type" => 0
 				),
-				"commentaire" => array (
+				"remarks" => array (
 						"type" => 0
 				),
-				"qualite_identification" => array (
+				"identification_quality" => array (
 						"type" => 1
 				)
 		);
@@ -88,7 +88,7 @@ class Individu extends ObjetBDD {
 			 */
 			require_once 'modules/classes/document.class.php';
 			$document = new Document ( $this->connection, $this->paramori );
-			$document->deleteFromField ( $id, "individu_id" );
+			$document->deleteFromField ( $id, "fish_id" );
 			return parent::supprimer ( $id );
 		}
 	}
@@ -106,8 +106,8 @@ class Individu extends ObjetBDD {
 			require_once 'modules/classes/declaration.class.php';
 			$declaration = new Declaration ( $this->connection, $this->paramori );
 			$dataDecl = $declaration->lire ( $data ["declaration_id"] );
-			if ($dataDecl ["declaration_id"] > 0 && strlen ( $dataDecl ["capture_etat_id"] ) == 0 && $data ["capture_etat_id"] > 0) {
-				$dataDecl ["capture_etat_id"] = $data ["capture_etat_id"];
+			if ($dataDecl ["declaration_id"] > 0 && strlen ( $dataDecl ["capture_state_id"] ) == 0 && $data ["capture_state_id"] > 0) {
+				$dataDecl ["capture_state_id"] = $data ["capture_state_id"];
 				$declaration->ecrire ( $dataDecl );
 			}
 		}
@@ -115,20 +115,20 @@ class Individu extends ObjetBDD {
 	}
 
 	/**
-	 * Retourne la liste des individus rattaches a une declaration
+	 * Retourne la liste des fishs rattaches a une declaration
 	 *
 	 * @param int $id
 	 * @return tableau|NULL
 	 */
 	function getListeFromDeclaration($id) {
 		if ($id > 0 && is_numeric ( $id )) {
-			$sql = "select * from individu
-					left outer join espece using (espece_id)
-					left outer join devenir using (devenir_id)
-					left outer join presence_marque using (presence_marque_id)
-					left outer join capture_etat using (capture_etat_id)
+			$sql = "select * from fish
+					left outer join species using (species_id)
+					left outer join fate using (fate_id)
+					left outer join tag_presence using (presence_tag_d)
+					left outer join capture_state using (capture_state_id)
 					where declaration_id = :declaration_id
-					order by individu_id";
+					order by fish_id";
 			return $this->getListeParamAsPrepared( $sql, array("declaration_id"=>$id) );
 		} else
 			return null;
@@ -147,13 +147,13 @@ class Individu extends ObjetBDD {
 		$declaration = new Declaration ( $this->connection, $this->paramori );
 		$declarations = $declaration->getIdFromParam ( $param );
 		if (count ( $declarations ) > 0) {
-			$sql = "select individu.*,
-				presence_marque_libelle, espece_libelle, capture_etat_libelle, devenir_libelle";
-			$from = " from individu
-				left outer join espece using (espece_id )
-				left outer join capture_etat using (capture_etat_id)
-				left outer join presence_marque using (presence_marque_id)
-				left outer join devenir using (devenir_id)
+			$sql = "select fish.*,
+				tag_presence_name, species_name, capture_state_name, fate_name";
+			$from = " from fish
+				left outer join species using (species_id )
+				left outer join capture_state using (capture_state_id)
+				left outer join tag_presence using (presence_tag_d)
+				left outer join fate using (fate_id)
 				";
 			/*
 			 * Preparation de la clause where
@@ -166,7 +166,7 @@ class Individu extends ObjetBDD {
 				$dataWhere .= $value ["declaration_id"];
 			}
 			$where = " where declaration_id in ($dataWhere)";
-			$order = " order by declaration_id, individu_id";
+			$order = " order by declaration_id, fish_id";
 			/*
 			 * Traitement de la commande
 			 */
@@ -199,18 +199,18 @@ class Lot extends ObjetBDD {
 						"requis" => 1,
 						"key" => 1
 				),
-				"espece_id" => array (
+				"species_id" => array (
 						"type" => 1,
 						"defaultValue" => 1
 				),
-				"devenir_id" => array (
+				"fate_id" => array (
 						"type" => 1,
 						"defaultValue" => 1
 				),
 				"etat_capture_lot" => array (
 						"type" => 0
 				),
-				"nombre_capture" => array (
+				"caught_number" => array (
 						"type" => 1,
 						"requis" => 1,
 						"defaultValue" => 1
@@ -218,13 +218,13 @@ class Lot extends ObjetBDD {
 				"longueur_gamme" => array (
 						"type" => 0
 				),
-				"masse_gamme" => array (
+				"weight_gamme" => array (
 						"type" => 0
 				),
-				"manipulation" => array (
+				"handling" => array (
 						"type" => 0
 				),
-				"qualite_identification" => array (
+				"identification_quality" => array (
 						"type" => 1,
 						"defaultValue" => 0
 				)
@@ -248,8 +248,8 @@ class Lot extends ObjetBDD {
 	function getDetail($id) {
 		if ($id > 0 && is_numeric ( $id )) {
 			$sql = "select * from lot
-					left outer join espece using(espece_id)
-					left outer join devenir using (devenir_id)
+					left outer join species using(species_id)
+					left outer join fate using (fate_id)
 					where declaration_id = :declaration_id";
 			return $this->lireParamAsPrepared( $sql, array("declaration_id"=>$id) );
 		}
@@ -257,7 +257,7 @@ class Lot extends ObjetBDD {
 }
 
 /**
- * ORM de gestion de la table espece
+ * ORM de gestion de la table species
  *
  * @author quinton
  *
@@ -272,16 +272,16 @@ class Espece extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "espece";
+		$this->table = "species";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"espece_id" => array (
+				"species_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"espece_libelle" => array (
+				"species_name" => array (
 						"requis" => 1
 				)
 		);
@@ -291,7 +291,7 @@ class Espece extends ObjetBDD {
 }
 
 /**
- * ORM de gestion de la table devenir
+ * ORM de gestion de la table fate
  *
  * @author quinton
  *
@@ -306,16 +306,16 @@ class Devenir extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "devenir";
+		$this->table = "fate";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"devenir_id" => array (
+				"fate_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"devenir_libelle" => array (
+				"fate_name" => array (
 						"requis" => 1
 				)
 		);
@@ -325,7 +325,7 @@ class Devenir extends ObjetBDD {
 }
 
 /**
- * ORM de gestion de la table capture_etat
+ * ORM de gestion de la table capture_state
  *
  * @author quinton
  *
@@ -340,16 +340,16 @@ class CaptureEtat extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "capture_etat";
+		$this->table = "capture_state";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"capture_etat_id" => array (
+				"capture_state_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"capture_etat_libelle" => array (
+				"capture_state_name" => array (
 						"requis" => 1
 				)
 		);
@@ -359,7 +359,7 @@ class CaptureEtat extends ObjetBDD {
 }
 
 /**
- * ORM de gestion de la table presence_marque
+ * ORM de gestion de la table tag_presence
  *
  * @author quinton
  *
@@ -374,16 +374,16 @@ class Presence_marque extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "presence_marque";
+		$this->table = "tag_presence";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"presence_marque_id" => array (
+				"presence_tag_d" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"presence_marque_libelle" => array (
+				"tag_presence_name" => array (
 						"requis" => 1
 				)
 		);

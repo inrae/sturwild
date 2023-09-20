@@ -1,22 +1,22 @@
 <h2>Modification d'une destination d'un esturgeon capturé</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=devenirList">Retour à la liste</a>
+<a href="index.php?module=fateList">Retour à la liste</a>
 </div>
 
 <div class="col-sm-6">
 <form class="form-horizontal protoform" method="post" action="index.php">
-	<input type="hidden" name="devenir_id" id="devenir_id"
-		value="{$data.devenir_id}">
-		<input type="hidden" name="moduleBase" value="devenir">
+	<input type="hidden" name="fate_id" id="fate_id"
+		value="{$data.fate_id}">
+		<input type="hidden" name="moduleBase" value="fate">
 <input type="hidden" name="action" value="Write">
 
 <div class="form-group">
-<label for="devenir_libelle" class="control-label col-sm-4">
+<label for="fate_name" class="control-label col-sm-4">
 	Nom de la destination <span class="red">*</span> :</label>
 	<div class="col-sm-8">
-				<input class="form-control" id="devenir_libelle" name="devenir_libelle"
-				value="{$data.devenir_libelle}" maxlength="255" autofocus required>
+				<input class="form-control" id="fate_name" name="fate_name"
+				value="{$data.fate_name}" maxlength="255" autofocus required>
 		</div>
 	</div>
 	<div class="form-group center">

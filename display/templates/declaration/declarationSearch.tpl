@@ -17,17 +17,17 @@ $(document).ready(function() {
 <div class="form-group">
 <label for="" class="col-sm-2 control-label">Texte à rechercher :</label> 
 <div class="col-sm-4">
-<input class="commentaire form-control" id="libelle" name="libelle" value="{$dataSearch.libelle}" 
-placeholder="N° déclaration, code pêcheur ou interlocuteur" 
-title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du nom de l'interlocuteur">
+<input class="remarks form-control" id="libelle" name="libelle" value="{$dataSearch.libelle}" 
+placeholder="N° déclaration, code pêcheur ou contact" 
+title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du nom de l'contact">
 </div>
-<label for="statut_id" class="col-sm-2 control-label">Statut : </label>
+<label for="status_id" class="col-sm-2 control-label">Statut : </label>
 <div class="col-sm-4">
-<select class="form-control  id="statut_id" name="statut_id">
-<option value="" {if $dataSearch.statut_id == ""}selected{/if}>Sélectionnez...</option>
-{section name=lst loop=$statut}
-<option value={$statut[lst].statut_id} {if $dataSearch.statut_id == $statut[lst].statut_id}selected{/if}>
-{$statut[lst].statut_libelle}
+<select class="form-control  id="status_id" name="status_id">
+<option value="" {if $dataSearch.status_id == ""}selected{/if}>Sélectionnez...</option>
+{section name=lst loop=$status}
+<option value={$status[lst].status_id} {if $dataSearch.status_id == $status[lst].status_id}selected{/if}>
+{$status[lst].status_name}
 </option>
 {/section}
 </select>
@@ -35,24 +35,24 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 
 <div class="form-group">
-<label for="espece_id" class="col-sm-2 control-label">Espèce : </label>
+<label for="species_id" class="col-sm-2 control-label">Espèce : </label>
 <div class="col-sm-4">
-<select class="form-control" name="espece_id" id="espece_id">
-<option value="" {if $dataSearch.espece_id == ""}selected{/if}>Sélectionnez...</option>
-{section name=lst loop=$espece}
-<option value={$espece[lst].espece_id} {if $dataSearch.espece_id == $espece[lst].espece_id}selected{/if}>
-{$espece[lst].espece_libelle}
+<select class="form-control" name="species_id" id="species_id">
+<option value="" {if $dataSearch.species_id == ""}selected{/if}>Sélectionnez...</option>
+{section name=lst loop=$species}
+<option value={$species[lst].species_id} {if $dataSearch.species_id == $species[lst].species_id}selected{/if}>
+{$species[lst].species_name}
 </option>
 {/section}
 </select>
 </div>
-<label for="capture_etat_id" class="col-sm-2 control-label">État à la capture :</label>
+<label for="capture_state_id" class="col-sm-2 control-label">État à la capture :</label>
 <div class="col-sm-4">
-<select class="form-control" name="capture_etat_id" id="capture_etat_id">
-<option value="" {if $dataSearch.capture_etat_id == ""}selected{/if}>Sélectionnez...</option>
-{section name=lst loop=$capture_etat}
-<option value={$capture_etat[lst].capture_etat_id} {if $dataSearch.capture_etat_id == $capture_etat[lst].capture_etat_id}selected{/if}>
-{$capture_etat[lst].capture_etat_libelle}
+<select class="form-control" name="capture_state_id" id="capture_state_id">
+<option value="" {if $dataSearch.capture_state_id == ""}selected{/if}>Sélectionnez...</option>
+{section name=lst loop=$capture_state}
+<option value={$capture_state[lst].capture_state_id} {if $dataSearch.capture_state_id == $capture_state[lst].capture_state_id}selected{/if}>
+{$capture_state[lst].capture_state_name}
 </option>
 {/section}
 </select>
@@ -60,58 +60,58 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 
 <div class="form-group">
-<label for="pays_id" class="col-sm-1 control-label">Pays :</label>
+<label for="country_id" class="col-sm-1 control-label">Pays :</label>
 <div class="col-sm-2">
-<select class="form-control" id="pays_id" name="pays_id">
-<option value="" {if $dataSearch.pays_id == ""}selected{/if}>Sélectionnez...</option>
-{section name=lst loop=$pays}
-<option value={$pays[lst].pays_id} {if $dataSearch.pays_id == $pays[lst].pays_id}selected{/if}>
-{$pays[lst].pays_libelle}
+<select class="form-control" id="country_id" name="country_id">
+<option value="" {if $dataSearch.country_id == ""}selected{/if}>Sélectionnez...</option>
+{section name=lst loop=$country}
+<option value={$country[lst].country_id} {if $dataSearch.country_id == $country[lst].country_id}selected{/if}>
+{$country[lst].country_name}
 </option>
 {/section}
 </select>
 </div>
-<label for="ciem_id" class="col-sm-1 control-label">Zone CIEM :</label>
+<label for="ices_id" class="col-sm-1 control-label">Zone CIEM :</label>
 <div class="col-sm-2">
-<select class="form-control" id="ciem_id" name="ciem_id">
-<option value="" {if $dataSearch.ciem_id == ""}selected{/if}>Sélectionnez...</option>
-{section name=lst loop=$ciem}
-<option value={$ciem[lst].ciem_id} {if $dataSearch.ciem_id == $ciem[lst].ciem_id}selected{/if}>
-{$ciem[lst].ciem_libelle}
+<select class="form-control" id="ices_id" name="ices_id">
+<option value="" {if $dataSearch.ices_id == ""}selected{/if}>Sélectionnez...</option>
+{section name=lst loop=$ices}
+<option value={$ices[lst].ices_id} {if $dataSearch.ices_id == $ices[lst].ices_id}selected{/if}>
+{$ices[lst].ices_name}
 </option>
 {/section}
 </select>
 </div>
-<label for="engin_type_id" class="col-sm-2 control-label">Engin de pêche :</label>
+<label for="gear_type_id" class="col-sm-2 control-label">Engin de pêche :</label>
 <div class="col-sm-4">
-<select class="form-control " id="engin_type_id" name="engin_type_id">
-<option value="" {if $dataSearch.engin_type_id == ""}selected{/if}>Sélectionnez...</option>
-{section name=lst loop=$engin_type}
-<option value={$engin_type[lst].engin_type_id} {if $dataSearch.engin_type_id == $engin_type[lst].engin_type_id}selected{/if}>
-{$engin_type[lst].engin_type_libelle}
+<select class="form-control " id="gear_type_id" name="gear_type_id">
+<option value="" {if $dataSearch.gear_type_id == ""}selected{/if}>Sélectionnez...</option>
+{section name=lst loop=$gear_type}
+<option value={$gear_type[lst].gear_type_id} {if $dataSearch.gear_type_id == $gear_type[lst].gear_type_id}selected{/if}>
+{$gear_type[lst].gear_type_name}
 </option>
 {/section}
 </select>
 </div>
 </div>
 
-<label for="milieu_id" class="col-sm-1 control-label">Milieu :</label>
+<label for="environment_id" class="col-sm-1 control-label">Milieu :</label>
 <div class="col-sm-2">
-<select class="form-control" id="milieu_id" name="milieu_id">
-<option value="" {if $dataSearch.milieu_id == ""}selected{/if}>Sélectionnez...</option>
-{section name=lst loop=$milieu}
-<option value={$milieu[lst].milieu_id} {if $dataSearch.milieu_id == $milieu[lst].milieu_id}selected{/if}>
-{$milieu[lst].milieu_libelle}
+<select class="form-control" id="environment_id" name="environment_id">
+<option value="" {if $dataSearch.environment_id == ""}selected{/if}>Sélectionnez...</option>
+{section name=lst loop=$environment}
+<option value={$environment[lst].environment_id} {if $dataSearch.environment_id == $environment[lst].environment_id}selected{/if}>
+{$environment[lst].environment_name}
 </option>
 {/section}
 </select>
 </div>
-<label for="annee_debut" class="col-sm-2 control-label">Année de la déclaration : de </label>
+<label for="year_debut" class="col-sm-2 control-label">Année de la déclaration : de </label>
 <div class="col-sm-2">
-<select class="form-control" id="annee_debut" name="annee_debut">
-{foreach from=$annees item=annee}
-<option value="{$annee}" {if $annee==$dataSearch.annee_debut}selected{/if}>
-{$annee}
+<select class="form-control" id="year_debut" name="year_debut">
+{foreach from=$years item=year}
+<option value="{$year}" {if $year==$dataSearch.year_debut}selected{/if}>
+{$year}
 </option>
 {/foreach}
 </select>
@@ -119,12 +119,12 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 <div class="form-group">
 <input type="submit" class="btn btn-success col-sm-offset-4 col-sm-2" value="{t}Rechercher{/t}" autofocus>
- <label for="annee_fin" class="col-sm-2 control-label">à </label>
+ <label for="year_fin" class="col-sm-2 control-label">à </label>
  <div class="col-sm-2">
-<select class="form-control" id="annee_fin" name="annee_fin">
-{foreach from=$annees item=annee}
-<option value="{$annee}" {if $annee==$dataSearch.annee_fin}selected{/if}>
-{$annee}
+<select class="form-control" id="year_fin" name="year_fin">
+{foreach from=$years item=year}
+<option value="{$year}" {if $year==$dataSearch.year_fin}selected{/if}>
+{$year}
 </option>
 {/foreach}
 </select>

@@ -8,7 +8,7 @@
  
 include_once 'modules/classes/declaration.class.php';
 $dataClass = new Capture_etat( $bdd, $ObjetBDDParam );
-$keyName = "capture_etat_id";
+$keyName = "capture_state_id";
 $id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {

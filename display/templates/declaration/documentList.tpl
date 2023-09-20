@@ -36,9 +36,9 @@ $(document).ready(function() {
 <tr>
 <td class="center">
 {if $droits.gestion == 1}
-<a href="index.php?module=individuChange&individu_id={$dataDoc[lst].individu_id}" title="Modifier les informations concernant le poisson">{$dataDoc[lst].individu_id}</a>
+<a href="index.php?module=fishChange&fish_id={$dataDoc[lst].fish_id}" title="Modifier les informations concernant le poisson">{$dataDoc[lst].fish_id}</a>
 {else}
-{$dataDoc[lst].individu_id}
+{$dataDoc[lst].fish_id}
 {/if}
 </td>
 <td style="text-align:center;">
@@ -54,7 +54,7 @@ $(document).ready(function() {
 {/if}
 <td>
 <a href="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=1&phototype=0"" title="document original">
-{$dataDoc[lst].document_nom}
+{$dataDoc[lst].document_name}
 </a>
 
 </td>
@@ -64,7 +64,7 @@ $(document).ready(function() {
 {if $droits["gestion"] == 1}
 <td>
 <div class="center">
-<a href="index.php?module=documentDelete&document_id={$dataDoc[lst].document_id}&individu_id={$dataDoc[lst].individu_id}" onclick="return confirm('Confirmez-vous la suppression ?');">
+<a href="index.php?module=documentDelete&document_id={$dataDoc[lst].document_id}&fish_id={$dataDoc[lst].fish_id}" onclick="return confirm('Confirmez-vous la suppression ?');">
 <img src="display/images/corbeille.png" height="20">
 </a>
 </div>

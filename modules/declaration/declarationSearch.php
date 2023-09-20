@@ -7,29 +7,29 @@
  *  Script de preparation des boites de selection pour les criteres de recherche
  */
  
-require_once 'modules/classes/localisation.class.php';
-require_once 'modules/classes/individu.class.php';
-$ciem = new Ciem($bdd, $ObjetBDDParam);
-$vue->set ($ciem->getListe(2) , "ciem" );
+require_once 'modules/classes/location.class.php';
+require_once 'modules/classes/fish.class.php';
+$ices = new Ciem($bdd, $ObjetBDDParam);
+$vue->set ($ices->getListe(2) , "ices" );
 
-$pays = new Pays($bdd, $ObjetBDDParam);
-$vue->set ( $pays->getListe(3), "pays" );
+$country = new Pays($bdd, $ObjetBDDParam);
+$vue->set ( $country->getListe(3), "country" );
 
-$milieu = new Milieu($bdd, $ObjetBDDParam);
-$vue->set ( $milieu->getListe(2), "milieu" );
+$environment = new Milieu($bdd, $ObjetBDDParam);
+$vue->set ( $environment->getListe(2), "environment" );
 
-$espece = new Espece($bdd, $ObjetBDDParam);
-$vue->set ( $espece->getListe(2), "espece" );
+$species = new Espece($bdd, $ObjetBDDParam);
+$vue->set ( $species->getListe(2), "species" );
 
-$capture_etat = new Capture_etat($bdd, $ObjetBDDParam);
-$vue->set ( $capture_etat->getListe(2), "capture_etat" );
+$capture_state = new Capture_etat($bdd, $ObjetBDDParam);
+$vue->set ( $capture_state->getListe(2), "capture_state" );
 
-$engin_type = new Engin_type($bdd, $ObjetBDDParam);
-$vue->set ( $engin_type->getListe(2), "engin_type" );
+$gear_type = new Engin_type($bdd, $ObjetBDDParam);
+$vue->set ( $gear_type->getListe(2), "gear_type" );
 
-$statut = new Statut($bdd, $ObjetBDDParam);
-$vue->set ( $statut->getListe(1), "statut" );
+$status = new Statut($bdd, $ObjetBDDParam);
+$vue->set ( $status->getListe(1), "status" );
 $vue->set ( $_SESSION["searchDeclaration"]->isSearch(), "isSearch" );
-$vue->set ($_SESSION["searchDeclaration"]->getListeAnnee() , "annees" );
+$vue->set ($_SESSION["searchDeclaration"]->getListeAnnee() , "years" );
 
 ?>

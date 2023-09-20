@@ -1,11 +1,11 @@
-<h2>Liste des milieux</h2>
+<h2>Liste des environmentx</h2>
 {if $droits.param == 1}
-<a href="index.php?module=milieuChange&milieu_id=0"><img src="display/images/new.png" height="20">
+<a href="index.php?module=environmentChange&environment_id=0"><img src="display/images/new.png" height="20">
 Nouveau</a>
 {/if}
 <div class="row">
 <div class="col-sm-6">
-<table id="milieuListe"  class="table table-bordered datatable table-hover">
+<table id="environmentListe"  class="table table-bordered datatable table-hover">
 	<thead>
 		<tr>
 			<th>Libellé</th>
@@ -15,9 +15,9 @@ Nouveau</a>
 	<tr>
 		<td>
 		{if $droits.param == 1}
-		<a href="index.php?module=milieuChange&milieu_id={$data[lst].milieu_id}">
-		{$data[lst].milieu_libelle}</a>
-		{else}{$data[lst].milieu_libelle}
+		<a href="index.php?module=environmentChange&environment_id={$data[lst].environment_id}">
+		{$data[lst].environment_name}</a>
+		{else}{$data[lst].environment_name}
 		{/if}</td>
 	</tr>
 	{/section} </tbody>

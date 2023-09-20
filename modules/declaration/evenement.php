@@ -5,9 +5,9 @@
  * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
  *  Creation 7 août 2015
  */
-include_once 'modules/classes/evenement.class.php';
+include_once 'modules/classes/event.class.php';
 $dataClass = new Evenement($bdd,$ObjetBDDParam);
-$keyName = "evenement_id";
+$keyName = "event_id";
 $id = $_REQUEST[$keyName];
 
 switch ($t_module["param"]) {
@@ -17,12 +17,12 @@ switch ($t_module["param"]) {
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		dataRead($dataClass, $id, "declaration/evenementChange.tpl", $_REQUEST["declaration_id"]);
+		dataRead($dataClass, $id, "declaration/eventChange.tpl", $_REQUEST["declaration_id"]);
 		/*
-		 * Lecture de la table des types d'evenement
+		 * Lecture de la table des types d'event
 		 */
-		$evenement_type = new Evenement_type($bdd, $ObjetBDDParam);
-		$vue->set ( $evenement_type->getListe(1), "evenement_type" );
+		$event_type = new Evenement_type($bdd, $ObjetBDDParam);
+		$vue->set ( $event_type->getListe(1), "event_type" );
 		
 		break;
 	case "write":

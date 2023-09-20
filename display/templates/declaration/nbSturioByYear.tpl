@@ -10,9 +10,9 @@
 <tbody>
 {section name=lst loop=$data}
 <tr>
-    <td class="center">{$data[lst].annee}</td>
-    <td>{$data[lst].espece_libelle}</td>
-    <td class="center">{$data[lst].nombre_capture}</td>
+    <td class="center">{$data[lst].year}</td>
+    <td>{$data[lst].species_name}</td>
+    <td class="center">{$data[lst].caught_number}</td>
 </tr>
 {/section}
 </tbody>

@@ -1,65 +1,65 @@
 <div class="col-sm-12 col-md-6">
 {if $droits.gestion ==1}
-<a href="index.php?module=localisationChange&declaration_id={$data.declaration_id}">
+<a href="index.php?module=locationChange&declaration_id={$data.declaration_id}">
 <img src="display/images/edit.gif" height="20">Modifier...
 </a>
 {/if}
 <div class="form-display">
 <dl class="dl-horizontal">
 	<dt>Pays :</dt>
-	<dd>{$localisation.pays_libelle}
+	<dd>{$location.country_name}
 	</dd>
 	</dl>
 <dl class="dl-horizontal">
 	<dt>Zone CIEM :</dt>
-	<dd>{$localisation.ciem_libelle}</dd>
+	<dd>{$location.ices_name}</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Milieu :</dt>
-	<dd>{$localisation.milieu_libelle}</dd>
+	<dd>{$location.environment_name}</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Milieu détaillé :</dt>
-	<dd>{$localisation.milieu_detail_libelle}</dd>
+	<dd>{$location.environment_detail_name}</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Détail de la zone :</dt>
-	<dd><span class="textareaDisplay">{$localisation.zone_detail}</span></dd>
+	<dd><span class="textareaDisplay">{$location.area_detail}</span></dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Valeurs GPS :</dt>
-	<dd>{$localisation.longitude_gps}
-	<br>{$localisation.latitude_gps}
+	<dd>{$location.longitude_gps}
+	<br>{$location.latitude_gps}
 	</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Coordonnées<br>déclarées :</dt>
-	<dd>{$localisation.longitude_declaree_dd}
-	<br>{$localisation.latitude_declaree_dd}
+	<dd>{$location.longitude_declared_dd}
+	<br>{$location.latitude_declared_dd}
 	</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Coordonnées<br>estimées :</dt>
-	<dd>{$localisation.longitude_estimee_dd}
-	<br>{$localisation.latitude_estimee_dd}
+	<dd>{$location.longitude_estimated_dd}
+	<br>{$location.latitude_estimated_dd}
 	</dd>
 </dl>
 <dl class="dl-horizontal">
 	<dt>Coordonnées<br>retenues :</dt>
-	<dd>{$localisation.longitude_dd}
-	<br>{$localisation.latitude_dd}
+	<dd>{$location.longitude_dd}
+	<br>{$location.latitude_dd}
 	</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Précision de la localisation, si estimée lors de la saisie :</dt>
-	<dd>{$localisation.precision_name}</dd>
+	<dt>Précision de la location, si estimée lors de la saisie :</dt>
+	<dd>{$location.accuracy_name}</dd>
 </dl>
 </div>
 </div>
 <div class="col-sm-12 col-md-6">
 <div id="map"  style="height:600px;"></div>
 </div>
-{if !empty($localisation.longitude_dd) && !empty($localisation.latitude_dd)  && $MAPS_enabled == 1}
+{if !empty($location.longitude_dd) && !empty($location.latitude_dd)  && $MAPS_enabled == 1}
 <script>
 
 var imageStyle = new ol.style.Style({
@@ -76,8 +76,8 @@ var imageStyle = new ol.style.Style({
 	})
 });
 //console.log("imageStyle", imageStyle);
-var long = "{$localisation.longitude_dd}";
-var lat = "{$localisation.latitude_dd}";
+var long = "{$location.longitude_dd}";
+var lat = "{$location.latitude_dd}";
  var coordonnee = [long, lat ];
 // console.log("coordonnees : ", coordonnee);
  var zoom = 9;

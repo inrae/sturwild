@@ -8,7 +8,7 @@
  
 include_once 'modules/classes/declaration.class.php';
 $dataClass = new Engin_type( $bdd, $ObjetBDDParam );
-$keyName = "engin_type_id";
+$keyName = "gear_type_id";
 $id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {

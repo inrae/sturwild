@@ -5,20 +5,20 @@
 </div>
 <div class="col-sm-6">
 <form method="post" action="index.php" class="form-horizontal protoform">
-	<input type="hidden" name="capture_mode_id" id="capture_mode_id" value="{$data.capture_mode_id}">
+	<input type="hidden" name="capture_method_id" id="capture_method_id" value="{$data.capture_method_id}">
 		<input type="hidden" name="moduleBase" value="captureMode">
 <input type="hidden" name="action" value="Write">
 	<div class="form-group">	
-	<label for="capture_mode_libelle" class="control-label col-sm-4">Mode de capture <span class="red">*</span> :
+	<label for="capture_method_name" class="control-label col-sm-4">Mode de capture <span class="red">*</span> :
 	</label>
 	<div class="col-sm-8">
-			<input class="form-control" id="capture_mode_libelle" name="capture_mode_libelle"
-				value="{$data.capture_mode_libelle}" maxlength="255" autofocus required>
+			<input class="form-control" id="capture_method_name" name="capture_method_name"
+				value="{$data.capture_method_name}" maxlength="255" autofocus required>
 		</div>
 	</div>
 	<div class="form-group center">
       <button type="submit" class="btn btn-primary button-valid">{t}Valider{/t}</button>
-      {if $data.capture_mode_id > 0 }
+      {if $data.capture_method_id > 0 }
       <button class="btn btn-danger button-delete">{t}Supprimer{/t}</button>
       {/if}
  </div>

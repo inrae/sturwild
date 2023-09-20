@@ -7,7 +7,7 @@
  */
 include_once 'modules/classes/declaration.class.php';
 $dataClass = new Capture_mode( $bdd, $ObjetBDDParam );
-$keyName = "capture_mode_id";
+$keyName = "capture_method_id";
 $id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {

@@ -20,8 +20,8 @@ $(document).ready(function() {
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function () {
 		Cookies.set(moduleName + "Tab", $(this).attr("id"), { secure: true});
 	});
-	$("#tab-localisation").on("shown.bs.tab", function () {
-		{if !empty($localisation.longitude_dd)  && !empty($localisation.latitude_dd)  && $MAPS_enabled == 1}
+	$("#tab-location").on("shown.bs.tab", function () {
+		{if !empty($location.longitude_dd)  && !empty($location.latitude_dd)  && $MAPS_enabled == 1}
 				setTimeout(function () { map.updateSize(); }, 400);
 		{/if}
   });
@@ -52,7 +52,7 @@ Nouvelle déclaration...
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="tab-localisation" href="#nav-localisation"  data-toggle="tab" role="tab" aria-controls="nav-localisation" aria-selected="false">
+        <a class="nav-link" id="tab-location" href="#nav-location"  data-toggle="tab" role="tab" aria-controls="nav-location" aria-selected="false">
           <img src="display/images/point.png" height="25">
           {t}Localisation{/t}
         </a>
@@ -80,14 +80,14 @@ Nouvelle déclaration...
       <div class="tab-pane active in" id="nav-general" role="tabpanel" aria-labelledby="tab-general">
 				{include file="declaration/declarationGeneral.tpl"}
 			</div>
-			<div class="tab-pane fade" id="nav-localisation" role="tabpanel" aria-labelledby="tab-localisation">
-				{include file="declaration/localisationDisplay.tpl"}
+			<div class="tab-pane fade" id="nav-location" role="tabpanel" aria-labelledby="tab-location">
+				{include file="declaration/locationDisplay.tpl"}
 			</div>
 			<div class="tab-pane fade" id="nav-event" role="tabpanel" aria-labelledby="tab-event">
-				{include file="declaration/evenementList.tpl"}
+				{include file="declaration/eventList.tpl"}
 			</div>
 			<div class="tab-pane fade" id="nav-sturio" role="tabpanel" aria-labelledby="tab-sturio">
-				{include file="declaration/individuList.tpl"}
+				{include file="declaration/fishList.tpl"}
 			</div>
 			<div class="tab-pane fade" id="nav-photo" role="tabpanel" aria-labelledby="tab-photo">
 				{include file="declaration/documentList.tpl"}

@@ -1,6 +1,6 @@
 <h2>Liste des types d'engins de pêche</h2>
 {if $droits.param == 1}
-<a href="index.php?module=enginTypeChange&engin_type_id=0">
+<a href="index.php?module=enginTypeChange&gear_type_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
 {/if}
 <div class="row">
@@ -15,9 +15,9 @@
 	<tr>
 		<td>
 		{if $droits.param == 1}
-		<a href="index.php?module=enginTypeChange&engin_type_id={$data[lst].engin_type_id}">
-		{$data[lst].engin_type_libelle}</a>
-		{else}{$data[lst].engin_type_libelle}
+		<a href="index.php?module=enginTypeChange&gear_type_id={$data[lst].gear_type_id}">
+		{$data[lst].gear_type_name}</a>
+		{else}{$data[lst].gear_type_name}
 		{/if}</td>
 	</tr>
 	{/section} </tbody>
