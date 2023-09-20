@@ -4,16 +4,16 @@
 <table class="table table-bordered table-hover" id="fishList">
 <thead>
 <tr>
-<th class="center"><img src="display/images/edit.gif" height="20"></th>
-<th>Espèce</th>
-<th>Longueur (mm)<br>Masse (kg)</th>
-<th>Marque</th>
-<th>Cohorte estimée<br>validée</th>
-<th>État</th>
-<th>Manipulation</th>
-<th>Devenir</th>
-<th>Historique</th>
-<th>Commentaire</th>
+<th class="center"><img src="display/images/edit.gif" height="20">{/t}</th>
+<th>{t}Espèce{/t}</th>
+<th>{t}Longueur (mm) Masse (kg){/t}</th>
+<th>{t}Marque{/t}</th>
+<th>{t}Cohorte estimée validée{/t}</th>
+<th>{t}État{/t}</th>
+<th>{t}Manipulation{/t}</th>
+<th>{t}Devenir{/t}</th>
+<th>{t}Historique{/t}</th>
+<th>{t}Commentaire{/t}</th>
 </tr>
 </thead>
 <tbody>
@@ -33,22 +33,22 @@
 <td>{$fishs[lst].species_name}
 {if $fishs[lst].identification_quality == 1}
 &nbsp;(Sûr){else}
-<br>(incertain)
+ (incertain)
 {/if}
  </td>
   <td>{$fishs[lst].fish_length}
  {if $fishs[lst].weight <> ""}
- <br>{$fishs[lst].weight}
+  {$fishs[lst].weight}
  {/if}
  </td>
  <td>{$fishs[lst].tag_presence_name}
   {if $fishs[lst].tag_number <> ""}
- <br>{$fishs[lst].tag_number}
+  {$fishs[lst].tag_number}
  {/if}
  </td>
  <td class="center">{$fishs[lst].estimated_cohort}
   {if $fishs[lst].validated_cohort <> ""}
- <br>{$fishs[lst].validated_cohort}
+  {$fishs[lst].validated_cohort}
  {/if}
  </td>
  <td>{$fishs[lst].capture_state_name}</td>

@@ -1,7 +1,7 @@
-<h2>Modification d'un environment détaillé</h2>
+<h2>{t}Modification d'un environment détaillé{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=environmentDetailList">Retour à la liste</a>
+<a href="index.php?module=environmentDetailList">{t}Retour à la liste{/t}</a>
 </div>
 <div class="col-sm-6">
 <form class="form-horizontal protoform" method="post" action="index.php">
@@ -12,7 +12,7 @@
 
 <div class="form-group">
 <label for="environment_detail_name" class="control-label col-sm-4">
-	Libellé du environment <span class="red">*</span> :</label>
+	Libellé du environment  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control" id="environment_detail_name" name="environment_detail_name"
 				value="{$data.environment_detail_name}" maxlength="255" autofocus required>
@@ -26,6 +26,6 @@
  </div>
 </form>	
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 </div>

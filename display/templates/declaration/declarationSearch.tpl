@@ -10,21 +10,21 @@ $(document).ready(function() {
 
 <div >
 <fieldset>
-<legend>Critères de recherche des déclarations</legend>
+<legend>{t}Critères de recherche des déclarations{/t}</legend>
 <form class="form-horizontal protoform col-md-10" method="GET" action="index.php" id="search">
 <input type="hidden" name="module" value="declarationList">
 <input type="hidden" name="isSearch" value="1">
 <div class="form-group">
-<label for="" class="col-sm-2 control-label">Texte à rechercher :</label> 
+<label for="" class="col-sm-2 control-label">{t}Texte à rechercher :{/t}</label> 
 <div class="col-sm-4">
 <input class="remarks form-control" id="libelle" name="libelle" value="{$dataSearch.libelle}" 
 placeholder="N° déclaration, code pêcheur ou contact" 
 title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du nom de l'contact">
 </div>
-<label for="status_id" class="col-sm-2 control-label">Statut : </label>
+<label for="status_id" class="col-sm-2 control-label">{t}Statut :{/t}</label>
 <div class="col-sm-4">
 <select class="form-control  id="status_id" name="status_id">
-<option value="" {if $dataSearch.status_id == ""}selected{/if}>Sélectionnez...</option>
+<option value="" {if $dataSearch.status_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 {section name=lst loop=$status}
 <option value={$status[lst].status_id} {if $dataSearch.status_id == $status[lst].status_id}selected{/if}>
 {$status[lst].status_name}
@@ -35,10 +35,10 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 
 <div class="form-group">
-<label for="species_id" class="col-sm-2 control-label">Espèce : </label>
+<label for="species_id" class="col-sm-2 control-label">{t}Espèce :{/t}</label>
 <div class="col-sm-4">
 <select class="form-control" name="species_id" id="species_id">
-<option value="" {if $dataSearch.species_id == ""}selected{/if}>Sélectionnez...</option>
+<option value="" {if $dataSearch.species_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 {section name=lst loop=$species}
 <option value={$species[lst].species_id} {if $dataSearch.species_id == $species[lst].species_id}selected{/if}>
 {$species[lst].species_name}
@@ -46,10 +46,10 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 {/section}
 </select>
 </div>
-<label for="capture_state_id" class="col-sm-2 control-label">État à la capture :</label>
+<label for="capture_state_id" class="col-sm-2 control-label">{t}État à la capture :{/t}</label>
 <div class="col-sm-4">
 <select class="form-control" name="capture_state_id" id="capture_state_id">
-<option value="" {if $dataSearch.capture_state_id == ""}selected{/if}>Sélectionnez...</option>
+<option value="" {if $dataSearch.capture_state_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 {section name=lst loop=$capture_state}
 <option value={$capture_state[lst].capture_state_id} {if $dataSearch.capture_state_id == $capture_state[lst].capture_state_id}selected{/if}>
 {$capture_state[lst].capture_state_name}
@@ -60,10 +60,10 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 
 <div class="form-group">
-<label for="country_id" class="col-sm-1 control-label">Pays :</label>
+<label for="country_id" class="col-sm-1 control-label">{t}Pays :{/t}</label>
 <div class="col-sm-2">
 <select class="form-control" id="country_id" name="country_id">
-<option value="" {if $dataSearch.country_id == ""}selected{/if}>Sélectionnez...</option>
+<option value="" {if $dataSearch.country_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 {section name=lst loop=$country}
 <option value={$country[lst].country_id} {if $dataSearch.country_id == $country[lst].country_id}selected{/if}>
 {$country[lst].country_name}
@@ -71,10 +71,10 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 {/section}
 </select>
 </div>
-<label for="ices_id" class="col-sm-1 control-label">Zone CIEM :</label>
+<label for="ices_id" class="col-sm-1 control-label">{t}Zone CIEM :{/t}</label>
 <div class="col-sm-2">
 <select class="form-control" id="ices_id" name="ices_id">
-<option value="" {if $dataSearch.ices_id == ""}selected{/if}>Sélectionnez...</option>
+<option value="" {if $dataSearch.ices_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 {section name=lst loop=$ices}
 <option value={$ices[lst].ices_id} {if $dataSearch.ices_id == $ices[lst].ices_id}selected{/if}>
 {$ices[lst].ices_name}
@@ -82,10 +82,10 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 {/section}
 </select>
 </div>
-<label for="gear_type_id" class="col-sm-2 control-label">Engin de pêche :</label>
+<label for="gear_type_id" class="col-sm-2 control-label">{t}Engin de pêche :{/t}</label>
 <div class="col-sm-4">
 <select class="form-control " id="gear_type_id" name="gear_type_id">
-<option value="" {if $dataSearch.gear_type_id == ""}selected{/if}>Sélectionnez...</option>
+<option value="" {if $dataSearch.gear_type_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 {section name=lst loop=$gear_type}
 <option value={$gear_type[lst].gear_type_id} {if $dataSearch.gear_type_id == $gear_type[lst].gear_type_id}selected{/if}>
 {$gear_type[lst].gear_type_name}
@@ -95,10 +95,10 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 </div>
 
-<label for="environment_id" class="col-sm-1 control-label">Milieu :</label>
+<label for="environment_id" class="col-sm-1 control-label">{t}Milieu :{/t}</label>
 <div class="col-sm-2">
 <select class="form-control" id="environment_id" name="environment_id">
-<option value="" {if $dataSearch.environment_id == ""}selected{/if}>Sélectionnez...</option>
+<option value="" {if $dataSearch.environment_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 {section name=lst loop=$environment}
 <option value={$environment[lst].environment_id} {if $dataSearch.environment_id == $environment[lst].environment_id}selected{/if}>
 {$environment[lst].environment_name}
@@ -106,7 +106,7 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 {/section}
 </select>
 </div>
-<label for="year_debut" class="col-sm-2 control-label">Année de la déclaration : de </label>
+<label for="year_debut" class="col-sm-2 control-label">{t}Année de la déclaration : de {/t}</label>
 <div class="col-sm-2">
 <select class="form-control" id="year_debut" name="year_debut">
 {foreach from=$years item=year}
@@ -119,7 +119,7 @@ title="Recherche à partir du N° de la déclaration, du code du pêcheur ou du 
 </div>
 <div class="form-group">
 <input type="submit" class="btn btn-success col-sm-offset-4 col-sm-2" value="{t}Rechercher{/t}" autofocus>
- <label for="year_fin" class="col-sm-2 control-label">à </label>
+ <label for="year_fin" class="col-sm-2 control-label">{t}à{/t} </label>
  <div class="col-sm-2">
 <select class="form-control" id="year_fin" name="year_fin">
 {foreach from=$years item=year}

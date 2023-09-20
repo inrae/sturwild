@@ -1,8 +1,8 @@
-<h2>Création / modification de la précision de la location</h2>
+<h2>{t}Création / modification de la précision de la location{/t}</h2>
 
 <div class="row">
   <div class="col-sm-12">
-    <a href="index.php?module=accuracyList">Retour à la liste</a>
+    <a href="index.php?module=accuracyList">{t}Retour à la liste{/t}</a>
   </div>
 
   <div class="col-sm-6">
@@ -12,7 +12,7 @@
       <input type="hidden" name="action" value="Write">
       <div class="form-group">
         <label for="accuracy_name" class="control-label col-sm-4">
-          Libellé <span class="red">*</span> :</label>
+          Libellé  :{/t}<span class="red">*</span></label>
         <div class="col-sm-8">
           <input class="form-control" id="accuracy_name" name="accuracy_name" value="{$data.accuracy_name}"
              autofocus required>
@@ -26,6 +26,6 @@
       </div>
     </form>
     <span class="red">*</span>
-    <span class="messagebas">Champ obligatoire</span>
+    <span class="messagebas">{t}Champ obligatoire{/t}</span>
   </div>
 </div>

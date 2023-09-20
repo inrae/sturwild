@@ -1,4 +1,4 @@
-<h2>Liste des types d'événement</h2>
+<h2>{t}Liste des types d'événement{/t}</h2>
 {if $droits.param == 1}
 <a href="index.php?module=eventTypeChange&event_type_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
@@ -8,8 +8,8 @@
 <table id="eventTypeListe"  class="table table-bordered datatable table-hover">
 	<thead>
 		<tr>
-			<th>id</th>
-			<th>Libellé</th>
+			<th>{t}id{/t}</th>
+			<th>{t}Libellé{/t}</th>
 		</tr>
 	</thead>
 	<tbody> {section name=lst loop=$data}

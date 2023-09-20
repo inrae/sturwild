@@ -1,4 +1,4 @@
-<h2>About STURWILD</h2>
+<h2>{t}About STURWILD{/t}</h2>
 <p>
     Version {$version} of {$versiondate}.
 </p>

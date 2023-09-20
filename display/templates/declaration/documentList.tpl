@@ -20,14 +20,14 @@ $(document).ready(function() {
 <table id="documentList" class="table table-bordered table-hover" >
 <thead>
 <tr>
-<th>N° poisson</th>
-<th>Vignette</th>
-<th>Nom du document</th>
-<th>Description</th>
-<th>Taille</th>
-<th>Date<br>d'import</th>
+<th>{t}N° poisson{/t}</th>
+<th>{t}Vignette{/t}</th>
+<th>{t}Nom du document{/t}</th>
+<th>{t}Description{/t}</th>
+<th>{t}Taille{/t}</th>
+<th>{t}Date d'import{/t}</th>
 {if $droits["gestion"] == 1 }
-<th>Supprimer</th>
+<th>{t}Supprimer{/t}</th>
 {/if}
 </tr>
 </thead>

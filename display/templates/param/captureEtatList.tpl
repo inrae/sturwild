@@ -1,4 +1,4 @@
-<h2>Liste des états à la capture</h2>
+<h2>{t}Liste des états à la capture{/t}</h2>
 {if $droits.param == 1}
 <a href="index.php?module=captureEtatChange&capture_state_id=0">
 <img src="display/images/new.png" height="20">Nouveau</a>
@@ -8,7 +8,7 @@
 <table class="table table-bordered table-hover datatable" id="captureEtatListe" >
 	<thead>
 		<tr>
-			<th>Libellé</th>
+			<th>{t}Libellé{/t}</th>
 		</tr>
 	</thead>
 	<tbody> {section name=lst loop=$data}

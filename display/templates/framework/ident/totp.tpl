@@ -1,4 +1,4 @@
-<h2>{t}Vérification du compte avec la double authentification{/t}</h2>
+<h2>{t}{t}Vérification du compte avec la double authentification{/t}{/t}</h2>
 <div class="row">
   <div class="col-lg-6 col-md-8">
     <div class="bg-info ">

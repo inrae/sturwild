@@ -8,89 +8,89 @@
 <div class="row">
 <div class="form-display col-sm-6">
   <dl class="dl-horizontal">
-    <dt>Statut  :</dt>
+    <dt>{t}Statut  :{/t}</dt>
     <dd>{$data.status_name}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Espèce :</dt>
+    <dt>{t}Espèce :{/t}</dt>
     <dd>{$data.species_name}&nbsp;({if $data.identification_quality == 1}Sûr{else}incertain{/if})
   </dl>
   <dl class="dl-horizontal">
-    <dt>Nombre total<br>d'esturgeons<br>capturés :</dt>
+    <dt>{t}Nombre total d'esturgeons capturés :{/t}</dt>
     <dd>{$data.caught_number}</dl>
   <dl class="dl-horizontal">
-  <dt>Année de capture :</dt>
+  <dt>{t}Année de capture :{/t}</dt>
   <dd>{$data.year}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Date de capture {if !empty($data.estimated_capture_date)}(période/heure){/if} :</dt>
+    <dt>{t}Date de capture :{/t}{if !empty($data.estimated_capture_date)}(période/heure){/if}</dt>
     <dd>{$data.capture_date}{if !empty($data.estimated_capture_date)}&nbsp;({$data.estimated_capture_date}){/if}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>depth (ou gamme de depth) :</dt>
+    <dt>{t}Profondeur (ou gamme de profondeur) :{/t}</dt>
     <dd>{if $data.depth > 0}{$data.depth} m{/if}
       {if ($data.depth_min > 0 || $data.depth_max > 0)}(min : {$data.depth_min} m. - max : {$data.depth_max} m.){/if}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Statut du déclarant  :</dt>
+    <dt>{t}Statut du déclarant  :{/t}</dt>
     <dd>{$data.origin_name}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Code du pécheur :</dt>
+    <dt>{t}Code du pécheur :{/t}</dt>
     <dd>{$data.fisher_code}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Port d'attache du navire de pêche :</dt>
+    <dt>{t}Port d'attache du navire de pêche :{/t}</dt>
     <dd>{$data.harbour_vessel}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Autre correspondant et coordonnées :</dt>
+    <dt>{t}Autre correspondant et coordonnées :{/t}</dt>
     <dd>{$data.contact}&nbsp;<span class="textareaDisplay">{$data.contact_coord}</span></dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Mode de capture  :</dt>
+    <dt>{t}Mode de capture  :{/t}</dt>
     <dd>{$data.capture_method_name}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Type d'engin utilisé et maille :</dt>
+    <dt>{t}Type d'engin utilisé et maille :{/t}</dt>
     <dd>{$data.gear_type_name} {$data.gear_mesh}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Espèce ciblée :</dt>
+    <dt>{t}Espèce ciblée :{/t}</dt>
     <dd>{$data.target_species}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Mode de déclaration :</dt>
+    <dt>{t}Mode de déclaration :{/t}</dt>
     <dd>{$data.declaration_mode}</dd>
   </dl>
 
   <dl class="dl-horizontal">
-    <dt>Observations :</dt>
+    <dt>{t}Observations :{/t}</dt>
     <dd><span class="textareaDisplay">{$data.remarks}</span></dd>
   </dl>
   <fieldset>
-    <legend>Informations sur le lot d'esturgeons</legend>
+    <legend>{t}Informations sur le lot d'esturgeons{/t}</legend>
     {if ($data.length_min > 0 || $data.length_max > 0)}
       <dl class="dl-horizontal">
-        <dt>Longueur totale :</dt>
-        <dd>de : {$data.length_min} mm à : {$data.length_max} mm</dd>
+        <dt>{t}Longueur totale :{/t}</dt>
+        <dd>{t}de :{/t} {$data.length_min} mm {t}à :{/t} {$data.length_max} mm</dd>
       </dl>
     {/if}
     {if $data.weight_min > 0 || $data.weight_max > 0}
       <dl class="dl-horizontal">
-        <dt>Masse :</dt>
-        <dd>de : {$data.weight_min} kg à : {$data.weight_max} kg</dd>
+        <dt>{t}Masse :{/t}</dt>
+        <dd>{t}de :{/t} {$data.weight_min} kg {t}à :{/t} {$data.weight_max} kg</dd>
       </dl>
     {/if}
     <dl class="dl-horizontal">
-      <dt>État à la capture :</dt>
+      <dt>{t}État à la capture :{/t}</dt>
       <dd>{$data.capture_state_name}</dd>
     </dl>
     <dl class="dl-horizontal">
-      <dt>Manipulation<br>effectuée :</dt>
+      <dt>{t}Manipulation effectuée :{/t}</dt>
       <dd>{$data.handling}</dd>
     </dl>
-      <dl class="dl-horizontal"><dt>Devenir du lot :</dt>
+      <dl class="dl-horizontal"><dt>{t}Devenir du lot :{/t}</dt>
       <dd>{$data.fate_name}</dd>
     </dl>
   </fieldset>

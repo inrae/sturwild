@@ -1,9 +1,9 @@
-<h2>Modification d'un événement</h2>
+<h2>{t}Modification d'un événement{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
 <a href="index.php?module=declarationList">
 	<img src="display/images/list.png" height="25">
-	Retour à la liste des déclarations
+	{t}Retour à la liste{/t} des déclarations
 </a>
 <a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
 <img src="display/images/display.png" height="25">
@@ -20,7 +20,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				<input type="hidden" name="action" value="Write">
 				<div class="form-group">
 					<label for="event_type_id" class="control-label col-md-4">
-						Type d'événement <span class="red">*</span> :
+						Type d'événement  :{/t}<span class="red">*</span>
 					</label>
 					<div class="col-md-8">
 						<select id="event_type_id" name="event_type_id" autofocus>
@@ -33,14 +33,14 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-				<label for="event_date" class="control-label col-md-4">Date de l'événement <span class="red">*</span> :</label>
+				<label for="event_date" class="control-label col-md-4">Date de l'événement  :{/t}<span class="red">*</span></label>
 				<div class="col-md-8">
 				<input class="form-control datepicker" id="event_date" name="event_date" value="{$data.event_date}" required>
 				</div>
 				</div>
 
 				<div class="form-group">
-				<label for="event_remarks" class="control-label col-md-4">Commentaire :</label>
+				<label for="event_remarks" class="control-label col-md-4">Commentaire :{t}{/t}</label>
 				<div class="col-md-8">
 				<input class="form-control " id="event_remarks" name="event_remarks" value="{$data.event_remarks}">
 				</div>
@@ -56,6 +56,6 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 
 
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 </div>

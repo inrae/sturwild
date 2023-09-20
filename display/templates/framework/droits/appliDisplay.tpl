@@ -1,9 +1,9 @@
-<a href="index.php?module=appliList">{t}Retour à la liste des applications{/t}</a>
-<h2>{t}Liste des droits disponibles pour l'application{/t}
+<a href="index.php?module=appliList">{t}{t}Retour à la liste{/t} des applications{/t}</a>
+<h2>{t}{t}Liste des droits disponibles pour l'application{/t}
     <a href="index.php?module=appliChange&aclappli_id={$data.aclappli_id}">
         {$data.appli} {if $data.applidetail}({$data.applidetail}){/if}
     </a>
-</h2>
+{/t}</h2>
 <div class="col-md-6">
     <a href="index.php?module=appliChange&aclappli_id={$data.aclappli_id}">
         <img src="display/images/edit.gif" height="25">

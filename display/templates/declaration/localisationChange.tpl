@@ -73,12 +73,12 @@ $(document).ready(function() {
 
 });
 </script>
-<h2>Modification de la location - N° {$data.declaration_id}</h2>
+<h2>{t}Modification de la location - N° {$data.declaration_id}{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
 <a href="index.php?module=declarationList">
 	<img src="display/images/list.png" height="25">
-	Retour à la liste des déclarations
+	{t}Retour à la liste{/t} des déclarations
 </a>
 <a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
 <img src="display/images/display.png" height="25">
@@ -98,7 +98,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="country_id"  name="country_id" autofocus>
-						<option value="" {if $data.country_id == ""}selected{/if}>Sélectionnez...</option>
+						<option value="" {if $data.country_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 						{section name=lst loop=$country}
 						<option value="{$country[lst].country_id}" {if $country[lst].country_id == $data.country_id}selected{/if}>
 						{$country[lst].country_name}
@@ -113,7 +113,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="ices_id"  name="ices_id" >
-						<option value="" {if $data.ices_id == ""}selected{/if}>Sélectionnez...</option>
+						<option value="" {if $data.ices_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 						{section name=lst loop=$ices}
 						<option value="{$ices[lst].ices_id}" {if $ices[lst].ices_id == $data.ices_id}selected{/if}>
 						{$ices[lst].ices_name}
@@ -128,7 +128,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="environment_id"  name="environment_id" >
-						<option value="" {if $data.environment_id == ""}selected{/if}>Sélectionnez...</option>
+						<option value="" {if $data.environment_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 						{section name=lst loop=$environment}
 						<option value="{$environment[lst].environment_id}" {if $environment[lst].environment_id == $data.environment_id}selected{/if}>
 						{$environment[lst].environment_name}
@@ -143,7 +143,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="environment_detail_id"  name="environment_detail_id" >
-						<option value="" {if $data.environment_detail_id == ""}selected{/if}>Sélectionnez...</option>
+						<option value="" {if $data.environment_detail_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 						{section name=lst loop=$environment_detail}
 						<option value="{$environment_detail[lst].environment_detail_id}" {if $environment_detail[lst].environment_detail_id == $data.environment_detail_id}selected{/if}>
 						{$environment_detail[lst].environment_detail_name}
@@ -256,10 +256,10 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="accuracy_id" class="control-label col-sm-4">Précision estimée du point GPS :</label>
+					<label for="accuracy_id" class="control-label col-sm-4">Précision estimée du point GPS :{t}{/t}</label>
 					<div class="col-sm-8">
 						<select id="accuracy_id" name="accuracy_id" class="form-control">
-							<option value="" {if $data.accuracy_id == ""}selected{/if}>Sélectionnez...</option>
+							<option value="" {if $data.accuracy_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>
 							{foreach $accuracys as $accuracy}
 								<option value="{$accuracy.accuracy_id}" {if $data.accuracy_id == $accuracy.accuracy_id}selected{/if}>{$accuracy.accuracy_name}</option>
 							{/foreach}
@@ -276,7 +276,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 
 
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 <!-- Ajout de la carte pour visualiser le point de capture -->
 <div class="col-sm-6" style="height:600px;" id="map"></div>

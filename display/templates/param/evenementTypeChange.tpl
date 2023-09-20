@@ -1,7 +1,7 @@
-<h2>Modification d'un type d'événement</h2>
+<h2>{t}Modification d'un type d'événement{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=eventTypeList">Retour à la liste</a>
+<a href="index.php?module=eventTypeList">{t}Retour à la liste{/t}</a>
 </div>
 <div class="col-sm-6">
 <form class="form-horizontal protoform"  method="post" action="index.php">
@@ -11,7 +11,7 @@
 <input type="hidden" name="action" value="Write">
 <div class="form-group">
 <label for="event_type_name" class="control-label col-sm-4">
-	Type d'événement <span class="red">*</span> :</label>
+	Type d'événement  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input  class="form-control" id="event_type_name" name="event_type_name"
 				value="{$data.event_type_name}" maxlength="255" autofocus required>
@@ -25,6 +25,6 @@
  </div>
 </form>
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 </div>

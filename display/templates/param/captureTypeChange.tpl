@@ -1,7 +1,7 @@
-<h2>Modification d'un type de capture</h2>
+<h2>{t}Modification d'un type de capture{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=captureTypeList">Retour à la liste</a>
+<a href="index.php?module=captureTypeList">{t}Retour à la liste{/t}</a>
 </div>
 <div class="col-sm-6">
 <form class="form-horizontal protoform" method="post" action="index.php?module=captureTypeWrite">
@@ -12,7 +12,7 @@
 
 	<div class="form-group">
 	<label for="origin_name" class="control-label col-sm-4">
-		Type de capture <span class="red">*</span> :
+		Type de capture  :{/t}<span class="red">*</span>
 		</label>
 		<div class="col-sm-8">
 			<input class="form-control" id="origin_name" name="origin_name"
@@ -27,6 +27,6 @@
  </div>
 		</form>
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 </div>

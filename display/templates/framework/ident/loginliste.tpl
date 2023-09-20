@@ -20,7 +20,7 @@ $(document).ready(function() {
 	});
 });
 </script>
-<h2>{t}Liste des logins déclarés dans la base de données{/t}</h2>
+<h2>{t}{t}Liste des logins déclarés dans la base de données{/t}{/t}</h2>
 
 <a href="index.php?module=loginChange&id=0">{t}Nouveau login{/t}</a>
 <div class="row">

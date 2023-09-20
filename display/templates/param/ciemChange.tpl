@@ -1,9 +1,9 @@
 
-<h2>Création / modification d'une zone CIEM</h2>
+<h2>{t}Création / modification d'une zone CIEM{/t}</h2>
 
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=icesList">Retour à la liste</a>
+<a href="index.php?module=icesList">{t}Retour à la liste{/t}</a>
 </div>
 
 <div class="col-sm-6">
@@ -14,7 +14,7 @@
 <input type="hidden" name="action" value="Write">
 	<div class="form-group">
 <label for="ices_name" class="control-label col-sm-4">
-		Libelle de la zone CIEM <span class="red">*</span> :</label>
+		Libelle de la zone CIEM  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control"  id="ices_name" name="ices_name"
 				value="{$data.ices_name}" maxlength="255" autofocus required>
@@ -28,6 +28,6 @@
  </div>
  			</form>
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 </div>

@@ -5,13 +5,13 @@
 <thead>
 <tr>
 {if $droits["gestion"] == 1}
-<th>Modifier</th>
+<th>{t}Modifier{/t}</th>
 {/if}
-<th>Type</th>
-<th>Date</th>
-<th>Commentaire</th>
+<th>{t}Type{/t}</th>
+<th>{t}Date{/t}</th>
+<th>{t}Commentaire{/t}</th>
 {if $droits["gestion"] == 1}
-<th>Utilisateur</th>
+<th>{t}Utilisateur{/t}</th>
 {/if}
 </tr>
 </thead>

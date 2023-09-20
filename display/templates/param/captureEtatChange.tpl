@@ -1,7 +1,7 @@
-<h2>Modification d'un état à la capture</h2>
+<h2>{t}Modification d'un état à la capture{/t}</h2>
 <div class="row">
 <div class="col-sd-12">
-<a href="index.php?module=captureEtatList">Retour à la liste</a>
+<a href="index.php?module=captureEtatList">{t}Retour à la liste{/t}</a>
 </div>
 <div class="col-sm-6">
 <form  class="form-horizontal protoform" method="post" action="index.php">
@@ -10,7 +10,7 @@
 		<input type="hidden" name="moduleBase" value="captureEtat">
 		<input type="hidden" name="action" value="Write">
 	<div class="form-group">
-		<label for="capture_state_name" class="control-label col-sm-4">Etat à la capture <span class="red">*</span> :</label>
+		<label for="capture_state_name" class="control-label col-sm-4">{t}Etat à la capture:{/t} <span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control" id="capture_state_name" name="capture_state_name"
 				value="{$data.capture_state_name}" maxlength="255" autofocus required>
@@ -25,6 +25,6 @@
 </form>
 
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 </div>

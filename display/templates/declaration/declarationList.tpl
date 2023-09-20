@@ -8,28 +8,28 @@
 </a>
 {/if}
 {if count($data) > 0}
-<br>
+ 
 <a href="index.php?module=declarationExport">
 <img src="display/images/csv_text.png" height="25">
-Exporter la liste au format CSV</a>
+{t}Exporter la liste au format CSV{/t}</a>
 &nbsp;
 <a href="index.php?module=fishExport"><img src="display/images/csv_text.png" height="25">Exporter les poissons correspondants au format CSV</a>
 {/if}
 <table  id="declarationList" data-order='[[0,"desc"]]' class="table table-bordered table-hover datatable " >
 <thead>
 <tr>
-<th>N°</th>
-<th>Espèce</th>
-<th>État à<br>la capture</th>
-<th>Année</th>
-<th>Date de<br>capture</th>
-<th>Localisation</th>
-<th>Nbre de<br>poissons</th>
-<th title="Nombre total de documents associés, photos, vidéo, etc.">Nbre de<br>photos</th>
-<th>Engin de pêche</th>
-<th>Code du<br>pécheur</th>
-<th>Interlocuteur</th>
-<th>Statut</th>
+<th>{t}N°{/t}</th>
+<th>{t}Espèce{/t}</th>
+<th>{t}État à la capture{/t}</th>
+<th>{t}Année{/t}</th>
+<th>{t}Date de capture{/t}</th>
+<th>{t}Localisation{/t}</th>
+<th>{t}Nbre de poissons{/t}</th>
+<th title="{t}Nombre total de documents associés, photos, vidéo, etc.{/t}">Nbre de photos{/t}</th>
+<th>{t}Engin de pêche{/t}</th>
+<th>{t}Code du pécheur{/t}</th>
+<th>{t}Interlocuteur{/t}</th>
+<th>{t}Statut{/t}</th>
 </tr>
 </thead>
 <tbody>

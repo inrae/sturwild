@@ -1,7 +1,7 @@
-<h2>Modification d'un type d'engin de pêche</h2>
+<h2>{t}Modification d'un type d'engin de pêche{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=enginTypeList">Retour à la liste</a>
+<a href="index.php?module=enginTypeList">{t}Retour à la liste{/t}</a>
 </div>
 
 <div class="col-sm-6">
@@ -12,7 +12,7 @@
 <input type="hidden" name="action" value="Write">
 <div class="form-group">
 <label for="gear_type_name" class="control-label col-sm-4">
-	Type d'engin de pêche <span class="red">*</span> :</label>
+	Type d'engin de pêche  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control" id="gear_type_name" name="gear_type_name"
 				value="{$data.gear_type_name}" maxlength="255" autofocus required>
@@ -26,6 +26,6 @@
  </div>
 </form>
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 </div>

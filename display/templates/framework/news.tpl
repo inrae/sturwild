@@ -1,2 +1,2 @@
-<h2>{t}Liste des nouveautés{/t}</h2>
+<h2>{t}{t}Liste des nouveautés{/t}{/t}</h2>
 {$texteNews}

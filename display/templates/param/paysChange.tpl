@@ -1,7 +1,7 @@
-<h2>Modification du country{$data.ices_id}</h2>
+<h2>{t}Modification du country{$data.ices_id}{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
-<a href="index.php?module=countryList">Retour à la liste</a>
+<a href="index.php?module=countryList">{t}Retour à la liste{/t}</a>
 </div>
 <div class="col-sm-6">
 <form class="form-horizontal protoform" method="post" action="index.php">
@@ -12,7 +12,7 @@
 	
 	<div class="form-group">
 <label for="event_date" class="control-label col-sm-4">
-		Nom du country <span class="red">*</span> :</label>
+		Nom du country  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control" id="country_name" name="country_name"
 				value="{$data.country_name}" maxlength="255" autofocus required>
@@ -20,7 +20,7 @@
 	</div>
 	<div class="form-group">
 <label for="event_date" class="control-label col-sm-4">
-		Ordre de tri pour l'affichage <span class="red">*</span> :</label>
+		Ordre de tri pour l'affichage  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 		<input class="form-control nombre" name="country_order" value="{$data.country_order}" required>
 		</div>
@@ -33,6 +33,6 @@
  </div>
 </form>
 <span class="red">*</span>
-<span class="messagebas">Champ obligatoire</span>
+<span class="messagebas">{t}Champ obligatoire{/t}</span>
 </div>
 </div>

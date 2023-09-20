@@ -12,84 +12,87 @@
  * @author quinton
  *
  */
-class Fish extends ObjetBDD {
+class Fish extends ObjetBDD
+{
 	/**
 	 * Constructeur
 	 *
 	 * @param PDO $link
 	 * @param array $param
 	 */
-	function __construct($link, $param = NULL) {
-		if (! is_array ( $param ))
-			$param = array ();
+	function __construct($link, $param = NULL)
+	{
+		if (!is_array($param))
+			$param = array();
 		$this->paramori = $param;
 		$this->table = "fish";
 		$this->id_auto = 1;
-		$this->colonnes = array (
-				"fish_id" => array (
-						"type" => 1,
-						"requis" => 1,
-						"key" => 1,
-						"defaultValue" => 0
-				),
-				"declaration_id" => array (
-						"type" => 1,
-						"requis" => 1,
-						"parentAttrib" => 1
-				),
-				"species_id" => array (
-						"type" => 1,
-						"defaultValue" => 1
-				),
-				"presence_tag_d" => array (
-						"type" => 1
-				),
-				"fate_id" => array (
-						"type" => 1
-				),
-				"capture_state_id" => array (
-						"type" => 1
-				),
-				"weight" => array (
-						"type" => 1
-				),
-				"handling" => array (
-						"type" => 0
-				),
-				"tag_number" => array (
-						"type" => 0
-				),
-				"fish_length" => array (
-						"type" => 1
-				),
-				"estimated_cohort" => array (
-						"type" => 1
-				),
-				"validated_cohort" => array (
-						"type" => 1
-				),
-				"background" => array (
-						"type" => 0
-				),
-				"remarks" => array (
-						"type" => 0
-				),
-				"identification_quality" => array (
-						"type" => 1
-				)
+		$this->colonnes = array(
+			"fish_id" => array(
+				"type" => 1,
+				"requis" => 1,
+				"key" => 1,
+				"defaultValue" => 0
+			),
+			"declaration_id" => array(
+				"type" => 1,
+				"requis" => 1,
+				"parentAttrib" => 1
+			),
+			"species_id" => array(
+				"type" => 1,
+				"defaultValue" => 1
+			),
+			"presence_tag_d" => array(
+				"type" => 1
+			),
+			"fate_id" => array(
+				"type" => 1
+			),
+			"capture_state_id" => array(
+				"type" => 1
+			),
+			"weight" => array(
+				"type" => 1
+			),
+			"handling" => array(
+				"type" => 0
+			),
+			"tag_number" => array(
+				"type" => 0
+			),
+			"fish_length" => array(
+				"type" => 1
+			),
+			"estimated_cohort" => array(
+				"type" => 1
+			),
+			"validated_cohort" => array(
+				"type" => 1
+			),
+			"background" => array(
+				"type" => 0
+			),
+			"remarks" => array(
+				"type" => 0
+			),
+			"identification_quality" => array(
+				"type" => 1
+			)
 		);
-		$param ["fullDescription"] = 1;
-		parent::__construct ( $link, $param );
+		$param["fullDescription"] = 1;
+		parent::__construct($link, $param);
 	}
-	function supprimer($id) {
-		if ($id > 0 && is_numeric ( $id )) {
+	function supprimer($id)
+	{
+		if ($id > 0 && is_numeric($id)) {
 			/*
 			 * Recherche les pieces jointes attachees, et les supprime
 			 */
 			require_once 'modules/classes/document.class.php';
-			$document = new Document ( $this->connection, $this->paramori );
-			$document->deleteFromField ( $id, "fish_id" );
-			return parent::supprimer ( $id );
+			$document = new Document($this->connection, $this->paramori);
+			$document->deleteFromField($id, "fish_id");
+			return parent::supprimer($id);
 		}
 	}
 	/**
@@ -97,18 +100,19 @@ class Fish extends ObjetBDD {
 	 *
 	 * @see ObjetBDD::ecrire()
 	 */
-	function ecrire($data) {
-		$id = parent::ecrire ( $data );
-		if ($id > 0 && is_numeric ( $data ["declaration_id"] )) {
+	function ecrire($data)
+	{
+		$id = parent::ecrire($data);
+		if ($id > 0 && is_numeric($data["declaration_id"])) {
 			/*
 			 * Recherche si l'etat du lot a ete renseigne
 			 */
 			require_once 'modules/classes/declaration.class.php';
-			$declaration = new Declaration ( $this->connection, $this->paramori );
-			$dataDecl = $declaration->lire ( $data ["declaration_id"] );
-			if ($dataDecl ["declaration_id"] > 0 && strlen ( $dataDecl ["capture_state_id"] ) == 0 && $data ["capture_state_id"] > 0) {
-				$dataDecl ["capture_state_id"] = $data ["capture_state_id"];
-				$declaration->ecrire ( $dataDecl );
+			$declaration = new Declaration($this->connection, $this->paramori);
+			$dataDecl = $declaration->lire($data["declaration_id"]);
+			if ($dataDecl["declaration_id"] > 0 && strlen($dataDecl["capture_state_id"]) == 0 && $data["capture_state_id"] > 0) {
+				$dataDecl["capture_state_id"] = $data["capture_state_id"];
+				$declaration->ecrire($dataDecl);
 			}
 		}
 		return $id;
@@ -120,8 +124,9 @@ class Fish extends ObjetBDD {
 	 * @param int $id
 	 * @return tableau|NULL
 	 */
-	function getListeFromDeclaration($id) {
-		if ($id > 0 && is_numeric ( $id )) {
+	function getListeFromDeclaration($id)
+	{
+		if ($id > 0 && is_numeric($id)) {
 			$sql = "select * from fish
 					left outer join species using (species_id)
 					left outer join fate using (fate_id)
@@ -129,7 +134,7 @@ class Fish extends ObjetBDD {
 					left outer join capture_state using (capture_state_id)
 					where declaration_id = :declaration_id
 					order by fish_id";
-			return $this->getListeParamAsPrepared( $sql, array("declaration_id"=>$id) );
+			return $this->getListeParamAsPrepared($sql, array("declaration_id" => $id));
 		} else
 			return null;
 	}
@@ -139,14 +144,15 @@ class Fish extends ObjetBDD {
 	 * @param unknown $param
 	 * @return tableau
 	 */
-	function getDataToExport($param) {
+	function getDataToExport($param)
+	{
 		/*
 		 * Lecture des identifiants des declarations
 		 */
 		require_once 'modules/classes/declaration.class.php';
-		$declaration = new Declaration ( $this->connection, $this->paramori );
-		$declarations = $declaration->getIdFromParam ( $param );
-		if (count ( $declarations ) > 0) {
+		$declaration = new Declaration($this->connection, $this->paramori);
+		$declarations = $declaration->getIdFromParam($param);
+		if (count($declarations) > 0) {
 			$sql = "select fish.*,
 				tag_presence_name, species_name, capture_state_name, fate_name";
 			$from = " from fish
@@ -161,16 +167,16 @@ class Fish extends ObjetBDD {
 
 			$first = true;
 			$dataWhere = "";
-			foreach ( $declarations as $value ) {
+			foreach ($declarations as $value) {
 				$first == true ? $first = false : $dataWhere .= ", ";
-				$dataWhere .= $value ["declaration_id"];
+				$dataWhere .= $value["declaration_id"];
 			}
 			$where = " where declaration_id in ($dataWhere)";
 			$order = " order by declaration_id, fish_id";
 			/*
 			 * Traitement de la commande
 			 */
-			return $this->getListeParam( $sql . $from . $where . $order );
+			return $this->getListeParam($sql . $from . $where . $order);
 		}
 	}
 }
@@ -181,56 +187,58 @@ class Fish extends ObjetBDD {
  * @author quinton
  *
  */
-class Lot extends ObjetBDD {
+class Lot extends ObjetBDD
+{
 	/**
 	 * Constructeur
 	 *
 	 * @param PDO $link
 	 * @param array $param
 	 */
-	function __construct($link, $param = NULL) {
-		if (! is_array ( $param ))
-			$param = array ();
+	function __construct($link, $param = NULL)
+	{
+		if (!is_array($param))
+			$param = array();
 		$this->table = "lot";
 		$this->id_auto = 0;
-		$this->colonnes = array (
-				"declaration_id" => array (
-						"type" => 1,
-						"requis" => 1,
-						"key" => 1
-				),
-				"species_id" => array (
-						"type" => 1,
-						"defaultValue" => 1
-				),
-				"fate_id" => array (
-						"type" => 1,
-						"defaultValue" => 1
-				),
-				"etat_capture_lot" => array (
-						"type" => 0
-				),
-				"caught_number" => array (
-						"type" => 1,
-						"requis" => 1,
-						"defaultValue" => 1
-				),
-				"longueur_gamme" => array (
-						"type" => 0
-				),
-				"weight_gamme" => array (
-						"type" => 0
-				),
-				"handling" => array (
-						"type" => 0
-				),
-				"identification_quality" => array (
-						"type" => 1,
-						"defaultValue" => 0
-				)
+		$this->colonnes = array(
+			"declaration_id" => array(
+				"type" => 1,
+				"requis" => 1,
+				"key" => 1
+			),
+			"species_id" => array(
+				"type" => 1,
+				"defaultValue" => 1
+			),
+			"fate_id" => array(
+				"type" => 1,
+				"defaultValue" => 1
+			),
+			"etat_capture_lot" => array(
+				"type" => 0
+			),
+			"caught_number" => array(
+				"type" => 1,
+				"requis" => 1,
+				"defaultValue" => 1
+			),
+			"longueur_gamme" => array(
+				"type" => 0
+			),
+			"weight_gamme" => array(
+				"type" => 0
+			),
+			"handling" => array(
+				"type" => 0
+			),
+			"identification_quality" => array(
+				"type" => 1,
+				"defaultValue" => 0
+			)
 		);
-		$param ["fullDescription"] = 1;
-		parent::__construct ( $link, $param );
+		$param["fullDescription"] = 1;
+		parent::__construct($link, $param);
 	}
 
 	/*
@@ -245,14 +253,13 @@ class Lot extends ObjetBDD {
 	 * @param int $id
 	 * @return array
 	 */
-	function getDetail($id) {
-		if ($id > 0 && is_numeric ( $id )) {
-			$sql = "select * from lot
+	function getDetail(int $id)
+	{
+		$sql = "select * from lot
 					left outer join species using(species_id)
 					left outer join fate using (fate_id)
 					where declaration_id = :declaration_id";
-			return $this->lireParamAsPrepared( $sql, array("declaration_id"=>$id) );
-		}
+		return $this->lireParamAsPrepared($sql, array("declaration_id" => $id));
 	}
 }
 
@@ -262,31 +269,33 @@ class Lot extends ObjetBDD {
  * @author quinton
  *
  */
-class Species extends ObjetBDD {
+class Species extends ObjetBDD
+{
 	/**
 	 * Constructeur
 	 *
 	 * @param PDO $link
 	 * @param array $param
 	 */
-	function __construct($link, $param = NULL) {
-		if (! is_array ( $param ))
-			$param = array ();
+	function __construct($link, $param = NULL)
+	{
+		if (!is_array($param))
+			$param = array();
 		$this->table = "species";
 		$this->id_auto = 1;
-		$this->colonnes = array (
-				"species_id" => array (
-						"type" => 1,
-						"requis" => 1,
-						"key" => 1,
-						"defaultValue" => 0
-				),
-				"species_name" => array (
-						"requis" => 1
-				)
+		$this->colonnes = array(
+			"species_id" => array(
+				"type" => 1,
+				"requis" => 1,
+				"key" => 1,
+				"defaultValue" => 0
+			),
+			"species_name" => array(
+				"requis" => 1
+			)
 		);
-		$param ["fullDescription"] = 1;
-		parent::__construct ( $link, $param );
+		$param["fullDescription"] = 1;
+		parent::__construct($link, $param);
 	}
 }
 
@@ -296,31 +305,33 @@ class Species extends ObjetBDD {
  * @author quinton
  *
  */
-class Fate extends ObjetBDD {
+class Fate extends ObjetBDD
+{
 	/**
 	 * Constructeur
 	 *
 	 * @param PDO $link
 	 * @param array $param
 	 */
-	function __construct($link, $param = NULL) {
-		if (! is_array ( $param ))
-			$param = array ();
+	function __construct($link, $param = NULL)
+	{
+		if (!is_array($param))
+			$param = array();
 		$this->table = "fate";
 		$this->id_auto = 1;
-		$this->colonnes = array (
-				"fate_id" => array (
-						"type" => 1,
-						"requis" => 1,
-						"key" => 1,
-						"defaultValue" => 0
-				),
-				"fate_name" => array (
-						"requis" => 1
-				)
+		$this->colonnes = array(
+			"fate_id" => array(
+				"type" => 1,
+				"requis" => 1,
+				"key" => 1,
+				"defaultValue" => 0
+			),
+			"fate_name" => array(
+				"requis" => 1
+			)
 		);
-		$param ["fullDescription"] = 1;
-		parent::__construct ( $link, $param );
+		$param["fullDescription"] = 1;
+		parent::__construct($link, $param);
 	}
 }
 
@@ -330,31 +341,33 @@ class Fate extends ObjetBDD {
  * @author quinton
  *
  */
-class CaptureState extends ObjetBDD {
+class CaptureState extends ObjetBDD
+{
 	/**
 	 * Constructeur
 	 *
 	 * @param PDO $link
 	 * @param array $param
 	 */
-	function __construct($link, $param = NULL) {
-		if (! is_array ( $param ))
-			$param = array ();
+	function __construct($link, $param = NULL)
+	{
+		if (!is_array($param))
+			$param = array();
 		$this->table = "capture_state";
 		$this->id_auto = 1;
-		$this->colonnes = array (
-				"capture_state_id" => array (
-						"type" => 1,
-						"requis" => 1,
-						"key" => 1,
-						"defaultValue" => 0
-				),
-				"capture_state_name" => array (
-						"requis" => 1
-				)
+		$this->colonnes = array(
+			"capture_state_id" => array(
+				"type" => 1,
+				"requis" => 1,
+				"key" => 1,
+				"defaultValue" => 0
+			),
+			"capture_state_name" => array(
+				"requis" => 1
+			)
 		);
-		$param ["fullDescription"] = 1;
-		parent::__construct ( $link, $param );
+		$param["fullDescription"] = 1;
+		parent::__construct($link, $param);
 	}
 }
 
@@ -364,31 +377,32 @@ class CaptureState extends ObjetBDD {
  * @author quinton
  *
  */
-class TagPresence extends ObjetBDD {
+class TagPresence extends ObjetBDD
+{
 	/**
 	 * Constructeur
 	 *
 	 * @param PDO $link
 	 * @param array $param
 	 */
-	function __construct($link, $param = NULL) {
-		if (! is_array ( $param ))
-			$param = array ();
+	function __construct($link, $param = NULL)
+	{
+		if (!is_array($param))
+			$param = array();
 		$this->table = "tag_presence";
 		$this->id_auto = 1;
-		$this->colonnes = array (
-				"presence_tag_d" => array (
-						"type" => 1,
-						"requis" => 1,
-						"key" => 1,
-						"defaultValue" => 0
-				),
-				"tag_presence_name" => array (
-						"requis" => 1
-				)
+		$this->colonnes = array(
+			"presence_tag_d" => array(
+				"type" => 1,
+				"requis" => 1,
+				"key" => 1,
+				"defaultValue" => 0
+			),
+			"tag_presence_name" => array(
+				"requis" => 1
+			)
 		);
-		$param ["fullDescription"] = 1;
-		parent::__construct ( $link, $param );
+		$param["fullDescription"] = 1;
+		parent::__construct($link, $param);
 	}
 }
-?>

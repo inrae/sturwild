@@ -6,52 +6,52 @@
 {/if}
 <div class="form-display">
 <dl class="dl-horizontal">
-	<dt>Pays :</dt>
+	<dt>{t}Pays :{/t}</dt>
 	<dd>{$location.country_name}
 	</dd>
 	</dl>
 <dl class="dl-horizontal">
-	<dt>Zone CIEM :</dt>
+	<dt>{t}Zone CIEM :{/t}</dt>
 	<dd>{$location.ices_name}</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Milieu :</dt>
+	<dt>{t}Milieu :{/t}</dt>
 	<dd>{$location.environment_name}</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Milieu détaillé :</dt>
+	<dt>{t}Milieu détaillé :{/t}</dt>
 	<dd>{$location.environment_detail_name}</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Détail de la zone :</dt>
+	<dt>{t}Détail de la zone :{/t}</dt>
 	<dd><span class="textareaDisplay">{$location.area_detail}</span></dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Valeurs GPS :</dt>
+	<dt>{t}Valeurs GPS :{/t}</dt>
 	<dd>{$location.longitude_gps}
-	<br>{$location.latitude_gps}
+	 {$location.latitude_gps}
 	</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Coordonnées<br>déclarées :</dt>
+	<dt>{t}Coordonnées déclarées :{/t}</dt>
 	<dd>{$location.longitude_declared_dd}
-	<br>{$location.latitude_declared_dd}
+	 {$location.latitude_declared_dd}
 	</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Coordonnées<br>estimées :</dt>
+	<dt>{t}Coordonnées estimées :{/t}</dt>
 	<dd>{$location.longitude_estimated_dd}
-	<br>{$location.latitude_estimated_dd}
+	 {$location.latitude_estimated_dd}
 	</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Coordonnées<br>retenues :</dt>
+	<dt>{t}Coordonnées retenues :{/t}</dt>
 	<dd>{$location.longitude_dd}
-	<br>{$location.latitude_dd}
+	 {$location.latitude_dd}
 	</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>Précision de la location, si estimée lors de la saisie :</dt>
+	<dt>{t}Précision de la location, si estimée lors de la saisie :{/t}</dt>
 	<dd>{$location.accuracy_name}</dd>
 </dl>
 </div>

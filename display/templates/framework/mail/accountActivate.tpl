@@ -1,4 +1,4 @@
-<h2>{t}Activation ou réactivation de votre compte{/t}</h2>
+<h2>{t}{t}Activation ou réactivation de votre compte{/t}{/t}</h2>
 {t 1=$prenom 2=$nom}Bonjour %1 %2,{/t}
 <br><br>
 {t 1=$applicationName}Votre compte vient d'être activé ou réactivé dans l'application %1{/t}
