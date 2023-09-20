@@ -1,4 +1,4 @@
-<h2>{t}Modification du country{$data.ices_id}{/t}</h2>
+<h2>{t}Modification du pays{$data.ices_id}{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
 <a href="index.php?module=countryList">{t}Retour à la liste{/t}</a>
@@ -12,7 +12,7 @@
 	
 	<div class="form-group">
 <label for="event_date" class="control-label col-sm-4">
-		Nom du country  :{/t}<span class="red">*</span></label>
+		{t}Nom du pays :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control" id="country_name" name="country_name"
 				value="{$data.country_name}" maxlength="255" autofocus required>
@@ -20,7 +20,7 @@
 	</div>
 	<div class="form-group">
 <label for="event_date" class="control-label col-sm-4">
-		Ordre de tri pour l'affichage  :{/t}<span class="red">*</span></label>
+		{t}Ordre de tri pour l'affichage :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 		<input class="form-control nombre" name="country_order" value="{$data.country_order}" required>
 		</div>

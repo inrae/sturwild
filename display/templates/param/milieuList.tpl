@@ -1,4 +1,4 @@
-<h2>{t}Liste des environmentx{/t}</h2>
+<h2>{t}Liste des milieux{/t}</h2>
 {if $droits.param == 1}
 <a href="index.php?module=environmentChange&environment_id=0"><img src="display/images/new.png" height="20">
 Nouveau</a>

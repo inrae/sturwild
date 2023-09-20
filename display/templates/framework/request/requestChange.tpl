@@ -28,7 +28,7 @@ $(document).ready(function() {
 	<div class="col-lg-8 col-md-12">
 		<a href="index.php?module=requestList">
 			<img src="display/images/list.png" height="25">
-			{t}{t}Retour à la liste{/t}{/t}
+			{t}Retour à la liste{/t}
 		</a>
 		&nbsp;
 		<a href="index.php?module=dbstructureSchema" target="_blank">

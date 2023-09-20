@@ -3,15 +3,15 @@
 <div class="col-sm-12">
 <a href="index.php?module=declarationList">
 	<img src="display/images/list.png" height="25">
-	{t}Retour à la liste{/t} des déclarations
+	{t}Retour à la liste des déclarations{/t}
 </a>
 <a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
 <img src="display/images/display.png" height="25">
-Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
+{t}Retour au détail de la déclaration  - N°{/t} {$data.declaration_id}</a>
 </div>
 <div class="col-sm-6">
 	<fieldset>
-		<legend>Esturgeon capturé</legend>
+		<legend>{t}Esturgeon capturé{/t}</legend>
 
 			<form class="form-horizontal protoform" method="post" action="index.php"  enctype="multipart/form-data">
 				<input type="hidden" name="declaration_id" value="{$data.declaration_id}">
@@ -20,12 +20,12 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				<input type="hidden" name="action" value="Write">
 				<div class="form-group">
 					<label for="species_id" class="control-label col-sm-4">
-						Espèce :
+						{t}Espèce :{/t}
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="species_id"  name="species_id" autofocus>
 						<option value="" {if $data.species_id == ""}selected{/if}>
-						Sélectionnez...
+						{t}Sélectionnez...{/t}
 						</option>
 						{section name=lst loop=$species}
 						<option value="{$species[lst].species_id}" {if $species[lst].species_id == $data.species_id}selected{/if}>
@@ -36,20 +36,20 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="identification_quality" class="control-label col-sm-4">Qualité de l'identification :{t}{/t}</label>
+					<label for="identification_quality" class="control-label col-sm-4">{t}Qualité de l'identification :{/t}</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="identification_quality"  name="identification_quality">
 						<option value="0" {if $data.identification_quality == 0}selected{/if}>
-							Détermination incertaine
+							{t}Détermination incertaine{/t}
 						</option>
 						<option value="1" {if $data.identification_quality == 1}selected{/if}>
-							Détermination confirmée
+							{t}Détermination confirmée{/t}
 						</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="presence_tag_d" class="control-label col-sm-4">Marque ?</label>
+					<label for="presence_tag_d" class="control-label col-sm-4">{t}Marque ?{/t}</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="presence_tag_d"  name="presence_tag_d">
 						{section name=lst loop=$tag_presence}
@@ -62,19 +62,19 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="fish_length" class="control-label col-sm-4">Longueur (mm) :{t}{/t}</label>
+					<label for="fish_length" class="control-label col-sm-4"{t}>Longueur (mm) :{/t}</label>
 					<div class="col-sm-8">
 					<input  id="fish_length" class="form-control nombre" name="fish_length" value="{$data.fish_length}">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="weight" class="control-label col-sm-4">Masse (kg) :{t}{/t}</label>
+					<label for="weight" class="control-label col-sm-4">{t}Masse (kg) :{/t}</label>
 					<div class="col-sm-8">
 					<input id="weight" class="form-control taux" name="weight" value="{$data.weight}">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="capture_state_id" class="control-label col-sm-4">État à la capture :{t}{/t}</label>
+					<label for="capture_state_id" class="control-label col-sm-4">{t}État à la capture :{/t}</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="capture_state_id"  name="capture_state_id">
 						<option value="" {if $data.capture_state_id == ""}selected{/if}>
@@ -87,13 +87,13 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="handling" class="control-label col-sm-4">Manipulation effectuee :{t}{/t}</label>
+					<label for="handling" class="control-label col-sm-4">{t}Manipulation effectuee :{/t}</label>
 					<div class="col-sm-8">
 						<input  id="handling" class="form-control" name="handling" value="{$data.handling}">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for=fate_id"" class="control-label col-sm-4">Devenir du poisson :{/t}<span class="red">*</span></label>
+					<label for=fate_id"" class="control-label col-sm-4">{t}Devenir du poisson :{/t}<span class="red">*</span></label>
 					<div class="col-sm-8">
 						<select class="form-control" id="fate_id"  name="fate_id">
 						{section name=lst loop=$fate}
@@ -105,7 +105,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="cohorte" class="control-label col-sm-4">Cohorte estimée / validée :{t}{/t}</label>
+					<label for="cohorte" class="control-label col-sm-4">{t}Cohorte estimée / validée :{/t}</label>
 					<div id="cohorte" class="col-sm-8">
 						<input id="estimated_cohort" class="nombre" name="estimated_cohort" value="{$data.estimated_cohort}">
 						 /
@@ -113,27 +113,27 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="background" class="control-label col-sm-4">Histoire du poisson :{t}{/t}</label>
+					<label for="background" class="control-label col-sm-4">{t}Histoire du poisson :{/t}</label>
 					<div class="col-sm-8">
 						<input  id="background" class="form-control" name="background" value="{$data.background}">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="remarks" class="control-label col-sm-4">Commentaire :{t}{/t}</label>
+					<label for="remarks" class="control-label col-sm-4">{t}Commentaire :{/t}</label>
 					<div class="col-sm-8">
 						<textarea  id="remarks" class="form-control" name="remarks" rows="3" cols="50">{$data.remarks}</textarea>
 					</div>
 				</div>
 				<fieldset>
-				<legend>Photos attachées</legend>
+				<legend>{t}Photos attachées{/t}</legend>
 				<div class="form-group">
-<label for="" class="control-label col-sm-4">Fichier(s) à importer :
+<label for="" class="control-label col-sm-4">{t}Fichier(s) à importer :{/t}
  (doc, jpg, png, pdf, xls, xlsx, docx, odt, ods, csv, mp4, avi, 3gp, wmv, ts, mov)
 </label>
 <label for="" class="control-label col-sm-4"><input type="file" name="documentName[]" class="remarks" multiple></label>
 </div>
 <div class="form-group">
-<label for="document_description" class="control-label col-sm-4">Description :{t}{/t}</label>
+<label for="document_description" class="control-label col-sm-4">{t}Description :{/t}</label>
 <div class="col-sm-8">
 <input type="text" id="document_description" class="form-control" name="document_description" value="">
 </div>
@@ -153,7 +153,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 
 {if $data.fish_id > 0}
 <div class="col-sm-12">
-<fieldset><legend>Photos associées</legend>
+<fieldset><legend>{t}Photos associées{/t}</legend>
 {include file="declaration/documentList.tpl"}
 </fieldset>
 </div>

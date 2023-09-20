@@ -1,4 +1,4 @@
-<h2>{t}{t}Liste des requêtes SQL{/t}{/t}</h2>
+<h2>{t}Liste des requêtes SQL{/t}</h2>
 <a href="index.php?module=requestChange&request_id=0">
     <img src="display/images/new.png" height="25">
     {t}Nouvelle requête...{/t}

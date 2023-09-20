@@ -1,8 +1,8 @@
 {* Administration > ACL droits > Nom de l'appli > Nom du droit d'accès > *}
-<h2>{t}{t}Modification du droit d'une application (module de gestion des droits){/t}{/t}</h2>
+<h2>{t}Modification du droit d'une application (module de gestion des droits){/t}</h2>
 <div class="row">
 <div class="col-lg-6">
-<a href="index.php?module=appliList">{t}{t}Retour à la liste{/t} des applications{/t}</a>
+<a href="index.php?module=appliList">{t}Retour à la liste{/t} des applications{/t}</a>
 &nbsp;<a href="index.php?module=appliDisplay&aclappli_id={$dataAppli.aclappli_id}">
 {t}Retour à{/t} {$dataAppli.appli} {if $dataAppli.applidetail}({$dataAppli.applidetail}){/if}
 </a>

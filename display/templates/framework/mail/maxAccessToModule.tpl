@@ -1,4 +1,4 @@
-<h2>{t}{t}Problème potentiel de sécurité{/t}{/t}</h2>
+<h2>{t}Problème potentiel de sécurité{/t}</h2>
 {t 1=$login 2=$module 3=$date}Le compte %1 a essayé d'accéder au module %2 le %3 en dépassant le nombre autorisé soit en une heure, soit en une journée.{/t}
 <br>
 <br>

@@ -1,4 +1,4 @@
-<h2>{t}Modification d'un environment détaillé{/t}</h2>
+<h2>{t}Modification d'un mileu détaillé{/t}</h2>
 <div class="row">
 <div class="col-sm-12">
 <a href="index.php?module=environmentDetailList">{t}Retour à la liste{/t}</a>
@@ -12,7 +12,7 @@
 
 <div class="form-group">
 <label for="environment_detail_name" class="control-label col-sm-4">
-	Libellé du environment  :{/t}<span class="red">*</span></label>
+	{t}Libellé du milieu  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control" id="environment_detail_name" name="environment_detail_name"
 				value="{$data.environment_detail_name}" maxlength="255" autofocus required>

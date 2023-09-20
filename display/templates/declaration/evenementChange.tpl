@@ -3,15 +3,15 @@
 <div class="col-sm-12">
 <a href="index.php?module=declarationList">
 	<img src="display/images/list.png" height="25">
-	{t}Retour à la liste{/t} des déclarations
+	{t}Retour à la liste des déclarations{/t}
 </a>
 <a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
 <img src="display/images/display.png" height="25">
-Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
+{t}Retour au détail de la déclaration  - N°{/t} {$data.declaration_id}</a>
 </div>
 	<div class="col-sm-6">
 	<fieldset >
-		<legend>Événement</legend>
+		<legend>{t}Événement{/t}</legend>
 			<form class="form-horizontal protoform" method="post" action="index.php">
 				<input type="hidden" name="declaration_id" value="{$data.declaration_id}">
 				<input type="hidden" name="event_id" value="{$data.event_id}">
@@ -20,7 +20,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				<input type="hidden" name="action" value="Write">
 				<div class="form-group">
 					<label for="event_type_id" class="control-label col-md-4">
-						Type d'événement  :{/t}<span class="red">*</span>
+						{t}Type d'événement :{/t}<span class="red">*</span>
 					</label>
 					<div class="col-md-8">
 						<select id="event_type_id" name="event_type_id" autofocus>
@@ -33,14 +33,14 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 					</div>
 				</div>
 				<div class="form-group">
-				<label for="event_date" class="control-label col-md-4">Date de l'événement  :{/t}<span class="red">*</span></label>
+				<label for="event_date" class="control-label col-md-4">{t}Date de l'événement :{/t}<span class="red">*</span></label>
 				<div class="col-md-8">
 				<input class="form-control datepicker" id="event_date" name="event_date" value="{$data.event_date}" required>
 				</div>
 				</div>
 
 				<div class="form-group">
-				<label for="event_remarks" class="control-label col-md-4">Commentaire :{t}{/t}</label>
+				<label for="event_remarks" class="control-label col-md-4">{t}Commentaire :{t}{/t}</label>
 				<div class="col-md-8">
 				<input class="form-control " id="event_remarks" name="event_remarks" value="{$data.event_remarks}">
 				</div>

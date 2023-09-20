@@ -12,7 +12,7 @@
 <input type="hidden" name="action" value="Write">
 <div class="form-group">
 <label for="gear_type_name" class="control-label col-sm-4">
-	Type d'engin de pêche  :{/t}<span class="red">*</span></label>
+	{t}Type d'engin de pêche  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control" id="gear_type_name" name="gear_type_name"
 				value="{$data.gear_type_name}" maxlength="255" autofocus required>

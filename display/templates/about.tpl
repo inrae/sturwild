@@ -1,4 +1,4 @@
-<h2>{t}{t}À propos de ESFC{/t}{/t}</h2>
+<h2>{t}À propos de ESFC{/t}</h2>
 <p>
 {t 1=$version 2=$versiondate}Version %1 du %2.{/t}
 </p>

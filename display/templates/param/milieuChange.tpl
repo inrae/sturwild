@@ -11,7 +11,7 @@
 <input type="hidden" name="action" value="Write">
 <div class="form-group">
 <label for="environment_name" class="control-label col-sm-4">
-	Libellé du environment  :{/t}<span class="red">*</span></label>
+	{t}Libellé du environment  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input  class="form-control" id="environment_name" name="environment_name"
 				value="{$data.environment_name}" maxlength="255" autofocus required>

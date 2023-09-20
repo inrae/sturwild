@@ -11,7 +11,7 @@
 <input type="hidden" name="action" value="Write">
 <div class="form-group">
 <label for="event_type_name" class="control-label col-sm-4">
-	Type d'événement  :{/t}<span class="red">*</span></label>
+	{t}Type d'événement  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input  class="form-control" id="event_type_name" name="event_type_name"
 				value="{$data.event_type_name}" maxlength="255" autofocus required>

@@ -1,5 +1,5 @@
 {* Administration > Paramètres de l'application > *}
-<h2>{t}{t}Paramètres pérennes de l'application{/t}{/t}</h2>
+<h2>{t}Paramètres pérennes de l'application{/t}</h2>
 	<div class="row">
 	<div class="col-md-6">
 <form id="dbparam" class="form-horizontal protoform" method="post" action="index.php">

@@ -1,4 +1,4 @@
-<h2>{t}{t}Les nouveautés...{/t}{/t}</h2>
+<h2>{t}Les nouveautés...{/t}</h2>
 <div class="col-lg-8">
 <div class="row">
 {section name=n loop=$news}

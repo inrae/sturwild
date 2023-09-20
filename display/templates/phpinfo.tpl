@@ -1,2 +1,2 @@
-<h2>{t}{t}Paramètres PHP{/t}{/t}</h2>
+<h2>{t}Paramètres PHP{/t}</h2>
 {$phpinfo}

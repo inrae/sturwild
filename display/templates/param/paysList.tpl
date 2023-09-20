@@ -1,7 +1,7 @@
-<h2>{t}Liste des country{/t}</h2>
+<h2>{t}Liste des pays{/t}</h2>
 {if $droits.param == 1}
 <a href="index.php?module=countryChange&country_id=0">
-<img src="display/images/new.png" height="20">Nouveau</a>
+<img src="display/images/new.png" height="20">{t}Nouveau{/t}</a>
 {/if}
 <div class="row">
 <div class="col-sm-6">

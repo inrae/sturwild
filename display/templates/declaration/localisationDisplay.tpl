@@ -1,8 +1,7 @@
 <div class="col-sm-12 col-md-6">
 {if $droits.gestion ==1}
 <a href="index.php?module=locationChange&declaration_id={$data.declaration_id}">
-<img src="display/images/edit.gif" height="20">Modifier...
-</a>
+<img src="display/images/edit.gif" height="20">{t}Modifier...{/t}</a>
 {/if}
 <div class="form-display">
 <dl class="dl-horizontal">

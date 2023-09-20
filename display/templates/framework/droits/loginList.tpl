@@ -1,5 +1,5 @@
 {* Administration > ACL - logins > *}
-<h2>{t}{t}Liste des logins déclarés dans le module de gestion des droits{/t}{/t}</h2>
+<h2>{t}Liste des logins déclarés dans le module de gestion des droits{/t}</h2>
 <div class="row">
 	<div class="col-md-6">
 		<a href="index.php?module=aclloginChange&acllogin_id=0">

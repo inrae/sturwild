@@ -12,7 +12,7 @@
 
 	<div class="form-group">
 	<label for="origin_name" class="control-label col-sm-4">
-		Type de capture  :{/t}<span class="red">*</span>
+		{t}Type de capture  :{/t}<span class="red">*</span>
 		</label>
 		<div class="col-sm-8">
 			<input class="form-control" id="origin_name" name="origin_name"

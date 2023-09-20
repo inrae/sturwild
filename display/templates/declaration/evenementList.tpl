@@ -1,5 +1,5 @@
 {if $droits["gestion"] == 1}
-<a href=index.php?module=eventChange&event_id=0&declaration_id={$data.declaration_id}>Nouvel événement...</a>
+<a href=index.php?module=eventChange&event_id=0&declaration_id={$data.declaration_id}>{t}Nouvel événement...{/t}</a>
 {/if}
 <table class="table table-bordered table-hover">
 <thead>
@@ -29,7 +29,7 @@
 <td>{$events[lst].event_date}</td>
 <td>{$events[lst].event_remarks}</td>
 {if $droits["gestion"] == 1}
-<td>{$events[lst].utilisateur}</td>
+<td>{$events[lst].login}</td>
 {/if}
 </tr>
 {/section}

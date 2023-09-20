@@ -12,7 +12,7 @@
 
 <div class="form-group">
 <label for="species_name" class="control-label col-sm-4">
-	Libellé de l'espèce  :{/t}<span class="red">*</span></label>
+	{t}Libellé de l'espèce  :{/t}<span class="red">*</span></label>
 		<div class="col-sm-8">
 			<input class="form-control" id="species_name" name="species_name"
 				value="{$data.species_name}" maxlength="255" autofocus required>

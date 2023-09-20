@@ -30,7 +30,7 @@ $(document).ready(function() {
 } ) ;
 </script>
 {if $droits["gestion"] == 1 }
-<a href="#" id="documentChangeActivate">Saisir un nouveau document...</a>
+<a href="#" id="documentChangeActivate">{t}Saisir un nouveau document...{/t}</a>
 <div id="documentChange" hidden="true">
 {include file="document/documentChange.tpl"}
 </div>
@@ -38,7 +38,7 @@ $(document).ready(function() {
 <table id="documentList" class="tableliste">
 <thead>
 <tr>
-<th>{t}Vignette{/t}{/t}</th>
+<th>{t}Vignette{/t}</th>
 <th>{t}Nom du document{/t}</th>
 <th>{t}Description{/t}</th>
 <th>{t}Taille{/t}</th>
@@ -48,7 +48,7 @@ $(document).ready(function() {
 {/if}
 </tr>
 </thead>
-<tdata>
+<tbody>
 {section name=lst loop=$dataDoc}
 <tr>
 <td class="center">
@@ -62,7 +62,7 @@ $(document).ready(function() {
 </a>
 {/if}
 <td>
-<a href="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].photo_name}&attached=1" title="document original">
+<a href="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].photo_name}&attached=1" title="{t}document original{/t}">
 {$dataDoc[lst].document_name}
 </a>
 </td>
@@ -72,7 +72,7 @@ $(document).ready(function() {
 {if $droits["gestion"] == 1}
 <td>
 <div class="center">
-<a href="index.php?module=documentDelete&document_id={$dataDoc[lst].document_id}&moduleParent={$moduleParent}&parentIdName={$parentIdName}&parent_id={$parent_id}&parentType={$parentType}" onclick="return confirm('Confirmez-vous la suppression ?');">
+<a href="index.php?module=documentDelete&document_id={$dataDoc[lst].document_id}&moduleParent={$moduleParent}&parentIdName={$parentIdName}&parent_id={$parent_id}&parentType={$parentType}" onclick="return confirm('{t}Confirmez-vous la suppression ?{/t}');">
 <img src="display/images/corbeille.png" height="20">
 </a>
 </div>
@@ -80,5 +80,5 @@ $(document).ready(function() {
 {/if}
 </tr>
 {/section}
-</tdata>
+</tbody>
 </table>

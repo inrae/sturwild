@@ -83,7 +83,7 @@ $("#pass1").on('input', function()
 
 </script>
 
-<h2>{t}{t}Modifier le mot de passe{/t}{/t}</h2>
+<h2>{t}Modifier le mot de passe{/t}</h2>
 <div class="row">
 <div class="col-lg-6">
 <form id="formPassword" method="post" class="form-horizontal protoform" action="index.php">

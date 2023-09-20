@@ -1,5 +1,5 @@
 {* Administration > ACL - groupes de logins > *}
-<h2>{t}{t}Liste des groupes de logins{/t}{/t}</h2>
+<h2>{t}Liste des groupes de logins{/t}</h2>
 	<div class="row">
 	<div class="col-md-6">
 <a href="index.php?module=groupChange&aclgroup_id=0">

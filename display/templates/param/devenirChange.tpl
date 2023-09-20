@@ -13,7 +13,7 @@
 
 <div class="form-group">
 <label for="fate_name" class="control-label col-sm-4">
-	Nom de la destination  :{/t}<span class="red">*</span></label>
+	{t}Nom de la destination  :{/t}<span class="red">*</span></label>
 	<div class="col-sm-8">
 				<input class="form-control" id="fate_name" name="fate_name"
 				value="{$data.fate_name}" maxlength="255" autofocus required>

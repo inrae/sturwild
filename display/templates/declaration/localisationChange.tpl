@@ -73,16 +73,16 @@ $(document).ready(function() {
 
 });
 </script>
-<h2>{t}Modification de la location - N° {$data.declaration_id}{/t}</h2>
+<h2>{t}Modification de la location - N°{/t} {$data.declaration_id}</h2>
 <div class="row">
 <div class="col-sm-12">
 <a href="index.php?module=declarationList">
 	<img src="display/images/list.png" height="25">
-	{t}Retour à la liste{/t} des déclarations
+	{t}Retour à la liste des déclarations{/t}
 </a>
 <a href="index.php?module=declarationDisplay&declaration_id={$data.declaration_id}">
 <img src="display/images/display.png" height="25">
-Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
+{t}Retour au détail de la déclaration - N°{/t} {$data.declaration_id}</a>
 </div>
 <div class="col-sm-6">
 		<div>
@@ -109,7 +109,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				</div>
 				<div class="form-group">
 					<label for="ices_id" class="control-label col-sm-4">
-						Zone CIEM :
+						{t}Zone CIEM :{/t}
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="ices_id"  name="ices_id" >
@@ -124,7 +124,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				</div>
 				<div class="form-group">
 					<label for="environment_id" class="control-label col-sm-4">
-						Milieu :
+						{t}Milieu :{/t}
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="environment_id"  name="environment_id" >
@@ -139,7 +139,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				</div>
 				<div class="form-group">
 					<label for="environment_detail_id" class="control-label col-sm-4">
-						Milieu détaillé :
+						{t}Milieu détaillé :{/t}
 					</label>
 					<div class="col-sm-8">
 						<select class="form-control" id="environment_detail_id"  name="environment_detail_id" >
@@ -154,7 +154,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				</div>
 				<div class="form-group">
 					<label for="area_detail" class="control-label col-sm-4">
-						Détail de la zone :
+						{t}Détail de la zone :{/t}
 					</label>
 					<div class="col-sm-8">
 					<textarea id="area_detail" class="form-control" name="area_detail" rows="3" cols="50">{$data.area_detail}</textarea>
@@ -162,13 +162,13 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				</div>
 				<div class="form-group">
 					<label for="" class="control-label col-sm-4">
-						<br><br><br>Coordonnées GPS en ° :
+						<br><br><br>{t}Coordonnées GPS en ° :{/t}
 					</label>
 					<div class="col-sm-8">
 						<table>
 						<tr>
 						<td>
-						Calcul en degrés/minutes décimales
+							{t}Calcul en degrés/minutes décimales{/t}
 						</td>
 						<td>
 						<input name="degreType" type="radio" checked value="1">
@@ -176,7 +176,7 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 						</tr>
 						<tr>
 						<td>
-						Calcul en degrés/minutes/secondes
+							{t}Calcul en degrés/minutes/secondes{/t}
 						</td>
 						<td>
 						<input name="degreType" type="radio" value="0">
@@ -189,19 +189,19 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 						Long :
 						</td><td>
 						 <input id="longitude_gps" name="longitude_gps" title="longitude" placeholder="0°5,145W" value="{$data.longitude_gps}" autocomplete="off">
-						 <button type="button" id="longCalc" title="recalculer..."><img src="display/images/calculator.png" height="20"></button>
+						 <button type="button" id="longCalc" title="{t}recalculer...{/t}"><img src="display/images/calculator.png" height="20"></button>
 						</td></tr>
 						<tr><td>
 						Lat  :
 						</td><td><input id="latitude_gps" name="latitude_gps" title="latitude" placeholder="45°10,154N" value="{$data.latitude_gps}" autocomplete="off">
-						<button type="button" id="latCalc" title="recalculer..."><img src="display/images/calculator.png" height="20"></button>
+						<button type="button" id="latCalc" title="{t}recalculer...{/t}"><img src="display/images/calculator.png" height="20"></button>
 						</td></tr>
 						</table>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="" class="control-label col-sm-4">
-						Coordonnées déclarées :
+						{t}Coordonnées déclarées :{/t}
 					</label>
 					<div class="col-sm-8">
 					<table>
@@ -220,17 +220,17 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				</div>
 				<div class="form-group">
 					<label for="" class="control-label col-sm-4">
-						Coordonnées estimées :
+						{t}Coordonnées estimées :{/t}
 					</label>
 					<div class="col-sm-8">
 						<table>
 						<tr>
 						<td>
-						Long :
+							{t}Lon :{/t}
 						</td><td><input id="longitude_estimated_dd" name="longitude_estimated_dd" title="longitude" placeholder="-0.184" value="{$data.longitude_estimated_dd}" autocomplete="off">
 						</td></tr>
 						<tr><td>
-						Lat  :
+							{t}Lat :{/t}
 						</td><td><input id="latitude_estimated_dd" name="latitude_estimated_dd" title="latitude" placeholder="45.154" value="{$data.latitude_estimated_dd}" autocomplete="off">
 						</td></tr>
 						</table>
@@ -238,25 +238,25 @@ Retour au détail de la déclaration  - N° {$data.declaration_id}</a>
 				</div>
 				<div class="form-group">
 					<label for="" class="control-label col-sm-4">
-						Coordonnées validées :
+						{t}Coordonnées validées :{/t}
 					</label>
 					<div class="col-sm-8">
 					<table>
 						<tr>
 						<td>
-						Long :
+							{t}Lon :{/t}
 						</td><td>
 						<input class="position" id="longitude_dd" name="longitude_dd" title="longitude" placeholder="-0.184" value="{$data.longitude_dd}" autocomplete="off">
 						</td></tr>
 						<tr><td>
-						Lat  :
+							{t}Lat :{/t}
 						</td><td><input class="position" id="latitude_dd" name="latitude_dd" title="latitude" placeholder="45.154" value="{$data.latitude_dd}" autocomplete="off">
 						</td></tr>
 						</table>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="accuracy_id" class="control-label col-sm-4">Précision estimée du point GPS :{t}{/t}</label>
+					<label for="accuracy_id" class="control-label col-sm-4">{t}Précision estimée du point GPS :{/t}</label>
 					<div class="col-sm-8">
 						<select id="accuracy_id" name="accuracy_id" class="form-control">
 							<option value="" {if $data.accuracy_id == ""}selected{/if}>{t}Sélectionnez...{/t}</option>

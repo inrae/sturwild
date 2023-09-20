@@ -1,5 +1,5 @@
 {* Administration > ACL droits > *}
-<h2>{t}{t}Liste des applications disponibles dans le module de gestion des droits{/t}{/t}</h2>
+<h2>{t}Liste des applications disponibles dans le module de gestion des droits{/t}</h2>
 	<div class="row">
 	<div class="col-md-6">
 <a href="index.php?module=appliChange&aclappli_id=0">

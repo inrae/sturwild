@@ -1,10 +1,10 @@
 {if $droits["gestion"] == 1}
-<a href=index.php?module=fishChange&fish_id=0&declaration_id={$data.declaration_id}>Nouvel esturgeon...</a>
+<a href=index.php?module=fishChange&fish_id=0&declaration_id={$data.declaration_id}>{t}Nouvel esturgeon...{t}</a>
 {/if}
 <table class="table table-bordered table-hover" id="fishList">
 <thead>
 <tr>
-<th class="center"><img src="display/images/edit.gif" height="20">{/t}</th>
+<th class="center"><img src="display/images/edit.gif" height="20"></th>
 <th>{t}Espèce{/t}</th>
 <th>{t}Longueur (mm) Masse (kg){/t}</th>
 <th>{t}Marque{/t}</th>
@@ -21,7 +21,7 @@
 <tr>
 <td class="center">
 {if $droits["gestion"] == 1}
-<a href="index.php?module=fishChange&fish_id={$fishs[lst].fish_id}" title="Modifier">
+<a href="index.php?module=fishChange&fish_id={$fishs[lst].fish_id}" title="{t}Modifier{/t}">
 <img src="display/images/edit.gif" height="20">
 {$fishs[lst].fish_id}
 </a>
@@ -32,8 +32,8 @@
 
 <td>{$fishs[lst].species_name}
 {if $fishs[lst].identification_quality == 1}
-&nbsp;(Sûr){else}
- (incertain)
+&nbsp;{t}(Sûr){/t}{else}
+ {t}(incertain){/t}
 {/if}
  </td>
   <td>{$fishs[lst].fish_length}

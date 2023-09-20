@@ -7,10 +7,10 @@
 <input type="hidden" name="moduleParent" value="{$moduleParent}">
 <input type="hidden" name="parentType" value="{$parentType}">
 <dl>
-<dt>{t}Fichier(s) à importer :
+<dt>{t}Fichier(s) à importer :{/t}
  (doc, jpg, jpeg, png, pdf, xls, xlsx, docx, odt, ods, csv)
-{/t}</dt>
-<dt>{t}<input type="file" name="documentName[]" size="40" multiple>{/t}</dt>
+</dt>
+<dt><input type="file" name="documentName[]" size="40" multiple></dt>
 </dl>
 <dl>
 <dt>{t}Description :{/t}</dt>

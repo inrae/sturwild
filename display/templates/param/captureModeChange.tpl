@@ -9,7 +9,7 @@
 		<input type="hidden" name="moduleBase" value="captureMode">
 <input type="hidden" name="action" value="Write">
 	<div class="form-group">	
-	<label for="capture_method_name" class="control-label col-sm-4">Mode de capture  :{/t}<span class="red">*</span>
+	<label for="capture_method_name" class="control-label col-sm-4">{t}Mode de capture  :{/t}<span class="red">*</span>
 	</label>
 	<div class="col-sm-8">
 			<input class="form-control" id="capture_method_name" name="capture_method_name"

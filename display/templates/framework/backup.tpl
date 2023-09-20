@@ -1,4 +1,4 @@
-<h2>{t}{t}Sauvegarde de la base de données{/t}{/t}</h2>
+<h2>{t}Sauvegarde de la base de données{/t}</h2>
 <p>{t}Ce module est destiné à réaliser une sauvegarde exceptionnelle de la base de données{/t}<br>
   {t}En aucun cas, il se substitue à la procédure de sauvegarde automatique qui doit avoir été implémentée dans le serveur{/t}</p>
 <p>{t}La sauvegarde peut échouer si la taille de la base de données est trop importante.{/t}</p>
