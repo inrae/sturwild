@@ -1,10 +1,10 @@
 tablename;table_translated;attnum;field;comment;field_translated;comment_translated
-capture_etat;catch_state;1;capture_etat_id;;catch_state_id;
-capture_etat;catch_state;2;capture_etat_libelle;;catch_state_name;
-capture_mode;catch_method;1;capture_mode_id;;catch_method_id;
-capture_mode;catch_method;2;capture_mode_libelle;;catch_method_name;
-capture_type;catch_type;1;capture_type_id;;catch_type_id;
-capture_type;catch_type;2;capture_type_libelle;;catch_type_name;
+capture_etat;capture_state;1;capture_etat_id;;capture_state_id;
+capture_etat;capture_state;2;capture_etat_libelle;;capture_state_name;
+capture_mode;capture_method;1;capture_mode_id;;capture_method_id;
+capture_mode;capture_method;2;capture_mode_libelle;;capture_method_name;
+capture_type;origin;1;capture_type_id;;origin_id;
+capture_type;origin;2;capture_type_libelle;;origin_name;
 ciem;ices;1;ciem_id;;ices_id;
 ciem;ices;2;ciem_libelle;;ices_name;
 dbparam;;1;dbparam_id;;;
@@ -13,19 +13,19 @@ dbparam;;3;dbparam_value;Value of the parameter;;
 dbversion;;1;dbversion_id;;;
 dbversion;;2;dbversion_number;Numero de la version;;Number of the version
 dbversion;;3;dbversion_date;Date de la version;;Date of the version
-declaration;declaration;1;declaration_id;Identifiant de la capture.;;Identifier of the catch
+declaration;declaration;1;declaration_id;Identifiant de la capture.;;Identifier of the capture
 declaration;declaration;2;statut_id;;status_id;
-declaration;declaration;3;capture_mode_id;;catch_method_id;
-declaration;declaration;4;capture_type_id;;catch_type_id;
-declaration;declaration;5;engin_type_id;;engine_type_id;
+declaration;declaration;3;capture_mode_id;;capture_method_id;
+declaration;declaration;4;capture_type_id;;origin_id;
+declaration;declaration;5;engin_type_id;;gear_type_id;
 declaration;declaration;6;espece_id;Identifiant de l'espèce;species_id;Species identifier
-declaration;declaration;7;capture_etat_id;;catch_state_id;
-declaration;declaration;8;devenir_id;;become_id;
-declaration;declaration;9;capture_date;Date de capture.;catch_date;Date of the catch
+declaration;declaration;7;capture_etat_id;;capture_state_id;
+declaration;declaration;8;devenir_id;;fate_id;
+declaration;declaration;9;capture_date;Date de capture.;;Date of the capture
 declaration;declaration;10;annee;Année de pêche;year;Fishing year
 declaration;declaration;11;nombre_capture;Nombre d'individu capturés;caught_number;
-declaration;declaration;12;capture_date_estimee;Estimation de la date de capture.;estimated_catch_date;Estimation of catch date
-declaration;declaration;13;engin_maille;Maille du filet, le cas échéant;engine_mesh;Mesh size, if applicable
+declaration;declaration;12;capture_date_estimee;Estimation de la date de capture.;estimated_capture_date;Estimation of capture date
+declaration;declaration;13;engin_maille;Maille du filet, le cas échéant;gear_mesh;Mesh size, if applicable
 declaration;declaration;14;espece_ciblee;Espece normalement ciblée lors de la pêche.;target_species;Species normally targeted during fishing
 declaration;declaration;15;profondeur;Profondeur de pêche, en mètres;depth;Fishing depth, in meters
 declaration;declaration;16;prof_min;Profondeur minimum de pêche, en mètres;depth_min;Minimum fishing depth, in meters
@@ -34,18 +34,18 @@ declaration;declaration;18;lt_min;longueur totale minimale, en mm;length_min;Min
 declaration;declaration;19;lt_max;Longueur totale maximale, en mm;length_max;Maximum length, in mm
 declaration;declaration;20;masse_min;Masse minimale en kg;weight_min;Minimum weight, in kg
 declaration;declaration;21;masse_max;Masse maximale en kg;weight_max;Maximum weight, in kg
-declaration;declaration;22;pecheur_code;Code du pêcheur;fisherman_code;fisherman’s code
+declaration;declaration;22;pecheur_code;Code du pêcheur;fisher_code;fisher’s code
 declaration;declaration;23;interlocuteur;Autre interlocuteur;contact;Other contact
 declaration;declaration;24;interlocuteur_coord;Coordonnées de l'autre interlocuteur;contact_coordonates;Coordonates of the other contact
-declaration;declaration;25;navire_port;Port d'attache du navire de pêche;harbour_boat;Home harbour of fishing vessel
+declaration;declaration;25;navire_port;Port d'attache du navire de pêche;harbour_vessel;Home harbour of fishing vessel
 declaration;declaration;26;declaration_mode;;;
 declaration;declaration;27;observation;Observations générales;remarks;General remarks
 declaration;declaration;28;manipulation;Manipulation post-capture du lot capturé;handling;Post-capture handling of the captured batch
 declaration;declaration;29;qualite_identification;"0 : identification de l'espèce incertaine
 1 : identification sûre";identification_quality;"0: species identification uncertain
 1: identification certain"
-devenir;become;1;devenir_id;;becom_id;
-devenir;become;2;devenir_libelle;;become_name;
+devenir;fate;1;devenir_id;;fate_id;
+devenir;fate;2;devenir_libelle;;fate_name;
 document;;1;document_id;;;
 document;;2;mime_type_id;;;
 document;;3;document_date_import;;;
@@ -54,9 +54,9 @@ document;;5;document_description;Description libre du document;;Description of t
 document;;6;data;;;
 document;;7;size;;;
 document;;8;thumbnail;;;
-document;;9;individu_id;;;
-engin_type;engine_type;1;engin_type_id;;engine_type_id;
-engin_type;engine_type;2;engin_type_libelle;;engine_type_name;
+document;;9;individu_id;;fish_id;
+engin_type;gear_type;1;engin_type_id;;gear_type_id;
+engin_type;gear_type;2;engin_type_libelle;;gear_type_name;
 espece;species;1;espece_id;Identifiant de l'espèce;species_id;Identifier of the species
 espece;species;2;espece_libelle;Nom complet de l'espèce.;species_name;Name of the spieces
 estuaire_area;estuary_area;1;id_0;;;
@@ -67,19 +67,19 @@ evenement;event;1;evenement_id;;event_id;
 evenement;event;2;declaration_id;;;
 evenement;event;3;evenement_type_id;;event_type_id;
 evenement;event;4;evenement_date;;event_date;
-evenement;event;5;evenement_commentaire;Commentaire général sur l'événement;event_remarks;Remarks on the event
+evenement;event;5;evenement_commentaire;Commentaire général sur l'événement;event_remarks;remarks on the event
 evenement;event;6;login;Login de la personne ayant créé l'événement;;Login of the person who created the event
 evenement_type;event_type;1;evenement_type_id;;event_type_id;
 evenement_type;event_type;2;evenement_type_libelle;;event_type_name;
 individu;fish;1;individu_id;;fish_id;
 individu;fish;2;declaration_id;Identifiant de la capture.;;Identifier of the declaration
 individu;fish;3;espece_id;;species_id;
-individu;fish;4;presence_marque_id;;presence_mark_d;
-individu;fish;5;capture_etat_id;;catch_state_id;
-individu;fish;6;devenir_id;;become_id;
+individu;fish;4;presence_marque_id;;presence_tag_d;
+individu;fish;5;capture_etat_id;;capture_state_id;
+individu;fish;6;devenir_id;;fate_id;
 individu;fish;7;masse;Masse du poisson capturé, en grammes;weight;weitgh of the fish caught, in grams
 individu;fish;8;manipulation;Manipulation post-capture;handling;Post-capture handling
-individu;fish;9;numero_marque;;mark_number;
+individu;fish;9;numero_marque;;tag_number;
 individu;fish;10;longueur_individu;;fish_length;Length of the fish, in mm
 individu;fish;11;cohorte_estimee;Cohorte estimée (année de naissance);estimated_cohort;Estimated cohort (year of birth)
 individu;fish;12;cohorte_validee;Cohorte validée par expertise (année de naissance);validated_cohort;Validated cohort by expert opinion (year of birth)
@@ -113,13 +113,11 @@ mime_type;;2;content_type;type mime officiel;;Official mime type
 mime_type;;3;extension;Extension du fichier correspondant;;File extension
 pays;country;1;pays_id;Identifiant du pays;country_id;Identifier of the country
 pays;country;2;pays_libelle;;country_name;
-pays;country;3;pays_order;;country_order;
+pays;country;3;pays_order;;country_order;Order of display in the application
 precision;accuracy;1;precision_id;;accuracy_id;
 precision;accuracy;2;precision_name;;accuracy_name;
-presence_marque;mark_presence;1;presence_marque_id;;mark_presence_id;
-presence_marque;mark_presence;2;presence_marque_libelle;;mark_presence_name;
-region;region;1;region_id;Identifiant de la région;;Identifier of the region
-region;region;2;region_libelle;;region_name;
+presence_marque;tag_presence;1;presence_marque_id;;tag_presence_id;
+presence_marque;tag_presence;2;presence_marque_libelle;;tag_presence_name;
 request;;1;request_id;;;
 request;;2;create_date;Date of create of the request;;
 request;;3;last_exec;Date of the last execution;;

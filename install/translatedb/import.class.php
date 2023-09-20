@@ -1,12 +1,12 @@
 <?php
-
+namespace translate;
 /**
  * Created : 5 sept. 2017
  * Creator : quinton
  * Encoding : UTF-8
  * Copyright 2017 - All rights reserved
  */
-class ImportException extends Exception
+class ImportException extends \Exception
 {
 }
 
@@ -72,7 +72,7 @@ class Import
                 }
             }
         } else {
-            throw new ImportException(sprintf(_("Fichier %s non trouvé ou non lisible"), $filename));
+            throw new translate\ImportException(sprintf(_("Fichier %s non trouvé ou non lisible"), $filename));
         }
     }
 
