@@ -21,7 +21,8 @@ switch ($t_module["param"]) {
 		/*
 		 * Lecture de la table des types d'event
 		 */
-		$event_type = new Event_type($bdd, $ObjetBDDParam);
+		require_once "modules/classes/param.class.php";
+		$event_type = new Param($bdd, "event_type");
 		$vue->set ( $event_type->getListe(1), "event_type" );
 		
 		break;

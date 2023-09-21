@@ -6,30 +6,29 @@
  *  Creation 6 août 2015
  *  Script de preparation des boites de selection pour les criteres de recherche
  */
- 
+
 require_once 'modules/classes/location.class.php';
 require_once 'modules/classes/fish.class.php';
+require_once 'modules/classes/param.class.php';
 $ices = new Ices($bdd, $ObjetBDDParam);
-$vue->set ($ices->getListe(2) , "ices" );
+$vue->set($ices->getListe(2), "ices");
 
 $country = new Country($bdd, $ObjetBDDParam);
-$vue->set ( $country->getListe(3), "country" );
+$vue->set($country->getListe(3), "country");
 
-$environment = new Environment($bdd, $ObjetBDDParam);
-$vue->set ( $environment->getListe(2), "environment" );
+$environment = new Param($bdd, "environment");
+$vue->set($environment->getListe(2), "environment");
 
-$species = new Species($bdd, $ObjetBDDParam);
-$vue->set ( $species->getListe(2), "species" );
+$species = new Param($bdd, "species");
+$vue->set($species->getListe(2), "species");
 
-$capture_state = new Capture_state($bdd, $ObjetBDDParam);
-$vue->set ( $capture_state->getListe(2), "capture_state" );
+$capture_state = new Param($bdd, "capture_state");
+$vue->set($capture_state->getListe(2), "capture_state");
 
-$gear_type = new Gear_type($bdd, $ObjetBDDParam);
-$vue->set ( $gear_type->getListe(2), "gear_type" );
+$gear_type = new Param($bdd, "gear_type");
+$vue->set($gear_type->getListe(2), "gear_type");
 
-$status = new Status($bdd, $ObjetBDDParam);
-$vue->set ( $status->getListe(1), "status" );
-$vue->set ( $_SESSION["searchDeclaration"]->isSearch(), "isSearch" );
-$vue->set ($_SESSION["searchDeclaration"]->getListeAnnee() , "years" );
-
-?>
+$status = new Param($bdd, "status");
+$vue->set($status->getListe(1), "status");
+$vue->set($_SESSION["searchDeclaration"]->isSearch(), "isSearch");
+$vue->set($_SESSION["searchDeclaration"]->getListeAnnee(), "years");

@@ -1,7 +1,7 @@
 <?php
-include_once 'modules/classes/location.class.php';
-$dataClass = new Environment( $bdd, $ObjetBDDParam );
-$keyName = "environment_id";
+include_once 'modules/classes/country.class.php';
+$dataClass = new Country ( $bdd, $ObjetBDDParam );
+$keyName = "country_id";
 $id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {
@@ -9,8 +9,8 @@ switch ($t_module ["param"]) {
 		/*
 		 * Display the list of all records of the table
 		 */
-		$vue->set ( $dataClass->getListe(2), "data" );
-		$vue->set ( "param/environmentList.tpl", "corps" );
+		$vue->set ( $dataClass->getListe(3), "data" );
+		$vue->set ( "param/countryList.tpl", "corps" );
 		
 		break;
 	case "change":
@@ -19,7 +19,7 @@ switch ($t_module ["param"]) {
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		dataRead ( $dataClass, $id, "param/environmentChange.tpl");
+		dataRead ( $dataClass, $id, "param/countryChange.tpl" );
 		break;
 	case "write":
 		dataWrite ( $dataClass, $_REQUEST );

@@ -5,8 +5,8 @@
  * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
  *  Creation 7 août 2015
  */
-include_once 'modules/classes/fish.class.php';
-$dataClass = new Lot($bdd,$ObjetBDDParam);
+include_once 'modules/classes/lot.class.php';
+$dataClass = new Lot($bdd, $ObjetBDDParam);
 $keyName = "declaration_id";
 $id = $_REQUEST[$keyName];
 
@@ -21,18 +21,19 @@ switch ($t_module["param"]) {
 		if ($data[$keyName] == "") {
 			$data["caught_number"] = 1;
 			$data[$keyName] = $id;
-			$vue->set ($data , "data" );
-			
+			$vue->set($data, "data");
+
 		}
 		/*
 		 * Lecture des tables de parametre
-		*/
-		$species = new Species($bdd, $ObjetBDDParam);
-		$vue->set ( $species->getListe(2), "species" );
-		
-		$fate = new Fate($bdd, $ObjetBDDParam);
-		$vue->set ( $fate->getListe(1), "fate" );
-		
+		 */
+		require_once "modules/classes/param.class.php";
+		$species = new Param($bdd, "species");
+		$vue->set($species->getListe(2), "species");
+
+		$fate = new Param($bdd, "fate");
+		$vue->set($fate->getListe(1), "fate");
+
 		break;
 	case "write":
 		/*

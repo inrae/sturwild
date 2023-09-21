@@ -122,39 +122,3 @@ class Event extends ObjetBDD
 	}
 }
 
-/**
- * ORM de gestion de la table event_type
- *
- * @author quinton
- *
- */
-class Event_type extends ObjetBDD
-{
-	/**
-	 * Constructeur
-	 *
-	 * @param PDO $link
-	 * @param array $param
-	 */
-	function __construct($link, $param = NULL)
-	{
-		if (!is_array($param))
-			$param = array();
-		$this->table = "event_type";
-		$this->id_auto = 1;
-		$this->colonnes = array(
-			"event_type_id" => array(
-				"type" => 1,
-				"requis" => 1,
-				"key" => 1,
-				"defaultValue" => 0
-			),
-			"event_type_name" => array(
-				"requis" => 1
-			),
-			"event_type_exchange" => array("type" => 0)
-		);
-		$param["fullDescription"] = 1;
-		parent::__construct($link, $param);
-	}
-}

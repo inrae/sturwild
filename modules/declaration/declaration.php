@@ -45,10 +45,6 @@ switch ($t_module["param"]) {
         $vue->set($location->getDetail($id), "location");
 
         require_once 'modules/classes/fish.class.php';
-        /*
-         * $lot = new Lot($bdd, $ObjetBDDParam);
-         * $smarty->assign("dataLot", $lot->getDetail($id));
-         */
         $fish = new Fish($bdd, $ObjetBDDParam);
         $vue->set($fish->getListeFromDeclaration($id), "fishs");
 
@@ -82,21 +78,22 @@ switch ($t_module["param"]) {
         /*
          * Lecture des tables de parametres
          */
+        require_once "modules/classes/param.class.php";
         require_once "modules/classes/fish.class.php";
-        $status = new Status($bdd, $ObjetBDDParam);
+        $status = new Param($bdd, "status");
         $vue->set($status->getListe(1), "status");
-        $captureMode = new Capture_method($bdd, $ObjetBDDParam);
-        $vue->set($captureMode->getListe(2), "capture_method");
-        $captureType = new Origin($bdd, $ObjetBDDParam);
-        $vue->set($captureType->getListe(2), "origin");
-        $enginType = new Gear_type($bdd, $ObjetBDDParam);
-        $vue->set($enginType->getListe(2), "gear_type");
-        $species = new Species($bdd, $ObjetBDDParam);
+        $captureMethod = new Param($bdd, "capture_method");
+        $vue->set($captureMethod->getListe(2), "capture_method");
+        $origin = new Param($bdd, "origin");
+        $vue->set($origin->getListe(2), "origin");
+        $gearType = new Param($bdd, "gear_type");
+        $vue->set($gearType->getListe(2), "gear_type");
+        $species = new Param($bdd, "species");
         $vue->set($species->getListe(2), "species");
-        $fate = new Fate($bdd, $ObjetBDDParam);
+        $fate = new Param($bdd, "fate");
         $vue->set($fate->getListe(1), "fate");
-        $captureEtat = new Capture_state($bdd, $ObjetBDDParam);
-        $vue->set($captureEtat->getListe(2), "capture_state");
+        $captureState = new Param($bdd, "capture_state");
+        $vue->set($captureState->getListe(2), "capture_state");
         /*
          * Recuperation de la liste des years
          */

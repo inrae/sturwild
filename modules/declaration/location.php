@@ -6,7 +6,7 @@
  *  Creation 7 août 2015
  */
 include_once 'modules/classes/location.class.php';
-$dataClass = new Location($bdd,$ObjetBDDParam);
+$dataClass = new Location($bdd, $ObjetBDDParam);
 $keyName = "declaration_id";
 $id = $_REQUEST[$keyName];
 
@@ -20,25 +20,25 @@ switch ($t_module["param"]) {
 		$data = dataRead($dataClass, $id, "declaration/locationChange.tpl");
 		if ($data[$keyName] == "") {
 			$data[$keyName] = $id;
-			$vue->set ( $data, "data" );
+			$vue->set($data, "data");
 
 		}
 		/**
 		 * Lecture des tables de parametre
 		 */
 		$ices = new Ices($bdd, $ObjetBDDParam);
-		$vue->set ( $ices->getListe(2), "ices" );
+		$vue->set($ices->getListe(2), "ices");
 
 		$country = new Country($bdd, $ObjetBDDParam);
-		$vue->set ( $country->getListe(3), "country" );
+		$vue->set($country->getListe(3), "country");
+		require_once "modules/classes/param.class.php";
+		$environment = new Param($bdd, "Environment");
+		$vue->set($environment->getListe(2), "environment");
 
-		$environment = new Environment($bdd, $ObjetBDDParam);
-		$vue->set ( $environment->getListe(2), "environment" );
+		$environmentDetail = new Param($bdd, "environment_detail");
+		$vue->set($environmentDetail->getListe(2), "environment_detail");
 
-		$environmentDetail = new EnvironmentDetail($bdd, $ObjetBDDParam);
-		$vue->set ( $environmentDetail->getListe(2), "environment_detail" );
-		require_once "modules/classes/accuracy.class.php";
-		$accuracy = new Accuracy($bdd, $ObjetBDDParam);
+		$accuracy = new Param($bdd, "accuracy");
 		$vue->set($accuracy->getListe(1), "accuracys");
 		break;
 	case "write":

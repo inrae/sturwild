@@ -12,13 +12,14 @@
  * @author quinton
  *
  */
-require_once 'modules/classes/event.class.php';
-require_once 'modules/classes/fish.class.php';
-require_once 'modules/classes/location.class.php';
-require_once 'modules/classes/document.class.php';
+
 
 class Declaration extends ObjetBDD
 {
+  public Document $document;
+  public Location $location;
+  public Fish $fish;
+  public Event $event;
   private $paramSearch = array();
   private $fromSearch = " from declaration
 				join status using (status_id)
@@ -183,14 +184,18 @@ class Declaration extends ObjetBDD
           /*
            * creation de l'event associe
            */
-          $event = new Event($this->connection, $this->paramori);
-          $dataEvent = $event->lire(0, true, $idNew);
-          $event->ecrire($dataEvent);
+          if (!isset($this->event)) {
+            $this->event = $this->classInstanciate("Event", "event.class.php");
+          }
+          $dataEvent = $this->event->lire(0, true, $idNew);
+          $this->event->ecrire($dataEvent);
           /*
            * Duplication de la location
            */
-          $location = new Location($this->connection, $this->paramori);
-          $location->duplicate($id, $idNew);
+          if (!isset($this->location)) {
+            $this->location = $this->classInstanciate("Location", "location.class.php");
+          }
+          $this->location->duplicate($id, $idNew);
         }
       }
     }
@@ -218,9 +223,11 @@ class Declaration extends ObjetBDD
     /*
      * Rajout du nombre de photos associees
      */
-    $document = new Document($this->connection, $this->paramori);
+    if (!isset($this->document)) {
+      $this->document = $this->classInstanciate("Document", "document.class.php");
+    }
     foreach ($data as $key => $value) {
-      $dataNb = $document->getNbFromDeclaration($value["declaration_id"]);
+      $dataNb = $this->document->getNbFromDeclaration($value["declaration_id"]);
       $data[$key]["document_nb"] = $dataNb["document_nb"];
     }
     return $data;
@@ -388,10 +395,12 @@ class Declaration extends ObjetBDD
       /*
        * Generation de l'event de saisie
        */
-      $event = new Event($this->connection, $this->paramori);
-      $dataEvnmt = $event->getDefaultValue($id);
+      if (!isset($this->event)) {
+        $this->event = $this->classInstanciate("Event", "event.class.php");
+      }
+      $dataEvnmt = $this->event->getDefaultValue($id);
       $dataEvnmt["event_type_id"] = $data["status_id"];
-      $event->ecrire($dataEvnmt);
+      $this->event->ecrire($dataEvnmt);
     }
     return $id;
   }
@@ -408,204 +417,20 @@ class Declaration extends ObjetBDD
       /*
        * Suppression des informations liees
        */
-      $event = new Event($this->connection, $this->paramori);
-      $event->deleteFromField($id, "declaration_id");
-      /*
-       * $lot = new Lot ( $this->connection, $this->paramori );
-       * $lot->supprimer ( $id );
-       */
-      $fish = new Fish($this->connection, $this->paramori);
-      $fish->supprimerChamp($id, "declaration_id");
-      $location = new Location($this->connection, $this->paramori);
-      $location->supprimer($id);
+      if (!isset($this->event)) {
+        $this->event = $this->classInstanciate("Event", "event.class.php");
+      }
+      $this->event->deleteFromField($id, "declaration_id");
+      if (!isset($this->fish)) {
+        $this->fish = $this->classInstanciate("Fish", "fish.class.php");
+      }
+      $this->fish->supprimerChamp($id, "declaration_id");
+      if (!isset($this->location)) {
+        $this->location = $this->classInstanciate("Location", "location.class.php");
+      }
+      $this->location->supprimer($id);
       return parent::supprimer($id);
     } else
       return -1;
-  }
-}
-
-/**
- * ORM de gestion de la table status
- *
- * @author quinton
- *
- */
-class Status extends ObjetBDD
-{
-
-  /**
-   * Constructeur
-   *
-   * @param PDO $link
-   * @param array $param
-   */
-  function __construct($link, $param = NULL)
-  {
-    if (!is_array($param))
-      $param = array();
-    $this->table = "status";
-    $this->id_auto = 1;
-    $this->colonnes = array(
-      "status_id" => array(
-        "type" => 1,
-        "requis" => 1,
-        "key" => 1,
-        "defaultValue" => 0
-      ),
-      "status_name" => array(
-        "requis" => 1
-      )
-    );
-    $param["fullDescription"] = 1;
-    parent::__construct($link, $param);
-  }
-}
-
-/**
- * ORM de gestion de la table status
- *
- * @author quinton
- *
- */
-class Capture_method extends ObjetBDD
-{
-
-  /**
-   * Constructeur
-   *
-   * @param PDO $link
-   * @param array $param
-   */
-  function __construct($link, $param = NULL)
-  {
-    if (!is_array($param))
-      $param = array();
-    $this->table = "capture_method";
-    $this->id_auto = 1;
-    $this->colonnes = array(
-      "capture_method_id" => array(
-        "type" => 1,
-        "requis" => 1,
-        "key" => 1,
-        "defaultValue" => 0
-      ),
-      "capture_method_name" => array(
-        "requis" => 1
-      ),
-      "capture_method_exchange" => array("type" => 0)
-    );
-    $param["fullDescription"] = 1;
-    parent::__construct($link, $param);
-  }
-}
-
-/**
- * ORM de gestion de la table origin
- *
- * @author quinton
- *
- */
-class Origin extends ObjetBDD
-{
-
-  /**
-   * Constructeur
-   *
-   * @param PDO $link
-   * @param array $param
-   */
-  function __construct($link, $param = array())
-  {
-    $this->table = "origin";
-    $this->id_auto = 1;
-    $this->colonnes = array(
-      "origin_id" => array(
-        "type" => 1,
-        "requis" => 1,
-        "key" => 1,
-        "defaultValue" => 0
-      ),
-      "origin_name" => array(
-        "requis" => 1
-      )
-    );
-    $param["fullDescription"] = 1;
-    parent::__construct($link, $param);
-  }
-}
-
-/**
- * ORM de gestion de la table capture_state
- *
- * @author quinton
- *
- */
-class Capture_state extends ObjetBDD
-{
-
-  /**
-   * Constructeur
-   *
-   * @param PDO $link
-   * @param array $param
-   */
-  function __construct($link, $param = NULL)
-  {
-    if (!is_array($param))
-      $param = array();
-    $this->table = "capture_state";
-    $this->id_auto = 1;
-    $this->colonnes = array(
-      "capture_state_id" => array(
-        "etat" => 1,
-        "requis" => 1,
-        "key" => 1,
-        "defaultValue" => 0
-      ),
-      "capture_state_name" => array(
-        "requis" => 1
-      ),
-      "capture_state_exchange" => array("type" => 0)
-    );
-    $param["fullDescription"] = 1;
-    parent::__construct($link, $param);
-  }
-}
-
-/**
- * ORM de gestion de la table gear_type
- *
- * @author quinton
- *
- */
-class Gear_type extends ObjetBDD
-{
-
-  /**
-   * Constructeur
-   *
-   * @param PDO $link
-   * @param array $param
-   */
-  function __construct($link, $param = NULL)
-  {
-    if (!is_array($param))
-      $param = array();
-    $this->table = "gear_type";
-    $this->id_auto = 1;
-    $this->colonnes = array(
-      "gear_type_id" => array(
-        "type" => 1,
-        "requis" => 1,
-        "key" => 1,
-        "defaultValue" => 0
-      ),
-      "gear_type_name" => array(
-        "requis" => 1
-      ),
-      "gear_type_exchange" => array("type" => 0)
-    );
-    $param["fullDescription"] = 1;
-    parent::__construct($link, $param);
   }
 }
