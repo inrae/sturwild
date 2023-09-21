@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,0" last-zoom="0.65" max-obj-count="54"
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,379" last-zoom="0.65" max-obj-count="54"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -378,7 +378,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 	<comment> <![CDATA[Devenir des esturgeons capturés]]> </comment>
 	<tag name="fish"/>
-	<position x="20" y="840"/>
+	<position x="20" y="760"/>
 	<column name="fate_id" not-null="true" sequence="sturwild.fate_fate_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -578,7 +578,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="species_id">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="presence_tag_d">
+	<column name="presence_tag_id">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="capture_state_id">
@@ -647,7 +647,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="environment_id">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="milieu_detail_id">
+	<column name="environment_detail_id">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="area_detail">
@@ -689,7 +689,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="geom">
 		<type name="geometry" length="0" spatial-type="POINT" variation="0" srid="4326"/>
 	</column>
-	<column name="precision_id">
+	<column name="accuracy_id">
 		<type name="integer" length="0"/>
 	</column>
 	<constraint name="localisation_id" type="pk-constr" table="sturwild.location">
@@ -814,7 +814,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 	<comment> <![CDATA[Précision de la localisation du point GPS]]> </comment>
 	<tag name="location"/>
-	<position x="1740" y="680"/>
+	<position x="1740" y="760"/>
 	<column name="accuracy_id" not-null="true" sequence="sturwild.accuracy_accuracy_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1608,7 +1608,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[List of all handling for a declaration]]> </comment>
 	<tag name="declaration"/>
-	<position x="900" y="840"/>
+	<position x="900" y="760"/>
 
 	<customidxs object-type="column">
 		<object name="declaration_id" index="0"/>
@@ -1647,7 +1647,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[List of species targeted]]> </comment>
 	<tag name="declaration"/>
-	<position x="900" y="680"/>
+	<position x="900" y="540"/>
 	<column name="target_species_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -1764,7 +1764,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <constraint name="presence_marque_individu_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="sturwild.tag_presence" table="sturwild.fish">
-	<columns names="presence_tag_d" ref-type="src-columns"/>
+	<columns names="presence_tag_id" ref-type="src-columns"/>
 	<columns names="tag_presence_id" ref-type="dst-columns"/>
 </constraint>
 
@@ -1782,7 +1782,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <constraint name="milieu_detail_localisation_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="sturwild.environment_detail" table="sturwild.location">
-	<columns names="milieu_detail_id" ref-type="src-columns"/>
+	<columns names="environment_detail_id" ref-type="src-columns"/>
 	<columns names="environment_detail_id" ref-type="dst-columns"/>
 </constraint>
 
@@ -1802,7 +1802,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 upd-action="CASCADE" del-action="SET NULL" ref-table="sturwild.accuracy"
 	deferrable="true" defer-type="INITIALLY IMMEDIATE"
  table="sturwild.location">
-	<columns names="precision_id" ref-type="src-columns"/>
+	<columns names="accuracy_id" ref-type="src-columns"/>
 	<columns names="accuracy_id" ref-type="dst-columns"/>
 </constraint>
 

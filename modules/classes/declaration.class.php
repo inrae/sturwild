@@ -246,48 +246,48 @@ class Declaration extends ObjetBDD
     /*
      * Preparation de la requete where
      */
-    if (is_numeric($param["year_debut"]) && is_numeric($param["year_fin"])) {
+    if (!empty($param["year_debut"]) && !empty($param["year_fin"])) {
       $where = " where year between :year_debut and :year_fin";
       $this->paramSearch["year_debut"] = $param["year_debut"];
       $this->paramSearch["year_fin"] = $param["year_fin"];
       $and = " and ";
     }
-    if ($param["status_id"] > 0 && is_numeric($param["status_id"])) {
+    if (!empty($param["status_id"])) {
       $where .= " $and status_id = :status_id";
       $and = " and ";
       $this->paramSearch["status_id"] = $param["status_id"];
     }
-    if ($param["ices_id"] > 0 && is_numeric($param["ices_id"])) {
+    if (!empty($param["ices_id"])) {
       $where .= " $and ices_id = :ices_id";
       $and = " and ";
       $this->paramSearch["ices_id"] = $param["ices_id"];
     }
-    if ($param["country_id"] > 0 && is_numeric($param["country_id"])) {
+    if ( !empty($param["country_id"])) {
       $where .= " $and country_id = :country_id";
       $and = " and ";
       $this->paramSearch["country_id"] = $param["country_id"];
     }
-    if ($param["environment_id"] > 0 && is_numeric($param["environment_id"])) {
+    if (!empty($param["environment_id"])) {
       $where .= " $and environment_id = :environment_id";
       $and = " and ";
       $this->paramSearch["environment_id"] = $param["environment_id"];
     }
-    if ($param["capture_state_id"] > 0 && is_numeric($param["capture_state_id"])) {
+    if (!empty($param["capture_state_id"])) {
       $where .= " $and capture_state_id = :capture_state_id";
       $and = " and ";
       $this->paramSearch["capture_state_id"] = $param["capture_state_id"];
     }
-    if ($param["species_id"] > 0 && is_numeric($param["species_id"])) {
+    if (!empty($param["species_id"])) {
       $where .= " $and species_id = :species_id";
       $and = " and ";
       $this->paramSearch["species_id"] = $param["species_id"];
     }
-    if ($param["gear_type_id"] > 0 && is_numeric($param["gear_type_id"])) {
+    if ( !empty($param["gear_type_id"])) {
       $where .= " $and gear_type_id = :gear_type_id";
       $and = " and ";
       $this->paramSearch["gear_type_id"] = $param["gear_type_id"];
     }
-    if (strlen($param["libelle"]) > 0) {
+    if (!empty($param["libelle"])) {
       $libelle = "%" . $param["libelle"] . "%";
       $this->paramSearch["libelleText1"] = $libelle;
       $this->paramSearch["libelleText2"] = $libelle;

@@ -52,7 +52,7 @@ alter table sturwild.evenement_type rename column evenement_type_id to event_typ
 alter table sturwild.evenement_type rename column evenement_type_libelle to event_type_name;
 alter table sturwild.individu rename column individu_id to fish_id;
 alter table sturwild.individu rename column espece_id to species_id;
-alter table sturwild.individu rename column presence_marque_id to presence_tag_d;
+alter table sturwild.individu rename column presence_marque_id to tag_presence_id;
 alter table sturwild.individu rename column capture_etat_id to capture_state_id;
 alter table sturwild.individu rename column devenir_id to fate_id;
 alter table sturwild.individu rename column masse to weight;
@@ -67,7 +67,9 @@ alter table sturwild.individu rename column qualite_identification to identifica
 alter table sturwild.localisation rename column pays_id to country_id;
 alter table sturwild.localisation rename column ciem_id to ices_id;
 alter table sturwild.localisation rename column milieu_id to environment_id;
+alter table sturwild.localisation rename column milieu_detail_id to environment_detail_id;
 alter table sturwild.localisation rename column zone_detail to area_detail;
+alter table sturwild.localisation rename column precision_id to accuracy_id;
 alter table sturwild.localisation rename column longitude_declaree_dd to longitude_declared_dd;
 alter table sturwild.localisation rename column latitude_declaree_dd to latitude_declared_dd;
 alter table sturwild.localisation rename column longitude_estimee_dd to longitude_estimated_dd;

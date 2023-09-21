@@ -37,82 +37,88 @@
 
 <!--  parametres -->
 	<parametre action="framework/default.php" type="smarty"/>
-	<ciemList action="modules/param/ciem.php" param="list" droits="gestion" type="smarty"/>
-	<ciemChange action="modules/param/ciem.php" param="change" droits="param" type="smarty"/>
-	<ciemWrite action="modules/param/ciem.php" param="write" retourok="ciemList" retourko="ciemChange" modulebefore="ciemChange"  droits="param"/>
-	<ciemDelete action="modules/param/ciem.php" param="delete" retourok="ciemList" retourko="ciemChange" modulebefore="ciemChange"  droits="param"/>
+	<icesList action="modules/param/ices.php" param="list" droits="gestion" type="smarty"/>
+	<icesChange action="modules/param/ices.php" param="change" droits="param" type="smarty"/>
+	<icesWrite action="modules/param/ices.php" param="write" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
+	<icesDelete action="modules/param/ices.php" param="delete" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
 
-	<paysList action="modules/param/pays.php" param="list"  droits="gestion" type="smarty"/>
-	<paysChange action="modules/param/pays.php" param="change" droits="param" type="smarty"/>
-	<paysWrite action="modules/param/pays.php" param="write" retourok="paysList" retourko="paysChange" modulebefore="paysChange"  droits="param"/>
-	<paysDelete action="modules/param/pays.php" param="delete" retourok="paysList" retourko="paysChange" modulebefore="paysChange"  droits="param"/>
-
-
-	<milieuList action="modules/param/milieu.php" param="list" droits="gestion" type="smarty"/>
-	<milieuChange action="modules/param/milieu.php" param="change" droits="param" type="smarty"/>
-	<milieuWrite action="modules/param/milieu.php" param="write" retourok="milieuList" retourko="milieuChange" modulebefore="milieuChange"  droits="param"/>
-	<milieuDelete action="modules/param/milieu.php" param="delete" retourok="milieuList" retourko="milieuChange" modulebefore="milieuChange" droits="param" />
-
-	<milieuDetailList action="modules/param/milieuDetail.php" param="list" droits="gestion" type="smarty"/>
-	<milieuDetailChange action="modules/param/milieuDetail.php" param="change" droits="param" type="smarty"/>
-	<milieuDetailWrite action="modules/param/milieuDetail.php" param="write" retourok="milieuDetailList" retourko="milieuDetailChange" modulebefore="milieuDetailChange"  droits="param"/>
-	<milieuDetailDelete action="modules/param/milieuDetail.php" param="delete" retourok="milieuDetailList" retourko="milieuDetailChange" modulebefore="milieuDetailChange" droits="param" />
+	<countryList action="modules/param/country.php" param="list"  droits="gestion" type="smarty"/>
+	<countryChange action="modules/param/country.php" param="change" droits="param" type="smarty"/>
+	<countryWrite action="modules/param/country.php" param="write" retourok="countryList" retourko="countryChange" modulebefore="countryChange"  droits="param"/>
+	<countryDelete action="modules/param/country.php" param="delete" retourok="countryList" retourko="countryChange" modulebefore="countryChange"  droits="param"/>
 
 
-	<regionList action="modules/param/region.php" param="list" droits="gestion" type="smarty"/>
-	<regionChange action="modules/param/region.php" param="change" droits="param" type="smarty"/>
-	<regionWrite action="modules/param/region.php" param="write" retourok="regionList" retourko="regionChange" modulebefore="regionChange"  droits="param"/>
-	<regionDelete action="modules/param/region.php" param="delete" retourok="regionList" retourko="regionChange" modulebefore="regionChange"  droits="param"/>
 
-	<enginList action="modules/param/engin.php" param="list" droits="gestion"  type="smarty"/>
-	<enginChange action="modules/param/engin.php" param="change" droits="param" type="smarty"/>
-	<enginWrite action="modules/param/engin.php" param="write" retourok="enginList" retourko="enginChange" modulebefore="enginChange"  droits="param"/>
-	<enginDelete action="modules/param/engin.php" param="delete" retourok="enginList" retourko="enginChange" modulebefore="enginChange"  droits="param"/>
-
-	<especeList action="modules/param/espece.php" param="list" droits="gestion"  type="smarty"/>
-	<especeChange action="modules/param/espece.php" param="change" droits="param" type="smarty"/>
-	<especeWrite action="modules/param/espece.php" param="write" retourok="especeList" retourko="especeChange" modulebefore="especeChange" droits="param" />
-	<especeDelete action="modules/param/espece.php" param="delete" retourok="especeList" retourko="especeChange" modulebefore="especeChange"  droits="param"/>
-
-	<devenirList action="modules/param/devenir.php" param="list" droits="gestion" type="smarty" />
-	<devenirChange action="modules/param/devenir.php" param="change" droits="param" type="smarty"/>
-	<devenirWrite action="modules/param/devenir.php" param="write" retourok="devenirList" retourko="devenirChange" modulebefore="devenirChange" droits="param" />
-	<devenirDelete action="modules/param/devenir.php" param="delete" retourok="devenirList" retourko="devenirChange" modulebefore="devenirChange"  droits="param"/>
-
-	<captureModeList action="modules/param/captureMode.php" param="list" droits="gestion" type="smarty" />
-	<captureModeChange action="modules/param/captureMode.php" param="change" droits="param" type="smarty"/>
-	<captureModeWrite action="modules/param/captureMode.php" param="write" retourok="captureModeList" retourko="captureModeChange" modulebefore="captureModeChange" droits="param" />
-	<captureModeDelete action="modules/param/captureMode.php" param="delete" retourok="captureModeList" retourko="captureModeChange" modulebefore="captureModeChange"  droits="param"/>
-
-	<captureTypeList action="modules/param/captureType.php" param="list" droits="gestion" type="smarty" />
-	<captureTypeChange action="modules/param/captureType.php" param="change" droits="param" type="smarty"/>
-	<captureTypeWrite action="modules/param/captureType.php" param="write" retourok="captureTypeList" retourko="captureTypeChange" modulebefore="captureTypeChange" droits="param" />
-	<captureTypeDelete action="modules/param/captureType.php" param="delete" retourok="captureTypeList" retourko="captureTypeChange" modulebefore="captureTypeChange"  droits="param"/>
-
-	<captureEtatList action="modules/param/captureEtat.php" param="list" droits="gestion" type="smarty" />
-	<captureEtatChange action="modules/param/captureEtat.php" param="change" droits="param" type="smarty"/>
-	<captureEtatWrite action="modules/param/captureEtat.php" param="write" retourok="captureEtatList" retourko="captureEtatChange" modulebefore="captureEtatChange" droits="param" />
-	<captureEtatDelete action="modules/param/captureEtat.php" param="delete" retourok="captureEtatList" retourko="captureEtatChange" modulebefore="captureEtatChange"  droits="param"/>
-
-
-	<evenementTypeList action="modules/param/evenementType.php" param="list" droits="gestion" type="smarty" />
-	<evenementTypeChange action="modules/param/evenementType.php" param="change" droits="param" type="smarty"/>
-	<evenementTypeWrite action="modules/param/evenementType.php" param="write" retourok="evenementTypeList" retourko="evenementTypeChange" modulebefore="evenementTypeChange" droits="param" />
-	<evenementTypeDelete action="modules/param/evenementType.php" param="delete" retourok="evenementTypeList" retourko="evenementTypeChange" modulebefore="evenementTypeChange"  droits="param"/>
-
-	<enginTypeList action="modules/param/enginType.php" param="list" droits="gestion" type="smarty" />
-	<enginTypeChange action="modules/param/enginType.php" param="change" droits="param" type="smarty"/>
-	<enginTypeWrite action="modules/param/enginType.php" param="write" retourok="enginTypeList" retourko="enginTypeChange" modulebefore="enginTypeChange" droits="param" />
-	<enginTypeDelete action="modules/param/enginType.php" param="delete" retourok="enginTypeList" retourko="enginTypeChange" modulebefore="enginTypeChange"  droits="param"/>
-
-    <precisionList action="modules/param/precision.php" param="list" droits="gestion" type="smarty"/>
-	<precisionChange action="modules/param/precision.php" param="change" droits="param" type="smarty"/>
-	<precisionWrite action="modules/param/precision.php" param="write" retourok="precisionList" retourko="precisionChange" modulebefore="precisionChange"  droits="param"/>
-	<precisionDelete action="modules/param/precision.php" param="delete" retourok="precisionList" retourko="precisionChange" modulebefore="precisionChange"  droits="param"/>
 
 	<!-- tables of parameters -->
 	<handlingList action="modules/param/param.php" param="list" droits="consult" tablename="handling" tabledescription="Manipulations effectuées sur les poissons" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
 	<handlingChange action="modules/param/param.php" param="change" droits="param" tablename="handling" tabledescription="Manipulations effectuées sur les poissons" type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<handlingWrite action="modules/param/param.php" param="write" droits="param" tablename="handling" retourok="handlingList" retourko="handlingChange" modulebefore="handlingChange" maxCountByHour="120" maxCountByDay="600" />
 	<handlingDelete action="modules/param/param.php" param="delete" droits="param" tablename="handling" retourok="handlingList" retourko="handlingChange" modulebefore="handlingChange" />
+
+	<gearTypeList action="modules/param/param.php" param="list" droits="consult" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeChange action="modules/param/param.php" param="change" droits="param" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" />
+
+	<accuracyList action="modules/param/param.php" param="list" droits="consult" tablename="accuracy" tabledescription="Précision des localisations" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<accuracyChange action="modules/param/param.php" param="change" droits="param" tablename="accuracy" tabledescription="Précision des localisations" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<accuracyWrite action="modules/param/param.php" param="write" droits="param" tablename="accuracy" retourok="accuracyList" retourko="accuracyChange" modulebefore="accuracyChange" maxCountByHour="120" maxCountByDay="600" />
+	<accuracyDelete action="modules/param/param.php" param="delete" droits="param" tablename="accuracy" retourok="accuracyList" retourko="accuracyChange" modulebefore="accuracyChange" />
+
+	<eventTypeList action="modules/param/param.php" param="list" droits="consult" tablename="eventType" tabledescription="Liste des types d'événements" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<eventTypeChange action="modules/param/param.php" param="change" droits="param" tablename="eventType" tabledescription="Liste des types d'événements" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<eventTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="eventType" retourok="eventTypeList" retourko="eventTypeChange" modulebefore="eventTypeChange" maxCountByHour="120" maxCountByDay="600" />
+	<eventTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="eventType" retourok="eventTypeList" retourko="eventTypeChange" modulebefore="eventTypeChange" />	
+	
+	<captureStateList action="modules/param/param.php" param="list" droits="consult" tablename="captureState" tabledescription="Liste des états à la capture" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<captureStateChange action="modules/param/param.php" param="change" droits="param" tablename="captureState" tabledescription="Liste des états à la capture" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<captureStateWrite action="modules/param/param.php" param="write" droits="param" tablename="captureState" retourok="captureStateList" retourko="captureStateChange" modulebefore="captureStateChange" maxCountByHour="120" maxCountByDay="600" />
+	<captureStateDelete action="modules/param/param.php" param="delete" droits="param" tablename="captureState" retourok="captureStateList" retourko="captureStateChange" modulebefore="captureStateChange" />	
+	
+	<originList action="modules/param/param.php" param="list" droits="consult" tablename="origin" tabledescription="Liste des origines des captures" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<originChange action="modules/param/param.php" param="change" droits="param" tablename="origin" tabledescription="Liste des origines des captures" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<originWrite action="modules/param/param.php" param="write" droits="param" tablename="origin" retourok="originList" retourko="originChange" modulebefore="originChange" maxCountByHour="120" maxCountByDay="600" />
+	<originDelete action="modules/param/param.php" param="delete" droits="param" tablename="origin" retourok="originList" retourko="originChange" modulebefore="originChange" />	
+	
+	<captureMethodList action="modules/param/param.php" param="list" droits="consult" tablename="captureMethod" tabledescription="Liste des méthodes de capture" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<captureMethodChange action="modules/param/param.php" param="change" droits="param" tablename="captureMethod" tabledescription="Liste des méthodes de capture" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<captureMethodWrite action="modules/param/param.php" param="write" droits="param" tablename="captureMethod" retourok="captureMethodList" retourko="captureMethodChange" modulebefore="captureMethodChange" maxCountByHour="120" maxCountByDay="600" />
+	<captureMethodDelete action="modules/param/param.php" param="delete" droits="param" tablename="captureMethod" retourok="captureMethodList" retourko="captureMethodChange" modulebefore="captureMethodChange" />	
+	
+	<fateList action="modules/param/param.php" param="list" droits="consult" tablename="fate" tabledescription="Liste des devenirs des poissons" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<fateChange action="modules/param/param.php" param="change" droits="param" tablename="fate" tabledescription="Liste des devenirs des poissons" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<fateWrite action="modules/param/param.php" param="write" droits="param" tablename="fate" retourok="fateList" retourko="fateChange" modulebefore="fateChange" maxCountByHour="120" maxCountByDay="600" />
+	<fateDelete action="modules/param/param.php" param="delete" droits="param" tablename="fate" retourok="fateList" retourko="fateChange" modulebefore="fateChange" />	
+	
+	<speciesList action="modules/param/param.php" param="list" droits="consult" tablename="species" tabledescription="Liste des espèces d'esturgeons" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<speciesChange action="modules/param/param.php" param="change" droits="param" tablename="species" tabledescription="Liste des espèces d'esturgeons" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<speciesWrite action="modules/param/param.php" param="write" droits="param" tablename="species" retourok="speciesList" retourko="speciesChange" modulebefore="speciesChange" maxCountByHour="120" maxCountByDay="600" />
+	<speciesDelete action="modules/param/param.php" param="delete" droits="param" tablename="species" retourok="speciesList" retourko="speciesChange" modulebefore="speciesChange" />	
+	
+	<environmentDetailList action="modules/param/param.php" param="list" droits="consult" tablename="environmentDetail" tabledescription="Liste des mileux détaillés" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<environmentDetailChange action="modules/param/param.php" param="change" droits="param" tablename="environmentDetail" tabledescription="Liste des milieux détaillés" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<environmentDetailWrite action="modules/param/param.php" param="write" droits="param" tablename="environmentDetail" retourok="environmentDetailList" retourko="environmentDetailChange" modulebefore="environmentDetailChange" maxCountByHour="120" maxCountByDay="600" />
+	<environmentDetailDelete action="modules/param/param.php" param="delete" droits="param" tablename="environmentDetail" retourok="environmentDetailList" retourko="environmentDetailChange" modulebefore="environmentDetailChange" />	
+	
+	<environmentList action="modules/param/param.php" param="list" droits="consult" tablename="environment" tabledescription="Liste des milieux" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<environmentChange action="modules/param/param.php" param="change" droits="param" tablename="environment" tabledescription="Liste des milieux" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<environmentWrite action="modules/param/param.php" param="write" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" maxCountByHour="120" maxCountByDay="600" />
+	<environmentDelete action="modules/param/param.php" param="delete" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" />
+
+	<gearTypeList action="modules/param/param.php" param="list" droits="consult" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeChange action="modules/param/param.php" param="change" droits="param" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" />
+
+	<gearTypeList action="modules/param/param.php" param="list" droits="consult" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeChange action="modules/param/param.php" param="change" droits="param" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" />
+
+	<gearTypeList action="modules/param/param.php" param="list" droits="consult" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeChange action="modules/param/param.php" param="change" droits="param" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" maxCountByHour="120" maxCountByDay="600" />
+	<gearTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" />
+
 </navigation>

@@ -11,21 +11,23 @@
 		<item module="requestList" label="Requêtes SQL" tooltip="Exécution de requêtes SQL dans la base de données" droits="param"/>
 	</item>
 	<item module="parametre" label="Paramètres" tooltip="Tables de paramètres" droits="param,gestion">
-		<item module="ciemList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="gestion" />
-		<item module="paysList" label="Pays" tooltip="Liste des pays" droits="gestion"/>
-		<item module="milieuList" label="Milieux" tooltip="Liste des milieux" droits="gestion"/>
-		<item module="milieuDetailList" label="Milieux détaillés" tooltip="Liste des milieux détaillés" droits="gestion"/>
-		<item module="regionList" label="Régions" tooltip="Liste des régions" droits="gestion"/>
-		<item module="precisionList" label="Précisions des localisations" tooltip="Liste des précisions des localisations" droits="gestion"/>
+		<item module="icesList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="gestion" />
+		<item module="countryList" label="Pays" tooltip="Liste des pays" droits="gestion"/>
+		<item module="environmentList" label="Milieux" tooltip="Liste des milieux" droits="gestion"/>
+		<item module="environmentDetailList" label="Milieux détaillés" tooltip="Liste des milieux détaillés" droits="gestion"/>
+		<item module="accuracyList" label="Précisions des localisations" tooltip="Liste des précisions des localisations" droits="gestion"/>
 		<item divider = "1"/>
-		<item module="especeList" label="Espèces" tooltip="Liste des espèces d'esturgeon" droits="gestion"/>
-		<item module="devenirList" label="Devenirs" tooltip="Liste des destinations des esturgeons capturés" droits="gestion"/>
-		<item module="captureModeList" label="Modes de capture" tooltip="Liste des modes de capture" droits="gestion"/>
-		<item module="captureTypeList" label="Types de capture" tooltip="Liste des types de capture" droits="gestion"/>
-		<item module="captureEtatList" label="États à la capture" tooltip="Liste des états à la capture" droits="gestion"/>
-		<item module="enginTypeList" label="Engins" tooltip="Liste des engins utilisés" droits="gestion"/>
-		<item module="evenementTypeList" label="Types d'événements" tooltip="Liste des types d'événements" droits="gestion"/>
-		<item module="hanglingList" label="Manipulations" tooltip="Liste des manipulations effectuées sur les poissons" droits="gestion"/>
+		<item module="speciesList" label="Espèces" tooltip="Liste des espèces d'esturgeon" droits="gestion"/>
+		<item module="fateList" label="Devenirs" tooltip="Liste des destinations des esturgeons capturés" droits="gestion"/>
+		<item module="captureMethodList" label="Méthodes de capture" tooltip="Liste des méthodes de capture" droits="gestion"/>
+		<item module="originList" label="Origine des captures" tooltip="Liste des origines des captures" droits="gestion"/>
+		<item module="captureStateList" label="États à la capture" tooltip="Liste des états à la capture" droits="gestion"/>
+		<item module="gearTypeList" label="Engins" tooltip="Liste des engins utilisés" droits="gestion"/>
+		<item module="handlingList" label="Manipulations" tooltip="Liste des manipulations effectuées sur les poissons" droits="gestion"/>
+		<item module="targetSpeciesList" label="Espèces ciblées" tooltip="Liste des espèces ciblées" droits="gestion"/>
+		<item divider = "1"/>
+		<item module="eventTypeList" label="Types d'événements" tooltip="Liste des types d'événements" droits="gestion"/>
+		<item module="statusList" label="Statuts" tooltip="Liste des statuts des déclarations" droits="gestion"/>
 	</item>
 	<item module="administration" label="Administration" tooltip="Administration de l'application" droits="admin">
 		<item module="loginList" droits="admin" label="Liste des comptes locaux" tooltip="Liste des logins - identification via la base de données" />

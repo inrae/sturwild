@@ -43,7 +43,7 @@ class Fish extends ObjetBDD
 				"type" => 1,
 				"defaultValue" => 1
 			),
-			"presence_tag_d" => array(
+			"tag_presence_id" => array(
 				"type" => 1
 			),
 			"fate_id" => array(
@@ -130,7 +130,7 @@ class Fish extends ObjetBDD
 			$sql = "select * from fish
 					left outer join species using (species_id)
 					left outer join fate using (fate_id)
-					left outer join tag_presence using (presence_tag_d)
+					left outer join tag_presence using (tag_presence_id)
 					left outer join capture_state using (capture_state_id)
 					where declaration_id = :declaration_id
 					order by fish_id";
@@ -158,7 +158,7 @@ class Fish extends ObjetBDD
 			$from = " from fish
 				left outer join species using (species_id )
 				left outer join capture_state using (capture_state_id)
-				left outer join tag_presence using (presence_tag_d)
+				left outer join tag_presence using (tag_presence_id)
 				left outer join fate using (fate_id)
 				";
 			/*
