@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 12:37+0100\n"
+"POT-Creation-Date: 2023-09-21 12:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-Basepath: ../../../param\n"
 "X-Poedit-SearchPath-0: menu.xml\n"
 
@@ -59,10 +59,11 @@ msgstr "Parameter tables"
 #. (itstool) path: item/item@label
 #: ../../../param/menu.xml:14
 msgid "Zones CIEM"
-msgstr "CIEM zones"
+msgstr "ICES zones"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:14
+#: ../../../param/menu.xml:14 ../../../display/templates/param/ciemList.tpl:1
 msgid "Liste des zones CIEM"
 msgstr "List of CIEM zones"
 
@@ -71,8 +72,9 @@ msgstr "List of CIEM zones"
 msgid "Pays"
 msgstr "Country"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:15
+#: ../../../param/menu.xml:15 ../../../display/templates/param/paysList.tpl:1
 msgid "Liste des pays"
 msgstr "List of contries"
 
@@ -81,8 +83,9 @@ msgstr "List of contries"
 msgid "Milieux"
 msgstr "Environments"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:16
+#: ../../../param/menu.xml:16 ../../../display/templates/param/milieuList.tpl:1
 msgid "Liste des milieux"
 msgstr "List of environments"
 
@@ -91,8 +94,10 @@ msgstr "List of environments"
 msgid "Milieux détaillés"
 msgstr "Detailed environments"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:17
+#: ../../../display/templates/param/milieuDetailList.tpl:1
 msgid "Liste des milieux détaillés"
 msgstr "List of detailed environments"
 
@@ -121,8 +126,9 @@ msgstr "List of locations details"
 msgid "Espèces"
 msgstr "Species"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:21
+#: ../../../param/menu.xml:21 ../../../display/templates/param/especeList.tpl:1
 msgid "Liste des espèces d'esturgeon"
 msgstr "List of species of sturgeons"
 
@@ -131,8 +137,10 @@ msgstr "List of species of sturgeons"
 msgid "Devenirs"
 msgstr "Becoming"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:22
+#: ../../../display/templates/param/devenirList.tpl:1
 msgid "Liste des destinations des esturgeons capturés"
 msgstr "List of destinations of catched sturgeons"
 
@@ -141,8 +149,10 @@ msgstr "List of destinations of catched sturgeons"
 msgid "Modes de capture"
 msgstr "Catch modes"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:23
+#: ../../../display/templates/param/captureModeList.tpl:1
 msgid "Liste des modes de capture"
 msgstr "List of catching mods"
 
@@ -151,8 +161,10 @@ msgstr "List of catching mods"
 msgid "Types de capture"
 msgstr "Catch types"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:24
+#: ../../../display/templates/param/captureTypeList.tpl:1
 msgid "Liste des types de capture"
 msgstr "List of catch types"
 
@@ -161,8 +173,10 @@ msgstr "List of catch types"
 msgid "États à la capture"
 msgstr "States at the catch"
 
+#. #-#-#-#-#  _xml.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:25
+#: ../../../display/templates/param/captureEtatList.tpl:1
 msgid "Liste des états à la capture"
 msgstr "List of states at catch"
 
@@ -186,254 +200,259 @@ msgstr "Event types"
 msgid "Liste des types d'événements"
 msgstr "List of event types"
 
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:28
+msgid "Manipulations"
+msgstr "Handlings"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:28
+msgid "Liste des manipulations effectuées sur les poissons"
+msgstr "List of fish handling"
+
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:29
+#: ../../../param/menu.xml:30
 msgid "Administration"
 msgstr "Administration"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:29
+#: ../../../param/menu.xml:30
 msgid "Administration de l'application"
 msgstr "Application Administration"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:30
+#: ../../../param/menu.xml:31
 msgid "Liste des comptes locaux"
 msgstr "List of local accounts"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:30
+#: ../../../param/menu.xml:31
 msgid "Liste des logins - identification via la base de données"
 msgstr "List of logins - identification via the database"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:31
+#: ../../../param/menu.xml:32
 msgid "ACL - droits"
 msgstr "ACL - rights"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:31
+#: ../../../param/menu.xml:32
 msgid "applications et droits gérés"
 msgstr "applications and rights managed"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:32
+#: ../../../param/menu.xml:33
 msgid "ACL - logins"
 msgstr "ACL - logins"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:32
+#: ../../../param/menu.xml:33
 msgid "Logins déclarés dans le module de gestion des droits"
 msgstr "Logins declared in the rights management module"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:33
+#: ../../../param/menu.xml:34
 msgid "ACL - groupes de logins"
 msgstr "ACL - login groups"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:33
+#: ../../../param/menu.xml:34
 msgid "Groupes de logins et logins rattachés aux groupes"
 msgstr "Groups of logins and logins attached to groups"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:35
+#: ../../../param/menu.xml:36
 msgid "Paramètres de l'application"
 msgstr "Application Settings"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:35
+#: ../../../param/menu.xml:36
 msgid "Liste des paramètres pérennes de l'application"
 msgstr "List of long-term parameters of the application"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:37
+#: ../../../param/menu.xml:38
 msgid "Logs"
 msgstr "Logs"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:37
+#: ../../../param/menu.xml:38
 msgid "Consultation des logs enregistrées"
 msgstr "Consultation of recorded logs"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:38
+#: ../../../param/menu.xml:39
 msgid "Structure de la base de données des droits (HTML)"
 msgstr "Rights management database structure (HTML)"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:38
+#: ../../../param/menu.xml:39
 msgid ""
 "Liste des tables et des colonnes de la base de données de gestion des droits"
 msgstr "List of the tables and the columns of the rights management database"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:39
+#: ../../../param/menu.xml:40
 msgid "PHP info"
 msgstr "PHP info"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:39
+#: ../../../param/menu.xml:40
 msgid "configuration générale du serveur PHP"
 msgstr "general configuration of the PHP server"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:41
+#: ../../../param/menu.xml:42
 msgid "Variables SERVER"
 msgstr "SERVER variables"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:41
+#: ../../../param/menu.xml:42
 msgid "Affichage des variables fournies par le serveur"
 msgstr "Display the variables provided by the server"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:42
+#: ../../../param/menu.xml:43
 msgid "Variables SESSION"
 msgstr "SESSION variables"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:42
+#: ../../../param/menu.xml:43
 msgid "Affichage des variables de session"
 msgstr "Display the data of the session"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:44
+#: ../../../param/menu.xml:45
 msgid "Backup"
 msgstr "Backup"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:44 ../../../display/templates/framework/backup.tpl:1
+#: ../../../param/menu.xml:45
 msgid "Sauvegarde de la base de données"
 msgstr "Backup of the database"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:47 ../../../param/menu.xml:50
+#: ../../../param/menu.xml:48 ../../../param/menu.xml:51
 msgid "documentation"
 msgstr "documentation"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:47
+#: ../../../param/menu.xml:48
 msgid "Documentations en ligne en français"
 msgstr "Online documentation in french"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:48 ../../../param/menu.xml:51
+#: ../../../param/menu.xml:49 ../../../param/menu.xml:52
 msgid "Comprendre la double authentification"
 msgstr "Understand the double authentication"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:48 ../../../param/menu.xml:51
+#: ../../../param/menu.xml:49 ../../../param/menu.xml:52
 msgid "Comprendre le mécanisme de double authentification"
 msgstr "Understand the mechanism of the double authentication"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:50
+#: ../../../param/menu.xml:51
 msgid "Documentations en ligne en anglais"
 msgstr "Online documentation in English"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:53 ../../../display/templates/entete.tpl:21
-#: ../../../display/templates/entete.tpl:41
-#: ../../../display/templates/entete.tpl:42
+#: ../../../param/menu.xml:54
 msgid "Connexion"
 msgstr "Sign in"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:53
+#: ../../../param/menu.xml:54
 msgid "S'identifier dans l'application"
 msgstr "Sign in to the app"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:54 ../../../display/templates/entete.tpl:37
-#: ../../../display/templates/entete.tpl:38
+#: ../../../param/menu.xml:55
 msgid "Déconnexion"
 msgstr "Sign out"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:54
+#: ../../../param/menu.xml:55
 msgid "Déconnexion de l'application"
 msgstr "Sign out of the app"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:55
+#: ../../../param/menu.xml:56
 msgid "Dernières connexions"
 msgstr "Last connections"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:55
+#: ../../../param/menu.xml:56
 msgid "Liste des dernières connexions réalisées"
 msgstr "List of last connections"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:56 ../../../display/templates/entete.tpl:33
-#: ../../../display/templates/entete.tpl:34
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:86
+#: ../../../param/menu.xml:57
 msgid "Modifier le mot de passe"
 msgstr "Change your password"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:56
+#: ../../../param/menu.xml:57
 msgid "Modifiez votre mot de passe (identification locale uniquement)"
 msgstr "Change your password (local identification only)"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:58
+#: ../../../param/menu.xml:59
 msgid "?"
 msgstr "?"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:58
+#: ../../../param/menu.xml:59
 msgid "Aide"
 msgstr "Help"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:59
+#: ../../../param/menu.xml:60
 msgid "A propos"
 msgstr "About"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:59
+#: ../../../param/menu.xml:60
 msgid "A propos de Sturwild"
 msgstr "About Sturwild"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:60
+#: ../../../param/menu.xml:61
 msgid "Nouveautés"
 msgstr "News"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:60
+#: ../../../param/menu.xml:61
 msgid "Quoi de neuf dans l'application ?"
 msgstr "What's new in the app?"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:61
+#: ../../../param/menu.xml:62
 msgid "Lexique"
 msgstr "Glossary"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:61
+#: ../../../param/menu.xml:62
 msgid "Lexique des termes utilisés dans le logiciel"
 msgstr "Glossary of terms used in the software"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:62
+#: ../../../param/menu.xml:63
 msgid "Français"
 msgstr "Français"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:62
+#: ../../../param/menu.xml:63
 msgid "Libellés en français"
 msgstr "Libellés en français"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:63
+#: ../../../param/menu.xml:64
 msgid "English"
 msgstr "English"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:63
+#: ../../../param/menu.xml:64
 msgid "Labels in English"
 msgstr "Labels in English"
 
@@ -444,6 +463,12 @@ msgstr "Unable to read the file containing the news"
 #: ../../../param/param.default.inc.php:10
 msgid "24/03/2023"
 msgstr "2023-03-24"
+
+#: ../../../install/translatedb/import.class.php:75
+#: ../../../framework/import/import.class.php:77
+#, php-format
+msgid "Fichier %s non trouvé ou non lisible"
+msgstr "File %s not found or not readable"
 
 #: ../../../framework/ldap/ldap.class.php:74
 msgid "Impossible de se connecter au serveur LDAP"
@@ -459,7 +484,6 @@ msgid ""
 msgstr "The identification was not successful. Check your login and password"
 
 #: ../../../framework/identification/login.class.php:171
-#: ../../../display/templates/framework/mail/newUser.tpl:1
 msgid "Nouvel utilisateur"
 msgstr "New user"
 
@@ -632,7 +656,6 @@ msgid ""
 msgstr "Problem encountered while writing the login for the rights management"
 
 #: ../../../framework/identification/login.php:94
-#: ../../../display/templates/framework/mail/passwordChanged.tpl:1
 msgid "Modification du mot de passe"
 msgstr "Password change"
 
@@ -702,22 +725,22 @@ msgstr ""
 msgid "%s - Trop d'accès à un module"
 msgstr "%s - Too much access to a module"
 
-#: ../../../framework/fonctions.php:47
+#: ../../../framework/fonctions.php:46
 msgid "Erreur de lecture des informations dans la base de données"
 msgstr "Error reading information in the database"
 
 #. traduction: conserver inchangée la chaîne %s
-#: ../../../framework/fonctions.php:64
+#: ../../../framework/fonctions.php:60
 #, php-format
 msgid "Erreur: type d'affichage non défini pour le module demandé : %s"
 msgstr "Error: display type not defined for the requested module: %s"
 
-#: ../../../framework/fonctions.php:84
+#: ../../../framework/fonctions.php:80
 #: ../../../framework/dbparam/dbparam.php:19
 msgid "Enregistrement effectué"
 msgstr "Saved"
 
-#: ../../../framework/fonctions.php:89
+#: ../../../framework/fonctions.php:87
 msgid ""
 "Un problème est survenu lors de l'enregistrement. Si le problème persiste, "
 "contactez votre support"
@@ -725,43 +748,43 @@ msgstr ""
 "A problem is occurred during the registration. If it persist, contact your "
 "support"
 
-#: ../../../framework/fonctions.php:90
+#: ../../../framework/fonctions.php:92
 msgid "La clé n'a pas été retournée lors de l'enregistrement dans "
 msgstr "The key was not returned when you registered in "
 
-#: ../../../framework/fonctions.php:95
+#: ../../../framework/fonctions.php:99
 msgid ""
 "Un enregistrement portant déjà ce nom existe déjà dans la base de données."
 msgstr "A record with this name already exists in the database."
 
-#: ../../../framework/fonctions.php:104
+#: ../../../framework/fonctions.php:110
 msgid "Problème lors de l'enregistrement..."
 msgstr "Problem when saving ..."
 
-#: ../../../framework/fonctions.php:140
+#: ../../../framework/fonctions.php:146
 msgid "Suppression effectuée"
 msgstr "Deletion done"
 
-#: ../../../framework/fonctions.php:156
+#: ../../../framework/fonctions.php:161
 msgid ""
 "La suppression n'est pas possible : des informations sont référencées par "
 "cet enregistrement"
 msgstr "Deletion is not available: information is referenced by this item"
 
-#: ../../../framework/fonctions.php:159
+#: ../../../framework/fonctions.php:166
 msgid "Problème lors de la suppression"
 msgstr "Problem when deleting"
 
-#: ../../../framework/fonctions.php:168
+#: ../../../framework/fonctions.php:175
 msgid ""
 "Suppression impossible : la clé n'est pas numérique ou n'a pas été fournie"
 msgstr "Can't to delete: the key is not numeric or was not provided"
 
-#: ../../../framework/fonctions.php:445
+#: ../../../framework/fonctions.php:462
 msgid "Impossible d'initialiser le composant curl"
 msgstr "Unable to initialize the curl component"
 
-#: ../../../framework/fonctions.php:485
+#: ../../../framework/fonctions.php:504
 #, php-format
 msgid ""
 "Une erreur est survenue lors de l'exécution de la requête vers le serveur "
@@ -795,26 +818,26 @@ msgstr "You have been disconnected, your session has been open for too long"
 msgid "Problème rencontré lors de la lecture de la table des paramètres"
 msgstr "Problem encountered while reading the parameter table"
 
-#: ../../../framework/droits/aclgroup.class.php:95
+#: ../../../framework/droits/aclgroup.class.php:96
 msgid ""
 "L'identification dans l'annuaire LDAP a échoué pour la récupération des "
 "groupes de l'utilisateur"
 msgstr ""
 "Identification in the LDAP directory failed to retrieve the user's groups"
 
-#: ../../../framework/droits/aclgroup.class.php:131
+#: ../../../framework/droits/aclgroup.class.php:133
 msgid "Connexion à l'annuaire LDAP impossible"
 msgstr "Cannot connect to LDAP directory"
 
-#: ../../../framework/droits/aclgroup.class.php:310
+#: ../../../framework/droits/aclgroup.class.php:318
 msgid "Un groupe ne peut être son propre parent"
 msgstr "A group cannot be its own parent"
 
-#: ../../../framework/droits/aclgroup.class.php:354
+#: ../../../framework/droits/aclgroup.class.php:362
 msgid "Suppression du groupe impossible : d'autres groupes lui sont rattachés"
 msgstr "Can not delete group: other groups are attached to it"
 
-#: ../../../framework/droits/aclgroup.class.php:370
+#: ../../../framework/droits/aclgroup.class.php:378
 msgid ""
 "La suppression du groupe a échoué. Consultez les logs pour en connaître la "
 "raison"
@@ -836,15 +859,14 @@ msgstr "Writing problem..."
 msgid "Vous n'êtes pas identifié."
 msgstr "You are not signed in."
 
-#: ../../../framework/controller.php:22
+#: ../../../framework/controller.php:23
 msgid ""
 "Problème dans les données fournies : l'encodage des caractères n'est pas "
 "celui attendu"
 msgstr ""
 "Problem in the provided data: the character encoding is not the one expected"
 
-#. traduction: bien conserver inchangées les chaînes %1$s, %2$s
-#: ../../../framework/controller.php:41
+#: ../../../framework/controller.php:46
 #, php-format
 msgid ""
 "La base de données n'est pas dans la version attendue (%1$s). Version "
@@ -852,19 +874,19 @@ msgid ""
 msgstr ""
 "The database is not in the expected version (%1$s). Current version: %2$s"
 
-#: ../../../framework/controller.php:48
+#: ../../../framework/controller.php:58
 msgid ""
 "Problème rencontré lors de la vérification de la version de la base de "
 "données"
 msgstr "Problem encountered while checking the version of the database"
 
 #. traduction: conserver inchangée la chaîne %s
-#: ../../../framework/controller.php:172
+#: ../../../framework/controller.php:182
 #, php-format
 msgid "Le module demandé n'existe pas (%s)"
 msgstr "The requested module does not exist (%s)"
 
-#: ../../../framework/controller.php:259
+#: ../../../framework/controller.php:275
 msgid ""
 "Message technique : la vue n'a pas été initialisée lors de la création de la "
 "page de login"
@@ -872,24 +894,23 @@ msgstr ""
 "Technical message: the view was not initialized when the login page was "
 "created"
 
-#: ../../../framework/controller.php:271
+#: ../../../framework/controller.php:289
 msgid "Veuillez utiliser le login qui vous a été fourni pour vous identifier"
 msgstr "Please use the login that was provided to you to identify yourself"
 
-#: ../../../framework/controller.php:344
+#: ../../../framework/controller.php:371
 msgid "Identification refusée"
 msgstr "Authentication failed"
 
-#: ../../../framework/controller.php:368
+#: ../../../framework/controller.php:395
 msgid "Identification réussie !"
 msgstr "Authentication successful!"
 
-#: ../../../framework/controller.php:379
+#: ../../../framework/controller.php:406
 msgid "Connexions précédentes récentes :"
 msgstr "Recent previous connections:"
 
-#. traduction: bien conserver inchangées les chaînes %1$s, %2$s...
-#: ../../../framework/controller.php:391
+#: ../../../framework/controller.php:419
 #, php-format
 msgid ""
 "Dernière connexion le %1$s depuis l'adresse IP %2$s. Si ce n'était pas vous, "
@@ -899,12 +920,12 @@ msgstr ""
 "your password or contact the administrator of the application."
 
 #. traduction: conserver inchangée la chaîne %s
-#: ../../../framework/controller.php:480
+#: ../../../framework/controller.php:516
 #, php-format
 msgid "Module précédent enregistré : %s"
 msgstr "Previous module: %s"
 
-#: ../../../framework/controller.php:547
+#: ../../../framework/controller.php:584
 msgid ""
 "L'accès au module demandé nécessite une ré-identification. Veuillez saisir "
 "votre login et votre mot de passe"
@@ -912,17 +933,16 @@ msgstr ""
 "Access to the requested module requires re-identification. Please enter your "
 "login and password"
 
-#: ../../../framework/controller.php:564
+#: ../../../framework/controller.php:602
 msgid "Erreur d'écriture dans le fichier de traces"
 msgstr "Error writing to the trace file"
 
-#. traduction: bien conserver inchangées les chaînes %1$s, %2$s
-#: ../../../framework/controller.php:706
+#: ../../../framework/controller.php:747
 #, php-format
 msgid "Mode développement - base de données : %1$s - schema : %2$s"
 msgstr "Development mode - database: %1$s - schema: %2$s"
 
-#: ../../../framework/controller.php:742
+#: ../../../framework/controller.php:786
 msgid ""
 "Une erreur indéterminée s'est produite pendant le traitement de la requête. "
 "Si le problème persiste, consultez l'administrateur de l'application"
@@ -938,20 +958,20 @@ msgstr ""
 "The query cannot contain change orders to the database nor can it concern "
 "tables containing confidential information"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:454
+#: ../../../framework/objetbdd/ObjetBDD.php:456
 msgid "La structure de la clé est incorrecte"
 msgstr "The structure of the key is incorrect"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:474
+#: ../../../framework/objetbdd/ObjetBDD.php:476
 msgid "La clé n'est pas numérique"
 msgstr "The key is not numeric"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1402
+#: ../../../framework/objetbdd/ObjetBDD.php:1404
 #, php-format
 msgid "le champ %1$s  n'est pas numerique. Valeur saisie : %2$s"
 msgstr "the field %1$s is not numeric. Entered value: %2$s"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1406
+#: ../../../framework/objetbdd/ObjetBDD.php:1408
 #, php-format
 msgid ""
 "Le champ %1$s est trop grand. Longueur maximale autorisée : %2$s. Valeur "
@@ -960,7 +980,7 @@ msgstr ""
 "The %1$s field is too big. Maximum length allowed: %2$s. Entered value: %3$s "
 "(%4$s characters)"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1410
+#: ../../../framework/objetbdd/ObjetBDD.php:1412
 #, php-format
 msgid ""
 "Le contenu du champ %1$s ne correspond pas au format attendu. Masque "
@@ -969,19 +989,19 @@ msgstr ""
 "The content of the field %1$s does not match the expected format. Authorized "
 "mask: %2$s. Entered value: %3$s"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1414
+#: ../../../framework/objetbdd/ObjetBDD.php:1416
 #, php-format
 msgid "Le champ %s est obligatoire, mais n'a pas été renseigné."
 msgstr "The field %s is required, but has not been filled out."
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1856
+#: ../../../framework/objetbdd/ObjetBDD.php:1867
 #, php-format
 msgid ""
 "La connexion à la base de données n'est pas disponible pour instancier la "
 "classe %s"
 msgstr "The database connection is not available to instantiate the %s class"
 
-#: ../../../framework/errorbefore.php:2
+#: ../../../framework/errorbefore.php:3
 msgid ""
 "L'accès au module que vous demandez ne respecte pas la cinématique de "
 "l'application. Peut-être avez-vous essayé de rafraîchir la page ?"
@@ -993,11 +1013,6 @@ msgstr ""
 #, php-format
 msgid "%s n'est pas un champ reconnu utilisable lors de l'importation"
 msgstr "%s is not a field recognized as usable at import"
-
-#: ../../../framework/import/import.class.php:77
-#, php-format
-msgid "Fichier %s non trouvé ou non lisible"
-msgstr "File %s not found or not readable"
 
 #: ../../../framework/droitko.php:2
 msgid ""
@@ -1034,94 +1049,108 @@ msgstr "The file %s don't exist"
 msgid "Le fichier %s est vide ou ne peut être lu"
 msgstr "The %s file is empty or cannot be read"
 
-#: ../../../display/templates/mapDefault.tpl:62
-msgid "Imprimer la carte"
-msgstr "Print the map"
+#: ../../../modules/declaration/individu.php:44
+#: ../../../modules/declaration/declaration.php:64
+msgid ""
+"Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez "
+"l'administrateur du système."
+msgstr ""
 
-#: ../../../display/templates/main_js.tpl:72
-msgid "Traitement en cours..."
-msgstr "Processing..."
+#: ../../../modules/declaration/declaration.php:170
+#, fuzzy
+msgid "Déclaration dupliquée !"
+msgstr "Declarations"
 
-#: ../../../display/templates/main_js.tpl:73
-msgid "Rechercher :"
-msgstr "Search:"
+#: ../../../modules/declaration/declaration.php:172
+#, fuzzy
+msgid "Echec de duplication de la déclaration"
+msgstr "Expiry date of the sample"
 
-#: ../../../display/templates/main_js.tpl:74
-msgid "Afficher _MENU_ éléments"
-msgstr "Show _MENU_ entries"
+#: ../../../modules/fonctions.php:50
+#, php-format
+msgid "Erreur d'envoi d'un mail vers %s"
+msgstr ""
 
-#: ../../../display/templates/main_js.tpl:75
-msgid "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments"
-msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
+#: ../../../modules/fonctions.php:55
+msgid ""
+"Envoi des mails réalisé pour informer du changement de status de la "
+"déclaration"
+msgstr ""
 
-#: ../../../display/templates/main_js.tpl:76
-msgid "Affichage de l'élément 0 à 0 sur 0 élément"
-msgstr "Showing 0 to 0 of 0 entries"
+#: ../../../vendor/smarty/smarty/libs/debug.tpl:115
+msgid "included templates &amp; config files (load time in seconds)"
+msgstr ""
 
-#: ../../../display/templates/main_js.tpl:77
-msgid "(filtré de _MAX_ éléments au total)"
-msgstr "(filtered from _MAX_ total entries)"
+#: ../../../vendor/smarty/smarty/libs/debug.tpl:127
+msgid "assigned template variables"
+msgstr ""
 
-#: ../../../display/templates/main_js.tpl:79
-msgid "Chargement en cours..."
-msgstr "Loading..."
+#: ../../../vendor/smarty/smarty/libs/debug.tpl:150
+msgid "assigned config file variables"
+msgstr ""
 
-#: ../../../display/templates/main_js.tpl:80
-msgid "Aucun élément à afficher"
-msgstr "No matching records found"
+#: ../../../display/templates/param/captureEtatList.tpl:4
+#: ../../../display/templates/param/precisionList.tpl:4
+#: ../../../display/templates/param/enginTypeList.tpl:4
+#: ../../../display/templates/param/captureTypeList.tpl:4
+#: ../../../display/templates/param/ciemList.tpl:4
+#: ../../../display/templates/param/especeList.tpl:4
+#: ../../../display/templates/param/milieuDetailList.tpl:4
+#: ../../../display/templates/param/paysList.tpl:4
+#: ../../../display/templates/param/captureModeList.tpl:4
+#: ../../../display/templates/param/evenementTypeList.tpl:4
+#, fuzzy
+msgid "Nouveau"
+msgstr "New ..."
 
-#: ../../../display/templates/main_js.tpl:81
-msgid "Aucune donnée disponible dans le tableau"
-msgstr "No data available in table"
+#: ../../../display/templates/param/captureEtatList.tpl:11
+#: ../../../display/templates/param/devenirList.tpl:11
+#: ../../../display/templates/param/precisionList.tpl:13
+#: ../../../display/templates/param/enginTypeList.tpl:11
+#: ../../../display/templates/param/paramList.tpl:14
+#: ../../../display/templates/param/captureTypeList.tpl:11
+#: ../../../display/templates/param/milieuList.tpl:11
+#: ../../../display/templates/param/ciemList.tpl:11
+#: ../../../display/templates/param/especeList.tpl:11
+#: ../../../display/templates/param/milieuDetailList.tpl:11
+#: ../../../display/templates/param/paysList.tpl:11
+#: ../../../display/templates/param/captureModeList.tpl:11
+#: ../../../display/templates/param/evenementTypeList.tpl:12
+#, fuzzy
+msgid "Libellé"
+msgstr "Exported label"
 
-#: ../../../display/templates/main_js.tpl:83
-msgid "Premier"
-msgstr "First"
+#: ../../../display/templates/param/paramChange.tpl:1
+#, fuzzy
+msgid "Création - Modification d'un paramètre :"
+msgstr "Create / Edit a loan"
 
-#: ../../../display/templates/main_js.tpl:84
-msgid "Précédent"
-msgstr "Previous"
+#: ../../../display/templates/param/paramChange.tpl:2
+#: ../../../display/templates/param/milieuChange.tpl:4
+#: ../../../display/templates/param/milieuDetailChange.tpl:4
+#: ../../../display/templates/param/captureTypeChange.tpl:4
+#: ../../../display/templates/param/captureEtatChange.tpl:4
+#: ../../../display/templates/param/especeChange.tpl:4
+#: ../../../display/templates/param/precisionChange.tpl:5
+#: ../../../display/templates/param/ciemChange.tpl:6
+#: ../../../display/templates/param/paysChange.tpl:4
+#: ../../../display/templates/param/captureModeChange.tpl:4
+#: ../../../display/templates/param/enginTypeChange.tpl:4
+#: ../../../display/templates/param/devenirChange.tpl:4
+#: ../../../display/templates/param/evenementTypeChange.tpl:4
+msgid "Retour à la liste"
+msgstr "Back to the list"
 
-#: ../../../display/templates/main_js.tpl:85
-msgid "Suivant"
-msgstr "Next"
+#: ../../../display/templates/param/paramChange.tpl:12
+#, fuzzy
+msgid "Libellé :"
+msgstr "Exported label"
 
-#: ../../../display/templates/main_js.tpl:86
-msgid "Dernier"
-msgstr "Last"
+#: ../../../display/templates/param/paramChange.tpl:21
+msgid "Libellé en anglais, utilisé pour les échanges d'informations :"
+msgstr "Name in english, used to exchange data"
 
-#: ../../../display/templates/main_js.tpl:89
-msgid ": activer pour trier la colonne par ordre croissant"
-msgstr ": activate to sort column ascending"
-
-#: ../../../display/templates/main_js.tpl:90
-msgid ": activer pour trier la colonne par ordre décroissant"
-msgstr ": activate to sort column descending"
-
-#: ../../../display/templates/main_js.tpl:94
-msgid "Afficher %d éléments"
-msgstr "Show %d rows"
-
-#: ../../../display/templates/main_js.tpl:95
-msgid "Tout afficher"
-msgstr "Display All"
-
-#: ../../../display/templates/main_js.tpl:201
-msgid "Valeur numérique..."
-msgstr "Numerical value..."
-
-#: ../../../display/templates/main_js.tpl:232
-msgid "Confirmez-vous la suppression ?"
-msgstr "Do you confirm the deletion?"
-
-#: ../../../display/templates/main_js.tpl:256
-msgid "Confirmez-vous l'opération ?"
-msgstr "Do you confirm this operation?"
-
-#: ../../../display/templates/phpinfo.tpl:1
-msgid "Paramètres PHP"
-msgstr "PHP settings"
-
+#: ../../../display/templates/param/paramChange.tpl:29
 #: ../../../display/templates/param/milieuChange.tpl:21
 #: ../../../display/templates/param/milieuDetailChange.tpl:22
 #: ../../../display/templates/param/captureTypeChange.tpl:23
@@ -1134,23 +1163,10 @@ msgstr "PHP settings"
 #: ../../../display/templates/param/enginTypeChange.tpl:22
 #: ../../../display/templates/param/devenirChange.tpl:23
 #: ../../../display/templates/param/evenementTypeChange.tpl:21
-#: ../../../display/templates/param/regionChange.tpl:21
-#: ../../../display/templates/declaration/evenementChange.tpl:49
-#: ../../../display/templates/declaration/localisationChange.tpl:287
-#: ../../../display/templates/declaration/declarationChange.tpl:246
-#: ../../../display/templates/declaration/individuChange.tpl:143
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:135
-#: ../../../display/templates/framework/ident/totp.tpl:21
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:220
-#: ../../../display/templates/framework/dbparamListChange.tpl:24
-#: ../../../display/templates/framework/droits/acoChange.tpl:16
-#: ../../../display/templates/framework/droits/groupChange.tpl:13
-#: ../../../display/templates/framework/droits/otpCreate.tpl:32
-#: ../../../display/templates/framework/droits/appliChange.tpl:25
-#: ../../../display/templates/framework/droits/loginChange.tpl:29
 msgid "Valider"
 msgstr "Save and return"
 
+#: ../../../display/templates/param/paramChange.tpl:31
 #: ../../../display/templates/param/milieuChange.tpl:23
 #: ../../../display/templates/param/milieuDetailChange.tpl:24
 #: ../../../display/templates/param/captureTypeChange.tpl:25
@@ -1163,862 +1179,430 @@ msgstr "Save and return"
 #: ../../../display/templates/param/enginTypeChange.tpl:24
 #: ../../../display/templates/param/devenirChange.tpl:25
 #: ../../../display/templates/param/evenementTypeChange.tpl:23
-#: ../../../display/templates/param/regionChange.tpl:23
-#: ../../../display/templates/declaration/evenementChange.tpl:51
-#: ../../../display/templates/declaration/declarationChange.tpl:248
-#: ../../../display/templates/declaration/individuChange.tpl:145
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:222
-#: ../../../display/templates/framework/droits/acoChange.tpl:18
-#: ../../../display/templates/framework/droits/groupChange.tpl:15
-#: ../../../display/templates/framework/droits/appliChange.tpl:27
-#: ../../../display/templates/framework/droits/loginChange.tpl:31
-#: ../../../display/templates/framework/request/requestChange.tpl:84
 msgid "Supprimer"
 msgstr "Delete"
 
-#: ../../../display/templates/entete.tpl:32
-msgid "Activer la double authentification pour votre compte"
-msgstr "Enable dual authentication for your account"
-
-#: ../../../display/templates/entete.tpl:32
-msgid "Activer la double authentification"
-msgstr "Enable dual authentication"
-
-#: ../../../display/templates/entete.tpl:35
-msgid "Mot de passe"
-msgstr "Password"
-
-#: ../../../display/templates/declaration/declarationDisplay.tpl:51
-msgid "Données générales - N°"
-msgstr "General information - #"
-
-#: ../../../display/templates/declaration/declarationDisplay.tpl:57
-msgid "Localisation"
-msgstr "Localization"
-
-#: ../../../display/templates/declaration/declarationDisplay.tpl:63
-msgid "Esturgeons capturés"
-msgstr "Sturgeon caught"
-
-#: ../../../display/templates/declaration/declarationDisplay.tpl:69
-msgid "Photos associées"
-msgstr "Related documents"
-
-#: ../../../display/templates/declaration/declarationDisplay.tpl:75
-msgid "Événements"
-msgstr "Events"
-
-#: ../../../display/templates/declaration/declarationSearch.tpl:134
-#: ../../../display/templates/framework/logList.tpl:30
-msgid "Rechercher"
-msgstr "Search"
-
-#: ../../../display/templates/declaration/nbSturioByYear.tpl:5
-msgid "Année"
-msgstr "Year"
-
-#: ../../../display/templates/declaration/nbSturioByYear.tpl:6
-msgid "Espèce"
-msgstr "Species"
-
-#: ../../../display/templates/declaration/nbSturioByYear.tpl:7
-msgid "Nbre"
-msgstr "Number"
-
-#: ../../../display/templates/enpied.tpl:3
-msgid ""
-"Copyright © 2015- 2023 - Tous droits réservés. Auteur : Éric Quinton, pour "
-"EABX - INRAE - Logiciel diffusé sous licence AGPL"
-msgstr ""
-"Copyright © 2015-2023 - All rights reserved. Author: Eric Quinton, for EABX "
-"- INRAE - Software released under AGPL license"
-
-#: ../../../display/templates/enpied.tpl:5
-msgid "En cas de problème :"
-msgstr "For any problem:"
-
-#: ../../../display/templates/framework/logList.tpl:9
-msgid "Nom du module :"
-msgstr "Module name:"
-
-#: ../../../display/templates/framework/logList.tpl:20
-msgid "Login concerné :"
-msgstr "Related login:"
-
-#: ../../../display/templates/framework/logList.tpl:34
-msgid "du :"
-msgstr "from :"
-
-#: ../../../display/templates/framework/logList.tpl:38
-msgid "au :"
-msgstr "to:"
-
-#: ../../../display/templates/framework/logList.tpl:51
-#: ../../../display/templates/framework/lastConnections.tpl:7
-msgid "Date"
-msgstr "Date"
-
-#: ../../../display/templates/framework/logList.tpl:52
-msgid "Module"
-msgstr "Module"
-
-#: ../../../display/templates/framework/logList.tpl:53
-msgid "Commentaires"
-msgstr "Comment"
-
-#: ../../../display/templates/framework/logList.tpl:54
-#: ../../../display/templates/framework/ident/loginliste.tpl:31
-msgid "Login"
-msgstr "Login"
-
-#: ../../../display/templates/framework/logList.tpl:55
-#: ../../../display/templates/framework/lastConnections.tpl:8
-msgid "Adresse IP"
-msgstr "IP address"
-
-#: ../../../display/templates/framework/dbstructure.tpl:1
-#: ../../../display/templates/framework/request/requestChange.tpl:32
-msgid "Structure de la base de données"
-msgstr "Database structure"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:7
-msgid "Le pire"
-msgstr "The worst"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:7
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:8
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:9
-msgid "Ajoutez un mot ou deux. Les mots inconnus sont meilleurs."
-msgstr "Add one or two words. Unknown words are better."
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:8
-msgid "Mauvais"
-msgstr "Bad"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:9
-msgid "Faible"
-msgstr "Weak"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:10
-msgid "Bon"
-msgstr "Good"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:10
-msgid ""
-"Ajoutez un ou deux autres mots. Les mots peu communs sont meilleurs, les "
-"mots inversés ne sont pas beaucoup plus difficiles à deviner."
-msgstr ""
-"Add one or two words. Uncommon words are better, inverted words are not much "
-"harder to guess."
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:11
-msgid "Robuste"
-msgstr "Robust"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:30
-msgid "Force du mot de passe :"
-msgstr "Strong of the password:"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:51
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:16
-msgid "Les mots de passe ne sont pas identiques"
-msgstr "Passwords don't match"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:54
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:19
-msgid "Le mot de passe est trop court. Minimum : "
-msgstr "The password is too short. Minimum: "
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:54
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:137
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:19
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:183
-msgid "caractères"
-msgstr "characters"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:57
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:22
-msgid ""
-"Le mot de passe n'est pas assez complexe (mixez 3 jeux de caractères parmi "
-"les minuscules, majuscules, chiffres et signes de ponctuation)"
-msgstr ""
-"The password is not complex enough (mix 3 character sets among lowercase, "
-"uppercase, numbers, and punctuation)"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:98
-msgid "Ancien mot de passe :"
-msgstr "Old password:"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:109
-msgid "Nouveau mot de passe :"
-msgstr "New Password:"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:125
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:160
-msgid "Répétez le mot de passe :"
-msgstr "Repeat password:"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:137
-msgid "Longueur minimale du mot de passe :"
-msgstr "Minimum length of the password:"
-
-#: ../../../display/templates/framework/ident/loginChangePassword.tpl:139
-msgid ""
-"Il doit comprendre au minimum 3 types de caractères différents\n"
-"(minuscule, majuscule, chiffre, ponctuation et autre symboles)"
-msgstr ""
-"It must include at least 3 different types of characters\n"
-"(lowercase, uppercase, number, punctuation and other symbols)"
-
-#: ../../../display/templates/framework/ident/login.tpl:32
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:90
-#: ../../../display/templates/framework/ident/loginAdmin.tpl:26
-msgid "Login :"
-msgstr "Login:"
-
-#: ../../../display/templates/framework/ident/login.tpl:40
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:151
-#: ../../../display/templates/framework/ident/loginAdmin.tpl:34
-msgid "Mot de passe :"
-msgstr "Password:"
-
-#: ../../../display/templates/framework/ident/login.tpl:54
-msgid "Conserver la connexion pendant"
-msgstr "Keep me signed in for"
-
-#: ../../../display/templates/framework/ident/login.tpl:54
-msgid "heures"
-msgstr "hours"
-
-#: ../../../display/templates/framework/ident/login.tpl:60
-#: ../../../display/templates/framework/ident/identMailInput.tpl:2
-msgid "Mot de passe oublié ?"
-msgstr "Forgot your password?"
-
-#: ../../../display/templates/framework/ident/login.tpl:64
-#: ../../../display/templates/framework/ident/loginAdmin.tpl:46
-msgid "Se connecter"
-msgstr "Sign in"
-
-#: ../../../display/templates/framework/ident/login.tpl:69
-msgid "ou :"
-msgstr "or:"
-
-#: ../../../display/templates/framework/ident/login.tpl:71
-msgid "Se connecter avec l'identification centralisée"
-msgstr "Log in with centralized identification"
-
-#: ../../../display/templates/framework/ident/totp.tpl:1
-msgid "Vérification du compte avec la double authentification"
-msgstr "Account verification with dual authentication"
-
-#: ../../../display/templates/framework/ident/totp.tpl:5
-msgid ""
-"Pour vérifier votre identification, veuillez taper le code TOTP que vous "
-"avez configuré dans votre smartphone"
-msgstr ""
-"To verify your identification, please type the TOTP code you have configured "
-"in your smartphone"
-
-#: ../../../display/templates/framework/ident/totp.tpl:15
-#: ../../../display/templates/framework/droits/otpCreate.tpl:26
-msgid "Code généré par le logiciel TOTP :"
-msgstr "Code generated by the TOTP software:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:78
-msgid "Saisie/modification d'un compte"
-msgstr "Add / edit an account"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:81
-#: ../../../display/templates/framework/droits/loginChange.tpl:5
-msgid "Retour à la liste des logins"
-msgstr "Back to the list of logins"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:97
-msgid "Nom de famille :"
-msgstr "Last name :"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:102
-msgid "Prénom :"
-msgstr "First name:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:108
-msgid "Adresse e-mail :"
-msgstr "Email address:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:114
-msgid "Date :"
-msgstr "Date:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:120
-msgid "Compte utilisé pour service web :"
-msgstr "Account used for web service:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:124
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:199
-#: ../../../display/templates/framework/ident/loginliste.tpl:47
-#: ../../../display/templates/framework/ident/loginliste.tpl:48
-#: ../../../display/templates/framework/ident/loginliste.tpl:51
-#: ../../../display/templates/framework/droits/loginList.tpl:26
-msgid "oui"
-msgstr "yes"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:128
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:202
-msgid "non"
-msgstr "no"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:133
-msgid "Jeton d'identification du service web :"
-msgstr "Identification token of the web service:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:138
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:176
-msgid "Copier dans le presse-papier"
-msgstr "Copy to clipboard"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:139
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:216
-msgid "Réinitialiser..."
-msgstr "Reset ..."
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:146
-msgid ""
-"Le compte est verrouillé, le mot de passe n'a pas été changé après 3 "
-"connexions"
-msgstr ""
-"The account is blocked, the password was not changed after 3 connections"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:169
-msgid "Générez un mot de passe aléatoire"
-msgstr "Generate a random password"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:171
-msgid "Générez"
-msgstr "Generate"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:174
-msgid "Mot de passe généré"
-msgstr "Password generated"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:181
-msgid "Caractéristiques du mot de passe :"
-msgstr "Password characteristics:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:183
-msgid "Longueur minimale : "
-msgstr "Minimum length: "
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:184
-msgid "Au minimum 3 types de caractères différents parmi :"
-msgstr "Must be composed of at least 3 different types of characters among:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:186
-msgid "des minuscules"
-msgstr "lowercase characters"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:187
-msgid "des majuscules"
-msgstr "uppercase characters"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:188
-msgid "des chiffres"
-msgstr "numbers"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:189
-msgid "des caractères de ponctuation ou spéciaux"
-msgstr "punctuation or special characters"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:196
-#: ../../../display/templates/framework/ident/loginliste.tpl:34
-msgid "Actif"
-msgstr "Active"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:207
-msgid "Essais de connexion infructueux et date du dernier essai :"
-msgstr "Unsuccessful connection attempts and date of last attempt:"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:233
-#: ../../../display/templates/framework/droits/acoChange.tpl:47
-#: ../../../display/templates/framework/droits/groupChange.tpl:60
-#: ../../../display/templates/framework/droits/appliChange.tpl:35
-#: ../../../display/templates/framework/droits/loginChange.tpl:37
+#: ../../../display/templates/param/paramChange.tpl:37
 msgid "Donnée obligatoire"
 msgstr "Mandatory data"
 
-#: ../../../display/templates/framework/ident/loginliste.tpl:23
-msgid "Liste des logins déclarés dans la base de données"
-msgstr "List of logins declared in the database"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:25
-msgid "Nouveau login"
-msgstr "New login"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:32
-msgid "Nom - Prénom"
-msgstr "Last name - First name"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:33
-msgid "Adresse e-mail"
-msgstr "Email address"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:35
-msgid "Compte utilisé pour service web"
-msgstr "Account used for web service"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:36
-msgid "Mot de passe en attente de changement"
-msgstr "Password waiting to be change"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:37
-msgid "Nombre d'essais de connexion infructueux"
-msgstr "Number of unsuccessful connection attempts"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:38
-msgid "Heure du dernier essai infructueux"
-msgstr "Time of last unsuccessful attempt"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:50
-msgid "Compte bloqué"
-msgstr "Account blocked"
-
-#: ../../../display/templates/framework/ident/loginliste.tpl:67
-msgid "Adresses mails :"
-msgstr "Email addresses:"
-
-#: ../../../display/templates/framework/ident/identMailInput.tpl:2
-msgid "lancement de la procédure de récupération"
-msgstr "start the recovery procedure"
-
-#: ../../../display/templates/framework/ident/identMailInput.tpl:8
-msgid "Entrez votre adresse e-mail :"
-msgstr "Enter your email address:"
-
-#: ../../../display/templates/framework/ident/identMailInput.tpl:15
-msgid "Recevoir un mail de récupération"
-msgstr "Receive a recovery email"
-
-#: ../../../display/templates/framework/mail/maxAccessToModule.tpl:1
-#: ../../../display/templates/framework/mail/noRights.tpl:1
-#: ../../../display/templates/framework/mail/accountBlocked.tpl:1
-msgid "Problème potentiel de sécurité"
-msgstr "Potential safety issue"
-
-#: ../../../display/templates/framework/mail/maxAccessToModule.tpl:2
-msgid ""
-"Le compte %1 a essayé d'accéder au module %2 le %3 en dépassant le nombre "
-"autorisé soit en une heure, soit en une journée."
-msgstr ""
-"Account %1 tried to access module %2 on %3 by exceeding the allowed number "
-"either in one hour or in one day."
-
-#: ../../../display/templates/framework/mail/maxAccessToModule.tpl:5
-#: ../../../display/templates/framework/mail/noRights.tpl:5
-#: ../../../display/templates/framework/mail/accountBlocked.tpl:5
-msgid ""
-"Vous recevez ce message parce que vous êtes administrateur de l'application"
-msgstr ""
-"You are receiving this message because you are an administrator of the "
-"application"
-
-#: ../../../display/templates/framework/mail/noRights.tpl:2
-msgid ""
-"Le compte %1 a essayé d'accéder au module %2 le %3 sans disposer des droits "
-"adéquats."
-msgstr ""
-"Account %1 tried to access module %2 on %3 without having the proper rights."
-
-#: ../../../display/templates/framework/mail/accountActivate.tpl:1
-msgid "Activation ou réactivation de votre compte"
-msgstr "Activation or reactivation of your account"
-
-#: ../../../display/templates/framework/mail/accountActivate.tpl:2
-#: ../../../display/templates/framework/mail/passwordLost.tpl:2
-#: ../../../display/templates/framework/mail/passwordChanged.tpl:2
-msgid "Bonjour %1 %2,"
-msgstr "Hello %1 %2,"
-
-#: ../../../display/templates/framework/mail/accountActivate.tpl:4
-msgid "Votre compte vient d'être activé ou réactivé dans l'application %1"
-msgstr ""
-"Your account has just been activated or reactivated in the application %1"
-
-#: ../../../display/templates/framework/mail/accountActivate.tpl:7
-msgid ""
-"Si vous n'êtes pas à l'origine de cette demande, veuillez contacter le "
-"responsable de l'application."
-msgstr ""
-"If you did not perform this operation, please contact the application "
-"manager."
-
-#: ../../../display/templates/framework/mail/mail.tpl:44
-msgid "Ne répondez pas à ce mail, qui est généré automatiquement"
-msgstr "Do not reply to this email, which is automatically generated"
-
-#: ../../../display/templates/framework/mail/passwordLost.tpl:4
-msgid ""
-"Vous avez demandé à réinitialiser votre mot de passe pour l'application %1. "
-"Si ce n'était pas le cas, contactez l'administrateur de l'application."
-msgstr ""
-"You asked to reset your password for the application %1. If this was not the "
-"case, contact the application administrator."
-
-#: ../../../display/templates/framework/mail/passwordLost.tpl:6
-msgid ""
-"Pour réinitaliser votre mot de passe, recopiez le lien suivant dans votre "
-"navigateur :"
-msgstr "To reset your password, copy the following link into your browser:"
-
-#: ../../../display/templates/framework/mail/passwordLost.tpl:10
-msgid "Le lien restera valable jusqu'au %1."
-msgstr "The link will remain valid until %1."
-
-#: ../../../display/templates/framework/mail/accountBlocked.tpl:2
-msgid "Le compte %1 a été bloqué le %2 après trop de tentatives de connexion."
-msgstr "Account %1 was blocked on %2 after too many login attempts."
-
-#: ../../../display/templates/framework/mail/passwordChanged.tpl:4
-msgid "Votre mot de passe vient d'être modifié dans l'application %1"
-msgstr "Your password has been changed in the application %1"
-
-#: ../../../display/templates/framework/mail/passwordChanged.tpl:8
-msgid ""
-"Si vous n'êtes pas à l'origine de cette opération, veuillez contacter le "
-"responsable de l'application."
-msgstr ""
-"If you did not perform this operation, please contact the application "
-"manager."
-
-#: ../../../display/templates/framework/mail/newUser.tpl:2
-msgid ""
-"%2 a créé son compte avec le login %1 dans l'application %3. Le compte est "
-"actuellement inactif."
-msgstr ""
-"%2 created his account with login %1 in the application %3. The account is "
-"currently inactive."
-
-#: ../../../display/templates/framework/mail/newUser.tpl:5
-msgid "La personne est rattachée à l'organisation %1."
-msgstr "The person is attached to the organization %1."
-
-#: ../../../display/templates/framework/mail/newUser.tpl:8
-msgid "Pour activer le compte, connectez-vous à l'application :"
-msgstr "To activate the account, login to the application:"
-
-#: ../../../display/templates/framework/mail/newUser.tpl:14
-msgid ""
-"Vous recevez ce message parce que vous êtes administrateur de l'application."
-msgstr ""
-"You are receiving this message because you are the administrator of the "
-"application."
-
-#: ../../../display/templates/framework/lastConnections.tpl:1
-msgid "Dernières connexions enregistrées"
-msgstr "Last connections recorded"
-
-#: ../../../display/templates/framework/dbparamListChange.tpl:2
-msgid "Paramètres pérennes de l'application"
-msgstr "Long-term settings of the application"
-
-#: ../../../display/templates/framework/dbparamListChange.tpl:10
-msgid "Paramètre"
-msgstr "Setting"
-
-#: ../../../display/templates/framework/dbparamListChange.tpl:11
-msgid "Valeur"
-msgstr "Value"
-
-#: ../../../display/templates/framework/droits/loginList.tpl:2
-msgid "Liste des logins déclarés dans le module de gestion des droits"
-msgstr "List of logins declared in the rights management module"
-
-#: ../../../display/templates/framework/droits/loginList.tpl:6
-msgid "Nouveau login..."
-msgstr "New login..."
-
-#: ../../../display/templates/framework/droits/loginList.tpl:12
-msgid "Utilisateur"
-msgstr "User"
-
-#: ../../../display/templates/framework/droits/loginList.tpl:13
-msgid "Login employé"
-msgstr "Login used"
-
-#: ../../../display/templates/framework/droits/loginList.tpl:14
-msgid "Double identification activée ?"
-msgstr "Dual identification activated?"
-
-#: ../../../display/templates/framework/droits/acoChange.tpl:2
-msgid "Modification du droit d'une application (module de gestion des droits)"
-msgstr "Modify the right of an application (rights management module)"
-
-#: ../../../display/templates/framework/droits/acoChange.tpl:5
-#: ../../../display/templates/framework/droits/appliChange.tpl:5
-#: ../../../display/templates/framework/droits/appliDisplay.tpl:1
-msgid "Retour à la liste des applications"
-msgstr "Back to the list of applications"
-
-#: ../../../display/templates/framework/droits/acoChange.tpl:7
-msgid "Retour à"
-msgstr "Back to"
-
-#: ../../../display/templates/framework/droits/acoChange.tpl:23
-msgid "Nom du droit utilisé dans l'application :"
-msgstr "Name of the right used in the application:"
-
-#: ../../../display/templates/framework/droits/acoChange.tpl:28
-msgid "Groupes disposant du droit :"
-msgstr "Groups with the right:"
-
-#: ../../../display/templates/framework/droits/groupChange.tpl:2
-msgid "Modification d'un groupe et rattachement des logins"
-msgstr "Edit the group and its attachments to the logins"
-
-#: ../../../display/templates/framework/droits/groupChange.tpl:5
-msgid "Retour à la liste des groupes"
-msgstr "Back to the list of groups"
-
-#: ../../../display/templates/framework/droits/groupChange.tpl:20
-msgid "Nom du groupe :"
-msgstr "Name of the group:"
-
-#: ../../../display/templates/framework/droits/groupChange.tpl:26
-msgid "Groupe de rattachement"
-msgstr "Group of affiliation"
-
-#: ../../../display/templates/framework/droits/groupChange.tpl:42
-msgid "Logins rattachés"
-msgstr "Logins attached"
-
-#: ../../../display/templates/framework/droits/otpCreate.tpl:1
-msgid "Activation de la double authentification"
-msgstr "Activation of the double authentication"
-
-#: ../../../display/templates/framework/droits/otpCreate.tpl:5
-msgid ""
-"La double identification limite les risques d'usurpation de votre compte."
-msgstr ""
-"The double identification limits the risks of usurpation of your account."
-
-#: ../../../display/templates/framework/droits/otpCreate.tpl:7
-msgid ""
-"Pour l'activer, vous devrez installer dans votre smartphone une application "
-"compatible avec l'identification\n"
-"      TOTP, par exemple FreeOTP, Google Authenticator, etc."
-msgstr ""
-"To activate it, you will need to install an application on your smartphone "
-"that is compatible with the TOTP, for example FreeOTP, Google Authenticator, "
-"etc."
-
-#: ../../../display/templates/framework/droits/appliChange.tpl:2
-msgid "Modification d'une application (module de gestion des droits)"
-msgstr "Modify the application (rights management module)"
-
-#: ../../../display/templates/framework/droits/appliChange.tpl:12
-msgid "Nom de l'application :"
-msgstr "Name of the application:"
-
-#: ../../../display/templates/framework/droits/appliChange.tpl:19
-msgid "Description :"
-msgstr "Description:"
-
-#: ../../../display/templates/framework/droits/loginChange.tpl:2
-msgid "Modification d'un login (module de gestion des droits)"
-msgstr "Edit login (rights management module)"
-
-#: ../../../display/templates/framework/droits/loginChange.tpl:12
-msgid "Nom de l'utilisateur :"
-msgstr "Username:"
-
-#: ../../../display/templates/framework/droits/loginChange.tpl:17
-msgid "Login utilisé :"
-msgstr "Login used:"
-
-#: ../../../display/templates/framework/droits/loginChange.tpl:23
-msgid "Désactiver l'identification à double facteur :"
-msgstr "Disable two-factor identification:"
-
-#: ../../../display/templates/framework/droits/loginChange.tpl:41
-msgid "Droits attribués"
-msgstr "Rights granted"
-
-#: ../../../display/templates/framework/droits/appliDisplay.tpl:2
-msgid "Liste des droits disponibles pour l'application"
-msgstr "List of available rights for the application"
-
-#: ../../../display/templates/framework/droits/appliDisplay.tpl:10
-msgid "Modifier..."
-msgstr "Edit..."
-
-#: ../../../display/templates/framework/droits/appliDisplay.tpl:15
-msgid "Nouveau droit..."
-msgstr "New right..."
-
-#: ../../../display/templates/framework/droits/appliDisplay.tpl:21
-msgid "Nom du droit d'accès"
-msgstr "Name of the access right"
-
-#: ../../../display/templates/framework/droits/groupList.tpl:2
-msgid "Liste des groupes de logins"
-msgstr "List of groups of logins"
-
-#: ../../../display/templates/framework/droits/groupList.tpl:6
-msgid "Nouveau groupe racine..."
-msgstr "New root group..."
-
-#: ../../../display/templates/framework/droits/groupList.tpl:12
-msgid "Nom du groupe"
-msgstr "Name of the group"
-
-#: ../../../display/templates/framework/droits/groupList.tpl:13
-msgid "Nombre de logins déclarés"
-msgstr "Number of logins declared"
-
-#: ../../../display/templates/framework/droits/groupList.tpl:14
-msgid "Rajouter un groupe fils"
-msgstr "Add a child group"
-
-#: ../../../display/templates/framework/droits/appliList.tpl:2
-msgid "Liste des applications disponibles dans le module de gestion des droits"
-msgstr "List of applications available in the rights management module"
-
-#: ../../../display/templates/framework/droits/appliList.tpl:6
-msgid "Nouvelle application..."
-msgstr "New application..."
-
-#: ../../../display/templates/framework/droits/appliList.tpl:11
-msgid "Modifier"
-msgstr "Edit"
-
-#: ../../../display/templates/framework/droits/appliList.tpl:12
-msgid "Nom de l'application"
-msgstr "Name of the application"
-
-#: ../../../display/templates/framework/droits/appliList.tpl:13
-#: ../../../display/templates/framework/request/requestList.tpl:10
-msgid "Description"
-msgstr "Description"
-
-#: ../../../display/templates/framework/request/requestList.tpl:1
-msgid "Liste des requêtes SQL"
-msgstr "List of SQL requests"
-
-#: ../../../display/templates/framework/request/requestList.tpl:4
-msgid "Nouvelle requête..."
-msgstr "New request..."
-
-#: ../../../display/templates/framework/request/requestList.tpl:9
+#: ../../../display/templates/param/precisionList.tpl:1
+#, fuzzy
+msgid "Liste des précisions des locations estimées"
+msgstr "List of locations details"
+
+#: ../../../display/templates/param/precisionList.tpl:12
+#: ../../../display/templates/param/paramList.tpl:13
 msgid "Id"
 msgstr "ID"
 
-#: ../../../display/templates/framework/request/requestList.tpl:11
-msgid "Date de création"
-msgstr "Date of creation"
+#: ../../../display/templates/param/milieuChange.tpl:1
+#, fuzzy
+msgid "Modification d'un environment"
+msgstr "Edit a printer"
 
-#: ../../../display/templates/framework/request/requestList.tpl:12
-msgid "Date de dernière exécution"
-msgstr "Date of last execution"
+#: ../../../display/templates/param/milieuChange.tpl:14
+#, fuzzy
+msgid "Libellé du environment  :"
+msgstr "List of environments"
 
-#: ../../../display/templates/framework/request/requestList.tpl:13
-msgid "Créateur (login)"
-msgstr "Creator (login)"
+#: ../../../display/templates/param/milieuChange.tpl:28
+#: ../../../display/templates/param/milieuDetailChange.tpl:29
+#: ../../../display/templates/param/captureTypeChange.tpl:30
+#: ../../../display/templates/param/captureEtatChange.tpl:28
+#: ../../../display/templates/param/especeChange.tpl:29
+#: ../../../display/templates/param/precisionChange.tpl:29
+#: ../../../display/templates/param/ciemChange.tpl:31
+#: ../../../display/templates/param/paysChange.tpl:36
+#: ../../../display/templates/param/captureModeChange.tpl:27
+#: ../../../display/templates/param/enginTypeChange.tpl:29
+#: ../../../display/templates/param/devenirChange.tpl:31
+#: ../../../display/templates/param/evenementTypeChange.tpl:28
+#, fuzzy
+msgid "Champ obligatoire"
+msgstr "Mandatory"
 
-#: ../../../display/templates/framework/request/requestList.tpl:31
-msgid "Exécuter la requête"
-msgstr "Process"
+#: ../../../display/templates/param/enginTypeList.tpl:1
+#, fuzzy
+msgid "Liste des types d'engins de pêche"
+msgstr "List of catch types"
 
-#: ../../../display/templates/framework/request/requestList.tpl:36
-msgid "Dupliquer la requête"
-msgstr "Duplicate the request"
+#: ../../../display/templates/param/paramList.tpl:1
+#, fuzzy
+msgid "Liste des paramètres : "
+msgstr "Parameter tables"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:4
-msgid "Confirmez la suppression de la requête"
-msgstr "Confirm the deletion of the request"
+#: ../../../display/templates/param/paramList.tpl:7
+msgid "Nouveau..."
+msgstr "New ..."
 
-#: ../../../display/templates/framework/request/requestChange.tpl:48
-msgid "Code SQL :"
-msgstr "SQL code:"
+#: ../../../display/templates/param/paramList.tpl:15
+msgid "Libellé en anglais, pour les échanges"
+msgstr "Name in english, for exchanges"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:54
-msgid "Champs dates de la requête (séparés par une virgule) :"
-msgstr "Date fields of the request (separated by a comma):"
+#: ../../../display/templates/param/milieuDetailChange.tpl:1
+#, fuzzy
+msgid "Modification d'un mileu détaillé"
+msgstr "Modify a sample type"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:60
-msgid "date de création :"
-msgstr "date of creation:"
+#: ../../../display/templates/param/milieuDetailChange.tpl:15
+#, fuzzy
+msgid "Libellé du milieu  :"
+msgstr "List of environments"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:66
-msgid "par :"
-msgstr "by:"
+#: ../../../display/templates/param/captureTypeChange.tpl:1
+#, fuzzy
+msgid "Modification d'un type de capture"
+msgstr "Edit a type of dataset"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:72
-msgid "Date de dernière exécution :"
-msgstr "Date of last execution:"
+#: ../../../display/templates/param/captureTypeChange.tpl:15
+#, fuzzy
+msgid "Type de capture  :"
+msgstr "Catch types"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:80
-msgid "Enregistrer"
-msgstr "Save"
+#: ../../../display/templates/param/captureEtatChange.tpl:1
+#, fuzzy
+msgid "Modification d'un état à la capture"
+msgstr "Edit a translator"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:82
-msgid "Enregistrer et exécuter"
-msgstr "Save and run"
+#: ../../../display/templates/param/captureEtatChange.tpl:13
+#, fuzzy
+msgid "Etat à la capture:"
+msgstr "States at the catch"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:83
-msgid "Exécuter"
-msgstr "Process"
+#: ../../../display/templates/param/especeChange.tpl:1
+#, fuzzy
+msgid "Modification d'une espèce"
+msgstr "Edit a protocol"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:115
-msgid "Aucun résultat n'a été retourné par la requête"
-msgstr "No results were returned by the query"
+#: ../../../display/templates/param/especeChange.tpl:15
+#, fuzzy
+msgid "Libellé de l'espèce  :"
+msgstr "List of environments"
 
-#: ../../../display/templates/framework/backup.tpl:2
-msgid ""
-"Ce module est destiné à réaliser une sauvegarde exceptionnelle de la base de "
-"données"
+#: ../../../display/templates/param/precisionChange.tpl:1
+#, fuzzy
+msgid "Création / modification de la précision de la localisation"
+msgstr "Create / Edit a reservation"
+
+#: ../../../display/templates/param/precisionChange.tpl:15
+#, fuzzy
+msgid "Libellé  :"
+msgstr "Exported label"
+
+#: ../../../display/templates/param/ciemChange.tpl:2
+#, fuzzy
+msgid "Création / modification d'une zone CIEM"
+msgstr "Create / Edit a container"
+
+#: ../../../display/templates/param/ciemChange.tpl:17
+#, fuzzy
+msgid "Libelle de la zone CIEM  :"
+msgstr "List of CIEM zones"
+
+#: ../../../display/templates/param/paysChange.tpl:15
+#, fuzzy
+msgid "Nom du pays :"
+msgstr "Name of the group:"
+
+#: ../../../display/templates/param/paysChange.tpl:23
+#, fuzzy
+msgid "Ordre de tri pour l'affichage :"
+msgstr "Sort order in the export file"
+
+#: ../../../display/templates/param/captureModeChange.tpl:1
+#, fuzzy
+msgid "Modification d'un mode de capture"
+msgstr "Edit a dataset model"
+
+#: ../../../display/templates/param/captureModeChange.tpl:12
+#: ../../../display/templates/declaration/declarationGeneral.tpl:51
+#, fuzzy
+msgid "Mode de capture  :"
+msgstr "Catch modes"
+
+#: ../../../display/templates/param/enginTypeChange.tpl:1
+#, fuzzy
+msgid "Modification d'un type d'engin de pêche"
+msgstr "Edit a type of dataset"
+
+#: ../../../display/templates/param/enginTypeChange.tpl:15
+#, fuzzy
+msgid "Type d'engin de pêche  :"
+msgstr "List of catch types"
+
+#: ../../../display/templates/param/devenirChange.tpl:1
+#, fuzzy
+msgid "Modification d'une destination d'un esturgeon capturé"
+msgstr "List of destinations of catched sturgeons"
+
+#: ../../../display/templates/param/devenirChange.tpl:16
+#, fuzzy
+msgid "Nom de la destination  :"
+msgstr "Name of regulation:"
+
+#: ../../../display/templates/param/evenementTypeChange.tpl:1
+msgid "Modification d'un type d'événement"
+msgstr "Edit an event type"
+
+#: ../../../display/templates/param/evenementTypeChange.tpl:14
+#, fuzzy
+msgid "Type d'événement  :"
+msgstr "Event type:"
+
+#: ../../../display/templates/param/paysList.tpl:12
+msgid "Ordre de tri"
 msgstr ""
-"This module is designed to realize an exceptional backup of the database"
 
-#: ../../../display/templates/framework/backup.tpl:3
-msgid ""
-"En aucun cas, il se substitue à la procédure de sauvegarde automatique qui "
-"doit avoir été implémentée dans le serveur"
+#: ../../../display/templates/param/evenementTypeList.tpl:1
+#, fuzzy
+msgid "Liste des types d'événement"
+msgstr "List of event types"
+
+#: ../../../display/templates/param/evenementTypeList.tpl:11
+#, fuzzy
+msgid "id"
+msgstr "uid"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:11
+#, fuzzy
+msgid "Statut  :"
+msgstr "Status:"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:15
+#, fuzzy
+msgid "Espèce :"
+msgstr "Species"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:19
+#, fuzzy
+msgid "Nombre total d'esturgeons capturés :"
+msgstr "Number of fish catched by year"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:22
+#, fuzzy
+msgid "Année de capture :"
+msgstr "Catch modes"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:26
+#, fuzzy
+msgid "Date de capture :"
+msgstr "Catch modes"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:30
+msgid "Profondeur (ou gamme de profondeur) :"
 msgstr ""
-"In no case does it replace the automated backup procedure that must have "
-"been implemented in the server"
 
-#: ../../../display/templates/framework/backup.tpl:4
-msgid ""
-"La sauvegarde peut échouer si la taille de la base de données est trop "
-"importante."
-msgstr "The backup may fail if the size of the database is too large."
-
-#: ../../../display/templates/framework/backup.tpl:5
-msgid ""
-"Après avoir récupéré le fichier généré, assurez-vous qu'il contient bien les "
-"informations (fichier .sql dans le fichier compressé au format gzip)"
+#: ../../../display/templates/declaration/declarationGeneral.tpl:35
+msgid "Statut du déclarant  :"
 msgstr ""
-"After downloading the generated file, make sure it contains the information "
-"(.sql file in the gzip compressed file)."
 
-#: ../../../display/templates/framework/backup.tpl:12
-msgid "Déclencher la sauvegarde"
-msgstr "Process to the backup"
+#: ../../../display/templates/declaration/declarationGeneral.tpl:39
+#, fuzzy
+msgid "Code du pécheur :"
+msgstr "Business Code:"
 
-#: ../../../display/templates/framework/news.tpl:1
-msgid "Liste des nouveautés"
-msgstr "List of news"
+#: ../../../display/templates/declaration/declarationGeneral.tpl:43
+msgid "Port d'attache du navire de pêche :"
+msgstr ""
 
-#: ../../../display/templates/framework/utils/system.tpl:8
-msgid "Nom de la variable"
-msgstr "Name of the variable"
+#: ../../../display/templates/declaration/declarationGeneral.tpl:47
+msgid "Autre correspondant et coordonnées :"
+msgstr ""
 
-#: ../../../display/templates/framework/utils/system.tpl:9
-msgid "Contenu"
-msgstr "Content"
+#: ../../../display/templates/declaration/declarationGeneral.tpl:55
+msgid "Type d'engin utilisé et maille :"
+msgstr ""
 
-#: ../../../display/templates/documentation/quoideneuf.tpl:1
-msgid "Les nouveautés..."
-msgstr "News..."
+#: ../../../display/templates/declaration/declarationGeneral.tpl:59
+msgid "Espèce ciblée :"
+msgstr ""
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:63
+#, fuzzy
+msgid "Mode de déclaration :"
+msgstr "List of declarations"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:68
+#, fuzzy
+msgid "Observations :"
+msgstr "Bookings"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:72
+#, fuzzy
+msgid "Informations sur le lot d'esturgeons"
+msgstr "Miscellaneous informations"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:75
+#, fuzzy
+msgid "Longueur totale :"
+msgstr "Minimum length: "
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:76
+#: ../../../display/templates/declaration/declarationGeneral.tpl:82
+msgid "de :"
+msgstr ""
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:76
+#: ../../../display/templates/declaration/declarationGeneral.tpl:82
+#, fuzzy
+msgid "à :"
+msgstr "to"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:81
+#, fuzzy
+msgid "Masse :"
+msgstr "Password:"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:86
+#, fuzzy
+msgid "État à la capture :"
+msgstr "States at the catch"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:90
+msgid "Manipulation effectuée :"
+msgstr "Handling performed:"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:93
+msgid "Devenir du lot :"
+msgstr ""
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:4
+msgid "Modifier..."
+msgstr "Edit..."
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:8
+#, fuzzy
+msgid "Pays :"
+msgstr "Country"
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:13
+#, fuzzy
+msgid "Zone CIEM :"
+msgstr "CIEM zones"
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:17
+#, fuzzy
+msgid "Milieu :"
+msgstr "Environments"
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:21
+#, fuzzy
+msgid "Milieu détaillé :"
+msgstr "Detailed environments"
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:25
+#, fuzzy
+msgid "Détail de la zone :"
+msgstr "Detail of the sample"
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:29
+#, fuzzy
+msgid "Valeurs GPS :"
+msgstr "Value:"
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:35
+#, fuzzy
+msgid "Coordonnées déclarées :"
+msgstr "Number of logins declared"
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:41
+#, fuzzy
+msgid "Coordonnées estimées :"
+msgstr "Associated metadata"
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:47
+msgid "Coordonnées retenues :"
+msgstr ""
+
+#: ../../../display/templates/declaration/localisationDisplay.tpl:53
+msgid "Précision de la location, si estimée lors de la saisie :"
+msgstr ""
+
+#. (itstool) path: navigation/hanglingList@tabledescription
+#. (itstool) path: navigation/hanglingChange@tabledescription
+#: ../../../param/actions.xml:114 ../../../param/actions.xml:115
+msgid "Manipulations effectuées sur les poissons"
+msgstr "Fish handling"
+
+#~ msgid "Imprimer la carte"
+#~ msgstr "Print the map"
+
+#, fuzzy
+#~ msgid "Welcome into this application !"
+#~ msgstr "Name of the application:"
+
+#~ msgid "Traitement en cours..."
+#~ msgstr "Processing..."
+
+#~ msgid "Rechercher :"
+#~ msgstr "Search:"
+
+#~ msgid "Afficher _MENU_ éléments"
+#~ msgstr "Show _MENU_ entries"
+
+#~ msgid "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments"
+#~ msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
+
+#~ msgid "Affichage de l'élément 0 à 0 sur 0 élément"
+#~ msgstr "Showing 0 to 0 of 0 entries"
+
+#~ msgid "(filtré de _MAX_ éléments au total)"
+#~ msgstr "(filtered from _MAX_ total entries)"
+
+#~ msgid "Chargement en cours..."
+#~ msgstr "Loading..."
+
+#~ msgid "Aucun élément à afficher"
+#~ msgstr "No matching records found"
+
+#~ msgid "Aucune donnée disponible dans le tableau"
+#~ msgstr "No data available in table"
+
+#~ msgid "Premier"
+#~ msgstr "First"
+
+#~ msgid "Précédent"
+#~ msgstr "Previous"
+
+#~ msgid "Suivant"
+#~ msgstr "Next"
+
+#~ msgid "Dernier"
+#~ msgstr "Last"
+
+#~ msgid ": activer pour trier la colonne par ordre croissant"
+#~ msgstr ": activate to sort column ascending"
+
+#~ msgid ": activer pour trier la colonne par ordre décroissant"
+#~ msgstr ": activate to sort column descending"
+
+#~ msgid "Afficher %d éléments"
+#~ msgstr "Show %d rows"
+
+#~ msgid "Tout afficher"
+#~ msgstr "Display All"
+
+#~ msgid "Valeur numérique..."
+#~ msgstr "Numerical value..."
+
+#~ msgid "Confirmez-vous la suppression ?"
+#~ msgstr "Do you confirm the deletion?"
+
+#~ msgid "Confirmez-vous l'opération ?"
+#~ msgstr "Do you confirm this operation?"
+
+#~ msgid "Paramètres PHP"
+#~ msgstr "PHP settings"
+
+#~ msgid "Activer la double authentification pour votre compte"
+#~ msgstr "Enable dual authentication for your account"
+
+#~ msgid "Activer la double authentification"
+#~ msgstr "Enable dual authentication"
+
+#~ msgid "Mot de passe"
+#~ msgstr "Password"
 
 #~ msgid "Schéma de la base de données"
 #~ msgstr "Database structure"
@@ -2034,6 +1618,595 @@ msgstr "News..."
 
 #~ msgid "Liste des tables et des colonnes sous forme de tableaux Latex"
 #~ msgstr "List of the tables and the columns in Latex table format"
+
+#~ msgid "Données générales - N°"
+#~ msgstr "General information - #"
+
+#~ msgid "Localisation"
+#~ msgstr "Localization"
+
+#~ msgid "Esturgeons capturés"
+#~ msgstr "Sturgeon caught"
+
+#~ msgid "Photos associées"
+#~ msgstr "Related documents"
+
+#~ msgid "Événements"
+#~ msgstr "Events"
+
+#~ msgid "Rechercher"
+#~ msgstr "Search"
+
+#~ msgid "Année"
+#~ msgstr "Year"
+
+#~ msgid "Nbre"
+#~ msgstr "Number"
+
+#~ msgid ""
+#~ "Copyright © 2015- 2023 - Tous droits réservés. Auteur : Éric Quinton, "
+#~ "pour EABX - INRAE - Logiciel diffusé sous licence AGPL"
+#~ msgstr ""
+#~ "Copyright © 2015-2023 - All rights reserved. Author: Eric Quinton, for "
+#~ "EABX - INRAE - Software released under AGPL license"
+
+#~ msgid "En cas de problème :"
+#~ msgstr "For any problem:"
+
+#~ msgid "Nom du module :"
+#~ msgstr "Module name:"
+
+#~ msgid "Login concerné :"
+#~ msgstr "Related login:"
+
+#~ msgid "du :"
+#~ msgstr "from :"
+
+#~ msgid "au :"
+#~ msgstr "to:"
+
+#~ msgid "Date"
+#~ msgstr "Date"
+
+#~ msgid "Module"
+#~ msgstr "Module"
+
+#~ msgid "Commentaires"
+#~ msgstr "Comment"
+
+#~ msgid "Login"
+#~ msgstr "Login"
+
+#~ msgid "Adresse IP"
+#~ msgstr "IP address"
+
+#~ msgid "Structure de la base de données"
+#~ msgstr "Database structure"
+
+#~ msgid "Le pire"
+#~ msgstr "The worst"
+
+#~ msgid "Ajoutez un mot ou deux. Les mots inconnus sont meilleurs."
+#~ msgstr "Add one or two words. Unknown words are better."
+
+#~ msgid "Mauvais"
+#~ msgstr "Bad"
+
+#~ msgid "Faible"
+#~ msgstr "Weak"
+
+#~ msgid "Bon"
+#~ msgstr "Good"
+
+#~ msgid ""
+#~ "Ajoutez un ou deux autres mots. Les mots peu communs sont meilleurs, les "
+#~ "mots inversés ne sont pas beaucoup plus difficiles à deviner."
+#~ msgstr ""
+#~ "Add one or two words. Uncommon words are better, inverted words are not "
+#~ "much harder to guess."
+
+#~ msgid "Robuste"
+#~ msgstr "Robust"
+
+#~ msgid "Force du mot de passe :"
+#~ msgstr "Strong of the password:"
+
+#~ msgid "Les mots de passe ne sont pas identiques"
+#~ msgstr "Passwords don't match"
+
+#~ msgid "Le mot de passe est trop court. Minimum : "
+#~ msgstr "The password is too short. Minimum: "
+
+#~ msgid "caractères"
+#~ msgstr "characters"
+
+#~ msgid ""
+#~ "Le mot de passe n'est pas assez complexe (mixez 3 jeux de caractères "
+#~ "parmi les minuscules, majuscules, chiffres et signes de ponctuation)"
+#~ msgstr ""
+#~ "The password is not complex enough (mix 3 character sets among lowercase, "
+#~ "uppercase, numbers, and punctuation)"
+
+#~ msgid "Ancien mot de passe :"
+#~ msgstr "Old password:"
+
+#~ msgid "Nouveau mot de passe :"
+#~ msgstr "New Password:"
+
+#~ msgid "Répétez le mot de passe :"
+#~ msgstr "Repeat password:"
+
+#~ msgid "Longueur minimale du mot de passe :"
+#~ msgstr "Minimum length of the password:"
+
+#~ msgid ""
+#~ "Il doit comprendre au minimum 3 types de caractères différents\n"
+#~ "(minuscule, majuscule, chiffre, ponctuation et autre symboles)"
+#~ msgstr ""
+#~ "It must include at least 3 different types of characters\n"
+#~ "(lowercase, uppercase, number, punctuation and other symbols)"
+
+#~ msgid "Login :"
+#~ msgstr "Login:"
+
+#~ msgid "Conserver la connexion pendant"
+#~ msgstr "Keep me signed in for"
+
+#~ msgid "heures"
+#~ msgstr "hours"
+
+#~ msgid "Mot de passe oublié ?"
+#~ msgstr "Forgot your password?"
+
+#~ msgid "Se connecter"
+#~ msgstr "Sign in"
+
+#~ msgid "ou :"
+#~ msgstr "or:"
+
+#~ msgid "Se connecter avec l'identification centralisée"
+#~ msgstr "Log in with centralized identification"
+
+#~ msgid "Vérification du compte avec la double authentification"
+#~ msgstr "Account verification with dual authentication"
+
+#~ msgid ""
+#~ "Pour vérifier votre identification, veuillez taper le code TOTP que vous "
+#~ "avez configuré dans votre smartphone"
+#~ msgstr ""
+#~ "To verify your identification, please type the TOTP code you have "
+#~ "configured in your smartphone"
+
+#~ msgid "Code généré par le logiciel TOTP :"
+#~ msgstr "Code generated by the TOTP software:"
+
+#~ msgid "Saisie/modification d'un compte"
+#~ msgstr "Add / edit an account"
+
+#~ msgid "Retour à la liste des logins"
+#~ msgstr "Back to the list of logins"
+
+#~ msgid "Nom de famille :"
+#~ msgstr "Last name :"
+
+#~ msgid "Prénom :"
+#~ msgstr "First name:"
+
+#~ msgid "Adresse e-mail :"
+#~ msgstr "Email address:"
+
+#~ msgid "Date :"
+#~ msgstr "Date:"
+
+#~ msgid "Compte utilisé pour service web :"
+#~ msgstr "Account used for web service:"
+
+#~ msgid "oui"
+#~ msgstr "yes"
+
+#~ msgid "non"
+#~ msgstr "no"
+
+#~ msgid "Jeton d'identification du service web :"
+#~ msgstr "Identification token of the web service:"
+
+#~ msgid "Copier dans le presse-papier"
+#~ msgstr "Copy to clipboard"
+
+#~ msgid "Réinitialiser..."
+#~ msgstr "Reset ..."
+
+#~ msgid ""
+#~ "Le compte est verrouillé, le mot de passe n'a pas été changé après 3 "
+#~ "connexions"
+#~ msgstr ""
+#~ "The account is blocked, the password was not changed after 3 connections"
+
+#~ msgid "Générez un mot de passe aléatoire"
+#~ msgstr "Generate a random password"
+
+#~ msgid "Générez"
+#~ msgstr "Generate"
+
+#~ msgid "Mot de passe généré"
+#~ msgstr "Password generated"
+
+#~ msgid "Caractéristiques du mot de passe :"
+#~ msgstr "Password characteristics:"
+
+#~ msgid "Au minimum 3 types de caractères différents parmi :"
+#~ msgstr "Must be composed of at least 3 different types of characters among:"
+
+#~ msgid "des minuscules"
+#~ msgstr "lowercase characters"
+
+#~ msgid "des majuscules"
+#~ msgstr "uppercase characters"
+
+#~ msgid "des chiffres"
+#~ msgstr "numbers"
+
+#~ msgid "des caractères de ponctuation ou spéciaux"
+#~ msgstr "punctuation or special characters"
+
+#~ msgid "Actif"
+#~ msgstr "Active"
+
+#~ msgid "Essais de connexion infructueux et date du dernier essai :"
+#~ msgstr "Unsuccessful connection attempts and date of last attempt:"
+
+#~ msgid "Liste des logins déclarés dans la base de données"
+#~ msgstr "List of logins declared in the database"
+
+#~ msgid "Nouveau login"
+#~ msgstr "New login"
+
+#~ msgid "Nom - Prénom"
+#~ msgstr "Last name - First name"
+
+#~ msgid "Adresse e-mail"
+#~ msgstr "Email address"
+
+#~ msgid "Compte utilisé pour service web"
+#~ msgstr "Account used for web service"
+
+#~ msgid "Mot de passe en attente de changement"
+#~ msgstr "Password waiting to be change"
+
+#~ msgid "Nombre d'essais de connexion infructueux"
+#~ msgstr "Number of unsuccessful connection attempts"
+
+#~ msgid "Heure du dernier essai infructueux"
+#~ msgstr "Time of last unsuccessful attempt"
+
+#~ msgid "Compte bloqué"
+#~ msgstr "Account blocked"
+
+#~ msgid "Adresses mails :"
+#~ msgstr "Email addresses:"
+
+#~ msgid "lancement de la procédure de récupération"
+#~ msgstr "start the recovery procedure"
+
+#~ msgid "Entrez votre adresse e-mail :"
+#~ msgstr "Enter your email address:"
+
+#~ msgid "Recevoir un mail de récupération"
+#~ msgstr "Receive a recovery email"
+
+#~ msgid "Problème potentiel de sécurité"
+#~ msgstr "Potential safety issue"
+
+#~ msgid ""
+#~ "Le compte %1 a essayé d'accéder au module %2 le %3 en dépassant le nombre "
+#~ "autorisé soit en une heure, soit en une journée."
+#~ msgstr ""
+#~ "Account %1 tried to access module %2 on %3 by exceeding the allowed "
+#~ "number either in one hour or in one day."
+
+#~ msgid ""
+#~ "Vous recevez ce message parce que vous êtes administrateur de "
+#~ "l'application"
+#~ msgstr ""
+#~ "You are receiving this message because you are an administrator of the "
+#~ "application"
+
+#~ msgid ""
+#~ "Le compte %1 a essayé d'accéder au module %2 le %3 sans disposer des "
+#~ "droits adéquats."
+#~ msgstr ""
+#~ "Account %1 tried to access module %2 on %3 without having the proper "
+#~ "rights."
+
+#~ msgid "Activation ou réactivation de votre compte"
+#~ msgstr "Activation or reactivation of your account"
+
+#~ msgid "Bonjour %1 %2,"
+#~ msgstr "Hello %1 %2,"
+
+#~ msgid "Votre compte vient d'être activé ou réactivé dans l'application %1"
+#~ msgstr ""
+#~ "Your account has just been activated or reactivated in the application %1"
+
+#~ msgid ""
+#~ "Si vous n'êtes pas à l'origine de cette demande, veuillez contacter le "
+#~ "responsable de l'application."
+#~ msgstr ""
+#~ "If you did not perform this operation, please contact the application "
+#~ "manager."
+
+#~ msgid "Ne répondez pas à ce mail, qui est généré automatiquement"
+#~ msgstr "Do not reply to this email, which is automatically generated"
+
+#~ msgid ""
+#~ "Vous avez demandé à réinitialiser votre mot de passe pour l'application "
+#~ "%1. Si ce n'était pas le cas, contactez l'administrateur de l'application."
+#~ msgstr ""
+#~ "You asked to reset your password for the application %1. If this was not "
+#~ "the case, contact the application administrator."
+
+#~ msgid ""
+#~ "Pour réinitaliser votre mot de passe, recopiez le lien suivant dans votre "
+#~ "navigateur :"
+#~ msgstr "To reset your password, copy the following link into your browser:"
+
+#~ msgid "Le lien restera valable jusqu'au %1."
+#~ msgstr "The link will remain valid until %1."
+
+#~ msgid ""
+#~ "Le compte %1 a été bloqué le %2 après trop de tentatives de connexion."
+#~ msgstr "Account %1 was blocked on %2 after too many login attempts."
+
+#~ msgid "Votre mot de passe vient d'être modifié dans l'application %1"
+#~ msgstr "Your password has been changed in the application %1"
+
+#~ msgid ""
+#~ "Si vous n'êtes pas à l'origine de cette opération, veuillez contacter le "
+#~ "responsable de l'application."
+#~ msgstr ""
+#~ "If you did not perform this operation, please contact the application "
+#~ "manager."
+
+#~ msgid ""
+#~ "%2 a créé son compte avec le login %1 dans l'application %3. Le compte "
+#~ "est actuellement inactif."
+#~ msgstr ""
+#~ "%2 created his account with login %1 in the application %3. The account "
+#~ "is currently inactive."
+
+#~ msgid "La personne est rattachée à l'organisation %1."
+#~ msgstr "The person is attached to the organization %1."
+
+#~ msgid "Pour activer le compte, connectez-vous à l'application :"
+#~ msgstr "To activate the account, login to the application:"
+
+#~ msgid ""
+#~ "Vous recevez ce message parce que vous êtes administrateur de "
+#~ "l'application."
+#~ msgstr ""
+#~ "You are receiving this message because you are the administrator of the "
+#~ "application."
+
+#~ msgid "Dernières connexions enregistrées"
+#~ msgstr "Last connections recorded"
+
+#~ msgid "Paramètres pérennes de l'application"
+#~ msgstr "Long-term settings of the application"
+
+#~ msgid "Paramètre"
+#~ msgstr "Setting"
+
+#~ msgid "Valeur"
+#~ msgstr "Value"
+
+#~ msgid "Liste des logins déclarés dans le module de gestion des droits"
+#~ msgstr "List of logins declared in the rights management module"
+
+#~ msgid "Nouveau login..."
+#~ msgstr "New login..."
+
+#~ msgid "Utilisateur"
+#~ msgstr "User"
+
+#~ msgid "Login employé"
+#~ msgstr "Login used"
+
+#~ msgid "Double identification activée ?"
+#~ msgstr "Dual identification activated?"
+
+#~ msgid ""
+#~ "Modification du droit d'une application (module de gestion des droits)"
+#~ msgstr "Modify the right of an application (rights management module)"
+
+#~ msgid "Retour à la liste des applications"
+#~ msgstr "Back to the list of applications"
+
+#~ msgid "Retour à"
+#~ msgstr "Back to"
+
+#~ msgid "Nom du droit utilisé dans l'application :"
+#~ msgstr "Name of the right used in the application:"
+
+#~ msgid "Groupes disposant du droit :"
+#~ msgstr "Groups with the right:"
+
+#~ msgid "Modification d'un groupe et rattachement des logins"
+#~ msgstr "Edit the group and its attachments to the logins"
+
+#~ msgid "Retour à la liste des groupes"
+#~ msgstr "Back to the list of groups"
+
+#~ msgid "Groupe de rattachement"
+#~ msgstr "Group of affiliation"
+
+#~ msgid "Logins rattachés"
+#~ msgstr "Logins attached"
+
+#~ msgid "Activation de la double authentification"
+#~ msgstr "Activation of the double authentication"
+
+#~ msgid ""
+#~ "La double identification limite les risques d'usurpation de votre compte."
+#~ msgstr ""
+#~ "The double identification limits the risks of usurpation of your account."
+
+#~ msgid ""
+#~ "Pour l'activer, vous devrez installer dans votre smartphone une "
+#~ "application compatible avec l'identification\n"
+#~ "      TOTP, par exemple FreeOTP, Google Authenticator, etc."
+#~ msgstr ""
+#~ "To activate it, you will need to install an application on your "
+#~ "smartphone that is compatible with the TOTP, for example FreeOTP, Google "
+#~ "Authenticator, etc."
+
+#~ msgid "Modification d'une application (module de gestion des droits)"
+#~ msgstr "Modify the application (rights management module)"
+
+#~ msgid "Description :"
+#~ msgstr "Description:"
+
+#~ msgid "Modification d'un login (module de gestion des droits)"
+#~ msgstr "Edit login (rights management module)"
+
+#~ msgid "Nom de l'utilisateur :"
+#~ msgstr "Username:"
+
+#~ msgid "Login utilisé :"
+#~ msgstr "Login used:"
+
+#~ msgid "Désactiver l'identification à double facteur :"
+#~ msgstr "Disable two-factor identification:"
+
+#~ msgid "Droits attribués"
+#~ msgstr "Rights granted"
+
+#~ msgid "Liste des droits disponibles pour l'application"
+#~ msgstr "List of available rights for the application"
+
+#~ msgid "Nouveau droit..."
+#~ msgstr "New right..."
+
+#~ msgid "Nom du droit d'accès"
+#~ msgstr "Name of the access right"
+
+#~ msgid "Liste des groupes de logins"
+#~ msgstr "List of groups of logins"
+
+#~ msgid "Nouveau groupe racine..."
+#~ msgstr "New root group..."
+
+#~ msgid "Nom du groupe"
+#~ msgstr "Name of the group"
+
+#~ msgid "Rajouter un groupe fils"
+#~ msgstr "Add a child group"
+
+#~ msgid ""
+#~ "Liste des applications disponibles dans le module de gestion des droits"
+#~ msgstr "List of applications available in the rights management module"
+
+#~ msgid "Nouvelle application..."
+#~ msgstr "New application..."
+
+#~ msgid "Modifier"
+#~ msgstr "Edit"
+
+#~ msgid "Nom de l'application"
+#~ msgstr "Name of the application"
+
+#~ msgid "Description"
+#~ msgstr "Description"
+
+#~ msgid "Liste des requêtes SQL"
+#~ msgstr "List of SQL requests"
+
+#~ msgid "Nouvelle requête..."
+#~ msgstr "New request..."
+
+#~ msgid "Date de création"
+#~ msgstr "Date of creation"
+
+#~ msgid "Date de dernière exécution"
+#~ msgstr "Date of last execution"
+
+#~ msgid "Créateur (login)"
+#~ msgstr "Creator (login)"
+
+#~ msgid "Exécuter la requête"
+#~ msgstr "Process"
+
+#~ msgid "Dupliquer la requête"
+#~ msgstr "Duplicate the request"
+
+#~ msgid "Confirmez la suppression de la requête"
+#~ msgstr "Confirm the deletion of the request"
+
+#~ msgid "Code SQL :"
+#~ msgstr "SQL code:"
+
+#~ msgid "Champs dates de la requête (séparés par une virgule) :"
+#~ msgstr "Date fields of the request (separated by a comma):"
+
+#~ msgid "date de création :"
+#~ msgstr "date of creation:"
+
+#~ msgid "par :"
+#~ msgstr "by:"
+
+#~ msgid "Date de dernière exécution :"
+#~ msgstr "Date of last execution:"
+
+#~ msgid "Enregistrer"
+#~ msgstr "Save"
+
+#~ msgid "Enregistrer et exécuter"
+#~ msgstr "Save and run"
+
+#~ msgid "Exécuter"
+#~ msgstr "Process"
+
+#~ msgid "Aucun résultat n'a été retourné par la requête"
+#~ msgstr "No results were returned by the query"
+
+#~ msgid ""
+#~ "Ce module est destiné à réaliser une sauvegarde exceptionnelle de la base "
+#~ "de données"
+#~ msgstr ""
+#~ "This module is designed to realize an exceptional backup of the database"
+
+#~ msgid ""
+#~ "En aucun cas, il se substitue à la procédure de sauvegarde automatique "
+#~ "qui doit avoir été implémentée dans le serveur"
+#~ msgstr ""
+#~ "In no case does it replace the automated backup procedure that must have "
+#~ "been implemented in the server"
+
+#~ msgid ""
+#~ "La sauvegarde peut échouer si la taille de la base de données est trop "
+#~ "importante."
+#~ msgstr "The backup may fail if the size of the database is too large."
+
+#~ msgid ""
+#~ "Après avoir récupéré le fichier généré, assurez-vous qu'il contient bien "
+#~ "les informations (fichier .sql dans le fichier compressé au format gzip)"
+#~ msgstr ""
+#~ "After downloading the generated file, make sure it contains the "
+#~ "information (.sql file in the gzip compressed file)."
+
+#~ msgid "Déclencher la sauvegarde"
+#~ msgstr "Process to the backup"
+
+#~ msgid "Liste des nouveautés"
+#~ msgstr "List of news"
+
+#~ msgid "Nom de la variable"
+#~ msgstr "Name of the variable"
+
+#~ msgid "Contenu"
+#~ msgstr "Content"
+
+#~ msgid "Les nouveautés..."
+#~ msgstr "News..."
 
 #~ msgid "Suppression non réalisée"
 #~ msgstr "Unrealized deletion"
@@ -2372,9 +2545,6 @@ msgstr "News..."
 #~ msgid "La suppression des échantillons a échoué"
 #~ msgstr "Deletion of samples failed"
 
-#~ msgid "Affectation effectuée"
-#~ msgstr "Assignment performed"
-
 #~ msgid "Erreur d'écriture dans la base de données"
 #~ msgstr "Error writing to the database"
 
@@ -2661,9 +2831,6 @@ msgstr "News..."
 #~ msgid "Détail du modèle d'exportation"
 #~ msgstr "Detail of the export template"
 
-#~ msgid "Retour à la liste"
-#~ msgstr "Back to the list"
-
 #~ msgid "Table"
 #~ msgstr "Table"
 
@@ -2723,9 +2890,6 @@ msgstr "News..."
 
 #~ msgid "Importer les données"
 #~ msgstr "Import data"
-
-#~ msgid "Nouveau..."
-#~ msgstr "New ..."
 
 #~ msgid "Nom"
 #~ msgstr "Name"
@@ -2993,9 +3157,6 @@ msgstr "News..."
 #~ msgid "Générer"
 #~ msgstr "Generate"
 
-#~ msgid "Statut :"
-#~ msgstr "Status:"
-
 #~ msgid "Référent de l'échantillon :"
 #~ msgstr "Sample referent:"
 
@@ -3050,9 +3211,6 @@ msgstr "News..."
 #~ msgid "Jeu de métadonnées"
 #~ msgstr "Metadata set"
 
-#~ msgid "Informations diverses"
-#~ msgstr "Miscellaneous informations"
-
 #~ msgid "UID universel (UUID) :"
 #~ msgstr "Universal UID (UUID):"
 
@@ -3080,9 +3238,6 @@ msgstr "News..."
 #~ msgid "Rafraîchir la page"
 #~ msgstr "Refresh the page"
 
-#~ msgid "Détail de l'échantillon"
-#~ msgstr "Detail of the sample"
-
 # ok
 #~ msgid "uid ou identifiant"
 #~ msgstr "UID or identifier"
@@ -3101,9 +3256,6 @@ msgstr "News..."
 
 #~ msgid "Échantillons dérivés"
 #~ msgstr "Derivative samples"
-
-#~ msgid "Réservations"
-#~ msgstr "Bookings"
 
 #~ msgid "Sous-échantillonnage"
 #~ msgstr "Subsampling"
@@ -3141,9 +3293,6 @@ msgstr "News..."
 #~ msgid "le"
 #~ msgstr "the"
 
-#~ msgid "à"
-#~ msgstr "to"
-
 #~ msgid "Retour prévu le"
 #~ msgstr "Return expected on"
 
@@ -3177,9 +3326,6 @@ msgstr "News..."
 #~ msgid "UUID :"
 #~ msgstr "UUID:"
 
-#~ msgid "Métadonnées associées"
-#~ msgstr "Associated metadata"
-
 #~ msgid "%1 :"
 #~ msgstr "%1:"
 
@@ -3188,9 +3334,6 @@ msgstr "News..."
 
 #~ msgid "Activer le survol des onglets :"
 #~ msgstr "Enable tab hovering:"
-
-#~ msgid "Création - modification d'un contenant"
-#~ msgstr "Create / Edit a container"
 
 #~ msgid "Retour à la liste des contenants"
 #~ msgstr "Back to the list of containers"
@@ -3212,9 +3355,6 @@ msgstr "News..."
 
 #~ msgid "Type d'identifiant :"
 #~ msgstr "Type of identifier:"
-
-#~ msgid "Valeur :"
-#~ msgstr "Value:"
 
 #~ msgid "Fichier(s) à importer :"
 #~ msgstr "File(s) to import:"
@@ -3402,9 +3542,6 @@ msgstr "News..."
 #~ msgstr ""
 #~ "The file must have been generated by another instance of Collec-Science. "
 #~ "It must be in JSON format, without having been modified."
-
-#~ msgid "Création - Modification d'un prêt"
-#~ msgstr "Create / Edit a loan"
 
 #~ msgid "La date prévue de retour est antérieure à la date de prêt"
 #~ msgstr "Planned return date is earlier than loan date"
@@ -3677,9 +3814,6 @@ msgstr "News..."
 #~ msgid "Choisissez le référent..."
 #~ msgstr "Select the referent ..."
 
-#~ msgid "Type d'évenement :"
-#~ msgstr "Event type:"
-
 #~ msgid "Traitement de la corbeille"
 #~ msgstr "Bin treatment"
 
@@ -3730,9 +3864,6 @@ msgstr "News..."
 
 #~ msgid "Point-virgule"
 #~ msgstr "Semicolon"
-
-#~ msgid "Tabulation"
-#~ msgstr "Tabulation"
 
 #~ msgid ""
 #~ "Ce module permet d'importer des échantillons ou des contenants, et de "
@@ -3945,9 +4076,6 @@ msgstr "News..."
 
 #~ msgid "La date de retour est antérieure à la date de début"
 #~ msgstr "The return date is earlier of the start date"
-
-#~ msgid "Création - modification d'une réservation"
-#~ msgstr "Create / Edit a reservation"
 
 #~ msgid "Du :"
 #~ msgstr "From:"
@@ -4321,12 +4449,6 @@ msgstr "News..."
 #~ msgid "Format de date"
 #~ msgstr "Date format"
 
-#~ msgid "Ordre de tri dans le fichier d'export"
-#~ msgstr "Sort order in the export file"
-
-#~ msgid "Modification d'un type de dataset"
-#~ msgstr "Edit a type of dataset"
-
 #~ msgid ""
 #~ "La modification d'un type de dataset est déconseillé, en raison des "
 #~ "impacts sur le fonctionnement du module d'exportation"
@@ -4411,9 +4533,6 @@ msgstr "News..."
 #~ msgid "Échantillons sélectionnés"
 #~ msgstr "Selected samples"
 
-#~ msgid "uid"
-#~ msgstr "uid"
-
 #~ msgid "Identifiant métier"
 #~ msgstr "Business identifier"
 
@@ -4429,17 +4548,8 @@ msgstr "News..."
 #~ msgid "Fichier compressé (si un seul fichier généré) ?"
 #~ msgstr "Zipped file (if only one file is generated)?"
 
-#~ msgid "Modification d'un traducteur"
-#~ msgstr "Edit a translator"
-
 #~ msgid "Libellé dans la base de données"
 #~ msgstr "Label in the database"
-
-#~ msgid "Libellé exporté"
-#~ msgstr "Exported label"
-
-#~ msgid "Modification d'un modèle de dataset"
-#~ msgstr "Edit a dataset model"
 
 #~ msgid "Afficher le détail..."
 #~ msgstr "Display the detail..."
@@ -4547,9 +4657,6 @@ msgstr "News..."
 
 #~ msgid "Création - Modification d'une réglementation"
 #~ msgstr "Create / Edit a regulation"
-
-#~ msgid "Nom de la réglementation :"
-#~ msgstr "Name of regulation:"
 
 #~ msgid "Création - Modification d'une imprimante"
 #~ msgstr "Create / Edit a printer"
@@ -4929,9 +5036,6 @@ msgstr "News..."
 #~ msgid "Création - Modification d'un lieu de prélèvement"
 #~ msgstr "Create / Edit a sampling place"
 
-#~ msgid "Code métier :"
-#~ msgstr "Business Code:"
-
 #~ msgid "La taille du fichier est supérieure à celle autorisée : "
 #~ msgstr "The file size is larger than allowed: "
 
@@ -5266,9 +5370,6 @@ msgstr "News..."
 #~ msgid "Importer un fichier CSV"
 #~ msgstr "Import a CSV file"
 
-#~ msgid "Obligatoire"
-#~ msgstr "Mandatory"
-
 #~ msgid "Vous pouvez copier ici la description et l'unité de mesure"
 #~ msgstr "You can copy here the description and the unit of measure"
 
@@ -5505,12 +5606,6 @@ msgstr "News..."
 #~ msgid "Types de conditions de stockage"
 #~ msgstr "Storage condition type"
 
-#~ msgid "Modification d'un type d'échantillon"
-#~ msgstr "Modify a sample type"
-
-#~ msgid "Modification d'un protocole"
-#~ msgstr "Edit a protocol"
-
 #, fuzzy
 #~ msgid "Création - Motifs de déstockage"
 #~ msgstr "Reasons for destocking"
@@ -5524,14 +5619,8 @@ msgstr "News..."
 #~ msgid "Modification d'une operation"
 #~ msgstr "Edit an operation"
 
-#~ msgid "Modification d'une imprimante"
-#~ msgstr "Edit a printer"
-
 #~ msgid "protocole"
 #~ msgstr "Protocol"
-
-#~ msgid "Modification d'un type d'événement"
-#~ msgstr "Edit an event type"
 
 #~ msgid "Sortie de stock"
 #~ msgstr "Stock removal"
@@ -5551,10 +5640,6 @@ msgstr "News..."
 #, fuzzy
 #~ msgid "sd : date d'échantillonnage"
 #~ msgstr "Sampling date"
-
-#, fuzzy
-#~ msgid "ed : date d'expiration de l'échantillon"
-#~ msgstr "Expiry date of the sample"
 
 #, fuzzy
 #~ msgid "collection_id : nom de la collection"

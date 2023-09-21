@@ -73,7 +73,8 @@ class Environment extends ObjetBDD
 			"environment_name" => array(
 				"type" => 0,
 				"requis" => 1
-			)
+			),
+			"environment_exchange" => array("type"=>0)
 		);
 		$param["fullDescription"] = 1;
 		parent::__construct($link, $param);
@@ -110,7 +111,8 @@ class EnvironmentDetail extends ObjetBDD
 			"environment_detail_name" => array(
 				"type" => 0,
 				"requis" => 1
-			)
+			),
+			"environment_detail_exchange" => array("type"=>0)
 		);
 		$param["fullDescription"] = 1;
 		parent::__construct($link, $param);

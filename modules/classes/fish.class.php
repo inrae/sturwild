@@ -292,7 +292,8 @@ class Species extends ObjetBDD
 			),
 			"species_name" => array(
 				"requis" => 1
-			)
+			),
+			"species_exchange" => array("type"=>0)
 		);
 		$param["fullDescription"] = 1;
 		parent::__construct($link, $param);
@@ -328,7 +329,8 @@ class Fate extends ObjetBDD
 			),
 			"fate_name" => array(
 				"requis" => 1
-			)
+			),
+			"fate_exchange" => array("type"=>0)
 		);
 		$param["fullDescription"] = 1;
 		parent::__construct($link, $param);
@@ -364,7 +366,8 @@ class CaptureState extends ObjetBDD
 			),
 			"capture_state_name" => array(
 				"requis" => 1
-			)
+			),
+			"capture_state_exchange" => array("type"=>0)
 		);
 		$param["fullDescription"] = 1;
 		parent::__construct($link, $param);
@@ -400,7 +403,8 @@ class TagPresence extends ObjetBDD
 			),
 			"tag_presence_name" => array(
 				"requis" => 1
-			)
+			),
+			"tag_presence_exchange" => array("type"=>0)
 		);
 		$param["fullDescription"] = 1;
 		parent::__construct($link, $param);

@@ -25,11 +25,7 @@
 		<item module="captureEtatList" label="États à la capture" tooltip="Liste des états à la capture" droits="gestion"/>
 		<item module="enginTypeList" label="Engins" tooltip="Liste des engins utilisés" droits="gestion"/>
 		<item module="evenementTypeList" label="Types d'événements" tooltip="Liste des types d'événements" droits="gestion"/>
-		<item module="dbstructureSchema" droits="param" label="Schéma de la base de données" tooltip="Schéma de la base de données">
-			<item module="dbstructureSchema" droits="param" label="Schéma de la base de données" tooltip="Schéma de la base de données" />
-			<item module="dbstructureHtml" droits='param' label="Structure de la base de données (HTML)" tooltip="Liste des tables et des colonnes" />
-			<item module="dbstructureLatex" droits='param' label="Structure de la base de données (Latex)" tooltip="Liste des tables et des colonnes sous forme de tableaux Latex" />
-		</item>
+		<item module="hanglingList" label="Manipulations" tooltip="Liste des manipulations effectuées sur les poissons" droits="gestion"/>
 	</item>
 	<item module="administration" label="Administration" tooltip="Administration de l'application" droits="admin">
 		<item module="loginList" droits="admin" label="Liste des comptes locaux" tooltip="Liste des logins - identification via la base de données" />

@@ -151,7 +151,8 @@ class Event_type extends ObjetBDD
 			),
 			"event_type_name" => array(
 				"requis" => 1
-			)
+			),
+			"event_type_exchange" => array("type" => 0)
 		);
 		$param["fullDescription"] = 1;
 		parent::__construct($link, $param);

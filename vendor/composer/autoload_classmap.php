@@ -57,6 +57,7 @@ return array(
     'CAS_ServiceBaseUrl_Static' => $vendorDir . '/jasig/phpcas/source/CAS/ServiceBaseUrl/Static.php',
     'CAS_Session_PhpSession' => $vendorDir . '/jasig/phpcas/source/CAS/Session/PhpSession.php',
     'CAS_TypeMismatchException' => $vendorDir . '/jasig/phpcas/source/CAS/TypeMismatchException.php',
+    'CURLStringFile' => $vendorDir . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'ReturnTypeWillChange' => $vendorDir . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
     'Safe\\DateTime' => $vendorDir . '/thecodingmachine/safe/lib/DateTime.php',

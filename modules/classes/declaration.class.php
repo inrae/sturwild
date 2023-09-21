@@ -155,8 +155,8 @@ class Declaration extends ObjetBDD
     $idNew = 0;
     if (is_numeric($id) && $id > 0) {
       /*
-             * Lecture des donnees a dupliquer
-             */
+       * Lecture des donnees a dupliquer
+       */
       $data = $this->lire($id);
       if ($data["declaration_id"] > 0) {
 
@@ -176,19 +176,19 @@ class Declaration extends ObjetBDD
           "identification_quality" => 1
         );
         /*
-                 * Creation de la nouvelle declaration
-                 */
+         * Creation de la nouvelle declaration
+         */
         $idNew = $this->ecrire($dataNew);
         if ($idNew > 0) {
           /*
-                     * creation de l'event associe
-                     */
+           * creation de l'event associe
+           */
           $event = new Event($this->connection, $this->paramori);
           $dataEvent = $event->lire(0, true, $idNew);
           $event->ecrire($dataEvent);
           /*
-                     * Duplication de la location
-                     */
+           * Duplication de la location
+           */
           $location = new Location($this->connection, $this->paramori);
           $location->duplicate($id, $idNew);
         }
@@ -216,8 +216,8 @@ class Declaration extends ObjetBDD
     $order = " order by declaration_id desc";
     $data = $this->getListeParamAsPrepared($sql . $this->fromSearch . $where . $order, $this->paramSearch);
     /*
-         * Rajout du nombre de photos associees
-         */
+     * Rajout du nombre de photos associees
+     */
     $document = new Document($this->connection, $this->paramori);
     foreach ($data as $key => $value) {
       $dataNb = $document->getNbFromDeclaration($value["declaration_id"]);
@@ -237,8 +237,8 @@ class Declaration extends ObjetBDD
     $this->paramSearch = array();
     $and = "";
     /*
-         * Preparation de la requete where
-         */
+     * Preparation de la requete where
+     */
     if (is_numeric($param["year_debut"]) && is_numeric($param["year_fin"])) {
       $where = " where year between :year_debut and :year_fin";
       $this->paramSearch["year_debut"] = $param["year_debut"];
@@ -379,15 +379,15 @@ class Declaration extends ObjetBDD
   function ecrire($data)
   {
     /*
-         * Teste s'il s'agit d'une creation
-         */
+     * Teste s'il s'agit d'une creation
+     */
     $data["declaration_id"] == 0 ? $creation = true : $creation = false;
     $id = parent::ecrire($data);
 
     if ($id > 0 && is_numeric($id) && $creation == true) {
       /*
-             * Generation de l'event de saisie
-             */
+       * Generation de l'event de saisie
+       */
       $event = new Event($this->connection, $this->paramori);
       $dataEvnmt = $event->getDefaultValue($id);
       $dataEvnmt["event_type_id"] = $data["status_id"];
@@ -406,14 +406,14 @@ class Declaration extends ObjetBDD
   {
     if ($id > 0 && is_numeric($id)) {
       /*
-             * Suppression des informations liees
-             */
+       * Suppression des informations liees
+       */
       $event = new Event($this->connection, $this->paramori);
       $event->deleteFromField($id, "declaration_id");
       /*
-             * $lot = new Lot ( $this->connection, $this->paramori );
-             * $lot->supprimer ( $id );
-             */
+       * $lot = new Lot ( $this->connection, $this->paramori );
+       * $lot->supprimer ( $id );
+       */
       $fish = new Fish($this->connection, $this->paramori);
       $fish->supprimerChamp($id, "declaration_id");
       $location = new Location($this->connection, $this->paramori);
@@ -491,7 +491,8 @@ class Capture_method extends ObjetBDD
       ),
       "capture_method_name" => array(
         "requis" => 1
-      )
+      ),
+      "capture_method_exchange" => array("type" => 0)
     );
     $param["fullDescription"] = 1;
     parent::__construct($link, $param);
@@ -563,7 +564,8 @@ class Capture_state extends ObjetBDD
       ),
       "capture_state_name" => array(
         "requis" => 1
-      )
+      ),
+      "capture_state_exchange" => array("type" => 0)
     );
     $param["fullDescription"] = 1;
     parent::__construct($link, $param);
@@ -600,7 +602,8 @@ class Gear_type extends ObjetBDD
       ),
       "gear_type_name" => array(
         "requis" => 1
-      )
+      ),
+      "gear_type_exchange" => array("type" => 0)
     );
     $param["fullDescription"] = 1;
     parent::__construct($link, $param);
