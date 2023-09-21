@@ -29,49 +29,33 @@ DROP TABLE IF EXISTS sturwild.declaration_double CASCADE;
 CREATE ROLE sturwild_owner;
 -- ddl-end --
 
--- object: sturwild.gear | type: TABLE --
--- DROP TABLE IF EXISTS sturwild.gear CASCADE;
-CREATE TABLE sturwild.gear (
-	gear_id serial NOT NULL,
-	gear_name varchar NOT NULL,
-	gear_exchange varchar,
-	CONSTRAINT gear_pk PRIMARY KEY (gear_id)
+-- object: sturwild.handling | type: TABLE --
+-- DROP TABLE IF EXISTS sturwild.handling CASCADE;
+CREATE TABLE sturwild.handling (
+	handling_id serial NOT NULL,
+	handling_name varchar NOT NULL,
+	handling_exchange varchar,
+	CONSTRAINT handling_pk PRIMARY KEY (handling_id)
 );
 -- ddl-end --
-COMMENT ON TABLE sturwild.gear IS E'Used gears to catch the fish';
+COMMENT ON TABLE sturwild.handling IS E'Types of handling used after catch';
 -- ddl-end --
-COMMENT ON COLUMN sturwild.gear.gear_exchange IS E'Name in english to exchange data between instances of Sturwild';
+COMMENT ON COLUMN sturwild.handling.handling_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.gear OWNER TO sturwild_owner;
--- ddl-end --
-
--- object: sturwild.hangling | type: TABLE --
--- DROP TABLE IF EXISTS sturwild.hangling CASCADE;
-CREATE TABLE sturwild.hangling (
-	hangling_id serial NOT NULL,
-	hangling_name varchar NOT NULL,
-	hangling_exchange varchar,
-	CONSTRAINT hangling_pk PRIMARY KEY (hangling_id)
-);
--- ddl-end --
-COMMENT ON TABLE sturwild.hangling IS E'Types of hangling used after catch';
--- ddl-end --
-COMMENT ON COLUMN sturwild.hangling.hangling_exchange IS E'Name in english to exchange data between instances of Sturwild';
--- ddl-end --
-ALTER TABLE sturwild.hangling OWNER TO sturwild_owner;
+ALTER TABLE sturwild.handling OWNER TO sturwild_owner;
 -- ddl-end --
 
--- object: sturwild.declaration_hangling | type: TABLE --
--- DROP TABLE IF EXISTS sturwild.declaration_hangling CASCADE;
-CREATE TABLE sturwild.declaration_hangling (
+-- object: sturwild.declaration_handling | type: TABLE --
+-- DROP TABLE IF EXISTS sturwild.declaration_handling CASCADE;
+CREATE TABLE sturwild.declaration_handling (
 	declaration_id integer NOT NULL,
-	hangling_id integer NOT NULL,
-	CONSTRAINT declaration_hangling_pk PRIMARY KEY (declaration_id)
+	handling_id integer NOT NULL,
+	CONSTRAINT declaration_handling_pk PRIMARY KEY (declaration_id)
 );
 -- ddl-end --
-COMMENT ON TABLE sturwild.declaration_hangling IS E'List of all hangling for a declaration';
+COMMENT ON TABLE sturwild.declaration_handling IS E'List of all handling for a declaration';
 -- ddl-end --
-ALTER TABLE sturwild.declaration_hangling OWNER TO sturwild_owner;
+ALTER TABLE sturwild.declaration_handling OWNER TO sturwild_owner;
 -- ddl-end --
 
 -- object: sturwild.target_species | type: TABLE --
@@ -219,25 +203,19 @@ ALTER VIEW sturwild.v_location OWNER TO sturwild_owner;
 -- ddl-end --
 
 
--- [ Created foreign keys ] --
--- object: gear_fk | type: CONSTRAINT --
--- ALTER TABLE sturwild.declaration DROP CONSTRAINT IF EXISTS gear_fk CASCADE;
-ALTER TABLE sturwild.declaration ADD CONSTRAINT gear_fk FOREIGN KEY (gear_id)
-REFERENCES sturwild.gear (gear_id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
--- ddl-end --
+
 
 -- object: declaration_fk | type: CONSTRAINT --
--- ALTER TABLE sturwild.declaration_hangling DROP CONSTRAINT IF EXISTS declaration_fk CASCADE;
-ALTER TABLE sturwild.declaration_hangling ADD CONSTRAINT declaration_fk FOREIGN KEY (declaration_id)
+-- ALTER TABLE sturwild.declaration_handling DROP CONSTRAINT IF EXISTS declaration_fk CASCADE;
+ALTER TABLE sturwild.declaration_handling ADD CONSTRAINT declaration_fk FOREIGN KEY (declaration_id)
 REFERENCES sturwild.declaration (declaration_id) MATCH FULL
 ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: hangling_fk | type: CONSTRAINT --
--- ALTER TABLE sturwild.declaration_hangling DROP CONSTRAINT IF EXISTS hangling_fk CASCADE;
-ALTER TABLE sturwild.declaration_hangling ADD CONSTRAINT hangling_fk FOREIGN KEY (hangling_id)
-REFERENCES sturwild.hangling (hangling_id) MATCH FULL
+-- object: handling_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.declaration_handling DROP CONSTRAINT IF EXISTS handling_fk CASCADE;
+ALTER TABLE sturwild.declaration_handling ADD CONSTRAINT handling_fk FOREIGN KEY (handling_id)
+REFERENCES sturwild.handling (handling_id) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 

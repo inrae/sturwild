@@ -247,7 +247,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="declaration" layers="0" collapse-mode="2" max-obj-count="37" z-value="0">
+<table name="declaration" layers="0" collapse-mode="2" max-obj-count="36" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Informations liées à la déclaration.]]> </comment>
@@ -1582,63 +1582,44 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="sturwild.fate"
 	 src-required="false" dst-required="false"/>
 
-<table name="gear" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="handling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
-	<comment> <![CDATA[Used gears to catch the fish]]> </comment>
-	<tag name="declaration"/>
-	<position x="900" y="460"/>
-	<column name="gear_id" not-null="true">
-		<type name="serial" length="0"/>
-	</column>
-	<column name="gear_name" not-null="true">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="gear_exchange">
-		<type name="varchar" length="0"/>
-		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
-	</column>
-	<constraint name="gear_pk" type="pk-constr" table="sturwild.gear">
-		<columns names="gear_id" ref-type="src-columns"/>
-	</constraint>
-</table>
-
-<relationship name="gear_has_many_declaration" type="rel1n" layers="0"
-	 src-col-pattern="{sc}"
-	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
-	 src-fk-pattern="{st}_fk"
-	 custom-color="#3584e4"
-	 src-table="sturwild.gear"
-	 dst-table="sturwild.declaration"
-	 src-required="false" dst-required="false"/>
-
-<table name="hangling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
-	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
-	<comment> <![CDATA[Types of hangling used after catch]]> </comment>
+	<comment> <![CDATA[Types of handling used after catch]]> </comment>
 	<tag name="declaration"/>
 	<position x="900" y="1040"/>
-	<column name="hangling_id" not-null="true">
+	<column name="handling_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
-	<column name="hangling_name" not-null="true">
+	<column name="handling_name" not-null="true">
 		<type name="varchar" length="0"/>
 	</column>
-	<column name="hangling_exchange">
+	<column name="handling_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
 	</column>
-	<constraint name="hangling_pk" type="pk-constr" table="sturwild.hangling">
-		<columns names="hangling_id" ref-type="src-columns"/>
+	<constraint name="handling_pk" type="pk-constr" table="sturwild.handling">
+		<columns names="handling_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
-<table name="declaration_hangling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="declaration_handling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
-	<comment> <![CDATA[List of all hangling for a declaration]]> </comment>
+	<comment> <![CDATA[List of all handling for a declaration]]> </comment>
 	<tag name="declaration"/>
 	<position x="900" y="840"/>
+
+	<customidxs object-type="column">
+		<object name="declaration_id" index="0"/>
+		<object name="handling_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="declaration_fk" index="1"/>
+		<object name="declaration_handling_pk" index="0"/>
+		<object name="handling_fk" index="2"/>
+	</customidxs>
 </table>
 
 <relationship name="declaration_has_many_declaration_hangling" type="rel1n" layers="0"
@@ -1647,7 +1628,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-fk-pattern="{st}_fk"
 	 custom-color="#3584e4"
 	 src-table="sturwild.declaration"
-	 dst-table="sturwild.declaration_hangling"
+	 dst-table="sturwild.declaration_handling"
 	 src-required="true" dst-required="false"
 	 identifier="true"
 />
@@ -1657,8 +1638,8 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
 	 src-fk-pattern="{st}_fk"
 	 custom-color="#3584e4"
-	 src-table="sturwild.hangling"
-	 dst-table="sturwild.declaration_hangling"
+	 src-table="sturwild.handling"
+	 dst-table="sturwild.declaration_handling"
 	 src-required="true" dst-required="false"/>
 
 <table name="target_species" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
