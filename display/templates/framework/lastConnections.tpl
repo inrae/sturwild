@@ -4,8 +4,8 @@
         <table id="connections" class="table table-bordered table-hover " >
             <thead>
                 <tr>
-                   <th>{t}Date{/t}</th>
-                   <th>{t}Adresse IP{/t}</th>
+                    <th>{t}Date{/t}</th>
+                    <th>{t}Adresse IP{/t}</th>
                 </tr>
             </thead>
             <tbody>

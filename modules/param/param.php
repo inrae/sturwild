@@ -15,12 +15,13 @@ if (!function_exists("generateSet")) {
 		$vue->set($tablename."_exchange", "fieldexchange");
 		$vue->set(_($description), "tabledescription");
 		$vue->set($tablename, "tablename");
+		$vue->set($tablename."_order", "fieldorder");
 	}
 }
 
 switch ($t_module["param"]) {
 	case "list":
-		$vue->set($dataClass->getListe(1), "data");
+		$vue->set($dataClass->getParams(), "data");
 		$vue->set("param/paramList.tpl", "corps");
 		generateSet($vue, $tablename, $description);
 		break;

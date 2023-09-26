@@ -25,6 +25,15 @@
             value="{$data.$fieldexchange}">
         </div>
       </div>
+      <div class="form-group">
+        <label for="order" class="control-label col-md-4">
+          {t}Ordre d'affichage, dans les listes :{/t}
+        </label>
+        <div class="col-md-8">
+          <input id="order" type="number" class="form-control" name="{$fieldorder}"
+            value="{$data.$fieldorder}">
+        </div>
+      </div>
       <div class="form-group center">
         <button type="submit" class="btn btn-primary button-valid">{t}Valider{/t}</button>
         {if $data.$fieldid > 0 }

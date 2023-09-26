@@ -36,7 +36,7 @@
 	<localisationWrite action="modules/declaration/localisation.php" param="write" retourok="declarationDisplay" retourko="localisationChange" modulebefore="localisationChange"  droits="gestion"/>
 
 <!--  parametres -->
-	<parametre action="framework/default.php" type="smarty"/>
+	<parametre action="framework/utils/submenu.php" type="smarty"/>
 	<icesList action="modules/param/ices.php" param="list" droits="gestion" type="smarty"/>
 	<icesChange action="modules/param/ices.php" param="change" droits="param" type="smarty"/>
 	<icesWrite action="modules/param/ices.php" param="write" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
@@ -56,35 +56,35 @@
 	<handlingWrite action="modules/param/param.php" param="write" droits="param" tablename="handling" retourok="handlingList" retourko="handlingChange" modulebefore="handlingChange" maxCountByHour="120" maxCountByDay="600" />
 	<handlingDelete action="modules/param/param.php" param="delete" droits="param" tablename="handling" retourok="handlingList" retourko="handlingChange" modulebefore="handlingChange" />
 
-	<gearTypeList action="modules/param/param.php" param="list" droits="consult" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeChange action="modules/param/param.php" param="change" droits="param" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" />
+	<gear_typeList action="modules/param/param.php" param="list" droits="consult" tablename="gear_type" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<gear_typeChange action="modules/param/param.php" param="change" droits="param" tablename="gear_type" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<gear_typeWrite action="modules/param/param.php" param="write" droits="param" tablename="gear_type" retourok="gear_typeList" retourko="gear_typeChange" modulebefore="gear_typeChange" maxCountByHour="120" maxCountByDay="600" />
+	<gear_typeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gear_type" retourok="gear_typeList" retourko="gear_typeChange" modulebefore="gear_typeChange" />
 
 	<accuracyList action="modules/param/param.php" param="list" droits="consult" tablename="accuracy" tabledescription="Précision des localisations" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
 	<accuracyChange action="modules/param/param.php" param="change" droits="param" tablename="accuracy" tabledescription="Précision des localisations" type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<accuracyWrite action="modules/param/param.php" param="write" droits="param" tablename="accuracy" retourok="accuracyList" retourko="accuracyChange" modulebefore="accuracyChange" maxCountByHour="120" maxCountByDay="600" />
 	<accuracyDelete action="modules/param/param.php" param="delete" droits="param" tablename="accuracy" retourok="accuracyList" retourko="accuracyChange" modulebefore="accuracyChange" />
 
-	<eventTypeList action="modules/param/param.php" param="list" droits="consult" tablename="eventType" tabledescription="Liste des types d'événements" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<eventTypeChange action="modules/param/param.php" param="change" droits="param" tablename="eventType" tabledescription="Liste des types d'événements" type="smarty" maxCountByHour="120" maxCountByDay="600" />
-	<eventTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="eventType" retourok="eventTypeList" retourko="eventTypeChange" modulebefore="eventTypeChange" maxCountByHour="120" maxCountByDay="600" />
-	<eventTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="eventType" retourok="eventTypeList" retourko="eventTypeChange" modulebefore="eventTypeChange" />	
+	<event_typeList action="modules/param/param.php" param="list" droits="consult" tablename="event_type" tabledescription="Liste des types d'événements" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<event_typeChange action="modules/param/param.php" param="change" droits="param" tablename="event_type" tabledescription="Liste des types d'événements" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<event_typeWrite action="modules/param/param.php" param="write" droits="param" tablename="event_type" retourok="event_typeList" retourko="event_typeChange" modulebefore="event_typeChange" maxCountByHour="120" maxCountByDay="600" />
+	<event_typeDelete action="modules/param/param.php" param="delete" droits="param" tablename="event_type" retourok="event_typeList" retourko="event_typeChange" modulebefore="event_typeChange" />	
 	
-	<captureStateList action="modules/param/param.php" param="list" droits="consult" tablename="captureState" tabledescription="Liste des états à la capture" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<captureStateChange action="modules/param/param.php" param="change" droits="param" tablename="captureState" tabledescription="Liste des états à la capture" type="smarty" maxCountByHour="120" maxCountByDay="600" />
-	<captureStateWrite action="modules/param/param.php" param="write" droits="param" tablename="captureState" retourok="captureStateList" retourko="captureStateChange" modulebefore="captureStateChange" maxCountByHour="120" maxCountByDay="600" />
-	<captureStateDelete action="modules/param/param.php" param="delete" droits="param" tablename="captureState" retourok="captureStateList" retourko="captureStateChange" modulebefore="captureStateChange" />	
+	<capture_stateList action="modules/param/param.php" param="list" droits="consult" tablename="capture_state" tabledescription="Liste des états à la capture" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<capture_stateChange action="modules/param/param.php" param="change" droits="param" tablename="capture_state" tabledescription="Liste des états à la capture" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<capture_stateWrite action="modules/param/param.php" param="write" droits="param" tablename="capture_state" retourok="capture_stateList" retourko="capture_stateChange" modulebefore="capture_stateChange" maxCountByHour="120" maxCountByDay="600" />
+	<capture_stateDelete action="modules/param/param.php" param="delete" droits="param" tablename="capture_state" retourok="capture_stateList" retourko="capture_stateChange" modulebefore="capture_stateChange" />	
 	
 	<originList action="modules/param/param.php" param="list" droits="consult" tablename="origin" tabledescription="Liste des origines des captures" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
 	<originChange action="modules/param/param.php" param="change" droits="param" tablename="origin" tabledescription="Liste des origines des captures" type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<originWrite action="modules/param/param.php" param="write" droits="param" tablename="origin" retourok="originList" retourko="originChange" modulebefore="originChange" maxCountByHour="120" maxCountByDay="600" />
 	<originDelete action="modules/param/param.php" param="delete" droits="param" tablename="origin" retourok="originList" retourko="originChange" modulebefore="originChange" />	
 	
-	<captureMethodList action="modules/param/param.php" param="list" droits="consult" tablename="captureMethod" tabledescription="Liste des méthodes de capture" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<captureMethodChange action="modules/param/param.php" param="change" droits="param" tablename="captureMethod" tabledescription="Liste des méthodes de capture" type="smarty" maxCountByHour="120" maxCountByDay="600" />
-	<captureMethodWrite action="modules/param/param.php" param="write" droits="param" tablename="captureMethod" retourok="captureMethodList" retourko="captureMethodChange" modulebefore="captureMethodChange" maxCountByHour="120" maxCountByDay="600" />
-	<captureMethodDelete action="modules/param/param.php" param="delete" droits="param" tablename="captureMethod" retourok="captureMethodList" retourko="captureMethodChange" modulebefore="captureMethodChange" />	
+	<capture_methodList action="modules/param/param.php" param="list" droits="consult" tablename="capture_method" tabledescription="Liste des méthodes de capture" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<capture_methodChange action="modules/param/param.php" param="change" droits="param" tablename="capture_method" tabledescription="Liste des méthodes de capture" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<capture_methodWrite action="modules/param/param.php" param="write" droits="param" tablename="capture_method" retourok="capture_methodList" retourko="capture_methodChange" modulebefore="capture_methodChange" maxCountByHour="120" maxCountByDay="600" />
+	<capture_methodDelete action="modules/param/param.php" param="delete" droits="param" tablename="capture_method" retourok="capture_methodList" retourko="capture_methodChange" modulebefore="capture_methodChange" />	
 	
 	<fateList action="modules/param/param.php" param="list" droits="consult" tablename="fate" tabledescription="Liste des devenirs des poissons" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
 	<fateChange action="modules/param/param.php" param="change" droits="param" tablename="fate" tabledescription="Liste des devenirs des poissons" type="smarty" maxCountByHour="120" maxCountByDay="600" />
@@ -96,29 +96,13 @@
 	<speciesWrite action="modules/param/param.php" param="write" droits="param" tablename="species" retourok="speciesList" retourko="speciesChange" modulebefore="speciesChange" maxCountByHour="120" maxCountByDay="600" />
 	<speciesDelete action="modules/param/param.php" param="delete" droits="param" tablename="species" retourok="speciesList" retourko="speciesChange" modulebefore="speciesChange" />	
 	
-	<environmentDetailList action="modules/param/param.php" param="list" droits="consult" tablename="environmentDetail" tabledescription="Liste des mileux détaillés" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<environmentDetailChange action="modules/param/param.php" param="change" droits="param" tablename="environmentDetail" tabledescription="Liste des milieux détaillés" type="smarty" maxCountByHour="120" maxCountByDay="600" />
-	<environmentDetailWrite action="modules/param/param.php" param="write" droits="param" tablename="environmentDetail" retourok="environmentDetailList" retourko="environmentDetailChange" modulebefore="environmentDetailChange" maxCountByHour="120" maxCountByDay="600" />
-	<environmentDetailDelete action="modules/param/param.php" param="delete" droits="param" tablename="environmentDetail" retourok="environmentDetailList" retourko="environmentDetailChange" modulebefore="environmentDetailChange" />	
+	<environment_detailList action="modules/param/param.php" param="list" droits="consult" tablename="environment_detail" tabledescription="Liste des milieux détaillés" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<environment_detailChange action="modules/param/param.php" param="change" droits="param" tablename="environment_detail" tabledescription="Liste des milieux détaillés" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<environment_detailWrite action="modules/param/param.php" param="write" droits="param" tablename="environment_detail" retourok="environment_detailList" retourko="environment_detailChange" modulebefore="environment_detailChange" maxCountByHour="120" maxCountByDay="600" />
+	<environment_detailDelete action="modules/param/param.php" param="delete" droits="param" tablename="environment_detail" retourok="environment_detailList" retourko="environment_detailChange" modulebefore="environment_detailChange" />	
 	
 	<environmentList action="modules/param/param.php" param="list" droits="consult" tablename="environment" tabledescription="Liste des milieux" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
 	<environmentChange action="modules/param/param.php" param="change" droits="param" tablename="environment" tabledescription="Liste des milieux" type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<environmentWrite action="modules/param/param.php" param="write" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" maxCountByHour="120" maxCountByDay="600" />
 	<environmentDelete action="modules/param/param.php" param="delete" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" />
-
-	<gearTypeList action="modules/param/param.php" param="list" droits="consult" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeChange action="modules/param/param.php" param="change" droits="param" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" />
-
-	<gearTypeList action="modules/param/param.php" param="list" droits="consult" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeChange action="modules/param/param.php" param="change" droits="param" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" />
-
-	<gearTypeList action="modules/param/param.php" param="list" droits="consult" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeChange action="modules/param/param.php" param="change" droits="param" tablename="gearType" tabledescription="Liste des types d'engins" type="smarty" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeWrite action="modules/param/param.php" param="write" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" maxCountByHour="120" maxCountByDay="600" />
-	<gearTypeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gearType" retourok="gearTypeList" retourko="gearTypeChange" modulebefore="gearTypeChange" />
-
 </navigation>

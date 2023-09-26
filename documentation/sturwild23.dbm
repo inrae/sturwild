@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,379" last-zoom="0.65" max-obj-count="54"
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,387" last-zoom="0.65" max-obj-count="54"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -95,7 +95,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="capture_state" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="capture_state" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Table des états à la capture]]> </comment>
@@ -111,6 +111,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
 	</column>
+	<column name="capture_state_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
+	</column>
 	<constraint name="capture_etat_pk" type="pk-constr" table="sturwild.capture_state">
 		<columns names="capture_state_id" ref-type="src-columns"/>
 	</constraint>
@@ -121,7 +124,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="capture_method" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="capture_method" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Mode de capture des poissons]]> </comment>
@@ -137,6 +140,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
 	</column>
+	<column name="capture_method_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
+	</column>
 	<constraint name="capture_mode_pk" type="pk-constr" table="sturwild.capture_method">
 		<columns names="capture_method_id" ref-type="src-columns"/>
 	</constraint>
@@ -147,7 +153,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="origin" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="origin" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Type de capture (professionnelle, amateur, scientifique...)]]> </comment>
@@ -162,6 +168,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="origin_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
+	</column>
+	<column name="origin_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="capture_type_pk" type="pk-constr" table="sturwild.origin">
 		<columns names="origin_id" ref-type="src-columns"/>
@@ -373,7 +382,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="fate" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="fate" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Devenir des esturgeons capturés]]> </comment>
@@ -388,6 +397,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="fate_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
+	</column>
+	<column name="fate_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="devenir_pk" type="pk-constr" table="sturwild.fate">
 		<columns names="fate_id" ref-type="src-columns"/>
@@ -444,7 +456,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="gear_type" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="gear_type" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Table des engins utilisés]]> </comment>
@@ -460,6 +472,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
 	</column>
+	<column name="gear_type_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
+	</column>
 	<constraint name="engin_type_pk" type="pk-constr" table="sturwild.gear_type">
 		<columns names="gear_type_id" ref-type="src-columns"/>
 	</constraint>
@@ -470,7 +485,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="species" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="species" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<tag name="fish"/>
@@ -486,6 +501,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="species_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
+	</column>
+	<column name="species_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="espece_id" type="pk-constr" table="sturwild.species">
 		<columns names="species_id" ref-type="src-columns"/>
@@ -537,7 +555,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="event_type" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="event_type" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Types d'événements possibles sur une déclaration]]> </comment>
@@ -552,6 +570,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="event_type_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
+	</column>
+	<column name="event_type_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="evenement_type_pk" type="pk-constr" table="sturwild.event_type">
 		<columns names="event_type_id" ref-type="src-columns"/>
@@ -578,7 +599,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="species_id">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="presence_tag_id">
+	<column name="tag_presence_id">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="capture_state_id">
@@ -707,7 +728,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="environment_detail" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="environment_detail" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Milieu détaillé]]> </comment>
@@ -723,12 +744,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
 	</column>
+	<column name="environment_detail_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
+	</column>
 	<constraint name="milieu_detail_pk" type="pk-constr" table="sturwild.environment_detail">
 		<columns names="environment_detail_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
-<table name="environment" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="environment" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Table des milieux]]> </comment>
@@ -745,6 +769,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="environment_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
+	</column>
+	<column name="environment_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="milieu_id" type="pk-constr" table="sturwild.environment">
 		<columns names="environment_id" ref-type="src-columns"/>
@@ -809,7 +836,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="accuracy" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="accuracy" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Précision de la localisation du point GPS]]> </comment>
@@ -825,6 +852,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
 	</column>
+	<column name="accuracy_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
+	</column>
 	<constraint name="precision_pk" type="pk-constr" table="sturwild.accuracy">
 		<columns names="accuracy_id" ref-type="src-columns"/>
 	</constraint>
@@ -835,7 +865,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="tag_presence" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="tag_presence" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Table des types de présence de marque (présent, non signalé, absent)]]> </comment>
@@ -851,7 +881,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
 	</column>
-	<constraint name="presence_marque_pk" type="pk-constr" table="sturwild.tag_presence">
+	<column name="tag_presence_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="tag_presence_pk" type="pk-constr" table="sturwild.tag_presence">
 		<columns names="tag_presence_id" ref-type="src-columns"/>
 	</constraint>
 </table>
@@ -903,7 +936,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="status" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="status" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Table des statuts de la déclaration]]> </comment>
@@ -918,6 +951,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="status_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
+	</column>
+	<column name="status_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="statut_pk" type="pk-constr" table="sturwild.status">
 		<columns names="status_id" ref-type="src-columns"/>
@@ -1582,7 +1618,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="sturwild.fate"
 	 src-required="false" dst-required="false"/>
 
-<table name="handling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="handling" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[Types of handling used after catch]]> </comment>
@@ -1597,6 +1633,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="handling_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
+	</column>
+	<column name="handling_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="handling_pk" type="pk-constr" table="sturwild.handling">
 		<columns names="handling_id" ref-type="src-columns"/>
@@ -1642,7 +1681,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="sturwild.declaration_handling"
 	 src-required="true" dst-required="false"/>
 
-<table name="target_species" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="target_species" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[List of species targeted]]> </comment>
@@ -1657,6 +1696,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="target_species_exchange">
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
+	</column>
+	<column name="target_species_order" not-null="true" default-value="1">
+		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="target_species_pk" type="pk-constr" table="sturwild.target_species">
 		<columns names="target_species_id" ref-type="src-columns"/>
@@ -1764,7 +1806,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <constraint name="presence_marque_individu_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="sturwild.tag_presence" table="sturwild.fish">
-	<columns names="presence_tag_id" ref-type="src-columns"/>
+	<columns names="tag_presence_id" ref-type="src-columns"/>
 	<columns names="tag_presence_id" ref-type="dst-columns"/>
 </constraint>
 

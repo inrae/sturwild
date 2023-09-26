@@ -7,12 +7,13 @@
 			{t}Nouveau...{/t}
 		</a>
 		{/if}
-		<table id="paramList" class="table table-bordered table-hover datatable ">
+		<table id="paramList" class="table table-bordered table-hover datatable " data-order = '[[3,"asc"],[1,"asc"]]'>
 			<thead>
 				<tr>
 					<th>{t}Id{/t}</th>
 					<th>{t}Libellé{/t}</th>
 					<th>{t}Libellé en anglais, pour les échanges{/t}</th>
+					<th>{t}Ordre d'affichage{/t}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,6 +30,7 @@
 						{/if}
 					</td>
 					<td>{$row[$fieldexchange]}</td>
+					<td class="center">{$row[$fieldorder]}</td>
 				</tr>
 				{/foreach}
 			</tbody>

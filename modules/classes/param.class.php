@@ -20,7 +20,8 @@ class Param extends ObjetBDD
         $this->colonnes = array(
             $tablename . "_id" => array("type" => 1, "requis" => 1, "key" => 1, "defaultValue" => 0),
             $tablename . "_name" => array("type" => 0, "requis" => 1),
-            $tablename . "_exchange" => array("type" => 0)
+            $tablename . "_exchange" => array("type" => 0),
+            $tablename . "_order"=> array("type"=>1, "requis"=>1)
         );
         parent::__construct($bdd);
     }
@@ -57,4 +58,9 @@ class Param extends ObjetBDD
         }
         return $id;
     }
+    function getParams() {
+        $order = $this->table."_order,".$this->table."_name";
+        return $this->getListe($order);
+    }
+
 }
