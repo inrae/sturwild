@@ -105,4 +105,7 @@
 	<environmentChange action="modules/param/param.php" param="change" droits="param" tablename="environment" tabledescription="Liste des milieux" type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<environmentWrite action="modules/param/param.php" param="write" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" maxCountByHour="120" maxCountByDay="600" />
 	<environmentDelete action="modules/param/param.php" param="delete" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" />
+
+	<!-- migration -->
+	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>
 </navigation>
