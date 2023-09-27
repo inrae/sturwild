@@ -20,6 +20,7 @@ class Declaration extends ObjetBDD
   public Location $location;
   public Fish $fish;
   public Event $event;
+
   private $paramSearch = array();
   private $fromSearch = " from declaration
 				join status using (status_id)
@@ -33,7 +34,8 @@ class Declaration extends ObjetBDD
 				left outer join capture_method using (capture_method_id)
 				left outer join origin using (origin_id)
 				left outer join capture_state using (capture_state_id)
-				left outer join fate using (fate_id)";
+				left outer join fate using (fate_id)
+        left outer join v_declaration_handlings using (declaration_id)";
 
   /**
    * Constructeur
@@ -97,7 +99,7 @@ class Declaration extends ObjetBDD
       "contact" => array(
         "type" => 0
       ),
-      "contact_coord" => array(
+      "contact_coordonates" => array(
         "type" => 0
       ),
       "harbour_vessel" => array(
@@ -303,6 +305,21 @@ class Declaration extends ObjetBDD
   }
 
   /**
+   * Get the list of handlings attached or not to a declaration
+   *
+   * @param int $declaration_id
+   * @return array
+   */
+  function getHandlings( $declaration_id) {
+    $sql = "select h.handling_id, handling_name, 
+            case when declaration_id is not null then 1 else 0 end as is_selected
+            from handling h
+            left outer join declaration_handling dh on (h.handling_id = dh.handling_id and dh.declaration_id = :declaration_id)
+            order by handling_order";
+            return $this->getListeParamAsPrepared($sql, array("declaration_id"=>$declaration_id));
+  }
+
+  /**
    * Recupere les donnees pour export
    *
    * @param array $param
@@ -390,8 +407,12 @@ class Declaration extends ObjetBDD
      */
     $data["declaration_id"] == 0 ? $creation = true : $creation = false;
     $id = parent::ecrire($data);
+    /**
+     * Add the handlings
+     */
+    $this->ecrireTableNN("declaration_handling","declaration_id", "handling_id", $id, $data["handlings"]);
 
-    if ($id > 0 && is_numeric($id) && $creation == true) {
+    if ( $creation) {
       /*
        * Generation de l'event de saisie
        */

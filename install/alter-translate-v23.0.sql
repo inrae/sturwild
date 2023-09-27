@@ -140,7 +140,6 @@ COMMENT ON COLUMN sturwild.status.status_exchange IS E'Name in english to exchan
 -- DROP VIEW IF EXISTS sturwild.v_location CASCADE;
 CREATE VIEW sturwild.v_location
 AS 
-
 SELECT location.declaration_id,
     location.geom,
     location.longitude_dd,
@@ -212,13 +211,12 @@ ALTER TABLE sturwild.handling OWNER TO sturwild_owner;
 CREATE TABLE sturwild.declaration_handling (
 	declaration_id integer NOT NULL,
 	handling_id integer NOT NULL,
-	CONSTRAINT declaration_handling_pk PRIMARY KEY (declaration_id)
+	CONSTRAINT declaration_handling_pk PRIMARY KEY (declaration_id,handling_id)
 );
 -- ddl-end --
 COMMENT ON TABLE sturwild.declaration_handling IS E'List of all handling for a declaration';
 -- ddl-end --
 ALTER TABLE sturwild.declaration_handling OWNER TO sturwild_owner;
--- ddl-end --
 
 -- object: sturwild.target_species | type: TABLE --
 -- DROP TABLE IF EXISTS sturwild.target_species CASCADE;
@@ -315,48 +313,6 @@ ALTER TABLE sturwild.gear_type ADD COLUMN gear_type_order smallint NOT NULL DEFA
 -- ddl-end --
 
 
--- object: sturwild.v_handlings | type: VIEW --
--- DROP VIEW IF EXISTS sturwild.v_handlings CASCADE;
-CREATE VIEW sturwild.v_handlings
-AS 
-
-select declaration_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings
-from sturwild.declaration_handling
-join sturwild.handling using (handling_id)
-group by declaration_id;
--- ddl-end --
-ALTER VIEW sturwild.v_handlings OWNER TO sturwild_owner;
--- ddl-end --
-
--- object: sturwild.v_fish | type: VIEW --
--- DROP VIEW IF EXISTS sturwild.v_fish CASCADE;
-CREATE VIEW sturwild.v_fish
-AS 
-
-select fish_id, declaration_id
-,fate_id, fate_name
-,species_id, species_name
-capture_state_id, capture_state_name
-,tag_presence_id, tag_presence_name
-,handlings
-,tag_number, fish_length, estimated_cohort, validated_cohort
-,background, remarks
-identification_quality_id
-from sturwild.fish f
-join sturwild.declaration d using(declaration_id)
-left outer join sturwild.species s on  (s.species_id = f.species_id)
-left outer join sturwild.capture_state using (capture_state_id)
-left outer join sturwild.tag_presence using (tag_presence_id)
-left outer join sturwild.v_handlings using (declaration_id);
--- ddl-end --
-COMMENT ON VIEW sturwild.v_fish IS E'Detail of a fish';
--- ddl-end --
-ALTER VIEW sturwild.v_fish OWNER TO sturwild_owner;
--- ddl-end --
-
-
-
 -- [ Changed objects ] --
 ALTER ROLE sturwild_owner
 	NOINHERIT
@@ -404,3 +360,71 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
 
+CREATE TABLE sturwild.fish_handling (
+	fish_id integer NOT NULL,
+	handling_id integer NOT NULL,
+	CONSTRAINT fish_handling_pk PRIMARY KEY (fish_id,handling_id)
+);
+-- ddl-end --
+ALTER TABLE sturwild.fish_handling OWNER TO sturwild_owner;
+-- ddl-end --
+
+-- object: fish_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.fish_handling DROP CONSTRAINT IF EXISTS fish_fk CASCADE;
+ALTER TABLE sturwild.fish_handling ADD CONSTRAINT fish_fk FOREIGN KEY (fish_id)
+REFERENCES sturwild.fish (fish_id) MATCH FULL
+ON DELETE CASCADE ON UPDATE CASCADE;
+-- ddl-end --
+
+-- object: handling_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.fish_handling DROP CONSTRAINT IF EXISTS handling_fk CASCADE;
+ALTER TABLE sturwild.fish_handling ADD CONSTRAINT handling_fk FOREIGN KEY (handling_id)
+REFERENCES sturwild.handling (handling_id) MATCH FULL
+ON DELETE CASCADE ON UPDATE CASCADE;
+-- ddl-end --
+
+CREATE VIEW sturwild.v_fish_handlings
+AS 
+select fish_id, 
+array_to_string(array_agg(handling_name order by handling_name),', ') as handlings
+from sturwild.fish_handling
+join sturwild.handling using (handling_id)
+group by fish_id;
+-- ddl-end --
+ALTER VIEW sturwild.v_fish_handlings OWNER TO sturwild_owner;
+-- ddl-end --
+
+-- object: sturwild.v_fish | type: VIEW --
+DROP VIEW IF EXISTS sturwild.v_fish CASCADE;
+CREATE VIEW sturwild.v_fish
+AS 
+select fish_id, declaration_id
+,fate_id, fate_name
+,species_id, species_name
+capture_state_id, capture_state_name
+,tag_presence_id, tag_presence_name
+,handlings
+,tag_number, fish_length, estimated_cohort, validated_cohort
+,background, remarks
+identification_quality_id
+from sturwild.fish f
+join sturwild.declaration d using(declaration_id)
+left outer join sturwild.species s on  (s.species_id = f.species_id)
+left outer join sturwild.capture_state using (capture_state_id)
+left outer join sturwild.tag_presence using (tag_presence_id)
+left outer join sturwild.v_fish_handlings using (declaration_id);
+-- ddl-end --
+COMMENT ON VIEW sturwild.v_fish IS E'Detail of a fish';
+-- ddl-end --
+ALTER VIEW sturwild.v_fish OWNER TO sturwild_owner;
+-- ddl-end --
+DROP VIEW IF EXISTS sturwild.v_declaration_handlings CASCADE;
+CREATE VIEW sturwild.v_declaration_handlings
+AS 
+select declaration_id, 
+array_to_string(array_agg(handling_name order by handling_name),', ') as handlings
+from sturwild.declaration_handling
+join sturwild.handling using (handling_id)
+group by declaration_id;
+-- ddl-end --
+ALTER VIEW sturwild.v_declaration_handlings OWNER TO sturwild_owner;

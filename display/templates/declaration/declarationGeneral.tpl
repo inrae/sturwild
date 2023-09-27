@@ -87,8 +87,13 @@
       <dd>{$data.capture_state_name}</dd>
     </dl>
     <dl class="dl-horizontal">
-      <dt>{t}Manipulation effectuée :{/t}</dt>
-      <dd>{$data.handling}</dd>
+      <dt>{t}Manipulations effectuées :{/t}</dt>
+      <dd>
+        {$data.handlings}
+        {if !empty($data.handling)}
+        <br>{$data.handling}
+        {/if}
+      </dd>
     </dl>
       <dl class="dl-horizontal"><dt>{t}Devenir du lot :{/t}</dt>
       <dd>{$data.fate_name}</dd>

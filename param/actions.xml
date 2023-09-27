@@ -13,27 +13,27 @@
 	<declarationChange action="modules/declaration/declaration.php" param="change" droits="gestion" type="smarty"/>
 	<declarationWrite action="modules/declaration/declaration.php" param="write" retourok="declarationDisplay" retourko="declarationChange" modulebefore="declarationChange"  droits="gestion"/>
 	<declarationDelete action="modules/declaration/declaration.php" param="delete" retourok="declarationList" retourko="declarationChange" modulebefore="declarationChange"  droits="gestion"/>
-	<declarationExport action="modules/declaration/declaration.php" param="export" modulebefore="declarationList,individuExport"  droits="consult" type="csv"/>
+	<declarationExport action="modules/declaration/declaration.php" param="export" modulebefore="declarationList,fishExport"  droits="consult" type="csv"/>
 	<declarationNbSturioByYear action="modules/declaration/declaration.php" param="sturioByYear" droits="consult" type="smarty"/>
 	<declarationDuplicate action="modules/declaration/declaration.php" param="duplicate" modulebefore="declarationWrite,declarationDisplay"  droits="gestion" retourok="declarationDisplay" />
 
-	<evenementChange action="modules/declaration/evenement.php" param="change" droits="gestion" type="smarty"/>
-	<evenementWrite action="modules/declaration/evenement.php" param="write" retourok="declarationDisplay" retourko="evenementChange" modulebefore="evenementChange"  droits="gestion"/>
-	<evenementDelete action="modules/declaration/evenement.php" param="delete" retourok="declarationDisplay" retourko="evenementChange" modulebefore="evenementChange"  droits="gestion"/>
+	<eventChange action="modules/declaration/event.php" param="change" droits="gestion" type="smarty"/>
+	<eventWrite action="modules/declaration/event.php" param="write" retourok="declarationDisplay" retourko="eventChange" modulebefore="eventChange"  droits="gestion"/>
+	<eventDelete action="modules/declaration/event.php" param="delete" retourok="declarationDisplay" retourko="eventChange" modulebefore="eventChange"  droits="gestion"/>
 
 	<lotChange action="modules/declaration/lot.php" param="change" droits="gestion" type="smarty"/>
 	<lotWrite action="modules/declaration/lot.php" param="write" retourok="declarationDisplay" retourko="lotChange" modulebefore="lotChange"  droits="gestion"/>
 
-	<individuChange action="modules/declaration/individu.php" param="change" droits="gestion" type="smarty"/>
-	<individuWrite action="modules/declaration/individu.php" param="write" retourok="declarationDisplay" retourko="individuChange" modulebefore="individuChange"  droits="gestion"/>
-	<individuDelete action="modules/declaration/individu.php" param="delete" retourok="declarationDisplay" retourko="individuChange" modulebefore="individuChange"  droits="gestion"/>
-	<individuExport action="modules/declaration/individu.php" param="export" droits="consult" moduleBefore="declarationList,declarationExport" type="csv"/>
+	<fishChange action="modules/declaration/fish.php" param="change" droits="gestion" type="smarty"/>
+	<fishWrite action="modules/declaration/fish.php" param="write" retourok="declarationDisplay" retourko="fishChange" modulebefore="fishChange"  droits="gestion"/>
+	<fishDelete action="modules/declaration/fish.php" param="delete" retourok="declarationDisplay" retourko="fishChange" modulebefore="fishChange"  droits="gestion"/>
+	<fishExport action="modules/declaration/fish.php" param="export" droits="consult" moduleBefore="declarationList,declarationExport" type="csv"/>
 
-	<documentDelete action="modules/declaration/individu.php" param="documentDelete" retourok="individuChange" retourko="individuChange" modulebefore="individuChange,declarationDisplay"  droits="gestion"/>
+	<documentDelete action="modules/declaration/fish.php" param="documentDelete" retourok="fishChange" retourko="fishChange" modulebefore="fishChange,declarationDisplay"  droits="gestion"/>
 	<documentGet action="modules/declaration/document.php" param="get" type="binaire" droits="gestion"/>
 
-	<localisationChange action="modules/declaration/localisation.php" param="change" droits="gestion" type="smarty"/>
-	<localisationWrite action="modules/declaration/localisation.php" param="write" retourok="declarationDisplay" retourko="localisationChange" modulebefore="localisationChange"  droits="gestion"/>
+	<locationChange action="modules/declaration/location.php" param="change" droits="gestion" type="smarty"/>
+	<locationWrite action="modules/declaration/location.php" param="write" retourok="declarationDisplay" retourko="locationChange" modulebefore="locationChange"  droits="gestion"/>
 
 <!--  parametres -->
 	<parametre action="framework/utils/submenu.php" type="smarty"/>
@@ -61,8 +61,8 @@
 	<gear_typeWrite action="modules/param/param.php" param="write" droits="param" tablename="gear_type" retourok="gear_typeList" retourko="gear_typeChange" modulebefore="gear_typeChange" maxCountByHour="120" maxCountByDay="600" />
 	<gear_typeDelete action="modules/param/param.php" param="delete" droits="param" tablename="gear_type" retourok="gear_typeList" retourko="gear_typeChange" modulebefore="gear_typeChange" />
 
-	<accuracyList action="modules/param/param.php" param="list" droits="consult" tablename="accuracy" tabledescription="Précision des localisations" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
-	<accuracyChange action="modules/param/param.php" param="change" droits="param" tablename="accuracy" tabledescription="Précision des localisations" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<accuracyList action="modules/param/param.php" param="list" droits="consult" tablename="accuracy" tabledescription="Précision des locations" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<accuracyChange action="modules/param/param.php" param="change" droits="param" tablename="accuracy" tabledescription="Précision des locations" type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<accuracyWrite action="modules/param/param.php" param="write" droits="param" tablename="accuracy" retourok="accuracyList" retourko="accuracyChange" modulebefore="accuracyChange" maxCountByHour="120" maxCountByDay="600" />
 	<accuracyDelete action="modules/param/param.php" param="delete" droits="param" tablename="accuracy" retourok="accuracyList" retourko="accuracyChange" modulebefore="accuracyChange" />
 

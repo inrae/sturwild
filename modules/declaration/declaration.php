@@ -81,19 +81,25 @@ switch ($t_module["param"]) {
         require_once "modules/classes/param.class.php";
         require_once "modules/classes/fish.class.php";
         $status = new Param($bdd, "status");
-        $vue->set($status->getListe(1), "status");
+        $vue->set($status->getListe(), "status");
         $captureMethod = new Param($bdd, "capture_method");
-        $vue->set($captureMethod->getListe(2), "capture_method");
+        $vue->set($captureMethod->getListe(), "capture_method");
         $origin = new Param($bdd, "origin");
-        $vue->set($origin->getListe(2), "origin");
+        $vue->set($origin->getListe(), "origin");
         $gearType = new Param($bdd, "gear_type");
-        $vue->set($gearType->getListe(2), "gear_type");
+        $vue->set($gearType->getListe(), "gear_type");
         $species = new Param($bdd, "species");
-        $vue->set($species->getListe(2), "species");
+        $vue->set($species->getListe(), "species");
         $fate = new Param($bdd, "fate");
-        $vue->set($fate->getListe(1), "fate");
+        $vue->set($fate->getListe(), "fate");
         $captureState = new Param($bdd, "capture_state");
-        $vue->set($captureState->getListe(2), "capture_state");
+        $vue->set($captureState->getListe(), "capture_state");
+        $targetSpecies = new Param($bdd, "target_species");
+        $vue->set($targetSpecies->getListe(), "target_species");
+        /**
+         * Handlings
+         */
+        $vue->set($dataClass->getHandlings($id), "handlings");
         /*
          * Recuperation de la liste des years
          */

@@ -2,7 +2,7 @@
 
 ## Base de données
 
-Génération du script de traduction :
+### Génération du script de traduction
 
 - transformer les feuilles du fichier `dbtranslate.ods` en fichiers csv (séparateur : point-virgule) : `tables.csv` et `colonnes.csv`
 - Lancer le script de génération des commandes SQL de modification :
@@ -15,4 +15,10 @@ php generatesql.php
 - générer le fichier de modification de la structure de la base de données à partir du modèle pgModeler (fichier `alter-translate-v23.0.sql`)
   - le vérifier
   - l'exécuter
--
+
+### Ajouts/traductions dans les tables de paramètres
+
+- se connecter à l'application en tant qu'administrateur
+- appeler la page suivante : [https://sturwild.eabx.inrae.fr/index.php?module=updateparam.php](https://sturwild.eabx.inrae.fr/index.php?module=updateparam.php)
+
+Le programme va mettre à jour l'ensemble des tables de paramètres à partir du contenu présent dans le fichier `parameters.ods`

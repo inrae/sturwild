@@ -20,7 +20,7 @@
 <tr>
 {if $droits["gestion"] == 1}
 <td class="center">
-<a href="index.php?module=eventChange&event_id={$events[lst].event_id}">
+<a href="index.php?module=eventChange&event_id={$events[lst].event_id}&declaration_id={$data.declaration_id}">
 <img src="display/images/edit.gif" height="20">
 </a>
 </td>

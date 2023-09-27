@@ -23,7 +23,7 @@ Retour au détail</a>
 
 				<div class="form-group">
 					<label for="status_id" class="control-label col-sm-4">
-						Statut  :{/t}<span class="red">*</span>
+						{t}Statut  :{/t}<span class="red">*</span>
 					</label>
 					<div class="col-sm-8">
 						<select id="status_id" name="status_id" class="form-control" >
@@ -175,15 +175,30 @@ Retour au détail</a>
 						<input class="form-control" id="gear_mesh" name="gear_mesh" value="{$data.gear_mesh}" placeholder="{t}maille - précisez le mode de mesure{/t}">
 					</div>
 				</div>
-
+				<div class="form-group">
+					<label for="target_species_id" class="control-label col-sm-4">
+						{t}Espèce ciblée :{/t}
+					</label>
+					<div class="col-sm-8">
+						<select id="target_species_id" name="target_species_id" class="form-control">
+							<option value="" {if $data.target_species_id == ""}selected{/if}>
+							</option>
+							{foreach $target_species as $target}
+							<option value="{$target.target_species_id}" {if $target.target_species_id == $data.target_species_id}selected{/if}>
+								{$target.target_species_name}
+							</option>
+							{/foreach}
+					</div>
+				</div>
 				<div class="form-group">
 					<label for="target_species" class="control-label col-sm-4">
-						{t}Espèce ciblée :{/t}
+						{t}Commentaire sur l'espèce ciblée :{/t}
 					</label>
 					<div class="col-sm-8">
 						<input class="form-control" id="target_species" name="target_species" value="{$data.target_species}">
 					</div>
 				</div>
+
 				<div class="form-group">
 					<label for="declaration_mode" class="control-label col-sm-4">
 						{t}Mode de déclaration :{/t}
@@ -214,7 +229,9 @@ Retour au détail</a>
 				 {t}à :{/t}<input class="form-control nombre" id="weight_max" name="weight_max" value="{$data.weight_max}"></div>
 				</div>
 				<div class="form-group">
-				<label for="capture_state_id" class="control-label col-sm-4"{t}>État à la capture :{/t}</label>
+				<label for="capture_state_id" class="control-label col-sm-4">
+					{t}État à la capture :{/t}
+				</label>
 				<div class="col-sm-8">
 				<select class="form-control" id="capture_state_id" name="capture_state_id">
 						<option value="" {if $data.capture_state_id == ""}selected{/if}>
@@ -227,7 +244,36 @@ Retour au détail</a>
 				</div>
 				</div>
 				<div class="form-group">
-				<label for="handling" class="control-label col-sm-4">{t}Manipulation effectuée :{/t}</label>
+					<label for="handlings" class="control-label col-sm-4">
+						{t}Manipulations effectuées :{/t}
+					</label>
+					<div class="col-sm-8">
+						<table class="table table-condensed table-nobordered">
+							<tbody>
+								{$nb = 0}
+								</tr>
+								{foreach $handlings as $handling}
+								{if $nb == 0}<tr>{/if}
+									<td class="right"><label class="">{$handling.handling_name}</label></td>
+									<td class="center">
+										<input type="checkbox" name="handlings[]" value="{$handling.handling_id}" class="form-control"
+										{if $handling.is_selected == 1}checked{/if}>
+									</td>
+									{$nb = $nb + 1}
+									{if $nb == 2} 
+									</tr>
+									{$nb = 0}
+									{/if}
+									{/foreach}
+									{if $nb == 1}</tr>{/if}
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="form-group">
+				<label for="handling" class="control-label col-sm-4">
+					{t}Compléments sur les manipulations effectuées :{/t}
+				</label>
 				<div class="col-sm-8"><input class="remarks form-control" id="handling" name="handling" value="{$data.handling}"></div>
 				</div>
 				<div class="form-group">

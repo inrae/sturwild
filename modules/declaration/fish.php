@@ -23,7 +23,7 @@ switch ($t_module["param"]) {
 		 */
 		require_once 'modules/classes/declaration.class.php';
 		require_once "modules/classes/param.class.php";
-		$species = new Param($bdd, '"species');
+		$species = new Param($bdd, 'species');
 		$vue->set($species->getListe(2), "species");
 
 		$fate = new Param($bdd, "fate");

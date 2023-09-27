@@ -1,5 +1,5 @@
 {if $droits["gestion"] == 1}
-<a href=index.php?module=fishChange&fish_id=0&declaration_id={$data.declaration_id}>{t}Nouvel esturgeon...{t}</a>
+<a href=index.php?module=fishChange&fish_id=0&declaration_id={$data.declaration_id}>{t}Nouvel esturgeon...{/t}</a>
 {/if}
 <table class="table table-bordered table-hover" id="fishList">
 <thead>
@@ -21,7 +21,7 @@
 <tr>
 <td class="center">
 {if $droits["gestion"] == 1}
-<a href="index.php?module=fishChange&fish_id={$fishs[lst].fish_id}" title="{t}Modifier{/t}">
+<a href="index.php?module=fishChange&fish_id={$fishs[lst].fish_id}&declaration_id={$data.declaration_id}" title="{t}Modifier{/t}">
 <img src="display/images/edit.gif" height="20">
 {$fishs[lst].fish_id}
 </a>
