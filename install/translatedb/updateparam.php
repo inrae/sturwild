@@ -5,22 +5,24 @@ require_once "modules/classes/param.class.php";
 $inputFileName = "install/translatedb/parameters.ods";
 
 $classeur = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
-$sheets = $classeur->getAllSheets();
+$sheetnames = $classeur->getSheetNames();
+
 try {
-    foreach ($sheets as $sheet) {
-        $sheetname = $sheet->getCodeName();
+    foreach ($sheetnames as $sheetname) {
+        $sheet = $classeur->getSheetByName($sheetname);
+        $message->set("Traitement de la feuille/table $sheetname");
         $param = new Param($bdd, $sheetname);
         $ok = true;
         $row = 2;
 
         while ($ok) {
-            $id = $sheet->getCellByColumnAndRow(1, $row);
+            $id = $sheet->getCellByColumnAndRow(1, $row)->getValue();
             if (!empty($id)) {
                 $data = array(
                     $sheetname . "_id" => $id,
-                    $sheetname . "_name" => $sheet->getCellByColumnAndRow(2, $row),
-                    $sheetname . "_exchange" => $sheet->getCellByColumnAndRow(3, $row),
-                    $sheetname . "_order" => $sheet->getCellByColumnAndRow(4, $row)
+                    $sheetname . "_name" => $sheet->getCellByColumnAndRow(2, $row)->getValue(),
+                    $sheetname . "_exchange" => $sheet->getCellByColumnAndRow(3, $row)->getValue(),
+                    $sheetname . "_order" => $sheet->getCellByColumnAndRow(4, $row)->getValue()
                 );
                 $param->ecrire($data);
                 $row ++;

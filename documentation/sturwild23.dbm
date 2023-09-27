@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,387" last-zoom="0.65" max-obj-count="54"
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,387" last-zoom="0.65" max-obj-count="56"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -472,7 +472,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="varchar" length="0"/>
 		<comment> <![CDATA[Name in english to exchange data between instances of Sturwild]]> </comment>
 	</column>
-	<column name="gear_type_order" not-null="true" default-value="1">
+	<column name="gear_type_order" not-null="true" default-value="99">
 		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="engin_type_pk" type="pk-constr" table="sturwild.gear_type">
@@ -959,131 +959,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<columns names="status_id" ref-type="src-columns"/>
 	</constraint>
 </table>
-
-<view name="v_individu" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
-	<schema name="sturwild"/>
-	<role name="equinton"/>
-	<tag name="fish"/>
-	<position x="1320" y="1280"/>
-	<reference>
-		<expression> <![CDATA[ SELECT fish.espece_id,
-    fish.devenir_id,
-    fish.capture_etat_id,
-    fish.presence_marque_id,
-    fish.fish_id AS individu_id,
-    fish.declaration_id,
-    fish.weight AS masse,
-    fish.handling AS manipulation,
-    fish.tag_number AS numero_marque,
-    fish.fish_length AS longueur_individu,
-    fish.estimated_cohort AS cohorte_estimee,
-    fish.validated_cohort AS cohorte_validee,
-    fish.background AS historique,
-    fish.remarks AS commentaire,
-    fish.identification_quality AS qualite_identification,
-    tag_presence.tag_presence_name AS presence_marque_libelle,
-    capture_state.capture_state_name AS capture_etat_libelle,
-    fate.fate_name AS devenir_libelle,
-    species.species_name AS espece_libelle
-   FROM ((((sturwild.fish fish(fish_id, declaration_id, espece_id, presence_marque_id, capture_etat_id, devenir_id, weight, handling, tag_number, fish_length, estimated_cohort, validated_cohort, background, remarks, identification_quality)
-     LEFT JOIN sturwild.tag_presence tag_presence(presence_marque_id, tag_presence_name) USING (presence_marque_id))
-     LEFT JOIN sturwild.capture_state capture_state(capture_etat_id, capture_state_name) USING (capture_etat_id))
-     LEFT JOIN sturwild.fate fate(devenir_id, fate_name) USING (devenir_id))
-     LEFT JOIN sturwild.species species(espece_id, species_name) USING (espece_id));]]> </expression>
-	<column name="espece_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="devenir_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="capture_etat_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="presence_marque_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="individu_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="declaration_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="masse">
-		<type name="real" length="0"/>
-	</column>
-	<column name="manipulation">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="numero_marque">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="longueur_individu">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="cohorte_estimee">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="cohorte_validee">
-		<type name="smallint" length="0"/>
-	</column>
-	<column name="historique">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="commentaire">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="qualite_identification">
-		<type name="smallint" length="0"/>
-	</column>
-	<column name="presence_marque_libelle">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="capture_etat_libelle">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="devenir_libelle">
-		<type name="character varying" length="0"/>
-	</column>
-	<column name="espece_libelle">
-		<type name="character varying" length="0"/>
-	</column>
-		<reftable name="sturwild.capture_state"/>
-		<reftable name="sturwild.fate"/>
-		<reftable name="sturwild.species"/>
-		<reftable name="sturwild.fish"/>
-		<reftable name="sturwild.tag_presence"/>
-	</reference>
-</view>
-
-<relationship name="rel_v_individu_capture_state" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_individu"
-	 dst-table="sturwild.capture_state"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_individu_fate" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_individu"
-	 dst-table="sturwild.fate"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_individu_species" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_individu"
-	 dst-table="sturwild.species"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_individu_fish" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_individu"
-	 dst-table="sturwild.fish"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_individu_tag_presence" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_individu"
-	 dst-table="sturwild.tag_presence"
-	 src-required="false" dst-required="false"/>
 
 <table name="aclacl" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwildgacl"/>
@@ -1608,6 +1483,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_location_capture_state" type="reltv" layers="0"
+	 custom-color="#33d17a"
 	 src-table="sturwild.v_location"
 	 dst-table="sturwild.capture_state"
 	 src-required="false" dst-required="false"/>
@@ -1712,6 +1588,151 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 custom-color="#3584e4"
 	 src-table="sturwild.target_species"
 	 dst-table="sturwild.declaration"
+	 src-required="false" dst-required="false"/>
+
+<view name="v_handlings" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="sturwild"/>
+	<role name="sturwild_owner"/>
+	<tag name="declaration"/>
+	<position x="1320" y="1040"/>
+	<reference>
+		<expression> <![CDATA[select declaration_id, 
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings
+from sturwild.declaration_handling
+join sturwild.handling using (handling_id)
+group by declaration_id]]> </expression>
+	<column name="declaration_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="handlings">
+		<type name="varchar" length="0"/>
+	</column>
+		<reftable name="sturwild.declaration_handling"/>
+		<reftable name="sturwild.handling"/>
+	</reference>
+</view>
+
+<relationship name="rel_v_handlings_declaration_handling" type="reltv" layers="0"
+	 custom-color="#1c71d8"
+	 src-table="sturwild.v_handlings"
+	 dst-table="sturwild.declaration_handling"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_handlings_handling" type="reltv" layers="0"
+	 custom-color="#1c71d8"
+	 src-table="sturwild.v_handlings"
+	 dst-table="sturwild.handling"
+	 src-required="false" dst-required="false"/>
+
+<view name="v_fish" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="sturwild"/>
+	<role name="sturwild_owner"/>
+	<comment> <![CDATA[Detail of a fish]]> </comment>
+	<tag name="fish"/>
+	<position x="1320" y="1280"/>
+	<reference>
+		<expression> <![CDATA[select fish_id, declaration_id
+,f.fate_id, fate_name
+,f.species_id, species_name
+,f.capture_state_id, capture_state_name
+,tag_presence_id, tag_presence_name
+,handlings
+,tag_number, fish_length, estimated_cohort, validated_cohort
+,background, f.remarks
+identification_quality_id
+from sturwild.fish f
+join sturwild.declaration d using(declaration_id)
+left outer join sturwild.species s on  (s.species_id = f.species_id)
+left outer join sturwild.capture_state cs on (cs.capture_state_id = f.capture_state_id)
+left outer join sturwild.tag_presence using (tag_presence_id)
+left outer join sturwild.fate fa on (fa.fate_id = f.fate_id)
+left outer join sturwild.v_handlings using (declaration_id]]> </expression>
+	<column name="fish_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="declaration_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="fate_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="species_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="capture_state_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="tag_presence_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="fate_name">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="species_name">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="capture_state_name">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="tag_presence_name">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="tag_number">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="estimated_cohort">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="background">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="remarks">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="identification_quality">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="validated_cohort">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="weight">
+		<type name="float4" length="0"/>
+	</column>
+		<reftable name="sturwild.fish"/>
+		<reftable name="sturwild.declaration"/>
+		<reftable name="sturwild.capture_state"/>
+		<reftable name="sturwild.tag_presence"/>
+		<reftable name="sturwild.species"/>
+	</reference>
+</view>
+
+<relationship name="rel_v_fish_fish" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.fish"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_declaration" type="reltv" layers="0"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.declaration"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_capture_state" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.capture_state"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_tag_presence" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.tag_presence"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_species" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.species"
 	 src-required="false" dst-required="false"/>
 
 <constraint name="capture_etat_declaration_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
@@ -1967,6 +1988,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </relationship>
 
 <relationship name="rel_fish_declaration" type="relfk" layers="0"
+	 custom-color="#ff7800"
 	 src-table="sturwild.fish"
 	 dst-table="sturwild.declaration" reference-fk="capture_individu_fk1"
 	 src-required="false" dst-required="true"/>

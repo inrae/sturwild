@@ -13,35 +13,35 @@ dbparam;;3;dbparam_value;Value of the parameter;;
 dbversion;;1;dbversion_id;;;
 dbversion;;2;dbversion_number;Numero de la version;;Number of the version
 dbversion;;3;dbversion_date;Date de la version;;Date of the version
-declaration;declaration;1;declaration_id;Identifiant de la capture.;;Identifier of the capture
-declaration;declaration;2;statut_id;;status_id;
-declaration;declaration;3;capture_mode_id;;capture_method_id;
-declaration;declaration;4;capture_type_id;;origin_id;
-declaration;declaration;5;engin_type_id;;gear_type_id;
-declaration;declaration;6;espece_id;Identifiant de l'espèce;species_id;Species identifier
-declaration;declaration;7;capture_etat_id;;capture_state_id;
-declaration;declaration;8;devenir_id;;fate_id;
-declaration;declaration;9;capture_date;Date de capture.;;Date of the capture
-declaration;declaration;10;annee;Année de pêche;year;Fishing year
-declaration;declaration;11;nombre_capture;Nombre d'individu capturés;caught_number;
-declaration;declaration;12;capture_date_estimee;Estimation de la date de capture.;estimated_capture_date;Estimation of capture date
-declaration;declaration;13;engin_maille;Maille du filet, le cas échéant;gear_mesh;Mesh size, if applicable
-declaration;declaration;14;espece_ciblee;Espece normalement ciblée lors de la pêche.;target_species;Species normally targeted during fishing
-declaration;declaration;15;profondeur;Profondeur de pêche, en mètres;depth;Fishing depth, in meters
-declaration;declaration;16;prof_min;Profondeur minimum de pêche, en mètres;depth_min;Minimum fishing depth, in meters
-declaration;declaration;17;prof_max;Profondeur maximale de pêche, en mètres;depth_max;Maximum fishing depth, in meters
-declaration;declaration;18;lt_min;longueur totale minimale, en mm;length_min;Minimum length, in mm
-declaration;declaration;19;lt_max;Longueur totale maximale, en mm;length_max;Maximum length, in mm
-declaration;declaration;20;masse_min;Masse minimale en kg;weight_min;Minimum weight, in kg
-declaration;declaration;21;masse_max;Masse maximale en kg;weight_max;Maximum weight, in kg
-declaration;declaration;22;pecheur_code;Code du pêcheur;fisher_code;fisher’s code
-declaration;declaration;23;interlocuteur;Autre interlocuteur;contact;Other contact
-declaration;declaration;24;interlocuteur_coord;Coordonnées de l'autre interlocuteur;contact_coordonates;Coordonates of the other contact
-declaration;declaration;25;navire_port;Port d'attache du navire de pêche;harbour_vessel;Home harbour of fishing vessel
-declaration;declaration;26;declaration_mode;;;
-declaration;declaration;27;observation;Observations générales;remarks;General remarks
-declaration;declaration;28;manipulation;Manipulation post-capture du lot capturé;handling;Post-capture handling of the captured batch
-declaration;declaration;29;qualite_identification;"0 : identification de l'espèce incertaine
+declaration;;1;declaration_id;Identifiant de la capture.;;Identifier of the capture
+declaration;;2;statut_id;;status_id;
+declaration;;3;capture_mode_id;;capture_method_id;
+declaration;;4;capture_type_id;;origin_id;
+declaration;;5;engin_type_id;;gear_type_id;
+declaration;;6;espece_id;Identifiant de l'espèce;species_id;Species identifier
+declaration;;7;capture_etat_id;;capture_state_id;
+declaration;;8;devenir_id;;fate_id;
+declaration;;9;capture_date;Date de capture.;;Date of the capture
+declaration;;10;annee;Année de pêche;year;Fishing year
+declaration;;11;nombre_capture;Nombre d'individu capturés;caught_number;
+declaration;;12;capture_date_estimee;Estimation de la date de capture.;estimated_capture_date;Estimation of capture date
+declaration;;13;engin_maille;Maille du filet, le cas échéant;gear_mesh;Mesh size, if applicable
+declaration;;14;espece_ciblee;Espece normalement ciblée lors de la pêche.;target_species;Species normally targeted during fishing
+declaration;;15;profondeur;Profondeur de pêche, en mètres;depth;Fishing depth, in meters
+declaration;;16;prof_min;Profondeur minimum de pêche, en mètres;depth_min;Minimum fishing depth, in meters
+declaration;;17;prof_max;Profondeur maximale de pêche, en mètres;depth_max;Maximum fishing depth, in meters
+declaration;;18;lt_min;longueur totale minimale, en mm;length_min;Minimum length, in mm
+declaration;;19;lt_max;Longueur totale maximale, en mm;length_max;Maximum length, in mm
+declaration;;20;masse_min;Masse minimale en kg;weight_min;Minimum weight, in kg
+declaration;;21;masse_max;Masse maximale en kg;weight_max;Maximum weight, in kg
+declaration;;22;pecheur_code;Code du pêcheur;fisher_code;fisher’s code
+declaration;;23;interlocuteur;Autre interlocuteur;contact;Other contact
+declaration;;24;interlocuteur_coord;Coordonnées de l'autre interlocuteur;contact_coordonates;Coordonates of the other contact
+declaration;;25;navire_port;Port d'attache du navire de pêche;harbour_vessel;Home harbour of fishing vessel
+declaration;;26;declaration_mode;;;
+declaration;;27;observation;Observations générales;remarks;General remarks
+declaration;;28;manipulation;Manipulation post-capture du lot capturé;handling;Post-capture handling of the captured batch
+declaration;;29;qualite_identification;"0 : identification de l'espèce incertaine
 1 : identification sûre";identification_quality;"0: species identification uncertain
 1: identification certain"
 devenir;fate;1;devenir_id;;fate_id;
@@ -74,7 +74,7 @@ evenement_type;event_type;2;evenement_type_libelle;;event_type_name;
 individu;fish;1;individu_id;;fish_id;
 individu;fish;2;declaration_id;Identifiant de la capture.;;Identifier of the declaration
 individu;fish;3;espece_id;;species_id;
-individu;fish;4;presence_marque_id;;presence_tag_d;
+individu;fish;4;presence_marque_id;;tag_presence_id;
 individu;fish;5;capture_etat_id;;capture_state_id;
 individu;fish;6;devenir_id;;fate_id;
 individu;fish;7;masse;Masse du poisson capturé, en grammes;weight;weitgh of the fish caught, in grams
@@ -103,7 +103,8 @@ localisation;location;13;latitude_estimee_dd;Latitude estimée, au format décim
 localisation;location;14;longitude_dd;Longitude utilisée, au format décimal;;Used longitude, in decimal format
 localisation;location;15;latitude_dd;Latitude utilisée, au format décimal;;used latitude, in decimal format
 localisation;location;16;geom;;;
-localisation;location;17;precision_id;;;
+localisation;location;17;precision_id;;accuracy_id;
+localisation;location;;milieu_detail_id;;environment_detail_id;
 milieu;environment;1;milieu_id;Identifiant du milieu;environment_id;Identifier of the environment
 milieu;environment;2;milieu_libelle;Nom du milieu;environment_name;Name of the environment
 milieu_detail;environment_detail;1;milieu_detail_id;;environment_detail_id;

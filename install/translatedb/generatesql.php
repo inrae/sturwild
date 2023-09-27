@@ -16,7 +16,8 @@ $sqlfile = fopen($sqlfilename, "w");
 $columns = $columnClass->getContentAsArray();
 foreach ($columns as $column) {
     if (!empty($column["comment_translated"])) {
-        $sql = "comment on column sturwild.".$column["tablename"].".".$column["field"]. " is '".$column["comment_translated"]."';\n";
+        $sql = "comment on column sturwild.".$column["tablename"].".".$column["field"]. " is E'".($column["comment_translated"])."';\n";
+        fwrite($sqlfile,$sql);
     }
     if(!empty($column["field_translated"])) {
         $sql = "alter table sturwild.".$column["tablename"]." rename column ".$column["field"]." to ".$column["field_translated"].";\n";
@@ -26,7 +27,8 @@ foreach ($columns as $column) {
 $tables = $tableClass->getContentAsArray();
 foreach ($tables as $table) {
     if (!empty($table["comment_translated"])) {
-        $sql = "comment on table sturwild.".$table["tablename"]. " is '".$table["comment_translated"]."';\n";
+        $sql = "comment on table sturwild.".$table["tablename"]. " is E'".($table["comment_translated"])."';\n";
+        fwrite($sqlfile,$sql);
     }
     if(!empty($table["table_translated"])) {
         $sql = "alter table sturwild.".$table["tablename"]." rename to ".$table["table_translated"].";\n";
