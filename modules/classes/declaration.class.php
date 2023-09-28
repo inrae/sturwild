@@ -264,7 +264,7 @@ class Declaration extends ObjetBDD
       $and = " and ";
       $this->paramSearch["ices_id"] = $param["ices_id"];
     }
-    if ( !empty($param["country_id"])) {
+    if (!empty($param["country_id"])) {
       $where .= " $and country_id = :country_id";
       $and = " and ";
       $this->paramSearch["country_id"] = $param["country_id"];
@@ -284,7 +284,7 @@ class Declaration extends ObjetBDD
       $and = " and ";
       $this->paramSearch["species_id"] = $param["species_id"];
     }
-    if ( !empty($param["gear_type_id"])) {
+    if (!empty($param["gear_type_id"])) {
       $where .= " $and gear_type_id = :gear_type_id";
       $and = " and ";
       $this->paramSearch["gear_type_id"] = $param["gear_type_id"];
@@ -310,13 +310,14 @@ class Declaration extends ObjetBDD
    * @param int $declaration_id
    * @return array
    */
-  function getHandlings( $declaration_id) {
+  function getHandlings($declaration_id)
+  {
     $sql = "select h.handling_id, handling_name, 
             case when declaration_id is not null then 1 else 0 end as is_selected
             from handling h
             left outer join declaration_handling dh on (h.handling_id = dh.handling_id and dh.declaration_id = :declaration_id)
             order by handling_order";
-            return $this->getListeParamAsPrepared($sql, array("declaration_id"=>$declaration_id));
+    return $this->getListeParamAsPrepared($sql, array("declaration_id" => $declaration_id));
   }
 
   /**
@@ -384,13 +385,11 @@ class Declaration extends ObjetBDD
    * @param int $id
    * @return array
    */
-  function getDetail($id)
+  function getDetail(int $id)
   {
-    if ($id > 0 && is_numeric($id)) {
-      $sql = "select * ";
-      $where = " where declaration_id = :declaration_id";
-      return $this->lireParamAsPrepared($sql . $this->fromSearch . $where, array("declaration_id" => $id));
-    }
+    $sql = "select * ";
+    $where = " where declaration_id = :declaration_id";
+    return $this->lireParamAsPrepared($sql . $this->fromSearch . $where, array("declaration_id" => $id));
   }
 
   /**
@@ -410,9 +409,9 @@ class Declaration extends ObjetBDD
     /**
      * Add the handlings
      */
-    $this->ecrireTableNN("declaration_handling","declaration_id", "handling_id", $id, $data["handlings"]);
+    $this->ecrireTableNN("declaration_handling", "declaration_id", "handling_id", $id, $data["handlings"]);
 
-    if ( $creation) {
+    if ($creation) {
       /*
        * Generation de l'event de saisie
        */

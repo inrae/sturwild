@@ -9,7 +9,6 @@ include_once 'modules/classes/declaration.class.php';
 $dataClass = new Declaration($bdd, $ObjetBDDParam);
 $keyName = "declaration_id";
 $id = $_REQUEST[$keyName];
-
 switch ($t_module["param"]) {
     case "list":
         /*
@@ -28,7 +27,6 @@ switch ($t_module["param"]) {
         include 'modules/declaration/declarationSearch.php';
         $vue->set($dataSearch, "dataSearch");
         $vue->set("declaration/declarationList.tpl", "corps");
-
         break;
     case "display":
         /*

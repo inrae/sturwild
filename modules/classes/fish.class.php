@@ -14,6 +14,8 @@
  */
 class Fish extends ObjetBDD
 {
+	public Declaration $declaration;
+	public Document $document;
 	/**
 	 * Constructeur
 	 *
@@ -85,15 +87,15 @@ class Fish extends ObjetBDD
 	}
 	function supprimer($id)
 	{
-		if ($id > 0 && is_numeric($id)) {
-			/*
-			 * Recherche les pieces jointes attachees, et les supprime
-			 */
-			require_once 'modules/classes/document.class.php';
-			$document = new Document($this->connection, $this->paramori);
-			$document->deleteFromField($id, "fish_id");
-			return parent::supprimer($id);
+		/*
+		 * Recherche les pieces jointes attachees, et les supprime
+		 */
+		if (!isset($this->document)) {
+			$this->document = $this->classInstanciate("Document", "document.class.php");
 		}
+		$this->document->deleteFromField($id, "fish_id");
+		$this->ecrireTableNN("fish_handling", "fish_id", "handling_id", $id, array());
+		return parent::supprimer($id);
 	}
 	/**
 	 * Surcharge de la fonction ecrire pour rajouter l'etat de la declaration dans le lot
@@ -103,48 +105,51 @@ class Fish extends ObjetBDD
 	function ecrire($data)
 	{
 		$id = parent::ecrire($data);
-		if ($id > 0 && is_numeric($data["declaration_id"])) {
-			/*
-			 * Recherche si l'etat du lot a ete renseigne
-			 */
-			require_once 'modules/classes/declaration.class.php';
-			$declaration = new Declaration($this->connection, $this->paramori);
-			$dataDecl = $declaration->lire($data["declaration_id"]);
-			if ($dataDecl["declaration_id"] > 0 && strlen($dataDecl["capture_state_id"]) == 0 && $data["capture_state_id"] > 0) {
-				$dataDecl["capture_state_id"] = $data["capture_state_id"];
-				$declaration->ecrire($dataDecl);
-			}
+		/**
+		 * Add the handlings
+		 */
+		$this->ecrireTableNN("fish_handling", "fish_id", "handling_id", $id, $data["handlings"]);
+
+		/*
+		 * Recherche si l'etat du lot a ete renseigne
+		 */
+		if (!isset($this->declaration)) {
+			$this->declaration = $this->classInstanciate("Declaration", "declaration.class.php");
+		}
+		$dataDecl = $this->declaration->lire($data["declaration_id"]);
+		if ($dataDecl["declaration_id"] > 0 && strlen($dataDecl["capture_state_id"]) == 0 && $data["capture_state_id"] > 0) {
+			$dataDecl["capture_state_id"] = $data["capture_state_id"];
+			$this->declaration->ecrire($dataDecl);
 		}
 		return $id;
+
 	}
 
 	/**
 	 * Retourne la liste des fishs rattaches a une declaration
 	 *
 	 * @param int $id
-	 * @return tableau|NULL
+	 * @return array
 	 */
-	function getListeFromDeclaration($id)
+	function getListeFromDeclaration(int $id)
 	{
-		if ($id > 0 && is_numeric($id)) {
-			$sql = "select * from fish
+		$sql = "select * from fish
 					left outer join species using (species_id)
 					left outer join fate using (fate_id)
 					left outer join tag_presence using (tag_presence_id)
 					left outer join capture_state using (capture_state_id)
+					left outer join v_fish_handlings using (fish_id)
 					where declaration_id = :declaration_id
 					order by fish_id";
-			return $this->getListeParamAsPrepared($sql, array("declaration_id" => $id));
-		} else
-			return null;
+		return $this->getListeParamAsPrepared($sql, array("declaration_id" => $id));
 	}
 	/**
 	 * Recherche les poissons associes aux declarations correspondant aux parametres fournis
 	 *
-	 * @param unknown $param
-	 * @return tableau
+	 * @param array $param
+	 * @return array
 	 */
-	function getDataToExport($param)
+	function getDataToExport(array $param)
 	{
 		/*
 		 * Lecture des identifiants des declarations
@@ -177,6 +182,24 @@ class Fish extends ObjetBDD
 			 * Traitement de la commande
 			 */
 			return $this->getListeParam($sql . $from . $where . $order);
+		} else {
+			return array();
 		}
+	}
+
+	/**
+	 * Get the list of handlings attached or not to a fish
+	 *
+	 * @param int $fish_id
+	 * @return array
+	 */
+	function getHandlings($fish_id)
+	{
+		$sql = "select h.handling_id, handling_name, 
+            case when fish_id is not null then 1 else 0 end as is_selected
+            from handling h
+            left outer join fish_handling fh on (h.handling_id = fh.handling_id and fh.fish_id = :fish_id)
+            order by handling_order";
+		return $this->getListeParamAsPrepared($sql, array("fish_id" => $fish_id));
 	}
 }

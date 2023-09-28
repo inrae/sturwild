@@ -10,7 +10,7 @@
 <th>{t}Marque{/t}</th>
 <th>{t}Cohorte estimée validée{/t}</th>
 <th>{t}État{/t}</th>
-<th>{t}Manipulation{/t}</th>
+<th>{t}Manipulations{/t}</th>
 <th>{t}Devenir{/t}</th>
 <th>{t}Historique{/t}</th>
 <th>{t}Commentaire{/t}</th>
@@ -52,7 +52,13 @@
  {/if}
  </td>
  <td>{$fishs[lst].capture_state_name}</td>
-<td>{$fishs[lst].handling}</td>
+<td>
+    {$fishs[lst].handlings}
+    {if !empty($fishs[lst].handling)}
+    <br>
+    {$fishs[lst].handling}
+    {/if}
+</td>
 <td>{$fishs[lst].fate_name}</td>
 <td>{$fishs[lst].background}</td>
 <td><span class="textareaDisplay">{$fishs[lst].remarks}</span></td>

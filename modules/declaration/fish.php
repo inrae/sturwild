@@ -35,6 +35,10 @@ switch ($t_module["param"]) {
 		$captureEtat = new Param($bdd, "capture_state");
 		$vue->set($captureEtat->getListe(2), "capture_state");
 
+		/**
+		 * Handlings
+		 */
+		$vue->set($dataClass->getHandlings($id), "handlings");
 
 		if ($id > 0) {
 			require_once 'modules/classes/document.class.php';
@@ -53,7 +57,7 @@ switch ($t_module["param"]) {
 		 * write record in database
 		 */
 		$id = dataWrite($dataClass, $_REQUEST);
-		if ($id >= 0) {
+		if ($id > 0) {
 			$_REQUEST[$keyName] = $id;
 
 			/*
@@ -106,10 +110,6 @@ switch ($t_module["param"]) {
 		$_SESSION["searchDeclaration"]->setParam($_REQUEST);
 		$dataSearch = $_SESSION["searchDeclaration"]->getParam();
 		if ($_SESSION["searchDeclaration"]->isSearch() == 1) {
-			/*require_once 'modules/classes/export.class.php';
-					 $export = new Export ();
-					 $export->exportCSVinit ( "sturwild_fish", "tab" );
-					 $export->exportCSV ( $dataClass->getDataToExport ( $dataSearch ), true );*/
 			$vue->setFilename("sturwild_fish-" . date('d-m-Y') . ".csv");
 			$vue->setDelimiter("tab");
 			$vue->set($dataClass->getDataToExport($dataSearch));
