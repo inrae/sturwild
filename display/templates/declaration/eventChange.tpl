@@ -40,7 +40,7 @@
 				</div>
 
 				<div class="form-group">
-				<label for="event_remarks" class="control-label col-md-4">{t}Commentaire :{t}{/t}</label>
+				<label for="event_remarks" class="control-label col-md-4">{t}Commentaire :{/t}</label>
 				<div class="col-md-8">
 				<input class="form-control " id="event_remarks" name="event_remarks" value="{$data.event_remarks}">
 				</div>

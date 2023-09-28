@@ -36,7 +36,7 @@ declaration;;20;masse_min;Masse minimale en kg;weight_min;Minimum weight, in kg
 declaration;;21;masse_max;Masse maximale en kg;weight_max;Maximum weight, in kg
 declaration;;22;pecheur_code;Code du pêcheur;fisher_code;fisher’s code
 declaration;;23;interlocuteur;Autre interlocuteur;contact;Other contact
-declaration;;24;interlocuteur_coord;Coordonnées de l'autre interlocuteur;contact_coordonates;Coordonates of the other contact
+declaration;;24;interlocuteur_coord;Coordonnées de l'autre interlocuteur;contact_coordinates;Coordonates of the other contact
 declaration;;25;navire_port;Port d'attache du navire de pêche;harbour_vessel;Home harbour of fishing vessel
 declaration;;26;declaration_mode;;;
 declaration;;27;observation;Observations générales;remarks;General remarks

@@ -8,7 +8,7 @@
 		<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations"/>
 		<item module="declarationNbSturioByYear" label="Nb Sturio par année" tooltip="Nombre d'Esturgeons d'Europe capturés par année" droits="consult"/>
 		<item divider="1"/>
-		<item module="requestList" label="Requêtes SQL" tooltip="Exécution de requêtes SQL dans la base de données" droits="param"/>
+		<item module="requestList" label="Requêtes SQL" tooltip="Exécution de requêtes SQL dans la base de données" droits="gestion"/>
 	</item>
 	<item module="parametre" label="Paramètres" tooltip="Tables de paramètres" droits="param,gestion">
 		<item module="icesList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="gestion" />

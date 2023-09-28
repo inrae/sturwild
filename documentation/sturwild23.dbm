@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,369" last-zoom="0.65" max-obj-count="60"
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,0" last-zoom="0.65" max-obj-count="60"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -348,7 +348,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="character varying" length="0"/>
 		<comment> <![CDATA[Autre interlocuteur]]> </comment>
 	</column>
-	<column name="contact_coordonates">
+	<column name="contact_coordinates">
 		<type name="character varying" length="0"/>
 		<comment> <![CDATA[Coordonnées de l'autre interlocuteur]]> </comment>
 	</column>
@@ -810,7 +810,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 </sequence>
 
-<table name="country" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="country" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Pays de pêche]]> </comment>
@@ -822,6 +822,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="country_name" not-null="true">
 		<type name="character varying" length="0"/>
+	</column>
+	<column name="country_exchange">
+		<type name="varchar" length="0"/>
 	</column>
 	<column name="country_order" not-null="true" default-value="1">
 		<type name="smallint" length="0"/>
@@ -1717,10 +1720,40 @@ left outer join sturwild.v_handlings using (declaration_id]]> </expression>
 	</reference>
 </view>
 
+<relationship name="rel_v_fish_fish" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.fish"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_declaration" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.declaration"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_capture_state" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.capture_state"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_tag_presence" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.tag_presence"
+	 src-required="false" dst-required="false"/>
+
 <relationship name="rel_v_fish_species" type="reltv" layers="0"
 	 custom-color="#ff7800"
 	 src-table="sturwild.v_fish"
 	 dst-table="sturwild.species"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_fish_handling" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.fish_handling"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="fish_has_many_fish_handling" type="rel1n" layers="0"
@@ -1775,36 +1808,6 @@ group by fish_id]]> </expression>
 	 custom-color="#ff7800"
 	 src-table="sturwild.v_fish_handlings"
 	 dst-table="sturwild.handling"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_fish_handling" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.fish_handling"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_fish" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.fish"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_declaration" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.declaration"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_capture_state" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.capture_state"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_tag_presence" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.tag_presence"
 	 src-required="false" dst-required="false"/>
 
 <constraint name="capture_etat_declaration_fk" type="fk-constr" comparison-type="MATCH SIMPLE"

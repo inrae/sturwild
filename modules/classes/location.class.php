@@ -235,7 +235,7 @@ class Location extends ObjetBDD
 	}
 
 	/**
-	 * Retourne le detail de la location
+	 * Retourne le detail de la localisation
 	 * @param int $id
 	 * @return array
 	 */

@@ -1,4 +1,4 @@
-<h2>{t}Liste des paramètres : {/t}{$tabledescription}</h2>
+<h2>{t}Liste des paramètres :{/t}&nbsp;{$tabledescription}</h2>
 <div class="row">
 	<div class="col-md-6">
 		{if $droits.param == 1 && $readOnly == 0}

@@ -50,7 +50,7 @@
 	</dd>
 </dl>
 <dl class="dl-horizontal">
-	<dt>{t}Précision de la location, si estimée lors de la saisie :{/t}</dt>
+	<dt>{t}Précision de la localisation, si estimée lors de la saisie :{/t}</dt>
 	<dd>{$location.accuracy_name}</dd>
 </dl>
 </div>

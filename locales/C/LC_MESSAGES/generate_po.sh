@@ -31,8 +31,8 @@ msgcat _xml.pot _php.pot _tpl.pot _actions_xml.pot -o _todo.pot
 msgmerge _old.po _todo.pot -o en.po
 
 #supprime les fichiers temporaires
-rm _xml.pot _tpl.pot _php.pot _todo.pot actions_xml.pot # _old.po
+rm _xml.pot _tpl.pot _php.pot _todo.pot _actions_xml.pot # _old.po
 
 # lance l'outil de traduction
-#poedit en.po
+poedit en.po
 

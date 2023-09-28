@@ -100,7 +100,7 @@ class Declaration extends ObjetBDD
       "contact" => array(
         "type" => 0
       ),
-      "contact_coordonates" => array(
+      "contact_coordinates" => array(
         "type" => 0
       ),
       "harbour_vessel" => array(
@@ -194,7 +194,7 @@ class Declaration extends ObjetBDD
           $dataEvent = $this->event->lire(0, true, $idNew);
           $this->event->ecrire($dataEvent);
           /*
-           * Duplication de la location
+           * Duplication de la localisation
            */
           if (!isset($this->location)) {
             $this->location = $this->classInstanciate("Location", "location.class.php");

@@ -326,6 +326,7 @@ ALTER TABLE sturwild.declaration ALTER COLUMN declaration_id SET DEFAULT nextval
 ALTER TABLE sturwild.environment ALTER COLUMN environment_id SET DEFAULT nextval('sturwild.environment_environment_id_seq'::regclass);
 -- ddl-end --
 ALTER TABLE sturwild.country ALTER COLUMN country_id SET DEFAULT nextval('sturwild.country_country_id_seq'::regclass);
+alter table sturwild.country add column country_exchange varchar;
 -- ddl-end --
 
 

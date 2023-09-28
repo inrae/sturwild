@@ -73,7 +73,7 @@
 
 	});
 </script>
-<h2>{t}Modification de la location - N°{/t} {$data.declaration_id}</h2>
+<h2>{t}Modification de la localisation - N°{/t} {$data.declaration_id}</h2>
 <div class="row">
 	<div class="col-sm-12">
 		<a href="index.php?module=declarationList">

@@ -42,14 +42,6 @@
 	<icesWrite action="modules/param/ices.php" param="write" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
 	<icesDelete action="modules/param/ices.php" param="delete" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
 
-	<countryList action="modules/param/country.php" param="list"  droits="gestion" type="smarty"/>
-	<countryChange action="modules/param/country.php" param="change" droits="param" type="smarty"/>
-	<countryWrite action="modules/param/country.php" param="write" retourok="countryList" retourko="countryChange" modulebefore="countryChange"  droits="param"/>
-	<countryDelete action="modules/param/country.php" param="delete" retourok="countryList" retourko="countryChange" modulebefore="countryChange"  droits="param"/>
-
-
-
-
 	<!-- tables of parameters -->
 	<handlingList action="modules/param/param.php" param="list" droits="consult" tablename="handling" tabledescription="Manipulations effectuées sur les poissons" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
 	<handlingChange action="modules/param/param.php" param="change" droits="param" tablename="handling" tabledescription="Manipulations effectuées sur les poissons" type="smarty" maxCountByHour="120" maxCountByDay="600" />
@@ -65,6 +57,11 @@
 	<accuracyChange action="modules/param/param.php" param="change" droits="param" tablename="accuracy" tabledescription="Précision des locations" type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<accuracyWrite action="modules/param/param.php" param="write" droits="param" tablename="accuracy" retourok="accuracyList" retourko="accuracyChange" modulebefore="accuracyChange" maxCountByHour="120" maxCountByDay="600" />
 	<accuracyDelete action="modules/param/param.php" param="delete" droits="param" tablename="accuracy" retourok="accuracyList" retourko="accuracyChange" modulebefore="accuracyChange" />
+
+	<countryList action="modules/param/param.php" param="list" droits="consult" tablename="country" tabledescription="Liste des pays" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<countryChange action="modules/param/param.php" param="change" droits="param" tablename="country" tabledescription="Liste des pays" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<countryWrite action="modules/param/param.php" param="write" droits="param" tablename="country" retourok="countryList" retourko="countryChange" modulebefore="countryChange" maxCountByHour="120" maxCountByDay="600" />
+	<countryDelete action="modules/param/param.php" param="delete" droits="param" tablename="country" retourok="countryList" retourko="countryChange" modulebefore="countryChange" />
 
 	<event_typeList action="modules/param/param.php" param="list" droits="consult" tablename="event_type" tabledescription="Liste des types d'événements" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
 	<event_typeChange action="modules/param/param.php" param="change" droits="param" tablename="event_type" tabledescription="Liste des types d'événements" type="smarty" maxCountByHour="120" maxCountByDay="600" />

@@ -46,7 +46,7 @@ alter table sturwild.declaration rename column pecheur_code to fisher_code;
 comment on column sturwild.declaration.interlocuteur is E'Other contact';
 alter table sturwild.declaration rename column interlocuteur to contact;
 comment on column sturwild.declaration.interlocuteur_coord is E'Coordonates of the other contact';
-alter table sturwild.declaration rename column interlocuteur_coord to contact_coordonates;
+alter table sturwild.declaration rename column interlocuteur_coord to contact_coordinates;
 comment on column sturwild.declaration.navire_port is E'Home harbour of fishing vessel';
 alter table sturwild.declaration rename column navire_port to harbour_vessel;
 comment on column sturwild.declaration.observation is E'General remarks';
