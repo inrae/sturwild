@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,387" last-zoom="0.65" max-obj-count="58"
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,369" last-zoom="0.65" max-obj-count="60"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -67,7 +67,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<style id="table-toggler-body" colors="#fcfcfc,#fcfcfc,#d7d7d7"/>
 	<style id="table-toggler-btns" colors="#f3f3f3,#e1e1e1,#bebebe"/>
 </tag>
-<tag name="declaration_cp">
+<tag name="declaration">
 	<style id="table-body" colors="#fcfcfc,#fcfcfc,#d7d7d7"/>
 	<style id="table-ext-body" colors="#fcfcfc,#fcfcfc,#d7d7d7"/>
 	<style id="table-name" colors="#000000"/>
@@ -100,7 +100,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="equinton"/>
 	<comment> <![CDATA[Table des états à la capture]]> </comment>
 	<tag name="fish"/>
-	<position x="900" y="1480"/>
+	<position x="900" y="1460"/>
 	<column name="capture_state_id" not-null="true" sequence="sturwild.capture_state_capture_state_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -260,7 +260,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="equinton"/>
 	<comment> <![CDATA[Informations liées à la déclaration.]]> </comment>
-	<tag name="declaration_cp"/>
+	<tag name="declaration"/>
 	<position x="460" y="260"/>
 	<column name="declaration_id" not-null="true" sequence="sturwild.declaration_declaration_id_seq">
 		<type name="integer" length="0"/>
@@ -1498,7 +1498,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[Types of handling used after catch]]> </comment>
-	<tag name="declaration_cp"/>
+	<tag name="declaration"/>
 	<position x="900" y="1040"/>
 	<column name="handling_id" not-null="true">
 		<type name="serial" length="0"/>
@@ -1522,7 +1522,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[List of all handling for a declaration]]> </comment>
-	<tag name="declaration_cp"/>
+	<tag name="declaration"/>
 	<position x="900" y="760"/>
 
 	<customidxs object-type="column">
@@ -1555,9 +1555,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 custom-color="#3584e4"
 	 src-table="sturwild.handling"
 	 dst-table="sturwild.declaration_handling"
-	 src-required="true" dst-required="false"
-	 identifier="true"
-/>
+	 src-required="true" dst-required="false"/>
 
 <table name="target_species" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
@@ -1595,7 +1593,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <view name="v_declaration_handlings" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
-	<tag name="declaration_cp"/>
+	<tag name="declaration"/>
 	<position x="1320" y="1040"/>
 	<reference>
 		<expression> <![CDATA[select declaration_id, 
@@ -1626,12 +1624,19 @@ group by declaration_id]]> </expression>
 	 dst-table="sturwild.handling"
 	 src-required="false" dst-required="false"/>
 
+<table name="fish_handling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="sturwild"/>
+	<role name="sturwild_owner"/>
+	<tag name="fish"/>
+	<position x="900" y="1280"/>
+</table>
+
 <view name="v_fish" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[Detail of a fish]]> </comment>
 	<tag name="fish"/>
-	<position x="1340" y="1480"/>
+	<position x="1320" y="1280"/>
 	<reference>
 		<expression> <![CDATA[select fish_id, declaration_id
 ,f.fate_id, fate_name
@@ -1685,6 +1690,9 @@ left outer join sturwild.v_handlings using (declaration_id]]> </expression>
 	<column name="estimated_cohort">
 		<type name="varchar" length="0"/>
 	</column>
+	<column name="handlings">
+		<type name="varchar" length="0"/>
+	</column>
 	<column name="background">
 		<type name="varchar" length="0"/>
 	</column>
@@ -1705,8 +1713,75 @@ left outer join sturwild.v_handlings using (declaration_id]]> </expression>
 		<reftable name="sturwild.capture_state"/>
 		<reftable name="sturwild.tag_presence"/>
 		<reftable name="sturwild.species"/>
+		<reftable name="sturwild.fish_handling"/>
 	</reference>
 </view>
+
+<relationship name="rel_v_fish_species" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.species"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="fish_has_many_fish_handling" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ff7800"
+	 src-table="sturwild.fish"
+	 dst-table="sturwild.fish_handling"
+	 src-required="true" dst-required="false"
+	 identifier="true"
+/>
+
+<relationship name="handling_has_many_fish_handling" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ff7800"
+	 src-table="sturwild.handling"
+	 dst-table="sturwild.fish_handling"
+	 src-required="true" dst-required="false"/>
+
+<view name="v_fish_handlings" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="sturwild"/>
+	<role name="sturwild_owner"/>
+	<tag name="fish"/>
+	<position x="1320" y="1160"/>
+	<reference>
+		<expression> <![CDATA[select fish_id, 
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings
+from sturwild.fish_handling
+join sturwild.handling using (handling_id)
+group by fish_id]]> </expression>
+	<column name="fish_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="handlings">
+		<type name="varchar" length="0"/>
+	</column>
+		<reftable name="sturwild.fish"/>
+		<reftable name="sturwild.handling"/>
+	</reference>
+</view>
+
+<relationship name="rel_v_fish_handlings_fish" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish_handlings"
+	 dst-table="sturwild.fish"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_handlings_handling" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish_handlings"
+	 dst-table="sturwild.handling"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_v_fish_fish_handling" type="reltv" layers="0"
+	 custom-color="#ff7800"
+	 src-table="sturwild.v_fish"
+	 dst-table="sturwild.fish_handling"
+	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_v_fish_fish" type="reltv" layers="0"
 	 custom-color="#ff7800"
@@ -1730,75 +1805,6 @@ left outer join sturwild.v_handlings using (declaration_id]]> </expression>
 	 custom-color="#ff7800"
 	 src-table="sturwild.v_fish"
 	 dst-table="sturwild.tag_presence"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_species" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.species"
-	 src-required="false" dst-required="false"/>
-
-<table name="fish_handling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
-	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
-	<tag name="fish"/>
-	<position x="900" y="1280"/>
-</table>
-
-<relationship name="fish_has_many_fish_handling" type="rel1n" layers="0"
-	 src-col-pattern="{sc}"
-	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
-	 src-fk-pattern="{st}_fk"
-	 custom-color="#ff7800"
-	 src-table="sturwild.fish"
-	 dst-table="sturwild.fish_handling"
-	 src-required="true" dst-required="false"
-	 identifier="true"
-/>
-
-<relationship name="handling_has_many_fish_handling" type="rel1n" layers="0"
-	 src-col-pattern="{sc}"
-	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
-	 src-fk-pattern="{st}_fk"
-	 custom-color="#ff7800"
-	 src-table="sturwild.handling"
-	 dst-table="sturwild.fish_handling"
-	 src-required="true" dst-required="false"
-	 identifier="true"
-/>
-
-<view name="v_fish_handling" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
-	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
-	<tag name="fish"/>
-	<position x="1340" y="1280"/>
-	<reference>
-		<expression> <![CDATA[select fish_id, 
-array_to_string(array_agg(handling_name order by handling_name),', ') as handlings
-from sturwild.fish_handling
-join sturwild.handling using (handling_id)
-group by fish_id]]> </expression>
-	<column name="fish_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="handlings">
-		<type name="varchar" length="0"/>
-	</column>
-		<reftable name="sturwild.fish_handling"/>
-		<reftable name="sturwild.handling"/>
-	</reference>
-</view>
-
-<relationship name="rel_v_fish_handling_fish_handling" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish_handling"
-	 dst-table="sturwild.fish_handling"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_handling_handling" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish_handling"
-	 dst-table="sturwild.handling"
 	 src-required="false" dst-required="false"/>
 
 <constraint name="capture_etat_declaration_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
