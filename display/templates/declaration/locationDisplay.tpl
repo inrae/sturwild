@@ -56,79 +56,8 @@
 </div>
 </div>
 <div class="col-sm-12 col-md-6">
-<div id="map"  style="height:600px;"></div>
+<div id="map" class="map" style="height:600px;"></div>
 </div>
 {if !empty($location.longitude_dd) && !empty($location.latitude_dd)  && $MAPS_enabled == 1}
-<script>
-
-var imageStyle = new ol.style.Style({
-		image: new ol.style.Circle({
-  			radius: 5,
-  			snapToPixel: false,
-  			fill: new ol.style.Fill({
-  			color: [255 , 0 , 0 , 0.2]
-  		}),
-  		stroke: new ol.style.Stroke({
- 	 		color: [255 , 0 , 0 , 1],
-  			width: 1
-  		})
-	})
-});
-//console.log("imageStyle", imageStyle);
-var long = "{$location.longitude_dd}";
-var lat = "{$location.latitude_dd}";
- var coordonnee = [long, lat ];
-// console.log("coordonnees : ", coordonnee);
- var zoom = 9;
-var attribution = new ol.control.Attribution({
-  collapsible: false
-});
-var mousePosition = new ol.control.MousePosition( {
-    coordinateFormat: ol.coordinate.createStringXY(2),
-    projection: 'EPSG:4326',
-    target: undefined,
-    undefinedHTML: '&nbsp;'
-});
-var map = new ol.Map({
-  controls: ol.control.defaults({ attribution: false }).extend([attribution]),
-  target: 'map',
-  view: new ol.View({
-  	center: ol.proj.fromLonLat(coordonnee),
-    zoom: zoom
-  })
-});
-map.addControl(mousePosition);
-
-var layer = new ol.layer.Tile({
-  source: new ol.source.OSM()
-});
-map.addLayer(layer);
-
-function transform_geometry(element) {
-  var current_projection = new ol.proj.Projection({ code: "EPSG:4326" });
-  var new_projection = layer.getSource().getProjection();
-
-  element.getGeometry().transform(current_projection, new_projection);
-}
-
-var point = new ol.geom.Point(coordonnee, 'XY');
-var point_feature = new ol.Feature ( point );
-point_feature.setStyle(imageStyle);
-
-var features = [ point_feature];
-
-//console.log("features : ", features);
-
-features.forEach(transform_geometry);
-
-var layer_point = new ol.layer.Vector({
-  source: new ol.source.Vector( {
-    features: features
-  })
-});
-//console.log("layer_point : ", layer_point);
-map.addLayer(layer_point);
-
-
-</script>
+{include file="declaration/locationMap.tpl"}
 {/if}

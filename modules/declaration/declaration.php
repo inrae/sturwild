@@ -27,6 +27,25 @@ switch ($t_module["param"]) {
         include 'modules/declaration/declarationSearch.php';
         $vue->set($dataSearch, "dataSearch");
         $vue->set("declaration/declarationList.tpl", "corps");
+
+        /**
+         * Generate data for markers on the map
+         */
+        $dataMap["markers"] = array();
+        foreach ($data as $row) {
+            if (!empty($row["longitude_dd"]) && !empty($row["latitude_dd"])) {
+                $dataMap["markers"][] = array(
+                    "latlng" => array(
+                        $row["latitude_dd"], 
+                    $row["longitude_dd"]
+                ),
+                     "id" => $row["declaration_id"],
+                     "date"=>$row["capture_date"]
+                    );
+            }
+        }
+        $vue->set(json_encode($dataMap), "markers");
+        $vue->htmlVars[] = "markers";
         break;
     case "display":
         /*

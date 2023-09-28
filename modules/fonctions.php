@@ -55,4 +55,22 @@ function sendMail($declaration_id)
         $message->set(_("Envoi des mails réalisé pour informer du changement de status de la déclaration"));
     }
 }
+
+function setParamMap($vue, $isChange = false)
+{
+  if (isset($vue)) {
+    foreach (array(
+      "mapDefaultZoom",
+      "mapDefaultLong",
+      "mapDefaultLat",
+      "mapCacheMaxAge",
+      "mapMinZoom",
+      "mapMaxZoom"
+    ) as $mapParam) {
+      if (isset($_SESSION[$mapParam])) {
+        $vue->set($_SESSION[$mapParam], $mapParam);
+      }
+    }
+  }
+}
 ?>

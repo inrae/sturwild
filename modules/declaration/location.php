@@ -40,6 +40,14 @@ switch ($t_module["param"]) {
 
 		$accuracy = new Param($bdd, "accuracy");
 		$vue->set($accuracy->getListe(1), "accuracys");
+
+		/**
+		 * Map
+		 */
+		$vue->set($MAPS_url, "MAPS_url");
+        $vue->set($MAPS_enabled, "MAPS_enabled");
+		$vue->set($data,"location");
+		$vue->set("1","mapIsChange");
 		break;
 	case "write":
 		/*

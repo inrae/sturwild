@@ -188,6 +188,7 @@ Retour au détail</a>
 								{$target.target_species_name}
 							</option>
 							{/foreach}
+						</select>
 					</div>
 				</div>
 				<div class="form-group">

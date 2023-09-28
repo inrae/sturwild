@@ -35,7 +35,8 @@ class Declaration extends ObjetBDD
 				left outer join origin using (origin_id)
 				left outer join capture_state using (capture_state_id)
 				left outer join fate using (fate_id)
-        left outer join v_declaration_handlings using (declaration_id)";
+        left outer join v_declaration_handlings using (declaration_id)
+        left outer join target_species using (target_species_id)";
 
   /**
    * Constructeur
@@ -147,7 +148,8 @@ class Declaration extends ObjetBDD
       "fate_id" => array(
         "type" => 1,
         "defaultValue" => 1
-      )
+      ),
+      "target_species_id" => array("type" => 1)
     );
     $param["fullDescription"] = 1;
     parent::__construct($link, $param);
@@ -218,6 +220,7 @@ class Declaration extends ObjetBDD
 				country_name, ices_name, environment_name,
 				caught_number, species_name,
 				capture_state_name, gear_type_name
+        ,longitude_dd,latitude_dd
 				";
     $where = $this->getWhere($param);
     $order = " order by declaration_id desc";

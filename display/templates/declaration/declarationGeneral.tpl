@@ -57,7 +57,13 @@
   </dl>
   <dl class="dl-horizontal">
     <dt>{t}Espèce ciblée :{/t}</dt>
-    <dd>{$data.target_species}</dd>
+    <dd>
+      {$data.target_species_name}
+      {if !empty($data.target_species)}
+      <br>
+      {$data.target_species}
+      {/if}
+    </dd>
   </dl>
   <dl class="dl-horizontal">
     <dt>{t}Mode de déclaration :{/t}</dt>

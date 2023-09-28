@@ -20,11 +20,11 @@ $(document).ready(function() {
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function () {
 		Cookies.set(moduleName + "Tab", $(this).attr("id"), { secure: true});
 	});
-	$("#tab-location").on("shown.bs.tab", function () {
+	/*$("#tab-location").on("shown.bs.tab", function () {
 		{if !empty($location.longitude_dd)  && !empty($location.latitude_dd)  && $MAPS_enabled == 1}
 				setTimeout(function () { map.updateSize(); }, 400);
 		{/if}
-  });
+  });*/
 });
 
 </script>
