@@ -19,6 +19,6 @@ php generatesql.php
 ### Ajouts/traductions dans les tables de paramètres
 
 - se connecter à l'application en tant qu'administrateur
-- appeler la page suivante : [https://sturwild.eabx.inrae.fr/index.php?module=updateparam.php](https://sturwild.eabx.inrae.fr/index.php?module=updateparam.php)
+- appeler la page suivante : [https://sturwild.eabx.inrae.fr/index.php?module=updateparam](https://sturwild.eabx.inrae.fr/index.php?module=updateparam)
 
 Le programme va mettre à jour l'ensemble des tables de paramètres à partir du contenu présent dans le fichier `parameters.ods`

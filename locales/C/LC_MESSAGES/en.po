@@ -129,7 +129,7 @@ msgstr "List of species of sturgeons"
 #. (itstool) path: item/item@label
 #: ../../../param/menu.xml:21
 msgid "Devenirs"
-msgstr "Becoming"
+msgstr "Fates"
 
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:21

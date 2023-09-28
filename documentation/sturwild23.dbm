@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,0" last-zoom="0.65" max-obj-count="60"
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,369" last-zoom="0.65" max-obj-count="60"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -1656,7 +1656,7 @@ left outer join sturwild.species s on  (s.species_id = f.species_id)
 left outer join sturwild.capture_state cs on (cs.capture_state_id = f.capture_state_id)
 left outer join sturwild.tag_presence using (tag_presence_id)
 left outer join sturwild.fate fa on (fa.fate_id = f.fate_id)
-left outer join sturwild.v_handlings using (declaration_id]]> </expression>
+left outer join sturwild.v_fish_handlings using (fish_id)]]> </expression>
 	<column name="fish_id">
 		<type name="integer" length="0"/>
 	</column>

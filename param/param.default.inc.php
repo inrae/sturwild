@@ -113,7 +113,7 @@ $SMARTY_param = array("templates"=> 'display/templates',
  * Variables de base de l'application
  */
 $APPLI_mail = "proto@proto.com";
-$APPLI_assist_address = "https://gitub.com/appli/issues/new";
+$APPLI_assist_address = "https://github.com/inrae/sturwild/issues/new/choose";
 $APPLI_nom = "Prototype d'application";
 $APPLI_code = 'sturwild';
 $APPLI_fds = "display/CSS/blue.css";
