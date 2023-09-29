@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="0,369" last-zoom="0.65" max-obj-count="60"
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" author="Éric Quinton" last-position="468,369" last-zoom="0.65" max-obj-count="60"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -223,6 +223,16 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="dbparam_pk" type="pk-constr" table="sturwild.dbparam">
 		<columns names="dbparam_id" ref-type="src-columns"/>
 	</constraint>
+	<initial-data>
+<![CDATA["dbparam_name";"dbparam_value"
+"APPLI_code";"sturwild"
+"APPLI_title";"STURWILD"
+"mapDefaultX";"-0.70"
+"mapDefaultY";"44.77"
+"mapDefaultZoom";"7"
+"otp_issuer";"sturwild.society.com"
+]]>
+	</initial-data>
 </table>
 
 <sequence name="dbversion_dbversion_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
@@ -978,6 +988,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="aclacl_pk" type="pk-constr" table="sturwildgacl.aclacl">
 		<columns names="aclaco_id,aclgroup_id" ref-type="src-columns"/>
 	</constraint>
+	<initial-data>
+<![CDATA["aclaco_id";"aclgroup_id"
+"1";"1"
+"2";"2"
+"3";"3"
+"4";"4"
+]]>
+	</initial-data>
 </table>
 
 <sequence name="aclaco_aclaco_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
@@ -1003,6 +1021,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="aclaco_pk" type="pk-constr" table="sturwildgacl.aclaco">
 		<columns names="aclaco_id" ref-type="src-columns"/>
 	</constraint>
+	<initial-data>
+<![CDATA["aclappli_id";"aco"
+"1";"admin"
+"1";"consult"
+"1";"gestion"
+"1";"param"
+]]>
+	</initial-data>
 </table>
 
 <sequence name="aclappli_aclappli_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
@@ -1030,6 +1056,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="aclappli_pk" type="pk-constr" table="sturwildgacl.aclappli">
 		<columns names="aclappli_id" ref-type="src-columns"/>
 	</constraint>
+	<initial-data>
+<![CDATA["aclappli_id";"appli";"applidetail"
+"1";"sturwild";""
+]]>
+	</initial-data>
 </table>
 
 <sequence name="aclgroup_aclgroup_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
@@ -1055,6 +1086,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="aclgroup_pk" type="pk-constr" table="sturwildgacl.aclgroup">
 		<columns names="aclgroup_id" ref-type="src-columns"/>
 	</constraint>
+	<initial-data>
+<![CDATA["groupe";"aclgroup_id_parent"
+"admin";""
+"consult";""
+"gestion";"2"
+"param";"3"
+]]>
+	</initial-data>
 </table>
 
 <sequence name="acllogin_acllogin_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
@@ -1085,6 +1124,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="acllogin_pk" type="pk-constr" table="sturwildgacl.acllogin">
 		<columns names="acllogin_id" ref-type="src-columns"/>
 	</constraint>
+	<initial-data>
+<![CDATA["login";"logindetail";"totp_key"
+"admin";"admin";""
+]]>
+	</initial-data>
 </table>
 
 <table name="acllogingroup" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
@@ -1102,6 +1146,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="acllogingroup_pk" type="pk-constr" table="sturwildgacl.acllogingroup">
 		<columns names="acllogin_id,aclgroup_id" ref-type="src-columns"/>
 	</constraint>
+	<initial-data>
+<![CDATA["acllogin_id";"aclgroup_id"
+"1";"1"
+]]>
+	</initial-data>
 </table>
 
 <sequence name="log_log_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
@@ -1195,6 +1244,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="pk_logingestion" type="pk-constr" table="sturwildgacl.logingestion">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
+	<initial-data>
+<![CDATA["login";"password";"nom";"prenom";"mail";"datemodif";"actif";"is_expired";"is_clientws";"tokenws";"nbattempts";"lastattempt"
+"admin";"cd916028a2d8a1b901e831246dd5b9b4d3832786ddc63bbf5af4b50d9fc98f50";"admin";"";"";"";"1";"";"";"";"";""
+]]>
+	</initial-data>
 </table>
 
 <sequence name="passwordlost_passwordlost_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">

@@ -17,24 +17,19 @@ $ident_type = "BDD";
 /*
  * Parametres concernant la base de donnees
  */
-$BDD_login = "proto";
-$BDD_passwd = "proto";
-$BDD_dsn = "pgsql:host=localhost;dbname=proto;sslmode=require";
-$BDD_schema = "public";
+$BDD_login = "sturwild_owner";
+$BDD_passwd = "sturwildPassword";
+$BDD_dsn = "pgsql:host=localhost;dbname=sturwild";
+$BDD_schema = "sturwild,public";
 
 /*
  * Rights management, logins and logs records database
  */
-$GACL_dblogin = "proto";
-$GACL_dbpasswd = "proto";
-$GACL_aco = "col";
-$GACL_dsn = "pgsql:host=localhost;dbname=proto;sslmode=require";
-$GACL_schema = "gacl";
-
-/*
- * Lien vers le site d'assistance
- */
-$APPLI_mail = "https://monsite/assistance";
+$GACL_dblogin = "sturwild_owner";
+$GACL_dbpasswd = "sturwildPassword";
+$GACL_aco = "sturwild";
+$GACL_dsn = "pgsql:host=localhost;dbname=sturwild";
+$GACL_schema = "sturwildgacl";
 
 $LDAP ["address" ] = "localhost";
 $LDAP ["port" ] = 389;
@@ -45,7 +40,7 @@ $LDAP [ "tls"] = false;
  * Recherche des groupes dans l'annuaire LDAP
  * Decommenter la premiere ligne pour activer la fonction
  */
- //$LDAP [ "groupSupport" ] = true;
+ $LDAP [ "groupSupport" ] = false;
 $LDAP [ "groupAttrib" ] = "supannentiteaffectation";
 $LDAP [ "commonNameAttrib" ] = "displayname";
 $LDAP [ "mailAttrib" ] = "mail";

@@ -103,6 +103,7 @@
 	<environmentWrite action="modules/param/param.php" param="write" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" maxCountByHour="120" maxCountByDay="600" />
 	<environmentDelete action="modules/param/param.php" param="delete" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" />
 
-	<!-- migration -->
+	<!-- migration en-->
 	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>
+	<generateParamEn  action="install/translatedb/generate_param_en.php" droits="admin" retourok="default" retourko="default"/>
 </navigation>

@@ -52,8 +52,7 @@ function sendMail($declaration_id)
             sprintf(_("%s - modification d'une déclaration"), $_SESSION["APPLI_title"]),
             "declaration/declarationMail.tpl",
             $dataMail,
-            $_SESSION["LANG"]["locale"],
-            true
+            $_SESSION["LANG"]["locale"]
           )
         ) {
           $log->setLog($_SESSION["login"], "sendmail_to:" . $dataLogin["mail"], $id);

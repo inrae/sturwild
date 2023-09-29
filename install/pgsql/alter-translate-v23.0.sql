@@ -437,3 +437,4 @@ REFERENCES sturwild.handling (handling_id) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
+INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'23.0', E'2023-09-29');
