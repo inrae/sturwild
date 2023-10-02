@@ -31,12 +31,12 @@ SET search_path TO pg_catalog,public,sturwild,sturwildgacl;
 
 -- object: postgis | type: EXTENSION --
 -- DROP EXTENSION IF EXISTS postgis CASCADE;
-CREATE EXTENSION postgis
+/*CREATE EXTENSION postgis
 WITH SCHEMA public
 VERSION '3.3.2';
 -- ddl-end --
 COMMENT ON EXTENSION postgis IS E'PostGIS geometry and geography spatial types and functions';
--- ddl-end --
+-- ddl-end --*/
 
 -- object: sturwild.capture_state_capture_state_id_seq | type: SEQUENCE --
 -- DROP SEQUENCE IF EXISTS sturwild.capture_state_capture_state_id_seq CASCADE;
@@ -1117,6 +1117,7 @@ ALTER TABLE sturwildgacl.acllogingroup OWNER TO sturwild_owner;
 -- ddl-end --
 
 INSERT INTO sturwildgacl.acllogingroup (acllogin_id, aclgroup_id) VALUES (E'1', E'1');
+INSERT INTO sturwildgacl.acllogingroup (acllogin_id, aclgroup_id) VALUES (E'1', E'4');
 -- ddl-end --
 
 -- object: sturwildgacl.log_log_id_seq | type: SEQUENCE --
@@ -1433,32 +1434,6 @@ CREATE TABLE sturwild.fish_handling (
 ALTER TABLE sturwild.fish_handling OWNER TO sturwild_owner;
 -- ddl-end --
 
--- object: sturwild.v_fish | type: VIEW --
--- DROP VIEW IF EXISTS sturwild.v_fish CASCADE;
-CREATE VIEW sturwild.v_fish
-AS 
-
-select fish_id, declaration_id
-,f.fate_id, fate_name
-,f.species_id, species_name
-,f.capture_state_id, capture_state_name
-,tag_presence_id, tag_presence_name
-,handlings
-,tag_number, fish_length, estimated_cohort, validated_cohort
-,background, f.remarks
-identification_quality_id
-from sturwild.fish f
-join sturwild.declaration d using(declaration_id)
-left outer join sturwild.species s on  (s.species_id = f.species_id)
-left outer join sturwild.capture_state cs on (cs.capture_state_id = f.capture_state_id)
-left outer join sturwild.tag_presence using (tag_presence_id)
-left outer join sturwild.fate fa on (fa.fate_id = f.fate_id)
-left outer join sturwild.v_fish_handlings using (fish_id);
--- ddl-end --
-COMMENT ON VIEW sturwild.v_fish IS E'Detail of a fish';
--- ddl-end --
-ALTER VIEW sturwild.v_fish OWNER TO sturwild_owner;
--- ddl-end --
 
 -- object: fish_fk | type: CONSTRAINT --
 -- ALTER TABLE sturwild.fish_handling DROP CONSTRAINT IF EXISTS fish_fk CASCADE;
@@ -1486,6 +1461,33 @@ join sturwild.handling using (handling_id)
 group by fish_id;
 -- ddl-end --
 ALTER VIEW sturwild.v_fish_handlings OWNER TO sturwild_owner;
+-- ddl-end --
+
+-- object: sturwild.v_fish | type: VIEW --
+-- DROP VIEW IF EXISTS sturwild.v_fish CASCADE;
+CREATE VIEW sturwild.v_fish
+AS 
+
+select fish_id, declaration_id
+,f.fate_id, fate_name
+,f.species_id, species_name
+,f.capture_state_id, capture_state_name
+,tag_presence_id, tag_presence_name
+,handlings
+,tag_number, fish_length, estimated_cohort, validated_cohort
+,background, f.remarks
+identification_quality_id
+from sturwild.fish f
+join sturwild.declaration d using(declaration_id)
+left outer join sturwild.species s on  (s.species_id = f.species_id)
+left outer join sturwild.capture_state cs on (cs.capture_state_id = f.capture_state_id)
+left outer join sturwild.tag_presence using (tag_presence_id)
+left outer join sturwild.fate fa on (fa.fate_id = f.fate_id)
+left outer join sturwild.v_fish_handlings using (fish_id);
+-- ddl-end --
+COMMENT ON VIEW sturwild.v_fish IS E'Detail of a fish';
+-- ddl-end --
+ALTER VIEW sturwild.v_fish OWNER TO sturwild_owner;
 -- ddl-end --
 
 -- object: capture_etat_declaration_fk | type: CONSTRAINT --
@@ -1691,9 +1693,7 @@ REFERENCES sturwildgacl.logingestion (id) MATCH SIMPLE
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
--- object: "grant_CU_26541e8cda" | type: PERMISSION --
-GRANT CREATE,USAGE
-   ON SCHEMA public
-   TO pg_database_owner;
--- ddl-end --
+insert into sturwild.dbversion (dbversion_name, dbversion_date)
+values
+('23.0', '2023-09-29');
 
