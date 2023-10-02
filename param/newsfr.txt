@@ -1,5 +1,14 @@
 News
 ===========
+Version 23.0.0 du 2 octobre 2023
+--------------------------------
+Nouveautés :
+- traduction de la base de données en anglais
+- traduction de tous les libellés statiques en anglais
+- ajout de tables de paramètres pour faciliter à la fois la saisie et l'interrogation
+- la liste des captures peut maintenant être visualisée sur une carte
+- le texte des mails est maintenant géré par le moteur d'affichage de l'application (SMARTY)
+
 Version 1.4.1 du 24 mars 2023
 -----------------------------
 Correction de bugs :

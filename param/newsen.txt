@@ -1,6 +1,13 @@
 News
 ===========
-Translated with Deeple (https://www.deepl.com/fr/translator)
+Version 23.0.0 of 2 October 2023
+--------------------------------
+New features :
+- translation of the database into English
+- translation of all static labels into English
+- addition of parameter tables to make data entry and querying easier
+- the list of captures can now be viewed on a map
+- email text is now managed by the application's display engine (SMARTY)
 
 Version 1.4.1 of March 24, 2023
 -----------------------------

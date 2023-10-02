@@ -13,5 +13,5 @@ foreach($file as $key=>$value) {
 	$doc .= htmlentities($value)."<br>";
 }
 $vue->set($doc, "texteNews");
-$vue->set("documentation/quoideneuf.tpl", "corps");
+$vue->set("framework/utils/news.tpl", "corps");
 ?>
