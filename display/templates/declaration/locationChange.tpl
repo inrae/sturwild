@@ -70,6 +70,14 @@
 		$("#location").submit(function (event) {
 			$("#" + hasfocus).trigger("change");
 		});
+		$(".position").change(function () { 
+			positionChange();
+		});
+		function positionChange() {
+			var lat = $('#latitude_dd').val();
+			var lon = $('#longitude_dd').val();
+			setPosition (lat, lon);
+    }
 
 	});
 </script>
