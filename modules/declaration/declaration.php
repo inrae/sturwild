@@ -145,6 +145,9 @@ switch ($t_module["param"]) {
             if (($_REQUEST["status_id"] == 3 || $_REQUEST["status_id"] == 4) && $statusOld != $_REQUEST["status_id"]) {
                 sendMail($id);
             }
+            $module_coderetour = 1;
+        } else {
+            $module_coderetour = -1;
         }
         break;
     case "delete":

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-28 15:31+0200\n"
+"POT-Creation-Date: 2023-09-28 15:41+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -129,7 +129,7 @@ msgstr "List of species of sturgeons"
 #. (itstool) path: item/item@label
 #: ../../../param/menu.xml:21
 msgid "Devenirs"
-msgstr "Becoming"
+msgstr "Fates"
 
 #. (itstool) path: item/item@tooltip
 #: ../../../param/menu.xml:21
@@ -1920,7 +1920,6 @@ msgid "Modification d'un événement"
 msgstr "Edit an event"
 
 #: ../../../display/templates/declaration/eventChange.tpl:10
-#, fuzzy
 msgid "Retour au détail de la déclaration  - N°"
 msgstr "Back to detail of the declaration #"
 
@@ -1929,7 +1928,6 @@ msgid "Événement"
 msgstr "Event"
 
 #: ../../../display/templates/declaration/eventChange.tpl:23
-#, fuzzy
 msgid "Type d'événement :"
 msgstr "Event type:"
 
@@ -2759,9 +2757,8 @@ msgid "Les nouveautés..."
 msgstr "News..."
 
 #: ../../../display/templates/about.tpl:1
-#, fuzzy
-msgid "À propos de ESFC"
-msgstr "About Sturwild"
+msgid "À propos de STURWILD"
+msgstr "About STURWILD"
 
 #: ../../../display/templates/about.tpl:3
 msgid "Version %1 du %2."
@@ -2796,6 +2793,10 @@ msgstr "List of fates of fish"
 #: ../../../param/actions.xml:91 ../../../param/actions.xml:92
 msgid "Liste des espèces d'esturgeons"
 msgstr "List of species of sturgeons"
+
+#, fuzzy
+#~ msgid "À propos de ESFC"
+#~ msgstr "About Sturwild"
 
 #~ msgid "Régions"
 #~ msgstr "Regions"
