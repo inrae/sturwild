@@ -1363,7 +1363,7 @@ ALTER TABLE sturwild.handling OWNER TO sturwild_owner;
 CREATE TABLE sturwild.declaration_handling (
 	declaration_id integer NOT NULL,
 	handling_id integer NOT NULL,
-	CONSTRAINT declaration_handling_pk PRIMARY KEY (declaration_id)
+	CONSTRAINT declaration_handling_pk PRIMARY KEY (declaration_id,handling_id)
 );
 -- ddl-end --
 COMMENT ON TABLE sturwild.declaration_handling IS E'List of all handling for a declaration';
