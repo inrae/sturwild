@@ -1,5 +1,6 @@
 <?php
 include_once "modules/classes/declarationImport.class.php";
+require_once "modules/classes/param.class.php";
 $import = new DeclarationImport();
 
 switch ($t_module["param"]) {
