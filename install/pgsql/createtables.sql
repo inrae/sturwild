@@ -1693,7 +1693,7 @@ REFERENCES sturwildgacl.logingestion (id) MATCH SIMPLE
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
-insert into sturwild.dbversion (dbversion_name, dbversion_date)
+insert into sturwild.dbversion (dbversion_number, dbversion_date)
 values
 ('23.0', '2023-09-29');
 

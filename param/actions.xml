@@ -103,6 +103,11 @@
 	<environmentWrite action="modules/param/param.php" param="write" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" maxCountByHour="120" maxCountByDay="600" />
 	<environmentDelete action="modules/param/param.php" param="delete" droits="param" tablename="environment" retourok="environmentList" retourko="environmentChange" modulebefore="environmentChange" />
 
+	<target_speciesList action="modules/param/param.php" param="list" droits="consult" tablename="target_species" tabledescription="Liste des espèces ciblées" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<target_speciesChange action="modules/param/param.php" param="change" droits="param" tablename="target_species" tabledescription="Liste des espèces ciblées" type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<target_speciesWrite action="modules/param/param.php" param="write" droits="param" tablename="target_species" retourok="target_speciesList" retourko="target_speciesChange" modulebefore="target_speciesChange" maxCountByHour="120" maxCountByDay="600" />
+	<target_speciesDelete action="modules/param/param.php" param="delete" droits="param" tablename="target_species" retourok="target_speciesList" retourko="target_speciesChange" modulebefore="target_speciesChange" />
+
 	<!-- migration en-->
 	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>
 	<generateParamEn  action="install/translatedb/generate_param_en.php" droits="admin" retourok="default" retourko="default"/>
