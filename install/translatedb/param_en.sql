@@ -183,3 +183,19 @@ insert into sturwild.country (country_name,country_exchange,country_order)
 ('Netherlands','Netherlands',7),
 ('Germany','Germany',8),
 ('Unknown','Unknown',99);
+insert into sturwild.capture_method (capture_method_name,capture_method_exchange,capture_method_order)
+ values 
+('Net','Net',1),
+('Lift net','Lift net',1),
+('Trawl','Trawl',1),
+('Beached','Beached',1),
+('Trawl','Trawl',1),
+('Pushnet','Pushnet',1),
+('Line','Line',1),
+('Unknown','Unknown',1),
+('Trap','Trap',1),
+('Line','Line',1),
+('Filter','Filter',1),
+('Found','Found',1),
+('Fyke net','Fyke net',1),
+('Submarine hunting','Submarine hunting',1);
