@@ -108,6 +108,10 @@
 	<target_speciesWrite action="modules/param/param.php" param="write" droits="param" tablename="target_species" retourok="target_speciesList" retourko="target_speciesChange" modulebefore="target_speciesChange" maxCountByHour="120" maxCountByDay="600" />
 	<target_speciesDelete action="modules/param/param.php" param="delete" droits="param" tablename="target_species" retourok="target_speciesList" retourko="target_speciesChange" modulebefore="target_speciesChange" />
 
+	<statusList action="modules/param/status.php" param="list" droits="consult" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<statusChange action="modules/param/status.php" param="change" droits="param"  type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<statusWrite action="modules/param/status.php" param="write" droits="param" tablename="status" retourok="statusList" retourko="statusChange" modulebefore="statusChange" maxCountByHour="120" maxCountByDay="600" />
+
 	<!-- migration en-->
 	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>
 	<generateParamEn  action="install/translatedb/generate_param_en.php" droits="admin" retourok="default" retourko="default"/>
