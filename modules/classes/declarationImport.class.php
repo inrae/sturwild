@@ -36,16 +36,30 @@ class DeclarationImport
         "remarks",
         "handling",
         "identification_quality",
-        "declaration_uuid"
+        "declaration_uuid",
+        "origin_identifier",
+        "country_name",
+        "ices_name",
+        "environment_name",
+        "environment_detail_name",
+        "area_detail",
+        "longitude_gps",
+        "latitude_gps",
+        "longitude_dd",
+        "latitude_dd",
+        "accuracy_name"
     );
+    private array $mandatory = array("origin_name", "caught_number");
     public PDO $connection;
     private $separator = ",";
     private $utf8_encode;
-    private $paramTables = array("status", "origin", "capture_method", "gear_type", "target_species", "fate", "species");
+    private $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "ices", "environment", "environment_detail", "accuracy_name");
 
     private $status, $origin, $capture_method, $gear_type, $target_species, $species;
     private $fileContent = array();
     public $paramToCreate = array();
+    public array $errors = array();
+    public bool $hasErrors = false;
 
     function initFileCSV($filename, $separator = ",", $utf8_encode = false)
     {
@@ -132,32 +146,77 @@ class DeclarationImport
             }
         }
     }
-/**
- * Search the id of each parameter
- *
- * @return void
- */
-    function searchFromParameters()
+    /**
+     * Search the id of each parameter
+     *
+     * @return array
+     */
+    function searchFromParameters(array $row, bool $withCreate = false): array
     {
-        foreach ($this->fileContent as $key => $row) {
-            foreach ($this->paramTables as $paramName) {
-                $colname = $paramName . "_name";
-                $colid = $paramName . "_id";
-                if (strlen($row[$colname]) > 0) {
-                    /**
-                     * Search if exists the parameter
-                     */
-                    $paramData = $this->$paramName->getIdFromName($row[$colname], false, false);
-                    if (!empty($paramData)) {
-                        $row[$colid] = $paramData[$colid];
-                    } else {
-                        if (!in_array($row[$colname], $this->paramToCreate[$paramName])) {
-                            $this->paramToCreate[$paramName][] = $row[$colname];
-                        }
 
+        foreach ($this->paramTables as $paramName) {
+            $colname = $paramName . "_name";
+            $colid = $paramName . "_id";
+            if (strlen($row[$colname]) > 0) {
+                /**
+                 * Search if exists the parameter
+                 */
+                $paramData = $this->$paramName->getIdFromName($row[$colname], false, $withCreate);
+                if (!empty($paramData)) {
+                    $row[$colid] = $paramData[$colid];
+                } else {
+                    if (
+                        !$withCreate &&
+                        !in_array($row[$colname], $this->paramToCreate[$paramName])
+                    ) {
+                        $this->paramToCreate[$paramName][] = $row[$colname];
                     }
+
                 }
             }
+        }
+        return $row;
+    }
+
+    function verifyBeforeImport()
+    {
+        $line = 2;
+        foreach ($this->fileContent as $key => $row) {
+            /**
+             * search for mandatory
+             */
+            foreach ($this->mandatory as $field) {
+                if (!isset($row[$field]) || strlen($row[$field]) == 0) {
+                    $this->errors[] = array(
+                        "line" => $line,
+                        "message" => sprintf(_("Le champ %s est vide et doit être renseigné"), $field)
+                    );
+                    $this->hasErrors = true;
+                }
+                /**
+                 * Check for date
+                 */
+                if (empty($row["capture_date"])&& empty($row["year"])) {
+                    $this->errors[] = array(
+                        "line" => $line,
+                        "message" => _("La date de capture ou l'année doit être renseignée")
+                    );
+                    $this->hasErrors = true;
+                }
+                /**
+                 * Check for origin identifier
+                 */
+                if (empty ($row["origin_identifier"])&& empty($row["declaration_uuid"])) {
+                    $this->errors[] = array(
+                        "line" => $line,
+                        "message" => _("L'un des champs origin_identifier ou declaration_uuid doit être renseigné pour pouvoir importer les poissons associés à la déclaration")
+                    );
+                }
+            }
+            /**
+             * Search for parameters
+             */
+            $row = $this->searchFromParameters($row);
             $this->fileContent[$key] = $row;
         }
     }

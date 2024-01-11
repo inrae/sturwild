@@ -30,6 +30,18 @@ switch ($t_module["param"]) {
                  * Lancement du controle
                  */
                 $import->initFileCSV($_FILES['upfile']['tmp_name'], $_REQUEST["separator"], $_REQUEST["utf8_encode"]);
+                if ($import->hasErrors) {
+                    $vue->set(1, "hasErrors");
+                    /**
+                     * Suppression du fichier temporaire
+                     */
+                    $vue->set($import->errors, "errors");
+                    $vue->set($import->paramToCreate, "params");
+                    $module_coderetour = -1;
+                } else {
+                    $vue->set(0, "hasErrors");
+                    $module_coderetour = 1;
+                }
 
             } catch (Exception $e) {
                 $message->set($e->getMessage(), true);
@@ -44,6 +56,7 @@ switch ($t_module["param"]) {
     case "import":
         if (isset($_SESSION["filename"])) {
             if (file_exists($_SESSION["filename"])) {
+
             }
         }
         break;
