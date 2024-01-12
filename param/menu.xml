@@ -9,6 +9,7 @@
 		<item module="declarationNbSturioByYear" label="Nb Sturio par année" tooltip="Nombre d'Esturgeons d'Europe capturés par année" droits="consult"/>
 		<item divider="1"/>
 		<item module="requestList" label="Requêtes SQL" tooltip="Exécution de requêtes SQL dans la base de données" droits="gestion"/>
+		<item module="importCSVDisplay" label="Import CSV des déclarations" tooltip="Importer les déclarations depuis un fichier CSV" droits="param"/>
 	</item>
 	<item module="parametre" label="Paramètres" tooltip="Tables de paramètres" droits="param,gestion">
 		<item module="icesList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="gestion" />

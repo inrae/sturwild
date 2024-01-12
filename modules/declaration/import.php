@@ -4,13 +4,12 @@ require_once "modules/classes/param.class.php";
 $import = new DeclarationImport();
 
 switch ($t_module["param"]) {
-    case "change":
+    case "display":
         /*
-         * Affichage du masque de selection du fichier a importer
+         * Display the form
          */
-        $vue->set(1, "onlyCollectionSearch");
+        $vue->set("declaration/importCsv.tpl", "corps");
         break;
-
     case "control":
         /*
          * Lancement des controles
@@ -27,37 +26,74 @@ switch ($t_module["param"]) {
                     throw new DeclarationImportException(_("L'encodage du fichier ne correspond pas à celui que vous avez indiqué"));
                 }
                 /*
-                 * Lancement du controle
+                 * start of control
                  */
+                $_SESSION["importParameters"] = array(
+                    "separator" => $_REQUEST["separator"],
+                    "utf8_encode" => $_REQUEST["utf8_encode"],
+                    "use_exchange_labels" => $_REQUEST["use_exchange_labels"]
+                );
                 $import->initFileCSV($_FILES['upfile']['tmp_name'], $_REQUEST["separator"], $_REQUEST["utf8_encode"]);
                 if ($import->hasErrors) {
                     $vue->set(1, "hasErrors");
-                    /**
-                     * Suppression du fichier temporaire
-                     */
-                    $vue->set($import->errors, "errors");
-                    $vue->set($import->paramToCreate, "params");
                     $module_coderetour = -1;
+                    unset($_SESSION["importParameters"]);
                 } else {
+                    /*
+                     * Move the file to the temporary folder
+                     */
+                    $filename = $APPLI_temp . '/' . bin2hex(openssl_random_pseudo_bytes(4));
+                    if (!copy($_FILES['upfile']['tmp_name'], $filename)) {
+                        $message->set(_("Impossible de recopier le fichier importé dans le dossier temporaire"), true);
+                    } else {
+                        $_SESSION["importParameters"]["filename"] = $filename;
+                        $_SESSION["importParameters"]["name"] = $_FILES['upfile']['name'];
+                        $vue->set($_SESSION["importParameters"], "parameters");
+                    }
                     $vue->set(0, "hasErrors");
                     $module_coderetour = 1;
                 }
-
+                $vue->set($import->errors, "errors");
+                $vue->set($import->paramToCreate, "params");
+                $vue->set(1, "controlDone");
+                $import->fileClose();
             } catch (Exception $e) {
                 $message->set($e->getMessage(), true);
+                $module_coderetour = -1;
+                $vue->set(1, "hasErrors");
             }
+        } else {
+            $message->set(_("Aucun fichier n'a été téléchargé vers le serveur"), true);
+            $module_coderetour = -1;
         }
-        $import->fileClose();
-        $module_coderetour = 1;
-        $vue->set($_REQUEST["separator"], "separator");
-        $vue->set($_REQUEST["utf8_encode"], "utf8_encode");
-        $vue->set($_REQUEST["onlyCollectionSearch"], "onlyCollectionSearch");
         break;
-    case "import":
-        if (isset($_SESSION["filename"])) {
-            if (file_exists($_SESSION["filename"])) {
+    case "exec":
+        if (isset($_SESSION["importParameters"])) {
+            if (file_exists($_SESSION["importParameters"]["filename"])) {
+                try {
+                    /*
+                     * Demarrage d'une transaction
+                     */
+                    $bdd->beginTransaction();
 
+                    $bdd->commit();
+                    $message->set(_("Importation effectuée"));
+                    $message->set(sprintf(_("%s déclarations importées"), $import->recordedNumber));
+                    $module_coderetour = 1;
+                } catch (Exception $e) {
+                    if($bdd->inTransaction()) {
+                        $bdd->rollBack();
+                    }
+                    $module_coderetour = -1;
+                    $message->set($e->getMessage(), true);
+                }
+            } else {
+                $message->set(_("Le fichier n'est plus disponible dans le serveur : recommencez l'opération"), true);
+                $module_coderetour = -1;
             }
+        } else {
+            $module_coderetour = -1;
+            $message->set(_("Une erreur s'est produite, recommencez l'opération"), true);
         }
         break;
 }

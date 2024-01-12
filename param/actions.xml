@@ -112,6 +112,11 @@
 	<statusChange action="modules/param/status.php" param="change" droits="param"  type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<statusWrite action="modules/param/status.php" param="write" droits="param" tablename="status" retourok="statusList" retourko="statusChange" modulebefore="statusChange" maxCountByHour="120" maxCountByDay="600" />
 
+	<!-- import -->
+	<importCSVDisplay action="modules/declaration/import.php" param="display" droits="param" type="smarty" retourlogin="1"/>
+	<importCSVControl action="modules/declaration/import.php" param="control" droits="param" type="smarty" modulebefore="importCSVDisplay,importCSVControl" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
+	<importCSVExec action="modules/declaration/import.php" param="control" droits="exec" modulebefore="importCSVControl" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
+
 	<!-- migration en-->
 	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>
 	<generateParamEn  action="install/translatedb/generate_param_en.php" droits="admin" retourok="default" retourko="default"/>

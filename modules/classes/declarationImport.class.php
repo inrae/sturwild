@@ -60,6 +60,7 @@ class DeclarationImport
     public $paramToCreate = array();
     public array $errors = array();
     public bool $hasErrors = false;
+    public int $recordedNumber = 0;
 
     function initFileCSV($filename, $separator = ",", $utf8_encode = false)
     {
