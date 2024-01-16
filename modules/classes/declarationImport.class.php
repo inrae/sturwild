@@ -53,7 +53,7 @@ class DeclarationImport
     public PDO $connection;
     private $separator = ",";
     private $utf8_encode;
-    private $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "ices", "environment", "environment_detail", "accuracy_name");
+    private $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "ices", "environment", "environment_detail", "accuracy_name", "handling");
 
     private $status, $origin, $capture_method, $gear_type, $target_species, $species;
     private $fileContent = array();
@@ -61,6 +61,9 @@ class DeclarationImport
     public array $errors = array();
     public bool $hasErrors = false;
     public int $recordedNumber = 0;
+    public Declaration $declaration;
+    public Location $location;
+    public int $recorded = 0;
 
     function initFileCSV($filename, $separator = ",", $utf8_encode = false)
     {
@@ -70,11 +73,11 @@ class DeclarationImport
         $this->separator = $separator;
         $this->utf8_encode = $utf8_encode;
         /**
-         * Ouverture du fichier
+         * Open the file
          */
         if ($this->handle = fopen($filename, 'r')) {
             /**
-             * Lecture de la premiere ligne et affectation des colonnes
+             * Read the first line and attribute columns
              */
             $data = $this->readLine();
             $range = 0;
@@ -123,7 +126,7 @@ class DeclarationImport
     }
 
     /**
-     * Ferme le fichier
+     * Close the file
      */
     function fileClose()
     {
@@ -152,34 +155,64 @@ class DeclarationImport
      *
      * @return array
      */
-    function searchFromParameters(array $row, bool $withCreate = false): array
+    function searchFromParameters(array $row, bool $searchByExchange = false, bool $withCreate = false): array
     {
-
-        foreach ($this->paramTables as $paramName) {
-            $colname = $paramName . "_name";
-            $colid = $paramName . "_id";
+        foreach ($this->paramTables as $tablename) {
+            $colname = $tablename . "_name";
+            $colid = $tablename . "_id";
             if (strlen($row[$colname]) > 0) {
-                /**
-                 * Search if exists the parameter
-                 */
-                $paramData = $this->$paramName->getIdFromName($row[$colname], false, $withCreate);
-                if (!empty($paramData)) {
-                    $row[$colid] = $paramData[$colid];
-                } else {
-                    if (
-                        !$withCreate &&
-                        !in_array($row[$colname], $this->paramToCreate[$paramName])
-                    ) {
-                        $this->paramToCreate[$paramName][] = $row[$colname];
+                if ($colname == "handling_name") {
+                    $handlings = explode(",", $row[$colname]);
+                    $handlingsId = array();
+                    foreach ($handlings as $handling) {
+                        $id = $this->_searchFromParameter($tablename, $handling, $searchByExchange, $withCreate);
+                        if ($id > 0) {
+                            $handlingsId[] = $id;
+                        }
                     }
-
+                    if (!empty($handlingsId)) {
+                        $row["handling_id"] = implode(",", $handlingsId);
+                    }
+                } else {
+                    /**
+                     * Search if exists the parameter
+                     */
+                    $id = $this->_searchFromParameter($tablename, $row[$colname], $searchByExchange, $withCreate);
+                    if ($id > 0) {
+                        $row[$colid] = $id;
+                    }
                 }
             }
         }
         return $row;
     }
+    /**
+     * Search from a parameter
+     *
+     * @param string $tablename
+     * @param string $value
+     * @param bool $searchByExchange
+     * @param bool $withCreate
+     * @return integer
+     */
+    private function _searchFromParameter(string $tablename, string $value, bool $searchByExchange, bool $withCreate): int
+    {
+        $paramData = $this->$tablename->getIdFromName($value, $searchByExchange, $withCreate);
+        $id = 0;
+        if (!empty($paramData)) {
+            $id = $paramData[$tablename . "_id"];
+        } else {
+            if (
+                !$withCreate &&
+                !in_array($value, $this->paramToCreate[$tablename])
+            ) {
+                $this->paramToCreate[$tablename][] = $value;
+            }
+        }
+        return $id;
+    }
 
-    function verifyBeforeImport()
+    function verifyBeforeImport(bool $searchByExchange = false)
     {
         $line = 2;
         foreach ($this->fileContent as $key => $row) {
@@ -197,7 +230,7 @@ class DeclarationImport
                 /**
                  * Check for date
                  */
-                if (empty($row["capture_date"])&& empty($row["year"])) {
+                if (empty($row["capture_date"]) && empty($row["year"])) {
                     $this->errors[] = array(
                         "line" => $line,
                         "message" => _("La date de capture ou l'année doit être renseignée")
@@ -207,7 +240,7 @@ class DeclarationImport
                 /**
                  * Check for origin identifier
                  */
-                if (empty ($row["origin_identifier"])&& empty($row["declaration_uuid"])) {
+                if (empty($row["origin_identifier"]) && empty($row["declaration_uuid"])) {
                     $this->errors[] = array(
                         "line" => $line,
                         "message" => _("L'un des champs origin_identifier ou declaration_uuid doit être renseigné pour pouvoir importer les poissons associés à la déclaration")
@@ -217,8 +250,43 @@ class DeclarationImport
             /**
              * Search for parameters
              */
-            $row = $this->searchFromParameters($row);
+            $row = $this->searchFromParameters($row, $searchByExchange, false);
             $this->fileContent[$key] = $row;
+        }
+    }
+    function exec(bool $searchByExchange)
+    {
+        foreach ($this->fileContent as $row) {
+            /**
+             * Search for existing record
+             */
+            $id = 0;
+            if (!empty($row["origin_identifier"])) {
+                $id = $this->declaration->getIdByField("origin_identifier", $row["origin_identifier"]);
+            }
+            if ($id == 0 && !empty($row["declaration_uuid"])) {
+                $id = $this->declaration->getIdByField("declaration_uuid", $row["declaration_uuid"]);
+            }
+            if ($id > 0) {
+                $ddeclaration = $this->declaration->lire($id);
+                $dlocation = $this->location->lire($id);
+            } else {
+                $ddeclaration = array("declaration_id" => $id);
+                $dlocation = array();
+            }
+            /**
+             * Add parameters
+             */
+            $row = $this->searchFromParameters($row, $searchByExchange, true);
+            /**
+             * Update declaration and location
+             */
+            $ddeclaration = array_merge($ddeclaration, $row);
+            $dlocation = array_merge($dlocation, $row);
+            $id = $this->declaration->ecrire($ddeclaration);
+            $dlocation["declaration_id"] = $id;
+            $this->location->ecrire($dlocation);
+            $this->recorded++;
         }
     }
 }

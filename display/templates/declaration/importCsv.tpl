@@ -184,7 +184,7 @@
                 <li><b>harbour_vessel</b> {t}Port d'attache du navire{/t}</li>
                 <li><b>declaration_mode</b> {t}Mode de déclaration (texte libre){/t}</li>
                 <li><b>remarks</b> {t}Remarques sur la déclaration{/t}</li>
-                <li><b>handling</b> {t}Manimulations réalisées sur les poissons{/t}</li>
+                <li><b>handling_name</b> {t}Manipulations réalisées sur les poissons, séparées par une virgule{/t}</li>
                 <li><b>identification_quality</b> {t}0 : identification incertaine de l'espèce, 1 : identification sûre{/t}</li>
                 <li><b>country_name</b> {t}Pays de capture{/t}</li>
                 <li><b>ices_name</b> {t}Zone CIEM{/t}</li>

@@ -34,6 +34,8 @@ switch ($t_module["param"]) {
                     "use_exchange_labels" => $_REQUEST["use_exchange_labels"]
                 );
                 $import->initFileCSV($_FILES['upfile']['tmp_name'], $_REQUEST["separator"], $_REQUEST["utf8_encode"]);
+                $import->initParams($bdd);
+                $import->verifyBeforeImport();
                 if ($import->hasErrors) {
                     $vue->set(1, "hasErrors");
                     $module_coderetour = -1;
@@ -71,11 +73,20 @@ switch ($t_module["param"]) {
         if (isset($_SESSION["importParameters"])) {
             if (file_exists($_SESSION["importParameters"]["filename"])) {
                 try {
+                    /**
+                     * Initialize classes
+                     */
+                    require_once "modules/classes/declaration.class.php";
+                    require_once "modules/classes/location.class.php";
+                    $import->declaration = new Declaration($bdd, $ObjetBDDParam);
+                    $import->location = new Location($bdd, $ObjetBDDParam);
                     /*
-                     * Demarrage d'une transaction
+                     * Start a transaction
                      */
                     $bdd->beginTransaction();
-
+                    $import->initFileCSV($_SESSION["importParameters"]["filename"], $_SESSION["importParameters"]["separator"], $_SESSION["importParameters"]["utf8_encode"]);
+                    $import->initParams($bdd);
+                    $import->exec($_SESSION["importParameters"]["use_exchange_labels"]);
                     $bdd->commit();
                     $message->set(_("Importation effectuée"));
                     $message->set(sprintf(_("%s déclarations importées"), $import->recordedNumber));
