@@ -35,6 +35,7 @@ class Declaration extends ObjetBDD
 				left outer join origin using (origin_id)
 				left outer join capture_state using (capture_state_id)
 				left outer join fate using (fate_id)
+                left outer join accuracy using (accuracy_id)
         left outer join v_declaration_handlings using (declaration_id)
         left outer join target_species using (target_species_id)";
 
@@ -475,5 +476,44 @@ class Declaration extends ObjetBDD
             }
         }
         return $id;
+    }
+
+    /**
+     * Get the list of declarations with all data
+     *
+     * @param array $ids
+     * @param boolean $withExchangeLabel
+     * @return array
+     */
+    function getDeclarationListForExport (array $ids, bool $withExchangeLabel = false) :array {
+        $data = array();
+        if (count($ids) > 0) {
+        $withExchangeLabel ? $suffix = "_name" : $suffix = "_exchange";
+        $sql = "select declaration_uuid, status$suffix, capture_method$suffix, origin$suffix, gear_type$suffix, species$suffix, capture_state$suffix,
+        fate$suffix, capture_date, year, caught_number, estimated_capture_date,
+        gear_mesh, target_species, depth, depth_min, depth_max length_min, length_max, weight_min, weight_max,
+        fisher_code, contact, contact_coordinates, harbour_vessel,
+        declaration_mode, remarks, handling, identification_quality, 
+        target_species$suffix, handlings$suffix,
+        case when origin_identifier is not null then origin_identifier else origin_exchange || ':' || declaration_id::varchar end as origin_identifier,
+        country$suffix, ices_name, region$suffix,environment$suffix, environment_detail$suffix, 
+        longitude_gps, latitude_gps, longitude_declared_dd, latitude_declared_dd, 
+        longitude_estimated_dd, latitude_estimated_dd, longitude_dd, latitude_dd, 
+        accuracy$suffix
+        ";
+        $where = " where declaration_id in (";
+        $comma = "";
+        $i = 1;
+        $param = array();
+        foreach ($ids as $id) {
+            $where .= $comma . "id$i";
+            $param["id$i"] = $id;
+            $comma = ",";
+        }
+        $where .= ")";
+        $order = " order by declaration_id";
+        $data = $this->getListeParamAsPrepared($sql.$this->fromSearch.$where.$order, $param);
+        }
+        return $data;
     }
 }

@@ -131,6 +131,34 @@ update sturwild.dbparam set dbparam_description = 'Latitude de positionnement pa
 update sturwild.dbparam set dbparam_description = 'Niveau de zoom par défaut dans les cartes', dbparam_description_en = 'Default zoom level in maps' where dbparam_name = 'mapDefaultZoom';
 update sturwild.dbparam set dbparam_description = 'Nom affiché dans les applications de génération de codes uniques pour l''identification à double facteur', dbparam_description_en = 'Name displayed in applications generating unique codes for two-factor identification' where dbparam_name = 'otp_issuer';
 
+DROP VIEW IF EXISTS sturwild.v_declaration_handlings CASCADE;
+CREATE VIEW sturwild.v_declaration_handlings
+AS 
+
+select declaration_id, 
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
+array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
+from sturwild.declaration_handling
+join sturwild.handling using (handling_id)
+group by declaration_id;
+-- ddl-end --
+ALTER VIEW sturwild.v_declaration_handlings OWNER TO sturwild_owner;
+-- ddl-end --
+
+ DROP VIEW IF EXISTS sturwild.v_fish_handlings CASCADE;
+CREATE VIEW sturwild.v_fish_handlings
+AS 
+
+select fish_id, 
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
+array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
+from sturwild.fish_handling
+join sturwild.handling using (handling_id)
+group by fish_id;
+-- ddl-end --
+ALTER VIEW sturwild.v_fish_handlings OWNER TO sturwild_owner;
+-- ddl-end --
+
 insert into sturwild.dbversion (dbversion_number, dbversion_date)
 values
 ('24.0', '2024-01-31');
