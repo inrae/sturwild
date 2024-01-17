@@ -16,6 +16,7 @@
 	<declarationExport action="modules/declaration/declaration.php" param="export" modulebefore="declarationList,fishExport"  droits="consult" type="csv"/>
 	<declarationNbSturioByYear action="modules/declaration/declaration.php" param="sturioByYear" droits="consult" type="smarty"/>
 	<declarationDuplicate action="modules/declaration/declaration.php" param="duplicate" modulebefore="declarationWrite,declarationDisplay"  droits="gestion" retourok="declarationDisplay" />
+	<declarationExportCSV action="modules/declaration/declaration.php" param="exportCSV" droits="consult" type="csv" retourko="declarationList"/>
 
 	<eventChange action="modules/declaration/event.php" param="change" droits="gestion" type="smarty"/>
 	<eventWrite action="modules/declaration/event.php" param="write" retourok="declarationDisplay" retourko="eventChange" modulebefore="eventChange"  droits="gestion"/>

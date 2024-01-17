@@ -36,12 +36,12 @@ switch ($t_module["param"]) {
             if (!empty($row["longitude_dd"]) && !empty($row["latitude_dd"])) {
                 $dataMap["markers"][] = array(
                     "latlng" => array(
-                        $row["latitude_dd"], 
-                    $row["longitude_dd"]
-                ),
-                     "id" => $row["declaration_id"],
-                     "date"=>$row["capture_date"]
-                    );
+                        $row["latitude_dd"],
+                        $row["longitude_dd"]
+                    ),
+                    "id" => $row["declaration_id"],
+                    "date" => $row["capture_date"]
+                );
             }
         }
         $vue->set(json_encode($dataMap), "markers");
@@ -199,6 +199,24 @@ switch ($t_module["param"]) {
             }
         }
         $module_coderetour = 1;
+        break;
+    case "exportCSV":
+        if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
+            $data = $dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
+            if (!empty($data)) {
+            $vue->setFilename("sturwild_declarations-" . date('d-m-Y') . ".csv");
+            $vue->setDelimiter(";");
+            $vue->set($data);
+            } else {
+                unset($vue);
+                $module_coderetour = -1;
+                $message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true); 
+            }
+        } else {
+            unset($vue);
+            $module_coderetour = -1;
+            $message->set(_("Aucune déclaration n'a été sélectionnée"), true);
+        }
         break;
 }
 
