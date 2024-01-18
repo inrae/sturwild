@@ -43,6 +43,11 @@
 	<icesWrite action="modules/param/ices.php" param="write" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
 	<icesDelete action="modules/param/ices.php" param="delete" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
 
+	<instituteList action="modules/param/institute.php" param="list" droits="gestion" type="smarty"/>
+	<instituteChange action="modules/param/institute.php" param="change" droits="param" type="smarty"/>
+	<instituteWrite action="modules/param/institute.php" param="write" retourok="instituteList" retourko="instituteChange" modulebefore="instituteChange"  droits="param"/>
+	<instituteDelete action="modules/param/institute.php" param="delete" retourok="instituteList" retourko="instituteChange" modulebefore="instituteChange"  droits="param"/>
+
 	<!-- tables of parameters -->
 	<handlingList action="modules/param/param.php" param="list" droits="consult" tablename="handling" tabledescription="Manipulations effectuées sur les poissons" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
 	<handlingChange action="modules/param/param.php" param="change" droits="param" tablename="handling" tabledescription="Manipulations effectuées sur les poissons" type="smarty" maxCountByHour="120" maxCountByDay="600" />

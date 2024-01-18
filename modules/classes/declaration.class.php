@@ -515,7 +515,7 @@ class Declaration extends ObjetBDD
             $comma = ",";
             $i++;
         }
-        $where .= ") and (status_id = 3 or status_id = 4)";
+        $where .= ") and (status_id >= 3 )";
         $order = " order by declaration_id";
         $data = $this->getListeParamAsPrepared($sql.$this->fromSearch.$where.$order, $param);
         }

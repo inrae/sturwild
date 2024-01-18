@@ -148,7 +148,6 @@ ALTER VIEW sturwild.v_declaration_handlings OWNER TO sturwild_owner;
  DROP VIEW IF EXISTS sturwild.v_fish_handlings CASCADE;
 CREATE VIEW sturwild.v_fish_handlings
 AS 
-
 select fish_id, 
 array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
 array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
@@ -177,7 +176,7 @@ COMMENT ON COLUMN sturwild.institute.institute_description IS E'Description of t
 ALTER TABLE sturwild.institute OWNER TO sturwild_owner;
 -- ddl-end --
 
-alter table sturwild.declaration add column institude_id int;
+alter table sturwild.declaration add column institute_id int;
 
 -- object: institute_fk | type: CONSTRAINT --
 -- ALTER TABLE sturwild.declaration DROP CONSTRAINT IF EXISTS institute_fk CASCADE;
