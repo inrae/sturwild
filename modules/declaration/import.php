@@ -1,4 +1,5 @@
 <?php
+require_once "modules/classes/sturwildImport.class.php";
 include_once "modules/classes/declarationImport.class.php";
 require_once "modules/classes/param.class.php";
 $import = new DeclarationImport();
@@ -25,7 +26,7 @@ switch ($t_module["param"]) {
                 $encodings = array("UTF-8", "iso-8859-1", "iso-8859-15");
                 $currentEncoding = mb_detect_encoding(file_get_contents($_FILES['upfile']['tmp_name']), $encodings, true);
                 if ($currentEncoding != "UTF-8" && $_REQUEST["utf8_encode"] == 0 || $currentEncoding == "UTF-8" && $_REQUEST["utf8_encode"] == 1) {
-                    throw new DeclarationImportException(_("L'encodage du fichier ne correspond pas à celui que vous avez indiqué"));
+                    throw new SturwildImportException(_("L'encodage du fichier ne correspond pas à celui que vous avez indiqué"));
                 }
                 /*
                  * start of control
