@@ -204,8 +204,8 @@ switch ($t_module["param"]) {
         if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
             $data = $dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
             if (!empty($data)) {
-            $vue->setFilename("sturwild_declarations-" . date('d-m-Y') . ".csv");
-            $vue->setDelimiter(";");
+            $vue->setFilename("sturwild_declarations-" . date('Y-m-d') . ".csv");
+            $vue->setDelimiter(",");
             $vue->set($data);
             } else {
                 unset($vue);

@@ -117,8 +117,7 @@
                         <div class="form-group ">
                             <label for="use_exchange_labels" class="control-label col-md-4">
                                 <span class="red">*</span> 
-                                {t}Exporter les libellés des tables de paramètres dans le
-                                format d'échange :{/t}
+                                {t}Exporter les libellés des tables de paramètres dans le format d'échange :{/t}
                             </label>
                             <div class="col-md-8">
                                 <div class="radio">

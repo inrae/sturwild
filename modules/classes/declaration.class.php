@@ -36,8 +36,9 @@ class Declaration extends ObjetBDD
 				left outer join capture_state using (capture_state_id)
 				left outer join fate using (fate_id)
                 left outer join accuracy using (accuracy_id)
-        left outer join v_declaration_handlings using (declaration_id)
-        left outer join target_species using (target_species_id)";
+                left outer join v_declaration_handlings using (declaration_id)
+                left outer join target_species using (target_species_id)
+                left outer join institute using (institute_id)";
 
     /**
      * Constructeur
@@ -152,7 +153,8 @@ class Declaration extends ObjetBDD
             ),
             "target_species_id" => array("type" => 1),
             "origin_identifier" => array("type" => 0),
-            "declaration_uuid" => array("type" => 0, "defaultValue" => "getUUID")
+            "declaration_uuid" => array("type" => 0, "defaultValue" => "getUUID"),
+            "institute_id" => array("type"=>1)
         );
         $param["fullDescription"] = 1;
         parent::__construct($link, $param);
@@ -485,9 +487,10 @@ class Declaration extends ObjetBDD
      * @param boolean $withExchangeLabel
      * @return array
      */
-    function getDataForExport (array $ids, bool $withExchangeLabel = false) :array {
+    function getDataForExport (array $ids, bool $withExchangeLabel = true) :array {
         $data = array();
         if (count($ids) > 0) {
+            $localCode = $_SESSION["APPLI_code"];
         $withExchangeLabel ? $suffix = "_exchange" : $suffix = "_name";
         $sql = "select declaration_uuid, status$suffix, capture_method$suffix, origin$suffix, gear_type$suffix, species$suffix, capture_state$suffix,
         fate$suffix, capture_date, year, caught_number, estimated_capture_date,
@@ -495,11 +498,12 @@ class Declaration extends ObjetBDD
         fisher_code, contact, contact_coordinates, harbour_vessel,
         declaration_mode, remarks, handling, identification_quality, 
         target_species$suffix, handlings$suffix,
-        case when origin_identifier is not null then origin_identifier else origin_exchange || ':' || declaration_id::varchar end as origin_identifier,
+        case when origin_identifier is not null then origin_identifier else '$localCode' || ':' || declaration_id::varchar end as origin_identifier,
         country$suffix, ices_name, environment$suffix, environment_detail$suffix, 
         longitude_gps, latitude_gps, longitude_declared_dd, latitude_declared_dd, 
         longitude_estimated_dd, latitude_estimated_dd, longitude_dd, latitude_dd, 
-        accuracy$suffix
+        accuracy$suffix, 
+        case when institute_code is not null then institute_code else '$localCode' end as institude_code
         ";
         $where = " where declaration_id in (";
         $comma = "";

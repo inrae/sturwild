@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" author="Éric Quinton" last-position="258,0" last-zoom="0.65" max-obj-count="60"
+<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" author="Éric Quinton" last-position="0,0" last-zoom="0.65" max-obj-count="60"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -260,12 +260,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild_owner"/>
 </sequence>
 
-<table name="declaration" layers="0" collapse-mode="2" max-obj-count="38" z-value="0">
+<table name="declaration" layers="0" collapse-mode="2" max-obj-count="39" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[Informations liées à la déclaration.]]> </comment>
 	<tag name="declaration"/>
-	<position x="460" y="260"/>
+	<position x="460" y="240"/>
 	<column name="declaration_id" not-null="true" sequence="sturwild.declaration_declaration_id_seq">
 		<type name="integer" length="0"/>
 		<comment> <![CDATA[Identifiant de la capture.]]> </comment>
@@ -1591,7 +1591,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[List of all handling for a declaration]]> </comment>
 	<tag name="declaration"/>
-	<position x="900" y="760"/>
+	<position x="900" y="860"/>
 
 	<customidxs object-type="column">
 		<object name="declaration_id" index="0"/>
@@ -1632,7 +1632,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[List of species targeted]]> </comment>
 	<tag name="declaration"/>
-	<position x="900" y="540"/>
+	<position x="900" y="420"/>
 	<column name="target_species_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -1918,6 +1918,37 @@ left outer join sturwild.v_fish_handlings using (fish_id)]]> </expression>
 			<column name="document_uuid"/>
 		</idxelement>
 </index>
+
+<table name="institute" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="sturwild"/>
+	<role name="sturwild_owner"/>
+	<comment> <![CDATA[List of institute partners]]> </comment>
+	<tag name="declaration"/>
+	<position x="900" y="660"/>
+	<column name="institute_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="institute_code" not-null="true">
+		<type name="varchar" length="0"/>
+		<comment> <![CDATA[Code of the institute]]> </comment>
+	</column>
+	<column name="institute_description">
+		<type name="varchar" length="0"/>
+		<comment> <![CDATA[Description of the institute]]> </comment>
+	</column>
+	<constraint name="institute_pk" type="pk-constr" table="sturwild.institute">
+		<columns names="institute_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="institute_has_many_declaration" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1c71d8"
+	 src-table="sturwild.institute"
+	 dst-table="sturwild.declaration"
+	 src-required="false" dst-required="false"/>
 
 <constraint name="capture_etat_declaration_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="sturwild.capture_state" table="sturwild.declaration">

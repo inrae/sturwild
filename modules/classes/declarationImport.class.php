@@ -63,6 +63,7 @@ class DeclarationImport
     public int $recordedNumber = 0;
     public Declaration $declaration;
     public Location $location;
+    public Institute $institute;
     public int $recorded = 0;
 
     function initFileCSV($filename, $separator = ",", $utf8_encode = false)
@@ -79,16 +80,16 @@ class DeclarationImport
             /**
              * Read the first line and attribute columns
              */
-            $data = $this->readLine();
+            $data = fgetcsv($this->handle, 1000, $this->separator);
             $range = 0;
             for ($range = 0; $range < count($data); $range++) {
                 $value = $data[$range];
-
-                if (in_array($value, $this->colonnes)) {
-                    $this->fileColumn[$range] = $value;
+                $this->fileColumn[$range] = $value;
+                /*if (in_array($value, $this->colonnes)) {
+                    
                 } else {
                     throw new DeclarationImportException(sprintf(_('La colonne %1$s n\'est pas reconnue (%2$s)'), $range, $value));
-                }
+                }*/
             }
             while (($data = $this->readLine()) !== false) {
                 $this->fileContent[] = $data;
@@ -118,11 +119,10 @@ class DeclarationImport
                 for ($i = 0; $i < $nb; $i++) {
                     $values[$this->fileColumn[$i]] = $data[$i];
                 }
+                return $values;
             }
-            return $values;
-        } else {
-            return false;
         }
+        return false;
     }
 
     /**
@@ -130,7 +130,7 @@ class DeclarationImport
      */
     function fileClose()
     {
-        if ($this->handle) {
+        if (is_resource($this->handle)) {
             fclose($this->handle);
         }
     }
@@ -155,13 +155,17 @@ class DeclarationImport
      *
      * @return array
      */
-    function searchFromParameters(array $row, bool $searchByExchange = false, bool $withCreate = false): array
+    function searchFromParameters(array $row, bool $searchByExchange = true, bool $withCreate = false): array
     {
         foreach ($this->paramTables as $tablename) {
-            $colname = $tablename . "_name";
+            if ($tablename == "ices") {
+                $colname = "ices_name";
+            } else {
+                $searchByExchange ? $colname = $tablename . "_exchange" : $colname = $tablename . "_name";
+            }
             $colid = $tablename . "_id";
             if (strlen($row[$colname]) > 0) {
-                if ($colname == "handling_name") {
+                if ($tablename == "handling") {
                     $handlings = explode(",", $row[$colname]);
                     $handlingsId = array();
                     foreach ($handlings as $handling) {
@@ -197,25 +201,22 @@ class DeclarationImport
      */
     private function _searchFromParameter(string $tablename, string $value, bool $searchByExchange, bool $withCreate): int
     {
-        $paramData = $this->$tablename->getIdFromName($value, $searchByExchange, $withCreate);
-        $id = 0;
-        if (!empty($paramData)) {
-            $id = $paramData[$tablename . "_id"];
-        } else {
-            if (
-                !$withCreate &&
-                !in_array($value, $this->paramToCreate[$tablename])
-            ) {
-                $this->paramToCreate[$tablename][] = $value;
-            }
+        $id = $this->$tablename->getIdFromName($value, $searchByExchange, $withCreate);
+        if (
+            $id == 0 &&
+            !$withCreate &&
+            !in_array($value, $this->paramToCreate[$tablename])
+        ) {
+            $this->paramToCreate[$tablename][] = $value;
         }
         return $id;
     }
 
     function verifyBeforeImport(bool $searchByExchange = false)
     {
-        $line = 2;
+        $line = 1;
         foreach ($this->fileContent as $key => $row) {
+            $line++;
             /**
              * search for mandatory
              */
@@ -252,6 +253,15 @@ class DeclarationImport
              */
             $row = $this->searchFromParameters($row, $searchByExchange, false);
             $this->fileContent[$key] = $row;
+            /**
+             * Search from institute
+             */
+            if (!empty($row["institude_code"])) {
+                $id = $this->institute->getIdFromCode($row["institute_code"]);
+                if ($id == 0) {
+                    $this->paramToCreate["institute"][] = $row["institute_code"];
+                }
+            }
         }
     }
     function exec(bool $searchByExchange)

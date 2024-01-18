@@ -159,6 +159,33 @@ group by fish_id;
 ALTER VIEW sturwild.v_fish_handlings OWNER TO sturwild_owner;
 -- ddl-end --
 
+-- object: sturwild.institute | type: TABLE --
+-- DROP TABLE IF EXISTS sturwild.institute CASCADE;
+CREATE TABLE sturwild.institute (
+	institute_id serial NOT NULL,
+	institute_code varchar NOT NULL,
+	institute_description varchar,
+	CONSTRAINT institute_pk PRIMARY KEY (institute_id)
+);
+-- ddl-end --
+COMMENT ON TABLE sturwild.institute IS E'List of institute partners';
+-- ddl-end --
+COMMENT ON COLUMN sturwild.institute.institute_code IS E'Code of the institute';
+-- ddl-end --
+COMMENT ON COLUMN sturwild.institute.institute_description IS E'Description of the institute';
+-- ddl-end --
+ALTER TABLE sturwild.institute OWNER TO sturwild_owner;
+-- ddl-end --
+
+alter table sturwild.declaration add column institude_id int;
+
+-- object: institute_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.declaration DROP CONSTRAINT IF EXISTS institute_fk CASCADE;
+ALTER TABLE sturwild.declaration ADD CONSTRAINT institute_fk FOREIGN KEY (institute_id)
+REFERENCES sturwild.institute (institute_id) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+-- ddl-end --
+
 insert into sturwild.dbversion (dbversion_number, dbversion_date)
 values
 ('24.0', '2024-01-31');

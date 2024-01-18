@@ -35,7 +35,7 @@ class Param extends ObjetBDD
     function getIdFromName(string $name, bool $searchByExchange = true, bool $withCreate = false)
     {
         $id = 0;
-        if (!empty($name)) {
+        if (strlen($name) > 0) {
             if ($searchByExchange) {
                 $field = $this->table . "_exchange";
             } else {

@@ -9,6 +9,7 @@ switch ($t_module["param"]) {
          * Display the form
          */
         $vue->set("declaration/importCsv.tpl", "corps");
+        printA($vue->get("controlDone"));
         break;
     case "control":
         /*
@@ -20,6 +21,7 @@ switch ($t_module["param"]) {
                 /**
                  * Verify the encoding
                  */
+                $module_coderetour = 1;
                 $encodings = array("UTF-8", "iso-8859-1", "iso-8859-15");
                 $currentEncoding = mb_detect_encoding(file_get_contents($_FILES['upfile']['tmp_name']), $encodings, true);
                 if ($currentEncoding != "UTF-8" && $_REQUEST["utf8_encode"] == 0 || $currentEncoding == "UTF-8" && $_REQUEST["utf8_encode"] == 1) {
@@ -38,7 +40,6 @@ switch ($t_module["param"]) {
                 $import->verifyBeforeImport();
                 if ($import->hasErrors) {
                     $vue->set(1, "hasErrors");
-                    $module_coderetour = -1;
                     unset($_SESSION["importParameters"]);
                 } else {
                     /*
@@ -50,15 +51,13 @@ switch ($t_module["param"]) {
                     } else {
                         $_SESSION["importParameters"]["filename"] = $filename;
                         $_SESSION["importParameters"]["name"] = $_FILES['upfile']['name'];
-                        $vue->set($_SESSION["importParameters"], "parameters");
+                        $vue->set($_SESSION["importParameters"], "importParameters");
                     }
                     $vue->set(0, "hasErrors");
-                    $module_coderetour = 1;
                 }
                 $vue->set($import->errors, "errors");
-                $vue->set($import->paramToCreate, "params");
+                $vue->set($import->paramToCreate, "parameters");
                 $vue->set(1, "controlDone");
-                $import->fileClose();
             } catch (Exception $e) {
                 $message->set($e->getMessage(), true);
                 $module_coderetour = -1;
@@ -66,7 +65,6 @@ switch ($t_module["param"]) {
             }
         } else {
             $message->set(_("Aucun fichier n'a été téléchargé vers le serveur"), true);
-            $module_coderetour = -1;
         }
         break;
     case "exec":
