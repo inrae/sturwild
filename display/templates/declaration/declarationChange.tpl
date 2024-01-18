@@ -209,6 +209,21 @@ Retour au détail</a>
 					</div>
 				</div>
 				<div class="form-group">
+					<label for="institute_id" class="control-label col-sm-4">
+						{t}Institut ayant recueilli la déclaration :{/t}
+					</label>
+					<div class="col-md-8">
+						<select id="institute_id" name="institute_id" class="form-control">
+							<option value="" {if $data.institute_id == ""}selected{/if}></option>
+							{foreach $institutes as $institute} 
+							<option value="{$institute.institute_id}" {if $institute.institute_id == $data.institute_id}selected{/if}>
+							{$institute.institute_code}
+							</option>
+							{/foreach}
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
 					<label for="remarks" class="control-label col-sm-4">
 						{t}Observations :{/t}
 					</label>

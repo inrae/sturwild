@@ -97,7 +97,7 @@ switch ($t_module["param"]) {
                     $message->set(_("Importation effectuée"));
                     $message->set(sprintf(_("%1s déclarations importées, dont %2s déclarations mises à jour"), $import->recorded, $import->updated));
                     $message->set(sprintf(_("Id min traité ou généré : %1s, Id max : %2s"), $import->idMin, $import->idMax));
-                    $log->setLog($_SESSION["login"],"importCSV", "declaration_id from ".$import->idMin. " to ".$import->idMax);
+                    $log->setLog($_SESSION["login"],"importDeclarationsCSV", "declaration_id from ".$import->idMin. " to ".$import->idMax);
                     $module_coderetour = 1;
                 } catch (Exception $e) {
                     if ($bdd->inTransaction()) {

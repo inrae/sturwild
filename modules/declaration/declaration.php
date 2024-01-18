@@ -113,6 +113,9 @@ switch ($t_module["param"]) {
         $vue->set($captureState->getListe(), "capture_state");
         $targetSpecies = new Param($bdd, "target_species");
         $vue->set($targetSpecies->getListe(), "target_species");
+        require_once "modules/classes/institute.class.php";
+        $institute = new Institute($bdd, $ObjetBDDParam);
+        $vue->set($institute->getListe(2),"institutes");
         /**
          * Handlings
          */

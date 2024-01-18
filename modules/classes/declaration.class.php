@@ -180,6 +180,7 @@ class Declaration extends ObjetBDD
                     "contact_coord" => $data["contact_coord"],
                     "harbour_vessel" => $data["harbour_vessel"],
                     "declaration_mode" => $data["declaration_mode"],
+                    "target_species_id"=>$data["target_species_id"],
                     "status_id" => 1,
                     "caught_number" => 1,
                     "species_id" => 1,
@@ -225,7 +226,8 @@ class Declaration extends ObjetBDD
 				country_name, ices_name, environment_name,
 				caught_number, species_name,
 				capture_state_name, gear_type_name
-        ,longitude_dd,latitude_dd
+                ,longitude_dd,latitude_dd
+                ,institute_code
 				";
         $where = $this->getWhere($param);
         $order = " order by declaration_id desc";
@@ -308,6 +310,12 @@ class Declaration extends ObjetBDD
                 $this->paramSearch["libelle"] = $param["libelle"];
             }
             $where .= ")";
+            $and = " and ";
+        }
+        if (!empty($param["institute_id"])) {
+            $where.= "$and institute_id = :institute_id";
+            $this->paramSearch["institute_id"] = $param["institute_id"];
+            $and = " and ";
         }
         return $where;
     }
