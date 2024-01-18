@@ -28,10 +28,11 @@
     {if count($data) > 0}
     <a href="index.php?module=declarationExport">
         <img src="display/images/csv_text.png" height="25">
-        {t}Exporter la liste au format CSV{/t}</a>
+        {t}Exporter la liste au format CSV (obsolète){/t}</a>
     &nbsp;
-    <a href="index.php?module=fishExport"><img src="display/images/csv_text.png" height="25">Exporter les poissons
-        correspondants au format CSV</a>
+    <a href="index.php?module=fishExport"><img src="display/images/csv_text.png" height="25">
+        {t}Exporter les poissons correspondants au format CSV (obsolète){/t}
+    </a>
     {/if}
 
     <ul class="nav nav-tabs  " id="tabResult" role="tablist" >
@@ -48,7 +49,9 @@
     </ul>
     <div class="tab-content tab-content-white col-lg-12 form-horizontal" id="tabresult-content">
         <div class="tab-pane active in" id="navlist" role="tabpanel" aria-labelledby="tablist">
-            {include file='declaration/declarationListDetail.tpl'}
+            <div class="col-lg-12">
+                {include file='declaration/declarationListDetail.tpl'}
+            </div>
         </div>
         <div class="tab-pane fade" id="navmap" role="tabpanel" aria-labelledby="tabmap">
             <div id="mapList" class="map"style="height:600px;"></div>

@@ -26,6 +26,7 @@ switch ($t_module["param"]) {
 		/**
 		 * Lecture des tables de parametre
 		 */
+		require_once "modules/classes/ices.class.php";
 		$ices = new Ices($bdd, $ObjetBDDParam);
 		$vue->set($ices->getListe(2), "ices");
 

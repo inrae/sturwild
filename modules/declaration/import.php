@@ -37,6 +37,10 @@ switch ($t_module["param"]) {
                 );
                 $import->initFileCSV($_FILES['upfile']['tmp_name'], $_REQUEST["separator"], $_REQUEST["utf8_encode"]);
                 $import->initParams($bdd);
+                include_once "modules/classes/institute.class.php";
+                $import->institute = new Institute($bdd, $ObjetBDDParam);
+                require_once "modules/classes/ices.class.php";
+                $import->ices = new Ices($bdd, $ObjetBDDParam);
                 $import->verifyBeforeImport();
                 if ($import->hasErrors) {
                     $vue->set(1, "hasErrors");
@@ -67,7 +71,7 @@ switch ($t_module["param"]) {
             $message->set(_("Aucun fichier n'a été téléchargé vers le serveur"), true);
         }
         break;
-    case "exec":
+    case "csvExec":
         if (isset($_SESSION["importParameters"])) {
             if (file_exists($_SESSION["importParameters"]["filename"])) {
                 try {
@@ -78,6 +82,10 @@ switch ($t_module["param"]) {
                     require_once "modules/classes/location.class.php";
                     $import->declaration = new Declaration($bdd, $ObjetBDDParam);
                     $import->location = new Location($bdd, $ObjetBDDParam);
+                    include_once "modules/classes/institute.class.php";
+                    $import->institute = new Institute($bdd, $ObjetBDDParam);
+                    require_once "modules/classes/ices.class.php";
+                    $import->ices = new Ices($bdd, $ObjetBDDParam);
                     /*
                      * Start a transaction
                      */
@@ -87,10 +95,12 @@ switch ($t_module["param"]) {
                     $import->exec($_SESSION["importParameters"]["use_exchange_labels"]);
                     $bdd->commit();
                     $message->set(_("Importation effectuée"));
-                    $message->set(sprintf(_("%s déclarations importées"), $import->recordedNumber));
+                    $message->set(sprintf(_("%1s déclarations importées, dont %2s déclarations mises à jour"), $import->recorded, $import->updated));
+                    $message->set(sprintf(_("Id min traité ou généré : %1s, Id max : %2s"), $import->idMin, $import->idMax));
+                    $log->setLog($_SESSION["login"],"importCSV", "declaration_id from ".$import->idMin. " to ".$import->idMax);
                     $module_coderetour = 1;
                 } catch (Exception $e) {
-                    if($bdd->inTransaction()) {
+                    if ($bdd->inTransaction()) {
                         $bdd->rollBack();
                     }
                     $module_coderetour = -1;

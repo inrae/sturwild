@@ -121,7 +121,7 @@
 	<!-- import -->
 	<importCSVDisplay action="modules/declaration/import.php" param="display" droits="param" type="smarty" retourlogin="1"/>
 	<importCSVControl action="modules/declaration/import.php" param="control" droits="param" type="smarty" modulebefore="importCSVDisplay,importCSVControl" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
-	<importCSVExec action="modules/declaration/import.php" param="control" droits="exec" modulebefore="importCSVControl" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
+	<importCSVExec action="modules/declaration/import.php" param="csvExec" droits="param" modulebefore="importCSVControl,importCSVDisplay" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
 
 	<!-- migration en-->
 	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>

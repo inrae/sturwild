@@ -1,47 +1,4 @@
 <?php
-/**
- * @author Eric Quinton
- * @copyright Copyright (c) 2015, IRSTEA / Eric Quinton
- * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
- *  Creation 4 août 2015
- */
-
-/**
- * ORM de gestion de la table ices
- *
- * @author quinton
- *
- */
-class Ices extends ObjetBDD
-{
-	/**
-	 * Constructeur
-	 *
-	 * @param PDO $link
-	 * @param array $param
-	 */
-	function __construct($link, $param = NULL)
-	{
-		if (!is_array($param))
-			$param = array();
-		$this->table = "ices";
-		$this->id_auto = 1;
-		$this->colonnes = array(
-			"ices_id" => array(
-				"type" => 1,
-				"requis" => 1,
-				"key" => 1,
-				"defaultValue" => 0
-			),
-			"ices_name" => array(
-				"type" => 0,
-				"requis" => 1
-			)
-		);
-		$param["fullDescription"] = 1;
-		parent::__construct($link, $param);
-	}
-}
 
 /**
  * ORM de gestion de la table environment

@@ -10,6 +10,7 @@
 require_once 'modules/classes/location.class.php';
 require_once 'modules/classes/fish.class.php';
 require_once 'modules/classes/param.class.php';
+require_once "modules/classes/ices.class.php";
 $ices = new Ices($bdd, $ObjetBDDParam);
 $vue->set($ices->getListe(2), "ices");
 

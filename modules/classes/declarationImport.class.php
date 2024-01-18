@@ -7,53 +7,12 @@ class DeclarationImport
 {
     private $handle;
     private $fileColumn = array();
-    private $colonnes = array(
-        "capture_method_name",
-        "origin_name",
-        "gear_type_name",
-        "species_name",
-        "capture_state_name",
-        "fate_name",
-        "target_species_name",
-        "capture_date",
-        "year",
-        "caught_number",
-        "estimated_capture_date",
-        "gear_mesh",
-        "target_species",
-        "depth",
-        "depth_min",
-        "depth_max",
-        "length_min",
-        "length_max",
-        "weight_min",
-        "weight_max",
-        "fisher_code",
-        "contact",
-        "contact_coordinates",
-        "harbour_vessel",
-        "declaration_mode",
-        "remarks",
-        "handling",
-        "identification_quality",
-        "declaration_uuid",
-        "origin_identifier",
-        "country_name",
-        "ices_name",
-        "environment_name",
-        "environment_detail_name",
-        "area_detail",
-        "longitude_gps",
-        "latitude_gps",
-        "longitude_dd",
-        "latitude_dd",
-        "accuracy_name"
-    );
-    private array $mandatory = array("origin_name", "caught_number");
+
+    private array $mandatory = array("caught_number");
     public PDO $connection;
     private $separator = ",";
     private $utf8_encode;
-    private $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "ices", "environment", "environment_detail", "accuracy_name", "handling");
+    private $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "environment", "environment_detail", "accuracy_name", "handling", "status");
 
     private $status, $origin, $capture_method, $gear_type, $target_species, $species;
     private $fileContent = array();
@@ -64,7 +23,11 @@ class DeclarationImport
     public Declaration $declaration;
     public Location $location;
     public Institute $institute;
+    public Ices $ices;
     public int $recorded = 0;
+    public int $updated = 0;
+    public int $idMin = 9999999;
+    public int $idMax = 0;
 
     function initFileCSV($filename, $separator = ",", $utf8_encode = false)
     {
@@ -158,11 +121,8 @@ class DeclarationImport
     function searchFromParameters(array $row, bool $searchByExchange = true, bool $withCreate = false): array
     {
         foreach ($this->paramTables as $tablename) {
-            if ($tablename == "ices") {
-                $colname = "ices_name";
-            } else {
-                $searchByExchange ? $colname = $tablename . "_exchange" : $colname = $tablename . "_name";
-            }
+
+            $searchByExchange ? $colname = $tablename . "_exchange" : $colname = $tablename . "_name";
             $colid = $tablename . "_id";
             if (strlen($row[$colname]) > 0) {
                 if ($tablename == "handling") {
@@ -204,8 +164,8 @@ class DeclarationImport
         $id = $this->$tablename->getIdFromName($value, $searchByExchange, $withCreate);
         if (
             $id == 0 &&
-            !$withCreate &&
-            !in_array($value, $this->paramToCreate[$tablename])
+            !$withCreate && (!isset($this->paramToCreate[$tablename]) ||
+                !in_array($value, $this->paramToCreate[$tablename]))
         ) {
             $this->paramToCreate[$tablename][] = $value;
         }
@@ -256,10 +216,25 @@ class DeclarationImport
             /**
              * Search from institute
              */
-            if (!empty($row["institude_code"])) {
+            if (!empty($row["institute_code"])) {
                 $id = $this->institute->getIdFromCode($row["institute_code"]);
-                if ($id == 0) {
+                if (
+                    $id == 0 &&
+                    (!isset($this->paramToCreate["institute"]) || !in_array($row["institute_code"], $this->paramToCreate["institute"]))
+                ) {
                     $this->paramToCreate["institute"][] = $row["institute_code"];
+                }
+            }
+            /**
+             * Search for ices
+             */
+            if (!empty($row["ices_name"])) {
+                $id = $this->ices->getIdFromName($row["ices_name"]);
+                if (
+                    $id == 0 &&
+                    (!isset($this->paramToCreate["ices"]) || !in_array($row["ices_name"], $this->paramToCreate["ices"]))
+                ) {
+                    $this->paramToCreate["ices"][] = $row["ices_name"];
                 }
             }
         }
@@ -280,6 +255,7 @@ class DeclarationImport
             if ($id > 0) {
                 $ddeclaration = $this->declaration->lire($id);
                 $dlocation = $this->location->lire($id);
+                $this->updated ++;
             } else {
                 $ddeclaration = array("declaration_id" => $id);
                 $dlocation = array();
@@ -288,6 +264,18 @@ class DeclarationImport
              * Add parameters
              */
             $row = $this->searchFromParameters($row, $searchByExchange, true);
+            if (!empty($row["institute_code"])) {
+                $row["institute_id"] = $this->institute->getIdFromCode($row["institute_code"], true);
+            }
+            if (!empty($row["ices_name"])) {
+                $row["ices_id"] = $this->ices->getIdFromName($row["ices_name"],true);
+            }
+            /**
+             * Set the status
+             */
+            if(!strlen($row["status_id"]) > 0) {
+                $row["status_id"] = 3;
+            }
             /**
              * Update declaration and location
              */
@@ -297,6 +285,12 @@ class DeclarationImport
             $dlocation["declaration_id"] = $id;
             $this->location->ecrire($dlocation);
             $this->recorded++;
+            if ($id > $this->idMax) {
+                $this->idMax = $id;
+            }
+            if ($id < $this->idMin) {
+                $this->idMin = $id;
+            }
         }
     }
 }

@@ -49,7 +49,7 @@ class Param extends ObjetBDD
                 $id = $data["id"];
             } else if ($withCreate) {
                 $data = array(
-                    "id" => 0,
+                    $this->table . "_id" => 0,
                     $this->table . "_name" => $name,
                     $this->table . "_exchange" => $name
                 );

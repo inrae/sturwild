@@ -40,15 +40,8 @@
         <tbody>
             {foreach $parameters as $parameter}
             <tr>
-                <td class="center">{$parameter@key}</td>
-                <td>
-                    {foreach $parameter as $content}
-                    {if $smarty.foreach.content.index > 0}
-                    <br>
-                    {/if}
-                    {$content}
-                    {/foreach}
-                </td>
+                <td class="">{$parameter@key}</td>
+                <td class="tableTextarea">{foreach $parameter as $content}{if $smarty.foreach.content.index > 0}<br>{/if}{$content}{/foreach}</td>
             </tr>
             {/foreach}
         </tbody>
@@ -78,7 +71,7 @@
 {if $hasErrors == 0}
 <div class="row col-md-8">
     <form id="importForm" method="post" action="index.php">
-        <input type="hidden" name="module" value="importCSVImport">
+        <input type="hidden" name="module" value="importCSVExec">
         {t}Contrôles OK.{/t} {t 1=$importParameters.name}Vous pouvez réaliser l'import du fichier (%1) :{/t}
         <button type="submit" class="btn btn-danger">{t}Déclencher l'import{/t}</button>
     </form>

@@ -471,8 +471,8 @@ class Declaration extends ObjetBDD
     function getIdByField(string $fieldName, $value):int {
         $id = 0;
         if (strlen($value)>0) {
-            $sql = "select declaration_id from declaration where :fielname = :value";
-            $data = $this->lireParamAsPrepared($sql, array("fieldname"=>$fieldName, "value"=>$value));
+            $sql = "select declaration_id from declaration where $fieldName = :value";
+            $data = $this->lireParamAsPrepared($sql, array( "value"=>$value));
             if ($data["declaration_id"] > 0) {
                 $id = $data["declaration_id"];
             }
@@ -503,7 +503,7 @@ class Declaration extends ObjetBDD
         longitude_gps, latitude_gps, longitude_declared_dd, latitude_declared_dd, 
         longitude_estimated_dd, latitude_estimated_dd, longitude_dd, latitude_dd, 
         accuracy$suffix, 
-        case when institute_code is not null then institute_code else '$localCode' end as institude_code
+        case when institute_code is not null then institute_code else '$localCode' end as institute_code
         ";
         $where = " where declaration_id in (";
         $comma = "";
