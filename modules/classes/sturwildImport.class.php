@@ -5,15 +5,15 @@ class SturwildImportException extends Exception
 
 class SturwildImport
 {
-    private $handle;
-    private $fileColumn = array();
-    private array $mandatory = array("");
+    protected $handle;
+    protected $fileColumn = array();
+    protected array $mandatory = array("");
     public PDO $connection;
-    private $separator = ",";
-    private $utf8_encode;
-    private $paramTables = array();
-    private $status, $origin, $capture_method, $gear_type, $target_species, $species;
-    private $fileContent = array();
+    protected $separator = ",";
+    protected $utf8_encode;
+    protected $paramTables = array();
+    protected $status, $origin, $capture_method, $gear_type, $target_species, $species;
+    protected $fileContent = array();
     public $paramToCreate = array();
     public array $errors = array();
     public bool $hasErrors = false;

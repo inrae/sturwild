@@ -1,8 +1,8 @@
 <?php
 class DeclarationImport extends SturwildImport{
 
-    private array $mandatory = array("caught_number");
-    private $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "environment", "environment_detail", "accuracy_name", "handling", "status");
+    protected array $mandatory = array("caught_number");
+    protected $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "environment", "environment_detail", "accuracy_name", "handling", "status");
     public Location $location;
     public Institute $institute;
     public Ices $ices;

@@ -94,11 +94,17 @@ switch ($t_module["param"]) {
                     $import->initFileCSV($_SESSION["importParameters"]["filename"], $_SESSION["importParameters"]["separator"], $_SESSION["importParameters"]["utf8_encode"]);
                     $import->initParams($bdd);
                     $import->exec($_SESSION["importParameters"]["use_exchange_labels"]);
+                    
+                    if ($import->recorded == 0) {
+                        $message->set(_("Aucune déclaration n'a été importée dans la base de données. Il est possible qu'un problème technique soit survenu"),true);
+                        $bdd->rollBack();
+                    } else {
                     $bdd->commit();
                     $message->set(_("Importation effectuée"));
                     $message->set(sprintf(_("%1s déclarations importées, dont %2s déclarations mises à jour"), $import->recorded, $import->updated));
                     $message->set(sprintf(_("Id min traité ou généré : %1s, Id max : %2s"), $import->idMin, $import->idMax));
                     $log->setLog($_SESSION["login"],"importDeclarationsCSV", "declaration_id from ".$import->idMin. " to ".$import->idMax);
+                    }
                     $module_coderetour = 1;
                 } catch (Exception $e) {
                     if ($bdd->inTransaction()) {
