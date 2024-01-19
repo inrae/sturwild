@@ -33,3 +33,6 @@ $status = new Param($bdd, "status");
 $vue->set($status->getListe(1), "status");
 $vue->set($_SESSION["searchDeclaration"]->isSearch(), "isSearch");
 $vue->set($_SESSION["searchDeclaration"]->getListeAnnee(), "years");
+require_once "modules/classes/institute.class.php";
+$institute = new Institute($bdd, $ObjetBDDParam);
+$vue->set($institute->getListe(2), "institute");

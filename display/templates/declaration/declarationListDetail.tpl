@@ -48,6 +48,7 @@
                         <th>{t}Engin de pêche{/t}</th>
                         <th>{t}Code du pécheur{/t}</th>
                         <th>{t}Interlocuteur{/t}</th>
+                        <th>{t}Institut{/t}</th>
                         <th>{t}Statut{/t}</th>
                     </tr>
                 </thead>
@@ -95,6 +96,7 @@
                         <td>{$data[lst].gear_type_name}</td>
                         <td>{$data[lst].fisher_code}</td>
                         <td>{$data[lst].contact}</td>
+                        <td>{$data[lst].institute_code}</td>
                         <td>{$data[lst].status_name}</td>
                     </tr>
                     {/section}
