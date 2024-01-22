@@ -11,6 +11,8 @@
 		<item divider="1" />
 		<item module="importCSVDisplay" label="Import CSV des déclarations"
 			tooltip="Importer les déclarations depuis un fichier CSV" droits="param" />
+			<item module="importFishCSVDisplay" label="Import CSV des poissons"
+			tooltip="Importer les poissons associés aux déclarations depuis un fichier CSV" droits="param" />
 		<item divider="1" />
 		<item module="requestList" label="Requêtes SQL"
 			tooltip="Exécution de requêtes SQL dans la base de données" droits="gestion" />

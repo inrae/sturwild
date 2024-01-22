@@ -21,7 +21,7 @@ class Param extends ObjetBDD
             $tablename . "_id" => array("type" => 1, "requis" => 1, "key" => 1, "defaultValue" => 0),
             $tablename . "_name" => array("type" => 0, "requis" => 1),
             $tablename . "_exchange" => array("type" => 0),
-            $tablename . "_order"=> array("type"=>1, "requis"=>1)
+            $tablename . "_order" => array("type" => 1, "requis" => 1)
         );
         parent::__construct($bdd);
     }
@@ -51,15 +51,17 @@ class Param extends ObjetBDD
                 $data = array(
                     $this->table . "_id" => 0,
                     $this->table . "_name" => $name,
-                    $this->table . "_exchange" => $name
+                    $this->table . "_exchange" => $name,
+                    $this->table . "_order" => 99
                 );
                 $id = $this->ecrire($data);
             }
         }
         return $id;
     }
-    function getParams() {
-        $order = $this->table."_order,".$this->table."_name";
+    function getParams()
+    {
+        $order = $this->table . "_order," . $this->table . "_name";
         return $this->getListe($order);
     }
 

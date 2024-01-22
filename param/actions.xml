@@ -124,6 +124,10 @@
 	<importCSVControl action="modules/declaration/import.php" param="control" droits="param" type="smarty" modulebefore="importCSVDisplay,importCSVControl" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
 	<importCSVExec action="modules/declaration/import.php" param="csvExec" droits="param" modulebefore="importCSVControl,importCSVDisplay" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
 
+	<importFishCSVDisplay action="modules/declaration/importFish.php" param="display" droits="param" type="smarty" retourlogin="1"/>
+	<importFishCSVControl action="modules/declaration/importFish.php" param="control" droits="param" type="smarty" modulebefore="importFishCSVDisplay,importFishCSVControl" retourok="importFishCSVDisplay" retourko="importFishCSVDisplay"/>
+	<importFishCSVExec action="modules/declaration/importFish.php" param="csvExec" droits="param" modulebefore="importFishCSVControl,importFishCSVDisplay" retourok="importFishCSVDisplay" retourko="importFishCSVDisplay"/>
+
 	<!-- migration en-->
 	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>
 	<generateParamEn  action="install/translatedb/generate_param_en.php" droits="admin" retourok="default" retourko="default"/>

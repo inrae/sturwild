@@ -39,7 +39,7 @@ switch ($t_module["param"]) {
                 $import->initParams($bdd);
                 include_once "modules/classes/declaration.class.php";
                 $import->declaration = new Declaration($bdd, $ObjetBDDParam);
-                $import->verifyBeforeImport();
+                $import->verifyBeforeImport($_REQUEST["use_exchange_labels"]);
                 if ($import->hasErrors) {
                     $vue->set(1, "hasErrors");
                     unset($_SESSION["importParameters"]);

@@ -1,5 +1,6 @@
 <?php
-class DeclarationImport extends SturwildImport{
+class DeclarationImport extends SturwildImport
+{
 
     protected array $mandatory = array("caught_number");
     protected $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "environment", "environment_detail", "accuracy_name", "handling", "status");
@@ -8,6 +9,7 @@ class DeclarationImport extends SturwildImport{
     public Ices $ices;
     function verifyBeforeImport(bool $searchByExchange = false)
     {
+        $searchByExchange ? $suffix = "_exchange" : $suffix = "_name";
         $line = 1;
         foreach ($this->fileContent as $key => $row) {
             $line++;
@@ -71,10 +73,26 @@ class DeclarationImport extends SturwildImport{
                     $this->paramToCreate["ices"][] = $row["ices_name"];
                 }
             }
+            /**
+             * Search for handlings
+             */
+            if (!empty($row["handlings$suffix"])) {
+                $a_handlings = explode(",", $row["handlings$suffix"]);
+                foreach ($a_handlings as $h) {
+                    $id = $this->_searchFromParameter("handling", $h, $searchByExchange, false);
+                    if (
+                        $id == 0 &&
+                        (!isset($this->paramToCreate["handling"]) || !in_array($h, $this->paramToCreate["handling"]))
+                    ) {
+                        $this->paramToCreate["handling"][] = $h;
+                    }
+                }
+            }
         }
     }
     function exec(bool $searchByExchange)
     {
+        $searchByExchange ? $suffix = "_exchange" : $suffix = "_name";
         foreach ($this->fileContent as $row) {
             /**
              * Search for existing record
@@ -89,7 +107,7 @@ class DeclarationImport extends SturwildImport{
             if ($id > 0) {
                 $ddeclaration = $this->declaration->lire($id);
                 $dlocation = $this->location->lire($id);
-                $this->updated ++;
+                $this->updated++;
             } else {
                 $ddeclaration = array("declaration_id" => $id);
                 $dlocation = array();
@@ -102,13 +120,23 @@ class DeclarationImport extends SturwildImport{
                 $row["institute_id"] = $this->institute->getIdFromCode($row["institute_code"], true);
             }
             if (!empty($row["ices_name"])) {
-                $row["ices_id"] = $this->ices->getIdFromName($row["ices_name"],true);
+                $row["ices_id"] = $this->ices->getIdFromName($row["ices_name"], true);
             }
             /**
              * Set the status
              */
-            if(!strlen($row["status_id"]) > 0) {
+            if (!strlen($row["status_id"]) > 0) {
                 $row["status_id"] = 3;
+            }
+            /**
+             * Search for handlings
+             */
+            if (!empty($row["handlings$suffix"])) {
+                $a_handlings = explode(",", $row["handlings$suffix"]);
+                foreach ($a_handlings as $h) {
+                    $id = $this->_searchFromParameter("handling", $h, $searchByExchange, true);
+                    $row["handlings"][] = $id;
+                }
             }
             /**
              * Update declaration and location

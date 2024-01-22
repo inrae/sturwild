@@ -154,7 +154,7 @@ class SturwildImport
      * @param bool $withCreate
      * @return integer
      */
-    private function _searchFromParameter(string $tablename, string $value, bool $searchByExchange, bool $withCreate): int
+    protected function _searchFromParameter(string $tablename, string $value, bool $searchByExchange, bool $withCreate): int
     {
         $id = $this->$tablename->getIdFromName($value, $searchByExchange, $withCreate);
         if (

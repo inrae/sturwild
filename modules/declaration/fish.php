@@ -133,4 +133,49 @@ switch ($t_module["param"]) {
 			$message->set(_("Aucune déclaration n'a été sélectionnée"), true);
 		}
 		break;
+		case "csvExec":
+			if (isset($_SESSION["importParameters"])) {
+				if (file_exists($_SESSION["importParameters"]["filename"])) {
+					try {
+						/**
+						 * Initialize classes
+						 */
+						require_once "modules/classes/declaration.class.php";
+						require_once "modules/classes/fish.class.php";
+						$import->declaration = new Declaration($bdd, $ObjetBDDParam);
+						$import->fish = new Fish($bdd, $ObjetBDDParam);
+						/*
+						 * Start a transaction
+						 */
+						$bdd->beginTransaction();
+						$import->initFileCSV($_SESSION["importParameters"]["filename"], $_SESSION["importParameters"]["separator"], $_SESSION["importParameters"]["utf8_encode"]);
+						$import->initParams($bdd);
+						$import->exec($_SESSION["importParameters"]["use_exchange_labels"]);
+						if ($import->recorded == 0) {
+							$message->set(_("Aucun poisson n'a été importé dans la base de données. Il est possible qu'un problème technique soit survenu"),true);
+							$bdd->rollBack();
+						} else {
+						$bdd->commit();
+						$message->set(_("Importation effectuée"));
+						$message->set(sprintf(_("%1s poissons importés, dont %2s poissons mis à jour"), $import->recorded, $import->updated));
+						$message->set(sprintf(_("Id min traité ou généré : %1s, Id max : %2s"), $import->idMin, $import->idMax));
+						$log->setLog($_SESSION["login"],"importDeclarationsCSV", "declaration_id from ".$import->idMin. " to ".$import->idMax);
+						}
+						$module_coderetour = 1;
+					} catch (Exception $e) {
+						if ($bdd->inTransaction()) {
+							$bdd->rollBack();
+						}
+						$module_coderetour = -1;
+						$message->set($e->getMessage(), true);
+					}
+				} else {
+					$message->set(_("Le fichier n'est plus disponible dans le serveur : recommencez l'opération"), true);
+					$module_coderetour = -1;
+				}
+			} else {
+				$module_coderetour = -1;
+				$message->set(_("Une erreur s'est produite, recommencez l'opération"), true);
+			}
+			break;	
 }

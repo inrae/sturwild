@@ -53,11 +53,11 @@
  </td>
  <td>{$fishs[lst].capture_state_name}</td>
 <td>
-    {$fishs[lst].handlings}
-    {if !empty($fishs[lst].handling)}
+    {$fishs[lst].handlings_name}
+    {if !empty($fishs[lst].handling)&& !empty($fishs[lst].handlings_name)}
     <br>
-    {$fishs[lst].handling}
     {/if}
+    {$fishs[lst].handling}
 </td>
 <td>{$fishs[lst].fate_name}</td>
 <td>{$fishs[lst].background}</td>

@@ -9,6 +9,7 @@ class FishImport extends SturwildImport
     function verifyBeforeImport(bool $searchByExchange = false)
     {
         $line = 1;
+        $searchByExchange ? $suffix = "_exchange" : $suffix = "_name";
         foreach ($this->fileContent as $key => $row) {
             $line++;
             /**
@@ -28,7 +29,7 @@ class FishImport extends SturwildImport
             if (!empty($row["origin_identifier"])) {
                 $declaration_id = $this->declaration->getIdByField("origin_identifier", $row["origin_identifier"]);
             }
-            if (!empty($row["declaration_uuid"]) && $declaration_id = 0) {
+            if (!empty($row["declaration_uuid"]) && $declaration_id == 0) {
                 $declaration_id = $this->declaration->getIdByField("declaration_uuid", $row["declaration_uuid"]);
             }
             if ($declaration_id == 0) {
@@ -43,11 +44,27 @@ class FishImport extends SturwildImport
              */
             $row = $this->searchFromParameters($row, $searchByExchange, false);
             $this->fileContent[$key] = $row;
+            /**
+             * Search for handlings
+             */
+            if (!empty($row["handlings$suffix"])) {
+                $a_handlings = explode(",", $row["handlings$suffix"]);
+                foreach ($a_handlings as $h) {
+                    $id = $this->_searchFromParameter("handling", $h, $searchByExchange, false);
+                    if (
+                        $id == 0 &&
+                        (!isset($this->paramToCreate["handling"]) || !in_array($h, $this->paramToCreate["handling"]))
+                    ) {
+                        $this->paramToCreate["handling"][] = $h;
+                    }
+                }
+            }
         }
     }
 
     function exec(bool $searchByExchange)
     {
+        $searchByExchange ? $suffix = "_exchange" : $suffix = "_name";
         foreach ($this->fileContent as $row) {
             $dfish = array();
             /**
@@ -59,15 +76,49 @@ class FishImport extends SturwildImport
             }
             if ($id > 0) {
                 $dfish = $this->fish->lire($id);
+                $this->updated++;
             } else {
                 /**
                  * Search the id of the declaration
                  */
-
+                $declaration_id = 0;
+                if (!empty($row["origin_identifier"])) {
+                    $declaration_id = $this->declaration->getIdByField("origin_identifier", $row["origin_identifier"]);
+                }
+                if ($declaration_id == 0 && !empty($row["declaration_uuid"])) {
+                    $declaration_id = $this->declaration->getIdByField("declaration_uuid", $row["declaration_uuid"]);
+                }
+                if ($declaration_id == 0) {
+                    throw new SturwildImportException(_("La déclaration correspondante à un poisson n'a pas été trouvée"));
+                }
+                $dfish["declaration_id"] = $declaration_id;
             }
-
-
-
+            /**
+             * Add parameters
+             */
+            $row = $this->searchFromParameters($row, $searchByExchange, true);
+            /**
+             * Search for handlings
+             */
+            if (!empty($row["handlings$suffix"])) {
+                $a_handlings = explode(",", $row["handlings$suffix"]);
+                foreach ($a_handlings as $h) {
+                    $id = $this->_searchFromParameter("handling", $h, $searchByExchange, true);
+                    $dfish["handlings"][] = $id;
+                }
+            }
+            /**
+             * Write data
+             */
+            $dfish = array_merge($dfish, $row);
+            $this->fish->ecrire($dfish);
+            $this->recorded++;
+            if ($id > $this->idMax) {
+                $this->idMax = $id;
+            }
+            if ($id < $this->idMin) {
+                $this->idMin = $id;
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ switch ($t_module["param"]) {
                 $import->institute = new Institute($bdd, $ObjetBDDParam);
                 require_once "modules/classes/ices.class.php";
                 $import->ices = new Ices($bdd, $ObjetBDDParam);
-                $import->verifyBeforeImport();
+                $import->verifyBeforeImport($_REQUEST["use_exchange_labels"]);
                 if ($import->hasErrors) {
                     $vue->set(1, "hasErrors");
                     unset($_SESSION["importParameters"]);
