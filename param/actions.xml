@@ -29,6 +29,7 @@
 	<fishWrite action="modules/declaration/fish.php" param="write" retourok="declarationDisplay" retourko="fishChange" modulebefore="fishChange"  droits="gestion"/>
 	<fishDelete action="modules/declaration/fish.php" param="delete" retourok="declarationDisplay" retourko="fishChange" modulebefore="fishChange"  droits="gestion"/>
 	<fishExport action="modules/declaration/fish.php" param="export" droits="consult" moduleBefore="declarationList,declarationExport" type="csv"/>
+	<fishExportCSV action="modules/declaration/fish.php" param="exportCSV" droits="consult" type="csv" retourko="declarationList"/>
 
 	<documentDelete action="modules/declaration/fish.php" param="documentDelete" retourok="fishChange" retourko="fishChange" modulebefore="fishChange,declarationDisplay"  droits="gestion"/>
 	<documentGet action="modules/declaration/document.php" param="get" type="binaire" droits="gestion"/>

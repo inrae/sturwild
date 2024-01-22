@@ -115,5 +115,22 @@ switch ($t_module["param"]) {
 			$vue->set($dataClass->getDataToExport($dataSearch));
 		}
 		break;
+	case "exportCSV":
+		if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
+			$data = $dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
+			if (!empty($data)) {
+				$vue->setFilename("sturwild_fishes-" . date('Y-m-d') . ".csv");
+				$vue->setDelimiter(",");
+				$vue->set($data);
+			} else {
+				unset($vue);
+				$module_coderetour = -1;
+				$message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true);
+			}
+		} else {
+			unset($vue);
+			$module_coderetour = -1;
+			$message->set(_("Aucune déclaration n'a été sélectionnée"), true);
+		}
+		break;
 }
-?>

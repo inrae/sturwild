@@ -1,15 +1,15 @@
 <?php
 require_once "modules/classes/sturwildImport.class.php";
-include_once "modules/classes/declarationImport.class.php";
+include_once "modules/classes/fishImport.class.php";
 require_once "modules/classes/param.class.php";
-$import = new DeclarationImport();
+$import = new FishImport();
 
 switch ($t_module["param"]) {
     case "display":
         /*
          * Display the form
          */
-        $vue->set("declaration/importCsv.tpl", "corps");
+        $vue->set("declaration/importFishCsv.tpl", "corps");
         break;
     case "control":
         /*
@@ -37,10 +37,8 @@ switch ($t_module["param"]) {
                 );
                 $import->initFileCSV($_FILES['upfile']['tmp_name'], $_REQUEST["separator"], $_REQUEST["utf8_encode"]);
                 $import->initParams($bdd);
-                include_once "modules/classes/institute.class.php";
-                $import->institute = new Institute($bdd, $ObjetBDDParam);
-                require_once "modules/classes/ices.class.php";
-                $import->ices = new Ices($bdd, $ObjetBDDParam);
+                include_once "modules/classes/declaration.class.php";
+                $import->declaration = new Declaration($bdd, $ObjetBDDParam);
                 $import->verifyBeforeImport();
                 if ($import->hasErrors) {
                     $vue->set(1, "hasErrors");
@@ -79,13 +77,9 @@ switch ($t_module["param"]) {
                      * Initialize classes
                      */
                     require_once "modules/classes/declaration.class.php";
-                    require_once "modules/classes/location.class.php";
                     $import->declaration = new Declaration($bdd, $ObjetBDDParam);
-                    $import->location = new Location($bdd, $ObjetBDDParam);
-                    include_once "modules/classes/institute.class.php";
-                    $import->institute = new Institute($bdd, $ObjetBDDParam);
-                    require_once "modules/classes/ices.class.php";
-                    $import->ices = new Ices($bdd, $ObjetBDDParam);
+                    include_once "modules/classes/fish.class.php";
+                    $import->fish = new Fish($bdd, $ObjetBDDParam);
                     /*
                      * Start a transaction
                      */
@@ -95,14 +89,14 @@ switch ($t_module["param"]) {
                     $import->exec($_SESSION["importParameters"]["use_exchange_labels"]);
                     
                     if ($import->recorded == 0) {
-                        $message->set(_("Aucune déclaration n'a été importée dans la base de données. Il est possible qu'un problème technique soit survenu"),true);
+                        $message->set(_("Aucun poisson n'a été importé dans la base de données. Il est possible qu'un problème technique soit survenu"),true);
                         $bdd->rollBack();
                     } else {
                     $bdd->commit();
                     $message->set(_("Importation effectuée"));
-                    $message->set(sprintf(_("%1s déclarations importées, dont %2s déclarations mises à jour"), $import->recorded, $import->updated));
+                    $message->set(sprintf(_("%1s poissons importés, dont %2s poissons mis à jour"), $import->recorded, $import->updated));
                     $message->set(sprintf(_("Id min traité ou généré : %1s, Id max : %2s"), $import->idMin, $import->idMax));
-                    $log->setLog($_SESSION["login"],"importDeclarationsCSV", "declaration_id from ".$import->idMin. " to ".$import->idMax);
+                    $log->setLog($_SESSION["login"],"importFishCSV", "fish_id from ".$import->idMin. " to ".$import->idMax);
                     }
                     $module_coderetour = 1;
                 } catch (Exception $e) {
