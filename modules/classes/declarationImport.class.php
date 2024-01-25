@@ -7,9 +7,10 @@ class DeclarationImport extends SturwildImport
     public Location $location;
     public Institute $institute;
     public Ices $ices;
-    function verifyBeforeImport(bool $searchByExchange = false)
+    public Fish $fish;
+    public FishImport $fishImport;
+    function verifyBeforeImport(string $suffix = "_exchange")
     {
-        $searchByExchange ? $suffix = "_exchange" : $suffix = "_name";
         $line = 1;
         foreach ($this->fileContent as $key => $row) {
             $line++;
@@ -47,7 +48,7 @@ class DeclarationImport extends SturwildImport
             /**
              * Search for parameters
              */
-            $row = $this->searchFromParameters($row, $searchByExchange, false);
+            $row = $this->searchFromParameters($row, $suffix, false);
             $this->fileContent[$key] = $row;
             /**
              * Search from institute
@@ -79,7 +80,7 @@ class DeclarationImport extends SturwildImport
             if (!empty($row["handlings$suffix"])) {
                 $a_handlings = explode(",", $row["handlings$suffix"]);
                 foreach ($a_handlings as $h) {
-                    $id = $this->_searchFromParameter("handling", $h, $searchByExchange, false);
+                    $id = $this->_searchFromParameter("handling", $h, $suffix, false);
                     if (
                         $id == 0 &&
                         (!isset($this->paramToCreate["handling"]) || !in_array($h, $this->paramToCreate["handling"]))
@@ -90,9 +91,8 @@ class DeclarationImport extends SturwildImport
             }
         }
     }
-    function exec(bool $searchByExchange)
+    function exec(string $suffix = "_exchange")
     {
-        $searchByExchange ? $suffix = "_exchange" : $suffix = "_name";
         foreach ($this->fileContent as $row) {
             /**
              * Search for existing record
@@ -115,7 +115,7 @@ class DeclarationImport extends SturwildImport
             /**
              * Add parameters
              */
-            $row = $this->searchFromParameters($row, $searchByExchange, true);
+            $row = $this->searchFromParameters($row, $suffix, true);
             if (!empty($row["institute_code"])) {
                 $row["institute_id"] = $this->institute->getIdFromCode($row["institute_code"], true);
             }
@@ -134,7 +134,7 @@ class DeclarationImport extends SturwildImport
             if (!empty($row["handlings$suffix"])) {
                 $a_handlings = explode(",", $row["handlings$suffix"]);
                 foreach ($a_handlings as $h) {
-                    $id = $this->_searchFromParameter("handling", $h, $searchByExchange, true);
+                    $id = $this->_searchFromParameter("handling", $h, $suffix, true);
                     $row["handlings"][] = $id;
                 }
             }
@@ -152,6 +152,12 @@ class DeclarationImport extends SturwildImport
             }
             if ($id < $this->idMin) {
                 $this->idMin = $id;
+            }
+            /**
+             * Search from fish
+             */
+            foreach ($row["fishes"] as $rowFish) {
+                $this->fishImport->fishWrite($rowFish, $suffix, $id);
             }
         }
     }

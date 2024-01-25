@@ -39,7 +39,8 @@ switch ($t_module["param"]) {
                 $import->initParams($bdd);
                 include_once "modules/classes/declaration.class.php";
                 $import->declaration = new Declaration($bdd, $ObjetBDDParam);
-                $import->verifyBeforeImport($_REQUEST["use_exchange_labels"]);
+                $_REQUEST["use_exchange_labels"] ? $suffix = "_exchange" : $suffix = "_name";
+                $import->verifyBeforeImport($suffix);
                 if ($import->hasErrors) {
                     $vue->set(1, "hasErrors");
                     unset($_SESSION["importParameters"]);
@@ -80,13 +81,14 @@ switch ($t_module["param"]) {
                     $import->declaration = new Declaration($bdd, $ObjetBDDParam);
                     include_once "modules/classes/fish.class.php";
                     $import->fish = new Fish($bdd, $ObjetBDDParam);
+                    $_SESSION["importParameters"]["use_exchange_labels"] ? $suffix = "_exchange" : $suffix = "_name";
                     /*
                      * Start a transaction
                      */
                     $bdd->beginTransaction();
                     $import->initFileCSV($_SESSION["importParameters"]["filename"], $_SESSION["importParameters"]["separator"], $_SESSION["importParameters"]["utf8_encode"]);
                     $import->initParams($bdd);
-                    $import->exec($_SESSION["importParameters"]["use_exchange_labels"]);
+                    $import->exec($suffix);
                     
                     if ($import->recorded == 0) {
                         $message->set(_("Aucun poisson n'a été importé dans la base de données. Il est possible qu'un problème technique soit survenu"),true);

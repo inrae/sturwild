@@ -92,7 +92,7 @@
                     {t}Nom du fichier à importer (CSV) :{/t}
                 </label>
                 <div class="col-md-8">
-                    <input type="file" name="upfile" class="form-control" required>
+                    <input type="file" name="upfile" class="form-control" accept=".csv,.txt" required>
                 </div>
             </div>
             <div class="form-group">

@@ -54,7 +54,22 @@ class SturwildImport
             }
             $this->fileClose();
         } else {
-            throw new SturwildImportException(sprintf(_("Le fichier %s n'a pas été trouvé ou n'est pas lisible"), $filename));
+            throw new SturwildImportException(sprintf(_("Le fichier %s n'a pas pu être chargé ou n'est pas lisible"), $filename));
+        }
+    }
+
+    function initFileJson ($filename, $utf8_encode = false) {
+        $this->utf8_encode = $utf8_encode;
+        if ($this->handle = fopen($filename, 'r')) {
+            $contents = fread($this->handle, filesize($filename));
+            $data = json_decode($contents, true);
+            if ($utf8_encode) {
+                $data = mb_convert_encoding($data, 'UTF-8', 'ISO-8859-15, ISO-8859-1, Windows-1252');
+            }
+            $this->fileContent = $data;
+            $this->fileClose();
+        } else {
+            throw new SturwildImportException(sprintf(_("Le fichier %s n'a pas pu être chargé ou n'est pas lisible"), $filename));
         }
     }
     /**
@@ -69,7 +84,7 @@ class SturwildImport
             if ($data !== false) {
                 if ($this->utf8_encode) {
                     foreach ($data as $key => $value) {
-                        $data[$key] = mb_convert_encoding($value, "UTF-8", "ISO-8859-1");
+                        $data[$key] = mb_convert_encoding($value, "UTF-8", "ISO-8859-15, ISO-8859-1, Windows-1252");
                     }
                 }
                 $nb = count($data);
@@ -113,18 +128,17 @@ class SturwildImport
      *
      * @return array
      */
-    function searchFromParameters(array $row, bool $searchByExchange = true, bool $withCreate = false): array
+    function searchFromParameters(array $row, string $suffix, bool $withCreate = false): array
     {
         foreach ($this->paramTables as $tablename) {
-
-            $searchByExchange ? $colname = $tablename . "_exchange" : $colname = $tablename . "_name";
+            $colname = $tablename.$suffix;
             $colid = $tablename . "_id";
             if (strlen($row[$colname]) > 0) {
                 if ($tablename == "handling") {
                     $handlings = explode(",", $row[$colname]);
                     $handlingsId = array();
                     foreach ($handlings as $handling) {
-                        $id = $this->_searchFromParameter($tablename, $handling, $searchByExchange, $withCreate);
+                        $id = $this->_searchFromParameter($tablename, $handling, $suffix, $withCreate);
                         if ($id > 0) {
                             $handlingsId[] = $id;
                         }
@@ -136,7 +150,7 @@ class SturwildImport
                     /**
                      * Search if exists the parameter
                      */
-                    $id = $this->_searchFromParameter($tablename, $row[$colname], $searchByExchange, $withCreate);
+                    $id = $this->_searchFromParameter($tablename, $row[$colname], $suffix, $withCreate);
                     if ($id > 0) {
                         $row[$colid] = $id;
                     }
@@ -154,9 +168,9 @@ class SturwildImport
      * @param bool $withCreate
      * @return integer
      */
-    protected function _searchFromParameter(string $tablename, string $value, bool $searchByExchange, bool $withCreate): int
+    protected function _searchFromParameter(string $tablename, string $value, string $suffix, bool $withCreate): int
     {
-        $id = $this->$tablename->getIdFromName($value, $searchByExchange, $withCreate);
+        $id = $this->$tablename->getIdFromName($value, $suffix, $withCreate);
         if (
             $id == 0 &&
             !$withCreate && (!isset($this->paramToCreate[$tablename]) ||
@@ -165,5 +179,8 @@ class SturwildImport
             $this->paramToCreate[$tablename][] = $value;
         }
         return $id;
+    }
+    function getFileContent():array {
+        return $this->fileContent;
     }
 }

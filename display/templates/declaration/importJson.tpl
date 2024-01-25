@@ -3,8 +3,7 @@
         var myStorage = window.localStorage;
         var defaults = {};
         try {
-            defaults = JSON.parse(myStorage.getItem("csvImportParameters"));
-            $("#separator").val(defaults["separator"]);
+            defaults = JSON.parse(myStorage.getItem("jsonImportParameters"));
             $("#utf8_encode").val(defaults["utf8_encode"]);
             $("#use_exchange_label".defaults["use_exchange_label"]).checked();
         } catch (Exception) {
@@ -15,15 +14,14 @@
                 uel = 1;
             }
             defaults = {
-                "separator": $("#separator").val(),
                 "encoding": $("#utf8_encode").val(),
                 "use_exchange_label": uel
             };
-            myStorage.setItem("csvImportParameters", JSON.stringify(defaults));
+            myStorage.setItem("jsonImportParameters", JSON.stringify(defaults));
         });
     });
 </script>
-<h2>{t}Import de poissons à partir d'un fichier CSV{/t}</h2>
+<h2>{t}Import de déclarations et des poissons associés à partir d'un fichier JSON{/t}</h2>
 
 <!-- Start import -->
 {if $controlDone == 1}
@@ -75,7 +73,7 @@
 {if $hasErrors == 0}
 <div class="row col-md-8">
     <form id="importForm" method="post" action="index.php">
-        <input type="hidden" name="module" value="importFishCSVExec">
+        <input type="hidden" name="module" value="importJSONExec">
         {t}Contrôles OK.{/t} {t 1=$importParameters.name}Vous pouvez réaliser l'import du fichier (%1) :{/t}
         <button type="submit" class="btn btn-danger">{t}Déclencher l'import{/t}</button>
     </form>
@@ -86,23 +84,13 @@
 <div class="row">
     <div class="col-md-6">
         <form class="form-horizontal" id="controlForm" method="post" action="index.php" enctype="multipart/form-data">
-            <input type="hidden" name="module" value="importFishCSVControl">
+            <input type="hidden" name="module" value="importJSONControl">
             <div class="form-group">
                 <label for="upfile" class="control-label col-md-4"><span class="red">*</span>
-                    {t}Nom du fichier à importer (CSV) :{/t}
+                    {t}Nom du fichier à importer (JSON) :{/t}
                 </label>
                 <div class="col-md-8">
-                    <input type="file" name="upfile" class="form-control" accept=".csv,.txt" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="separator" class="control-label col-md-4">{t}Séparateur utilisé :{/t}</label>
-                <div class="col-md-8">
-                    <select id="separator" name="separator" class="form-control">
-                        <option value="," {if $separator=="," }selected{/if}>{t}Virgule{/t}</option>
-                        <option value=";" {if $separator==";" }selected{/if}>{t}Point-virgule{/t}</option>
-                        <option value="tab" {if $separator=="tab" }selected{/if}>{t}Tabulation{/t}</option>
-                    </select>
+                    <input type="file" name="upfile" class="form-control" accept=".json" required>
                 </div>
             </div>
             <div class="form-group">
@@ -142,33 +130,12 @@
 <div class="row">
     <div class="col-md-6">
         <div class="bg-info">
-            <h3>{t}Liste des colonnes utilisables dans le fichier d'import{/t}</h3>
-            <p>
-                {t}Les informations suffixées par _name vont alimenter les tables de paramètres : consultez-les pour éviter de créer des libellés en doublon.{/t}&nbsp;
-                {t}Le suffixe _name peut être remplacé par _exchange : dans ce cas, les libellés attendus sont ceux qui sont utilisés pour les échanges d'informations inter-organismes{/t}
-            </p>
-
-            <u>{t}Informations obligatoires{/t}</u>
+            <h3>{t}Contenu du fichier JSON{/t}</h3>
+            {t}La structuration du fichier est la suivante :{/t}
             <ul>
-                <li><b>origin_identifier</b> {t}Code d'identification de la déclaration dans le fichier d'origine{/t}</li>
-                <li><b>declaration_uuid</b> {t}UUID de la déclaration, si existant. Peut se substituer à  origin_identifier{/t}</li>
-            </ul>
-            <u>{t}Informations facultatives{/t}</u>
-            <ul>
-                <li><b>species_name</b> {t}Espèce d'esturgeon capturée{/t}</li>
-                <li><b>tag_presence_name</b> {t}Présence de marque sur le poisson (présent, non signalé, absent){/t}</li>
-                <li><b>capture_state_name</b> {t}État à la capture{/t}</li>
-                <li><b>fate_name</b> {t}Devenir du poisson{/t}</li>
-                <li><b>weight</b> {t}Poids du poisson, en grammes{/t}</li>
-                <li><b>handling</b> {t}Manipulations effectuées (forme littéraire){/t}</li>
-                <li><b>handlings_name</b> {t}Liste des manipulations effectuées, séparées par une virgule, pour alimenter la table handling{/t}</li>
-                <li><b>tag_number</b> {t}Numéro de la marque{/t}</li>
-                <li><b>fish_length</b> {t}Longueur du poisson, en millimètres{/t}</li>
-                <li><b>estimated_cohort</b> {t}Cohorte estimée{/t}</li>
-                <li><b>validated_cohort</b> {t}Cohorte validée{/t}</li>
-                <li><b>background</b> {t}Historique du poisson{/t}</li>
-                <li><b>remarks</b> {t}Remarque sur le poisson{/t}</li>
-                <li><b>identification_quality</b> {t}0: identification incertaine, 1: identification sûre{/t}</li>
+                <li>{t}Chaque déclaration  est au premier niveau du fichier{/t}</li>
+                <li>{t}Les poissons associés sont présents dans le champ fishes de chaque déclaration{/t}</li>
+                <li>{t}Les colonnes (les variables) attendues sont les mêmes que celles décrites pour les importations en CSV{/t}</li>
             </ul>
         </div>
     </div>

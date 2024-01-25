@@ -11,8 +11,12 @@
 		<item divider="1" />
 		<item module="importCSVDisplay" label="Import CSV des déclarations"
 			tooltip="Importer les déclarations depuis un fichier CSV" droits="param" />
-			<item module="importFishCSVDisplay" label="Import CSV des poissons"
-			tooltip="Importer les poissons associés aux déclarations depuis un fichier CSV" droits="param" />
+		<item module="importFishCSVDisplay" label="Import CSV des poissons"
+			tooltip="Importer les poissons associés aux déclarations depuis un fichier CSV"
+			droits="param" />
+		<item module="importJSONDisplay" label="Import JSON des déclarations"
+			tooltip="Importation des déclarations et des poissons associés depuis un fichier au format JSON"
+			droits="param" />
 		<item divider="1" />
 		<item module="requestList" label="Requêtes SQL"
 			tooltip="Exécution de requêtes SQL dans la base de données" droits="gestion" />
@@ -46,8 +50,10 @@
 		<item divider="1" />
 		<item module="instituteList" label="Instituts" tooltip="Instituts partenaires"
 			droits="gestion" />
-			<item module="event_typeList" label="Types d'événements" tooltip="Liste des types d'événements" droits="gestion"/>
-			<item module="statusList" label="Statuts" tooltip="Liste des statuts des déclarations" droits="gestion"/>
+		<item module="event_typeList" label="Types d'événements"
+			tooltip="Liste des types d'événements" droits="gestion" />
+		<item module="statusList" label="Statuts" tooltip="Liste des statuts des déclarations"
+			droits="gestion" />
 	</item>
 	<item module="administration" label="Administration" tooltip="Administration de l'application"
 		droits="admin">

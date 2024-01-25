@@ -32,15 +32,12 @@ class Param extends ObjetBDD
      * @param boolean $withCreate: if true and the record not exists, the parameter is created
      * @return int
      */
-    function getIdFromName(string $name, bool $searchByExchange = true, bool $withCreate = false)
+    function getIdFromName(string $name, string $suffix = "_exchange", bool $withCreate = false)
     {
         $id = 0;
         if (strlen($name) > 0) {
-            if ($searchByExchange) {
-                $field = $this->table . "_exchange";
-            } else {
-                $field = $this->table . "_name";
-            }
+
+            $field = $this->table . $suffix;
             $sql = "select " . $this->table . "_id  as id
                 from $this->table
                 where $field = :name";
@@ -59,9 +56,9 @@ class Param extends ObjetBDD
         }
         return $id;
     }
-    function getParams()
+    function getParams($suffix = "_name")
     {
-        $order = $this->table . "_order," . $this->table . "_name";
+        $order = $this->table . "_order," . $this->table . $suffix;
         return $this->getListe($order);
     }
 

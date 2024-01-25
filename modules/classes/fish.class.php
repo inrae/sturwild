@@ -108,8 +108,6 @@ class Fish extends ObjetBDD
 		/**
 		 * Add the handlings
 		 */
-		test($id);
-		printA($data["handlings"]);
 		$this->ecrireTableNN("fish_handling", "fish_id", "handling_id", $id, $data["handlings"]);
 
 		/*
