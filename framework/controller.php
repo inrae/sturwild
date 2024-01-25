@@ -220,6 +220,9 @@ try {
           $vue = new VueAjaxJson();
           $isAjax = true;
           break;
+        case "jsonfile":
+          $vue = new VueJsonFile();
+          break;
         case "csv":
           $vue = new VueCsv();
           $isAjax = true;
