@@ -165,7 +165,6 @@
                 <li><b>capture_state_name</b> {t}État à la capture{/t}</li>
                 <li><b>fate_name</b> {t}Devenir des poissons{/t}</li>
                 <li><b>target_species_name</b> {t}Espèce ciblée lors de la pêche{/t}</li>
-
                 <li><b>estimated_capture_date</b> {t}Date estimée de la capture{/t}</li>
                 <li><b>caught_number</b> {t}Nombre de poissons capturés (obligatoire){/t}</li>
                 <li><b>gear_mesh</b> {t}Taille de la maille du filet{/t}</li>

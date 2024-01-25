@@ -115,7 +115,7 @@ switch ($t_module["param"]) {
         $vue->set($targetSpecies->getListe(), "target_species");
         require_once "modules/classes/institute.class.php";
         $institute = new Institute($bdd, $ObjetBDDParam);
-        $vue->set($institute->getListe(2),"institutes");
+        $vue->set($institute->getListe(2), "institutes");
         /**
          * Handlings
          */
@@ -207,13 +207,35 @@ switch ($t_module["param"]) {
         if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
             $data = $dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
             if (!empty($data)) {
-            $vue->setFilename("sturwild_declarations-" . date('Y-m-d') . ".csv");
-            $vue->setDelimiter(",");
-            $vue->set($data);
+                $vue->setFilename("sturwild_declarations-" . date('Y-m-d') . ".csv");
+                $vue->setDelimiter(",");
+                $vue->set($data);
             } else {
                 unset($vue);
                 $module_coderetour = -1;
-                $message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true); 
+                $message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true);
+            }
+        } else {
+            unset($vue);
+            $module_coderetour = -1;
+            $message->set(_("Aucune déclaration n'a été sélectionnée"), true);
+        }
+        break;
+    case "exportJSON":
+        include_once "modules/classes/fish.class.php";
+        $fish = new Fish($bdd, $ObjetBDDParam);
+        if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
+            $data = $dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
+            if (!empty($data)) {
+                foreach ($data as $k => $v) {
+                    $data[$k]["fishes"] = $fish->getDataForExport(array($v["declaration_uuid"]), $_POST["use_exchange_labels"], false, true);
+                }
+                $vue->set($data);
+                $vue->setFilename("sturwild-declarations-". date('Y-m-d') . ".json");
+            } else {
+                unset($vue);
+                $module_coderetour = -1;
+                $message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true);
             }
         } else {
             unset($vue);
@@ -223,4 +245,3 @@ switch ($t_module["param"]) {
         break;
 }
 
-?>

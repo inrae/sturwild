@@ -205,16 +205,17 @@ class Fish extends ObjetBDD
 		return $this->getListeParamAsPrepared($sql, array("fish_id" => $fish_id));
 	}
 
-	function getDataForExport(array $ids, bool $withExchangeLabel = true): array
+	function getDataForExport(array $ids, bool $withExchangeLabel = true, bool $withParentIdentifier = true, bool $searchParentByUuid = false): array
 	{
 		$data = array();
 		if (count($ids) > 0) {
 			$localCode = $_SESSION["APPLI_code"];
 			$withExchangeLabel ? $suffix = "_exchange" : $suffix = "_name";
-			$sql = "select fish_uuid, declaration_uuid, species$suffix, tag_presence$suffix, capture_state$suffix, fate$suffix, weight, handlings$suffix
+			$withParentIdentifier ? $parentIdentifier = ", declaration_uuid, case when origin_identifier is not null then origin_identifier else '$localCode' || ':' || declaration_id::varchar end as origin_identifier" : $parentIdentifier = "";
+			$sql = "select fish_uuid, species$suffix, tag_presence$suffix, capture_state$suffix, fate$suffix, weight, handlings$suffix
 			,tag_number, fish_length, estimated_cohort, validated_cohort, background
 			,f.handling ,f.remarks, f.identification_quality
-			,case when origin_identifier is not null then origin_identifier else '$localCode' || ':' || declaration_id::varchar end as origin_identifier
+			$parentIdentifier
 			from fish f
 			join declaration using (declaration_id)
 			left outer join species s on  (f.species_id = s.species_id)
@@ -223,7 +224,11 @@ class Fish extends ObjetBDD
 			left outer join tag_presence using (tag_presence_id)
 			left outer join v_fish_handlings using (fish_id)
 			";
-			$where = " where declaration_id in (";
+			if ($searchParentByUuid) {
+				$where = " where declaration_uuid in (";
+			} else {
+				$where = " where declaration_id in (";
+			}
 			$comma = "";
 			$i = 1;
 			$param = array();
