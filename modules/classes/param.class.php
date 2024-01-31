@@ -40,7 +40,8 @@ class Param extends ObjetBDD
             $field = $this->table . $suffix;
             $sql = "select " . $this->table . "_id  as id
                 from $this->table
-                where $field = :name";
+                where $field = :name
+                order by " .$this->table."_order, ".$this->table . "_id";
             $data = $this->lireParamAsPrepared($sql, array("name" => $name));
             if ($data["id"]) {
                 $id = $data["id"];
