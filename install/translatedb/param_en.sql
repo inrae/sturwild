@@ -161,17 +161,17 @@ insert into sturwild.species (species_name,species_exchange,species_order)
 ('Huso huso or bester','Huso huso or bester',2);
 insert into sturwild.capture_state (capture_state_name,capture_state_exchange,capture_state_order)
  values 
-('Très bon état','Very good condition',1),
-('Bon état','Good condition',2),
-('Etat moyen','Average condition',3),
-('Vivant','Living',4),
-('Maigre','Thin',6),
-('Faible','Poor',7),
-('Blessé','Injured',8),
-('Etat critique','Critical condition',9),
-('Mort','Dead',10),
-('Mort Echoué','Dead Stranded',11),
-('Inconnu','Unknown',12);
+('Very good condition','Very good condition',1),
+('Good condition','Good condition',2),
+('Average condition','Average condition',3),
+('Living','Living',4),
+('Thin','Thin',6),
+('Poor','Poor',7),
+('Injured','Injured',8),
+('Critical condition','Critical condition',9),
+('Dead','Dead',10),
+('Dead Stranded','Dead Stranded',11),
+('Unknown','Unknown',12);
 insert into sturwild.country (country_name,country_exchange,country_order)
  values 
 ('France','France',1),

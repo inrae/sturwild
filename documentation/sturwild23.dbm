@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" author="Éric Quinton" last-position="0,0" last-zoom="0.65" max-obj-count="60"
+<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" author="Éric Quinton" last-position="0,383" last-zoom="0.65" max-obj-count="60"
 	 default-schema="sturwild" default-owner="sturwild_owner"
 	 layers="Default layer"
 	 active-layers="0"
@@ -250,7 +250,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 	<initial-data>
 <![CDATA["dbversion_number";"dbversion_date"
-"23.0";"2023-09-29"
+"24.0";"2024-02-05"
 ]]>
 	</initial-data>
 </table>
@@ -2290,7 +2290,7 @@ left outer join sturwild.v_fish_handlings using (fish_id)]]> </expression>
 	 dst-table="sturwildgacl.aclgroup" reference-fk="aclgroup_aclgroup_fk"
 	 src-required="false" dst-required="false">
 	<line>
-		<position x="3372.75" y="315.975"/>
+		<position x="3372.75" y="299.575"/>
 	<position x="3372.75" y="227"/>
 	<position x="3226.5" y="227"/>
 	</line>

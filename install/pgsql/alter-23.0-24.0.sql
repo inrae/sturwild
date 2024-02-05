@@ -187,4 +187,4 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 insert into sturwild.dbversion (dbversion_number, dbversion_date)
 values
-('24.0', '2024-01-31');
+('24.0', '2024-00-05');

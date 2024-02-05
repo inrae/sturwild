@@ -11,11 +11,20 @@ $ERROR_level = E_ERROR ;
 $OBJETBDD_debugmode = 1;
 $APPLI_utf8 = true;
 
+/**
+ * identification
+ * BDD: sturwild database
+ * LDAP: ldap directory
+ * LDAP-BDD : first LDAP, if unknown, BDD
+ * CAS: CAS server
+ * CAS-BDD : CAS server or Sturwild database
+ * HEADER: identification by Apache server. Used for SAML identification with mod_auth_mellon
+ */
 $ident_type = "BDD";
 /*
  * Parametres concernant la base de donnees
  */
-$BDD_login = "sturwild_owner";
+$BDD_login = "sturwild";
 $BDD_passwd = "sturwildPassword";
 $BDD_dsn = "pgsql:host=localhost;dbname=sturwild";
 $BDD_schema = "sturwild,public";
@@ -23,16 +32,18 @@ $BDD_schema = "sturwild,public";
 /*
  * Rights management, logins and logs records database
  */
-$GACL_dblogin = "sturwild_owner";
+$GACL_dblogin = "sturwild";
 $GACL_dbpasswd = "sturwildPassword";
 $GACL_aco = "sturwild";
 $GACL_dsn = "pgsql:host=localhost;dbname=sturwild";
-$GACL_schema = "sturwildgacl";
+$GACL_schema = "sturwildgacl,public";
 
+/*
 $LDAP ["address" ] = "localhost";
 $LDAP ["port" ] = 389;
 $LDAP [ "basedn"] = "ou=people,ou=example,o=societe,c=fr";
 $LDAP [ "tls"] = false;
+*/
 
 /*
  * Recherche des groupes dans l'annuaire LDAP

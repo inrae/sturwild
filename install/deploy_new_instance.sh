@@ -2,11 +2,10 @@
 # install a new instance into a server
 # must be executed with login root
 # creation : Eric Quinton - 2017-05-04
-VERSION=23.0
 REPO=https://github.com/inrae/sturwild
-PHPVER=8.1
+PHPVER=8.3
 PHPINIFILE="/etc/php/$PHPVER/apache2/php.ini"
-echo "Installation of Sturwild version " $VERSION
+echo "Installation of Sturwild app "
 echo "This script is available for Debian or Ubuntu server"
 echo "this script will install apache server and php, postgresql and deploy the current version of STURWILD"
 read -p "Do you want to continue [y/n]?" response
@@ -29,7 +28,7 @@ echo "deb https://packages.sury.org/php/ $DISTRIBCODE main" | tee /etc/apt/sourc
 fi
 apt-get update
 # installing packages
-apt-get -y install unzip apache2 libapache2-mod-evasive libapache2-mod-php$PHPVER php$PHPVER php$PHPVER-ldap php$PHPVER-pgsql php$PHPVER-mbstring php$PHPVER-xml php$PHPVER-zip php$PHPVER-imagick php$PHPVER-gd fop postgresql postgresql-client postgis git
+apt-get -y install unzip apache2 libapache2-mod-evasive libapache2-mod-php$PHPVER php$PHPVER php$PHPVER-ldap php$PHPVER-pgsql php$PHPVER-mbstring php$PHPVER-xml php$PHPVER-zip php$PHPVER-imagick php$PHPVER-gd php$PHPVER-curl postgresql postgresql-client postgis git
 /usr/sbin/a2enmod ssl
 /usr/sbin/a2enmod headers
 /usr/sbin/a2enmod rewrite
@@ -119,6 +118,11 @@ echo "you must modify the file /etc/apache2/sites-available/sturwild.conf"
 echo "address of your instance, ssl parameters),"
 echo "then run this command:"
 echo "systemctl reload apache2"
+
+echo ""
+echo "To activate the sending of e-mails, you must install an application as Postfix or msmtp and configure it"
+echo "The configuration is specific of each organization: this script cannot do it, sorry..."
+
 read -p "Enter to terminate" answer
 
 fi
