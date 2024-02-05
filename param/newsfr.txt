@@ -1,5 +1,14 @@
 News
 ===========
+Version 24.0.0 du 5 février 2024
+--------------------------------
+Corrections de bugs :
+- diverses corrections concernant l'enregistrement des déclarations
+
+Nouveautés :
+- ajout de modules permettant d'importer et d'exporter les déclarations vers d'autres instances
+- mise à niveau du script d'installation d'une nouvelle instance
+
 Version 23.0.0 du 2 octobre 2023
 --------------------------------
 Nouveautés :

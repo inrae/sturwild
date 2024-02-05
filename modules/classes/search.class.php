@@ -82,7 +82,8 @@ class SearchDeclaration extends SearchParam {
 				"status_id"=>"",
 				"species_id"=>"",
 				"capture_state_id"=>"",
-				"gear_type_id"=>""
+				"gear_type_id"=>"",
+				"institute_id"=>""
 		);
 		parent::__construct ();
 	}

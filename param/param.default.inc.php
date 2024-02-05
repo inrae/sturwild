@@ -5,9 +5,9 @@
 *
 * Parametres par defaut de l'application
 */
-$APPLI_version = "23.0.1";
-$APPLI_dbversion = "23.0";
-$APPLI_versiondate = _("05/12/2023");
+$APPLI_version = "24.0.0";
+$APPLI_dbversion = "24.0";
+$APPLI_versiondate = _("05/02/2024");
 $language = "fr";
 $DEFAULT_formatdate = "fr";
 /*
@@ -203,5 +203,9 @@ $CAS_port = 443; //port of CAS server
 $CAS_debug = false; // Activation of debug mode
 $CAS_CApath=""; // path to the certificate of the CAS
 $GACL_disable_new_right = 1;
-
-?>
+$APPLI_release_url = "https://api.github.com/repos/inrae/sturwild/releases/latest";
+$APPLI_release_url_tag = "tag_name";
+$APPLI_release_url_date = "published_at";
+$APPLI_release_right_minimal = "gestion";
+$APPLI_release_user_agent = 'inrae/sturwild';
+$APPLI_release_description = "body";

@@ -16,6 +16,8 @@
 	<declarationExport action="modules/declaration/declaration.php" param="export" modulebefore="declarationList,fishExport"  droits="consult" type="csv"/>
 	<declarationNbSturioByYear action="modules/declaration/declaration.php" param="sturioByYear" droits="consult" type="smarty"/>
 	<declarationDuplicate action="modules/declaration/declaration.php" param="duplicate" modulebefore="declarationWrite,declarationDisplay"  droits="gestion" retourok="declarationDisplay" />
+	<declarationExportCSV action="modules/declaration/declaration.php" param="exportCSV" droits="consult" type="csv" retourko="declarationList"/>
+	<declarationExportJson action="modules/declaration/declaration.php" param="exportJSON" droits="consult" type="jsonfile" retourko="declarationList"/>
 
 	<eventChange action="modules/declaration/event.php" param="change" droits="gestion" type="smarty"/>
 	<eventWrite action="modules/declaration/event.php" param="write" retourok="declarationDisplay" retourko="eventChange" modulebefore="eventChange"  droits="gestion"/>
@@ -28,6 +30,7 @@
 	<fishWrite action="modules/declaration/fish.php" param="write" retourok="declarationDisplay" retourko="fishChange" modulebefore="fishChange"  droits="gestion"/>
 	<fishDelete action="modules/declaration/fish.php" param="delete" retourok="declarationDisplay" retourko="fishChange" modulebefore="fishChange"  droits="gestion"/>
 	<fishExport action="modules/declaration/fish.php" param="export" droits="consult" moduleBefore="declarationList,declarationExport" type="csv"/>
+	<fishExportCSV action="modules/declaration/fish.php" param="exportCSV" droits="consult" type="csv" retourko="declarationList"/>
 
 	<documentDelete action="modules/declaration/fish.php" param="documentDelete" retourok="fishChange" retourko="fishChange" modulebefore="fishChange,declarationDisplay"  droits="gestion"/>
 	<documentGet action="modules/declaration/document.php" param="get" type="binaire" droits="gestion"/>
@@ -41,6 +44,11 @@
 	<icesChange action="modules/param/ices.php" param="change" droits="param" type="smarty"/>
 	<icesWrite action="modules/param/ices.php" param="write" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
 	<icesDelete action="modules/param/ices.php" param="delete" retourok="icesList" retourko="icesChange" modulebefore="icesChange"  droits="param"/>
+
+	<instituteList action="modules/param/institute.php" param="list" droits="gestion" type="smarty"/>
+	<instituteChange action="modules/param/institute.php" param="change" droits="param" type="smarty"/>
+	<instituteWrite action="modules/param/institute.php" param="write" retourok="instituteList" retourko="instituteChange" modulebefore="instituteChange"  droits="param"/>
+	<instituteDelete action="modules/param/institute.php" param="delete" retourok="instituteList" retourko="instituteChange" modulebefore="instituteChange"  droits="param"/>
 
 	<!-- tables of parameters -->
 	<handlingList action="modules/param/param.php" param="list" droits="consult" tablename="handling" tabledescription="Manipulations effectuées sur les poissons" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
@@ -107,6 +115,23 @@
 	<target_speciesChange action="modules/param/param.php" param="change" droits="param" tablename="target_species" tabledescription="Liste des espèces ciblées" type="smarty" maxCountByHour="120" maxCountByDay="600" />
 	<target_speciesWrite action="modules/param/param.php" param="write" droits="param" tablename="target_species" retourok="target_speciesList" retourko="target_speciesChange" modulebefore="target_speciesChange" maxCountByHour="120" maxCountByDay="600" />
 	<target_speciesDelete action="modules/param/param.php" param="delete" droits="param" tablename="target_species" retourok="target_speciesList" retourko="target_speciesChange" modulebefore="target_speciesChange" />
+
+	<statusList action="modules/param/status.php" param="list" droits="consult" type="smarty" retourlogin="1" maxCountByHour="120" maxCountByDay="600" />
+	<statusChange action="modules/param/status.php" param="change" droits="param"  type="smarty" maxCountByHour="120" maxCountByDay="600" />
+	<statusWrite action="modules/param/status.php" param="write" droits="param" tablename="status" retourok="statusList" retourko="statusChange" modulebefore="statusChange" maxCountByHour="120" maxCountByDay="600" />
+
+	<!-- import -->
+	<importCSVDisplay action="modules/declaration/import.php" param="display" droits="param" type="smarty" retourlogin="1"/>
+	<importCSVControl action="modules/declaration/import.php" param="control" droits="param" type="smarty" modulebefore="importCSVDisplay,importCSVControl" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
+	<importCSVExec action="modules/declaration/import.php" param="csvExec" droits="param" modulebefore="importCSVControl,importCSVDisplay" retourok="importCSVDisplay" retourko="importCSVDisplay"/>
+
+	<importFishCSVDisplay action="modules/declaration/importFish.php" param="display" droits="param" type="smarty" retourlogin="1"/>
+	<importFishCSVControl action="modules/declaration/importFish.php" param="control" droits="param" type="smarty" modulebefore="importFishCSVDisplay,importFishCSVControl" retourok="importFishCSVDisplay" retourko="importFishCSVDisplay"/>
+	<importFishCSVExec action="modules/declaration/importFish.php" param="csvExec" droits="param" modulebefore="importFishCSVControl,importFishCSVDisplay" retourok="importFishCSVDisplay" retourko="importFishCSVDisplay"/>
+
+	<importJSONDisplay action="modules/declaration/import.php" param="jsonDisplay" droits="param" type="smarty" retourlogin="1"/>
+	<importJSONControl action="modules/declaration/import.php" param="jsonControl" droits="param" type="smarty" modulebefore="importJSONDisplay,importJSONControl" retourok="importJSONDisplay" retourko="importJSONDisplay"/>
+	<importJSONExec action="modules/declaration/import.php" param="jsonExec" droits="param" modulebefore="importJSONControl,importJSONDisplay" retourok="importJSONDisplay" retourko="importJSONDisplay"/>
 
 	<!-- migration en-->
 	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>

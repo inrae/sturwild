@@ -1,42 +1,26 @@
 -- Database generated with pgModeler (PostgreSQL Database Modeler).
--- pgModeler version: 1.0.5
+-- pgModeler version: 1.0.6
 -- PostgreSQL version: 13.0
 -- Project Site: pgmodeler.io
 -- Model Author: Éric Quinton
--- -- object: pg_database_owner | type: ROLE --
--- -- DROP ROLE IF EXISTS pg_database_owner;
--- CREATE ROLE pg_database_owner WITH 
--- 	INHERIT
--- 	 PASSWORD '********';
--- -- ddl-end --
--- 
 
 
 -- object: sturwild | type: SCHEMA --
 -- DROP SCHEMA IF EXISTS sturwild CASCADE;
 CREATE SCHEMA sturwild;
 -- ddl-end --
-ALTER SCHEMA sturwild OWNER TO sturwild_owner;
+ALTER SCHEMA sturwild OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl | type: SCHEMA --
 -- DROP SCHEMA IF EXISTS sturwildgacl CASCADE;
 CREATE SCHEMA sturwildgacl;
 -- ddl-end --
-ALTER SCHEMA sturwildgacl OWNER TO sturwild_owner;
+ALTER SCHEMA sturwildgacl OWNER TO sturwild;
 -- ddl-end --
 
 SET search_path TO pg_catalog,public,sturwild,sturwildgacl;
 -- ddl-end --
-
--- object: postgis | type: EXTENSION --
--- DROP EXTENSION IF EXISTS postgis CASCADE;
-/*CREATE EXTENSION postgis
-WITH SCHEMA public
-VERSION '3.3.2';
--- ddl-end --
-COMMENT ON EXTENSION postgis IS E'PostGIS geometry and geography spatial types and functions';
--- ddl-end --*/
 
 -- object: sturwild.capture_state_capture_state_id_seq | type: SEQUENCE --
 -- DROP SEQUENCE IF EXISTS sturwild.capture_state_capture_state_id_seq CASCADE;
@@ -50,7 +34,7 @@ CREATE SEQUENCE sturwild.capture_state_capture_state_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.capture_state_capture_state_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.capture_state_capture_state_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.capture_state | type: TABLE --
@@ -67,7 +51,7 @@ COMMENT ON TABLE sturwild.capture_state IS E'Table des états à la capture';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.capture_state.capture_state_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.capture_state OWNER TO sturwild_owner;
+ALTER TABLE sturwild.capture_state OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.capture_method_capture_method_id_seq | type: SEQUENCE --
@@ -82,7 +66,7 @@ CREATE SEQUENCE sturwild.capture_method_capture_method_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.capture_method_capture_method_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.capture_method_capture_method_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.capture_method | type: TABLE --
@@ -99,7 +83,7 @@ COMMENT ON TABLE sturwild.capture_method IS E'Mode de capture des poissons';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.capture_method.capture_method_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.capture_method OWNER TO sturwild_owner;
+ALTER TABLE sturwild.capture_method OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.origin_origin_id_seq | type: SEQUENCE --
@@ -114,7 +98,7 @@ CREATE SEQUENCE sturwild.origin_origin_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.origin_origin_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.origin_origin_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.origin | type: TABLE --
@@ -131,7 +115,7 @@ COMMENT ON TABLE sturwild.origin IS E'Type de capture (professionnelle, amateur,
 -- ddl-end --
 COMMENT ON COLUMN sturwild.origin.origin_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.origin OWNER TO sturwild_owner;
+ALTER TABLE sturwild.origin OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.ices_ices_id_seq | type: SEQUENCE --
@@ -146,7 +130,7 @@ CREATE SEQUENCE sturwild.ices_ices_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.ices_ices_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.ices_ices_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.ices | type: TABLE --
@@ -159,7 +143,7 @@ CREATE TABLE sturwild.ices (
 -- ddl-end --
 COMMENT ON TABLE sturwild.ices IS E'Table des zones de peche CIEM';
 -- ddl-end --
-ALTER TABLE sturwild.ices OWNER TO sturwild_owner;
+ALTER TABLE sturwild.ices OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.dbparam_dbparam_id_seq | type: SEQUENCE --
@@ -174,7 +158,7 @@ CREATE SEQUENCE sturwild.dbparam_dbparam_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.dbparam_dbparam_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.dbparam_dbparam_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.dbparam | type: TABLE --
@@ -192,7 +176,7 @@ COMMENT ON COLUMN sturwild.dbparam.dbparam_name IS E'Name of the parameter';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.dbparam.dbparam_value IS E'Value of the parameter';
 -- ddl-end --
-ALTER TABLE sturwild.dbparam OWNER TO sturwild_owner;
+ALTER TABLE sturwild.dbparam OWNER TO sturwild;
 -- ddl-end --
 
 INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'APPLI_code', E'sturwild');
@@ -220,7 +204,7 @@ CREATE SEQUENCE sturwild.dbversion_dbversion_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.dbversion_dbversion_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.dbversion_dbversion_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.dbversion | type: TABLE --
@@ -238,7 +222,10 @@ COMMENT ON COLUMN sturwild.dbversion.dbversion_number IS E'Numero de la version'
 -- ddl-end --
 COMMENT ON COLUMN sturwild.dbversion.dbversion_date IS E'Date de la version';
 -- ddl-end --
-ALTER TABLE sturwild.dbversion OWNER TO sturwild_owner;
+ALTER TABLE sturwild.dbversion OWNER TO sturwild;
+-- ddl-end --
+
+INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'24.0', E'2024-02-05');
 -- ddl-end --
 
 -- object: sturwild.declaration_declaration_id_seq | type: SEQUENCE --
@@ -253,7 +240,7 @@ CREATE SEQUENCE sturwild.declaration_declaration_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.declaration_declaration_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.declaration_declaration_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.declaration | type: TABLE --
@@ -288,7 +275,10 @@ CREATE TABLE sturwild.declaration (
 	remarks character varying,
 	handling character varying,
 	identification_quality smallint NOT NULL DEFAULT 1,
+	declaration_uuid uuid NOT NULL DEFAULT gen_random_uuid(),
+	origin_identifier varchar,
 	target_species_id integer,
+	institute_id integer,
 	CONSTRAINT capture_id PRIMARY KEY (declaration_id)
 );
 -- ddl-end --
@@ -338,7 +328,11 @@ COMMENT ON COLUMN sturwild.declaration.handling IS E'Manipulation post-capture d
 -- ddl-end --
 COMMENT ON COLUMN sturwild.declaration.identification_quality IS E'0 : identification de l''espèce incertaine\n1 : identification sûre';
 -- ddl-end --
-ALTER TABLE sturwild.declaration OWNER TO sturwild_owner;
+COMMENT ON COLUMN sturwild.declaration.declaration_uuid IS E'UUID of the declaration';
+-- ddl-end --
+COMMENT ON COLUMN sturwild.declaration.origin_identifier IS E'Identifier of the declaration into the origin database. Must be filled in to import declarations with fishes';
+-- ddl-end --
+ALTER TABLE sturwild.declaration OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.fate_fate_id_seq | type: SEQUENCE --
@@ -353,7 +347,7 @@ CREATE SEQUENCE sturwild.fate_fate_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.fate_fate_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.fate_fate_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.fate | type: TABLE --
@@ -370,7 +364,7 @@ COMMENT ON TABLE sturwild.fate IS E'Devenir des esturgeons capturés';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.fate.fate_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.fate OWNER TO sturwild_owner;
+ALTER TABLE sturwild.fate OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.document_document_id_seq | type: SEQUENCE --
@@ -385,7 +379,7 @@ CREATE SEQUENCE sturwild.document_document_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.document_document_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.document_document_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.document | type: TABLE --
@@ -400,6 +394,7 @@ CREATE TABLE sturwild.document (
 	size integer,
 	thumbnail bytea,
 	fish_id integer NOT NULL,
+	document_uuid uuid NOT NULL DEFAULT gen_random_uuid(),
 	CONSTRAINT document_pk PRIMARY KEY (document_id)
 );
 -- ddl-end --
@@ -409,7 +404,9 @@ COMMENT ON COLUMN sturwild.document.document_name IS E'Nom d''origine du documen
 -- ddl-end --
 COMMENT ON COLUMN sturwild.document.document_description IS E'Description libre du document';
 -- ddl-end --
-ALTER TABLE sturwild.document OWNER TO sturwild_owner;
+COMMENT ON COLUMN sturwild.document.document_uuid IS E'UUID of the document';
+-- ddl-end --
+ALTER TABLE sturwild.document OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.gear_type_gear_type_id_seq | type: SEQUENCE --
@@ -424,7 +421,7 @@ CREATE SEQUENCE sturwild.gear_type_gear_type_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.gear_type_gear_type_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.gear_type_gear_type_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.gear_type | type: TABLE --
@@ -441,7 +438,7 @@ COMMENT ON TABLE sturwild.gear_type IS E'Table des engins utilisés';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.gear_type.gear_type_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.gear_type OWNER TO sturwild_owner;
+ALTER TABLE sturwild.gear_type OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.species_species_id_seq | type: SEQUENCE --
@@ -456,7 +453,7 @@ CREATE SEQUENCE sturwild.species_species_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.species_species_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.species_species_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.species | type: TABLE --
@@ -475,7 +472,7 @@ COMMENT ON COLUMN sturwild.species.species_name IS E'Nom complet de l''espèce.'
 -- ddl-end --
 COMMENT ON COLUMN sturwild.species.species_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.species OWNER TO sturwild_owner;
+ALTER TABLE sturwild.species OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.estuaire_area_id_0_seq | type: SEQUENCE --
@@ -490,7 +487,7 @@ CREATE SEQUENCE sturwild.estuaire_area_id_0_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.estuaire_area_id_0_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.estuaire_area_id_0_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.event_event_id_seq | type: SEQUENCE --
@@ -505,7 +502,7 @@ CREATE SEQUENCE sturwild.event_event_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.event_event_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.event_event_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.event | type: TABLE --
@@ -524,7 +521,7 @@ COMMENT ON COLUMN sturwild.event.event_remarks IS E'Commentaire général sur l'
 -- ddl-end --
 COMMENT ON COLUMN sturwild.event.login IS E'Login de la personne ayant créé l''événement';
 -- ddl-end --
-ALTER TABLE sturwild.event OWNER TO sturwild_owner;
+ALTER TABLE sturwild.event OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.event_type_event_type_id_seq | type: SEQUENCE --
@@ -539,7 +536,7 @@ CREATE SEQUENCE sturwild.event_type_event_type_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.event_type_event_type_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.event_type_event_type_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.event_type | type: TABLE --
@@ -556,7 +553,7 @@ COMMENT ON TABLE sturwild.event_type IS E'Types d''événements possibles sur un
 -- ddl-end --
 COMMENT ON COLUMN sturwild.event_type.event_type_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.event_type OWNER TO sturwild_owner;
+ALTER TABLE sturwild.event_type OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.fish_fish_id_seq | type: SEQUENCE --
@@ -571,7 +568,7 @@ CREATE SEQUENCE sturwild.fish_fish_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.fish_fish_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.fish_fish_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.fish | type: TABLE --
@@ -592,6 +589,7 @@ CREATE TABLE sturwild.fish (
 	background character varying,
 	remarks character varying,
 	identification_quality smallint NOT NULL DEFAULT 1,
+	fish_uuid uuid NOT NULL DEFAULT gen_random_uuid(),
 	CONSTRAINT individu_id PRIMARY KEY (fish_id)
 );
 -- ddl-end --
@@ -611,7 +609,9 @@ COMMENT ON COLUMN sturwild.fish.remarks IS E'Commentaire général sur le poisso
 -- ddl-end --
 COMMENT ON COLUMN sturwild.fish.identification_quality IS E'0 : identification incertaine\n1 : identification sûre';
 -- ddl-end --
-ALTER TABLE sturwild.fish OWNER TO sturwild_owner;
+COMMENT ON COLUMN sturwild.fish.fish_uuid IS E'UUID of the fish';
+-- ddl-end --
+ALTER TABLE sturwild.fish OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.location | type: TABLE --
@@ -655,7 +655,7 @@ COMMENT ON COLUMN sturwild.location.longitude_dd IS E'Longitude utilisée, au fo
 -- ddl-end --
 COMMENT ON COLUMN sturwild.location.latitude_dd IS E'Latitude utilisée, au format décimal';
 -- ddl-end --
-ALTER TABLE sturwild.location OWNER TO sturwild_owner;
+ALTER TABLE sturwild.location OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.environment_environment_id_seq | type: SEQUENCE --
@@ -670,7 +670,7 @@ CREATE SEQUENCE sturwild.environment_environment_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.environment_environment_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.environment_environment_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.environment_detail_environment_detail_id_seq | type: SEQUENCE --
@@ -685,7 +685,7 @@ CREATE SEQUENCE sturwild.environment_detail_environment_detail_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.environment_detail_environment_detail_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.environment_detail_environment_detail_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.environment_detail | type: TABLE --
@@ -702,7 +702,7 @@ COMMENT ON TABLE sturwild.environment_detail IS E'Milieu détaillé';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.environment_detail.environment_detail_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.environment_detail OWNER TO sturwild_owner;
+ALTER TABLE sturwild.environment_detail OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.environment | type: TABLE --
@@ -723,7 +723,7 @@ COMMENT ON COLUMN sturwild.environment.environment_name IS E'Nom du milieu';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.environment.environment_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.environment OWNER TO sturwild_owner;
+ALTER TABLE sturwild.environment OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.mime_type_mime_type_id_seq | type: SEQUENCE --
@@ -738,7 +738,7 @@ CREATE SEQUENCE sturwild.mime_type_mime_type_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.mime_type_mime_type_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.mime_type_mime_type_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.mime_type | type: TABLE --
@@ -756,7 +756,7 @@ COMMENT ON COLUMN sturwild.mime_type.content_type IS E'type mime officiel';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.mime_type.extension IS E'Extension du fichier correspondant';
 -- ddl-end --
-ALTER TABLE sturwild.mime_type OWNER TO sturwild_owner;
+ALTER TABLE sturwild.mime_type OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.country_country_id_seq | type: SEQUENCE --
@@ -771,7 +771,7 @@ CREATE SEQUENCE sturwild.country_country_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.country_country_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.country_country_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.country | type: TABLE --
@@ -788,7 +788,7 @@ COMMENT ON TABLE sturwild.country IS E'Pays de pêche';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.country.country_id IS E'Identifiant du pays';
 -- ddl-end --
-ALTER TABLE sturwild.country OWNER TO sturwild_owner;
+ALTER TABLE sturwild.country OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.accuracy_accuracy_id_seq | type: SEQUENCE --
@@ -803,7 +803,7 @@ CREATE SEQUENCE sturwild.accuracy_accuracy_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.accuracy_accuracy_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.accuracy_accuracy_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.accuracy | type: TABLE --
@@ -820,7 +820,7 @@ COMMENT ON TABLE sturwild.accuracy IS E'Précision de la localisation du point G
 -- ddl-end --
 COMMENT ON COLUMN sturwild.accuracy.accuracy_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.accuracy OWNER TO sturwild_owner;
+ALTER TABLE sturwild.accuracy OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.tag_presence_tag_presence_id_seq | type: SEQUENCE --
@@ -835,7 +835,7 @@ CREATE SEQUENCE sturwild.tag_presence_tag_presence_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.tag_presence_tag_presence_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.tag_presence_tag_presence_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.tag_presence | type: TABLE --
@@ -852,7 +852,7 @@ COMMENT ON TABLE sturwild.tag_presence IS E'Table des types de présence de marq
 -- ddl-end --
 COMMENT ON COLUMN sturwild.tag_presence.tag_presence_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.tag_presence OWNER TO sturwild_owner;
+ALTER TABLE sturwild.tag_presence OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.request_request_id_seq | type: SEQUENCE --
@@ -867,7 +867,7 @@ CREATE SEQUENCE sturwild.request_request_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.request_request_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.request_request_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.request | type: TABLE --
@@ -897,7 +897,7 @@ COMMENT ON COLUMN sturwild.request.login IS E'Login of the creator of the reques
 -- ddl-end --
 COMMENT ON COLUMN sturwild.request.datefields IS E'List of the date fields used in the request, separated by a comma, for format it';
 -- ddl-end --
-ALTER TABLE sturwild.request OWNER TO sturwild_owner;
+ALTER TABLE sturwild.request OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.status_status_id_seq | type: SEQUENCE --
@@ -912,7 +912,7 @@ CREATE SEQUENCE sturwild.status_status_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwild.status_status_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwild.status_status_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.status | type: TABLE --
@@ -929,7 +929,7 @@ COMMENT ON TABLE sturwild.status IS E'Table des statuts de la déclaration';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.status.status_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.status OWNER TO sturwild_owner;
+ALTER TABLE sturwild.status OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.aclacl | type: TABLE --
@@ -942,7 +942,7 @@ CREATE TABLE sturwildgacl.aclacl (
 -- ddl-end --
 COMMENT ON TABLE sturwildgacl.aclacl IS E'Table des droits attribués';
 -- ddl-end --
-ALTER TABLE sturwildgacl.aclacl OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.aclacl OWNER TO sturwild;
 -- ddl-end --
 
 INSERT INTO sturwildgacl.aclacl (aclaco_id, aclgroup_id) VALUES (E'1', E'1');
@@ -966,7 +966,7 @@ CREATE SEQUENCE sturwildgacl.aclaco_aclaco_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwildgacl.aclaco_aclaco_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwildgacl.aclaco_aclaco_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.aclaco | type: TABLE --
@@ -980,7 +980,7 @@ CREATE TABLE sturwildgacl.aclaco (
 -- ddl-end --
 COMMENT ON TABLE sturwildgacl.aclaco IS E'Table des droits gérés';
 -- ddl-end --
-ALTER TABLE sturwildgacl.aclaco OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.aclaco OWNER TO sturwild;
 -- ddl-end --
 
 INSERT INTO sturwildgacl.aclaco (aclappli_id, aco) VALUES (E'1', E'admin');
@@ -1004,7 +1004,7 @@ CREATE SEQUENCE sturwildgacl.aclappli_aclappli_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwildgacl.aclappli_aclappli_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwildgacl.aclappli_aclappli_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.aclappli | type: TABLE --
@@ -1022,7 +1022,7 @@ COMMENT ON COLUMN sturwildgacl.aclappli.appli IS E'Nom de l''application pour la
 -- ddl-end --
 COMMENT ON COLUMN sturwildgacl.aclappli.applidetail IS E'Description de l''application';
 -- ddl-end --
-ALTER TABLE sturwildgacl.aclappli OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.aclappli OWNER TO sturwild;
 -- ddl-end --
 
 INSERT INTO sturwildgacl.aclappli (aclappli_id, appli, applidetail) VALUES (E'1', E'sturwild', DEFAULT);
@@ -1040,7 +1040,7 @@ CREATE SEQUENCE sturwildgacl.aclgroup_aclgroup_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwildgacl.aclgroup_aclgroup_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwildgacl.aclgroup_aclgroup_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.aclgroup | type: TABLE --
@@ -1054,7 +1054,7 @@ CREATE TABLE sturwildgacl.aclgroup (
 -- ddl-end --
 COMMENT ON TABLE sturwildgacl.aclgroup IS E'Groupes des logins';
 -- ddl-end --
-ALTER TABLE sturwildgacl.aclgroup OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.aclgroup OWNER TO sturwild;
 -- ddl-end --
 
 INSERT INTO sturwildgacl.aclgroup (groupe, aclgroup_id_parent) VALUES (E'admin', DEFAULT);
@@ -1078,7 +1078,7 @@ CREATE SEQUENCE sturwildgacl.acllogin_acllogin_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwildgacl.acllogin_acllogin_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwildgacl.acllogin_acllogin_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.acllogin | type: TABLE --
@@ -1097,7 +1097,7 @@ COMMENT ON COLUMN sturwildgacl.acllogin.logindetail IS E'Nom affiché';
 -- ddl-end --
 COMMENT ON COLUMN sturwildgacl.acllogin.totp_key IS E'TOTP secret key for the user';
 -- ddl-end --
-ALTER TABLE sturwildgacl.acllogin OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.acllogin OWNER TO sturwild;
 -- ddl-end --
 
 INSERT INTO sturwildgacl.acllogin (login, logindetail, totp_key) VALUES (E'admin', E'admin', DEFAULT);
@@ -1113,10 +1113,11 @@ CREATE TABLE sturwildgacl.acllogingroup (
 -- ddl-end --
 COMMENT ON TABLE sturwildgacl.acllogingroup IS E'Table des relations entre les logins et les groupes';
 -- ddl-end --
-ALTER TABLE sturwildgacl.acllogingroup OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.acllogingroup OWNER TO sturwild;
 -- ddl-end --
 
 INSERT INTO sturwildgacl.acllogingroup (acllogin_id, aclgroup_id) VALUES (E'1', E'1');
+-- ddl-end --
 INSERT INTO sturwildgacl.acllogingroup (acllogin_id, aclgroup_id) VALUES (E'1', E'4');
 -- ddl-end --
 
@@ -1132,7 +1133,7 @@ CREATE SEQUENCE sturwildgacl.log_log_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwildgacl.log_log_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwildgacl.log_log_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.log | type: TABLE --
@@ -1155,7 +1156,7 @@ COMMENT ON COLUMN sturwildgacl.log.commentaire IS E'Donnees complementaires enre
 -- ddl-end --
 COMMENT ON COLUMN sturwildgacl.log.ipaddress IS E'Adresse IP du client';
 -- ddl-end --
-ALTER TABLE sturwildgacl.log OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.log OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.seq_logingestion_id | type: SEQUENCE --
@@ -1170,7 +1171,7 @@ CREATE SEQUENCE sturwildgacl.seq_logingestion_id
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwildgacl.seq_logingestion_id OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwildgacl.seq_logingestion_id OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.logingestion | type: TABLE --
@@ -1196,7 +1197,7 @@ COMMENT ON COLUMN sturwildgacl.logingestion.nbattempts IS E'Number of connection
 -- ddl-end --
 COMMENT ON COLUMN sturwildgacl.logingestion.lastattempt IS E'last attempt of connection';
 -- ddl-end --
-ALTER TABLE sturwildgacl.logingestion OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.logingestion OWNER TO sturwild;
 -- ddl-end --
 
 INSERT INTO sturwildgacl.logingestion (login, password, nom, prenom, mail, datemodif, actif, is_expired, is_clientws, tokenws, nbattempts, lastattempt) VALUES (E'admin', E'cd916028a2d8a1b901e831246dd5b9b4d3832786ddc63bbf5af4b50d9fc98f50', E'admin', DEFAULT, DEFAULT, DEFAULT, E'1', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
@@ -1214,7 +1215,7 @@ CREATE SEQUENCE sturwildgacl.passwordlost_passwordlost_id_seq
 	OWNED BY NONE;
 
 -- ddl-end --
-ALTER SEQUENCE sturwildgacl.passwordlost_passwordlost_id_seq OWNER TO sturwild_owner;
+ALTER SEQUENCE sturwildgacl.passwordlost_passwordlost_id_seq OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwildgacl.passwordlost | type: TABLE --
@@ -1234,7 +1235,7 @@ COMMENT ON COLUMN sturwildgacl.passwordlost.token IS E'Jeton utilise pour le ren
 -- ddl-end --
 COMMENT ON COLUMN sturwildgacl.passwordlost.expiration IS E'Date d''expiration du jeton';
 -- ddl-end --
-ALTER TABLE sturwildgacl.passwordlost OWNER TO sturwild_owner;
+ALTER TABLE sturwildgacl.passwordlost OWNER TO sturwild;
 -- ddl-end --
 
 -- object: log_commentaire_idx | type: INDEX --
@@ -1338,7 +1339,7 @@ SELECT location.declaration_id,
      LEFT JOIN sturwild.environment USING (environment_id)
      LEFT JOIN sturwild.fate USING (fate_id);
 -- ddl-end --
-ALTER VIEW sturwild.v_location OWNER TO sturwild_owner;
+ALTER VIEW sturwild.v_location OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.handling | type: TABLE --
@@ -1355,7 +1356,7 @@ COMMENT ON TABLE sturwild.handling IS E'Types of handling used after catch';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.handling.handling_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.handling OWNER TO sturwild_owner;
+ALTER TABLE sturwild.handling OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.declaration_handling | type: TABLE --
@@ -1368,7 +1369,7 @@ CREATE TABLE sturwild.declaration_handling (
 -- ddl-end --
 COMMENT ON TABLE sturwild.declaration_handling IS E'List of all handling for a declaration';
 -- ddl-end --
-ALTER TABLE sturwild.declaration_handling OWNER TO sturwild_owner;
+ALTER TABLE sturwild.declaration_handling OWNER TO sturwild;
 -- ddl-end --
 
 -- object: declaration_fk | type: CONSTRAINT --
@@ -1382,7 +1383,7 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 -- ALTER TABLE sturwild.declaration_handling DROP CONSTRAINT IF EXISTS handling_fk CASCADE;
 ALTER TABLE sturwild.declaration_handling ADD CONSTRAINT handling_fk FOREIGN KEY (handling_id)
 REFERENCES sturwild.handling (handling_id) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: sturwild.target_species | type: TABLE --
@@ -1399,7 +1400,7 @@ COMMENT ON TABLE sturwild.target_species IS E'List of species targeted';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.target_species.target_species_exchange IS E'Name in english to exchange data between instances of Sturwild';
 -- ddl-end --
-ALTER TABLE sturwild.target_species OWNER TO sturwild_owner;
+ALTER TABLE sturwild.target_species OWNER TO sturwild;
 -- ddl-end --
 
 -- object: target_species_fk | type: CONSTRAINT --
@@ -1415,12 +1416,13 @@ CREATE VIEW sturwild.v_declaration_handlings
 AS 
 
 select declaration_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
+array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
 from sturwild.declaration_handling
 join sturwild.handling using (handling_id)
 group by declaration_id;
 -- ddl-end --
-ALTER VIEW sturwild.v_declaration_handlings OWNER TO sturwild_owner;
+ALTER VIEW sturwild.v_declaration_handlings OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.fish_handling | type: TABLE --
@@ -1428,25 +1430,10 @@ ALTER VIEW sturwild.v_declaration_handlings OWNER TO sturwild_owner;
 CREATE TABLE sturwild.fish_handling (
 	fish_id integer NOT NULL,
 	handling_id integer NOT NULL,
-	CONSTRAINT fish_handling_pk PRIMARY KEY (fish_id, handling_id)
+	CONSTRAINT fish_handling_pk PRIMARY KEY (fish_id,handling_id)
 );
 -- ddl-end --
-ALTER TABLE sturwild.fish_handling OWNER TO sturwild_owner;
--- ddl-end --
-
-
--- object: fish_fk | type: CONSTRAINT --
--- ALTER TABLE sturwild.fish_handling DROP CONSTRAINT IF EXISTS fish_fk CASCADE;
-ALTER TABLE sturwild.fish_handling ADD CONSTRAINT fish_fk FOREIGN KEY (fish_id)
-REFERENCES sturwild.fish (fish_id) MATCH FULL
-ON DELETE CASCADE ON UPDATE CASCADE;
--- ddl-end --
-
--- object: handling_fk | type: CONSTRAINT --
--- ALTER TABLE sturwild.fish_handling DROP CONSTRAINT IF EXISTS handling_fk CASCADE;
-ALTER TABLE sturwild.fish_handling ADD CONSTRAINT handling_fk FOREIGN KEY (handling_id)
-REFERENCES sturwild.handling (handling_id) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE sturwild.fish_handling OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.v_fish_handlings | type: VIEW --
@@ -1455,12 +1442,13 @@ CREATE VIEW sturwild.v_fish_handlings
 AS 
 
 select fish_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
+array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
 from sturwild.fish_handling
 join sturwild.handling using (handling_id)
 group by fish_id;
 -- ddl-end --
-ALTER VIEW sturwild.v_fish_handlings OWNER TO sturwild_owner;
+ALTER VIEW sturwild.v_fish_handlings OWNER TO sturwild;
 -- ddl-end --
 
 -- object: sturwild.v_fish | type: VIEW --
@@ -1487,7 +1475,73 @@ left outer join sturwild.v_fish_handlings using (fish_id);
 -- ddl-end --
 COMMENT ON VIEW sturwild.v_fish IS E'Detail of a fish';
 -- ddl-end --
-ALTER VIEW sturwild.v_fish OWNER TO sturwild_owner;
+ALTER VIEW sturwild.v_fish OWNER TO sturwild;
+-- ddl-end --
+
+-- object: fish_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.fish_handling DROP CONSTRAINT IF EXISTS fish_fk CASCADE;
+ALTER TABLE sturwild.fish_handling ADD CONSTRAINT fish_fk FOREIGN KEY (fish_id)
+REFERENCES sturwild.fish (fish_id) MATCH FULL
+ON DELETE CASCADE ON UPDATE CASCADE;
+-- ddl-end --
+
+-- object: handling_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.fish_handling DROP CONSTRAINT IF EXISTS handling_fk CASCADE;
+ALTER TABLE sturwild.fish_handling ADD CONSTRAINT handling_fk FOREIGN KEY (handling_id)
+REFERENCES sturwild.handling (handling_id) MATCH FULL
+ON DELETE CASCADE ON UPDATE CASCADE;
+-- ddl-end --
+
+-- object: declaration_uid_idx | type: INDEX --
+-- DROP INDEX IF EXISTS sturwild.declaration_uid_idx CASCADE;
+CREATE INDEX declaration_uid_idx ON sturwild.declaration
+USING btree
+(
+	declaration_uuid
+);
+-- ddl-end --
+
+-- object: fish_uuid_idx | type: INDEX --
+-- DROP INDEX IF EXISTS sturwild.fish_uuid_idx CASCADE;
+CREATE INDEX fish_uuid_idx ON sturwild.fish
+USING btree
+(
+	fish_uuid
+);
+-- ddl-end --
+
+-- object: document_uuid_idx | type: INDEX --
+-- DROP INDEX IF EXISTS sturwild.document_uuid_idx CASCADE;
+CREATE INDEX document_uuid_idx ON sturwild.document
+USING btree
+(
+	document_uuid
+);
+-- ddl-end --
+
+-- object: sturwild.institute | type: TABLE --
+-- DROP TABLE IF EXISTS sturwild.institute CASCADE;
+CREATE TABLE sturwild.institute (
+	institute_id serial NOT NULL,
+	institute_code varchar NOT NULL,
+	institute_description varchar,
+	CONSTRAINT institute_pk PRIMARY KEY (institute_id)
+);
+-- ddl-end --
+COMMENT ON TABLE sturwild.institute IS E'List of institute partners';
+-- ddl-end --
+COMMENT ON COLUMN sturwild.institute.institute_code IS E'Code of the institute';
+-- ddl-end --
+COMMENT ON COLUMN sturwild.institute.institute_description IS E'Description of the institute';
+-- ddl-end --
+ALTER TABLE sturwild.institute OWNER TO sturwild;
+-- ddl-end --
+
+-- object: institute_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.declaration DROP CONSTRAINT IF EXISTS institute_fk CASCADE;
+ALTER TABLE sturwild.declaration ADD CONSTRAINT institute_fk FOREIGN KEY (institute_id)
+REFERENCES sturwild.institute (institute_id) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: capture_etat_declaration_fk | type: CONSTRAINT --
@@ -1692,8 +1746,4 @@ ALTER TABLE sturwildgacl.passwordlost ADD CONSTRAINT logingestion_passwordlost_f
 REFERENCES sturwildgacl.logingestion (id) MATCH SIMPLE
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
-
-insert into sturwild.dbversion (dbversion_number, dbversion_date)
-values
-('23.0', '2023-09-29');
 

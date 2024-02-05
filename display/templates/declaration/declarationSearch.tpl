@@ -1,7 +1,7 @@
 <div>
 	<fieldset>
 		<legend>{t}Critères de recherche des déclarations{/t}</legend>
-		<form class="form-horizontal protoform col-md-10" method="GET" action="index.php" id="search">
+		<form class="form-horizontal col-lg-10 col-md-12" method="GET" action="index.php" id="search">
 			<input type="hidden" name="module" value="declarationList">
 			<input type="hidden" name="isSearch" value="1">
 			<div class="form-group">
@@ -11,14 +11,26 @@
 						placeholder="{t}N° déclaration, code pêcheur ou contact{/t}"
 						title="{t}Recherche à partir du N° de la déclaration, du code du pêcheur ou du nom du contact{/t}">
 				</div>
-				<label for="status_id" class="col-sm-2 control-label">{t}Statut :{/t}</label>
-				<div class="col-sm-4">
-					<select class="form-control  id=" status_id" name="status_id">
+				<label for="status_id" class="col-sm-1 control-label">{t}Statut :{/t}</label>
+				<div class="col-sm-2">
+					<select class="form-control"  id="status_id" name="status_id">
 						<option value="" {if $dataSearch.status_id=="" }selected{/if}>{t}Sélectionnez...{/t}</option>
 						{section name=lst loop=$status}
 						<option value={$status[lst].status_id} {if
 							$dataSearch.status_id==$status[lst].status_id}selected{/if}>
 							{$status[lst].status_name}
+						</option>
+						{/section}
+					</select>
+				</div>
+				<label for="institute_id" class="col-sm-1 control-label">{t}Institut :{/t}</label>
+				<div class="col-sm-2">
+					<select class="form-control"  id="institute_id" name="institute_id">
+						<option value="" {if $dataSearch.institute_id=="" }selected{/if}>{t}Sélectionnez...{/t}</option>
+						{section name=lst loop=$institute}
+						<option value={$institute[lst].institute_id} {if
+							$dataSearch.institute_id==$institute[lst].institute_id}selected{/if}>
+							{$institute[lst].institute_code}
 						</option>
 						{/section}
 					</select>
@@ -38,8 +50,8 @@
 						{/section}
 					</select>
 				</div>
-				<label for="capture_state_id" class="col-sm-2 control-label">{t}État à la capture :{/t}</label>
-				<div class="col-sm-4">
+				<label for="capture_state_id" class="col-sm-4 control-label">{t}État à la capture :{/t}</label>
+				<div class="col-sm-2">
 					<select class="form-control" name="capture_state_id" id="capture_state_id">
 						<option value="" {if $dataSearch.capture_state_id=="" }selected{/if}>{t}Sélectionnez...{/t}
 						</option>
@@ -66,8 +78,8 @@
 						{/section}
 					</select>
 				</div>
-				<label for="ices_id" class="col-sm-1 control-label">{t}Zone CIEM :{/t}</label>
-				<div class="col-sm-2">
+				<label for="ices_id" class="col-sm-2 control-label">{t}Zone CIEM :{/t}</label>
+				<div class="col-sm-1">
 					<select class="form-control" id="ices_id" name="ices_id">
 						<option value="" {if $dataSearch.ices_id=="" }selected{/if}>{t}Sélectionnez...{/t}</option>
 						{section name=lst loop=$ices}
@@ -77,8 +89,8 @@
 						{/section}
 					</select>
 				</div>
-				<label for="gear_type_id" class="col-sm-2 control-label">{t}Engin de pêche :{/t}</label>
-				<div class="col-sm-4">
+				<label for="gear_type_id" class="col-sm-4 control-label">{t}Engin de pêche :{/t}</label>
+				<div class="col-sm-2">
 					<select class="form-control " id="gear_type_id" name="gear_type_id">
 						<option value="" {if $dataSearch.gear_type_id=="" }selected{/if}>{t}Sélectionnez...{/t}</option>
 						{section name=lst loop=$gear_type}
@@ -105,7 +117,7 @@
 					</select>
 				</div>
 				<label for="year_debut" class="col-sm-2 control-label">{t}Année de la déclaration : de{/t}</label>
-				<div class="col-sm-2">
+				<div class="col-sm-1">
 					<select class="form-control" id="year_debut" name="year_debut">
 						{foreach from=$years item=year}
 						<option value="{$year}" {if $year==$dataSearch.year_debut}selected{/if}>
@@ -114,8 +126,8 @@
 						{/foreach}
 					</select>
 				</div>
-				<label for="year_fin" class="col-sm-2 control-label">{t}à{/t} </label>
-				<div class="col-sm-2">
+				<label for="year_fin" class="col-sm-1 control-label">{t}à{/t} </label>
+				<div class="col-sm-1">
 					<select class="form-control" id="year_fin" name="year_fin">
 						{foreach from=$years item=year}
 						<option value="{$year}" {if $year==$dataSearch.year_fin}selected{/if}>

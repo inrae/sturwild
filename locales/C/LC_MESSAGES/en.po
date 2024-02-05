@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-05 10:13+0100\n"
+"POT-Creation-Date: 2024-02-05 15:33+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -27,456 +27,487 @@ msgid "Déclarations"
 msgstr "Declarations"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:9
+#: ../../../param/menu.xml:10
 msgid "Nb Sturio par année"
 msgstr "Number of fish by year"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:9
+#: ../../../param/menu.xml:10
 msgid "Nombre d'Esturgeons d'Europe capturés par année"
 msgstr "Number of fish catched by year"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:11
+#: ../../../param/menu.xml:13
+msgid "Import CSV des déclarations"
+msgstr "CSV import of declarations"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:13
+msgid "Importer les déclarations depuis un fichier CSV"
+msgstr "Import declarations from a CSV file"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:16
+msgid "Import CSV des poissons"
+msgstr "CSV import of fish"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:16
+msgid "Importer les poissons associés aux déclarations depuis un fichier CSV"
+msgstr "Import the fish associated with declarations from a CSV file"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:19
+msgid "Import JSON des déclarations"
+msgstr "JSON import of declarations"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:19
+msgid ""
+"Importation des déclarations et des poissons associés depuis un fichier au "
+"format JSON"
+msgstr "Importing declarations and associated fish from a file in JSON format"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:22
 msgid "Requêtes SQL"
 msgstr "SQL requests"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:11
+#: ../../../param/menu.xml:22
 msgid "Exécution de requêtes SQL dans la base de données"
 msgstr "Run SQL requests on the database"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:13
+#: ../../../param/menu.xml:25
 msgid "Paramètres"
 msgstr "Settings"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:13
+#: ../../../param/menu.xml:25
 msgid "Tables de paramètres"
 msgstr "Parameter tables"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:14
+#: ../../../param/menu.xml:26
 msgid "Zones CIEM"
 msgstr "ICES zones"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:14 ../../../display/templates/param/ciemList.tpl:1
+#: ../../../param/menu.xml:26 ../../../display/templates/param/icesList.tpl:1
 msgid "Liste des zones CIEM"
 msgstr "List of CIEM zones"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:15
+#: ../../../param/menu.xml:27
 msgid "Pays"
 msgstr "Country"
 
 #. (itstool) path: item/item@tooltip
-#. (itstool) path: navigation/countryList@tabledescription
-#. (itstool) path: navigation/countryChange@tabledescription
-#: ../../../param/menu.xml:15
+#: ../../../param/menu.xml:27
 #: ../../../display/templates/param/countryList.tpl:1
-#: ../../../param/actions.xml:61 ../../../param/actions.xml:62
 msgid "Liste des pays"
 msgstr "List of contries"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:16
+#: ../../../param/menu.xml:28
 msgid "Milieux"
 msgstr "Environments"
 
 #. (itstool) path: item/item@tooltip
-#. (itstool) path: navigation/environmentList@tabledescription
-#. (itstool) path: navigation/environmentChange@tabledescription
-#: ../../../param/menu.xml:16 ../../../param/actions.xml:101
-#: ../../../param/actions.xml:102
+#: ../../../param/menu.xml:28
 msgid "Liste des milieux"
 msgstr "List of environments"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:17
+#: ../../../param/menu.xml:30
 msgid "Milieux détaillés"
 msgstr "Detailed environments"
 
 #. (itstool) path: item/item@tooltip
-#. (itstool) path: navigation/environment_detailList@tabledescription
-#. (itstool) path: navigation/environment_detailChange@tabledescription
-#: ../../../param/menu.xml:17 ../../../param/actions.xml:96
-#: ../../../param/actions.xml:97
+#: ../../../param/menu.xml:30
 msgid "Liste des milieux détaillés"
 msgstr "List of detailed environments"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:18
+#: ../../../param/menu.xml:32
 msgid "Précisions des localisations"
 msgstr "Localization accuracy"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:18
+#: ../../../param/menu.xml:32
 msgid "Liste des précisions des localisations"
 msgstr "List of locations details"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:20
+#: ../../../param/menu.xml:35
 msgid "Espèces"
 msgstr "Species"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:20
+#: ../../../param/menu.xml:35
 msgid "Liste des espèces d'esturgeon"
 msgstr "List of species of sturgeons"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:21
+#: ../../../param/menu.xml:37
 msgid "Devenirs"
 msgstr "Fates"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:21
+#: ../../../param/menu.xml:37
 msgid "Liste des destinations des esturgeons capturés"
 msgstr "List of destinations of catched sturgeons"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:22
+#: ../../../param/menu.xml:39
 msgid "Méthodes de capture"
 msgstr "Methods of capture"
 
 #. (itstool) path: item/item@tooltip
-#. (itstool) path: navigation/capture_methodList@tabledescription
-#. (itstool) path: navigation/capture_methodChange@tabledescription
-#: ../../../param/menu.xml:22 ../../../param/actions.xml:81
-#: ../../../param/actions.xml:82
+#: ../../../param/menu.xml:39
 msgid "Liste des méthodes de capture"
 msgstr "List of capture methods"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:23
+#: ../../../param/menu.xml:41
 msgid "Origine des captures"
 msgstr "Origin of captures"
 
 #. (itstool) path: item/item@tooltip
-#. (itstool) path: navigation/originList@tabledescription
-#. (itstool) path: navigation/originChange@tabledescription
-#: ../../../param/menu.xml:23 ../../../param/actions.xml:76
-#: ../../../param/actions.xml:77
+#: ../../../param/menu.xml:41
 msgid "Liste des origines des captures"
 msgstr "List of origins of captures"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:24
+#: ../../../param/menu.xml:43
 msgid "États à la capture"
 msgstr "States at the catch"
 
 #. (itstool) path: item/item@tooltip
-#. (itstool) path: navigation/capture_stateList@tabledescription
-#. (itstool) path: navigation/capture_stateChange@tabledescription
-#: ../../../param/menu.xml:24 ../../../param/actions.xml:71
-#: ../../../param/actions.xml:72
+#: ../../../param/menu.xml:43
 msgid "Liste des états à la capture"
 msgstr "List of states at catch"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:25
+#: ../../../param/menu.xml:45
 msgid "Engins"
 msgstr "Engines"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:25
+#: ../../../param/menu.xml:45
 msgid "Liste des engins utilisés"
 msgstr "List of used engines"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:26
+#: ../../../param/menu.xml:47
 #: ../../../display/templates/declaration/fishList.tpl:13
 msgid "Manipulations"
 msgstr "Handlings"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:26
+#: ../../../param/menu.xml:47
 msgid "Liste des manipulations effectuées sur les poissons"
 msgstr "List of fish handling"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:27
+#: ../../../param/menu.xml:49
 msgid "Espèces ciblées"
 msgstr "Target species"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:27
+#: ../../../param/menu.xml:49
 msgid "Liste des espèces ciblées"
 msgstr "List of targeted species"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:29
+#: ../../../param/menu.xml:52
+msgid "Instituts"
+msgstr "Institutes"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:52
+msgid "Instituts partenaires"
+msgstr "Partner institutes"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:54
 msgid "Types d'événements"
 msgstr "Event types"
 
 #. (itstool) path: item/item@tooltip
-#. (itstool) path: navigation/event_typeList@tabledescription
-#. (itstool) path: navigation/event_typeChange@tabledescription
-#: ../../../param/menu.xml:29 ../../../param/actions.xml:66
-#: ../../../param/actions.xml:67
+#: ../../../param/menu.xml:54
 msgid "Liste des types d'événements"
 msgstr "List of event types"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:30
+#: ../../../param/menu.xml:56
 msgid "Statuts"
 msgstr "Status"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:30
+#: ../../../param/menu.xml:56 ../../../display/templates/param/statusList.tpl:1
 msgid "Liste des statuts des déclarations"
 msgstr "List of declaration status"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:32
+#: ../../../param/menu.xml:59
 msgid "Administration"
 msgstr "Administration"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:32
+#: ../../../param/menu.xml:59
 msgid "Administration de l'application"
 msgstr "Application Administration"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:33
+#: ../../../param/menu.xml:61
 msgid "Liste des comptes locaux"
 msgstr "List of local accounts"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:33
+#: ../../../param/menu.xml:61
 msgid "Liste des logins - identification via la base de données"
 msgstr "List of logins - identification via the database"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:34
+#: ../../../param/menu.xml:63
 msgid "ACL - droits"
 msgstr "ACL - rights"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:34
+#: ../../../param/menu.xml:63
 msgid "applications et droits gérés"
 msgstr "applications and rights managed"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:35
+#: ../../../param/menu.xml:65
 msgid "ACL - logins"
 msgstr "ACL - logins"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:35
+#: ../../../param/menu.xml:65
 msgid "Logins déclarés dans le module de gestion des droits"
 msgstr "Logins declared in the rights management module"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:36
+#: ../../../param/menu.xml:67
 msgid "ACL - groupes de logins"
 msgstr "ACL - login groups"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:36
+#: ../../../param/menu.xml:67
 msgid "Groupes de logins et logins rattachés aux groupes"
 msgstr "Groups of logins and logins attached to groups"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:38
+#: ../../../param/menu.xml:70
 msgid "Paramètres de l'application"
 msgstr "Application Settings"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:38
+#: ../../../param/menu.xml:70
 msgid "Liste des paramètres pérennes de l'application"
 msgstr "List of long-term parameters of the application"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:40
+#: ../../../param/menu.xml:73
 msgid "Logs"
 msgstr "Logs"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:40
+#: ../../../param/menu.xml:73
 msgid "Consultation des logs enregistrées"
 msgstr "Consultation of recorded logs"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:41
+#: ../../../param/menu.xml:76
 msgid "Structure de la base de données des droits (HTML)"
 msgstr "Rights management database structure (HTML)"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:41
+#: ../../../param/menu.xml:76
 msgid ""
 "Liste des tables et des colonnes de la base de données de gestion des droits"
 msgstr "List of the tables and the columns of the rights management database"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:42
+#: ../../../param/menu.xml:78
 msgid "PHP info"
 msgstr "PHP info"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:42
+#: ../../../param/menu.xml:78
 msgid "configuration générale du serveur PHP"
 msgstr "general configuration of the PHP server"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:44
+#: ../../../param/menu.xml:81
 msgid "Variables SERVER"
 msgstr "SERVER variables"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:44
+#: ../../../param/menu.xml:81
 msgid "Affichage des variables fournies par le serveur"
 msgstr "Display the variables provided by the server"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:45
+#: ../../../param/menu.xml:83
 msgid "Variables SESSION"
 msgstr "SESSION variables"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:45
+#: ../../../param/menu.xml:83
 msgid "Affichage des variables de session"
 msgstr "Display the data of the session"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:47
+#: ../../../param/menu.xml:86
 msgid "Backup"
 msgstr "Backup"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:47 ../../../display/templates/framework/backup.tpl:1
+#: ../../../param/menu.xml:86 ../../../display/templates/framework/backup.tpl:1
 msgid "Sauvegarde de la base de données"
 msgstr "Backup of the database"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:50 ../../../param/menu.xml:53
+#: ../../../param/menu.xml:90 ../../../param/menu.xml:95
 msgid "documentation"
 msgstr "documentation"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:50
+#: ../../../param/menu.xml:90
 msgid "Documentations en ligne en français"
 msgstr "Online documentation in french"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:51 ../../../param/menu.xml:54
+#: ../../../param/menu.xml:92 ../../../param/menu.xml:97
 msgid "Comprendre la double authentification"
 msgstr "Understand the double authentication"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:51 ../../../param/menu.xml:54
+#: ../../../param/menu.xml:92 ../../../param/menu.xml:97
 msgid "Comprendre le mécanisme de double authentification"
 msgstr "Understand the mechanism of the double authentication"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:53
+#: ../../../param/menu.xml:95
 msgid "Documentations en ligne en anglais"
 msgstr "Online documentation in English"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:56 ../../../display/templates/entete.tpl:21
+#: ../../../param/menu.xml:100 ../../../display/templates/entete.tpl:21
 #: ../../../display/templates/entete.tpl:41
 #: ../../../display/templates/entete.tpl:42
 msgid "Connexion"
 msgstr "Sign in"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:56
+#: ../../../param/menu.xml:100
 msgid "S'identifier dans l'application"
 msgstr "Sign in to the app"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:57 ../../../display/templates/entete.tpl:37
+#: ../../../param/menu.xml:102 ../../../display/templates/entete.tpl:37
 #: ../../../display/templates/entete.tpl:38
 msgid "Déconnexion"
 msgstr "Sign out"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:57
+#: ../../../param/menu.xml:102
 msgid "Déconnexion de l'application"
 msgstr "Sign out of the app"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:58
+#: ../../../param/menu.xml:104
 msgid "Dernières connexions"
 msgstr "Last connections"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:58
+#: ../../../param/menu.xml:104
 msgid "Liste des dernières connexions réalisées"
 msgstr "List of last connections"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:59 ../../../display/templates/entete.tpl:33
+#: ../../../param/menu.xml:106 ../../../display/templates/entete.tpl:33
 #: ../../../display/templates/entete.tpl:34
 #: ../../../display/templates/framework/ident/loginChangePassword.tpl:86
 msgid "Modifier le mot de passe"
 msgstr "Change your password"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:59
+#: ../../../param/menu.xml:106
 msgid "Modifiez votre mot de passe (identification locale uniquement)"
 msgstr "Change your password (local identification only)"
 
 #. (itstool) path: menu/item@label
-#: ../../../param/menu.xml:61
+#: ../../../param/menu.xml:108
 msgid "?"
 msgstr "?"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../../param/menu.xml:61
+#: ../../../param/menu.xml:108
 msgid "Aide"
 msgstr "Help"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:62
+#: ../../../param/menu.xml:109
 msgid "A propos"
 msgstr "About"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:62
+#: ../../../param/menu.xml:109
 msgid "A propos de Sturwild"
 msgstr "About Sturwild"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:63
+#: ../../../param/menu.xml:110
 msgid "Nouveautés"
 msgstr "News"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:63
+#: ../../../param/menu.xml:110
 msgid "Quoi de neuf dans l'application ?"
 msgstr "What's new in the app?"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:64
+#: ../../../param/menu.xml:111
+msgid "Nouvelle version ?"
+msgstr "New version?"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:111
+msgid "Rechercher s'il existe une nouvelle version disponible de l'application"
+msgstr "Find out if there is a new version of the application available"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:113
 msgid "Lexique"
 msgstr "Glossary"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:64
+#: ../../../param/menu.xml:113
 msgid "Lexique des termes utilisés dans le logiciel"
 msgstr "Glossary of terms used in the software"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:65
+#: ../../../param/menu.xml:114
 msgid "Français"
 msgstr "Français"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:65
+#: ../../../param/menu.xml:114
 msgid "Libellés en français"
 msgstr "Libellés en français"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:66
+#: ../../../param/menu.xml:115
 msgid "English"
 msgstr "English"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:66
+#: ../../../param/menu.xml:115
 msgid "Labels in English"
 msgstr "Labels in English"
 
@@ -485,8 +516,8 @@ msgid "Impossible de lire le fichier contenant les news"
 msgstr "Unable to read the file containing the news"
 
 #: ../../../param/param.default.inc.php:10
-msgid "05/12/2023"
-msgstr "05/12/2023"
+msgid "05/02/2024"
+msgstr "05/02/2024"
 
 #: ../../../install/translatedb/import.class.php:75
 #: ../../../framework/import/import.class.php:77
@@ -701,7 +732,7 @@ msgstr "No account has been found for the considered mail"
 msgid "Le mail n'a pas été renseigné"
 msgstr "The mail has not been filled out"
 
-#: ../../../framework/vue.class.php:318
+#: ../../../framework/vue.class.php:317
 msgid ""
 "Une erreur a été détectée lors de la création de l'écran. Si le problème "
 "persiste, contactez l'administrateur de l'application."
@@ -709,16 +740,24 @@ msgstr ""
 "An error was detected when creating the screen. If the problem persists, "
 "please contact the application administrator."
 
-#: ../../../framework/vue.class.php:655
+#: ../../../framework/vue.class.php:654
 msgid "Problème rencontré lors de l'ouverture de finfo"
 msgstr "Problem occurred during the opening of finfo"
 
-#: ../../../framework/log/log.class.php:291
+#: ../../../framework/vue.class.php:737
+msgid ""
+"Le nom du fichier à exporter n'a pas été renseigné et aucune donnée n'est "
+"disponible pour l'exportation"
+msgstr ""
+"The name of the file to be exported has not been entered and no data is "
+"available for export"
+
+#: ../../../framework/log/log.class.php:296
 #, php-format
 msgid "%s - Compte bloqué"
 msgstr "%s - Account blocked"
 
-#: ../../../framework/log/log.class.php:326
+#: ../../../framework/log/log.class.php:331
 msgid ""
 "Le nombre d'accès autorisés pour le module demandé a été atteint. Si vous "
 "considérez que la valeur est trop faible, veuillez contacter "
@@ -728,7 +767,7 @@ msgstr ""
 "If you consider that the value is too low, please contact the application "
 "administrator"
 
-#: ../../../framework/log/log.class.php:328
+#: ../../../framework/log/log.class.php:333
 #, php-format
 msgid "%s - Trop d'accès à un module"
 msgstr "%s - Too much access to a module"
@@ -894,7 +933,7 @@ msgstr "Problem encountered while checking the version of the database"
 msgid "Le module demandé n'existe pas (%s)"
 msgstr "The requested module does not exist (%s)"
 
-#: ../../../framework/controller.php:275
+#: ../../../framework/controller.php:278
 msgid ""
 "Message technique : la vue n'a pas été initialisée lors de la création de la "
 "page de login"
@@ -902,23 +941,23 @@ msgstr ""
 "Technical message: the view was not initialized when the login page was "
 "created"
 
-#: ../../../framework/controller.php:289
+#: ../../../framework/controller.php:292
 msgid "Veuillez utiliser le login qui vous a été fourni pour vous identifier"
 msgstr "Please use the login that was provided to you to identify yourself"
 
-#: ../../../framework/controller.php:372
+#: ../../../framework/controller.php:375
 msgid "Identification refusée"
 msgstr "Authentication failed"
 
-#: ../../../framework/controller.php:396
+#: ../../../framework/controller.php:399
 msgid "Identification réussie !"
 msgstr "Authentication successful!"
 
-#: ../../../framework/controller.php:407
+#: ../../../framework/controller.php:410
 msgid "Connexions précédentes récentes :"
 msgstr "Recent previous connections:"
 
-#: ../../../framework/controller.php:420
+#: ../../../framework/controller.php:423
 #, php-format
 msgid ""
 "Dernière connexion le %1$s depuis l'adresse IP %2$s. Si ce n'était pas vous, "
@@ -928,12 +967,12 @@ msgstr ""
 "your password or contact the administrator of the application."
 
 #. traduction: conserver inchangée la chaîne %s
-#: ../../../framework/controller.php:518
+#: ../../../framework/controller.php:524
 #, php-format
 msgid "Module précédent enregistré : %s"
 msgstr "Previous module: %s"
 
-#: ../../../framework/controller.php:586
+#: ../../../framework/controller.php:592
 msgid ""
 "L'accès au module demandé nécessite une ré-identification. Veuillez saisir "
 "votre login et votre mot de passe"
@@ -941,16 +980,16 @@ msgstr ""
 "Access to the requested module requires re-identification. Please enter your "
 "login and password"
 
-#: ../../../framework/controller.php:604
+#: ../../../framework/controller.php:610
 msgid "Erreur d'écriture dans le fichier de traces"
 msgstr "Error writing to the trace file"
 
-#: ../../../framework/controller.php:750
+#: ../../../framework/controller.php:756
 #, php-format
 msgid "Mode développement - base de données : %1$s - schema : %2$s"
 msgstr "Development mode - database: %1$s - schema: %2$s"
 
-#: ../../../framework/controller.php:789
+#: ../../../framework/controller.php:795
 msgid ""
 "Une erreur indéterminée s'est produite pendant le traitement de la requête. "
 "Si le problème persiste, consultez l'administrateur de l'application"
@@ -958,13 +997,18 @@ msgstr ""
 "An unidentified error occurred during the processing of the request. If the "
 "problem persists, please contact the application administrator"
 
-#: ../../../framework/request/request.class.php:60
+#: ../../../framework/request/request.class.php:61
 msgid ""
 "La requête ne peut pas contenir d'ordres de modification de la base de "
 "données ni porter sur des tables contenant des informations confidentielles"
 msgstr ""
 "The query cannot contain change orders to the database nor can it concern "
 "tables containing confidential information"
+
+#: ../../../framework/postLogin.php:14
+#, php-format
+msgid "La nouvelle version %1s du %2s a été publiée !"
+msgstr "The new %1s version of %2s has been released!"
 
 #: ../../../framework/objetbdd/ObjetBDD.php:456
 msgid "La structure de la clé est incorrecte"
@@ -1057,6 +1101,85 @@ msgstr "The file %s don't exist"
 msgid "Le fichier %s est vide ou ne peut être lu"
 msgstr "The %s file is empty or cannot be read"
 
+#: ../../../modules/declaration/import.php:28
+#: ../../../modules/declaration/import.php:140
+#: ../../../modules/declaration/importFish.php:28
+msgid "L'encodage du fichier ne correspond pas à celui que vous avez indiqué"
+msgstr ""
+"The encoding of the file does not correspond to the one you have indicated"
+
+#: ../../../modules/declaration/import.php:55
+#: ../../../modules/declaration/import.php:177
+#: ../../../modules/declaration/importFish.php:53
+msgid "Impossible de recopier le fichier importé dans le dossier temporaire"
+msgstr "Can not copy the imported file to the temporary folder"
+
+#: ../../../modules/declaration/import.php:72
+#: ../../../modules/declaration/import.php:194
+#: ../../../modules/declaration/importFish.php:70
+msgid "Aucun fichier n'a été téléchargé vers le serveur"
+msgstr "The file was not downloaded correctly to the server"
+
+#: ../../../modules/declaration/import.php:100
+#: ../../../modules/declaration/import.php:228
+msgid ""
+"Aucune déclaration n'a été importée dans la base de données. Il est possible "
+"qu'un problème technique soit survenu"
+msgstr ""
+"No declarations have been imported into the database. It is possible that a "
+"technical problem has occurred"
+
+#: ../../../modules/declaration/import.php:104
+#: ../../../modules/declaration/import.php:232
+#: ../../../modules/declaration/importFish.php:98
+#: ../../../modules/declaration/fish.php:159
+msgid "Importation effectuée"
+msgstr "Import done"
+
+#: ../../../modules/declaration/import.php:105
+#: ../../../modules/declaration/import.php:233
+#, php-format
+msgid "%1s déclarations importées, dont %2s déclarations mises à jour"
+msgstr "%1s declarations imported, including %2s declarations updated"
+
+#: ../../../modules/declaration/import.php:106
+#: ../../../modules/declaration/import.php:234
+#: ../../../modules/declaration/importFish.php:100
+#: ../../../modules/declaration/fish.php:161
+#, php-format
+msgid "Id min traité ou généré : %1s, Id max : %2s"
+msgstr "Id min processed or generated: %1s, Id max: %2s"
+
+#: ../../../modules/declaration/import.php:118
+#: ../../../modules/declaration/import.php:246
+#: ../../../modules/declaration/importFish.php:112
+#: ../../../modules/declaration/fish.php:173
+msgid ""
+"Le fichier n'est plus disponible dans le serveur : recommencez l'opération"
+msgstr "The file is no longer available on the server: repeat the operation"
+
+#: ../../../modules/declaration/import.php:123
+#: ../../../modules/declaration/import.php:251
+#: ../../../modules/declaration/importFish.php:117
+#: ../../../modules/declaration/fish.php:178
+msgid "Une erreur s'est produite, recommencez l'opération"
+msgstr "An error has occurred, restart the operation"
+
+#: ../../../modules/declaration/importFish.php:94
+#: ../../../modules/declaration/fish.php:155
+msgid ""
+"Aucun poisson n'a été importé dans la base de données. Il est possible qu'un "
+"problème technique soit survenu"
+msgstr ""
+"No fish have been imported into the database. A technical problem may have "
+"occurred"
+
+#: ../../../modules/declaration/importFish.php:99
+#: ../../../modules/declaration/fish.php:160
+#, php-format
+msgid "%1s poissons importés, dont %2s poissons mis à jour"
+msgstr "%1s imported fish, including %2s updated fish"
+
 #: ../../../modules/declaration/fish.php:49
 #: ../../../modules/declaration/declaration.php:77
 msgid ""
@@ -1066,11 +1189,27 @@ msgstr ""
 "Problem(s) with displaying photos or documents. Contact the system "
 "administrator."
 
-#: ../../../modules/declaration/declaration.php:193
+#: ../../../modules/declaration/fish.php:128
+#: ../../../modules/declaration/declaration.php:216
+#: ../../../modules/declaration/declaration.php:238
+msgid ""
+"Aucune des déclarations sélectionnées ne peut être exportée : elles doivent "
+"avoir été validées au préalable"
+msgstr ""
+"None of the selected declarations can be exported: they must first be "
+"validated"
+
+#: ../../../modules/declaration/fish.php:133
+#: ../../../modules/declaration/declaration.php:221
+#: ../../../modules/declaration/declaration.php:243
+msgid "Aucune déclaration n'a été sélectionnée"
+msgstr "No declaration was selected"
+
+#: ../../../modules/declaration/declaration.php:196
 msgid "Déclaration dupliquée !"
 msgstr "Duplicate declaration!"
 
-#: ../../../modules/declaration/declaration.php:195
+#: ../../../modules/declaration/declaration.php:198
 msgid "Echec de duplication de la déclaration"
 msgstr "Declaration duplication failed"
 
@@ -1090,17 +1229,53 @@ msgid ""
 "déclaration"
 msgstr "E-mails sent to inform of change in declaration status"
 
+#: ../../../modules/classes/sturwildImport.class.php:57
+#: ../../../modules/classes/sturwildImport.class.php:72
+#, php-format
+msgid "Le fichier %s n'a pas pu être chargé ou n'est pas lisible"
+msgstr "The file %s does not exist or is not readable"
+
+#: ../../../modules/classes/fishImport.class.php:20
+#: ../../../modules/classes/declarationImport.class.php:44
+msgid ""
+"L'un des champs origin_identifier ou declaration_uuid doit être renseigné "
+"pour pouvoir importer les poissons associés à la déclaration"
+msgstr ""
+"One of the fields origin_identifier or declaration_uuid must be filled in to "
+"be able to import the fish associated with the declaration"
+
+#: ../../../modules/classes/fishImport.class.php:37
+msgid ""
+"Aucune déclaration ne correspond soit au champ origin_identifier, soit au "
+"champ declaration_uuid"
+msgstr ""
+"No declaration corresponds to either the origin_identifier field or the "
+"declaration_uuid field"
+
+#: ../../../modules/classes/fishImport.class.php:110
+msgid "La déclaration correspondante à un poisson n'a pas été trouvée"
+msgstr "The declaration corresponding to a fish has not been found"
+
+#: ../../../modules/classes/declarationImport.class.php:24
+#, php-format
+msgid "Le champ %s est vide et doit être renseigné"
+msgstr "The field %s is required, but has not been filled out"
+
+#: ../../../modules/classes/declarationImport.class.php:34
+msgid "La date de capture ou l'année doit être renseignée"
+msgstr "The date of capture or the year must be entered"
+
 #: ../../../vendor/smarty/smarty/libs/debug.tpl:115
 msgid "included templates &amp; config files (load time in seconds)"
-msgstr ""
+msgstr "included templates &amp; config files (load time in seconds)"
 
 #: ../../../vendor/smarty/smarty/libs/debug.tpl:127
 msgid "assigned template variables"
-msgstr ""
+msgstr "assigned template variables"
 
 #: ../../../vendor/smarty/smarty/libs/debug.tpl:150
 msgid "assigned config file variables"
-msgstr ""
+msgstr "assigned config file variables"
 
 #: ../../../display/templates/mapDefault.tpl:71
 msgid "Imprimer la carte"
@@ -1108,7 +1283,7 @@ msgstr "Print the map"
 
 #: ../../../display/templates/main_en.tpl:1
 msgid "Welcome into this application !"
-msgstr ""
+msgstr "Welcome into this application !"
 
 #: ../../../display/templates/main_js.tpl:79
 msgid "Traitement en cours..."
@@ -1196,12 +1371,55 @@ msgstr "Do you confirm this operation?"
 msgid "Paramètres PHP"
 msgstr "PHP settings"
 
+#: ../../../display/templates/param/instituteList.tpl:1
+msgid "Liste des instituts partenaires"
+msgstr "List of partner institutes"
+
+#: ../../../display/templates/param/instituteList.tpl:4
+#: ../../../display/templates/param/icesList.tpl:4
+#: ../../../display/templates/param/countryList.tpl:4
+msgid "Nouveau"
+msgstr "New"
+
+#: ../../../display/templates/param/instituteList.tpl:11
+msgid "Code"
+msgstr "Code"
+
+#: ../../../display/templates/param/instituteList.tpl:12
+#: ../../../display/templates/declaration/documentList.tpl:26
+#: ../../../display/templates/document/documentList.tpl:43
+#: ../../../display/templates/framework/dbparamListChange.tpl:12
+#: ../../../display/templates/framework/droits/appliList.tpl:13
+#: ../../../display/templates/framework/request/requestList.tpl:10
+msgid "Description"
+msgstr "Description"
+
+#: ../../../display/templates/param/icesList.tpl:11
+#: ../../../display/templates/param/statusList.tpl:9
+#: ../../../display/templates/param/paramList.tpl:14
+#: ../../../display/templates/param/countryList.tpl:11
+msgid "Libellé"
+msgstr "Label"
+
+#: ../../../display/templates/param/statusList.tpl:8
+#: ../../../display/templates/param/paramList.tpl:13
+#: ../../../display/templates/framework/request/requestList.tpl:9
+msgid "Id"
+msgstr "ID"
+
+#: ../../../display/templates/param/statusList.tpl:10
+#: ../../../display/templates/param/paramList.tpl:15
+msgid "Libellé en anglais, pour les échanges"
+msgstr "Name in english, for exchanges"
+
 #: ../../../display/templates/param/paramChange.tpl:1
 msgid "Création - Modification d'un paramètre :"
 msgstr "Create / Edit a parameter:"
 
 #: ../../../display/templates/param/paramChange.tpl:2
-#: ../../../display/templates/param/ciemChange.tpl:6
+#: ../../../display/templates/param/icesChange.tpl:6
+#: ../../../display/templates/param/instituteChange.tpl:5
+#: ../../../display/templates/param/statusChange.tpl:2
 #: ../../../display/templates/param/countryChange.tpl:4
 #: ../../../display/templates/declaration/declarationDisplay.tpl:34
 #: ../../../display/templates/declaration/declarationChange.tpl:6
@@ -1210,10 +1428,12 @@ msgid "Retour à la liste"
 msgstr "Back to the list"
 
 #: ../../../display/templates/param/paramChange.tpl:12
+#: ../../../display/templates/param/statusChange.tpl:12
 msgid "Libellé :"
 msgstr "Label:"
 
 #: ../../../display/templates/param/paramChange.tpl:21
+#: ../../../display/templates/param/statusChange.tpl:21
 msgid "Libellé en anglais, utilisé pour les échanges d'informations :"
 msgstr "Name in english, used to exchange data:"
 
@@ -1222,11 +1442,13 @@ msgid "Ordre d'affichage, dans les listes :"
 msgstr "Display order in the lists:"
 
 #: ../../../display/templates/param/paramChange.tpl:38
-#: ../../../display/templates/param/ciemChange.tpl:24
+#: ../../../display/templates/param/icesChange.tpl:24
+#: ../../../display/templates/param/instituteChange.tpl:29
+#: ../../../display/templates/param/statusChange.tpl:29
 #: ../../../display/templates/param/countryChange.tpl:29
 #: ../../../display/templates/declaration/locationChange.tpl:318
 #: ../../../display/templates/declaration/fishChange.tpl:203
-#: ../../../display/templates/declaration/declarationChange.tpl:296
+#: ../../../display/templates/declaration/declarationChange.tpl:311
 #: ../../../display/templates/declaration/eventChange.tpl:49
 #: ../../../display/templates/framework/ident/loginChangePassword.tpl:135
 #: ../../../display/templates/framework/ident/totp.tpl:21
@@ -1241,11 +1463,12 @@ msgid "Valider"
 msgstr "Save and return"
 
 #: ../../../display/templates/param/paramChange.tpl:40
-#: ../../../display/templates/param/ciemChange.tpl:26
+#: ../../../display/templates/param/icesChange.tpl:26
+#: ../../../display/templates/param/instituteChange.tpl:31
 #: ../../../display/templates/param/countryChange.tpl:31
 #: ../../../display/templates/declaration/fishChange.tpl:205
 #: ../../../display/templates/declaration/documentList.tpl:30
-#: ../../../display/templates/declaration/declarationChange.tpl:298
+#: ../../../display/templates/declaration/declarationChange.tpl:313
 #: ../../../display/templates/declaration/eventChange.tpl:51
 #: ../../../display/templates/document/documentList.tpl:47
 #: ../../../display/templates/framework/ident/loginsaisie.tpl:222
@@ -1258,6 +1481,7 @@ msgid "Supprimer"
 msgstr "Delete"
 
 #: ../../../display/templates/param/paramChange.tpl:46
+#: ../../../display/templates/param/statusChange.tpl:34
 #: ../../../display/templates/framework/ident/loginsaisie.tpl:233
 #: ../../../display/templates/framework/droits/acoChange.tpl:47
 #: ../../../display/templates/framework/droits/groupChange.tpl:60
@@ -1265,6 +1489,24 @@ msgstr "Delete"
 #: ../../../display/templates/framework/droits/loginChange.tpl:37
 msgid "Donnée obligatoire"
 msgstr "Mandatory data"
+
+#: ../../../display/templates/param/icesChange.tpl:2
+msgid "Création / modification d'une zone CIEM"
+msgstr "Create / Edit a ICES zone"
+
+#: ../../../display/templates/param/icesChange.tpl:17
+msgid "Libelle de la zone CIEM  :"
+msgstr "Name of the ICES zone:"
+
+#: ../../../display/templates/param/icesChange.tpl:31
+#: ../../../display/templates/param/instituteChange.tpl:36
+#: ../../../display/templates/param/countryChange.tpl:36
+#: ../../../display/templates/declaration/locationChange.tpl:325
+#: ../../../display/templates/declaration/fishChange.tpl:211
+#: ../../../display/templates/declaration/declarationChange.tpl:322
+#: ../../../display/templates/declaration/eventChange.tpl:59
+msgid "Champ obligatoire"
+msgstr "Mandatory"
 
 #: ../../../display/templates/param/paramList.tpl:1
 msgid "Liste des paramètres :"
@@ -1274,46 +1516,28 @@ msgstr "Parameters list:"
 msgid "Nouveau..."
 msgstr "New ..."
 
-#: ../../../display/templates/param/paramList.tpl:13
-#: ../../../display/templates/framework/request/requestList.tpl:9
-msgid "Id"
-msgstr "ID"
-
-#: ../../../display/templates/param/paramList.tpl:14
-#: ../../../display/templates/param/ciemList.tpl:11
-#: ../../../display/templates/param/countryList.tpl:11
-msgid "Libellé"
-msgstr "Label"
-
-#: ../../../display/templates/param/paramList.tpl:15
-msgid "Libellé en anglais, pour les échanges"
-msgstr "Name in english, for exchanges"
-
 #: ../../../display/templates/param/paramList.tpl:16
 msgid "Ordre d'affichage"
 msgstr "Display order"
 
-#: ../../../display/templates/param/ciemChange.tpl:2
-msgid "Création / modification d'une zone CIEM"
-msgstr "Create / Edit a ICES zone"
+#: ../../../display/templates/param/instituteChange.tpl:1
+msgid "Création / modification d'un institut partenaire"
+msgstr "Create / Edit a partner institute"
 
-#: ../../../display/templates/param/ciemChange.tpl:17
-msgid "Libelle de la zone CIEM  :"
-msgstr "Name of the ICES zone:"
+#: ../../../display/templates/param/instituteChange.tpl:15
+msgid "Code :"
+msgstr "Code:"
 
-#: ../../../display/templates/param/ciemChange.tpl:31
-#: ../../../display/templates/param/countryChange.tpl:36
-#: ../../../display/templates/declaration/locationChange.tpl:325
-#: ../../../display/templates/declaration/fishChange.tpl:211
-#: ../../../display/templates/declaration/declarationChange.tpl:307
-#: ../../../display/templates/declaration/eventChange.tpl:59
-msgid "Champ obligatoire"
-msgstr "Mandatory"
+#: ../../../display/templates/param/instituteChange.tpl:23
+#: ../../../display/templates/declaration/fishChange.tpl:194
+#: ../../../display/templates/document/documentChange.tpl:16
+#: ../../../display/templates/framework/droits/appliChange.tpl:19
+msgid "Description :"
+msgstr "Description:"
 
-#: ../../../display/templates/param/ciemList.tpl:4
-#: ../../../display/templates/param/countryList.tpl:4
-msgid "Nouveau"
-msgstr "New"
+#: ../../../display/templates/param/statusChange.tpl:1
+msgid "Modification d'un statut :"
+msgstr "Edit a status:"
 
 #: ../../../display/templates/param/countryChange.tpl:15
 msgid "Nom du pays :"
@@ -1343,61 +1567,229 @@ msgstr "Enable dual authentication"
 msgid "Mot de passe"
 msgstr "Password"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:4
+#: ../../../display/templates/declaration/declarationListDetail.tpl:14
+msgid ""
+"Attention : cette opération est définitive. Est-ce bien ce que vous voulez "
+"faire ?"
+msgstr ""
+"Please note: this operation is definitive. Is that what you want to do ?"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:39
 msgid "N°"
 msgstr "#"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:5
+#: ../../../display/templates/declaration/declarationListDetail.tpl:40
 #: ../../../display/templates/declaration/fishList.tpl:8
 #: ../../../display/templates/declaration/nbSturioByYear.tpl:6
 msgid "Espèce"
 msgstr "Species"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:6
+#: ../../../display/templates/declaration/declarationListDetail.tpl:41
+#: ../../../display/templates/declaration/importCsv.tpl:166
+#: ../../../display/templates/declaration/importFishCsv.tpl:160
 msgid "État à la capture"
 msgstr "States at the capture"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:7
+#: ../../../display/templates/declaration/declarationListDetail.tpl:42
 #: ../../../display/templates/declaration/nbSturioByYear.tpl:5
 msgid "Année"
 msgstr "Year"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:8
+#: ../../../display/templates/declaration/declarationListDetail.tpl:43
 msgid "Date de capture"
 msgstr "Capture date"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:9
+#: ../../../display/templates/declaration/declarationListDetail.tpl:44
 #: ../../../display/templates/declaration/declarationDisplay.tpl:57
 msgid "Localisation"
 msgstr "Localization"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:10
+#: ../../../display/templates/declaration/declarationListDetail.tpl:45
 msgid "Nbre de poissons"
 msgstr "Number of fish"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:11
+#: ../../../display/templates/declaration/declarationListDetail.tpl:46
 msgid "Nombre total de documents associés, photos, vidéo, etc."
 msgstr "Total number of associated documents, photos, videos, etc."
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:11
+#: ../../../display/templates/declaration/declarationListDetail.tpl:46
 msgid "Nbre de photos"
 msgstr "Number of pictures"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:12
+#: ../../../display/templates/declaration/declarationListDetail.tpl:48
 msgid "Engin de pêche"
 msgstr "Fish engine"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:13
+#: ../../../display/templates/declaration/declarationListDetail.tpl:49
 msgid "Code du pécheur"
 msgstr "Fisherman code"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:14
+#: ../../../display/templates/declaration/declarationListDetail.tpl:50
 msgid "Interlocuteur"
 msgstr "Contact"
 
-#: ../../../display/templates/declaration/declarationListDetail.tpl:15
+#: ../../../display/templates/declaration/declarationListDetail.tpl:51
+msgid "Institut"
+msgstr "Institute"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:52
 msgid "Statut"
 msgstr "Status"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:108
+msgid "Pour les déclarations validées sélectionnées :"
+msgstr "For validated declarations selected :"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:110
+msgid "Choisissez"
+msgstr "Select"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:111
+msgid "Exporter les déclarations en CSV"
+msgstr "Export declarations in CSV format"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:112
+msgid "Exporter les poissons rattachés aux déclarations en CSV"
+msgstr "Export fish attached to declarations in CSV format"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:115
+msgid "Exporter les déclarations et les poissons rattachés (JSON)"
+msgstr "Export declarations and attached fish (JSON)"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:122
+msgid ""
+"Exporter les libellés des tables de paramètres dans le format d'échange :"
+msgstr "Export parameter table labels in exchange format :"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:129
+#: ../../../display/templates/declaration/importJson.tpl:113
+#: ../../../display/templates/declaration/importCsv.tpl:125
+#: ../../../display/templates/declaration/importFishCsv.tpl:125
+#: ../../../display/templates/framework/ident/loginsaisie.tpl:124
+#: ../../../display/templates/framework/ident/loginsaisie.tpl:199
+#: ../../../display/templates/framework/ident/loginliste.tpl:47
+#: ../../../display/templates/framework/ident/loginliste.tpl:48
+#: ../../../display/templates/framework/ident/loginliste.tpl:51
+#: ../../../display/templates/framework/droits/loginList.tpl:26
+msgid "oui"
+msgstr "yes"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:136
+#: ../../../display/templates/declaration/importJson.tpl:119
+#: ../../../display/templates/declaration/importCsv.tpl:131
+#: ../../../display/templates/declaration/importFishCsv.tpl:131
+#: ../../../display/templates/framework/ident/loginsaisie.tpl:128
+#: ../../../display/templates/framework/ident/loginsaisie.tpl:202
+msgid "non"
+msgstr "no"
+
+#: ../../../display/templates/declaration/declarationListDetail.tpl:142
+#: ../../../display/templates/framework/request/requestChange.tpl:95
+msgid "Exécuter"
+msgstr "Process"
+
+#: ../../../display/templates/declaration/importJson.tpl:24
+msgid ""
+"Import de déclarations et des poissons associés à partir d'un fichier JSON"
+msgstr "Importing declarations and associated fish from a JSON file"
+
+#: ../../../display/templates/declaration/importJson.tpl:29
+#: ../../../display/templates/declaration/importCsv.tpl:31
+#: ../../../display/templates/declaration/importFishCsv.tpl:31
+msgid "Liste des paramètres qui vont être créés"
+msgstr "List of parameters to be created"
+
+#: ../../../display/templates/declaration/importJson.tpl:34
+#: ../../../display/templates/declaration/importCsv.tpl:36
+#: ../../../display/templates/declaration/importFishCsv.tpl:36
+msgid "Table"
+msgstr "Table"
+
+#: ../../../display/templates/declaration/importJson.tpl:35
+#: ../../../display/templates/declaration/importCsv.tpl:37
+#: ../../../display/templates/declaration/importFishCsv.tpl:37
+msgid "Libellés à créer"
+msgstr "Labels to create"
+
+#: ../../../display/templates/declaration/importJson.tpl:58
+#: ../../../display/templates/declaration/importCsv.tpl:60
+#: ../../../display/templates/declaration/importFishCsv.tpl:60
+msgid "N° de ligne"
+msgstr "Line number"
+
+#: ../../../display/templates/declaration/importJson.tpl:59
+#: ../../../display/templates/declaration/importCsv.tpl:61
+#: ../../../display/templates/declaration/importFishCsv.tpl:61
+msgid "Anomalie détectée"
+msgstr "Anomalydetected"
+
+#: ../../../display/templates/declaration/importJson.tpl:77
+#: ../../../display/templates/declaration/importCsv.tpl:79
+#: ../../../display/templates/declaration/importFishCsv.tpl:79
+msgid "Contrôles OK."
+msgstr "Checks OK."
+
+#: ../../../display/templates/declaration/importJson.tpl:77
+#: ../../../display/templates/declaration/importCsv.tpl:79
+#: ../../../display/templates/declaration/importFishCsv.tpl:79
+msgid "Vous pouvez réaliser l'import du fichier (%1) :"
+msgstr "You can import the file (%1):"
+
+#: ../../../display/templates/declaration/importJson.tpl:78
+#: ../../../display/templates/declaration/importCsv.tpl:80
+#: ../../../display/templates/declaration/importFishCsv.tpl:80
+msgid "Déclencher l'import"
+msgstr "Import"
+
+#: ../../../display/templates/declaration/importJson.tpl:90
+msgid "Nom du fichier à importer (JSON) :"
+msgstr "Name of the file to import (JSON):"
+
+#: ../../../display/templates/declaration/importJson.tpl:97
+#: ../../../display/templates/declaration/importCsv.tpl:109
+#: ../../../display/templates/declaration/importFishCsv.tpl:109
+msgid "Encodage du fichier :"
+msgstr "Encoding of the file:"
+
+#: ../../../display/templates/declaration/importJson.tpl:107
+#: ../../../display/templates/declaration/importCsv.tpl:119
+#: ../../../display/templates/declaration/importFishCsv.tpl:119
+msgid ""
+"Rechercher les libellés des tables de paramètres parmi ceux utilisés pour "
+"les échanges :"
+msgstr "Search for parameter table labels among those used for exchanges:"
+
+#: ../../../display/templates/declaration/importJson.tpl:125
+#: ../../../display/templates/declaration/importCsv.tpl:137
+#: ../../../display/templates/declaration/importFishCsv.tpl:137
+msgid "Vérifier le fichier"
+msgstr "Check file"
+
+#: ../../../display/templates/declaration/importJson.tpl:133
+msgid "Contenu du fichier JSON"
+msgstr "JSON file content"
+
+#: ../../../display/templates/declaration/importJson.tpl:134
+msgid "La structuration du fichier est la suivante :"
+msgstr "The file is structured as follows:"
+
+#: ../../../display/templates/declaration/importJson.tpl:136
+msgid "Chaque déclaration  est au premier niveau du fichier"
+msgstr "Each declaration is at the first level of the file"
+
+#: ../../../display/templates/declaration/importJson.tpl:137
+msgid ""
+"Les poissons associés sont présents dans le champ fishes de chaque "
+"déclaration"
+msgstr "The associated fish are shown in the fishes field of each declaration"
+
+#: ../../../display/templates/declaration/importJson.tpl:138
+msgid ""
+"Les colonnes (les variables) attendues sont les mêmes que celles décrites "
+"pour les importations en CSV"
+msgstr ""
+"The expected columns (variables) are the same as those described for CSV "
+"imports"
 
 #: ../../../display/templates/declaration/declarationGeneral.tpl:11
 #: ../../../display/templates/declaration/declarationChange.tpl:26
@@ -1406,7 +1798,7 @@ msgstr "Status:"
 
 #: ../../../display/templates/declaration/declarationGeneral.tpl:15
 #: ../../../display/templates/declaration/fishChange.tpl:23
-#: ../../../display/templates/declaration/declarationSearch.tpl:29
+#: ../../../display/templates/declaration/declarationSearch.tpl:41
 #: ../../../display/templates/declaration/declarationChange.tpl:40
 msgid "Espèce :"
 msgstr "Species:"
@@ -1469,55 +1861,63 @@ msgstr "Target species:"
 msgid "Mode de déclaration :"
 msgstr "Declaration mode:"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:74
-#: ../../../display/templates/declaration/declarationChange.tpl:213
+#: ../../../display/templates/declaration/declarationGeneral.tpl:73
+msgid "Institut ayant enregistré la déclaration :"
+msgstr "Institute registering the declaration :"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:78
+msgid "identifiant technique (UUID) :"
+msgstr "Technical identifier (UUID):"
+
+#: ../../../display/templates/declaration/declarationGeneral.tpl:83
+#: ../../../display/templates/declaration/declarationChange.tpl:228
 msgid "Observations :"
 msgstr "Remarks:"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:78
-#: ../../../display/templates/declaration/declarationChange.tpl:220
+#: ../../../display/templates/declaration/declarationGeneral.tpl:87
+#: ../../../display/templates/declaration/declarationChange.tpl:235
 msgid "Informations sur le lot d'esturgeons"
 msgstr "Sturgeon lot informations"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:81
+#: ../../../display/templates/declaration/declarationGeneral.tpl:90
 msgid "Longueur totale :"
 msgstr "Total length:"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:82
-#: ../../../display/templates/declaration/declarationGeneral.tpl:88
+#: ../../../display/templates/declaration/declarationGeneral.tpl:91
+#: ../../../display/templates/declaration/declarationGeneral.tpl:97
 #: ../../../display/templates/declaration/declarationChange.tpl:102
-#: ../../../display/templates/declaration/declarationChange.tpl:223
-#: ../../../display/templates/declaration/declarationChange.tpl:229
+#: ../../../display/templates/declaration/declarationChange.tpl:238
+#: ../../../display/templates/declaration/declarationChange.tpl:244
 msgid "de :"
 msgstr "from:"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:82
-#: ../../../display/templates/declaration/declarationGeneral.tpl:88
+#: ../../../display/templates/declaration/declarationGeneral.tpl:91
+#: ../../../display/templates/declaration/declarationGeneral.tpl:97
 #: ../../../display/templates/declaration/declarationChange.tpl:103
-#: ../../../display/templates/declaration/declarationChange.tpl:224
-#: ../../../display/templates/declaration/declarationChange.tpl:230
+#: ../../../display/templates/declaration/declarationChange.tpl:239
+#: ../../../display/templates/declaration/declarationChange.tpl:245
 msgid "à :"
 msgstr "to:"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:87
+#: ../../../display/templates/declaration/declarationGeneral.tpl:96
 msgid "Masse :"
 msgstr "Weight:"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:92
+#: ../../../display/templates/declaration/declarationGeneral.tpl:101
 #: ../../../display/templates/declaration/fishChange.tpl:90
-#: ../../../display/templates/declaration/declarationSearch.tpl:41
-#: ../../../display/templates/declaration/declarationChange.tpl:234
+#: ../../../display/templates/declaration/declarationSearch.tpl:53
+#: ../../../display/templates/declaration/declarationChange.tpl:249
 msgid "État à la capture :"
 msgstr "State at the capture:"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:96
+#: ../../../display/templates/declaration/declarationGeneral.tpl:105
 #: ../../../display/templates/declaration/fishChange.tpl:106
-#: ../../../display/templates/declaration/declarationChange.tpl:249
+#: ../../../display/templates/declaration/declarationChange.tpl:264
 msgid "Manipulations effectuées :"
 msgstr "Handling performed:"
 
-#: ../../../display/templates/declaration/declarationGeneral.tpl:104
-#: ../../../display/templates/declaration/declarationChange.tpl:282
+#: ../../../display/templates/declaration/declarationGeneral.tpl:113
+#: ../../../display/templates/declaration/declarationChange.tpl:297
 msgid "Devenir du lot :"
 msgstr "Fate of lot:"
 
@@ -1573,24 +1973,25 @@ msgstr "Back to detail of the declaration #"
 #: ../../../display/templates/declaration/locationChange.tpl:306
 #: ../../../display/templates/declaration/fishChange.tpl:28
 #: ../../../display/templates/declaration/declarationSearch.tpl:17
-#: ../../../display/templates/declaration/declarationSearch.tpl:32
+#: ../../../display/templates/declaration/declarationSearch.tpl:29
 #: ../../../display/templates/declaration/declarationSearch.tpl:44
-#: ../../../display/templates/declaration/declarationSearch.tpl:60
+#: ../../../display/templates/declaration/declarationSearch.tpl:56
 #: ../../../display/templates/declaration/declarationSearch.tpl:72
-#: ../../../display/templates/declaration/declarationSearch.tpl:83
-#: ../../../display/templates/declaration/declarationSearch.tpl:97
+#: ../../../display/templates/declaration/declarationSearch.tpl:84
+#: ../../../display/templates/declaration/declarationSearch.tpl:95
+#: ../../../display/templates/declaration/declarationSearch.tpl:109
 msgid "Sélectionnez..."
 msgstr "Select..."
 
 #: ../../../display/templates/declaration/locationChange.tpl:121
 #: ../../../display/templates/declaration/locationDisplay.tpl:13
-#: ../../../display/templates/declaration/declarationSearch.tpl:69
+#: ../../../display/templates/declaration/declarationSearch.tpl:81
 msgid "Zone CIEM :"
 msgstr "ICES zones:"
 
 #: ../../../display/templates/declaration/locationChange.tpl:136
 #: ../../../display/templates/declaration/locationDisplay.tpl:17
-#: ../../../display/templates/declaration/declarationSearch.tpl:94
+#: ../../../display/templates/declaration/declarationSearch.tpl:106
 msgid "Milieu :"
 msgstr "Environment:"
 
@@ -1655,7 +2056,7 @@ msgid "Modifier..."
 msgstr "Edit..."
 
 #: ../../../display/templates/declaration/locationDisplay.tpl:8
-#: ../../../display/templates/declaration/declarationSearch.tpl:57
+#: ../../../display/templates/declaration/declarationSearch.tpl:69
 msgid "Pays :"
 msgstr "Country:"
 
@@ -1707,12 +2108,12 @@ msgid "Longueur (mm) :"
 msgstr "Length (mm):"
 
 #: ../../../display/templates/declaration/fishChange.tpl:82
-#: ../../../display/templates/declaration/declarationChange.tpl:228
+#: ../../../display/templates/declaration/declarationChange.tpl:243
 msgid "Masse (kg) :"
 msgstr "Weight (kg):"
 
 #: ../../../display/templates/declaration/fishChange.tpl:133
-#: ../../../display/templates/declaration/declarationChange.tpl:276
+#: ../../../display/templates/declaration/declarationChange.tpl:291
 msgid "Compléments sur les manipulations effectuées :"
 msgstr ""
 "AdditiAdditional information on the manipulations carried out:onal "
@@ -1744,12 +2145,6 @@ msgstr "Related pictures"
 msgid "Fichier(s) à importer :"
 msgstr "File(s) to import:"
 
-#: ../../../display/templates/declaration/fishChange.tpl:194
-#: ../../../display/templates/document/documentChange.tpl:16
-#: ../../../display/templates/framework/droits/appliChange.tpl:19
-msgid "Description :"
-msgstr "Description:"
-
 #: ../../../display/templates/declaration/fishChange.tpl:217
 #: ../../../display/templates/declaration/declarationDisplay.tpl:69
 msgid "Photos associées"
@@ -1768,14 +2163,6 @@ msgstr "Thumbnail"
 #: ../../../display/templates/document/documentList.tpl:42
 msgid "Nom du document"
 msgstr "Name of the document"
-
-#: ../../../display/templates/declaration/documentList.tpl:26
-#: ../../../display/templates/document/documentList.tpl:43
-#: ../../../display/templates/framework/dbparamListChange.tpl:12
-#: ../../../display/templates/framework/droits/appliList.tpl:13
-#: ../../../display/templates/framework/request/requestList.tpl:10
-msgid "Description"
-msgstr "Description"
 
 #: ../../../display/templates/declaration/documentList.tpl:27
 #: ../../../display/templates/document/documentList.tpl:44
@@ -1842,32 +2229,44 @@ msgstr "Search by declaration number, fisherman code or contact name"
 msgid "Statut :"
 msgstr "Status:"
 
-#: ../../../display/templates/declaration/declarationSearch.tpl:80
+#: ../../../display/templates/declaration/declarationSearch.tpl:26
+msgid "Institut :"
+msgstr "Institute:"
+
+#: ../../../display/templates/declaration/declarationSearch.tpl:92
 msgid "Engin de pêche :"
 msgstr "Fish engine:"
 
-#: ../../../display/templates/declaration/declarationSearch.tpl:107
+#: ../../../display/templates/declaration/declarationSearch.tpl:119
 msgid "Année de la déclaration : de"
 msgstr "Year of the declaration: from"
 
-#: ../../../display/templates/declaration/declarationSearch.tpl:117
+#: ../../../display/templates/declaration/declarationSearch.tpl:129
 msgid "à"
 msgstr "to"
 
-#: ../../../display/templates/declaration/declarationSearch.tpl:130
+#: ../../../display/templates/declaration/declarationSearch.tpl:142
 #: ../../../display/templates/framework/logList.tpl:30
 msgid "Rechercher"
 msgstr "Search"
 
-#: ../../../display/templates/declaration/declarationList.tpl:31
-msgid "Exporter la liste au format CSV"
-msgstr "Export the list to CSV format"
+#: ../../../display/templates/declaration/declarationList.tpl:25
+msgid "Nouvelle déclaration"
+msgstr "New declaration"
 
-#: ../../../display/templates/declaration/declarationList.tpl:40
+#: ../../../display/templates/declaration/declarationList.tpl:31
+msgid "Exporter la liste au format CSV (obsolète)"
+msgstr "Export list in CSV format (obsolete)"
+
+#: ../../../display/templates/declaration/declarationList.tpl:34
+msgid "Exporter les poissons correspondants au format CSV (obsolète)"
+msgstr "Export the corresponding fish in CSV format (obsolete)"
+
+#: ../../../display/templates/declaration/declarationList.tpl:41
 msgid "Liste"
 msgstr "List"
 
-#: ../../../display/templates/declaration/declarationList.tpl:45
+#: ../../../display/templates/declaration/declarationList.tpl:46
 msgid "Carte"
 msgstr "Map"
 
@@ -1915,9 +2314,242 @@ msgstr "mesh size - specify measurement method"
 msgid "Commentaire sur l'espèce ciblée :"
 msgstr "Remark on targeted species:"
 
-#: ../../../display/templates/declaration/declarationChange.tpl:222
+#: ../../../display/templates/declaration/declarationChange.tpl:213
+msgid "Institut ayant recueilli la déclaration :"
+msgstr "Institute that received the declaration :"
+
+#: ../../../display/templates/declaration/declarationChange.tpl:237
 msgid "Longueur totale (mm) :"
 msgstr "Total length (mm):"
+
+#: ../../../display/templates/declaration/importCsv.tpl:26
+msgid "Import de déclarations à partir d'un fichier CSV"
+msgstr "Importing declarations from a CSV file"
+
+#: ../../../display/templates/declaration/importCsv.tpl:92
+#: ../../../display/templates/declaration/importFishCsv.tpl:92
+msgid "Nom du fichier à importer (CSV) :"
+msgstr "Name of the file to import (CSV):"
+
+#: ../../../display/templates/declaration/importCsv.tpl:99
+#: ../../../display/templates/declaration/importFishCsv.tpl:99
+msgid "Séparateur utilisé :"
+msgstr "Separator used:"
+
+#: ../../../display/templates/declaration/importCsv.tpl:102
+#: ../../../display/templates/declaration/importFishCsv.tpl:102
+msgid "Virgule"
+msgstr "Comma"
+
+#: ../../../display/templates/declaration/importCsv.tpl:103
+#: ../../../display/templates/declaration/importFishCsv.tpl:103
+msgid "Point-virgule"
+msgstr "Semicolon"
+
+#: ../../../display/templates/declaration/importCsv.tpl:104
+#: ../../../display/templates/declaration/importFishCsv.tpl:104
+msgid "Tabulation"
+msgstr "Tabulation"
+
+#: ../../../display/templates/declaration/importCsv.tpl:145
+#: ../../../display/templates/declaration/importFishCsv.tpl:145
+msgid "Liste des colonnes utilisables dans le fichier d'import"
+msgstr "List of columns that can be used in the import file"
+
+#: ../../../display/templates/declaration/importCsv.tpl:147
+msgid ""
+"Les informations suffixées par _name vont alimenter les tables de "
+"paramètres : consultez-les pour éviter de créer des libellés en doublon"
+msgstr ""
+"Information suffixed with _name will feed the parameter tables: consult them "
+"to avoid creating duplicate labels"
+
+#: ../../../display/templates/declaration/importCsv.tpl:148
+#: ../../../display/templates/declaration/importFishCsv.tpl:148
+msgid ""
+"Le suffixe _name peut être remplacé par _exchange : dans ce cas, les "
+"libellés attendus sont ceux qui sont utilisés pour les échanges "
+"d'informations inter-organismes"
+msgstr ""
+"The _name suffix can be replaced by _exchange: in this case, the expected "
+"labels are those used for inter-organisation information exchanges"
+
+#: ../../../display/templates/declaration/importCsv.tpl:151
+#: ../../../display/templates/declaration/importFishCsv.tpl:151
+msgid "Informations obligatoires"
+msgstr "Mandatory information"
+
+#: ../../../display/templates/declaration/importCsv.tpl:153
+msgid "Sigle de l'organisme"
+msgstr "Code of the organisation"
+
+#: ../../../display/templates/declaration/importCsv.tpl:155
+msgid ""
+"Code d'identification de la déclaration dans le fichier d'origine : clé "
+"utilisée pour importer ensuite les poissons rattachés à la déclaration"
+msgstr ""
+"Declaration identification code in the original file: key used to import the "
+"fish attached to the declaration"
+
+#: ../../../display/templates/declaration/importCsv.tpl:157
+#: ../../../display/templates/declaration/importFishCsv.tpl:154
+msgid ""
+"UUID de la déclaration, si existant. Peut se substituer à  origin_identifier"
+msgstr "UUID of the declaration, if any. Can replace origin_identifier"
+
+#: ../../../display/templates/declaration/importCsv.tpl:158
+msgid "Date de la capture, au format YYYY-MM-DD"
+msgstr "Date of capture, in YYYY-MM-DD format"
+
+#: ../../../display/templates/declaration/importCsv.tpl:159
+msgid ""
+"Année de capture, au format YYYY. L'année est obligatoire si capture_date "
+"n'est pas renseigné"
+msgstr ""
+"Year of capture, in YYYY format. The year is mandatory if capture_date is "
+"not filled in"
+
+#: ../../../display/templates/declaration/importCsv.tpl:161
+#: ../../../display/templates/declaration/importFishCsv.tpl:156
+msgid "Informations facultatives"
+msgstr "Optional information"
+
+#: ../../../display/templates/declaration/importCsv.tpl:163
+msgid "Méthode de capture"
+msgstr "Method of capture"
+
+#: ../../../display/templates/declaration/importCsv.tpl:164
+msgid "Type d'engin"
+msgstr "Type of engine"
+
+#: ../../../display/templates/declaration/importCsv.tpl:165
+#: ../../../display/templates/declaration/importFishCsv.tpl:158
+msgid "Espèce d'esturgeon capturée"
+msgstr "Species of sturgeon caught"
+
+#: ../../../display/templates/declaration/importCsv.tpl:167
+msgid "Devenir des poissons"
+msgstr "Fate of fish"
+
+#: ../../../display/templates/declaration/importCsv.tpl:168
+msgid "Espèce ciblée lors de la pêche"
+msgstr "Species targeted during fishing"
+
+#: ../../../display/templates/declaration/importCsv.tpl:169
+msgid "Date estimée de la capture"
+msgstr "Estimated date of capture"
+
+#: ../../../display/templates/declaration/importCsv.tpl:170
+msgid "Nombre de poissons capturés (obligatoire)"
+msgstr "Number of sturgeons captured by year"
+
+#: ../../../display/templates/declaration/importCsv.tpl:171
+msgid "Taille de la maille du filet"
+msgstr "Mesh size"
+
+#: ../../../display/templates/declaration/importCsv.tpl:172
+msgid "Liste textuelle des espèces ciblées"
+msgstr "Textual list of target species"
+
+#: ../../../display/templates/declaration/importCsv.tpl:173
+msgid "Profondeur de pêche, en mètres"
+msgstr "Fishing depth, in metres"
+
+#: ../../../display/templates/declaration/importCsv.tpl:174
+msgid "Profondeur minimale de pêche"
+msgstr "Minimum fishing depth"
+
+#: ../../../display/templates/declaration/importCsv.tpl:175
+msgid "Profondeur maximale de pêche"
+msgstr "Maximum fishing depth"
+
+#: ../../../display/templates/declaration/importCsv.tpl:176
+msgid "Longueur minimale des poissons capturés, en millimètres"
+msgstr "Minimal length of fish caught, in millimeters"
+
+#: ../../../display/templates/declaration/importCsv.tpl:177
+msgid "Longueur maximale des poissons capturés"
+msgstr "Maximum length of fishes caught"
+
+#: ../../../display/templates/declaration/importCsv.tpl:178
+msgid "Poids minimum des poissons capturés, en grammes"
+msgstr "Minimum weight of fish caught, in grams"
+
+#: ../../../display/templates/declaration/importCsv.tpl:179
+msgid "Poids maximum, en grammes"
+msgstr "Max weigth, in grams"
+
+#: ../../../display/templates/declaration/importCsv.tpl:180
+msgid "Code du pêcheur"
+msgstr "Fisherman code"
+
+#: ../../../display/templates/declaration/importCsv.tpl:181
+msgid "Nom ou organisme à contacter"
+msgstr "Contact name or organisation"
+
+#: ../../../display/templates/declaration/importCsv.tpl:182
+msgid "Coordonnées complètes du contact"
+msgstr "Full contact details"
+
+#: ../../../display/templates/declaration/importCsv.tpl:183
+msgid "Port d'attache du navire"
+msgstr "Home port of vessel"
+
+#: ../../../display/templates/declaration/importCsv.tpl:184
+msgid "Mode de déclaration (texte libre)"
+msgstr "Declaration method (free text)"
+
+#: ../../../display/templates/declaration/importCsv.tpl:185
+msgid "Remarques sur la déclaration"
+msgstr "Remarks on the declaration"
+
+#: ../../../display/templates/declaration/importCsv.tpl:186
+msgid "Manipulations réalisées sur les poissons, séparées par une virgule"
+msgstr "Handlings carried out on fish, separated by a comma"
+
+#: ../../../display/templates/declaration/importCsv.tpl:188
+msgid "0 : identification incertaine de l'espèce, 1 : identification sûre"
+msgstr "0: identification uncertain, 1: identification sure"
+
+#: ../../../display/templates/declaration/importCsv.tpl:189
+msgid "Pays de capture"
+msgstr "Catch country"
+
+#: ../../../display/templates/declaration/importCsv.tpl:190
+msgid "Zone CIEM"
+msgstr "ICES zone"
+
+#: ../../../display/templates/declaration/importCsv.tpl:191
+msgid "Milieu"
+msgstr "Environment"
+
+#: ../../../display/templates/declaration/importCsv.tpl:192
+msgid "Milieu détaillé"
+msgstr "Detailed environment"
+
+#: ../../../display/templates/declaration/importCsv.tpl:193
+msgid "informations complémentaire sur la zone de capture"
+msgstr "additional information on the catch area"
+
+#: ../../../display/templates/declaration/importCsv.tpl:194
+msgid "Longitude WGS84, exprimée sous forme degré-minute-seconde"
+msgstr "Longitude WGS84, expressed as a degree-minute-second"
+
+#: ../../../display/templates/declaration/importCsv.tpl:195
+msgid "Latitude WGS84, exprimée sous forme degré-minute-seconde"
+msgstr "Latitude WGS84, expressed as a degree-minute-second"
+
+#: ../../../display/templates/declaration/importCsv.tpl:196
+msgid "Longitude WGS84, sous forme décimale"
+msgstr "GPS longitude in WGS84 in decimal form"
+
+#: ../../../display/templates/declaration/importCsv.tpl:197
+msgid "Latitude WGS84, sous forme décimale"
+msgstr "Latitude WGS84, in decimal form"
+
+#: ../../../display/templates/declaration/importCsv.tpl:198
+msgid "Précision de la localisation"
+msgstr "Localization accuracy"
 
 #: ../../../display/templates/declaration/eventChange.tpl:1
 msgid "Modification d'un événement"
@@ -1983,9 +2615,76 @@ msgstr "Number of sturgeons captured by year"
 msgid "Nbre"
 msgstr "Number"
 
+#: ../../../display/templates/declaration/importFishCsv.tpl:26
+msgid "Import de poissons à partir d'un fichier CSV"
+msgstr "Importing fish from a CSV file"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:147
+msgid ""
+"Les informations suffixées par _name vont alimenter les tables de "
+"paramètres : consultez-les pour éviter de créer des libellés en doublon."
+msgstr ""
+"Information suffixed with _name will feed the parameter tables: consult them "
+"to avoid creating duplicate labels."
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:153
+msgid "Code d'identification de la déclaration dans le fichier d'origine"
+msgstr "Declaration identification code in the original file"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:159
+msgid "Présence de marque sur le poisson (présent, non signalé, absent)"
+msgstr "Presence of markings on fish (present, not reported, absent)"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:161
+msgid "Devenir du poisson"
+msgstr "Fate of fish"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:162
+msgid "Poids du poisson, en grammes"
+msgstr "Weight of fish, in grams"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:163
+msgid "Manipulations effectuées (forme littéraire)"
+msgstr "Handlings carried out (literary form)"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:164
+msgid ""
+"Liste des manipulations effectuées, séparées par une virgule, pour alimenter "
+"la table handling"
+msgstr ""
+"Comma-separated list of handlings performed to populate the handling table"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:165
+msgid "Numéro de la marque"
+msgstr "Tag number"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:166
+msgid "Longueur du poisson, en millimètres"
+msgstr "Lenth of fish, in millimeters"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:167
+msgid "Cohorte estimée"
+msgstr "Estimated cohort"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:168
+msgid "Cohorte validée"
+msgstr "Validated cohort"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:169
+msgid "Historique du poisson"
+msgstr "Fish background"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:170
+msgid "Remarque sur le poisson"
+msgstr "Remarks on the fish"
+
+#: ../../../display/templates/declaration/importFishCsv.tpl:171
+msgid "0: identification incertaine, 1: identification sûre"
+msgstr "0: identification uncertain, 1: identification sure"
+
 #: ../../../display/templates/apropos_en.tpl:1
 msgid "About STURWILD"
-msgstr ""
+msgstr "About STURWILD"
 
 #: ../../../display/templates/enpied.tpl:3
 msgid ""
@@ -2215,20 +2914,6 @@ msgstr "Date:"
 msgid "Compte utilisé pour service web :"
 msgstr "Account used for web service:"
 
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:124
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:199
-#: ../../../display/templates/framework/ident/loginliste.tpl:47
-#: ../../../display/templates/framework/ident/loginliste.tpl:48
-#: ../../../display/templates/framework/ident/loginliste.tpl:51
-#: ../../../display/templates/framework/droits/loginList.tpl:26
-msgid "oui"
-msgstr "yes"
-
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:128
-#: ../../../display/templates/framework/ident/loginsaisie.tpl:202
-msgid "non"
-msgstr "no"
-
 #: ../../../display/templates/framework/ident/loginsaisie.tpl:133
 msgid "Jeton d'identification du service web :"
 msgstr "Identification token of the web service:"
@@ -2268,7 +2953,7 @@ msgstr "Password characteristics:"
 
 #: ../../../display/templates/framework/ident/loginsaisie.tpl:183
 msgid "Longueur minimale : "
-msgstr "Minimal length:"
+msgstr "Minimal length: "
 
 #: ../../../display/templates/framework/ident/loginsaisie.tpl:184
 msgid "Au minimum 3 types de caractères différents parmi :"
@@ -2712,10 +3397,6 @@ msgstr "Save"
 msgid "Enregistrer et exécuter"
 msgstr "Save and run"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:95
-msgid "Exécuter"
-msgstr "Process"
-
 #: ../../../display/templates/framework/request/requestChange.tpl:127
 msgid "Aucun résultat n'a été retourné par la requête"
 msgstr "No results were returned by the query"
@@ -2757,6 +3438,24 @@ msgstr "Process to the backup"
 msgid "Liste des nouveautés"
 msgstr "List of news"
 
+#: ../../../display/templates/framework/utils/lastRelease.tpl:18
+msgid "Dernière version publiée"
+msgstr "Last published version"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:20
+msgid "Version actuelle : "
+msgstr "Current version:"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:21
+msgid "Dernière version publiée : "
+msgstr "Last published release:"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:23
+msgid ""
+"Vous pouvez demander la mise à jour de votre plate-forme à vos "
+"administrateurs !"
+msgstr "You can ask your administrators to update your platform!"
+
 #: ../../../display/templates/framework/utils/system.tpl:8
 msgid "Nom de la variable"
 msgstr "Name of the variable"
@@ -2777,35 +3476,17 @@ msgstr "About STURWILD"
 msgid "Version %1 du %2."
 msgstr "Version %1 of %2."
 
-#. (itstool) path: navigation/handlingList@tabledescription
-#. (itstool) path: navigation/handlingChange@tabledescription
-#: ../../../param/actions.xml:46 ../../../param/actions.xml:47
-msgid "Manipulations effectuées sur les poissons"
-msgstr "Fish handling"
+#~ msgid "Liste des types d'engins"
+#~ msgstr "List of engine types"
 
-#. (itstool) path: navigation/gear_typeList@tabledescription
-#. (itstool) path: navigation/gear_typeChange@tabledescription
-#: ../../../param/actions.xml:51 ../../../param/actions.xml:52
-msgid "Liste des types d'engins"
-msgstr "List of engine types"
+#~ msgid "Précision des locations"
+#~ msgstr "Localization accuracy"
 
-#. (itstool) path: navigation/accuracyList@tabledescription
-#. (itstool) path: navigation/accuracyChange@tabledescription
-#: ../../../param/actions.xml:56 ../../../param/actions.xml:57
-msgid "Précision des locations"
-msgstr "Localization accuracy"
+#~ msgid "Liste des devenirs des poissons"
+#~ msgstr "List of fates of fish"
 
-#. (itstool) path: navigation/fateList@tabledescription
-#. (itstool) path: navigation/fateChange@tabledescription
-#: ../../../param/actions.xml:86 ../../../param/actions.xml:87
-msgid "Liste des devenirs des poissons"
-msgstr "List of fates of fish"
-
-#. (itstool) path: navigation/speciesList@tabledescription
-#. (itstool) path: navigation/speciesChange@tabledescription
-#: ../../../param/actions.xml:91 ../../../param/actions.xml:92
-msgid "Liste des espèces d'esturgeons"
-msgstr "List of species of sturgeons"
+#~ msgid "Liste des espèces d'esturgeons"
+#~ msgstr "List of species of sturgeons"
 
 #~ msgid ""
 #~ "Vous venez de modifier votre mot de passe. Si vous n'êtes pas à l'origine "
@@ -2829,9 +3510,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "Liste des régions"
 #~ msgstr "List of regions"
-
-#~ msgid "Types de capture"
-#~ msgstr "Catch types"
 
 #~ msgid "Liste des types de capture"
 #~ msgstr "List of catch types"
@@ -2879,10 +3557,6 @@ msgstr "List of species of sturgeons"
 #, fuzzy
 #~ msgid "Création / modification de la précision de la localisation"
 #~ msgstr "Create / Edit a reservation"
-
-#, fuzzy
-#~ msgid "Libellé  :"
-#~ msgstr "Exported label"
 
 #, fuzzy
 #~ msgid "Modification d'un mode de capture"
@@ -3176,9 +3850,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "la clause where n'a pu être construite pour la table %s"
 #~ msgstr "The where clause couldn't be constructed for the table %s"
 
-#~ msgid "Le modèle d'export n'est pas défini ou n'a pas été trouvé"
-#~ msgstr "The export model is not defined or has not be found"
-
 #~ msgid "Importation effectuée, fichier %s traité."
 #~ msgstr "Import done, file %s processed."
 
@@ -3238,9 +3909,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "Opération sur la corbeille impossible à exécuter"
 #~ msgstr "Operation on the recycle bin impossible to execute"
 
-#~ msgid "Impossible de recopier le fichier importé dans le dossier temporaire"
-#~ msgstr "Can not copy the imported file to the temporary folder"
-
 #~ msgid "Import effectué. %s lignes traitées"
 #~ msgstr "Import done. %s processed line(s)"
 
@@ -3293,11 +3961,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "Ligne %1$s : %2$s"
 #~ msgstr "Row %1$s: %2$s"
 
-#~ msgid ""
-#~ "La version du fichier importé ne correspond pas à la version attendue"
-#~ msgstr ""
-#~ "The version of the imported file don't correspond to the expected version"
-
 #~ msgid "Pas de fichier téléchargé"
 #~ msgstr "No downloaded file"
 
@@ -3310,19 +3973,12 @@ msgstr "List of species of sturgeons"
 #~ msgid "Vous ne disposez pas des droits suffisants pour créer le lot"
 #~ msgstr "You do not have the necessary rights to create the lot"
 
-#~ msgid "Aucun échantillon n'a été sélectionné"
-#~ msgstr "No sample was selected"
-
 #~ msgid ""
 #~ "Le type mime pour l'extension %s n'a pas été décrit dans la base de "
 #~ "données"
 #~ msgstr ""
 #~ "The mime type for the extension %s was not been described into the "
 #~ "database"
-
-#~ msgid ""
-#~ "Une erreur indéterminée s'est produite lors de la génération du fichier"
-#~ msgstr "An unknown error occurred during the generation of the lot"
 
 #~ msgid ""
 #~ "Vous ne disposez pas des droits suffisants sur la collection pour "
@@ -3498,12 +4154,6 @@ msgstr "List of species of sturgeons"
 #~ msgstr "No labels to print"
 
 #~ msgid ""
-#~ "Erreur technique : le fichier n'a pas été téléchargé correctement dans le "
-#~ "serveur"
-#~ msgstr ""
-#~ "Technical error: the file was not downloaded correctly to the server"
-
-#~ msgid ""
 #~ "Erreur technique : le fichier téléchargé n'est pas accessible par "
 #~ "l'application"
 #~ msgstr ""
@@ -3542,9 +4192,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "Détail du modèle d'exportation"
 #~ msgstr "Detail of the export template"
-
-#~ msgid "Table"
-#~ msgstr "Table"
 
 #~ msgid "Alias"
 #~ msgstr "Alias"
@@ -3608,9 +4255,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "Dupliquer"
 #~ msgstr "Duplicate"
-
-#~ msgid "Exporter les modèles sélectionnés"
-#~ msgstr "Export selected templates"
 
 #~ msgid "Importer des modèles depuis un fichier JSON"
 #~ msgstr "Import templates from a JSON file"
@@ -4053,12 +4697,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "Contenant en attente de suppression (mis à la corbeille) :"
 #~ msgstr "Container awaiting deletion (trashed):"
 
-#~ msgid "Création - modification d'un identifiant"
-#~ msgstr "Create / Edit an identifier"
-
-#~ msgid "Type d'identifiant :"
-#~ msgstr "Type of identifier:"
-
 #~ msgid "Date de création du document :"
 #~ msgstr "Created date of the document:"
 
@@ -4083,9 +4721,6 @@ msgstr "List of species of sturgeons"
 #~ msgstr ""
 #~ "Location in the container\n"
 #~ "(free format):"
-
-#~ msgid "N° de ligne :"
-#~ msgstr "Line number:"
 
 #~ msgid "N° de la ligne de rangement dans le container"
 #~ msgstr "# of the storage line in the container"
@@ -4200,15 +4835,6 @@ msgstr "List of species of sturgeons"
 #~ "Import of containers and included samples from an external database from "
 #~ "a JSON file"
 
-#~ msgid "Nom du fichier à importer (JSON) :"
-#~ msgstr "Name of the file to import (JSON):"
-
-#~ msgid "Encodage du fichier :"
-#~ msgstr "Encoding of the file:"
-
-#~ msgid "Vérifier le fichier"
-#~ msgstr "Check file"
-
 #~ msgid ""
 #~ "Tableau de correspondance entre les libellés fournis et ceux de la base "
 #~ "de données locale"
@@ -4218,9 +4844,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "Fichier en cours de traitement :"
 #~ msgstr "File being processed:"
-
-#~ msgid "Déclencher l'import"
-#~ msgstr "Import"
 
 #~ msgid ""
 #~ "Ce module permet d'importer des contenants ainsi que les contenants ou "
@@ -4401,11 +5024,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "Affichage complet"
 #~ msgstr "Expand display"
 
-#~ msgid ""
-#~ "Attention : l'opération est définitive. Est-ce bien ce que vous voulez "
-#~ "faire ?"
-#~ msgstr "Attention: this operation is final. Is that what you want to do ?"
-
 #~ msgid "Campagne :"
 #~ msgstr "Campaign:"
 
@@ -4472,9 +5090,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "Pour les éléments cochés :"
 #~ msgstr "For checked items:"
 
-#~ msgid "Choisissez"
-#~ msgstr "Select"
-
 #~ msgid "Assigner un référent aux échantillons"
 #~ msgstr "Assign a referent to the samples"
 
@@ -4525,30 +5140,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "N° de la colonne de rangement dans le contenant"
 #~ msgstr "# of the storage column in the container"
-
-#~ msgid "Import d'échantillons ou de contenants à partir d'un fichier CSV"
-#~ msgstr "Import samples or containers from a CSV file"
-
-#~ msgid "Contrôles OK."
-#~ msgstr "Checks OK."
-
-#~ msgid "Vous pouvez réaliser l'import du fichier (%1) :"
-#~ msgstr "You can import the file (%1):"
-
-#~ msgid "Anomalie(s) détectée(s)"
-#~ msgstr "Anomaly(s) detected"
-
-#~ msgid "Nom du fichier à importer (CSV) :"
-#~ msgstr "Name of the file to import (CSV):"
-
-#~ msgid "Séparateur utilisé :"
-#~ msgstr "Separator used:"
-
-#~ msgid "Virgule"
-#~ msgstr "Comma"
-
-#~ msgid "Point-virgule"
-#~ msgstr "Semicolon"
 
 #~ msgid ""
 #~ "Ce module permet d'importer des échantillons ou des contenants, et de "
@@ -4855,9 +5446,6 @@ msgstr "List of species of sturgeons"
 #~ "<b>unique</b> identifier in the original database, in the form: base_code:"
 #~ "id"
 
-#~ msgid "identifiant métier"
-#~ msgstr "business identifier"
-
 #~ msgid "type d'échantillon"
 #~ msgstr "sample type"
 
@@ -4869,9 +5457,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "nom du référent"
 #~ msgstr "referent name"
-
-#~ msgid "longitude GPS en WGS84 (degrés décimaux)"
-#~ msgstr "GPS longitude in WGS84 (decimal degrees)"
 
 #~ msgid "latitude GPS en WGS84 (degrés décimaux)"
 #~ msgstr "GPS latitude in WGS84 (decimal degrees)"
@@ -5097,9 +5682,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "Nom de la table de correspondance"
 #~ msgstr "Name of the corresponding table"
 
-#~ msgid "Contenu obligatoire ?"
-#~ msgstr "Mandatory content?"
-
 #~ msgid "Valeur par défaut"
 #~ msgstr "Default value"
 
@@ -5115,9 +5697,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "Nom :"
 #~ msgstr "Name:"
-
-#~ msgid "Liste des champs utilisables dans le dataset, au format JSON :"
-#~ msgstr "List of usable fields in the dataset, in JSON format:"
 
 #~ msgid ""
 #~ "Les lots doivent être créés depuis le module de recherche des "
@@ -5154,9 +5733,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "Fichiers XML"
 #~ msgstr "XML files"
 
-#~ msgid "Entête du fichier :"
-#~ msgstr "Header of the file:"
-
 #~ msgid "Nom des nœuds de chaque item :"
 #~ msgstr "Name of the nodes of each item:"
 
@@ -5190,9 +5766,6 @@ msgstr "List of species of sturgeons"
 #~ msgid "Modification d'un modèle d'export"
 #~ msgstr "Create / Edit an export model"
 
-#~ msgid "Version :"
-#~ msgstr "Version:"
-
 #~ msgid "Fichier compressé (si un seul fichier généré) ?"
 #~ msgstr "Zipped file (if only one file is generated)?"
 
@@ -5219,9 +5792,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "point-virgule"
 #~ msgstr "semicolon"
-
-#~ msgid "tabulation"
-#~ msgstr "tabulation"
 
 #~ msgid "Entête du fichier XML :"
 #~ msgstr "Header of the XML file:"
@@ -5268,9 +5838,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "Latitude"
 #~ msgstr "Latitude"
-
-#~ msgid "Importer des emplacements depuis un fichier CSV"
-#~ msgstr "Import locations from a CSV file"
 
 #~ msgid "Séparateur :"
 #~ msgstr "Separator:"
@@ -5404,9 +5971,6 @@ msgstr "List of species of sturgeons"
 
 #~ msgid "au"
 #~ msgstr "to"
-
-#~ msgid "Code"
-#~ msgstr "Code"
 
 #~ msgid "Utilisé pour la recherche ?"
 #~ msgstr "Used for search?"

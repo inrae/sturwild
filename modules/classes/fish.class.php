@@ -202,4 +202,62 @@ class Fish extends ObjetBDD
             order by handling_order";
 		return $this->getListeParamAsPrepared($sql, array("fish_id" => $fish_id));
 	}
+
+	function getDataForExport(array $ids, bool $withExchangeLabel = true, bool $withParentIdentifier = true, bool $searchParentByUuid = false): array
+	{
+		$data = array();
+		if (count($ids) > 0) {
+			$localCode = $_SESSION["APPLI_code"];
+			$withExchangeLabel ? $suffix = "_exchange" : $suffix = "_name";
+			$withParentIdentifier ? $parentIdentifier = ", declaration_uuid, case when origin_identifier is not null then origin_identifier else '$localCode' || ':' || declaration_id::varchar end as origin_identifier" : $parentIdentifier = "";
+			$sql = "select fish_uuid, species$suffix, tag_presence$suffix, capture_state$suffix, fate$suffix, weight, handlings$suffix
+			,tag_number, fish_length, estimated_cohort, validated_cohort, background
+			,f.handling ,f.remarks, f.identification_quality
+			$parentIdentifier
+			from fish f
+			join declaration using (declaration_id)
+			left outer join species s on  (f.species_id = s.species_id)
+			left outer join fate fa on (f.fate_id = fa.fate_id)
+			left outer join capture_state cs on (f.capture_state_id = cs.capture_state_id)
+			left outer join tag_presence using (tag_presence_id)
+			left outer join v_fish_handlings using (fish_id)
+			";
+			if ($searchParentByUuid) {
+				$where = " where declaration_uuid in (";
+			} else {
+				$where = " where declaration_id in (";
+			}
+			$comma = "";
+			$i = 1;
+			$param = array();
+			foreach ($ids as $id) {
+				$where .= $comma . ":id$i";
+				$param["id$i"] = $id;
+				$comma = ",";
+				$i++;
+			}
+			$where .= ") and (status_id >= 3 )";
+			$order = " order by declaration_id";
+			$data = $this->getListeParamAsPrepared($sql . $where . $order, $param);
+		}
+		return $data;
+	}
+	/**
+	 * Get the id of a fish from UUID
+	 *
+	 * @param string $uuid
+	 * @return int
+	 */
+	function getIdByUUID(string $uuid): int
+	{
+		$id = 0;
+		if (!empty($uuid)) {
+			$sql = "select fish_id from fish where fish_uuid = :uuid";
+			$data = $this->lireParamAsPrepared($sql, array("uuid" => $uuid));
+			if ($data["fish_id"] > 0) {
+				$id = $data["fish_id"];
+			}
+		}
+		return $id;
+	}
 }

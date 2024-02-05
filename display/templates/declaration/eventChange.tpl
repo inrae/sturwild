@@ -23,7 +23,7 @@
 						{t}Type d'événement :{/t}<span class="red">*</span>
 					</label>
 					<div class="col-md-8">
-						<select id="event_type_id" name="event_type_id" autofocus>
+						<select id="event_type_id" name="event_type_id" class="form-control" autofocus>
 						{section name=lst loop=$event_type}
 						<option value="{$event_type[lst].event_type_id}" {if $event_type[lst].event_type_id == $data.event_type_id}selected{/if}>
 						{$event_type[lst].event_type_name}

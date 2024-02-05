@@ -21,7 +21,7 @@ class Param extends ObjetBDD
             $tablename . "_id" => array("type" => 1, "requis" => 1, "key" => 1, "defaultValue" => 0),
             $tablename . "_name" => array("type" => 0, "requis" => 1),
             $tablename . "_exchange" => array("type" => 0),
-            $tablename . "_order"=> array("type"=>1, "requis"=>1)
+            $tablename . "_order" => array("type" => 1, "requis" => 1)
         );
         parent::__construct($bdd);
     }
@@ -32,34 +32,34 @@ class Param extends ObjetBDD
      * @param boolean $withCreate: if true and the record not exists, the parameter is created
      * @return int
      */
-    function getIdFromName(string $name, bool $searchByExchange = true, bool $withCreate = false)
+    function getIdFromName(string $name, string $suffix = "_exchange", bool $withCreate = false)
     {
         $id = 0;
-        if (!empty($name)) {
-            if ($searchByExchange) {
-                $field = $this->table . "_exchange";
-            } else {
-                $field = $this->table . "_name";
-            }
+        if (strlen($name) > 0) {
+
+            $field = $this->table . $suffix;
             $sql = "select " . $this->table . "_id  as id
                 from $this->table
-                where $field = :name";
+                where $field = :name
+                order by " .$this->table."_order, ".$this->table . "_id";
             $data = $this->lireParamAsPrepared($sql, array("name" => $name));
             if ($data["id"]) {
                 $id = $data["id"];
             } else if ($withCreate) {
                 $data = array(
-                    "id" => 0,
+                    $this->table . "_id" => 0,
                     $this->table . "_name" => $name,
-                    $this->table . "_exchange" => $name
+                    $this->table . "_exchange" => $name,
+                    $this->table . "_order" => 99
                 );
                 $id = $this->ecrire($data);
             }
         }
         return $id;
     }
-    function getParams() {
-        $order = $this->table."_order,".$this->table."_name";
+    function getParams($suffix = "_name")
+    {
+        $order = $this->table . "_order," . $this->table . $suffix;
         return $this->getListe($order);
     }
 

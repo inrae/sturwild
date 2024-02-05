@@ -70,6 +70,8 @@ ALTER TABLE sturwild.declaration ADD COLUMN declaration_uuid uuid NOT NULL DEFAU
 COMMENT ON COLUMN sturwild.declaration.declaration_uuid IS E'UUID of the declaration';
 -- ddl-end --
 
+alter table sturwild.declaration ADD COLUMN origin_identifier varchar;
+COMMENT ON COLUMN sturwild.declaration.origin_identifier is 'Identifier of the declaration into the origin database. Must be filled in to import declarations with fishes';
 
 -- object: fish_uuid | type: COLUMN --
 -- ALTER TABLE sturwild.fish DROP COLUMN IF EXISTS fish_uuid CASCADE;
@@ -116,20 +118,73 @@ USING btree
 );
 -- ddl-end --
 
-alter table col.dbparam add column dbparam_description varchar;
-alter table col.dbparam add column dbparam_description_en varchar;
-COMMENT ON COLUMN col.dbparam.dbparam_description IS E'Description of the parameter';
+alter table sturwild.dbparam add column dbparam_description varchar;
+alter table sturwild.dbparam add column dbparam_description_en varchar;
+COMMENT ON COLUMN sturwild.dbparam.dbparam_description IS E'Description of the parameter';
 -- ddl-end --
-COMMENT ON COLUMN col.dbparam.dbparam_description_en IS E'Description of the parameter, in English';
+COMMENT ON COLUMN sturwild.dbparam.dbparam_description_en IS E'Description of the parameter, in English';
 -- ddl-end --
-update col.dbparam set dbparam_description = 'Code de l''institut. Ce code est utilisé pour les échanges d''informations', dbparam_description_en = 'Code of the institute. This code is used to exchange data' where dbparam_name = 'APPLI_code';
-update col.dbparam set dbparam_description = 'Nom de l''instance, affiché dans l''interface', dbparam_description_en = 'Instance name, displayed in the interface' where dbparam_name = 'APPLI_title';
-update col.dbparam set dbparam_description = 'Longitude de positionnement par défaut des cartes', dbparam_description_en = 'Default positioning longitude for maps' where dbparam_name = 'mapDefaultX';
-update col.dbparam set dbparam_description = 'Latitude de positionnement par défaut des cartes', dbparam_description_en = 'Default positioning latitude for maps' where dbparam_name = 'mapDefaultY';
-update col.dbparam set dbparam_description = 'Niveau de zoom par défaut dans les cartes', dbparam_description_en = 'Default zoom level in maps' where dbparam_name = 'mapDefaultZoom';
-update col.dbparam set dbparam_description = 'Nom affiché dans les applications de génération de codes uniques pour l''identification à double facteur', dbparam_description_en = 'Name displayed in applications generating unique codes for two-factor identification' where dbparam_name = 'otp_issuer';
+update sturwild.dbparam set dbparam_description = 'Code de l''institut. Ce code est utilisé pour les échanges d''informations', dbparam_description_en = 'Code of the institute. This code is used to exchange data' where dbparam_name = 'APPLI_code';
+update sturwild.dbparam set dbparam_description = 'Nom de l''instance, affiché dans l''interface', dbparam_description_en = 'Instance name, displayed in the interface' where dbparam_name = 'APPLI_title';
+update sturwild.dbparam set dbparam_description = 'Longitude de positionnement par défaut des cartes', dbparam_description_en = 'Default positioning longitude for maps' where dbparam_name = 'mapDefaultX';
+update sturwild.dbparam set dbparam_description = 'Latitude de positionnement par défaut des cartes', dbparam_description_en = 'Default positioning latitude for maps' where dbparam_name = 'mapDefaultY';
+update sturwild.dbparam set dbparam_description = 'Niveau de zoom par défaut dans les cartes', dbparam_description_en = 'Default zoom level in maps' where dbparam_name = 'mapDefaultZoom';
+update sturwild.dbparam set dbparam_description = 'Nom affiché dans les applications de génération de codes uniques pour l''identification à double facteur', dbparam_description_en = 'Name displayed in applications generating unique codes for two-factor identification' where dbparam_name = 'otp_issuer';
 
+DROP VIEW IF EXISTS sturwild.v_declaration_handlings CASCADE;
+CREATE VIEW sturwild.v_declaration_handlings
+AS 
+
+select declaration_id, 
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
+array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
+from sturwild.declaration_handling
+join sturwild.handling using (handling_id)
+group by declaration_id;
+-- ddl-end --
+ALTER VIEW sturwild.v_declaration_handlings OWNER TO sturwild_owner;
+-- ddl-end --
+
+ DROP VIEW IF EXISTS sturwild.v_fish_handlings CASCADE;
+CREATE VIEW sturwild.v_fish_handlings
+AS 
+select fish_id, 
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
+array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
+from sturwild.fish_handling
+join sturwild.handling using (handling_id)
+group by fish_id;
+-- ddl-end --
+ALTER VIEW sturwild.v_fish_handlings OWNER TO sturwild_owner;
+-- ddl-end --
+
+-- object: sturwild.institute | type: TABLE --
+-- DROP TABLE IF EXISTS sturwild.institute CASCADE;
+CREATE TABLE sturwild.institute (
+	institute_id serial NOT NULL,
+	institute_code varchar NOT NULL,
+	institute_description varchar,
+	CONSTRAINT institute_pk PRIMARY KEY (institute_id)
+);
+-- ddl-end --
+COMMENT ON TABLE sturwild.institute IS E'List of institute partners';
+-- ddl-end --
+COMMENT ON COLUMN sturwild.institute.institute_code IS E'Code of the institute';
+-- ddl-end --
+COMMENT ON COLUMN sturwild.institute.institute_description IS E'Description of the institute';
+-- ddl-end --
+ALTER TABLE sturwild.institute OWNER TO sturwild_owner;
+-- ddl-end --
+
+alter table sturwild.declaration add column institute_id int;
+
+-- object: institute_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.declaration DROP CONSTRAINT IF EXISTS institute_fk CASCADE;
+ALTER TABLE sturwild.declaration ADD CONSTRAINT institute_fk FOREIGN KEY (institute_id)
+REFERENCES sturwild.institute (institute_id) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+-- ddl-end --
 
 insert into sturwild.dbversion (dbversion_number, dbversion_date)
 values
-('24.0', '2024-01-31');
+('24.0', '2024-00-05');

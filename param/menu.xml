@@ -1,68 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu xmlns:its="http://www.w3.org/2005/11/its" its:version="2.0">
 	<its:rules version="2.0">
-		<its:translateRule selector="//item/@label" translate="yes"/>
-		<its:translateRule selector="//item/@tooltip" translate="yes"/>
+		<its:translateRule selector="//item/@label" translate="yes" />
+		<its:translateRule selector="//item/@tooltip" translate="yes" />
 	</its:rules>
 	<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations">
-		<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations"/>
-		<item module="declarationNbSturioByYear" label="Nb Sturio par année" tooltip="Nombre d'Esturgeons d'Europe capturés par année" droits="consult"/>
-		<item divider="1"/>
-		<item module="requestList" label="Requêtes SQL" tooltip="Exécution de requêtes SQL dans la base de données" droits="gestion"/>
+		<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations" />
+		<item module="declarationNbSturioByYear" label="Nb Sturio par année"
+			tooltip="Nombre d'Esturgeons d'Europe capturés par année" droits="consult" />
+		<item divider="1" />
+		<item module="importCSVDisplay" label="Import CSV des déclarations"
+			tooltip="Importer les déclarations depuis un fichier CSV" droits="param" />
+		<item module="importFishCSVDisplay" label="Import CSV des poissons"
+			tooltip="Importer les poissons associés aux déclarations depuis un fichier CSV"
+			droits="param" />
+		<item module="importJSONDisplay" label="Import JSON des déclarations"
+			tooltip="Importation des déclarations et des poissons associés depuis un fichier au format JSON"
+			droits="param" />
+		<item divider="1" />
+		<item module="requestList" label="Requêtes SQL"
+			tooltip="Exécution de requêtes SQL dans la base de données" droits="gestion" />
 	</item>
-	<item module="parametre" label="Paramètres" tooltip="Tables de paramètres" droits="param,gestion">
+	<item module="parametre" label="Paramètres" tooltip="Tables de paramètres"
+		droits="param,gestion">
 		<item module="icesList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="gestion" />
-		<item module="countryList" label="Pays" tooltip="Liste des pays" droits="gestion"/>
-		<item module="environmentList" label="Milieux" tooltip="Liste des milieux" droits="gestion"/>
-		<item module="environment_detailList" label="Milieux détaillés" tooltip="Liste des milieux détaillés" droits="gestion"/>
-		<item module="accuracyList" label="Précisions des localisations" tooltip="Liste des précisions des localisations" droits="gestion"/>
-		<item divider = "1"/>
-		<item module="speciesList" label="Espèces" tooltip="Liste des espèces d'esturgeon" droits="gestion"/>
-		<item module="fateList" label="Devenirs" tooltip="Liste des destinations des esturgeons capturés" droits="gestion"/>
-		<item module="capture_methodList" label="Méthodes de capture" tooltip="Liste des méthodes de capture" droits="gestion"/>
-		<item module="originList" label="Origine des captures" tooltip="Liste des origines des captures" droits="gestion"/>
-		<item module="capture_stateList" label="États à la capture" tooltip="Liste des états à la capture" droits="gestion"/>
-		<item module="gear_typeList" label="Engins" tooltip="Liste des engins utilisés" droits="gestion"/>
-		<item module="handlingList" label="Manipulations" tooltip="Liste des manipulations effectuées sur les poissons" droits="gestion"/>
-		<item module="target_speciesList" label="Espèces ciblées" tooltip="Liste des espèces ciblées" droits="gestion"/>
-		<item divider = "1"/>
-		<item module="event_typeList" label="Types d'événements" tooltip="Liste des types d'événements" droits="gestion"/>
-		<item module="statusList" label="Statuts" tooltip="Liste des statuts des déclarations" droits="gestion"/>
+		<item module="countryList" label="Pays" tooltip="Liste des pays" droits="gestion" />
+		<item module="environmentList" label="Milieux" tooltip="Liste des milieux" droits="gestion" />
+		<item module="environment_detailList" label="Milieux détaillés"
+			tooltip="Liste des milieux détaillés" droits="gestion" />
+		<item module="accuracyList" label="Précisions des localisations"
+			tooltip="Liste des précisions des localisations" droits="gestion" />
+		<item divider="1" />
+		<item module="speciesList" label="Espèces" tooltip="Liste des espèces d'esturgeon"
+			droits="gestion" />
+		<item module="fateList" label="Devenirs"
+			tooltip="Liste des destinations des esturgeons capturés" droits="gestion" />
+		<item module="capture_methodList" label="Méthodes de capture"
+			tooltip="Liste des méthodes de capture" droits="gestion" />
+		<item module="originList" label="Origine des captures"
+			tooltip="Liste des origines des captures" droits="gestion" />
+		<item module="capture_stateList" label="États à la capture"
+			tooltip="Liste des états à la capture" droits="gestion" />
+		<item module="gear_typeList" label="Engins" tooltip="Liste des engins utilisés"
+			droits="gestion" />
+		<item module="handlingList" label="Manipulations"
+			tooltip="Liste des manipulations effectuées sur les poissons" droits="gestion" />
+		<item module="target_speciesList" label="Espèces ciblées"
+			tooltip="Liste des espèces ciblées" droits="gestion" />
+		<item divider="1" />
+		<item module="instituteList" label="Instituts" tooltip="Instituts partenaires"
+			droits="gestion" />
+		<item module="event_typeList" label="Types d'événements"
+			tooltip="Liste des types d'événements" droits="gestion" />
+		<item module="statusList" label="Statuts" tooltip="Liste des statuts des déclarations"
+			droits="gestion" />
 	</item>
-	<item module="administration" label="Administration" tooltip="Administration de l'application" droits="admin">
-		<item module="loginList" droits="admin" label="Liste des comptes locaux" tooltip="Liste des logins - identification via la base de données" />
-		<item module="appliList" droits="admin" label="ACL - droits" tooltip="applications et droits gérés" />
-		<item module="aclloginList" droits="admin" label="ACL - logins" tooltip="Logins déclarés dans le module de gestion des droits" />
-		<item module="groupList" droits="admin" label="ACL - groupes de logins" tooltip="Groupes de logins et logins rattachés aux groupes" />
+	<item module="administration" label="Administration" tooltip="Administration de l'application"
+		droits="admin">
+		<item module="loginList" droits="admin" label="Liste des comptes locaux"
+			tooltip="Liste des logins - identification via la base de données" />
+		<item module="appliList" droits="admin" label="ACL - droits"
+			tooltip="applications et droits gérés" />
+		<item module="aclloginList" droits="admin" label="ACL - logins"
+			tooltip="Logins déclarés dans le module de gestion des droits" />
+		<item module="groupList" droits="admin" label="ACL - groupes de logins"
+			tooltip="Groupes de logins et logins rattachés aux groupes" />
 		<item divider='1' />
-		<item module="dbparamList" droits="admin" label="Paramètres de l'application" tooltip="Liste des paramètres pérennes de l'application" />
+		<item module="dbparamList" droits="admin" label="Paramètres de l'application"
+			tooltip="Liste des paramètres pérennes de l'application" />
 		<item divider='1' />
-		<item module="logList" droits="admin" label="Logs" tooltip="Consultation des logs enregistrées" />
-		<item module="dbstructureGacl" droits="admin" label="Structure de la base de données des droits (HTML)" tooltip="Liste des tables et des colonnes de la base de données de gestion des droits" />
-		<item module="phpinfo" droits="admin" label="PHP info" tooltip="configuration générale du serveur PHP" />
-		<item divider="1"/>
-		<item module="systemShowServer" droits="admin" label="Variables SERVER" tooltip="Affichage des variables fournies par le serveur"/>
-		<item module="systemShowSession" droits="admin" label="Variables SESSION" tooltip="Affichage des variables de session"/>
-		<item divider="1"/>
-		<item module="backupDisplay" droits="admin" label="Backup" tooltip="Sauvegarde de la base de données" />
+		<item module="logList" droits="admin" label="Logs"
+			tooltip="Consultation des logs enregistrées" />
+		<item module="dbstructureGacl" droits="admin"
+			label="Structure de la base de données des droits (HTML)"
+			tooltip="Liste des tables et des colonnes de la base de données de gestion des droits" />
+		<item module="phpinfo" droits="admin" label="PHP info"
+			tooltip="configuration générale du serveur PHP" />
+		<item divider="1" />
+		<item module="systemShowServer" droits="admin" label="Variables SERVER"
+			tooltip="Affichage des variables fournies par le serveur" />
+		<item module="systemShowSession" droits="admin" label="Variables SESSION"
+			tooltip="Affichage des variables de session" />
+		<item divider="1" />
+		<item module="backupDisplay" droits="admin" label="Backup"
+			tooltip="Sauvegarde de la base de données" />
 	</item>
 
-    <item module="documentation_fr" label="documentation" tooltip="Documentations en ligne en français" language="fr">
-        <item module="doctotp_fr" label="Comprendre la double authentification" tooltip="Comprendre le mécanisme de double authentification" language="fr"/>
-    </item>
-    <item module="documentation_en" label="documentation" tooltip="Documentations en ligne en anglais" language="en">
-        <item module="doctotp_en" label="Comprendre la double authentification" tooltip="Comprendre le mécanisme de double authentification" language="en"/>
-    </item>
-	<item module="connexion" label="Connexion" tooltip="S'identifier dans l'application" onlynoconnect="1"/>
-	<item module="disconnect" label="Déconnexion" tooltip="Déconnexion de l'application" loginrequis="1">
-		<item module="getLastConnections" label="Dernières connexions" tooltip="Liste des dernières connexions réalisées" loginrequis="1"/>
-		<item module="loginChangePassword" loginrequis="1" label="Modifier le mot de passe" tooltip="Modifiez votre mot de passe (identification locale uniquement)" />
+	<item module="documentation_fr" label="documentation"
+		tooltip="Documentations en ligne en français" language="fr">
+		<item module="doctotp_fr" label="Comprendre la double authentification"
+			tooltip="Comprendre le mécanisme de double authentification" language="fr" />
+	</item>
+	<item module="documentation_en" label="documentation"
+		tooltip="Documentations en ligne en anglais" language="en">
+		<item module="doctotp_en" label="Comprendre la double authentification"
+			tooltip="Comprendre le mécanisme de double authentification" language="en" />
+	</item>
+	<item module="connexion" label="Connexion" tooltip="S'identifier dans l'application"
+		onlynoconnect="1" />
+	<item module="disconnect" label="Déconnexion" tooltip="Déconnexion de l'application"
+		loginrequis="1">
+		<item module="getLastConnections" label="Dernières connexions"
+			tooltip="Liste des dernières connexions réalisées" loginrequis="1" />
+		<item module="loginChangePassword" loginrequis="1" label="Modifier le mot de passe"
+			tooltip="Modifiez votre mot de passe (identification locale uniquement)" />
 	</item>
 	<item module="help" label="?" tooltip="Aide">
-		<item module="apropos" label="A propos" tooltip="A propos de Sturwild"/>
-		<item module="quoideneuf" label="Nouveautés" tooltip="Quoi de neuf dans l'application ?"/>
-		<item module="lexique" label="Lexique" tooltip="Lexique des termes utilisés dans le logiciel" />
-		<item module="setlanguagefr" label="Français" tooltip="Libellés en français"/>
-		<item module="setlanguageen" label="English" tooltip="Labels in English"/>
+		<item module="apropos" label="A propos" tooltip="A propos de Sturwild" />
+		<item module="quoideneuf" label="Nouveautés" tooltip="Quoi de neuf dans l'application ?" />
+		<item module="getLastRelease" label="Nouvelle version ?" tooltip="Rechercher s'il existe une nouvelle version disponible de l'application"/>
+		<item module="lexique" label="Lexique"
+			tooltip="Lexique des termes utilisés dans le logiciel" />
+		<item module="setlanguagefr" label="Français" tooltip="Libellés en français" />
+		<item module="setlanguageen" label="English" tooltip="Labels in English" />
 	</item>
 </menu>

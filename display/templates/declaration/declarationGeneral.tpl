@@ -69,6 +69,15 @@
     <dt>{t}Mode de déclaration :{/t}</dt>
     <dd>{$data.declaration_mode}</dd>
   </dl>
+  <dl class="dl-horizontal">
+    <dt>{t}Institut ayant enregistré la déclaration :{/t}</dt>
+    <dd>{$data.institute_code}</dd>
+  </dl>
+
+   <dl class="dl-horizontal">
+    <dt>{t}identifiant technique (UUID) :{/t}</dt>
+    <dd>{$data.declaration_uuid}</dd>
+  </dl>
 
   <dl class="dl-horizontal">
     <dt>{t}Observations :{/t}</dt>

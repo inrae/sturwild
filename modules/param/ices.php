@@ -1,5 +1,5 @@
 <?php
-include_once 'modules/classes/location.class.php';
+include_once 'modules/classes/ices.class.php';
 $dataClass = new Ices ( $bdd, $ObjetBDDParam );
 $keyName = "ices_id";
 $id = $_REQUEST [$keyName];

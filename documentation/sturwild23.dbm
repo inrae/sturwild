@@ -17,8 +17,8 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </role>
 
 <role name="sturwild_owner"
- login="true"
  inherit="true"
+ login="true"
  password="sturwildPassword">
 </role>
 
@@ -250,7 +250,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 	<initial-data>
 <![CDATA["dbversion_number";"dbversion_date"
-"23.0";"2023-09-29"
+"24.0";"2024-02-05"
 ]]>
 	</initial-data>
 </table>
@@ -260,12 +260,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild_owner"/>
 </sequence>
 
-<table name="declaration" layers="0" collapse-mode="2" max-obj-count="37" z-value="0">
+<table name="declaration" layers="0" collapse-mode="2" max-obj-count="39" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[Informations liées à la déclaration.]]> </comment>
 	<tag name="declaration"/>
-	<position x="460" y="260"/>
+	<position x="460" y="240"/>
 	<column name="declaration_id" not-null="true" sequence="sturwild.declaration_declaration_id_seq">
 		<type name="integer" length="0"/>
 		<comment> <![CDATA[Identifiant de la capture.]]> </comment>
@@ -379,6 +379,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="declaration_uuid" not-null="true" default-value="gen_random_uuid()">
 		<type name="uuid" length="0"/>
 		<comment> <![CDATA[UUID of the declaration]]> </comment>
+	</column>
+	<column name="origin_identifier">
+		<type name="varchar" length="0"/>
+		<comment> <![CDATA[Identifier of the declaration into the origin database. Must be filled in to import declarations with fishes]]> </comment>
 	</column>
 	<constraint name="capture_id" type="pk-constr" table="sturwild.declaration">
 		<columns names="declaration_id" ref-type="src-columns"/>
@@ -1587,7 +1591,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[List of all handling for a declaration]]> </comment>
 	<tag name="declaration"/>
-	<position x="900" y="760"/>
+	<position x="900" y="860"/>
 
 	<customidxs object-type="column">
 		<object name="declaration_id" index="0"/>
@@ -1628,7 +1632,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild_owner"/>
 	<comment> <![CDATA[List of species targeted]]> </comment>
 	<tag name="declaration"/>
-	<position x="900" y="540"/>
+	<position x="900" y="420"/>
 	<column name="target_species_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -1663,14 +1667,18 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<position x="1320" y="1040"/>
 	<reference>
 		<expression> <![CDATA[select declaration_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
+array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
 from sturwild.declaration_handling
 join sturwild.handling using (handling_id)
 group by declaration_id]]> </expression>
 	<column name="declaration_id">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="handlings">
+	<column name="handlings_name">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="handlings_exchange">
 		<type name="varchar" length="0"/>
 	</column>
 		<reftable name="sturwild.declaration_handling"/>
@@ -1704,14 +1712,18 @@ group by declaration_id]]> </expression>
 	<position x="1320" y="1160"/>
 	<reference>
 		<expression> <![CDATA[select fish_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings
+array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
+array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
 from sturwild.fish_handling
 join sturwild.handling using (handling_id)
 group by fish_id]]> </expression>
 	<column name="fish_id">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="handlings">
+	<column name="handlings_name">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="handlings_exchange">
 		<type name="varchar" length="0"/>
 	</column>
 		<reftable name="sturwild.fish"/>
@@ -1906,6 +1918,37 @@ left outer join sturwild.v_fish_handlings using (fish_id)]]> </expression>
 			<column name="document_uuid"/>
 		</idxelement>
 </index>
+
+<table name="institute" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="sturwild"/>
+	<role name="sturwild_owner"/>
+	<comment> <![CDATA[List of institute partners]]> </comment>
+	<tag name="declaration"/>
+	<position x="900" y="660"/>
+	<column name="institute_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="institute_code" not-null="true">
+		<type name="varchar" length="0"/>
+		<comment> <![CDATA[Code of the institute]]> </comment>
+	</column>
+	<column name="institute_description">
+		<type name="varchar" length="0"/>
+		<comment> <![CDATA[Description of the institute]]> </comment>
+	</column>
+	<constraint name="institute_pk" type="pk-constr" table="sturwild.institute">
+		<columns names="institute_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="institute_has_many_declaration" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1c71d8"
+	 src-table="sturwild.institute"
+	 dst-table="sturwild.declaration"
+	 src-required="false" dst-required="false"/>
 
 <constraint name="capture_etat_declaration_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="sturwild.capture_state" table="sturwild.declaration">
@@ -2247,7 +2290,7 @@ left outer join sturwild.v_fish_handlings using (fish_id)]]> </expression>
 	 dst-table="sturwildgacl.aclgroup" reference-fk="aclgroup_aclgroup_fk"
 	 src-required="false" dst-required="false">
 	<line>
-		<position x="3372.75" y="315.975"/>
+		<position x="3372.75" y="299.575"/>
 	<position x="3372.75" y="227"/>
 	<position x="3226.5" y="227"/>
 	</line>

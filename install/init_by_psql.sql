@@ -1,5 +1,5 @@
 
-CREATE USER sturwild_owner WITH
+CREATE USER sturwild WITH
   LOGIN
   NOSUPERUSER
   INHERIT
@@ -15,6 +15,7 @@ CREATE USER sturwild_owner WITH
 create database sturwild owner sturwild_owner;
 \c "dbname=sturwild"
  create extension if not exists postgis schema public;
+ create extension if not exists pgcrypto schema public;
 
 
 \c "dbname=sturwild user=sturwild_owner password=sturwildPassword host=localhost"
