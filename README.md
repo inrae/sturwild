@@ -44,6 +44,5 @@ Then:
 ```
 cd /var/www/sturwildApp/sturwild
 git pull origin -b main
-cd ..
-./upgradedb.sh
+../upgradedb.sh
 ```
