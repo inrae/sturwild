@@ -1,5 +1,5 @@
-<h2>A propos de STURWILD...
-</h2>
+<h2>{t}A propos de STURWILD...
+{/t}</h2>
 <p>
 Version {$version} du {$versiondate}.
 </p>

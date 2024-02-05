@@ -12,7 +12,7 @@
 <script src="display/node_modules/jquery-ui/ui/widgets/tooltip.js"></script>
 <link rel="stylesheet" href="display/node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css">
 
-<!--alpaca -->
+<!--alpaca
 <script type="text/javascript" src="display/node_modules/handlebars/dist/handlebars.runtime.min.js"></script>
 <script type="text/javascript" src="display/node_modules/alpaca/dist/alpaca/bootstrap/alpaca.min.js"></script>
 <link rel="stylesheet" href="display/node_modules/alpaca/dist/alpaca/bootstrap/alpaca.min.css">

@@ -8,90 +8,110 @@
 <div class="row">
 <div class="form-display col-sm-6">
   <dl class="dl-horizontal">
-    <dt>Statut  :</dt>
-    <dd>{$data.statut_libelle}</dd>
+    <dt>{t}Statut  :{/t}</dt>
+    <dd>{$data.status_name}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Espèce :</dt>
-    <dd>{$data.espece_libelle}&nbsp;({if $data.qualite_identification == 1}Sûr{else}incertain{/if})
+    <dt>{t}Espèce :{/t}</dt>
+    <dd>{$data.species_name}&nbsp;({if $data.identification_quality == 1}Sûr{else}incertain{/if})
   </dl>
   <dl class="dl-horizontal">
-    <dt>Nombre total<br>d'esturgeons<br>capturés :</dt>
-    <dd>{$data.nombre_capture}</dl>
+    <dt>{t}Nombre total d'esturgeons capturés :{/t}</dt>
+    <dd>{$data.caught_number}</dl>
   <dl class="dl-horizontal">
-  <dt>Année de capture :</dt>
-  <dd>{$data.annee}</dd>
+  <dt>{t}Année de capture :{/t}</dt>
+  <dd>{$data.year}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Date de capture {if !empty($data.capture_date_estimee)}(période/heure){/if} :</dt>
-    <dd>{$data.capture_date}{if !empty($data.capture_date_estimee)}&nbsp;({$data.capture_date_estimee}){/if}</dd>
+    <dt>{t}Date de capture :{/t}{if !empty($data.estimated_capture_date)}(période/heure){/if}</dt>
+    <dd>{$data.capture_date}{if !empty($data.estimated_capture_date)}&nbsp;({$data.estimated_capture_date}){/if}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>profondeur (ou gamme de profondeur) :</dt>
-    <dd>{if $data.profondeur > 0}{$data.profondeur} m{/if}
-      {if ($data.prof_min > 0 || $data.prof_max > 0)}(min : {$data.prof_min} m. - max : {$data.prof_max} m.){/if}</dd>
+    <dt>{t}Profondeur (ou gamme de profondeur) :{/t}</dt>
+    <dd>{if $data.depth > 0}{$data.depth} m{/if}
+      {if ($data.depth_min > 0 || $data.depth_max > 0)}(min : {$data.depth_min} m. - max : {$data.depth_max} m.){/if}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Statut du déclarant  :</dt>
-    <dd>{$data.capture_type_libelle}</dd>
+    <dt>{t}Statut du déclarant  :{/t}</dt>
+    <dd>{$data.origin_name}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Code du pécheur :</dt>
-    <dd>{$data.pecheur_code}</dd>
+    <dt>{t}Code du pécheur :{/t}</dt>
+    <dd>{$data.fisher_code}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Port d'attache du navire de pêche :</dt>
-    <dd>{$data.navire_port}</dd>
+    <dt>{t}Port d'attache du navire de pêche :{/t}</dt>
+    <dd>{$data.harbour_vessel}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Autre correspondant et coordonnées :</dt>
-    <dd>{$data.interlocuteur}&nbsp;<span class="textareaDisplay">{$data.interlocuteur_coord}</span></dd>
+    <dt>{t}Autre correspondant et coordonnées :{/t}</dt>
+    <dd>{$data.contact}&nbsp;<span class="textareaDisplay">{$data.contact_coord}</span></dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Mode de capture  :</dt>
-    <dd>{$data.capture_mode_libelle}</dd>
+    <dt>{t}Mode de capture  :{/t}</dt>
+    <dd>{$data.capture_method_name}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Type d'engin utilisé et maille :</dt>
-    <dd>{$data.engin_type_libelle} {$data.engin_maille}</dd>
+    <dt>{t}Type d'engin utilisé et maille :{/t}</dt>
+    <dd>{$data.gear_type_name} {$data.gear_mesh}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Espèce ciblée :</dt>
-    <dd>{$data.espece_ciblee}</dd>
+    <dt>{t}Espèce ciblée :{/t}</dt>
+    <dd>
+      {$data.target_species_name}
+      {if !empty($data.target_species)}
+      <br>
+      {$data.target_species}
+      {/if}
+    </dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>Mode de déclaration :</dt>
+    <dt>{t}Mode de déclaration :{/t}</dt>
     <dd>{$data.declaration_mode}</dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>{t}Institut ayant enregistré la déclaration :{/t}</dt>
+    <dd>{$data.institute_code}</dd>
+  </dl>
+
+   <dl class="dl-horizontal">
+    <dt>{t}identifiant technique (UUID) :{/t}</dt>
+    <dd>{$data.declaration_uuid}</dd>
   </dl>
 
   <dl class="dl-horizontal">
-    <dt>Observations :</dt>
-    <dd><span class="textareaDisplay">{$data.observation}</span></dd>
+    <dt>{t}Observations :{/t}</dt>
+    <dd><span class="textareaDisplay">{$data.remarks}</span></dd>
   </dl>
   <fieldset>
-    <legend>Informations sur le lot d'esturgeons</legend>
-    {if ($data.lt_min > 0 || $data.lt_max > 0)}
+    <legend>{t}Informations sur le lot d'esturgeons{/t}</legend>
+    {if ($data.length_min > 0 || $data.length_max > 0)}
       <dl class="dl-horizontal">
-        <dt>Longueur totale :</dt>
-        <dd>de : {$data.lt_min} mm à : {$data.lt_max} mm</dd>
+        <dt>{t}Longueur totale :{/t}</dt>
+        <dd>{t}de :{/t} {$data.length_min} mm {t}à :{/t} {$data.length_max} mm</dd>
       </dl>
     {/if}
-    {if $data.masse_min > 0 || $data.masse_max > 0}
+    {if $data.weight_min > 0 || $data.weight_max > 0}
       <dl class="dl-horizontal">
-        <dt>Masse :</dt>
-        <dd>de : {$data.masse_min} kg à : {$data.masse_max} kg</dd>
+        <dt>{t}Masse :{/t}</dt>
+        <dd>{t}de :{/t} {$data.weight_min} kg {t}à :{/t} {$data.weight_max} kg</dd>
       </dl>
     {/if}
     <dl class="dl-horizontal">
-      <dt>État à la capture :</dt>
-      <dd>{$data.capture_etat_libelle}</dd>
+      <dt>{t}État à la capture :{/t}</dt>
+      <dd>{$data.capture_state_name}</dd>
     </dl>
     <dl class="dl-horizontal">
-      <dt>Manipulation<br>effectuée :</dt>
-      <dd>{$data.manipulation}</dd>
+      <dt>{t}Manipulations effectuées :{/t}</dt>
+      <dd>
+        {$data.handlings}
+        {if !empty($data.handling)}
+        <br>{$data.handling}
+        {/if}
+      </dd>
     </dl>
-      <dl class="dl-horizontal"><dt>Devenir du lot :</dt>
-      <dd>{$data.devenir_libelle}</dd>
+      <dl class="dl-horizontal"><dt>{t}Devenir du lot :{/t}</dt>
+      <dd>{$data.fate_name}</dd>
     </dl>
   </fieldset>
 </div>

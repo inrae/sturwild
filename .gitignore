@@ -11,6 +11,7 @@ local.properties
 .settings/
 .loadpath
 sonar-scanner.sh
+*.~lock*
 
 # Eclipse Core
 .project
@@ -187,3 +188,5 @@ sympy-plots-for-*.tex/
 /param/id_sturwild
 /param/id_sturwild.pub
 /test/*
+
+documentation/sturwild23_fixed.dbm

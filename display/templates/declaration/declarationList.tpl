@@ -1,82 +1,62 @@
+<script>
+    $(document).ready(function() { 
+        var activeTabResult = "";
+		var myStorage = window.localStorage;
+        try {
+        activeTabResult = myStorage.getItem("declarationResultTab");
+        } catch (Exception) {
+        }
+		try {
+			if (activeTabResult.length > 0) {
+				$("#"+activeTabResult).tab('show');
+			}
+		} catch (Exception) { }
+		 $('.tabResult').on('shown.bs.tab', function () {
+			myStorage.setItem("declarationResultTab", $(this).attr("id"));
+		});
+    });
+</script>
 {include file="declaration/declarationSearch.tpl"}
 {if $isSearch == 1}
 <div class="col-md-12">
-{if $droits["gestion"] == 1}
-<a href=index.php?module=declarationChange&declaration_id=0>
-<img src="display/images/new.png" height="25">
-<b>Nouvelle déclaration...</b>
-</a>
-{/if}
-{if count($data) > 0}
-<br>
-<a href="index.php?module=declarationExport">
-<img src="display/images/csv_text.png" height="25">
-Exporter la liste au format CSV</a>
-&nbsp;
-<a href="index.php?module=individuExport"><img src="display/images/csv_text.png" height="25">Exporter les poissons correspondants au format CSV</a>
-{/if}
-<table  id="declarationList" data-order='[[0,"desc"]]' class="table table-bordered table-hover datatable " >
-<thead>
-<tr>
-<th>N°</th>
-<th>Espèce</th>
-<th>État à<br>la capture</th>
-<th>Année</th>
-<th>Date de<br>capture</th>
-<th>Localisation</th>
-<th>Nbre de<br>poissons</th>
-<th title="Nombre total de documents associés, photos, vidéo, etc.">Nbre de<br>photos</th>
-<th>Engin de pêche</th>
-<th>Code du<br>pécheur</th>
-<th>Interlocuteur</th>
-<th>Statut</th>
-</tr>
-</thead>
-<tbody>
-{section name=lst loop=$data}
-<tr>
-<td class="center">
-<a href="index.php?module=declarationDisplay&declaration_id={$data[lst].declaration_id}">
-<!--  img src="display/images/detail.png" height="20"-->
-{$data[lst].declaration_id}
-</a>
-</td>
- <td>{$data[lst].espece_libelle}</td>
- <td>{$data[lst].capture_etat_libelle}</td>
-<td>{$data[lst].annee}</td>
-<td>
-{if strlen($data[lst].capture_date) > 0}
-{$data[lst].capture_date}
-{else}
-{$data[lst].capture_date_estimee}
-{/if}
-</td>
-<td>
-{$data[lst].pays_libelle}
-{if !empty($data[lst].ciem_libelle)}
- {$data[lst].ciem_libelle}
-{/if}
-{if !empty($data[lst].region_libelle)}
- {$data[lst].region_libelle}
-{/if}
-{if !empty($data[lst].milieu_libelle) }
- {$data[lst].milieu_libelle}
-{/if}
-{if !empty($data[lst].milieu_detail_libelle)}
- {$data[lst].milieu_detail_libelle}
-{/if}
- </td>
- <td class="center">{$data[lst].nombre_capture}</td>
- <td class="center">
- {if $data[lst].document_nb > 0}{$data[lst].document_nb}{/if}
- </td>
- <td>{$data[lst].engin_type_libelle}</td>
- <td>{$data[lst].pecheur_code}</td>
- <td>{$data[lst].interlocuteur}</td>
- <td>{$data[lst].statut_libelle}</td>
-</tr>
-{/section}
-</tbody>
-</table>
+    {if $droits["gestion"] == 1}
+    <a href=index.php?module=declarationChange&declaration_id=0>
+        <img src="display/images/new.png" height="25">
+        <b>{t}Nouvelle déclaration{/t}</b>
+    </a>
+    {/if}
+    {if count($data) > 0}
+    <a href="index.php?module=declarationExport">
+        <img src="display/images/csv_text.png" height="25">
+        {t}Exporter la liste au format CSV (obsolète){/t}</a>
+    &nbsp;
+    <a href="index.php?module=fishExport"><img src="display/images/csv_text.png" height="25">
+        {t}Exporter les poissons correspondants au format CSV (obsolète){/t}
+    </a>
+    {/if}
+
+    <ul class="nav nav-tabs  " id="tabResult" role="tablist" >
+        <li class="nav-item active">
+                <a class="nav-link tabResult" id="tablist" data-toggle="tab"  role="tab" aria-controls="navlist" aria-selected="true" href="#navlist">
+                        {t}Liste{/t}
+                </a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link tabResult" id="tabmap" href="#navmap"  data-toggle="tab" role="tab" aria-controls="navmap" aria-selected="false">
+                        {t}Carte{/t}
+                </a>
+        </li>
+    </ul>
+    <div class="tab-content tab-content-white col-lg-12 form-horizontal" id="tabresult-content">
+        <div class="tab-pane active in" id="navlist" role="tabpanel" aria-labelledby="tablist">
+            <div class="col-lg-12">
+                {include file='declaration/declarationListDetail.tpl'}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="navmap" role="tabpanel" aria-labelledby="tabmap">
+            <div id="mapList" class="map"style="height:600px;"></div>
+            {include file="declaration/declarationListMap.tpl"}
+        </div>
+    </div>
 </div>
 {/if}

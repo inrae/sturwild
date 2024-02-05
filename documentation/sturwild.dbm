@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.2" use-changelog="false" last-position="0,0" last-zoom="0.7" max-obj-count="48"
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" last-position="0,0" last-zoom="0.7" max-obj-count="48"
 	 default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
@@ -113,7 +113,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Table des états à la capture]]> </comment>
 	<tag name="individu"/>
-	<position x="40" y="920"/>
+	<position x="40" y="1140"/>
 	<column name="capture_etat_id" not-null="true" sequence="sturwild.capture_etat_capture_etat_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -179,7 +179,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Table des zones de peche CIEM]]> </comment>
 	<tag name="lieu"/>
-	<position x="1460" y="460"/>
+	<position x="1460" y="580"/>
 	<column name="ciem_id" not-null="true" sequence="sturwild.ciem_ciem_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -327,7 +327,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Devenir des esturgeons capturés]]> </comment>
 	<tag name="individu"/>
-	<position x="40" y="1060"/>
+	<position x="40" y="1540"/>
 	<column name="devenir_id" not-null="true" sequence="sturwild.devenir_devenir_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -349,7 +349,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Documents numériques rattachés à un poisson ou à un événement]]> </comment>
 	<tag name="individu"/>
-	<position x="520" y="1340"/>
+	<position x="520" y="1700"/>
 	<column name="document_id" not-null="true" sequence="sturwild.document_document_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -394,7 +394,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Table des engins utilisés]]> </comment>
 	<tag name="declaration"/>
-	<position x="40" y="580"/>
+	<position x="40" y="760"/>
 	<column name="engin_type_id" not-null="true" sequence="sturwild.engin_type_engin_type_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -415,7 +415,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="individu"/>
-	<position x="40" y="720"/>
+	<position x="40" y="940"/>
 	<column name="espece_id" not-null="true" sequence="sturwild.espece_espece_id_seq">
 		<type name="integer" length="0"/>
 		<comment> <![CDATA[Identifiant de l'espèce]]> </comment>
@@ -438,7 +438,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="declaration"/>
-	<position x="40" y="320"/>
+	<position x="40" y="380"/>
 	<column name="evenement_id" not-null="true" sequence="sturwild.evenement_evenement_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -495,7 +495,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="individu"/>
-	<position x="520" y="920"/>
+	<position x="520" y="1140"/>
 	<column name="individu_id" not-null="true" sequence="sturwild.individu_individu_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -569,7 +569,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="lieu"/>
-	<position x="960" y="320"/>
+	<position x="960" y="380"/>
 	<column name="declaration_id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -664,7 +664,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Table des milieux]]> </comment>
 	<tag name="lieu"/>
-	<position x="1460" y="580"/>
+	<position x="1460" y="760"/>
 	<column name="milieu_id" not-null="true" sequence="sturwild.milieu_milieu_id_seq">
 		<type name="integer" length="0"/>
 		<comment> <![CDATA[Identifiant du milieu]]> </comment>
@@ -688,7 +688,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Table des types mime, pour les documents associés]]> </comment>
 	<tag name="individu"/>
-	<position x="40" y="1340"/>
+	<position x="40" y="1700"/>
 	<column name="mime_type_id" not-null="true" sequence="sturwild.mime_type_mime_type_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -715,7 +715,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Pays de pêche]]> </comment>
 	<tag name="lieu"/>
-	<position x="1460" y="320"/>
+	<position x="1460" y="380"/>
 	<column name="pays_id" not-null="true" sequence="sturwild.pays_pays_id_seq">
 		<type name="integer" length="0"/>
 		<comment> <![CDATA[Identifiant du pays]]> </comment>
@@ -741,7 +741,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Table des types de présence de marque (présent, non signalé, absent)]]> </comment>
 	<tag name="individu"/>
-	<position x="960" y="920"/>
+	<position x="960" y="1140"/>
 	<column name="presence_marque_id" not-null="true" sequence="sturwild.presence_marque_presence_marque_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -763,7 +763,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Grande région de pêche]]> </comment>
 	<tag name="lieu"/>
-	<position x="1460" y="720"/>
+	<position x="1460" y="940"/>
 	<column name="region_id" not-null="true" sequence="sturwild.region_region_id_seq">
 		<type name="integer" length="0"/>
 		<comment> <![CDATA[Identifiant de la région]]> </comment>
@@ -802,7 +802,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="individu"/>
-	<position x="960" y="1060"/>
+	<position x="960" y="1540"/>
 	<reference>
 		<expression> <![CDATA[ SELECT individu.espece_id,
     individu.devenir_id,
@@ -927,7 +927,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<tag name="lieu"/>
-	<position x="1460" y="920"/>
+	<position x="1460" y="1140"/>
 	<reference>
 		<expression> <![CDATA[ SELECT localisation.declaration_id,
     localisation.geom,
@@ -1181,7 +1181,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="&quot;eric.quinton&quot;"/>
 	<comment> <![CDATA[Table des versions de la base de donnees]]> </comment>
-	<position x="520" y="1620"/>
+	<position x="520" y="2060"/>
 	<column name="dbversion_id" not-null="true" sequence="sturwild.dbversion_dbversion_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -1201,7 +1201,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="request" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
 	<schema name="sturwild"/>
 	<comment> <![CDATA[Request table in database]]> </comment>
-	<position x="40" y="1620"/>
+	<position x="40" y="2060"/>
 	<column name="request_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -1267,6 +1267,23 @@ Point GPS estimé > 10 km]]>
 	 dst-table="sturwild.localisation"
 	 src-required="false" dst-required="false"
 	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="engine" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="sturwild"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[List of engine types used]]> </comment>
+	<tag name="declaration"/>
+	<position x="40" y="20"/>
+	<column name="engine_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="engine_name" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<constraint name="engine_pk" type="pk-constr" table="sturwild.engine">
+		<columns names="engine_id" ref-type="src-columns"/>
+	</constraint>
+</table>
 
 <constraint name="capture_etat_declaration_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="sturwild.capture_etat" table="sturwild.declaration">

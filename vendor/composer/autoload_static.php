@@ -9,6 +9,7 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
     public static $files = array (
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         'a4ecaeafb8cfb009ad0e052c90355e98' => __DIR__ . '/..' . '/beberlei/assert/lib/Assert/functions.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '51fcf4e06c07cc00c920b44bcd900e7a' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/apc.php',
         '288267919fedd3829a7732b5fb202197' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/array.php',
@@ -98,7 +99,7 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         '4af1dca6db8c527c6eed27bff85ff0e5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/yaz.php',
         'fe43ca06499ac37bc2dedd823af71eb5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/zip.php',
         '356736db98a6834f0a886b8d509b0ecd' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/zlib.php',
-        '524ac6b21329cb008bd2db60ee1704ac' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS.php',
+        '344f11dc3484aaed5cbde58e23513be4' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         'b2b3f01361f3aaeab67fde08ae76446f' => __DIR__ . '/..' . '/smarty-gettext/smarty-gettext/block.t.php',
         'd3114450b53a83020e2822546c24e1ad' => __DIR__ . '/..' . '/smarty-gettext/smarty-gettext/function.locale.php',
@@ -108,6 +109,7 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         'Z' => 
         array (
             'ZxcvbnPhp\\' => 10,
+            'ZipStream\\' => 10,
         ),
         'S' => 
         array (
@@ -121,13 +123,25 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
             'Picqer\\Barcode\\' => 15,
+            'PhpOffice\\PhpSpreadsheet\\' => 25,
             'ParagonIE\\ConstantTime\\' => 23,
         ),
         'O' => 
         array (
             'OTPHP\\' => 6,
+        ),
+        'M' => 
+        array (
+            'Matrix\\' => 7,
+        ),
+        'C' => 
+        array (
+            'Complex\\' => 8,
         ),
         'B' => 
         array (
@@ -143,6 +157,10 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         'ZxcvbnPhp\\' => 
         array (
             0 => __DIR__ . '/..' . '/bjeavons/zxcvbn-php/src',
+        ),
+        'ZipStream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
         ),
         'Symfony\\Polyfill\\Php81\\' => 
         array (
@@ -160,13 +178,30 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         array (
             0 => __DIR__ . '/..' . '/ramsey/collection/src',
         ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
         'Picqer\\Barcode\\' => 
         array (
             0 => __DIR__ . '/..' . '/picqer/php-barcode-generator/src',
+        ),
+        'PhpOffice\\PhpSpreadsheet\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
         ),
         'ParagonIE\\ConstantTime\\' => 
         array (
@@ -175,6 +210,14 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         'OTPHP\\' => 
         array (
             0 => __DIR__ . '/..' . '/spomky-labs/otphp/src',
+        ),
+        'Matrix\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
+        ),
+        'Complex\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
         ),
         'Brick\\Math\\' => 
         array (
@@ -186,58 +229,69 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'H' => 
+        array (
+            'HTMLPurifier' => 
+            array (
+                0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
+            ),
+        ),
+    );
+
     public static $classMap = array (
-        'CAS_AuthenticationException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/AuthenticationException.php',
-        'CAS_Client' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Client.php',
-        'CAS_CookieJar' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/CookieJar.php',
-        'CAS_Exception' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Exception.php',
-        'CAS_GracefullTerminationException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/GracefullTerminationException.php',
-        'CAS_InvalidArgumentException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/InvalidArgumentException.php',
-        'CAS_Languages_Catalan' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/Catalan.php',
-        'CAS_Languages_ChineseSimplified' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/ChineseSimplified.php',
-        'CAS_Languages_English' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/English.php',
-        'CAS_Languages_French' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/French.php',
-        'CAS_Languages_Galego' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/Galego.php',
-        'CAS_Languages_German' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/German.php',
-        'CAS_Languages_Greek' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/Greek.php',
-        'CAS_Languages_Japanese' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/Japanese.php',
-        'CAS_Languages_LanguageInterface' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/LanguageInterface.php',
-        'CAS_Languages_Portuguese' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/Portuguese.php',
-        'CAS_Languages_Spanish' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Languages/Spanish.php',
-        'CAS_OutOfSequenceBeforeAuthenticationCallException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/OutOfSequenceBeforeAuthenticationCallException.php',
-        'CAS_OutOfSequenceBeforeClientException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/OutOfSequenceBeforeClientException.php',
-        'CAS_OutOfSequenceBeforeProxyException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/OutOfSequenceBeforeProxyException.php',
-        'CAS_OutOfSequenceException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/OutOfSequenceException.php',
-        'CAS_PGTStorage_AbstractStorage' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/PGTStorage/AbstractStorage.php',
-        'CAS_PGTStorage_Db' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/PGTStorage/Db.php',
-        'CAS_PGTStorage_File' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/PGTStorage/File.php',
-        'CAS_ProxiedService' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService.php',
-        'CAS_ProxiedService_Abstract' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService/Abstract.php',
-        'CAS_ProxiedService_Exception' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService/Exception.php',
-        'CAS_ProxiedService_Http' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService/Http.php',
-        'CAS_ProxiedService_Http_Abstract' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService/Http/Abstract.php',
-        'CAS_ProxiedService_Http_Get' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService/Http/Get.php',
-        'CAS_ProxiedService_Http_Post' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService/Http/Post.php',
-        'CAS_ProxiedService_Imap' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService/Imap.php',
-        'CAS_ProxiedService_Testable' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxiedService/Testable.php',
-        'CAS_ProxyChain' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxyChain.php',
-        'CAS_ProxyChain_AllowedList' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxyChain/AllowedList.php',
-        'CAS_ProxyChain_Any' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxyChain/Any.php',
-        'CAS_ProxyChain_Interface' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxyChain/Interface.php',
-        'CAS_ProxyChain_Trusted' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxyChain/Trusted.php',
-        'CAS_ProxyTicketException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ProxyTicketException.php',
-        'CAS_Request_AbstractRequest' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/AbstractRequest.php',
-        'CAS_Request_CurlMultiRequest' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/CurlMultiRequest.php',
-        'CAS_Request_CurlRequest' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/CurlRequest.php',
-        'CAS_Request_Exception' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/Exception.php',
-        'CAS_Request_MultiRequestInterface' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/MultiRequestInterface.php',
-        'CAS_Request_RequestInterface' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Request/RequestInterface.php',
-        'CAS_ServiceBaseUrl_AllowedListDiscovery' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ServiceBaseUrl/AllowedListDiscovery.php',
-        'CAS_ServiceBaseUrl_Base' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ServiceBaseUrl/Base.php',
-        'CAS_ServiceBaseUrl_Interface' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ServiceBaseUrl/Interface.php',
-        'CAS_ServiceBaseUrl_Static' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/ServiceBaseUrl/Static.php',
-        'CAS_Session_PhpSession' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/Session/PhpSession.php',
-        'CAS_TypeMismatchException' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS/TypeMismatchException.php',
+        'CAS_AuthenticationException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/AuthenticationException.php',
+        'CAS_Client' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Client.php',
+        'CAS_CookieJar' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/CookieJar.php',
+        'CAS_Exception' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Exception.php',
+        'CAS_GracefullTerminationException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/GracefullTerminationException.php',
+        'CAS_InvalidArgumentException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/InvalidArgumentException.php',
+        'CAS_Languages_Catalan' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/Catalan.php',
+        'CAS_Languages_ChineseSimplified' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/ChineseSimplified.php',
+        'CAS_Languages_English' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/English.php',
+        'CAS_Languages_French' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/French.php',
+        'CAS_Languages_Galego' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/Galego.php',
+        'CAS_Languages_German' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/German.php',
+        'CAS_Languages_Greek' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/Greek.php',
+        'CAS_Languages_Japanese' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/Japanese.php',
+        'CAS_Languages_LanguageInterface' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/LanguageInterface.php',
+        'CAS_Languages_Portuguese' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/Portuguese.php',
+        'CAS_Languages_Spanish' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Languages/Spanish.php',
+        'CAS_OutOfSequenceBeforeAuthenticationCallException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/OutOfSequenceBeforeAuthenticationCallException.php',
+        'CAS_OutOfSequenceBeforeClientException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/OutOfSequenceBeforeClientException.php',
+        'CAS_OutOfSequenceBeforeProxyException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/OutOfSequenceBeforeProxyException.php',
+        'CAS_OutOfSequenceException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/OutOfSequenceException.php',
+        'CAS_PGTStorage_AbstractStorage' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/PGTStorage/AbstractStorage.php',
+        'CAS_PGTStorage_Db' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/PGTStorage/Db.php',
+        'CAS_PGTStorage_File' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/PGTStorage/File.php',
+        'CAS_ProxiedService' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService.php',
+        'CAS_ProxiedService_Abstract' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService/Abstract.php',
+        'CAS_ProxiedService_Exception' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService/Exception.php',
+        'CAS_ProxiedService_Http' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService/Http.php',
+        'CAS_ProxiedService_Http_Abstract' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService/Http/Abstract.php',
+        'CAS_ProxiedService_Http_Get' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService/Http/Get.php',
+        'CAS_ProxiedService_Http_Post' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService/Http/Post.php',
+        'CAS_ProxiedService_Imap' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService/Imap.php',
+        'CAS_ProxiedService_Testable' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxiedService/Testable.php',
+        'CAS_ProxyChain' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxyChain.php',
+        'CAS_ProxyChain_AllowedList' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxyChain/AllowedList.php',
+        'CAS_ProxyChain_Any' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxyChain/Any.php',
+        'CAS_ProxyChain_Interface' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxyChain/Interface.php',
+        'CAS_ProxyChain_Trusted' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxyChain/Trusted.php',
+        'CAS_ProxyTicketException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ProxyTicketException.php',
+        'CAS_Request_AbstractRequest' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Request/AbstractRequest.php',
+        'CAS_Request_CurlMultiRequest' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Request/CurlMultiRequest.php',
+        'CAS_Request_CurlRequest' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Request/CurlRequest.php',
+        'CAS_Request_Exception' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Request/Exception.php',
+        'CAS_Request_MultiRequestInterface' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Request/MultiRequestInterface.php',
+        'CAS_Request_RequestInterface' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Request/RequestInterface.php',
+        'CAS_ServiceBaseUrl_AllowedListDiscovery' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ServiceBaseUrl/AllowedListDiscovery.php',
+        'CAS_ServiceBaseUrl_Base' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ServiceBaseUrl/Base.php',
+        'CAS_ServiceBaseUrl_Interface' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ServiceBaseUrl/Interface.php',
+        'CAS_ServiceBaseUrl_Static' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/ServiceBaseUrl/Static.php',
+        'CAS_Session_PhpSession' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/Session/PhpSession.php',
+        'CAS_TypeMismatchException' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS/TypeMismatchException.php',
+        'CURLStringFile' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
         'Safe\\DateTime' => __DIR__ . '/..' . '/thecodingmachine/safe/lib/DateTime.php',
@@ -496,7 +550,7 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         'Smarty_Variable' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_variable.php',
         'TPC_yyStackEntry' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_configfileparser.php',
         'TP_yyStackEntry' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_templateparser.php',
-        'phpCAS' => __DIR__ . '/..' . '/jasig/phpcas/source/CAS.php',
+        'phpCAS' => __DIR__ . '/..' . '/apereo/phpcas/source/CAS.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -504,6 +558,7 @@ class ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitfc06e24141f3a87f90d0d3c71e70b08b::$classMap;
 
         }, null, ClassLoader::class);

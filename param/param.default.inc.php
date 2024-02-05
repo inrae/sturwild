@@ -5,9 +5,9 @@
 *
 * Parametres par defaut de l'application
 */
-$APPLI_version = "1.4.1";
-$APPLI_dbversion = "1.4";
-$APPLI_versiondate = _("24/03/2023");
+$APPLI_version = "24.0.0";
+$APPLI_dbversion = "24.0";
+$APPLI_versiondate = _("05/02/2024");
 $language = "fr";
 $DEFAULT_formatdate = "fr";
 /*
@@ -24,12 +24,7 @@ $APPLI_session_ttl = 14400;
 $APPLI_cookie_ttl = 7776000;
 // 10 heures
 $APPLI_absolute_session = 36000;
-/*
- *
- * Nom du chemin de stockage des sessions
- * @var unknown_type
- */
-$APPLI_path_stockage_session = "prototypephp";
+
 /*
  * Duree de conservation des traces (en jours) dans la table log
  */
@@ -61,7 +56,7 @@ $user_attributes = array (
 	"firstname"=>"givenName",
 	"lastname"=>"sn",
 	"name"=>"cn",
-	"groups"=>"supannentiteaffectation"
+	"groups"=>"supannentiteaffectationprincipale"
 );
 $ident_header_login_var = "AUTH_USER";
 $ident_header_logout_address = "https://server/cas/logout";
@@ -113,9 +108,7 @@ $SMARTY_param = array("templates"=> 'display/templates',
  * Variables de base de l'application
  */
 $APPLI_mail = "proto@proto.com";
-$APPLI_assist_address = "https://gitub.com/appli/issues/new";
-$APPLI_nom = "Prototype d'application";
-$APPLI_code = 'sturwild';
+$APPLI_assist_address = "https://github.com/inrae/sturwild/issues/new/choose";
 $APPLI_fds = "display/CSS/blue.css";
 $APPLI_address = "http://localhost/proto";
 $APPLI_modeDeveloppement = false;
@@ -183,18 +176,7 @@ $tokenIdentityValidity = 36000; // 10 heures
  */
 $paramIniFile = "./param.ini";
 
-
-$MAIL_param = array("replyTo"=>"ne-pas-repondre.sturwild@irstea.fr",
-		"subject"=>"STURWILD - déclaration n° @declaration_id modifiée",
-		"from"=>"ne-pas-repondre.sturwild@irstea.fr",
-		"contents"=>"<html><body>".
-		"La déclaration n° <b>@declaration_id</b> a été modifiée. Elle a maintenant le statut <b>@statut_libelle</b>.<br>".
-		'Vous pouvez la consulter en suivant ce lien : <a href="@lien">@lien</a> (une fois connecté)'.
-		"<br><br>Merci de ne pas répondre à ce mél, l'adresse d'envoi n'est pas relevée.".
-		'</body></html>'
-);
-$MAIL_enabled = 0;
-$MAPS_enabled = 0;
+$MAPS_enabled = 1;
 $MAPS_url = "https://maps.googleapis.com/maps/api/js?key=CLE_IDENTIFICATION&callback=initMap";
 /*
  * Nombre maximum d'essais de connexion
@@ -221,5 +203,9 @@ $CAS_port = 443; //port of CAS server
 $CAS_debug = false; // Activation of debug mode
 $CAS_CApath=""; // path to the certificate of the CAS
 $GACL_disable_new_right = 1;
-
-?>
+$APPLI_release_url = "https://api.github.com/repos/inrae/sturwild/releases/latest";
+$APPLI_release_url_tag = "tag_name";
+$APPLI_release_url_date = "published_at";
+$APPLI_release_right_minimal = "gestion";
+$APPLI_release_user_agent = 'inrae/sturwild';
+$APPLI_release_description = "body";

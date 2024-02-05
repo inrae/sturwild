@@ -60,3 +60,6 @@ poedit en.po
 #compiler le .po en .mo
 msgfmt en.po -o en.mo
 
+#pour éviter les problèmes de cache, relancer le serveur :
+#sudo systemctl reload apache2
+

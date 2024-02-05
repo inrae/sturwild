@@ -6,33 +6,33 @@
  *  Creation 6 août 2015
  *  Script de preparation des boites de selection pour les criteres de recherche
  */
- 
-require_once 'modules/classes/localisation.class.php';
-require_once 'modules/classes/individu.class.php';
-$ciem = new Ciem($bdd, $ObjetBDDParam);
-$vue->set ($ciem->getListe(2) , "ciem" );
 
-$pays = new Pays($bdd, $ObjetBDDParam);
-$vue->set ( $pays->getListe(3), "pays" );
+require_once 'modules/classes/location.class.php';
+require_once 'modules/classes/fish.class.php';
+require_once 'modules/classes/param.class.php';
+require_once "modules/classes/ices.class.php";
+$ices = new Ices($bdd, $ObjetBDDParam);
+$vue->set($ices->getListe(2), "ices");
 
-$region = new Region($bdd, $ObjetBDDParam);
-$vue->set ( $region->getListe(2), "region" );
+$country = new Country($bdd, $ObjetBDDParam);
+$vue->set($country->getListe(3), "country");
 
-$milieu = new Milieu($bdd, $ObjetBDDParam);
-$vue->set ( $milieu->getListe(2), "milieu" );
+$environment = new Param($bdd, "environment");
+$vue->set($environment->getListe(2), "environment");
 
-$espece = new Espece($bdd, $ObjetBDDParam);
-$vue->set ( $espece->getListe(2), "espece" );
+$species = new Param($bdd, "species");
+$vue->set($species->getListe(2), "species");
 
-$capture_etat = new Capture_etat($bdd, $ObjetBDDParam);
-$vue->set ( $capture_etat->getListe(2), "capture_etat" );
+$capture_state = new Param($bdd, "capture_state");
+$vue->set($capture_state->getListe(2), "capture_state");
 
-$engin_type = new Engin_type($bdd, $ObjetBDDParam);
-$vue->set ( $engin_type->getListe(2), "engin_type" );
+$gear_type = new Param($bdd, "gear_type");
+$vue->set($gear_type->getListe(2), "gear_type");
 
-$statut = new Statut($bdd, $ObjetBDDParam);
-$vue->set ( $statut->getListe(1), "statut" );
-$vue->set ( $_SESSION["searchDeclaration"]->isSearch(), "isSearch" );
-$vue->set ($_SESSION["searchDeclaration"]->getListeAnnee() , "annees" );
-
-?>
+$status = new Param($bdd, "status");
+$vue->set($status->getListe(1), "status");
+$vue->set($_SESSION["searchDeclaration"]->isSearch(), "isSearch");
+$vue->set($_SESSION["searchDeclaration"]->getListeAnnee(), "years");
+require_once "modules/classes/institute.class.php";
+$institute = new Institute($bdd, $ObjetBDDParam);
+$vue->set($institute->getListe(2), "institute");

@@ -20,14 +20,14 @@ $(document).ready(function() {
 <table id="documentList" class="table table-bordered table-hover" >
 <thead>
 <tr>
-<th>N° poisson</th>
-<th>Vignette</th>
-<th>Nom du document</th>
-<th>Description</th>
-<th>Taille</th>
-<th>Date<br>d'import</th>
+<th>{t}N° poisson{/t}</th>
+<th>{t}Vignette{/t}</th>
+<th>{t}Nom du document{/t}</th>
+<th>{t}Description{/t}</th>
+<th>{t}Taille{/t}</th>
+<th>{t}Date d'import{/t}</th>
 {if $droits["gestion"] == 1 }
-<th>Supprimer</th>
+<th>{t}Supprimer{/t}</th>
 {/if}
 </tr>
 </thead>
@@ -36,9 +36,9 @@ $(document).ready(function() {
 <tr>
 <td class="center">
 {if $droits.gestion == 1}
-<a href="index.php?module=individuChange&individu_id={$dataDoc[lst].individu_id}" title="Modifier les informations concernant le poisson">{$dataDoc[lst].individu_id}</a>
+<a href="index.php?module=fishChange&fish_id={$dataDoc[lst].fish_id}" title="{t}Modifier les informations concernant le poisson{/t}">{$dataDoc[lst].fish_id}</a>
 {else}
-{$dataDoc[lst].individu_id}
+{$dataDoc[lst].fish_id}
 {/if}
 </td>
 <td style="text-align:center;">
@@ -46,15 +46,15 @@ $(document).ready(function() {
 {if $dataDoc[lst].mime_type_id != 1}
 <a class="image-popup-no-margins"
    href="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=0&phototype=1"
-   title="aperçu de la photo">
+   title="{t}aperçu de la photo{/t}">
    <img src="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=0&phototype=2" height="30">
 {/if}
 
 {if $dataDoc[lst].mime_type_id != 1}</a>{/if}
 {/if}
 <td>
-<a href="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=1&phototype=0"" title="document original">
-{$dataDoc[lst].document_nom}
+<a href="index.php?module=documentGet&document_id={$dataDoc[lst].document_id}&attached=1&phototype=0"" title="{t}document original{/t}">
+{$dataDoc[lst].document_name}
 </a>
 
 </td>
@@ -64,7 +64,7 @@ $(document).ready(function() {
 {if $droits["gestion"] == 1}
 <td>
 <div class="center">
-<a href="index.php?module=documentDelete&document_id={$dataDoc[lst].document_id}&individu_id={$dataDoc[lst].individu_id}" onclick="return confirm('Confirmez-vous la suppression ?');">
+<a href="index.php?module=documentDelete&document_id={$dataDoc[lst].document_id}&fish_id={$dataDoc[lst].fish_id}" onclick="return confirm('{t}Confirmez-vous la suppression ?{/t}');">
 <img src="display/images/corbeille.png" height="20">
 </a>
 </div>

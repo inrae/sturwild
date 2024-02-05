@@ -4,48 +4,52 @@
 *UTF-8
 */
 
-$APPLI_modeDeveloppement = true;
+$APPLI_modeDeveloppement = false;
 //$APPLI_notSSL = true;
 $APPLI_modeDeveloppement == true ? $ERROR_display=1 : $_ERROR_display = 0;
 $ERROR_level = E_ERROR ;
 $OBJETBDD_debugmode = 1;
 $APPLI_utf8 = true;
 
-$GACL_aco = "appli";
-
+/**
+ * identification
+ * BDD: sturwild database
+ * LDAP: ldap directory
+ * LDAP-BDD : first LDAP, if unknown, BDD
+ * CAS: CAS server
+ * CAS-BDD : CAS server or Sturwild database
+ * HEADER: identification by Apache server. Used for SAML identification with mod_auth_mellon
+ */
 $ident_type = "BDD";
 /*
  * Parametres concernant la base de donnees
  */
-$BDD_login = "proto";
-$BDD_passwd = "proto";
-$BDD_dsn = "pgsql:host=localhost;dbname=proto;sslmode=require";
-$BDD_schema = "public";
+$BDD_login = "sturwild";
+$BDD_passwd = "sturwildPassword";
+$BDD_dsn = "pgsql:host=localhost;dbname=sturwild";
+$BDD_schema = "sturwild,public";
 
 /*
  * Rights management, logins and logs records database
  */
-$GACL_dblogin = "proto";
-$GACL_dbpasswd = "proto";
-$GACL_aco = "col";
-$GACL_dsn = "pgsql:host=localhost;dbname=proto;sslmode=require";
-$GACL_schema = "gacl";
+$GACL_dblogin = "sturwild";
+$GACL_dbpasswd = "sturwildPassword";
+$GACL_aco = "sturwild";
+$GACL_dsn = "pgsql:host=localhost;dbname=sturwild";
+$GACL_schema = "sturwildgacl,public";
 
 /*
- * Lien vers le site d'assistance
- */
-$APPLI_mail = "https://monsite/assistance";
-
 $LDAP ["address" ] = "localhost";
 $LDAP ["port" ] = 389;
 $LDAP [ "basedn"] = "ou=people,ou=example,o=societe,c=fr";
 $LDAP [ "tls"] = false;
+*/
 
 /*
  * Recherche des groupes dans l'annuaire LDAP
  * Decommenter la premiere ligne pour activer la fonction
  */
- //$LDAP [ "groupSupport" ] = true;
+ $LDAP [ "groupSupport" ] = false;
 $LDAP [ "groupAttrib" ] = "supannentiteaffectation";
 $LDAP [ "commonNameAttrib" ] = "displayname";
 $LDAP [ "mailAttrib" ] = "mail";
