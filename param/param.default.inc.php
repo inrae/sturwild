@@ -5,7 +5,7 @@
 *
 * Parametres par defaut de l'application
 */
-$APPLI_version = "24.0.0";
+$APPLI_version = "v24.0.0";
 $APPLI_dbversion = "24.0";
 $APPLI_versiondate = _("05/02/2024");
 $language = "fr";
