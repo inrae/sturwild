@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-28 15:41+0200\n"
+"POT-Creation-Date: 2023-12-05 10:13+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.1\n"
 "X-Poedit-Basepath: ../../../param\n"
 "X-Poedit-SearchPath-0: menu.xml\n"
 
@@ -485,8 +485,8 @@ msgid "Impossible de lire le fichier contenant les news"
 msgstr "Unable to read the file containing the news"
 
 #: ../../../param/param.default.inc.php:10
-msgid "24/03/2023"
-msgstr "2023-03-24"
+msgid "05/12/2023"
+msgstr "05/12/2023"
 
 #: ../../../install/translatedb/import.class.php:75
 #: ../../../framework/import/import.class.php:77
@@ -615,6 +615,7 @@ msgid "Vous êtes maintenant déconnecté"
 msgstr "You are now signed off"
 
 #: ../../../framework/identification/passwordLost.php:40
+#: ../../../display/templates/framework/mail/passwordLost.tpl:1
 msgid "Réinitialisation du mot de passe"
 msgstr "Password reset"
 
@@ -680,25 +681,6 @@ msgid ""
 "Problème rencontré lors de l'écriture du login pour la gestion des droits"
 msgstr "Problem encountered while writing the login for the rights management"
 
-#: ../../../framework/identification/login.php:94
-#: ../../../display/templates/framework/mail/passwordChanged.tpl:1
-msgid "Modification du mot de passe"
-msgstr "Password change"
-
-#: ../../../framework/identification/login.php:96
-msgid ""
-"Vous venez de modifier votre mot de passe. Si vous n'êtes pas à l'origine de "
-"cette opération, contactez l'administrateur de l'application, et activez "
-"également la double authentification pour mieux protéger votre compte."
-msgstr ""
-"You have just changed your password. If you didn't do it, contact the "
-"application administrator, and also activate the double authentication to "
-"better protect your account."
-
-#: ../../../framework/identification/login.php:97
-msgid "Ne répondez pas à ce message, il ne sera pas relevé"
-msgstr "Do not reply to this message, it will not be answered"
-
 #: ../../../framework/identification/passwordlost.class.php:79
 msgid "Le compte n'est pas actif"
 msgstr "The account is inactive"
@@ -731,12 +713,12 @@ msgstr ""
 msgid "Problème rencontré lors de l'ouverture de finfo"
 msgstr "Problem occurred during the opening of finfo"
 
-#: ../../../framework/log/log.class.php:285
+#: ../../../framework/log/log.class.php:291
 #, php-format
 msgid "%s - Compte bloqué"
 msgstr "%s - Account blocked"
 
-#: ../../../framework/log/log.class.php:316
+#: ../../../framework/log/log.class.php:326
 msgid ""
 "Le nombre d'accès autorisés pour le module demandé a été atteint. Si vous "
 "considérez que la valeur est trop faible, veuillez contacter "
@@ -746,7 +728,7 @@ msgstr ""
 "If you consider that the value is too low, please contact the application "
 "administrator"
 
-#: ../../../framework/log/log.class.php:318
+#: ../../../framework/log/log.class.php:328
 #, php-format
 msgid "%s - Trop d'accès à un module"
 msgstr "%s - Too much access to a module"
@@ -762,7 +744,7 @@ msgid "Erreur: type d'affichage non défini pour le module demandé : %s"
 msgstr "Error: display type not defined for the requested module: %s"
 
 #: ../../../framework/fonctions.php:80
-#: ../../../framework/dbparam/dbparam.php:19
+#: ../../../framework/dbparam/dbparam.php:20
 msgid "Enregistrement effectué"
 msgstr "Saved"
 
@@ -819,28 +801,28 @@ msgstr ""
 "An error occurred while executing the request to the remote server. CURL "
 "error code: %s"
 
-#: ../../../framework/common.inc.php:196
+#: ../../../framework/common.inc.php:198
 msgid "La connexion à la base de données a échoué"
 msgstr "Failed to connect to the database"
 
-#: ../../../framework/common.inc.php:217
+#: ../../../framework/common.inc.php:219
 msgid "La connexion à la base de données des droits a échoué"
 msgstr "Failed to connect to rights management database"
 
-#: ../../../framework/common.inc.php:228
+#: ../../../framework/common.inc.php:230
 msgid "Echec de connexion à la base de données de gestion des droits (GACL)"
 msgstr "Failed to connect to rights management database (GACL)"
 
-#: ../../../framework/common.inc.php:231
+#: ../../../framework/common.inc.php:233
 msgid "Echec de connexion à la base de données principale"
 msgstr "Failed to connect to the main database"
 
-#: ../../../framework/common.inc.php:247
+#: ../../../framework/common.inc.php:249
 msgid ""
 "Vous avez été déconnecté, votre session était ouverte depuis trop longtemps"
 msgstr "You have been disconnected, your session has been open for too long"
 
-#: ../../../framework/common.inc.php:295
+#: ../../../framework/common.inc.php:297
 msgid "Problème rencontré lors de la lecture de la table des paramètres"
 msgstr "Problem encountered while reading the parameter table"
 
@@ -877,7 +859,7 @@ msgstr ""
 "Adding a login to the accounts table (rights management) is not available: "
 "the login is not provided"
 
-#: ../../../framework/dbparam/dbparam.php:32
+#: ../../../framework/dbparam/dbparam.php:33
 msgid "Problème lors de la mise en fichier..."
 msgstr "Writing problem..."
 
@@ -924,19 +906,19 @@ msgstr ""
 msgid "Veuillez utiliser le login qui vous a été fourni pour vous identifier"
 msgstr "Please use the login that was provided to you to identify yourself"
 
-#: ../../../framework/controller.php:371
+#: ../../../framework/controller.php:372
 msgid "Identification refusée"
 msgstr "Authentication failed"
 
-#: ../../../framework/controller.php:395
+#: ../../../framework/controller.php:396
 msgid "Identification réussie !"
 msgstr "Authentication successful!"
 
-#: ../../../framework/controller.php:406
+#: ../../../framework/controller.php:407
 msgid "Connexions précédentes récentes :"
 msgstr "Recent previous connections:"
 
-#: ../../../framework/controller.php:419
+#: ../../../framework/controller.php:420
 #, php-format
 msgid ""
 "Dernière connexion le %1$s depuis l'adresse IP %2$s. Si ce n'était pas vous, "
@@ -946,12 +928,12 @@ msgstr ""
 "your password or contact the administrator of the application."
 
 #. traduction: conserver inchangée la chaîne %s
-#: ../../../framework/controller.php:516
+#: ../../../framework/controller.php:518
 #, php-format
 msgid "Module précédent enregistré : %s"
 msgstr "Previous module: %s"
 
-#: ../../../framework/controller.php:584
+#: ../../../framework/controller.php:586
 msgid ""
 "L'accès au module demandé nécessite une ré-identification. Veuillez saisir "
 "votre login et votre mot de passe"
@@ -959,16 +941,16 @@ msgstr ""
 "Access to the requested module requires re-identification. Please enter your "
 "login and password"
 
-#: ../../../framework/controller.php:602
+#: ../../../framework/controller.php:604
 msgid "Erreur d'écriture dans le fichier de traces"
 msgstr "Error writing to the trace file"
 
-#: ../../../framework/controller.php:747
+#: ../../../framework/controller.php:750
 #, php-format
 msgid "Mode développement - base de données : %1$s - schema : %2$s"
 msgstr "Development mode - database: %1$s - schema: %2$s"
 
-#: ../../../framework/controller.php:786
+#: ../../../framework/controller.php:789
 msgid ""
 "Une erreur indéterminée s'est produite pendant le traitement de la requête. "
 "Si le problème persiste, consultez l'administrateur de l'application"
@@ -992,12 +974,12 @@ msgstr "The structure of the key is incorrect"
 msgid "La clé n'est pas numérique"
 msgstr "The key is not numeric"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1404
+#: ../../../framework/objetbdd/ObjetBDD.php:1380
 #, php-format
 msgid "le champ %1$s  n'est pas numerique. Valeur saisie : %2$s"
 msgstr "the field %1$s is not numeric. Entered value: %2$s"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1408
+#: ../../../framework/objetbdd/ObjetBDD.php:1384
 #, php-format
 msgid ""
 "Le champ %1$s est trop grand. Longueur maximale autorisée : %2$s. Valeur "
@@ -1006,7 +988,7 @@ msgstr ""
 "The %1$s field is too big. Maximum length allowed: %2$s. Entered value: %3$s "
 "(%4$s characters)"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1412
+#: ../../../framework/objetbdd/ObjetBDD.php:1388
 #, php-format
 msgid ""
 "Le contenu du champ %1$s ne correspond pas au format attendu. Masque "
@@ -1015,12 +997,12 @@ msgstr ""
 "The content of the field %1$s does not match the expected format. Authorized "
 "mask: %2$s. Entered value: %3$s"
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1416
+#: ../../../framework/objetbdd/ObjetBDD.php:1392
 #, php-format
 msgid "Le champ %s est obligatoire, mais n'a pas été renseigné."
 msgstr "The field %s is required, but has not been filled out."
 
-#: ../../../framework/objetbdd/ObjetBDD.php:1867
+#: ../../../framework/objetbdd/ObjetBDD.php:1846
 #, php-format
 msgid ""
 "La connexion à la base de données n'est pas disponible pour instancier la "
@@ -1084,20 +1066,25 @@ msgstr ""
 "Problem(s) with displaying photos or documents. Contact the system "
 "administrator."
 
-#: ../../../modules/declaration/declaration.php:190
+#: ../../../modules/declaration/declaration.php:193
 msgid "Déclaration dupliquée !"
 msgstr "Duplicate declaration!"
 
-#: ../../../modules/declaration/declaration.php:192
+#: ../../../modules/declaration/declaration.php:195
 msgid "Echec de duplication de la déclaration"
 msgstr "Declaration duplication failed"
 
-#: ../../../modules/fonctions.php:50
+#: ../../../modules/fonctions.php:52
+#, php-format
+msgid "%s - modification d'une déclaration"
+msgstr "%s - Edit a declaration"
+
+#: ../../../modules/fonctions.php:61
 #, php-format
 msgid "Erreur d'envoi d'un mail vers %s"
 msgstr "Error sending an email to %s"
 
-#: ../../../modules/fonctions.php:55
+#: ../../../modules/fonctions.php:66
 msgid ""
 "Envoi des mails réalisé pour informer du changement de status de la "
 "déclaration"
@@ -1218,7 +1205,7 @@ msgstr "Create / Edit a parameter:"
 #: ../../../display/templates/param/countryChange.tpl:4
 #: ../../../display/templates/declaration/declarationDisplay.tpl:34
 #: ../../../display/templates/declaration/declarationChange.tpl:6
-#: ../../../display/templates/framework/request/requestChange.tpl:31
+#: ../../../display/templates/framework/request/requestChange.tpl:39
 msgid "Retour à la liste"
 msgstr "Back to the list"
 
@@ -1237,14 +1224,14 @@ msgstr "Display order in the lists:"
 #: ../../../display/templates/param/paramChange.tpl:38
 #: ../../../display/templates/param/ciemChange.tpl:24
 #: ../../../display/templates/param/countryChange.tpl:29
-#: ../../../display/templates/declaration/locationChange.tpl:310
+#: ../../../display/templates/declaration/locationChange.tpl:318
 #: ../../../display/templates/declaration/fishChange.tpl:203
 #: ../../../display/templates/declaration/declarationChange.tpl:296
 #: ../../../display/templates/declaration/eventChange.tpl:49
 #: ../../../display/templates/framework/ident/loginChangePassword.tpl:135
 #: ../../../display/templates/framework/ident/totp.tpl:21
 #: ../../../display/templates/framework/ident/loginsaisie.tpl:220
-#: ../../../display/templates/framework/dbparamListChange.tpl:24
+#: ../../../display/templates/framework/dbparamListChange.tpl:35
 #: ../../../display/templates/framework/droits/acoChange.tpl:16
 #: ../../../display/templates/framework/droits/groupChange.tpl:13
 #: ../../../display/templates/framework/droits/otpCreate.tpl:29
@@ -1266,7 +1253,7 @@ msgstr "Save and return"
 #: ../../../display/templates/framework/droits/groupChange.tpl:15
 #: ../../../display/templates/framework/droits/appliChange.tpl:27
 #: ../../../display/templates/framework/droits/loginChange.tpl:31
-#: ../../../display/templates/framework/request/requestChange.tpl:88
+#: ../../../display/templates/framework/request/requestChange.tpl:96
 msgid "Supprimer"
 msgstr "Delete"
 
@@ -1316,7 +1303,7 @@ msgstr "Name of the ICES zone:"
 
 #: ../../../display/templates/param/ciemChange.tpl:31
 #: ../../../display/templates/param/countryChange.tpl:36
-#: ../../../display/templates/declaration/locationChange.tpl:317
+#: ../../../display/templates/declaration/locationChange.tpl:325
 #: ../../../display/templates/declaration/fishChange.tpl:211
 #: ../../../display/templates/declaration/declarationChange.tpl:307
 #: ../../../display/templates/declaration/eventChange.tpl:59
@@ -1564,26 +1551,26 @@ msgstr "Comment"
 msgid "Utilisateur"
 msgstr "User"
 
-#: ../../../display/templates/declaration/locationChange.tpl:76
+#: ../../../display/templates/declaration/locationChange.tpl:84
 msgid "Modification de la localisation - N°"
 msgstr "Edit the location - #"
 
-#: ../../../display/templates/declaration/locationChange.tpl:81
+#: ../../../display/templates/declaration/locationChange.tpl:89
 #: ../../../display/templates/declaration/fishChange.tpl:6
 #: ../../../display/templates/declaration/eventChange.tpl:6
 msgid "Retour à la liste des déclarations"
 msgstr "Back to the list of declarations"
 
-#: ../../../display/templates/declaration/locationChange.tpl:85
+#: ../../../display/templates/declaration/locationChange.tpl:93
 #: ../../../display/templates/declaration/fishChange.tpl:10
 msgid "Retour au détail de la déclaration - N°"
 msgstr "Back to detail of the declaration #"
 
-#: ../../../display/templates/declaration/locationChange.tpl:101
-#: ../../../display/templates/declaration/locationChange.tpl:117
-#: ../../../display/templates/declaration/locationChange.tpl:132
-#: ../../../display/templates/declaration/locationChange.tpl:148
-#: ../../../display/templates/declaration/locationChange.tpl:298
+#: ../../../display/templates/declaration/locationChange.tpl:109
+#: ../../../display/templates/declaration/locationChange.tpl:125
+#: ../../../display/templates/declaration/locationChange.tpl:140
+#: ../../../display/templates/declaration/locationChange.tpl:156
+#: ../../../display/templates/declaration/locationChange.tpl:306
 #: ../../../display/templates/declaration/fishChange.tpl:28
 #: ../../../display/templates/declaration/declarationSearch.tpl:17
 #: ../../../display/templates/declaration/declarationSearch.tpl:32
@@ -1595,70 +1582,70 @@ msgstr "Back to detail of the declaration #"
 msgid "Sélectionnez..."
 msgstr "Select..."
 
-#: ../../../display/templates/declaration/locationChange.tpl:113
+#: ../../../display/templates/declaration/locationChange.tpl:121
 #: ../../../display/templates/declaration/locationDisplay.tpl:13
 #: ../../../display/templates/declaration/declarationSearch.tpl:69
 msgid "Zone CIEM :"
 msgstr "ICES zones:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:128
+#: ../../../display/templates/declaration/locationChange.tpl:136
 #: ../../../display/templates/declaration/locationDisplay.tpl:17
 #: ../../../display/templates/declaration/declarationSearch.tpl:94
 msgid "Milieu :"
 msgstr "Environment:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:144
+#: ../../../display/templates/declaration/locationChange.tpl:152
 #: ../../../display/templates/declaration/locationDisplay.tpl:21
 msgid "Milieu détaillé :"
 msgstr "Detailed environment:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:161
+#: ../../../display/templates/declaration/locationChange.tpl:169
 #: ../../../display/templates/declaration/locationDisplay.tpl:25
 msgid "Détail de la zone :"
 msgstr "Detail of the zone:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:170
+#: ../../../display/templates/declaration/locationChange.tpl:178
 msgid "Coordonnées GPS en ° :"
 msgstr "GPS coordinates in degree:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:176
+#: ../../../display/templates/declaration/locationChange.tpl:184
 msgid "Calcul en degrés/minutes décimales"
 msgstr "Calculate in degree/decimal minutes"
 
-#: ../../../display/templates/declaration/locationChange.tpl:184
+#: ../../../display/templates/declaration/locationChange.tpl:192
 msgid "Calcul en degrés/minutes/secondes"
 msgstr "Calculate in degree/minute/second"
 
-#: ../../../display/templates/declaration/locationChange.tpl:199
-#: ../../../display/templates/declaration/locationChange.tpl:209
+#: ../../../display/templates/declaration/locationChange.tpl:207
+#: ../../../display/templates/declaration/locationChange.tpl:217
 msgid "recalculer..."
 msgstr "recalculate..."
 
-#: ../../../display/templates/declaration/locationChange.tpl:218
+#: ../../../display/templates/declaration/locationChange.tpl:226
 #: ../../../display/templates/declaration/locationDisplay.tpl:35
 msgid "Coordonnées déclarées :"
 msgstr "Declared coordinates:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:244
+#: ../../../display/templates/declaration/locationChange.tpl:252
 #: ../../../display/templates/declaration/locationDisplay.tpl:41
 msgid "Coordonnées estimées :"
 msgstr "Estimated coordinates:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:250
-#: ../../../display/templates/declaration/locationChange.tpl:275
+#: ../../../display/templates/declaration/locationChange.tpl:258
+#: ../../../display/templates/declaration/locationChange.tpl:283
 msgid "Lon :"
 msgstr "Lon:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:258
-#: ../../../display/templates/declaration/locationChange.tpl:284
+#: ../../../display/templates/declaration/locationChange.tpl:266
+#: ../../../display/templates/declaration/locationChange.tpl:292
 msgid "Lat :"
 msgstr "Lat:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:269
+#: ../../../display/templates/declaration/locationChange.tpl:277
 msgid "Coordonnées validées :"
 msgstr "Validated coordinates:"
 
-#: ../../../display/templates/declaration/locationChange.tpl:295
+#: ../../../display/templates/declaration/locationChange.tpl:303
 msgid "Précision estimée du point GPS :"
 msgstr "Estimated accuracy of GPS point:"
 
@@ -1784,6 +1771,7 @@ msgstr "Name of the document"
 
 #: ../../../display/templates/declaration/documentList.tpl:26
 #: ../../../display/templates/document/documentList.tpl:43
+#: ../../../display/templates/framework/dbparamListChange.tpl:12
 #: ../../../display/templates/framework/droits/appliList.tpl:13
 #: ../../../display/templates/framework/request/requestList.tpl:10
 msgid "Description"
@@ -1882,6 +1870,22 @@ msgstr "List"
 #: ../../../display/templates/declaration/declarationList.tpl:45
 msgid "Carte"
 msgstr "Map"
+
+#: ../../../display/templates/declaration/declarationMail.tpl:1
+msgid "Modification de la déclaration %1"
+msgstr "Edit the declaration %1"
+
+#: ../../../display/templates/declaration/declarationMail.tpl:4
+msgid "La déclaration n° %1 a été modifiée. Elle a maintenant le statut : %2"
+msgstr "The declaration # %1 has been changed. It has now the status: %2"
+
+#: ../../../display/templates/declaration/declarationMail.tpl:7
+msgid ""
+"Une fois connecté à l'application, vous pourrez la consulter en suivant ce "
+"lien :"
+msgstr ""
+"Once you have logged on to the application, you can consult it by following "
+"this link:"
 
 #: ../../../display/templates/declaration/declarationChange.tpl:1
 msgid "Modification d'une déclaration"
@@ -2034,7 +2038,7 @@ msgid "Adresse IP"
 msgstr "IP address"
 
 #: ../../../display/templates/framework/dbstructure.tpl:1
-#: ../../../display/templates/framework/request/requestChange.tpl:36
+#: ../../../display/templates/framework/request/requestChange.tpl:44
 msgid "Structure de la base de données"
 msgstr "Database structure"
 
@@ -2362,8 +2366,8 @@ msgstr ""
 "either in one hour or in one day."
 
 #: ../../../display/templates/framework/mail/maxAccessToModule.tpl:5
-#: ../../../display/templates/framework/mail/noRights.tpl:5
-#: ../../../display/templates/framework/mail/accountBlocked.tpl:5
+#: ../../../display/templates/framework/mail/noRights.tpl:6
+#: ../../../display/templates/framework/mail/accountBlocked.tpl:6
 msgid ""
 "Vous recevez ce message parce que vous êtes administrateur de l'application"
 msgstr ""
@@ -2376,6 +2380,11 @@ msgid ""
 "adéquats."
 msgstr ""
 "Account %1 tried to access module %2 on %3 without having the proper rights."
+
+#: ../../../display/templates/framework/mail/noRights.tpl:4
+#: ../../../display/templates/framework/mail/accountBlocked.tpl:4
+msgid "Adresse IP du poste concerné : %1"
+msgstr "IP address of the concerned computer: %1"
 
 #: ../../../display/templates/framework/mail/accountActivate.tpl:1
 msgid "Activation ou réactivation de votre compte"
@@ -2400,7 +2409,7 @@ msgstr ""
 "If you did not perform this operation, please contact the application "
 "manager."
 
-#: ../../../display/templates/framework/mail/mail.tpl:44
+#: ../../../display/templates/framework/mail/mail.tpl:47
 msgid "Ne répondez pas à ce mail, qui est généré automatiquement"
 msgstr "Do not reply to this email, which is automatically generated"
 
@@ -2425,6 +2434,10 @@ msgstr "The link will remain valid until %1."
 #: ../../../display/templates/framework/mail/accountBlocked.tpl:2
 msgid "Le compte %1 a été bloqué le %2 après trop de tentatives de connexion."
 msgstr "Account %1 was blocked on %2 after too many login attempts."
+
+#: ../../../display/templates/framework/mail/passwordChanged.tpl:1
+msgid "Modification du mot de passe"
+msgstr "Password change"
 
 #: ../../../display/templates/framework/mail/passwordChanged.tpl:4
 msgid "Votre mot de passe vient d'être modifié dans l'application %1"
@@ -2663,47 +2676,47 @@ msgstr "Process"
 msgid "Dupliquer la requête"
 msgstr "Duplicate the request"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:4
+#: ../../../display/templates/framework/request/requestChange.tpl:11
 msgid "Confirmez la suppression de la requête"
 msgstr "Confirm the deletion of the request"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:45
-msgid "Description de la requête :"
-msgstr "Description of the request:"
+#: ../../../display/templates/framework/request/requestChange.tpl:53
+msgid "Description de la requête"
+msgstr "Description of the request"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:52
+#: ../../../display/templates/framework/request/requestChange.tpl:60
 msgid "Code SQL :"
 msgstr "SQL code:"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:58
+#: ../../../display/templates/framework/request/requestChange.tpl:66
 msgid "Champs dates de la requête (séparés par une virgule) :"
 msgstr "Date fields of the request (separated by a comma):"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:64
+#: ../../../display/templates/framework/request/requestChange.tpl:72
 msgid "date de création :"
 msgstr "date of creation:"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:70
+#: ../../../display/templates/framework/request/requestChange.tpl:78
 msgid "par :"
 msgstr "by:"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:76
+#: ../../../display/templates/framework/request/requestChange.tpl:84
 msgid "Date de dernière exécution :"
 msgstr "Date of last execution:"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:84
+#: ../../../display/templates/framework/request/requestChange.tpl:92
 msgid "Enregistrer"
 msgstr "Save"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:86
+#: ../../../display/templates/framework/request/requestChange.tpl:94
 msgid "Enregistrer et exécuter"
 msgstr "Save and run"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:87
+#: ../../../display/templates/framework/request/requestChange.tpl:95
 msgid "Exécuter"
 msgstr "Process"
 
-#: ../../../display/templates/framework/request/requestChange.tpl:119
+#: ../../../display/templates/framework/request/requestChange.tpl:127
 msgid "Aucun résultat n'a été retourné par la requête"
 msgstr "No results were returned by the query"
 
@@ -2793,6 +2806,19 @@ msgstr "List of fates of fish"
 #: ../../../param/actions.xml:91 ../../../param/actions.xml:92
 msgid "Liste des espèces d'esturgeons"
 msgstr "List of species of sturgeons"
+
+#~ msgid ""
+#~ "Vous venez de modifier votre mot de passe. Si vous n'êtes pas à l'origine "
+#~ "de cette opération, contactez l'administrateur de l'application, et "
+#~ "activez également la double authentification pour mieux protéger votre "
+#~ "compte."
+#~ msgstr ""
+#~ "You have just changed your password. If you didn't do it, contact the "
+#~ "application administrator, and also activate the double authentication to "
+#~ "better protect your account."
+
+#~ msgid "Ne répondez pas à ce message, il ne sera pas relevé"
+#~ msgstr "Do not reply to this message, it will not be answered"
 
 #, fuzzy
 #~ msgid "À propos de ESFC"

@@ -151,8 +151,9 @@
             <u>{t}Informations obligatoires{/t}</u>
             <ul>
                 <li><b>origin_name</b> {t}Sigle de l'organisme{/t}</li>
-                <li><b>origin_identifier</b> {t}Code d'identification de la déclaration dans le fichier d'origine : clé
-                    utilisée pour importer ensuite les poissons rattachés à la déclaration{/t}</li>
+                <li><b>origin_identifier</b> 
+                    {t}Code d'identification de la déclaration dans le fichier d'origine : clé utilisée pour importer ensuite les poissons rattachés à la déclaration{/t}
+                </li>
                 <li><b>declaration_uuid</b> {t}UUID de la déclaration, si existant. Peut se substituer à  origin_identifier{/t}</li>
                 <li><b>capture_date</b> {t}Date de la capture, au format YYYY-MM-DD{/t}</li>
                 <li><b>year</b> {t}Année de capture, au format YYYY. L'année est obligatoire si capture_date n'est pas renseigné{/t}</li>
@@ -183,8 +184,8 @@
                 <li><b>declaration_mode</b> {t}Mode de déclaration (texte libre){/t}</li>
                 <li><b>remarks</b> {t}Remarques sur la déclaration{/t}</li>
                 <li><b>handlings_name</b> {t}Manipulations réalisées sur les poissons, séparées par une virgule{/t}</li>
-                <li><b>identification_quality</b> {t}0 : identification incertaine de l'espèce, 1 : identification
-                    sûre{/t}</li>
+                <li><b>identification_quality</b> 
+                    {t}0 : identification incertaine de l'espèce, 1 : identification sûre{/t}</li>
                 <li><b>country_name</b> {t}Pays de capture{/t}</li>
                 <li><b>ices_name</b> {t}Zone CIEM{/t}</li>
                 <li><b>environment_name</b> {t}Milieu{/t}</li>
