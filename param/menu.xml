@@ -108,6 +108,7 @@
 	<item module="help" label="?" tooltip="Aide">
 		<item module="apropos" label="A propos" tooltip="A propos de Sturwild" />
 		<item module="quoideneuf" label="Nouveautés" tooltip="Quoi de neuf dans l'application ?" />
+		<item module="getLastRelease" label="Nouvelle version ?" tooltip="Rechercher s'il existe une nouvelle version disponible de l'application"/>
 		<item module="lexique" label="Lexique"
 			tooltip="Lexique des termes utilisés dans le logiciel" />
 		<item module="setlanguagefr" label="Français" tooltip="Libellés en français" />

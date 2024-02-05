@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-05 14:45+0100\n"
+"POT-Creation-Date: 2024-02-05 15:33+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -472,32 +472,42 @@ msgid "Quoi de neuf dans l'application ?"
 msgstr "What's new in the app?"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:112
+#: ../../../param/menu.xml:111
+msgid "Nouvelle version ?"
+msgstr "New version?"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:111
+msgid "Rechercher s'il existe une nouvelle version disponible de l'application"
+msgstr "Find out if there is a new version of the application available"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:113
 msgid "Lexique"
 msgstr "Glossary"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:112
+#: ../../../param/menu.xml:113
 msgid "Lexique des termes utilisés dans le logiciel"
 msgstr "Glossary of terms used in the software"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:113
+#: ../../../param/menu.xml:114
 msgid "Français"
 msgstr "Français"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:113
+#: ../../../param/menu.xml:114
 msgid "Libellés en français"
 msgstr "Libellés en français"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:114
+#: ../../../param/menu.xml:115
 msgid "English"
 msgstr "English"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:114
+#: ../../../param/menu.xml:115
 msgid "Labels in English"
 msgstr "Labels in English"
 
@@ -957,12 +967,12 @@ msgstr ""
 "your password or contact the administrator of the application."
 
 #. traduction: conserver inchangée la chaîne %s
-#: ../../../framework/controller.php:521
+#: ../../../framework/controller.php:524
 #, php-format
 msgid "Module précédent enregistré : %s"
 msgstr "Previous module: %s"
 
-#: ../../../framework/controller.php:589
+#: ../../../framework/controller.php:592
 msgid ""
 "L'accès au module demandé nécessite une ré-identification. Veuillez saisir "
 "votre login et votre mot de passe"
@@ -970,16 +980,16 @@ msgstr ""
 "Access to the requested module requires re-identification. Please enter your "
 "login and password"
 
-#: ../../../framework/controller.php:607
+#: ../../../framework/controller.php:610
 msgid "Erreur d'écriture dans le fichier de traces"
 msgstr "Error writing to the trace file"
 
-#: ../../../framework/controller.php:753
+#: ../../../framework/controller.php:756
 #, php-format
 msgid "Mode développement - base de données : %1$s - schema : %2$s"
 msgstr "Development mode - database: %1$s - schema: %2$s"
 
-#: ../../../framework/controller.php:792
+#: ../../../framework/controller.php:795
 msgid ""
 "Une erreur indéterminée s'est produite pendant le traitement de la requête. "
 "Si le problème persiste, consultez l'administrateur de l'application"
@@ -994,6 +1004,11 @@ msgid ""
 msgstr ""
 "The query cannot contain change orders to the database nor can it concern "
 "tables containing confidential information"
+
+#: ../../../framework/postLogin.php:14
+#, php-format
+msgid "La nouvelle version %1s du %2s a été publiée !"
+msgstr "The new %1s version of %2s has been released!"
 
 #: ../../../framework/objetbdd/ObjetBDD.php:456
 msgid "La structure de la clé est incorrecte"
@@ -1570,7 +1585,7 @@ msgid "Espèce"
 msgstr "Species"
 
 #: ../../../display/templates/declaration/declarationListDetail.tpl:41
-#: ../../../display/templates/declaration/importCsv.tpl:165
+#: ../../../display/templates/declaration/importCsv.tpl:166
 #: ../../../display/templates/declaration/importFishCsv.tpl:160
 msgid "État à la capture"
 msgstr "States at the capture"
@@ -2235,6 +2250,10 @@ msgstr "to"
 msgid "Rechercher"
 msgstr "Search"
 
+#: ../../../display/templates/declaration/declarationList.tpl:25
+msgid "Nouvelle déclaration"
+msgstr "New declaration"
+
 #: ../../../display/templates/declaration/declarationList.tpl:31
 msgid "Exporter la liste au format CSV (obsolète)"
 msgstr "Export list in CSV format (obsolete)"
@@ -2364,24 +2383,25 @@ msgstr "Mandatory information"
 msgid "Sigle de l'organisme"
 msgstr "Code of the organisation"
 
-#: ../../../display/templates/declaration/importCsv.tpl:154
+#: ../../../display/templates/declaration/importCsv.tpl:155
 msgid ""
-"Code d'identification de la déclaration dans le fichier d'origine : clé\n"
-"                    utilisée pour importer ensuite les poissons rattachés à "
-"la déclaration"
+"Code d'identification de la déclaration dans le fichier d'origine : clé "
+"utilisée pour importer ensuite les poissons rattachés à la déclaration"
 msgstr ""
+"Declaration identification code in the original file: key used to import the "
+"fish attached to the declaration"
 
-#: ../../../display/templates/declaration/importCsv.tpl:156
+#: ../../../display/templates/declaration/importCsv.tpl:157
 #: ../../../display/templates/declaration/importFishCsv.tpl:154
 msgid ""
 "UUID de la déclaration, si existant. Peut se substituer à  origin_identifier"
 msgstr "UUID of the declaration, if any. Can replace origin_identifier"
 
-#: ../../../display/templates/declaration/importCsv.tpl:157
+#: ../../../display/templates/declaration/importCsv.tpl:158
 msgid "Date de la capture, au format YYYY-MM-DD"
 msgstr "Date of capture, in YYYY-MM-DD format"
 
-#: ../../../display/templates/declaration/importCsv.tpl:158
+#: ../../../display/templates/declaration/importCsv.tpl:159
 msgid ""
 "Année de capture, au format YYYY. L'année est obligatoire si capture_date "
 "n'est pas renseigné"
@@ -2389,147 +2409,145 @@ msgstr ""
 "Year of capture, in YYYY format. The year is mandatory if capture_date is "
 "not filled in"
 
-#: ../../../display/templates/declaration/importCsv.tpl:160
+#: ../../../display/templates/declaration/importCsv.tpl:161
 #: ../../../display/templates/declaration/importFishCsv.tpl:156
 msgid "Informations facultatives"
 msgstr "Optional information"
 
-#: ../../../display/templates/declaration/importCsv.tpl:162
+#: ../../../display/templates/declaration/importCsv.tpl:163
 msgid "Méthode de capture"
 msgstr "Method of capture"
 
-#: ../../../display/templates/declaration/importCsv.tpl:163
+#: ../../../display/templates/declaration/importCsv.tpl:164
 msgid "Type d'engin"
 msgstr "Type of engine"
 
-#: ../../../display/templates/declaration/importCsv.tpl:164
+#: ../../../display/templates/declaration/importCsv.tpl:165
 #: ../../../display/templates/declaration/importFishCsv.tpl:158
 msgid "Espèce d'esturgeon capturée"
 msgstr "Species of sturgeon caught"
 
-#: ../../../display/templates/declaration/importCsv.tpl:166
+#: ../../../display/templates/declaration/importCsv.tpl:167
 msgid "Devenir des poissons"
 msgstr "Fate of fish"
 
-#: ../../../display/templates/declaration/importCsv.tpl:167
+#: ../../../display/templates/declaration/importCsv.tpl:168
 msgid "Espèce ciblée lors de la pêche"
 msgstr "Species targeted during fishing"
 
-#: ../../../display/templates/declaration/importCsv.tpl:168
+#: ../../../display/templates/declaration/importCsv.tpl:169
 msgid "Date estimée de la capture"
 msgstr "Estimated date of capture"
 
-#: ../../../display/templates/declaration/importCsv.tpl:169
+#: ../../../display/templates/declaration/importCsv.tpl:170
 msgid "Nombre de poissons capturés (obligatoire)"
 msgstr "Number of sturgeons captured by year"
 
-#: ../../../display/templates/declaration/importCsv.tpl:170
+#: ../../../display/templates/declaration/importCsv.tpl:171
 msgid "Taille de la maille du filet"
 msgstr "Mesh size"
 
-#: ../../../display/templates/declaration/importCsv.tpl:171
+#: ../../../display/templates/declaration/importCsv.tpl:172
 msgid "Liste textuelle des espèces ciblées"
 msgstr "Textual list of target species"
 
-#: ../../../display/templates/declaration/importCsv.tpl:172
+#: ../../../display/templates/declaration/importCsv.tpl:173
 msgid "Profondeur de pêche, en mètres"
 msgstr "Fishing depth, in metres"
 
-#: ../../../display/templates/declaration/importCsv.tpl:173
+#: ../../../display/templates/declaration/importCsv.tpl:174
 msgid "Profondeur minimale de pêche"
 msgstr "Minimum fishing depth"
 
-#: ../../../display/templates/declaration/importCsv.tpl:174
+#: ../../../display/templates/declaration/importCsv.tpl:175
 msgid "Profondeur maximale de pêche"
 msgstr "Maximum fishing depth"
 
-#: ../../../display/templates/declaration/importCsv.tpl:175
+#: ../../../display/templates/declaration/importCsv.tpl:176
 msgid "Longueur minimale des poissons capturés, en millimètres"
 msgstr "Minimal length of fish caught, in millimeters"
 
-#: ../../../display/templates/declaration/importCsv.tpl:176
+#: ../../../display/templates/declaration/importCsv.tpl:177
 msgid "Longueur maximale des poissons capturés"
 msgstr "Maximum length of fishes caught"
 
-#: ../../../display/templates/declaration/importCsv.tpl:177
+#: ../../../display/templates/declaration/importCsv.tpl:178
 msgid "Poids minimum des poissons capturés, en grammes"
 msgstr "Minimum weight of fish caught, in grams"
 
-#: ../../../display/templates/declaration/importCsv.tpl:178
+#: ../../../display/templates/declaration/importCsv.tpl:179
 msgid "Poids maximum, en grammes"
 msgstr "Max weigth, in grams"
 
-#: ../../../display/templates/declaration/importCsv.tpl:179
+#: ../../../display/templates/declaration/importCsv.tpl:180
 msgid "Code du pêcheur"
 msgstr "Fisherman code"
 
-#: ../../../display/templates/declaration/importCsv.tpl:180
+#: ../../../display/templates/declaration/importCsv.tpl:181
 msgid "Nom ou organisme à contacter"
 msgstr "Contact name or organisation"
 
-#: ../../../display/templates/declaration/importCsv.tpl:181
+#: ../../../display/templates/declaration/importCsv.tpl:182
 msgid "Coordonnées complètes du contact"
 msgstr "Full contact details"
 
-#: ../../../display/templates/declaration/importCsv.tpl:182
+#: ../../../display/templates/declaration/importCsv.tpl:183
 msgid "Port d'attache du navire"
 msgstr "Home port of vessel"
 
-#: ../../../display/templates/declaration/importCsv.tpl:183
+#: ../../../display/templates/declaration/importCsv.tpl:184
 msgid "Mode de déclaration (texte libre)"
 msgstr "Declaration method (free text)"
 
-#: ../../../display/templates/declaration/importCsv.tpl:184
+#: ../../../display/templates/declaration/importCsv.tpl:185
 msgid "Remarques sur la déclaration"
 msgstr "Remarks on the declaration"
 
-#: ../../../display/templates/declaration/importCsv.tpl:185
+#: ../../../display/templates/declaration/importCsv.tpl:186
 msgid "Manipulations réalisées sur les poissons, séparées par une virgule"
 msgstr "Handlings carried out on fish, separated by a comma"
 
-#: ../../../display/templates/declaration/importCsv.tpl:186
-msgid ""
-"0 : identification incertaine de l'espèce, 1 : identification\n"
-"                    sûre"
-msgstr ""
-
 #: ../../../display/templates/declaration/importCsv.tpl:188
+msgid "0 : identification incertaine de l'espèce, 1 : identification sûre"
+msgstr "0: identification uncertain, 1: identification sure"
+
+#: ../../../display/templates/declaration/importCsv.tpl:189
 msgid "Pays de capture"
 msgstr "Catch country"
 
-#: ../../../display/templates/declaration/importCsv.tpl:189
+#: ../../../display/templates/declaration/importCsv.tpl:190
 msgid "Zone CIEM"
 msgstr "ICES zone"
 
-#: ../../../display/templates/declaration/importCsv.tpl:190
+#: ../../../display/templates/declaration/importCsv.tpl:191
 msgid "Milieu"
 msgstr "Environment"
 
-#: ../../../display/templates/declaration/importCsv.tpl:191
+#: ../../../display/templates/declaration/importCsv.tpl:192
 msgid "Milieu détaillé"
 msgstr "Detailed environment"
 
-#: ../../../display/templates/declaration/importCsv.tpl:192
+#: ../../../display/templates/declaration/importCsv.tpl:193
 msgid "informations complémentaire sur la zone de capture"
 msgstr "additional information on the catch area"
 
-#: ../../../display/templates/declaration/importCsv.tpl:193
+#: ../../../display/templates/declaration/importCsv.tpl:194
 msgid "Longitude WGS84, exprimée sous forme degré-minute-seconde"
 msgstr "Longitude WGS84, expressed as a degree-minute-second"
 
-#: ../../../display/templates/declaration/importCsv.tpl:194
+#: ../../../display/templates/declaration/importCsv.tpl:195
 msgid "Latitude WGS84, exprimée sous forme degré-minute-seconde"
 msgstr "Latitude WGS84, expressed as a degree-minute-second"
 
-#: ../../../display/templates/declaration/importCsv.tpl:195
+#: ../../../display/templates/declaration/importCsv.tpl:196
 msgid "Longitude WGS84, sous forme décimale"
 msgstr "GPS longitude in WGS84 in decimal form"
 
-#: ../../../display/templates/declaration/importCsv.tpl:196
+#: ../../../display/templates/declaration/importCsv.tpl:197
 msgid "Latitude WGS84, sous forme décimale"
 msgstr "Latitude WGS84, in decimal form"
 
-#: ../../../display/templates/declaration/importCsv.tpl:197
+#: ../../../display/templates/declaration/importCsv.tpl:198
 msgid "Précision de la localisation"
 msgstr "Localization accuracy"
 
@@ -3419,6 +3437,24 @@ msgstr "Process to the backup"
 #: ../../../display/templates/framework/news.tpl:1
 msgid "Liste des nouveautés"
 msgstr "List of news"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:18
+msgid "Dernière version publiée"
+msgstr "Last published version"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:20
+msgid "Version actuelle : "
+msgstr "Current version:"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:21
+msgid "Dernière version publiée : "
+msgstr "Last published release:"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:23
+msgid ""
+"Vous pouvez demander la mise à jour de votre plate-forme à vos "
+"administrateurs !"
+msgstr "You can ask your administrators to update your platform!"
 
 #: ../../../display/templates/framework/utils/system.tpl:8
 msgid "Nom de la variable"
@@ -5729,9 +5765,6 @@ msgstr "Version %1 of %2."
 
 #~ msgid "Modification d'un modèle d'export"
 #~ msgstr "Create / Edit an export model"
-
-#~ msgid "Version :"
-#~ msgstr "Version:"
 
 #~ msgid "Fichier compressé (si un seul fichier généré) ?"
 #~ msgstr "Zipped file (if only one file is generated)?"

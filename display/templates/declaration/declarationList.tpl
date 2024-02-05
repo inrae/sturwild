@@ -22,7 +22,7 @@
     {if $droits["gestion"] == 1}
     <a href=index.php?module=declarationChange&declaration_id=0>
         <img src="display/images/new.png" height="25">
-        <b>Nouvelle déclaration...</b>
+        <b>{t}Nouvelle déclaration{/t}</b>
     </a>
     {/if}
     {if count($data) > 0}

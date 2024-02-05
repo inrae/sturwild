@@ -203,5 +203,9 @@ $CAS_port = 443; //port of CAS server
 $CAS_debug = false; // Activation of debug mode
 $CAS_CApath=""; // path to the certificate of the CAS
 $GACL_disable_new_right = 1;
-
-?>
+$APPLI_release_url = "https://api.github.com/repos/inrae/sturwild/releases/latest";
+$APPLI_release_url_tag = "tag_name";
+$APPLI_release_url_date = "published_at";
+$APPLI_release_right_minimal = "gestion";
+$APPLI_release_user_agent = 'inrae/sturwild';
+$APPLI_release_description = "body";
