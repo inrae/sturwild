@@ -2,7 +2,7 @@
 //require_once "../../vendor/autoload.php";
 require_once "modules/classes/param.class.php";
 //use PhpOffice\PhpSpreadsheet\Spreadsheet;
-$inputFileName = "install/translatedb/parameters.ods";
+$inputFileName = "install/translatedb/parameters_en.ods";
 
 $classeur = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
 $sheetnames = $classeur->getSheetNames();

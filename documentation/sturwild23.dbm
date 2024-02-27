@@ -3,8 +3,8 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" author="Éric Quinton" last-position="0,383" last-zoom="0.65" max-obj-count="60"
-	 default-schema="sturwild" default-owner="sturwild_owner"
+<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" author="Éric Quinton" last-position="0,0" last-zoom="0.65" max-obj-count="60"
+	 default-schema="sturwild" default-owner="sturwild"
 	 layers="Default layer"
 	 active-layers="0"
 	 layer-name-colors="#000000"
@@ -16,14 +16,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
  sql-disabled="true">
 </role>
 
-<role name="sturwild_owner"
+<role name="sturwild"
  inherit="true"
  login="true"
  password="sturwildPassword">
 </role>
 
 <database name="sturwild" encoding="UTF8" lc-collate="C.UTF-8" lc-ctype="C.UTF-8" is-template="false" allow-conns="true">
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<tablespace name="pg_default"/>
 </database>
 
@@ -31,11 +31,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </schema>
 
 <schema name="sturwild" layers="0" fill-color="#a0418f">
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </schema>
 
 <schema name="sturwildgacl" layers="0" rect-visible="true" fill-color="#e01b24">
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </schema>
 
 <tag name="location">
@@ -81,12 +81,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="capture_state_capture_state_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="capture_state" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des états à la capture]]> </comment>
 	<tag name="fish"/>
 	<position x="900" y="1460"/>
@@ -110,12 +110,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="capture_method_capture_method_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="capture_method" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Mode de capture des poissons]]> </comment>
 	<tag name="declaration"/>
 	<position x="460" y="40"/>
@@ -139,12 +139,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="origin_origin_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="origin" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Type de capture (professionnelle, amateur, scientifique...)]]> </comment>
 	<tag name="declaration"/>
 	<position x="900" y="40"/>
@@ -168,12 +168,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="ices_ices_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="ices" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des zones de peche CIEM]]> </comment>
 	<tag name="location"/>
 	<position x="1280" y="40"/>
@@ -190,12 +190,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="dbparam_dbparam_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="dbparam" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table of parameters intrinsically associated to the instance]]> </comment>
 	<position x="2180" y="1280"/>
 	<column name="dbparam_id" not-null="true" sequence="sturwild.dbparam_dbparam_id_seq">
@@ -226,12 +226,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="dbversion_dbversion_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="dbversion" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des versions de la base de donnees]]> </comment>
 	<position x="2180" y="1460"/>
 	<column name="dbversion_id" not-null="true" sequence="sturwild.dbversion_dbversion_id_seq">
@@ -257,12 +257,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="declaration_declaration_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="declaration" layers="0" collapse-mode="2" max-obj-count="39" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Informations liées à la déclaration.]]> </comment>
 	<tag name="declaration"/>
 	<position x="460" y="240"/>
@@ -391,12 +391,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="fate_fate_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="fate" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Devenir des esturgeons capturés]]> </comment>
 	<tag name="fish"/>
 	<position x="20" y="760"/>
@@ -420,12 +420,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="document_document_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="document" layers="0" collapse-mode="2" max-obj-count="12" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Documents numériques rattachés à un poisson ou à un événement]]> </comment>
 	<tag name="fish"/>
 	<position x="20" y="1280"/>
@@ -469,12 +469,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="gear_type_gear_type_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="gear_type" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des engins utilisés]]> </comment>
 	<tag name="declaration"/>
 	<position x="20" y="540"/>
@@ -498,12 +498,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="species_species_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="species" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<tag name="fish"/>
 	<position x="20" y="1040"/>
 	<column name="species_id" not-null="true" sequence="sturwild.species_species_id_seq">
@@ -528,17 +528,17 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="estuaire_area_id_0_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <sequence name="event_event_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="event" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<tag name="declaration"/>
 	<position x="20" y="260"/>
 	<column name="event_id" not-null="true" sequence="sturwild.event_event_id_seq">
@@ -568,12 +568,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="event_type_event_type_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="event_type" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Types d'événements possibles sur une déclaration]]> </comment>
 	<tag name="declaration"/>
 	<position x="20" y="40"/>
@@ -597,12 +597,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="fish_fish_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="fish" layers="0" collapse-mode="2" max-obj-count="19" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<tag name="fish"/>
 	<position x="460" y="1280"/>
 	<column name="fish_id" not-null="true" sequence="sturwild.fish_fish_id_seq">
@@ -670,7 +670,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="location" layers="0" collapse-mode="2" max-obj-count="20" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<tag name="location"/>
 	<position x="1280" y="260"/>
 	<column name="declaration_id" not-null="true">
@@ -740,17 +740,17 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="environment_environment_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <sequence name="environment_detail_environment_detail_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="environment_detail" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Milieu détaillé]]> </comment>
 	<tag name="location"/>
 	<position x="1740" y="460"/>
@@ -774,7 +774,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="environment" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des milieux]]> </comment>
 	<tag name="location"/>
 	<position x="1740" y="260"/>
@@ -800,12 +800,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="mime_type_mime_type_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="mime_type" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des types mime, pour les documents associés]]> </comment>
 	<tag name="fish"/>
 	<position x="20" y="1660"/>
@@ -827,12 +827,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="country_country_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="country" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Pays de pêche]]> </comment>
 	<tag name="location"/>
 	<position x="1740" y="40"/>
@@ -856,12 +856,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="accuracy_accuracy_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="accuracy" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Précision de la localisation du point GPS]]> </comment>
 	<tag name="location"/>
 	<position x="1740" y="760"/>
@@ -885,12 +885,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="tag_presence_tag_presence_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="tag_presence" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des types de présence de marque (présent, non signalé, absent)]]> </comment>
 	<tag name="fish"/>
 	<position x="900" y="1660"/>
@@ -914,12 +914,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="request_request_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="request" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Request table in database]]> </comment>
 	<position x="2180" y="1040"/>
 	<column name="request_id" not-null="true" sequence="sturwild.request_request_id_seq">
@@ -956,12 +956,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="status_status_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="status" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des statuts de la déclaration]]> </comment>
 	<tag name="declaration"/>
 	<position x="900" y="240"/>
@@ -985,7 +985,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="aclacl" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des droits attribués]]> </comment>
 	<tag name="gacl"/>
 	<position x="3000" y="40"/>
@@ -1010,12 +1010,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="aclaco_aclaco_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="aclaco" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des droits gérés]]> </comment>
 	<tag name="gacl"/>
 	<position x="2580" y="40"/>
@@ -1043,12 +1043,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="aclappli_aclappli_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="aclappli" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des applications gérées]]> </comment>
 	<tag name="gacl"/>
 	<position x="2180" y="40"/>
@@ -1075,12 +1075,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="aclgroup_aclgroup_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="aclgroup" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Groupes des logins]]> </comment>
 	<tag name="gacl"/>
 	<position x="3000" y="260"/>
@@ -1108,12 +1108,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="acllogin_acllogin_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="acllogin" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des logins des utilisateurs autorisés]]> </comment>
 	<tag name="gacl"/>
 	<position x="2180" y="260"/>
@@ -1143,7 +1143,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="acllogingroup" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table des relations entre les logins et les groupes]]> </comment>
 	<tag name="gacl"/>
 	<position x="2580" y="260"/>
@@ -1166,12 +1166,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="log_log_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="log" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Liste des connexions ou des actions enregistrées]]> </comment>
 	<tag name="gacl"/>
 	<position x="3000" y="460"/>
@@ -1203,12 +1203,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="seq_logingestion_id" cycle="false" start="1" increment="1" min-value="1" max-value="999999" cache="1">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="logingestion" layers="0" collapse-mode="2" max-obj-count="15" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<tag name="gacl"/>
 	<position x="2180" y="460"/>
 	<column name="id" not-null="true" sequence="sturwildgacl.seq_logingestion_id">
@@ -1264,12 +1264,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <sequence name="passwordlost_passwordlost_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 </sequence>
 
 <table name="passwordlost" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
 	<schema name="sturwildgacl"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Table de suivi des pertes de mots de passe]]> </comment>
 	<tag name="gacl"/>
 	<position x="2580" y="460"/>
@@ -1564,7 +1564,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="handling" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[Types of handling used after catch]]> </comment>
 	<tag name="declaration"/>
 	<position x="900" y="1040"/>
@@ -1588,7 +1588,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="declaration_handling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[List of all handling for a declaration]]> </comment>
 	<tag name="declaration"/>
 	<position x="900" y="860"/>
@@ -1629,7 +1629,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="target_species" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[List of species targeted]]> </comment>
 	<tag name="declaration"/>
 	<position x="900" y="420"/>
@@ -1700,7 +1700,7 @@ group by declaration_id]]> </expression>
 
 <table name="fish_handling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<tag name="fish"/>
 	<position x="900" y="1280"/>
 </table>
@@ -1921,7 +1921,7 @@ left outer join sturwild.v_fish_handlings using (fish_id)]]> </expression>
 
 <table name="institute" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
+	<role name="sturwild"/>
 	<comment> <![CDATA[List of institute partners]]> </comment>
 	<tag name="declaration"/>
 	<position x="900" y="660"/>
