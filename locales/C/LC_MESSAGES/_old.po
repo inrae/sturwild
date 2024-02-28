@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-05 15:26+0100\n"
+"POT-Creation-Date: 2024-02-05 15:33+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -472,32 +472,42 @@ msgid "Quoi de neuf dans l'application ?"
 msgstr "What's new in the app?"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:112
+#: ../../../param/menu.xml:111
+msgid "Nouvelle version ?"
+msgstr "New version?"
+
+#. (itstool) path: item/item@tooltip
+#: ../../../param/menu.xml:111
+msgid "Rechercher s'il existe une nouvelle version disponible de l'application"
+msgstr "Find out if there is a new version of the application available"
+
+#. (itstool) path: item/item@label
+#: ../../../param/menu.xml:113
 msgid "Lexique"
 msgstr "Glossary"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:112
+#: ../../../param/menu.xml:113
 msgid "Lexique des termes utilisés dans le logiciel"
 msgstr "Glossary of terms used in the software"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:113
+#: ../../../param/menu.xml:114
 msgid "Français"
 msgstr "Français"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:113
+#: ../../../param/menu.xml:114
 msgid "Libellés en français"
 msgstr "Libellés en français"
 
 #. (itstool) path: item/item@label
-#: ../../../param/menu.xml:114
+#: ../../../param/menu.xml:115
 msgid "English"
 msgstr "English"
 
 #. (itstool) path: item/item@tooltip
-#: ../../../param/menu.xml:114
+#: ../../../param/menu.xml:115
 msgid "Labels in English"
 msgstr "Labels in English"
 
@@ -3428,6 +3438,24 @@ msgstr "Process to the backup"
 msgid "Liste des nouveautés"
 msgstr "List of news"
 
+#: ../../../display/templates/framework/utils/lastRelease.tpl:18
+msgid "Dernière version publiée"
+msgstr "Last published version"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:20
+msgid "Version actuelle : "
+msgstr "Current version:"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:21
+msgid "Dernière version publiée : "
+msgstr "Last published release:"
+
+#: ../../../display/templates/framework/utils/lastRelease.tpl:23
+msgid ""
+"Vous pouvez demander la mise à jour de votre plate-forme à vos "
+"administrateurs !"
+msgstr "You can ask your administrators to update your platform!"
+
 #: ../../../display/templates/framework/utils/system.tpl:8
 msgid "Nom de la variable"
 msgstr "Name of the variable"
@@ -5737,9 +5765,6 @@ msgstr "Version %1 of %2."
 
 #~ msgid "Modification d'un modèle d'export"
 #~ msgstr "Create / Edit an export model"
-
-#~ msgid "Version :"
-#~ msgstr "Version:"
 
 #~ msgid "Fichier compressé (si un seul fichier généré) ?"
 #~ msgstr "Zipped file (if only one file is generated)?"

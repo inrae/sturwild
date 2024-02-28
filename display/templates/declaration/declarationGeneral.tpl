@@ -1,7 +1,8 @@
 <div class="row">
 {if $droits.gestion ==1}
 <a href="index.php?module=declarationChange&declaration_id={$data.declaration_id}">
-<img src="display/images/edit.gif" height="20">Modifier...
+<img src="display/images/edit.gif" height="20">
+{t}Modifier...{/t}
 </a>
 {/if}
 </div>
