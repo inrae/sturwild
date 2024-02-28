@@ -248,7 +248,7 @@ ALTER SEQUENCE sturwild.declaration_declaration_id_seq OWNER TO sturwild;
 CREATE TABLE sturwild.declaration (
 	declaration_id integer NOT NULL DEFAULT nextval('sturwild.declaration_declaration_id_seq'::regclass),
 	status_id integer NOT NULL,
-	capture_method_id integer DEFAULT 1,
+	capture_method_id integer,
 	origin_id integer NOT NULL,
 	gear_type_id integer,
 	species_id integer,

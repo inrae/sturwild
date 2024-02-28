@@ -3,8 +3,8 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" author="Éric Quinton" last-position="0,0" last-zoom="0.65" max-obj-count="60"
-	 default-schema="sturwild" default-owner="sturwild"
+<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="44"
+	 default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
 	 layer-name-colors="#000000"
@@ -273,7 +273,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="status_id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="capture_method_id" default-value="1">
+	<column name="capture_method_id">
 		<type name="integer" length="0"/>
 	</column>
 	<column name="origin_id" not-null="true">
@@ -387,6 +387,16 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="capture_id" type="pk-constr" table="sturwild.declaration">
 		<columns names="declaration_id" ref-type="src-columns"/>
 	</constraint>
+
+	<customidxs object-type="column">
+		<object name="institute_id" index="32"/>
+		<object name="target_species_id" index="31"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="institute_fk" index="9"/>
+		<object name="target_species_fk" index="8"/>
+	</customidxs>
 </table>
 
 <sequence name="fate_fate_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
@@ -1335,233 +1345,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<view name="v_location" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
-	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
-	<tag name="location"/>
-	<position x="1740" y="1040"/>
-	<reference>
-		<expression> <![CDATA[SELECT location.declaration_id,
-    location.geom,
-    location.longitude_dd,
-    location.latitude_dd,
-    country.country_name,
-    ices.ices_name,
-    environment.environment_name,
-    status.status_name,
-    capture_method.capture_method_name,
-    origin.origin_name,
-    gear_type.gear_type_name,
-    capture_state.capture_state_name,
-    fate.fate_name,
-    species.species_name,
-    declaration.capture_date,
-    declaration.year,
-    declaration.caught_number,
-    declaration.estimated_capture_date,
-    declaration.gear_mesh,
-    declaration.target_species,
-    declaration.depth,
-    declaration.depth_min,
-    declaration.depth_max,
-    declaration.length_min,
-    declaration.length_max,
-    declaration.weight_min,
-    declaration.weight_max,
-    declaration.fisher_code,
-    declaration.contact,
-    declaration.harbour_vessel,
-    declaration.declaration_mode,
-    declaration.handling,
-    declaration.identification_quality
-   FROM sturwild.location
-     JOIN sturwild.declaration USING (declaration_id)
-     LEFT JOIN sturwild.status USING (status_id)
-     LEFT JOIN sturwild.species USING (species_id)
-     LEFT JOIN sturwild.capture_method USING (capture_method_id)
-     LEFT JOIN sturwild.origin USING (origin_id)
-     LEFT JOIN sturwild.gear_type USING (gear_type_id)
-     LEFT JOIN sturwild.capture_state USING (capture_state_id)
-     LEFT JOIN sturwild.country USING (country_id)
-     LEFT JOIN sturwild.ices USING (ices_id)
-     LEFT JOIN sturwild.environment USING (environment_id)
-     LEFT JOIN sturwild.fate USING (fate_id)]]> </expression>
-	<column name="geom">
-		<type name="geometry" length="0"/>
-	</column>
-	<column name="longitude_dd">
-		<type name="double precision" length="0"/>
-	</column>
-	<column name="latitude_dd">
-		<type name="double precision" length="0"/>
-	</column>
-	<column name="country_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="ices_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="environment_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="status_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="capture_method_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="origin_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="gear_type_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="capture_state_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="fate_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="species_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="capture_date">
-		<type name="timestamp" length="0"/>
-	</column>
-	<column name="year">
-		<type name="smallint" length="0"/>
-	</column>
-	<column name="caught_numer">
-		<type name="smallint" length="0"/>
-	</column>
-	<column name="estimated_capture_date">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="gear_mesh">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="target_species">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="depth">
-		<type name="real" length="0"/>
-	</column>
-	<column name="depth_min">
-		<type name="real" length="0"/>
-	</column>
-	<column name="depth_max">
-		<type name="real" length="0"/>
-	</column>
-	<column name="length_min">
-		<type name="real" length="0"/>
-	</column>
-	<column name="length_max">
-		<type name="real" length="0"/>
-	</column>
-	<column name="weight_min">
-		<type name="real" length="0"/>
-	</column>
-	<column name="weight_max">
-		<type name="real" length="0"/>
-	</column>
-	<column name="fisher_code">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="contact">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="harbour_vessel">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="declaration_mode">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="handling">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="identification_quality">
-		<type name="varchar" length="0"/>
-	</column>
-		<reftable name="sturwild.location"/>
-		<reftable name="sturwild.country"/>
-		<reftable name="sturwild.ices"/>
-		<reftable name="sturwild.environment"/>
-		<reftable name="sturwild.status"/>
-		<reftable name="sturwild.species"/>
-		<reftable name="sturwild.capture_method"/>
-		<reftable name="sturwild.origin"/>
-		<reftable name="sturwild.gear_type"/>
-		<reftable name="sturwild.capture_state"/>
-		<reftable name="sturwild.fate"/>
-	</reference>
-</view>
-
-<relationship name="rel_v_location_location" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.location"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_country" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.country"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_ices" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.ices"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_environment" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.environment"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_status" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.status"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_species" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.species"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_capture_method" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.capture_method"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_origin" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.origin"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_gear_type" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.gear_type"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_capture_state" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.capture_state"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_location_fate" type="reltv" layers="0"
-	 custom-color="#33d17a"
-	 src-table="sturwild.v_location"
-	 dst-table="sturwild.fate"
-	 src-required="false" dst-required="false"/>
-
 <table name="handling" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild"/>
@@ -1660,210 +1443,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="sturwild.declaration"
 	 src-required="false" dst-required="false"/>
 
-<view name="v_declaration_handlings" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
-	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
-	<tag name="declaration"/>
-	<position x="1320" y="1040"/>
-	<reference>
-		<expression> <![CDATA[select declaration_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
-array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
-from sturwild.declaration_handling
-join sturwild.handling using (handling_id)
-group by declaration_id]]> </expression>
-	<column name="declaration_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="handlings_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="handlings_exchange">
-		<type name="varchar" length="0"/>
-	</column>
-		<reftable name="sturwild.declaration_handling"/>
-		<reftable name="sturwild.handling"/>
-	</reference>
-</view>
-
-<relationship name="rel_v_handlings_declaration_handling" type="reltv" layers="0"
-	 custom-color="#1c71d8"
-	 src-table="sturwild.v_declaration_handlings"
-	 dst-table="sturwild.declaration_handling"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_handlings_handling" type="reltv" layers="0"
-	 custom-color="#1c71d8"
-	 src-table="sturwild.v_declaration_handlings"
-	 dst-table="sturwild.handling"
-	 src-required="false" dst-required="false"/>
-
 <table name="fish_handling" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild"/>
 	<tag name="fish"/>
 	<position x="900" y="1280"/>
 </table>
-
-<view name="v_fish_handlings" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
-	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
-	<tag name="fish"/>
-	<position x="1320" y="1160"/>
-	<reference>
-		<expression> <![CDATA[select fish_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
-array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
-from sturwild.fish_handling
-join sturwild.handling using (handling_id)
-group by fish_id]]> </expression>
-	<column name="fish_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="handlings_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="handlings_exchange">
-		<type name="varchar" length="0"/>
-	</column>
-		<reftable name="sturwild.fish"/>
-		<reftable name="sturwild.handling"/>
-	</reference>
-</view>
-
-<relationship name="rel_v_fish_handlings_fish" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish_handlings"
-	 dst-table="sturwild.fish"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_handlings_handling" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish_handlings"
-	 dst-table="sturwild.handling"
-	 src-required="false" dst-required="false"/>
-
-<view name="v_fish" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
-	<schema name="sturwild"/>
-	<role name="sturwild_owner"/>
-	<comment> <![CDATA[Detail of a fish]]> </comment>
-	<tag name="fish"/>
-	<position x="1320" y="1280"/>
-	<reference>
-		<expression> <![CDATA[select fish_id, declaration_id
-,f.fate_id, fate_name
-,f.species_id, species_name
-,f.capture_state_id, capture_state_name
-,tag_presence_id, tag_presence_name
-,handlings
-,tag_number, fish_length, estimated_cohort, validated_cohort
-,background, f.remarks
-identification_quality_id
-from sturwild.fish f
-join sturwild.declaration d using(declaration_id)
-left outer join sturwild.species s on  (s.species_id = f.species_id)
-left outer join sturwild.capture_state cs on (cs.capture_state_id = f.capture_state_id)
-left outer join sturwild.tag_presence using (tag_presence_id)
-left outer join sturwild.fate fa on (fa.fate_id = f.fate_id)
-left outer join sturwild.v_fish_handlings using (fish_id)]]> </expression>
-	<column name="fish_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="declaration_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="fate_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="species_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="capture_state_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="tag_presence_id">
-		<type name="integer" length="0"/>
-	</column>
-	<column name="fate_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="species_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="capture_state_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="tag_presence_name">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="tag_number">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="estimated_cohort">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="handlings">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="background">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="remarks">
-		<type name="varchar" length="0"/>
-	</column>
-	<column name="identification_quality">
-		<type name="int2" length="0"/>
-	</column>
-	<column name="validated_cohort">
-		<type name="int2" length="0"/>
-	</column>
-	<column name="weight">
-		<type name="float4" length="0"/>
-	</column>
-		<reftable name="sturwild.fish"/>
-		<reftable name="sturwild.declaration"/>
-		<reftable name="sturwild.capture_state"/>
-		<reftable name="sturwild.tag_presence"/>
-		<reftable name="sturwild.species"/>
-		<reftable name="sturwild.fish_handling"/>
-	</reference>
-</view>
-
-<relationship name="rel_v_fish_fish" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.fish"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_declaration" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.declaration"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_capture_state" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.capture_state"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_tag_presence" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.tag_presence"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_species" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.species"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_v_fish_fish_handling" type="reltv" layers="0"
-	 custom-color="#ff7800"
-	 src-table="sturwild.v_fish"
-	 dst-table="sturwild.fish_handling"
-	 src-required="false" dst-required="false"/>
 
 <relationship name="fish_has_many_fish_handling" type="rel1n" layers="0"
 	 src-col-pattern="{sc}"
@@ -2127,189 +1712,152 @@ left outer join sturwild.v_fish_handlings using (fish_id)]]> </expression>
 </constraint>
 
 <relationship name="rel_declaration_capture_state" type="relfk" layers="0"
-	 custom-color="#ff7800"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.capture_state" reference-fk="capture_etat_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_capture_method" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.capture_method" reference-fk="capture_mode_capture_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_origin" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.origin" reference-fk="capture_type_capture_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_declaration_fate" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.fate" reference-fk="devenir_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_gear_type" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.gear_type" reference-fk="engin_type_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_species" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.species" reference-fk="espece_declaration_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_declaration_status" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.declaration"
 	 dst-table="sturwild.status" reference-fk="statut_declaration_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_document_fish" type="relfk" layers="0"
-	 custom-color="#ff7800"
 	 src-table="sturwild.document"
 	 dst-table="sturwild.fish" reference-fk="individu_document_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_document_mime_type" type="relfk" layers="0"
-	 custom-color="#ff7800"
 	 src-table="sturwild.document"
 	 dst-table="sturwild.mime_type" reference-fk="mime_type_document_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_event_declaration" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.event"
 	 dst-table="sturwild.declaration" reference-fk="evenement_capture_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_event_event_type" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.event"
 	 dst-table="sturwild.event_type" reference-fk="evenement_type_evenement_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_fish_capture_state" type="relfk" layers="0"
-	 custom-color="#ff7800"
 	 src-table="sturwild.fish"
 	 dst-table="sturwild.capture_state" reference-fk="capture_etat_individu_fk"
-	 src-required="false" dst-required="false">
-	<label ref-type="name-label">
-		<position x="0" y="0"/>
-	</label>
-</relationship>
+	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_fish_declaration" type="relfk" layers="0"
-	 custom-color="#ff7800"
 	 src-table="sturwild.fish"
 	 dst-table="sturwild.declaration" reference-fk="capture_individu_fk1"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_fish_fate" type="relfk" layers="0"
-	 custom-color="#ff7800"
 	 src-table="sturwild.fish"
 	 dst-table="sturwild.fate" reference-fk="devenir_individu_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_fish_species" type="relfk" layers="0"
-	 custom-color="#ff7800"
 	 src-table="sturwild.fish"
 	 dst-table="sturwild.species" reference-fk="espece_individu_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_fish_tag_presence" type="relfk" layers="0"
-	 custom-color="#ff7800"
 	 src-table="sturwild.fish"
 	 dst-table="sturwild.tag_presence" reference-fk="presence_marque_individu_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_location_ices" type="relfk" layers="0"
-	 custom-color="#33d17a"
 	 src-table="sturwild.location"
 	 dst-table="sturwild.ices" reference-fk="ciem_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_location_declaration" type="relfk" layers="0"
-	 custom-color="#3584e4"
 	 src-table="sturwild.location"
 	 dst-table="sturwild.declaration" reference-fk="declaration_localisation_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_location_environment_detail" type="relfk" layers="0"
-	 custom-color="#33d17a"
 	 src-table="sturwild.location"
 	 dst-table="sturwild.environment_detail" reference-fk="milieu_detail_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_location_environment" type="relfk" layers="0"
-	 custom-color="#33d17a"
 	 src-table="sturwild.location"
 	 dst-table="sturwild.environment" reference-fk="milieu_localisation_fk"
-	 src-required="false" dst-required="false">
-	<label ref-type="name-label">
-		<position x="0" y="0"/>
-	</label>
-</relationship>
+	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_location_country" type="relfk" layers="0"
-	 custom-color="#33d17a"
 	 src-table="sturwild.location"
 	 dst-table="sturwild.country" reference-fk="pays_localisation_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_location_accuracy" type="relfk" layers="0"
-	 custom-color="#33d17a"
 	 src-table="sturwild.location"
 	 dst-table="sturwild.accuracy" reference-fk="precision_fk"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_aclacl_aclaco" type="relfk" layers="0"
-	 custom-color="#c01c28"
 	 src-table="sturwildgacl.aclacl"
 	 dst-table="sturwildgacl.aclaco" reference-fk="aclaco_aclacl_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_aclacl_aclgroup" type="relfk" layers="0"
-	 custom-color="#c01c28"
 	 src-table="sturwildgacl.aclacl"
 	 dst-table="sturwildgacl.aclgroup" reference-fk="aclgroup_aclacl_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_aclaco_aclappli" type="relfk" layers="0"
-	 custom-color="#c01c28"
 	 src-table="sturwildgacl.aclaco"
 	 dst-table="sturwildgacl.aclappli" reference-fk="aclappli_aclaco_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_aclgroup_aclgroup" type="relfk" layers="0"
-	 custom-color="#c01c28"
 	 src-table="sturwildgacl.aclgroup"
 	 dst-table="sturwildgacl.aclgroup" reference-fk="aclgroup_aclgroup_fk"
 	 src-required="false" dst-required="false">
 	<line>
-		<position x="3372.75" y="299.575"/>
+		<position x="3372.75" y="315.975"/>
 	<position x="3372.75" y="227"/>
 	<position x="3226.5" y="227"/>
 	</line>
 </relationship>
 
 <relationship name="rel_acllogingroup_aclgroup" type="relfk" layers="0"
-	 custom-color="#c01c28"
 	 src-table="sturwildgacl.acllogingroup"
 	 dst-table="sturwildgacl.aclgroup" reference-fk="aclgroup_acllogingroup_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_acllogingroup_acllogin" type="relfk" layers="0"
-	 custom-color="#c01c28"
 	 src-table="sturwildgacl.acllogingroup"
 	 dst-table="sturwildgacl.acllogin" reference-fk="acllogin_acllogingroup_fk"
 	 src-required="false" dst-required="true"/>
 
 <relationship name="rel_passwordlost_logingestion" type="relfk" layers="0"
-	 custom-color="#c01c28"
 	 src-table="sturwildgacl.passwordlost"
 	 dst-table="sturwildgacl.logingestion" reference-fk="logingestion_passwordlost_fk"
 	 src-required="false" dst-required="true"/>
