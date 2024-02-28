@@ -23,7 +23,7 @@
   <dd>{$data.year}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>{t}Date de capture :{/t}{if !empty($data.estimated_capture_date)}(période/heure){/if}</dt>
+    <dt>{t}Date de capture :{/t}{if !empty($data.estimated_capture_date)}({t}période/heure{/t}){/if}</dt>
     <dd>{$data.capture_date}{if !empty($data.estimated_capture_date)}&nbsp;({$data.estimated_capture_date}){/if}</dd>
   </dl>
   <dl class="dl-horizontal">
