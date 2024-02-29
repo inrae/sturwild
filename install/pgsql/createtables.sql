@@ -1747,3 +1747,25 @@ REFERENCES sturwildgacl.logingestion (id) MATCH SIMPLE
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
+INSERT INTO sturwild.mime_type (content_type,"extension") VALUES
+	 ('application/pdf','pdf'),
+	 ('application/zip','zip'),
+	 ('audio/mpeg','mp3'),
+	 ('image/jpeg','jpg'),
+	 ('image/jpeg','jpeg'),
+	 ('image/png','png'),
+	 ('image/tiff','tiff'),
+	 ('application/vnd.oasis.opendocument.text','odt'),
+	 ('application/vnd.oasis.opendocument.spreadsheet','ods'),
+	 ('application/vnd.ms-excel','xls');
+INSERT INTO sturwild.mime_type (content_type,"extension") VALUES
+	 ('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','xlsx'),
+	 ('application/msword','doc'),
+	 ('application/vnd.openxmlformats-officedocument.wordprocessingml.document','docx'),
+	 ('text/csv','csv'),
+	 ('video/mp4','mp4'),
+	 ('video/x-msvideo','avi'),
+	 ('video/3gpp','3gp'),
+	 ('video/x-ms-wmv','wmv'),
+	 ('video/MP2T','ts'),
+	 ('video/quicktime','mov');
