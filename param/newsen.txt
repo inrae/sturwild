@@ -1,5 +1,14 @@
 News
 ===========
+Version 24.0.1 of 29 February 2024
+---------------------------------
+Bug corrections :
+- the map was not displayed correctly from the list of declarations
+- installation or upgrade procedures have been corrected
+
+New features:
+- addition of a module for importing or updating parameter tables from an ODS spreadsheet
+
 Version 24.0.0 of 5 February 2024
 --------------------------------
 Bug corrections :

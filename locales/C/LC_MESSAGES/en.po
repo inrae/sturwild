@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-28 16:46+0100\n"
+"POT-Creation-Date: 2024-02-29 09:51+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -551,8 +551,8 @@ msgid "Impossible de lire le fichier contenant les news"
 msgstr "Unable to read the file containing the news"
 
 #: ../../../param/param.default.inc.php:10
-msgid "05/02/2024"
-msgstr "05/02/2024"
+msgid "29/02/2024"
+msgstr "29/02/2024"
 
 #: ../../../install/translatedb/import.class.php:75
 #: ../../../framework/import/import.class.php:77
@@ -1604,7 +1604,7 @@ msgid ""
 "paramètres à partir d'un fichier ODS"
 msgstr ""
 "This module can be used to import or update all parameter tables from an ODS "
-"file."
+"file"
 
 #: ../../../display/templates/param/translateDb.tpl:26
 msgid ""
@@ -1628,15 +1628,19 @@ msgstr "left empty"
 
 #: ../../../display/templates/param/translateDb.tpl:32
 msgid "nom dans la langue courante"
-msgstr "Name in common language"
+msgstr "name in common language"
 
 #: ../../../display/templates/param/translateDb.tpl:33
 msgid "nom en anglais, utilisé pour les échanges"
-msgstr "Name in english, used for exchanges"
+msgstr "name in english, used for exchanges"
 
 #: ../../../display/templates/param/translateDb.tpl:34
 msgid "ordre d'affichage des enregistrements"
-msgstr "Display order of the records"
+msgstr "display order of the records"
+
+#: ../../../display/templates/param/translateDb.tpl:38
+msgid "Téléchargez le modèle de fichier"
+msgstr "Download the template"
 
 #: ../../../display/templates/param/statusChange.tpl:1
 msgid "Modification d'un statut :"
@@ -1974,7 +1978,7 @@ msgstr "Institute registering the declaration :"
 
 #: ../../../display/templates/declaration/declarationGeneral.tpl:79
 msgid "identifiant technique (UUID) :"
-msgstr "Technical identifier (UUID):"
+msgstr "technical identifier (UUID):"
 
 #: ../../../display/templates/declaration/declarationGeneral.tpl:84
 #: ../../../display/templates/declaration/declarationChange.tpl:229
@@ -2352,23 +2356,23 @@ msgstr "to"
 msgid "Rechercher"
 msgstr "Search"
 
-#: ../../../display/templates/declaration/declarationList.tpl:25
+#: ../../../display/templates/declaration/declarationList.tpl:28
 msgid "Nouvelle déclaration"
 msgstr "New declaration"
 
-#: ../../../display/templates/declaration/declarationList.tpl:31
+#: ../../../display/templates/declaration/declarationList.tpl:34
 msgid "Exporter la liste au format CSV (obsolète)"
 msgstr "Export list in CSV format (obsolete)"
 
-#: ../../../display/templates/declaration/declarationList.tpl:34
+#: ../../../display/templates/declaration/declarationList.tpl:37
 msgid "Exporter les poissons correspondants au format CSV (obsolète)"
 msgstr "Export the corresponding fish in CSV format (obsolete)"
 
-#: ../../../display/templates/declaration/declarationList.tpl:41
+#: ../../../display/templates/declaration/declarationList.tpl:44
 msgid "Liste"
 msgstr "List"
 
-#: ../../../display/templates/declaration/declarationList.tpl:46
+#: ../../../display/templates/declaration/declarationList.tpl:49
 msgid "Carte"
 msgstr "Map"
 
