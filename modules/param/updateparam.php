@@ -49,4 +49,14 @@ switch ($t_module["param"]) {
         }
         $module_coderetour = 1;
         break;
+    case "gettemplate":
+        $vue->setParam(
+            [
+                "filename" => "parameters_en.ods", /* nom du fichier tel qu'il apparaitra dans le navigateur */
+                "disposition" => "attachment", /* attachment : le fichier est telecharge, inline : le fichier est affiche */
+                "content_type" => "application/vnd.oasis.opendocument.spreadsheet", /* type mime */
+                "tmp_name" => "install/translatedb/parameters_en.ods"
+            ]
+        );
+        break;
 }

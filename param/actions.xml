@@ -140,4 +140,5 @@
 	-->
 	<updateparamDisplay action="modules/param/updateparam.php" param="display" droits="admin,param" type="smarty"/>
 	<updateparamExec action="modules/param/updateparam.php" param="exec" droits="admin,param" modulebefore="updateparamDisplay,updateparamExec" retourok="updateparamDisplay" retourko="updateparamDisplay"/>
+	<updateparamGettemplate action="modules/param/updateparam.php" param="gettemplate" droits="admin,param" type="file"/>
 </navigation>

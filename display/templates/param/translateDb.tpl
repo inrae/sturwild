@@ -33,6 +33,10 @@
             <li>exchange : {t}nom en anglais, utilisé pour les échanges{/t}</li>
             <li>order : {t}ordre d'affichage des enregistrements{/t}</li>
         </ul>
+        <br>
+        <a href="index.php?module=updateparamGettemplate">
+            {t}Téléchargez le modèle de fichier{/t}
+        </a>
     </div>
 </div>
 
