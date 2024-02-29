@@ -17,10 +17,6 @@
         $('.nav-tabs > li > a').hover(function() {
 			//$(this).tab('show');
  		});
-         $("#tabmap").on("shown.bs.tab", function () {
-            setTimeout(function () { map.invalidateSize(); }, 400);
-        });
-
     });
 </script>
 {include file="declaration/declarationSearch.tpl"}
@@ -61,7 +57,7 @@
             </div>
         </div>
         <div class="tab-pane fade" id="navmap" role="tabpanel" aria-labelledby="tabmap">
-            <div id="mapList" class="map" style="height:600px;width: 1024px;"></div>
+            <div id="mapList" class="map" ></div>
             {include file="declaration/declarationListMap.tpl"}
         </div>
     </div>
