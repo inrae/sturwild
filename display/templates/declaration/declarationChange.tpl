@@ -90,7 +90,8 @@ Retour au détail</a>
 					</label>
 					<div class="col-sm-8" id="capture_date_zone">
 						<input class="datepicker form-control" id="capture_date" name="capture_date" value="{$data.capture_date}">
-						(<input id="estimated_capture_date" name="estimated_capture_date" value="{$data.estimated_capture_date}" placeholder="période ou heure de la capture" title="Période ou heur de la capture">)
+						(<input id="estimated_capture_date" name="estimated_capture_date" value="{$data.estimated_capture_date}" 
+						placeholder="{t}période ou heure de la capture{/t}" title="{t}Période ou heure de la capture{/t}">)
 					</div>
 				</div>
 				<div class="form-group">
@@ -99,8 +100,8 @@ Retour au détail</a>
 					</label>
 					<div class="col-sm-8" id="depth_zone">
 						<input class="nombre form-control" id="depth" name="depth" value="{$data.depth}">
-						({t}de :{/t} <input name="depth_min" id="depth_min" value="{$data.depth_min}" placeholder="min" class="nombre num5"> m.
-						{t}à :{/t} <input name="depth_max" id="depth_max" value="{$data.depth_max}" placeholder="max" class="nombre num5"> m.)
+						({t}de :{/t} <input name="depth_min" id="depth_min" value="{$data.depth_min}" placeholder="{t}min{/t}" class="nombre num5"> m.
+						{t}à :{/t} <input name="depth_max" id="depth_max" value="{$data.depth_max}" placeholder="{t}max{/t}" class="nombre num5"> m.)
 					</div>
 				</div>
 				<div class="form-group">

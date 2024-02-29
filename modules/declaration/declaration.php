@@ -140,7 +140,7 @@ switch ($t_module["param"]) {
             $statusOld = $dataStatus["status_id"];
         }
         $id = dataWrite($dataClass, $_REQUEST);
-        if ($id >= 0) {
+        if ($id > 0) {
             $_REQUEST[$keyName] = $id;
             /*
              * Traitement du changement de status : envoi d'un message si le status vaut 3 ou 4

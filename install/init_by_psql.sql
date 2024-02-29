@@ -12,13 +12,13 @@ CREATE USER sturwild WITH
 /*
  * Database creation
  */
-create database sturwild owner sturwild_owner;
+create database sturwild owner sturwild;
 \c "dbname=sturwild"
  create extension if not exists postgis schema public;
  create extension if not exists pgcrypto schema public;
 
 
-\c "dbname=sturwild user=sturwild_owner password=sturwildPassword host=localhost"
+\c "dbname=sturwild user=sturwild password=sturwildPassword host=localhost"
 
 /**
  * create structure

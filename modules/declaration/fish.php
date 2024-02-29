@@ -80,8 +80,9 @@ switch ($t_module["param"]) {
 						'size' => $fdata['size'][$i]
 					);
 				}
-			} else
+			} else {
 				$files[] = $fdata;
+			}
 			foreach ($files as $file) {
 				if (strlen($file['name']) > 0)
 					$document->documentWrite($file, $id, $_REQUEST["document_description"]);

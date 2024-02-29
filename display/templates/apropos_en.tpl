@@ -2,7 +2,7 @@
 <p>
     Version {$version} of {$versiondate}.
 </p>
-<h3>Copyright © 2015-2023 - INRAE</h3>
+<h3>Copyright © 2015-2024 - INRAE</h3>
 <p>
     STURWILD is an application to record and consult the incidental catches of sturgeon.
 </p>

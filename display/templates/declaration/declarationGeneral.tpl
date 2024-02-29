@@ -1,7 +1,8 @@
 <div class="row">
 {if $droits.gestion ==1}
 <a href="index.php?module=declarationChange&declaration_id={$data.declaration_id}">
-<img src="display/images/edit.gif" height="20">Modifier...
+<img src="display/images/edit.gif" height="20">
+{t}Modifier...{/t}
 </a>
 {/if}
 </div>
@@ -23,7 +24,7 @@
   <dd>{$data.year}</dd>
   </dl>
   <dl class="dl-horizontal">
-    <dt>{t}Date de capture :{/t}{if !empty($data.estimated_capture_date)}(période/heure){/if}</dt>
+    <dt>{t}Date de capture :{/t}{if !empty($data.estimated_capture_date)}({t}période/heure{/t}){/if}</dt>
     <dd>{$data.capture_date}{if !empty($data.estimated_capture_date)}&nbsp;({$data.estimated_capture_date}){/if}</dd>
   </dl>
   <dl class="dl-horizontal">

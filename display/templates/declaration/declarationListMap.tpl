@@ -19,5 +19,8 @@
         markerGroup.addLayer(mark);
     });
      mapList.addLayer(markerGroup);
+     $("#mapList").width(window.innerWidth - 40);
+        $("#mapList").height(window.innerHeight * 0.5);
     mapDisplay(mapList);
+    
 </script>

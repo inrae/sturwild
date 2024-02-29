@@ -248,7 +248,7 @@ ALTER SEQUENCE sturwild.declaration_declaration_id_seq OWNER TO sturwild;
 CREATE TABLE sturwild.declaration (
 	declaration_id integer NOT NULL DEFAULT nextval('sturwild.declaration_declaration_id_seq'::regclass),
 	status_id integer NOT NULL,
-	capture_method_id integer DEFAULT 1,
+	capture_method_id integer,
 	origin_id integer NOT NULL,
 	gear_type_id integer,
 	species_id integer,
@@ -1747,3 +1747,25 @@ REFERENCES sturwildgacl.logingestion (id) MATCH SIMPLE
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
+INSERT INTO sturwild.mime_type (content_type,"extension") VALUES
+	 ('application/pdf','pdf'),
+	 ('application/zip','zip'),
+	 ('audio/mpeg','mp3'),
+	 ('image/jpeg','jpg'),
+	 ('image/jpeg','jpeg'),
+	 ('image/png','png'),
+	 ('image/tiff','tiff'),
+	 ('application/vnd.oasis.opendocument.text','odt'),
+	 ('application/vnd.oasis.opendocument.spreadsheet','ods'),
+	 ('application/vnd.ms-excel','xls');
+INSERT INTO sturwild.mime_type (content_type,"extension") VALUES
+	 ('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','xlsx'),
+	 ('application/msword','doc'),
+	 ('application/vnd.openxmlformats-officedocument.wordprocessingml.document','docx'),
+	 ('text/csv','csv'),
+	 ('video/mp4','mp4'),
+	 ('video/x-msvideo','avi'),
+	 ('video/3gpp','3gp'),
+	 ('video/x-ms-wmv','wmv'),
+	 ('video/MP2T','ts'),
+	 ('video/quicktime','mov');

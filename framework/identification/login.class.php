@@ -27,7 +27,7 @@ class Login
 
   function getLogin(string $type_authentification, $modeAdmin = false): ?string
   {
-    global  $privateKey, $pubKey, $CONNEXION_blocking_duration, $CONNEXION_max_attempts;
+    global  $privateKey, $pubKey, $CONNEXION_blocking_duration, $CONNEXION_max_attempts,$message;
     $tauth = "";
     $this->loginGestion->attemptdelay = $CONNEXION_blocking_duration;
     $this->loginGestion->nbattempts = $CONNEXION_max_attempts;

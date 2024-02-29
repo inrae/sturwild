@@ -134,6 +134,11 @@
 	<importJSONExec action="modules/declaration/import.php" param="jsonExec" droits="param" modulebefore="importJSONControl,importJSONDisplay" retourok="importJSONDisplay" retourko="importJSONDisplay"/>
 
 	<!-- migration en-->
+	<!--
 	<updateparam action="install/translatedb/updateparam.php" droits="admin" retourok="default" retourko="default"/>
 	<generateParamEn  action="install/translatedb/generate_param_en.php" droits="admin" retourok="default" retourko="default"/>
+	-->
+	<updateparamDisplay action="modules/param/updateparam.php" param="display" droits="admin,param" type="smarty"/>
+	<updateparamExec action="modules/param/updateparam.php" param="exec" droits="admin,param" modulebefore="updateparamDisplay,updateparamExec" retourok="updateparamDisplay" retourko="updateparamDisplay"/>
+	<updateparamGettemplate action="modules/param/updateparam.php" param="gettemplate" droits="admin,param" type="file"/>
 </navigation>

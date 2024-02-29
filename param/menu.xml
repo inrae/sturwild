@@ -54,6 +54,8 @@
 			tooltip="Liste des types d'événements" droits="gestion" />
 		<item module="statusList" label="Statuts" tooltip="Liste des statuts des déclarations"
 			droits="gestion" />
+		<item divider="1" droits="param,admin"/>
+		<item module="updateparamDisplay" label="Importer les paramètres" tooltip="Importer ou mettre à jour les paramètres depuis une feuille de calcul ODS" droits="param,admin"/> 
 	</item>
 	<item module="administration" label="Administration" tooltip="Administration de l'application"
 		droits="admin">

@@ -1,5 +1,14 @@
 News
 ===========
+Version 24.0.1 du 29 février 2024
+---------------------------------
+Corrections de bugs :
+- l'affichage de la carte depuis la liste des déclarations n'était pas correcte
+- les procédures d'installation ou de mise à niveau ont été corrigées
+
+Nouveautés :
+- ajout d'un module permettant d'importer ou de mettre à jour les tables de paramètres à partir d'un classeur ODS
+
 Version 24.0.0 du 5 février 2024
 --------------------------------
 Corrections de bugs :
