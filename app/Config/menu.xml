@@ -5,12 +5,57 @@
 		<its:translateRule selector="//item/@tooltip" translate="yes" />
 	</its:rules>
 
-	<item module="manage" label="Gestion" tooltip="Gestion">
+	<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations">
+		<item module="declarationList" tooltip="Liste des déclarations" label="Déclarations" />
+		<item module="declarationNbSturioByYear" label="Nb Sturio par année"
+			tooltip="Nombre d'Esturgeons d'Europe capturés par année" droits="consult" />
+		<item divider="1" />
+		<item module="importCSVDisplay" label="Import CSV des déclarations"
+			tooltip="Importer les déclarations depuis un fichier CSV" droits="param" />
+		<item module="importFishCSVDisplay" label="Import CSV des poissons"
+			tooltip="Importer les poissons associés aux déclarations depuis un fichier CSV"
+			droits="param" />
+		<item module="importJSONDisplay" label="Import JSON des déclarations"
+			tooltip="Importation des déclarations et des poissons associés depuis un fichier au format JSON"
+			droits="param" />
 		<item divider='1' droits="param" />
 		<item module="requestList" label="Requêtes SQL" tooltip="Exécution de requêtes SQL dans la base de données" droits="param" />
 	</item>
 
-	<item module="parametre" label="Paramètres" tooltip="Paramètres de l'application" droits="gestion">
+	<item module="parametre" label="Paramètres" tooltip="Paramètres de l'application" droits="manage">
+		<item module="icesList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="manage" />
+		<item module="countryList" label="Pays" tooltip="Liste des pays" droits="manage" />
+		<item module="environmentList" label="Milieux" tooltip="Liste des milieux" droits="manage" />
+		<item module="environment_detailList" label="Milieux détaillés"
+			tooltip="Liste des milieux détaillés" droits="manage" />
+		<item module="accuracyList" label="Précisions des localisations"
+			tooltip="Liste des précisions des localisations" droits="manage" />
+		<item divider="1" />
+		<item module="speciesList" label="Espèces" tooltip="Liste des espèces d'esturgeon"
+			droits="manage" />
+		<item module="fateList" label="Devenirs"
+			tooltip="Liste des destinations des esturgeons capturés" droits="manage" />
+		<item module="capture_methodList" label="Méthodes de capture"
+			tooltip="Liste des méthodes de capture" droits="manage" />
+		<item module="originList" label="Origine des captures"
+			tooltip="Liste des origines des captures" droits="manage" />
+		<item module="capture_stateList" label="États à la capture"
+			tooltip="Liste des états à la capture" droits="manage" />
+		<item module="gear_typeList" label="Engins" tooltip="Liste des engins utilisés"
+			droits="manage" />
+		<item module="handlingList" label="Manipulations"
+			tooltip="Liste des manipulations effectuées sur les poissons" droits="manage" />
+		<item module="target_speciesList" label="Espèces ciblées"
+			tooltip="Liste des espèces ciblées" droits="manage" />
+		<item divider="1" />
+		<item module="instituteList" label="Instituts" tooltip="Instituts partenaires"
+			droits="manage" />
+		<item module="event_typeList" label="Types d'événements"
+			tooltip="Liste des types d'événements" droits="manage" />
+		<item module="statusList" label="Statuts" tooltip="Liste des statuts des déclarations"
+			droits="manage" />
+		<item divider="1" droits="param,admin"/>
+		<item module="updateparamDisplay" label="Importer les paramètres" tooltip="Importer ou mettre à jour les paramètres depuis une feuille de calcul ODS" droits="param,admin"/> 
 		<item divider='1' />
 		<item module="dbstructureSchema" droits="admin" label="Schéma de la base de données" tooltip="Schéma de la base de données" />
 		<item module="dbstructureHtml" droits='admin' label="Structure de la base de données (HTML)" tooltip="Liste des tables et des colonnes" />
@@ -29,6 +74,16 @@
 		<item module="systemShowSession" droits="admin" label="Variables SESSION" tooltip="Affichage des variables de session"/>
 		<item divider="1"/>
 		<item module="backupDisplay" droits="admin" label="Backup" tooltip="Sauvegarde de la base de données" />
+	</item>
+	<item module="documentation_fr" label="documentation"
+		tooltip="Documentations en ligne en français" language="fr">
+		<item module="doctotp_fr" label="Comprendre la double authentification"
+			tooltip="Comprendre le mécanisme de double authentification" language="fr" />
+	</item>
+	<item module="documentation_en" label="documentation"
+		tooltip="Documentations en ligne en anglais" language="en">
+		<item module="doctotp_en" label="Comprendre la double authentification"
+			tooltip="Comprendre le mécanisme de double authentification" language="en" />
 	</item>
 	<item module="connexion" label="Connexion" tooltip="S'identifier dans l'application" onlynoconnect="1" />
 	<item module="disconnect" label="Déconnexion" tooltip="Déconnexion de l'application" loginrequis="1">
