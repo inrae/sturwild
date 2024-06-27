@@ -64,6 +64,6 @@ $this->id = $_REQUEST[$keyName];
             $module_coderetour = - 1;
             $this->message->setSyslog($e->getMessage());
         }
-        ]
+        }
 }
 ?>

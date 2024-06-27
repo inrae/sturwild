@@ -73,7 +73,7 @@ $this->vue=service('Smarty');
 			}
 
 		}
-		]
+		}
 	function write(){
 		/*
 		 * write record in database
@@ -111,13 +111,13 @@ $this->vue=service('Smarty');
 			}
 			$log->setLog($_SESSION["login"], get_class($this->dataClass) . "-write", $this->id);
 		}
-		]
+		}
 	function delete(){
 		/*
 		 * delete record
 		 */
 		$this->dataDelete( $this->id);
-		]
+		}
 	case "documentDelete() {
 		/*
 		 * Supprime le document
@@ -125,7 +125,7 @@ $this->vue=service('Smarty');
 		require_once 'modules/classes/document.class.php';
 		$document = new Document();
 		dataDelete($document, $_REQUEST["document_id"]);
-		]
+		}
 	case "export() {
 		/*
 		 * Exporte la liste des poissons au format CSV
@@ -137,7 +137,7 @@ $this->vue=service('Smarty');
 			$this->vue->setDelimiter("tab");
 			$this->vue->set($this->dataClass->getDataToExport($dataSearch));
 		}
-		]
+		}
 	case "exportCSV() {
 		if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
 			$data = $this->dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
@@ -155,7 +155,7 @@ $this->vue=service('Smarty');
 			$module_coderetour = -1;
 			$this->message->set(_("Aucune déclaration n'a été sélectionnée"), true);
 		}
-		]
+		}
 		case "csvExec() {
 			if (isset($_SESSION["importParameters"])) {
 				if (file_exists($_SESSION["importParameters"]["filename"])) {

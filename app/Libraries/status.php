@@ -34,7 +34,7 @@ $this->vue=service('Smarty');
 		$this->vue->set ( $this->dataClass->getListe(2), "data" );
 		$this->vue->set ( "param/statusList.tpl", "corps" );
 		
-		]
+		}
 	function change(){
 $this->vue=service('Smarty');
 		/*
@@ -43,7 +43,7 @@ $this->vue=service('Smarty');
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
 		dataRead ( $this->dataClass, $this->id, "param/statusChange.tpl" );
-		]
+		}
 	function write(){
 		/*
 		 * Inscrit un enregistrement dans la base
@@ -52,5 +52,5 @@ $this->vue=service('Smarty');
 			$_REQUEST [$keyName] = $this->id;
 		}
 		dataWrite ( $this->dataClass, $_REQUEST );
-		]
+		}
 }

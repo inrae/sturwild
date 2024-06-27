@@ -32,7 +32,7 @@ $this->vue=service('Smarty');
          * Display the form
          */
         $this->vue->set("declaration/importCsv.tpl", "corps");
-        ]
+        }
     case "control() {
         /*
          * Lancement des controles
@@ -93,7 +93,7 @@ $this->vue=service('Smarty');
         } else {
             $this->message->set(_("Aucun fichier n'a été téléchargé vers le serveur"), true);
         }
-        ]
+        }
     case "csvExec() {
         if (isset($_SESSION["importParameters"])) {
             if (file_exists($_SESSION["importParameters"]["filename"])) {
@@ -144,10 +144,10 @@ $this->vue=service('Smarty');
             $module_coderetour = -1;
             $this->message->set(_("Une erreur s'est produite, recommencez l'opération"), true);
         }
-        ]
+        }
         case "jsonDisplay() {
             $this->vue->set("declaration/importJson.tpl", "corps");
-            ]
+            }
     case "jsonControl() {
         unset($_SESSION["filename"]);
         if (file_exists($_FILES['upfile']['tmp_name'])) {
@@ -215,7 +215,7 @@ $this->vue=service('Smarty');
         } else {
             $this->message->set(_("Aucun fichier n'a été téléchargé vers le serveur"), true);
         }
-        ]
+        }
 
     case "jsonExec() {
         if (isset($_SESSION["importParameters"])) {
@@ -272,6 +272,6 @@ $this->vue=service('Smarty');
             $module_coderetour = -1;
             $this->message->set(_("Une erreur s'est produite, recommencez l'opération"), true);
         }
-        ]
+        }
 
 }

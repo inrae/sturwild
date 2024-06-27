@@ -68,7 +68,7 @@ $this->vue=service('Smarty');
         }
         $this->vue->set(json_encode($dataMap), "markers");
         $this->vue->htmlVars[] = "markers";
-        ]
+        }
     function display(){
 $this->vue=service('Smarty');
         /*
@@ -107,7 +107,7 @@ $this->vue=service('Smarty');
         $this->vue->set($MAPS_url, "MAPS_url");
         $this->vue->set($MAPS_enabled, "MAPS_enabled");
 
-        ]
+        }
     function change(){
 $this->vue=service('Smarty');
         /*
@@ -149,7 +149,7 @@ $this->vue=service('Smarty');
          */
         $this->vue->set($_SESSION["searchDeclaration"]->getListeAnnee(), "years");
 
-        ]
+        }
     function write(){
         /*
          * write record in database
@@ -176,13 +176,13 @@ $this->vue=service('Smarty');
         } else {
             $module_coderetour = -1;
         }
-        ]
+        }
     function delete(){
         /*
          * delete record
          */
         $this->dataDelete( $this->id);
-        ]
+        }
     case "export() {
         /*
          * Exporte la liste des captures accidentelles au format CSV
@@ -200,7 +200,7 @@ $this->vue=service('Smarty');
              * $export->exportCSV($this->dataClass->getDataToExport($dataSearch), true);
              */
         }
-        ]
+        }
     case "sturioByYear() {
         /*
          * Recherche du nombre d'esturgeons captures par year
@@ -208,7 +208,7 @@ $this->vue=service('Smarty');
         $this->vue->set($this->dataClass->getNbSturioByYear(), "data");
         $this->vue->set("declaration/nbSturioByYear.tpl", "corps");
 
-        ]
+        }
     case "duplicate() {
         /*
          * Duplication de la fiche courante
@@ -226,7 +226,7 @@ $this->vue=service('Smarty');
             }
         }
         $module_coderetour = 1;
-        ]
+        }
     case "exportCSV() {
         if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
             $data = $this->dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
@@ -244,7 +244,7 @@ $this->vue=service('Smarty');
             $module_coderetour = -1;
             $this->message->set(_("Aucune déclaration n'a été sélectionnée"), true);
         }
-        ]
+        }
     case "exportJSON() {
         include_once "modules/classes/fish.class.php";
         $fish = new Fish();
@@ -266,6 +266,6 @@ $this->vue=service('Smarty');
             $module_coderetour = -1;
             $this->message->set(_("Aucune déclaration n'a été sélectionnée"), true);
         }
-        ]
+        }
 }
 

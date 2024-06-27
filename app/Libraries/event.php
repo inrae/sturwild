@@ -47,7 +47,7 @@ $this->vue=service('Smarty');
 		$event_type = new Param($bdd, "event_type");
 		$this->vue->set ( $event_type->getListe(1), "event_type" );
 		
-		]
+		}
 	function write(){
 		/*
 		 * write record in database
@@ -55,13 +55,13 @@ $this->vue=service('Smarty');
 		$this->id = $this->dataWrite( $_REQUEST);
 		if ($this->id >= 0) 
 			$_REQUEST[$keyName] = $this->id;
-		]
+		}
 	function delete(){
 		/*
 		 * delete record
 		 */
 		$this->dataDelete( $this->id);
-		]
+		}
 }
 
 ?>

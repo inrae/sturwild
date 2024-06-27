@@ -56,7 +56,7 @@ $this->vue=service('Smarty');
 		$fate = new Param($bdd, "fate");
 		$this->vue->set($fate->getListe(1), "fate");
 
-		]
+		}
 	function write(){
 		/*
 		 * write record in database
@@ -65,7 +65,7 @@ $this->vue=service('Smarty');
 		if ($this->id >= 0) {
 			$_REQUEST[$keyName] = $this->id;
 		}
-		]
+		}
 }
 
 ?>

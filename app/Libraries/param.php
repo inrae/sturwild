@@ -46,11 +46,11 @@ $this->vue=service('Smarty');
 		$this->vue->set($this->dataClass->getParams(), "data");
 		$this->vue->set("param/paramList.tpl", "corps");
 		generateSet($this->vue, $tablename, $description);
-		]
+		}
 	function display(){
 $this->vue=service('Smarty');
 
-		]
+		}
 	function change(){
 $this->vue=service('Smarty');
 		/*
@@ -60,7 +60,7 @@ $this->vue=service('Smarty');
 		 */
 		$this->dataRead( $this->id, "param/paramChange.tpl");
 		generateSet($this->vue, $tablename, $description);
-		]
+		}
 	function write(){
 		/*
 		 * write record in database
@@ -69,11 +69,11 @@ $this->vue=service('Smarty');
 		if ($this->id > 0) {
 			$_REQUEST[$keyName] = $this->id;
 		}
-		]
+		}
 	function delete(){
 		/*
 		 * delete record
 		 */
 		$this->dataDelete( $this->id);
-		]
+		}
 }

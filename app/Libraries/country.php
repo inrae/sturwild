@@ -34,7 +34,7 @@ $this->vue=service('Smarty');
 		$this->vue->set ( $this->dataClass->getListe(3), "data" );
 		$this->vue->set ( "param/countryList.tpl", "corps" );
 		
-		]
+		}
 	function change(){
 $this->vue=service('Smarty');
 		/*
@@ -43,12 +43,12 @@ $this->vue=service('Smarty');
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
 		dataRead ( $this->dataClass, $this->id, "param/countryChange.tpl" );
-		]
+		}
 	function write(){
 		dataWrite ( $this->dataClass, $_REQUEST );
-		]
+		}
 	function delete(){
 		dataDelete ( $this->dataClass, $this->id );
-		]
+		}
 }
 ?>

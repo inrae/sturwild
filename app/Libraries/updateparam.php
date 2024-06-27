@@ -25,7 +25,7 @@ class Xx extends PpciLibrary {
     function display(){
 $this->vue=service('Smarty');
         $this->vue->set("param/translateDb.tpl", "corps");
-        ]
+        }
     case "exec() {
         //require_once "../../vendor/autoload.php";
         require_once "modules/classes/param.class.php";
@@ -70,7 +70,7 @@ $this->vue=service('Smarty');
             $module_coderetour = -1;
         }
         $module_coderetour = 1;
-        ]
+        }
     case "gettemplate() {
         $this->vue->setParam(
             [
@@ -78,7 +78,7 @@ $this->vue=service('Smarty');
                 "disposition" => "attachment", /* attachment : le fichier est telecharge, inline : le fichier est affiche */
                 "content_type" => "application/vnd.oasis.opendocument.spreadsheet", /* type mime */
                 "tmp_name" => "install/translatedb/parameters_en.ods"
-            ]
+            }
         );
-        ]
+        }
 }

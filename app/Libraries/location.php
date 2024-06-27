@@ -71,7 +71,7 @@ $this->vue=service('Smarty');
         $this->vue->set($MAPS_enabled, "MAPS_enabled");
 		$this->vue->set($data,"location");
 		$this->vue->set("1","mapIsChange");
-		]
+		}
 	function write(){
 		/*
 		 * write record in database
@@ -80,5 +80,5 @@ $this->vue=service('Smarty');
 		if ($this->id >= 0) {
 			$_REQUEST[$keyName] = $this->id;
 		}
-		]
+		}
 }

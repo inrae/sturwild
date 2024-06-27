@@ -32,7 +32,7 @@ $this->vue=service('Smarty');
          * Display the form
          */
         $this->vue->set("declaration/importFishCsv.tpl", "corps");
-        ]
+        }
     case "control() {
         /*
          * Lancement des controles
@@ -91,7 +91,7 @@ $this->vue=service('Smarty');
         } else {
             $this->message->set(_("Aucun fichier n'a été téléchargé vers le serveur"), true);
         }
-        ]
+        }
     case "csvExec() {
         if (isset($_SESSION["importParameters"])) {
             if (file_exists($_SESSION["importParameters"]["filename"])) {
@@ -138,5 +138,5 @@ $this->vue=service('Smarty');
             $module_coderetour = -1;
             $this->message->set(_("Une erreur s'est produite, recommencez l'opération"), true);
         }
-        ]
+        }
 }
