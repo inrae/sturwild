@@ -53,4 +53,6 @@ $paths = new Config\Paths();
 // LOAD THE FRAMEWORK BOOTSTRAP FILE
 require $paths->systemDirectory . '/Boot.php';
 
-exit(CodeIgniter\Boot::bootWeb($paths));
+//exit(CodeIgniter\Boot::bootWeb($paths));
+require FCPATH. '../vendor/equinton/ppci/src/BootApp.php';
+exit (CodeIgniter\BootApp::bootweb($paths));
