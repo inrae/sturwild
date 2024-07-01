@@ -1,13 +1,12 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
+
+use app\Libraries\SendMail;
+use Ppci\Models\LoginGestion;
 use Ppci\Models\PpciModel;
 
-/**
- * @author Eric Quinton
- * @copyright Copyright (c) 2015, IRSTEA / Eric Quinton
- * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
- *  Creation 5 août 2015
- */
-require_once 'modules/classes/declaration.class.php';
+
 /**
  * ORM de gestion de la table event
  *
@@ -24,11 +23,8 @@ class Event extends PpciModel
 	 */
 	public function __construct()
 	{
-		if (!is_array($param))
-			$param = array();
-		$this->paramori = $param;
 		$this->table = "event";
-		
+
 		$this->fields = array(
 			"event_id" => array(
 				"type" => 1,
@@ -58,7 +54,7 @@ class Event extends PpciModel
 				"defaultValue" => "getLogin"
 			)
 		);
-		
+
 		parent::__construct();
 	}
 
@@ -68,14 +64,14 @@ class Event extends PpciModel
 	 * (non-PHPdoc)
 	 * @see ObjetBDD::write()
 	 */
-	function write($data)
+	function write(array $data): int
 	{
 		$id = parent::write($data);
-		if ($id > 0 && is_numeric($id)) {
+		if ($id > 0) {
 			/*
 			 * Mise a niveau du status de la declaration en fonction du type d'event
 			 */
-			$declaration = new Declaration($this->connection, $this->paramori);
+			$declaration = new Declaration();
 			$dataDecl = $declaration->lire($data["declaration_id"]);
 			if ($dataDecl["status_id"] < $data["event_type_id"] && $data["event_type_id"] < 5) {
 				$dataDecl["status_id"] = $data["event_type_id"];
@@ -83,8 +79,10 @@ class Event extends PpciModel
 				/*
 				 * Traitement de l'envoi des mails
 				 */
-				if (in_array($data["event_type_id"], array(3, 4)))
-					sendMail($data["declaration_id"]);
+				if (in_array($data["event_type_id"], array(3, 4))) {
+					$mail = new SendMail();
+					$mail->send($data["declaration_id"]);
+				}
 			}
 		}
 		return $id;
@@ -96,20 +94,18 @@ class Event extends PpciModel
 	 * @param int $id
 	 * @return array
 	 */
-	function getListeFromDeclaration($id)
+	function getListeFromDeclaration(int $id)
 	{
 		if ($id > 0 && is_numeric($id)) {
 			$sql = "select * from event
 					left outer join event_type using (event_type_id)
-					where declaration_id = :declaration_id
+					where declaration_id = :declaration_id:
 					order by event_date desc, event_type_id desc";
 			$data = $this->getListeParamAsPrepared($sql, array("declaration_id" => $id));
 			/*
 			 * Recherche des des utilisateurs ayant cree les events
 			 */
-			global $bdd_gacl;
-			require_once 'framework/identification/loginGestion.class.php';
-			$loginGestion = new LoginGestion($bdd_gacl, $this->paramori);
+			$loginGestion = new LoginGestion();
 			foreach ($data as $key => $value) {
 				if (strlen($value["login"]) > 0) {
 					$dataLogin = $loginGestion->lireByLogin($value["login"]);
@@ -122,4 +118,3 @@ class Event extends PpciModel
 		}
 	}
 }
-

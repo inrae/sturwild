@@ -1,5 +1,9 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
+
 use Ppci\Models\PpciModel;
+
 /**
  * ORM de gestion de la table ices
  *
@@ -8,18 +12,11 @@ use Ppci\Models\PpciModel;
  */
 class Ices extends PpciModel
 {
-    /**
-     * Constructeur
-     *
-     * @param PDO $link
-     * @param array $param
-     */
     public function __construct()
     {
-        if (!is_array($param))
-            $param = array();
+
         $this->table = "ices";
-        
+
         $this->fields = array(
             "ices_id" => array(
                 "type" => 1,
@@ -32,7 +29,7 @@ class Ices extends PpciModel
                 "requis" => 1
             )
         );
-        
+
         parent::__construct();
     }
 
@@ -43,7 +40,7 @@ class Ices extends PpciModel
 
             $sql = "select ices_id  as id
                 from ices
-                where ices_name = :name";
+                where ices_name = :name:";
             $data = $this->lireParamAsPrepared($sql, array("name" => $name));
             if ($data["id"]) {
                 $id = $data["id"];

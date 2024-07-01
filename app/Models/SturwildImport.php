@@ -1,15 +1,16 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
+
+use Ppci\Libraries\PpciException;
 use Ppci\Models\PpciModel;
-class SturwildImportException extends Exception
-{
-}
+
 
 class SturwildImport
 {
     protected $handle;
     protected $fileColumn = array();
     protected array $mandatory = array("");
-    public PDO $connection;
     protected $separator = ",";
     protected $utf8_encode;
     protected $paramTables = array();
@@ -55,11 +56,12 @@ class SturwildImport
             }
             $this->fileClose();
         } else {
-            throw new SturwildImportException(sprintf(_("Le fichier %s n'a pas pu être chargé ou n'est pas lisible"), $filename));
+            throw new PpciException(sprintf(_("Le fichier %s n'a pas pu être chargé ou n'est pas lisible"), $filename));
         }
     }
 
-    function initFileJson ($filename, $utf8_encode = false) {
+    function initFileJson($filename, $utf8_encode = false)
+    {
         $this->utf8_encode = $utf8_encode;
         if ($this->handle = fopen($filename, 'r')) {
             $contents = fread($this->handle, filesize($filename));
@@ -70,7 +72,7 @@ class SturwildImport
             $this->fileContent = $data;
             $this->fileClose();
         } else {
-            throw new SturwildImportException(sprintf(_("Le fichier %s n'a pas pu être chargé ou n'est pas lisible"), $filename));
+            throw new PpciException(sprintf(_("Le fichier %s n'a pas pu être chargé ou n'est pas lisible"), $filename));
         }
     }
     /**
@@ -115,12 +117,11 @@ class SturwildImport
      * @param PDO $pdo
      * @return void
      */
-    function initParams(PDO $pdo)
+    function initParams()
     {
-        $this->connection = $pdo;
         foreach ($this->paramTables as $tablename) {
             if (!isset($this->$tablename)) {
-                $this->$tablename = new Param($pdo, $tablename);
+                $this->$tablename = new Param($tablename);
             }
         }
     }
@@ -132,7 +133,7 @@ class SturwildImport
     function searchFromParameters(array $row, string $suffix, bool $withCreate = false): array
     {
         foreach ($this->paramTables as $tablename) {
-            $colname = $tablename.$suffix;
+            $colname = $tablename . $suffix;
             $colid = $tablename . "_id";
             if (strlen($row[$colname]) > 0) {
                 if ($tablename == "handling") {
@@ -181,7 +182,8 @@ class SturwildImport
         }
         return $id;
     }
-    function getFileContent():array {
+    function getFileContent(): array
+    {
         return $this->fileContent;
     }
 }

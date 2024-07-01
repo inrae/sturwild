@@ -1,4 +1,7 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
+
 use Ppci\Models\PpciModel;
 
 /**
@@ -9,13 +12,7 @@ use Ppci\Models\PpciModel;
  */
 class Param extends PpciModel
 {
-    /**
-     * Constructor
-     *
-     * @param pdo $bdd
-     * @param string $tablename
-     */
-    public function __construct()
+    public function __construct($tablename)
     {
         $this->table = $tablename;
         $this->fields = array(
@@ -41,8 +38,8 @@ class Param extends PpciModel
             $field = $this->table . $suffix;
             $sql = "select " . $this->table . "_id  as id
                 from $this->table
-                where $field = :name
-                order by " .$this->table."_order, ".$this->table . "_id";
+                where $field = :name:
+                order by " . $this->table . "_order, " . $this->table . "_id";
             $data = $this->lireParamAsPrepared($sql, array("name" => $name));
             if ($data["id"]) {
                 $id = $data["id"];
@@ -63,5 +60,4 @@ class Param extends PpciModel
         $order = $this->table . "_order," . $this->table . $suffix;
         return $this->getListe($order);
     }
-
 }

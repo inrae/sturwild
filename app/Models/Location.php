@@ -1,123 +1,6 @@
-<?php namespace App\Models;
+<?php
+namespace App\Models;
 use Ppci\Models\PpciModel;
-
-/**
- * ORM de gestion de la table environment
- *
- * @author quinton
- *
- */
-class Environment extends PpciModel
-{
-	/**
-	 * Constructeur
-	 *
-	 * @param PDO $link
-	 * @param array $param
-	 */
-	public function __construct()
-	{
-		if (!is_array($param))
-			$param = array();
-		$this->table = "environment";
-		
-		$this->fields = array(
-			"environment_id" => array(
-				"type" => 1,
-				"requis" => 1,
-				"key" => 1,
-				"defaultValue" => 0
-			),
-			"environment_name" => array(
-				"type" => 0,
-				"requis" => 1
-			),
-			"environment_exchange" => array("type"=>0)
-		);
-		
-		parent::__construct();
-	}
-}
-
-/**
- * ORM de gestion de la table environment_detail
- *
- * @author quinton
- *
- */
-class EnvironmentDetail extends PpciModel
-{
-	/**
-	 * Constructeur
-	 *
-	 * @param PDO $link
-	 * @param array $param
-	 */
-	public function __construct()
-	{
-		if (!is_array($param))
-			$param = array();
-		$this->table = "environment_detail";
-		
-		$this->fields = array(
-			"environment_detail_id" => array(
-				"type" => 1,
-				"requis" => 1,
-				"key" => 1,
-				"defaultValue" => 0
-			),
-			"environment_detail_name" => array(
-				"type" => 0,
-				"requis" => 1
-			),
-			"environment_detail_exchange" => array("type"=>0)
-		);
-		
-		parent::__construct();
-	}
-}
-
-/**
- * ORM de gestion de la table country
- *
- * @author quinton
- *
- *
- */
-class Country extends PpciModel
-{
-	/**
-	 * Constructeur
-	 *
-	 * @param PDO $link
-	 * @param array $param
-	 */
-	public function __construct()
-	{
-		if (!is_array($param))
-			$param = array();
-		$this->table = "country";
-		
-		$this->fields = array(
-			"country_id" => array(
-				"type" => 1,
-				"requis" => 1,
-				"key" => 1,
-				"defaultValue" => 0
-			),
-			"country_name" => array(
-				"type" => 0,
-				"requis" => 1
-			),
-			"country_order" => array(
-				"type" => 1,
-				"requis" => 1
-			)
-		);
-		
-		parent::__construct();
-	}
-}
 
 /**
  * ORM de gestion de la table location
@@ -135,8 +18,6 @@ class Location extends PpciModel
 	 */
 	public function __construct()
 	{
-		if (!is_array($param))
-			$param = array();
 		$this->table = "location";
 		 $this->useAutoIncrement = false;
 		$this->fields = array(
@@ -205,7 +86,7 @@ class Location extends PpciModel
 					left outer join environment using (environment_id)
 					left outer join environment_detail using (environment_detail_id)
 					left outer join accuracy using (accuracy_id)
-					where declaration_id = :declaration_id";
+					where declaration_id = :declaration_id:";
 		return $this->lireParamAsPrepared($sql, array("declaration_id" => $id));
 	}
 
@@ -236,7 +117,7 @@ class Location extends PpciModel
 	 * (non-PHPdoc)
 	 * @see ObjetBDD::write()
 	 */
-	function write($data)
+	function write($data):int
 	{
 		if (strlen($data["longitude_dd"]) > 0 && strlen($data["latitude_dd"]) > 0) {
 			$data["geom"] = "POINT(" . $data["longitude_dd"] . " " . $data["latitude_dd"] . ")";

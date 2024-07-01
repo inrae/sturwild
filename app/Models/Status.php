@@ -33,7 +33,7 @@ class Status extends PpciModel
      * @param boolean $withCreate: if true and the record not exists, the parameter is created
      * @return int
      */
-    function getIdFromName(string $name, bool $searchByExchange = true, bool $withCreate = false)
+    function getIdFromName(string $name, bool $searchByExchange = true)
     {
         $id = 0;
         if (!empty($name)) {
@@ -44,7 +44,7 @@ class Status extends PpciModel
             }
             $sql = "select " . $this->table . "_id  as id
                 from $this->table
-                where $field = :name";
+                where $field = :name:";
             $data = $this->lireParamAsPrepared($sql, array("name" => $name));
             if ($data["id"]) {
                 $id = $data["id"];

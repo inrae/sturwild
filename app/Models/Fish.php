@@ -1,5 +1,9 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
+
 use Ppci\Models\PpciModel;
+
 /**
  * @author Eric Quinton
  * @copyright Copyright (c) 2015, IRSTEA / Eric Quinton
@@ -25,11 +29,8 @@ class Fish extends PpciModel
 	 */
 	public function __construct()
 	{
-		if (!is_array($param))
-			$param = array();
-		$this->paramori = $param;
 		$this->table = "fish";
-		
+
 		$this->fields = array(
 			"fish_id" => array(
 				"type" => 1,
@@ -83,7 +84,7 @@ class Fish extends PpciModel
 				"type" => 1
 			)
 		);
-		
+
 		parent::__construct();
 	}
 	function supprimer($id)
@@ -103,7 +104,7 @@ class Fish extends PpciModel
 	 *
 	 * @see ObjetBDD::ecrire()
 	 */
-	function write($data)
+	function write(array $data): int
 	{
 		$id = parent::write($data);
 		/**
@@ -115,7 +116,7 @@ class Fish extends PpciModel
 		 * Recherche si l'etat du lot a ete renseigne
 		 */
 		if (!isset($this->declaration)) {
-			$this->declaration = $this->classInstanciate("Declaration", "declaration.class.php");
+			$this->declaration = new Declaration();
 		}
 		$dataDecl = $this->declaration->lire($data["declaration_id"]);
 		if ($dataDecl["declaration_id"] > 0 && strlen($dataDecl["capture_state_id"]) == 0 && $data["capture_state_id"] > 0) {
@@ -123,7 +124,6 @@ class Fish extends PpciModel
 			$this->declaration->ecrire($dataDecl);
 		}
 		return $id;
-
 	}
 
 	/**
@@ -140,7 +140,7 @@ class Fish extends PpciModel
 					left outer join tag_presence using (tag_presence_id)
 					left outer join capture_state using (capture_state_id)
 					left outer join v_fish_handlings using (fish_id)
-					where declaration_id = :declaration_id
+					where declaration_id = :declaration_id:
 					order by fish_id";
 		return $this->getListeParamAsPrepared($sql, array("declaration_id" => $id));
 	}
@@ -155,9 +155,10 @@ class Fish extends PpciModel
 		/*
 		 * Lecture des identifiants des declarations
 		 */
-		require_once 'modules/classes/declaration.class.php';
-		$declaration = new Declaration($this->connection, $this->paramori);
-		$declarations = $declaration->getIdFromParam($param);
+		if (!isset($this->declaration)) {
+			$this->declaration = new Declaration();
+		}
+		$declarations = $this->declaration->getIdFromParam($param);
 		if (count($declarations) > 0) {
 			$sql = "select fish.*,
 				tag_presence_name, species_name, capture_state_name, fate_name";
@@ -199,7 +200,7 @@ class Fish extends PpciModel
 		$sql = "select h.handling_id, handling_name, 
             case when fish_id is not null then 1 else 0 end as is_selected
             from handling h
-            left outer join fish_handling fh on (h.handling_id = fh.handling_id and fh.fish_id = :fish_id)
+            left outer join fish_handling fh on (h.handling_id = fh.handling_id and fh.fish_id = :fish_id:)
             order by handling_order";
 		return $this->getListeParamAsPrepared($sql, array("fish_id" => $fish_id));
 	}
@@ -232,7 +233,7 @@ class Fish extends PpciModel
 			$i = 1;
 			$param = array();
 			foreach ($ids as $id) {
-				$where .= $comma . ":id$i";
+				$where .= $comma . ":id$i:";
 				$param["id$i"] = $id;
 				$comma = ",";
 				$i++;
@@ -253,7 +254,7 @@ class Fish extends PpciModel
 	{
 		$id = 0;
 		if (!empty($uuid)) {
-			$sql = "select fish_id from fish where fish_uuid = :uuid";
+			$sql = "select fish_id from fish where fish_uuid = :uuid:";
 			$data = $this->lireParamAsPrepared($sql, array("uuid" => $uuid));
 			if ($data["fish_id"] > 0) {
 				$id = $data["fish_id"];

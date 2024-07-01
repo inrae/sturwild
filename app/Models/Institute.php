@@ -10,8 +10,7 @@ class Institute extends PpciModel
      */
     public function __construct()
     {
-        if (!is_array($param))
-            $param = array();
+
         $this->table = "institute";
         
         $this->fields = array(
@@ -37,7 +36,7 @@ class Institute extends PpciModel
 
             $sql = "select institute_id  as id
                 from institute
-                where institute_code = :code";
+                where institute_code = :code:";
             $data = $this->lireParamAsPrepared($sql, array("code" => $code));
             if ($data["id"]) {
                 $id = $data["id"];

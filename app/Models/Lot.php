@@ -1,5 +1,9 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
+
 use Ppci\Models\PpciModel;
+
 /**
  * ORM de gestion de la table lot
  *
@@ -16,10 +20,9 @@ class Lot extends PpciModel
 	 */
 	public function __construct()
 	{
-		if (!is_array($param))
-			$param = array();
+
 		$this->table = "lot";
-		 $this->useAutoIncrement = false;
+		$this->useAutoIncrement = false;
 		$this->fields = array(
 			"declaration_id" => array(
 				"type" => 1,
@@ -56,7 +59,7 @@ class Lot extends PpciModel
 				"defaultValue" => 0
 			)
 		);
-		
+
 		parent::__construct();
 	}
 
@@ -77,7 +80,7 @@ class Lot extends PpciModel
 		$sql = "select * from lot
 					left outer join species using(species_id)
 					left outer join fate using (fate_id)
-					where declaration_id = :declaration_id";
+					where declaration_id = :declaration_id:";
 		return $this->lireParamAsPrepared($sql, array("declaration_id" => $id));
 	}
 }
