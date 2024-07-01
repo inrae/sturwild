@@ -1,36 +1,28 @@
 <?php 
 namespace App\Libraries;
 
+use App\Models\Document;
+use App\Models\Fish as ModelsFish;
+use App\Models\Param;
 use Ppci\Libraries\PpciException;
 use Ppci\Libraries\PpciLibrary;
 use Ppci\Models\PpciModel;
 
-class Xx extends PpciLibrary { 
+class Fish extends PpciLibrary { 
     /**
-     * @var xx
+     * @var ModelsFish
      */
-    protected PpciModel $this->dataClass;
+    protected PpciModel $dataClass;
 
     function __construct()
     {
         parent::__construct();
-        $this->dataClass = new \App\Models\XXX();
-        $keyName = "xxx_id";
+        $this->dataClass = new ModelsFish();
+        $keyName = "fish_id";
         if (isset($_REQUEST[$keyName])) {
             $this->id = $_REQUEST[$keyName];
         }
     }
-/**
- * @author Eric Quinton
- * @copyright Copyright (c) 2015, IRSTEA / Eric Quinton
- * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
- *  Creation 7 août 2015
- */
-include_once 'modules/classes/fish.class.php';
-$this->dataClass = new Fish();
-$keyName = "fish_id";
-$this->id = $_REQUEST[$keyName];
-
 
 	function change(){
 $this->vue=service('Smarty');
@@ -43,18 +35,16 @@ $this->vue=service('Smarty');
 		/*
 		 * Lecture des tables de parametre
 		 */
-		require_once 'modules/classes/declaration.class.php';
-		require_once "modules/classes/param.class.php";
-		$species = new Param($bdd, 'species');
+		$species = new Param( 'species');
 		$this->vue->set($species->getListe(2), "species");
 
-		$fate = new Param($bdd, "fate");
+		$fate = new Param( "fate");
 		$this->vue->set($fate->getListe(1), "fate");
 
-		$tag_presence = new Param($bdd, "tag_presence");
+		$tag_presence = new Param( "tag_presence");
 		$this->vue->set($tag_presence->getListe(1), "tag_presence");
 
-		$captureEtat = new Param($bdd, "capture_state");
+		$captureEtat = new Param( "capture_state");
 		$this->vue->set($captureEtat->getListe(2), "capture_state");
 
 		/**
@@ -63,11 +53,10 @@ $this->vue=service('Smarty');
 		$this->vue->set($this->dataClass->getHandlings($this->id), "handlings");
 
 		if ($this->id > 0) {
-			require_once 'modules/classes/document.class.php';
 			$document = new Document();
 			try {
 				$this->vue->set($document->getListFromFish($this->id), "dataDoc");
-			} catch (DocumentException $de) {
+			} catch (PpciException $de) {
 				$this->message->set(_("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système."), true);
 				$this->message->setSyslog($de->getMessage());
 			}
@@ -80,12 +69,11 @@ $this->vue=service('Smarty');
 		 */
 		$this->id = $this->dataWrite( $_REQUEST);
 		if ($this->id > 0) {
-			$_REQUEST[$keyName] = $this->id;
+			$_REQUEST["fish_id"] = $this->id;
 
 			/*
 			 * Traitement des photos associees
 			 */
-			require_once 'modules/classes/document.class.php';
 			$document = new Document();
 			/*
 			 * Preparation de files

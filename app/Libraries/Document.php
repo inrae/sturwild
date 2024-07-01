@@ -1,37 +1,31 @@
-<?php 
+<?php
+
 namespace App\Libraries;
 
+use App\Models\Document as ModelsDocument;
 use Ppci\Libraries\PpciException;
 use Ppci\Libraries\PpciLibrary;
 use Ppci\Models\PpciModel;
 
-class Xx extends PpciLibrary { 
+class Document extends PpciLibrary
+{
     /**
-     * @var xx
+     * @var ModelsDocument
      */
-    protected PpciModel $this->dataClass;
+    protected PpciModel $dataClass;
 
     function __construct()
     {
         parent::__construct();
-        $this->dataClass = new \App\Models\XXX();
-        $keyName = "xxx_id";
+        $this->dataClass = new ModelsDocument();
+        $keyName = "document_id";
         if (isset($_REQUEST[$keyName])) {
             $this->id = $_REQUEST[$keyName];
         }
     }
-/**
- * Created : 10 août 2017
- * Creator : quinton
- * Encoding : UTF-8
- * Copyright 2017 - All rights reserved
- */
-include_once 'modules/classes/document.class.php';
-$this->dataClass = new Document();
-$keyName = "document_id";
-$this->id = $_REQUEST[$keyName];
 
-    case "get() {
+    function get()
+    {
         /*
          * Envoi du document au navigateur
          * Generation du nom du document
@@ -43,7 +37,7 @@ $this->id = $_REQUEST[$keyName];
                  * Recuperation du type mime
                  */
                 $data = $this->dataClass->getData($this->id);
-                
+
                 $param = array(
                     "tmp_name" => $tmp_name,
                     "content_type" => $data["content_type"]
@@ -55,15 +49,10 @@ $this->id = $_REQUEST[$keyName];
                 } else
                     $param["disposition"] = "inline";
                 $this->vue->setParam($param);
-            } else {
-                unset($this->vue);
-                $module_coderetour = - 1;
+                return $this->vue->send();
             }
-        } catch (DocumentException $e) {
-            unset($this->vue);
-            $module_coderetour = - 1;
+        } catch (PpciException $e) {
             $this->message->setSyslog($e->getMessage());
         }
-        }
+    }
 }
-?>

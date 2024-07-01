@@ -1,8 +1,6 @@
 <?php namespace App\Models;
-use Ppci\Models\PpciModel;
 class DeclarationImport extends SturwildImport
 {
-
     protected array $mandatory = array("caught_number");
     protected $paramTables = array("origin", "capture_method", "gear_type", "target_species", "fate", "species", "country", "environment", "environment_detail", "accuracy_name", "handling", "status");
     public Location $location;

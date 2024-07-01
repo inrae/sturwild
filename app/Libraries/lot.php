@@ -61,7 +61,7 @@ $this->vue=service('Smarty');
 		/*
 		 * write record in database
 		 */
-		$this->id = $this->dataWrite( $_REQUEST);
+		$this->id = $this->$this->dataWrite( $_REQUEST);
 		if ($this->id >= 0) {
 			$_REQUEST[$keyName] = $this->id;
 		}

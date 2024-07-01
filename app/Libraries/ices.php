@@ -25,7 +25,7 @@ $this->dataClass = new Ices (  );
 $keyName = "ices_id";
 $this->id = $_REQUEST [$keyName];
 
-switch ($t_module ["param"]) {
+
 	function list(){
 $this->vue=service('Smarty');
 		/*
@@ -42,7 +42,7 @@ $this->vue=service('Smarty');
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		dataRead ( $this->dataClass, $this->id, "param/icesChange.tpl" );
+		$this->dataread( $this->dataClass, $this->id, "param/icesChange.tpl" );
 		}
 	function write(){
 		/*
@@ -51,13 +51,13 @@ $this->vue=service('Smarty');
 		if ($this->id > 0) {
 			$_REQUEST [$keyName] = $this->id;
 		}
-		dataWrite ( $this->dataClass, $_REQUEST );
+		$this->dataWrite( $_REQUEST );
 		}
 	function delete(){
 		/*
 		 * Supprime un enregistrement de la vase
 		 */
-		dataDelete ( $this->dataClass, $this->id );
+		$this->dataDelete( $this->id );
 		}
 }
 ?>
