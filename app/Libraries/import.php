@@ -9,12 +9,12 @@ class Xx extends PpciLibrary {
     /**
      * @var xx
      */
-    protected PpciModel $this->dataClass;
+    protected PpciModel $dataClass;
 
     function __construct()
     {
         parent::__construct();
-        $this->dataClass = new \App\Models\XXX();
+        $this->dataClass = new XXX();
         $keyName = "xxx_id";
         if (isset($_REQUEST[$keyName])) {
             $this->id = $_REQUEST[$keyName];

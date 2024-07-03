@@ -60,4 +60,15 @@ class Param extends PpciModel
         $order = $this->table . "_order," . $this->table . $suffix;
         return $this->getListe($order);
     }
+
+    /**
+     * Get then comment of the database table
+     *
+     * @return string
+     */
+    function getDescription() {
+        $sql = "select c.relname table_name, pg_catalog.obj_description(c.oid) as comment from pg_catalog.pg_class c where c.relname = :tablename:";
+        $data = $this->readParam($sql, ["tablename"=>$this->table]);
+        return $data["comment"];
+    }
 }

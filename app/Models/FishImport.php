@@ -1,5 +1,8 @@
-<?php namespace App\Models;
-use Ppci\Models\PpciModel;
+<?php
+
+namespace App\Models;
+
+use Ppci\Libraries\PpciException;
 
 class FishImport extends SturwildImport
 {
@@ -108,7 +111,7 @@ class FishImport extends SturwildImport
                     $declaration_id = $this->declaration->getIdByField("declaration_uuid", $row["declaration_uuid"]);
                 }
                 if ($declaration_id == 0) {
-                    throw new SturwildImportException(_("La déclaration correspondante à un poisson n'a pas été trouvée"));
+                    throw new PpciException(_("La déclaration correspondante à un poisson n'a pas été trouvée"));
                 }
             }
             $dfish["declaration_id"] = $declaration_id;
