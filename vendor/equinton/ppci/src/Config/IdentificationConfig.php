@@ -28,7 +28,7 @@ class IdentificationConfig extends BaseConfig
      */
     public $HEADER = array(
         "login" => "MELLON_MAIL",
-        "mail" => "MELLON_MAIL",
+        "email" => "MELLON_MAIL",
         "name" => "MELLON_cn",
         "firstname" => "MELLON_givenname",
         "lastname" => "MELLON_sn",
@@ -91,7 +91,7 @@ class IdentificationConfig extends BaseConfig
         "debug" => false,
         "CApath" => "",
         "getGroups" => 1,
-        "group" => "supannEntiteAffectation",
+        "groups" => "supannEntiteAffectation",
         "email" => "mail",
         "firstname" => "givenName",
         "lastname" => "sn",
@@ -107,7 +107,7 @@ class IdentificationConfig extends BaseConfig
         "clientSecret" => 'ClientSecretHere',
         "name" => "name",
         "email" => "email",
-        "group" => "supannEntiteAffectationPrincipale",
+        "groups" => "supannEntiteAffectationPrincipale",
         "firstname" => "given_name",
         "lastname" => "family_name",
         "scopeGroup" => "affectation",
