@@ -161,7 +161,12 @@ class Aclgroup extends PpciModel
         /*
          * Recuperation des groupes parents
          */
-        $in = implode(",", $groupes);
+        $in = "";
+        $comma = "";
+        foreach ($groupes as $groupe) {
+            $in .= $comma . $groupe["aclgroup_id"];
+            $comma = ",";
+        }
         if (!empty($in)) {
             $sql = "with recursive groupsearch as
             (

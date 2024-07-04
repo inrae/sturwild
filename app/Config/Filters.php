@@ -15,6 +15,7 @@ use Ppci\Filters\RightFilter;
 use Ppci\Filters\LegacyRouteFilter;
 use Ppci\Filters\StartcallFilter;
 use Ppci\Filters\DbversioncheckFilter;
+use App\Filters\CommonFilter;
 
 class Filters extends BaseConfig
 {
@@ -35,7 +36,8 @@ class Filters extends BaseConfig
         'legacyRoute'   => LegacyRouteFilter::class,
         'startcall'     => StartCallFilter::class,
         'dbversioncheck'=> DbversioncheckFilter::class,
-        "admin"         => AdminFilter::class
+        "admin"         => AdminFilter::class,
+        "common"        => CommonFilter::class
     ];
 
     /**
@@ -53,7 +55,8 @@ class Filters extends BaseConfig
             'startcall',
             'dbversioncheck',
             'rights',
-            'admin'
+            'admin',
+            'common'
         ],
         'after' => [
             //'toolbar',

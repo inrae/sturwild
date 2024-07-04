@@ -9,11 +9,6 @@ use Ppci\Models\PpciModel;
 
 class Ices extends PpciLibrary
 {
-	/**
-	 * @var ModelsIces
-	 */
-	protected ModelsIces $dataClass;
-
 	function __construct()
 	{
 		parent::__construct();
@@ -37,7 +32,7 @@ class Ices extends PpciLibrary
 	function change()
 	{
 		$this->vue = service('Smarty');
-		$this->dataread($this->dataClass, $this->id, "param/icesChange.tpl");
+		$this->dataread( $this->id, "param/icesChange.tpl");
 		return $this->vue->send();
 	}
 	function write()
