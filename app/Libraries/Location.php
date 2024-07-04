@@ -42,7 +42,7 @@ $this->vue=service('Smarty');
 
 		$country = new Country();
 		$this->vue->set($country->getListe(3), "country");
-		$environment = new Param( "Environment");
+		$environment = new Param( "environment");
 		$this->vue->set($environment->getListe(2), "environment");
 
 		$environmentDetail = new Param("environment_detail");

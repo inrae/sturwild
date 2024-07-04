@@ -26,7 +26,7 @@ $(document).ready(function() {
 <th>{t}Description{/t}</th>
 <th>{t}Taille{/t}</th>
 <th>{t}Date d'import{/t}</th>
-{if $rights["gestion"] == 1 }
+{if $rights["manage"] == 1 }
 <th>{t}Supprimer{/t}</th>
 {/if}
 </tr>
@@ -47,7 +47,7 @@ $(document).ready(function() {
 <a class="image-popup-no-margins"
    href="documentGet?document_id={$dataDoc[lst].document_id}&attached=0&phototype=1"
    title="{t}aperçu de la photo{/t}">
-   <img src="documentGet&document_id={$dataDoc[lst].document_id}&attached=0&phototype=2" height="30">
+   <img src="documentGet?document_id={$dataDoc[lst].document_id}&attached=0&phototype=2" height="30">
 {/if}
 
 {if $dataDoc[lst].mime_type_id != 1}</a>{/if}
@@ -61,7 +61,7 @@ $(document).ready(function() {
 <td>{$dataDoc[lst].document_description}</td>
 <td>{$dataDoc[lst].size}</td>
 <td>{$dataDoc[lst].document_date_import}</td>
-{if $rights["gestion"] == 1}
+{if $rights["manage"] == 1}
 <td>
 <div class="center">
 <a href="documentDelete?document_id={$dataDoc[lst].document_id}&fish_id={$dataDoc[lst].fish_id}" onclick="return confirm('{t}Confirmez-vous la suppression ?{/t}');">

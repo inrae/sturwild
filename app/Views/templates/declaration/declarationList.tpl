@@ -22,7 +22,7 @@
 {include file="declaration/declarationSearch.tpl"}
 {if $isSearch == 1}
 <div class="col-md-12">
-    {if $rights["gestion"] == 1}
+    {if $rights["manage"] == 1}
     <a href=declarationChange?declaration_id=0>
         <img src="display/images/new.png" height="25">
         <b>{t}Nouvelle déclaration{/t}</b>

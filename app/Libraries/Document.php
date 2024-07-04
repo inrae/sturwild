@@ -31,6 +31,7 @@ class Document extends PpciLibrary
          * Generation du nom du document
          */
         try {
+            $this->vue = service('BinaryView');
             $tmp_name = $this->dataClass->prepareDocument($this->id, $_REQUEST["phototype"]);
             if (strlen($tmp_name) > 0 && is_file($tmp_name)) {
                 /*

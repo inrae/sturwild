@@ -151,7 +151,6 @@ class Declaration extends PpciLibrary
         $this->vue->set($captureState->getListe(), "capture_state");
         $targetSpecies = new Param("target_species");
         $this->vue->set($targetSpecies->getListe(), "target_species");
-        require_once "modules/classes/institute.class.php";
         $institute = new Institute();
         $this->vue->set($institute->getListe(2), "institutes");
         /**
@@ -178,7 +177,7 @@ class Declaration extends PpciLibrary
             $dataStatus = $this->dataClass->lire($this->id);
             $statusOld = $dataStatus["status_id"];
         }
-        $this->id = $this->$this->dataWrite($_REQUEST);
+        $this->id = $this->dataWrite($_REQUEST);
         if ($this->id > 0) {
             $_REQUEST["declaration_id"] = $this->id;
             /*
@@ -188,7 +187,7 @@ class Declaration extends PpciLibrary
                 $mail = new SendMail();
                 $mail->send($this->id);
             }
-            return $this->list();
+            return $this->display();
         } else {
             return $this->change();
         }
