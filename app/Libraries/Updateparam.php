@@ -7,7 +7,7 @@ use Ppci\Libraries\PpciException;
 use Ppci\Libraries\PpciLibrary;
 use Ppci\Models\PpciModel;
 
-class UPdateparam extends PpciLibrary
+class Updateparam extends PpciLibrary
 {
 
     protected PpciModel $dataClass;
