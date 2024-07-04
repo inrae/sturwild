@@ -5,22 +5,20 @@ namespace App\Libraries;
 use App\Models\Param as ModelsParam;
 use Ppci\Libraries\PpciException;
 use Ppci\Libraries\PpciLibrary;
-use Ppci\Models\PpciModel;
 
 class Param extends PpciLibrary
 {
-	/**
-	 */
-	protected ModelsParam $dataClass;
 	protected $tablename;
 	protected $keyName;
 	function __construct($tablename)
 	{
 		parent::__construct();
-
+		$this->tablename = $tablename;
 		$this->dataClass = new ModelsParam($tablename);
 		$this->keyName = $tablename . "_id";
-		$this->id = $_REQUEST[$this->keyName];
+		if (isset($_REQUEST[$this->keyName])) {
+			$this->id = $_REQUEST[$this->keyName];
+		}
 	}
 	function generateSet()
 	{

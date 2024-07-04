@@ -2,7 +2,7 @@
 <a href="{$tablename}List"><img src="display/images/list.png" height="25">{t}Retour à la liste{/t}</a>
 <div class="row">
   <div class="col-md-6">
-    <form class="form-horizontal " id="paramForm" method="post" action="{tablename}Write">
+    <form class="form-horizontal " id="paramForm" method="post" action="{$tablename}Write">
       <input type="hidden" name="moduleBase" value="{$tablename}">
       <input type="hidden" name="{$fieldid}" value="{$data.$fieldid}">
       <div class="form-group">

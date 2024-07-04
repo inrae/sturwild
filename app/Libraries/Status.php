@@ -9,9 +9,6 @@ use Ppci\Models\PpciModel;
 
 class Status extends PpciLibrary
 {
-
-	protected ModelsStatus $dataClass;
-
 	function __construct()
 	{
 		parent::__construct();
@@ -40,7 +37,7 @@ class Status extends PpciLibrary
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		$this->dataread($this->dataClass, $this->id, "param/statusChange.tpl");
+		$this->dataread($this->id, "param/statusChange.tpl");
 		$this->vue->send();
 	}
 	function write()

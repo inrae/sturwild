@@ -1,4 +1,4 @@
-set search_path = sturwild,gacl,public;
+--set search_path = app,gacl,public;
 create unique index if not exists dbparamname_idx on dbparam (dbparam_name);
 insert into dbparam (dbparam_name, dbparam_value, dbparam_description, dbparam_description_en)
 values (
@@ -15,3 +15,5 @@ alter table logingestion add column if not exists lastattempt datetime;
 
 update aclgroup set groupe = 'manage' where groupe = 'gestion';
 update aclaco set aco = 'manage' where aco = 'gestion';
+
+comment on table species is 'List of fish species';

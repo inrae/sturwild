@@ -10,8 +10,6 @@ use Ppci\Models\PpciModel;
 class Institute extends PpciLibrary
 {
 
-	protected ModelsInstitute $dataClass;
-
 	function __construct()
 	{
 		parent::__construct();
@@ -42,7 +40,7 @@ class Institute extends PpciLibrary
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		$this->dataread($this->dataClass, $this->id, "param/instituteChange.tpl");
+		$this->dataread( $this->id, "param/instituteChange.tpl");
 		$this->vue->send();
 	}
 	function write()

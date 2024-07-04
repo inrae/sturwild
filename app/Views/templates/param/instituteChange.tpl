@@ -19,7 +19,8 @@
             </div>
             <div class="form-group">
                 <label for="institute_description" class="control-label col-sm-4">
-                    {t}Description :{/t}<span class="red">*</span></label>
+                    {t}Description :{/t}
+                </label>
                 <div class="col-sm-8">
                     <textarea class="form-control" name="institute_description" rows="5">{$data.institute_description}</textarea>
                 </div>

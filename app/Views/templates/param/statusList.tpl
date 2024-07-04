@@ -8,6 +8,7 @@
 					<th>{t}Id{/t}</th>
 					<th>{t}Libellé{/t}</th>
 					<th>{t}Libellé en anglais, pour les échanges{/t}</th>
+					<th>{t}Ordre d'affichage{/t}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -24,6 +25,7 @@
 						{/if}
 					</td>
 					<td>{$row.status_exchange}</td>
+					<td class="center">{$row.status_order}</td>
 				</tr>
 				{/foreach}
 			</tbody>
