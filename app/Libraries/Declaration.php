@@ -119,9 +119,8 @@ class Declaration extends PpciLibrary
         } catch (PpciException $de) {
             $this->message->set(_("Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez l'administrateur du système."));
             $this->message->setSyslog($de->getMessage());
-        } finally {
-            return $this->vue->send();
-        }
+        } 
+        return $this->vue->send();
     }
     function change()
     {

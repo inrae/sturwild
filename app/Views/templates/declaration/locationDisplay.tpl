@@ -58,6 +58,6 @@
 <div class="col-sm-12 col-md-6">
 <div id="map" class="map" style="height:600px;"></div>
 </div>
-{if !empty($location.longitude_dd) && !empty($location.latitude_dd)  && $MAPS_enabled == 1}
+{if !empty($location.longitude_dd) && !empty($location.latitude_dd)}
 {include file="declaration/locationMap.tpl"}
 {/if}
