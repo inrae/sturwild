@@ -28,6 +28,7 @@
         <b>{t}Nouvelle déclaration{/t}</b>
     </a>
     {/if}
+    <!--
     {if count($data) > 0}
     <a href="declarationExport">
         <img src="display/images/csv_text.png" height="25">
@@ -37,7 +38,7 @@
         {t}Exporter les poissons correspondants au format CSV (obsolète){/t}
     </a>
     {/if}
-
+    -->
     <ul class="nav nav-tabs  " id="tabResult" role="tablist" >
         <li class="nav-item active">
                 <a class="nav-link tabResult" id="tablist" data-toggle="tab"  role="tab" aria-controls="navlist" aria-selected="true" href="#navlist">

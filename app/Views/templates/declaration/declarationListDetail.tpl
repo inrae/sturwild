@@ -12,9 +12,9 @@
             var action = $("#checkedActionDeclaration").val();
             if (action.length > 0) {
                 var conf = confirm("{t}Attention : cette opération est définitive. Est-ce bien ce que vous voulez faire ?{/t}");
-                if (conf == true) {
-                    $(this.form).prop('action',action);
-                    $(this.form).prop('target', '_self').submit();
+                if (conf) {
+                    $(this).prop('action',action);
+                    $("#declarationListForm").prop('target', '_self');
                 } else {
                     event.preventDefault();
                 }
@@ -106,9 +106,14 @@
                 <div class="col-md-6 form-horizontal">
                     {t}Pour les déclarations validées sélectionnées :{/t}
                     <select id="checkedActionDeclaration" class="form-control">
-                        <option value="" selected>{t}Choisissez{/t}</option>
-                        <option value="declarationExportCSV">{t}Exporter les déclarations en CSV{/t}</option>
-                        <option value="fishExportCSV">{t}Exporter les poissons rattachés aux déclarations en CSV{/t}
+                        <option value="" selected>
+                            {t}Choisissez{/t}
+                        </option>
+                        <option value="declarationExportCSV">
+                            {t}Exporter les déclarations en CSV{/t}
+                        </option>
+                        <option value="fishExportCSV">
+                            {t}Exporter les poissons rattachés aux déclarations en CSV{/t}
                         </option>
                         <option value="declarationExportJson">
                             {t}Exporter les déclarations et les poissons rattachés (JSON){/t}

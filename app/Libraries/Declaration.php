@@ -253,11 +253,11 @@ class Declaration extends PpciLibrary
         if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
             $data = $this->dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
             if (!empty($data)) {
+                $this->vue = service ("CsvView");
                 $this->vue->setFilename("sturwild_declarations-" . date('Y-m-d') . ".csv");
                 $this->vue->setDelimiter(",");
                 $this->vue->set($data);
                 $this->vue->send();
-                return $this->list();
             } else {
                 $this->message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true);
                 return $this->list();
@@ -273,11 +273,13 @@ class Declaration extends PpciLibrary
         if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
             $data = $this->dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
             if (!empty($data)) {
+                $this->vue = service ("JsonFileView");
                 foreach ($data as $k => $v) {
                     $data[$k]["fishes"] = $fish->getDataForExport(array($v["declaration_uuid"]), $_POST["use_exchange_labels"], false, true);
                 }
                 $this->vue->set($data);
                 $this->vue->setFilename("sturwild-declarations-" . date('Y-m-d') . ".json");
+                $this->vue->send();
             } else {
                 unset($this->vue);
                 $module_coderetour = -1;

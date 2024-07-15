@@ -149,6 +149,7 @@ class Import extends PpciLibrary
     function jsonControl()
     {
         unset($_SESSION["filename"]);
+        $this->vue = service('Smarty');
         if (file_exists($_FILES['upfile']['tmp_name'])) {
             try {
                 /**
@@ -209,7 +210,7 @@ class Import extends PpciLibrary
         } else {
             $this->message->set(_("Aucun fichier n'a été téléchargé vers le serveur"), true);
         }
-        $this->vue->send();
+        return $this->jsonDisplay();
     }
 
     function jsonExec()

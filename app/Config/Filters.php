@@ -35,7 +35,7 @@ class Filters extends BaseConfig
         'rights'        => RightFilter::class,
         'legacyRoute'   => LegacyRouteFilter::class,
         'startcall'     => StartCallFilter::class,
-        'dbversioncheck'=> DbversioncheckFilter::class,
+        'dbversioncheck' => DbversioncheckFilter::class,
         "admin"         => AdminFilter::class,
         "common"        => CommonFilter::class
     ];
@@ -49,7 +49,13 @@ class Filters extends BaseConfig
     public array $globals = [
         'before' => [
             // 'honeypot',
-            'csrf',
+            'csrf' => [
+                'except' => [
+                    'declarationExportCSV',
+                    'fishExportCSV',
+                    'declarationExportJson'
+                ]
+            ],
             'invalidchars',
             'legacyRoute',
             'startcall',
@@ -61,7 +67,7 @@ class Filters extends BaseConfig
         'after' => [
             //'toolbar',
             // 'honeypot',
-             'secureheaders',
+            'secureheaders',
         ],
     ];
 

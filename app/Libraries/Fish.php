@@ -150,12 +150,14 @@ class Fish extends PpciLibrary
 	}
 	function exportCSV()
 	{
+		$this->vue = service ("CsvView");
 		if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
 			$data = $this->dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
 			if (!empty($data)) {
 				$this->vue->setFilename("sturwild_fishes-" . date('Y-m-d') . ".csv");
 				$this->vue->setDelimiter(",");
 				$this->vue->set($data);
+				return $this->vue->send();
 			} else {
 				unset($this->vue);
 				$this->message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true);

@@ -82,6 +82,9 @@ class Fish extends PpciModel
 			),
 			"identification_quality" => array(
 				"type" => 1
+			),
+			"fish_uuid" => array (
+				"type" => 0
 			)
 		);
 
@@ -210,7 +213,7 @@ class Fish extends PpciModel
 	{
 		$data = array();
 		if (count($ids) > 0) {
-			$localCode = $_SESSION["APPLI_code"];
+			$localCode = $_SESSION["dbparams"]["APPLI_code"];
 			$withExchangeLabel ? $suffix = "_exchange" : $suffix = "_name";
 			$withParentIdentifier ? $parentIdentifier = ", declaration_uuid, case when origin_identifier is not null then origin_identifier else '$localCode' || ':' || declaration_id::varchar end as origin_identifier" : $parentIdentifier = "";
 			$sql = "select fish_uuid, species$suffix, tag_presence$suffix, capture_state$suffix, fate$suffix, weight, handlings$suffix
