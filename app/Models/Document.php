@@ -266,7 +266,7 @@ class Document extends PpciModel
                 if ($id > 0) {
                     $dataDoc["document_id"] = $id;
                     $sql = "update document set data = '" . $dataDoc["data"] . "', thumbnail = '" . $dataDoc["thumbnail"] . "' where document_id = " . $id;
-                    $this->executeSQL($sql);
+                    $this->executeSQL($sql,[], true);
                 }
                 return $id;
             }
