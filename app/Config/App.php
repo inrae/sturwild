@@ -184,8 +184,6 @@ class App extends BaseConfig
      */
     public string $version = "v24.1.0";
     /**
-     * versionDate - don't change here, but in function setParameters() below
-     *
      * @var string
      */
     public string $versionDate = "15/07/2024";
