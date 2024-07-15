@@ -45,7 +45,7 @@ class Event extends PpciLibrary
 	{
 		$declaration = new Declaration();
 		try {
-			$this->id = $this->$this->dataWrite($_REQUEST);
+			$this->id = $this->dataWrite($_REQUEST);
 			$_REQUEST["event_id"] = $this->id;
 			return $declaration->display();
 		} catch (PpciException $e) {

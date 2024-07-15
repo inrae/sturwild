@@ -126,7 +126,11 @@ class Fish extends PpciLibrary
 		 * Supprime le document
 		 */
 		$document = new Document();
-		$document->dataDelete($document, $_REQUEST["document_id"]);
+		$document->delete( $_REQUEST["document_id"]);
+		if (isset($_REQUEST["fish_id"]) && $_REQUEST["fish_id"] > 0) {
+			$dfish = $this->dataClass->read($_REQUEST["fish_id"]);
+			$_REQUEST["declaration_id"] = $dfish["declaration_id"];
+		}
 		$declaration = new Declaration;
 		return $declaration->display();
 	}

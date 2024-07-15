@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Libraries;
 
 use App\Models\Country;
@@ -9,31 +10,34 @@ use Ppci\Libraries\PpciException;
 use Ppci\Libraries\PpciLibrary;
 use Ppci\Models\PpciModel;
 
-class Location extends PpciLibrary { 
-    /**
-     * @var xx
-     */
-    protected PpciModel $dataClass;
+class Location extends PpciLibrary
+{
+	/**
+	 * @var xx
+	 */
+	protected PpciModel $dataClass;
 
-    function __construct()
-    {
-        parent::__construct();
-        $this->dataClass = new ModelsLocation();
-        $keyName = "declaration_id";
-        if (isset($_REQUEST[$keyName])) {
-            $this->id = $_REQUEST[$keyName];
-        }
-    }
+	function __construct()
+	{
+		parent::__construct();
+		$this->dataClass = new ModelsLocation();
+		$keyName = "declaration_id";
+		if (isset($_REQUEST[$keyName])) {
+			$this->id = $_REQUEST[$keyName];
+		}
+	}
 
-	function change(){
-$this->vue=service('Smarty');
+	function change()
+	{
+		$this->vue = service('Smarty');
 		/*
 		 * open the form to modify the record
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		$data = $this->dataRead( $this->id, "declaration/locationChange.tpl");
+		$data = $this->dataRead($this->id, "declaration/locationChange.tpl");
 		$data["declaration_id"] = $this->id;
+		$this->vue->set($data,"data");
 		/**
 		 * Lecture des tables de parametre
 		 */
@@ -42,31 +46,32 @@ $this->vue=service('Smarty');
 
 		$country = new Country();
 		$this->vue->set($country->getListe(3), "country");
-		$environment = new Param( "environment");
+		$environment = new Param("environment");
 		$this->vue->set($environment->getListe(2), "environment");
 
 		$environmentDetail = new Param("environment_detail");
 		$this->vue->set($environmentDetail->getListe(2), "environment_detail");
 
-		$accuracy = new Param( "accuracy");
+		$accuracy = new Param("accuracy");
 		$this->vue->set($accuracy->getListe(1), "accuracys");
 
 		/**
 		 * Map
 		 */
 		//$this->vue->set($MAPS_url, "MAPS_url");
-        //$this->vue->set($MAPS_enabled, "MAPS_enabled");
-		$this->vue->set($data,"location");
-		$this->vue->set("1","mapIsChange");
+		//$this->vue->set($MAPS_enabled, "MAPS_enabled");
+		$this->vue->set($data, "location");
+		$this->vue->set("1", "mapIsChange");
 		$this->vue->send();
-		}
-	function write(){
+	}
+	function write()
+	{
 		try {
-            $this->dataWrite($_REQUEST);
-            $declaration = new Declaration;
+			$this->dataWrite($_REQUEST);
+			$declaration = new Declaration;
 			return $declaration->display();
-        } catch (PpciException $e) {
-            return $this->change();
-        }
+		} catch (PpciException $e) {
+			return $this->change();
+		}
 	}
 }
