@@ -1,4 +1,7 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
+
 class DeclarationImport extends SturwildImport
 {
     protected array $mandatory = array("caught_number");
@@ -108,7 +111,8 @@ class DeclarationImport extends SturwildImport
                 $dlocation = $this->location->lire($id);
                 $this->updated++;
             } else {
-                $ddeclaration = array("declaration_id" => $id);
+                $ddeclaration = array("declaration_id" => 0);
+                unset ($row["declaration_id"]);
                 $dlocation = array();
             }
             /**

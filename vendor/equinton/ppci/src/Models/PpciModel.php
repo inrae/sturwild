@@ -336,7 +336,7 @@ class PpciModel extends Model
     /**
      * Delete an item
      *
-     * @param [type] $id
+     * @param int $id
      * @param boolean $purge
      * @return void
      */
@@ -439,7 +439,7 @@ class PpciModel extends Model
     {
         $data = array();
         foreach ($this->defaultValues as $k => $v) {
-            if ($v != 0 && is_callable(array($this, $v))) {
+            if ($v != 0 && method_exists( $this, $v)) {
                 $data[$k] = $this->{$v}();
             } else {
                 $data[$k] = $v;

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Fish;
 use Ppci\Models\PpciModel;
 
 
@@ -414,20 +415,15 @@ class Declaration extends PpciModel
             if (!isset($this->event)) {
                 $this->event = new Event();
             }
-            $dataEvnmt = $this->event->getDefaultValue($id);
+            $dataEvnmt = $this->event->getDefaultValues($id);
             $dataEvnmt["event_type_id"] = $data["status_id"];
             $this->event->write($dataEvnmt);
         }
         return $id;
     }
 
-    /**
-     * Surcharge de la fonction supprimer pour effacer les enregistrements lies
-     * (non-PHPdoc)
-     *
-     * @see ObjetBDD::supprimer()
-     */
-    function supprimer($id)
+
+    function delete($id = null, bool $purge = false)
     {
         if ($id > 0 && is_numeric($id)) {
             /*
@@ -440,14 +436,13 @@ class Declaration extends PpciModel
             if (!isset($this->fish)) {
                 $this->fish = new Fish();
             }
-            $this->fish->supprimerChamp($id, "declaration_id");
+            $this->fish->deleteFromField($id, "declaration_id");
             if (!isset($this->location)) {
                 $this->location = new Location();
             }
             $this->location->supprimer($id);
-            return parent::supprimer($id);
-        } else
-            return -1;
+            parent::delete($id);
+        }
     }
     /**
      * Get the declaration_id from a field 

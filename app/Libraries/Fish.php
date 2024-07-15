@@ -64,6 +64,7 @@ class Fish extends PpciLibrary
 				$this->message->setSyslog($de->getMessage());
 			}
 		}
+		$this->vue->send();
 	}
 	function write()
 	{

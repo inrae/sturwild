@@ -97,9 +97,9 @@
                 <label for="separator" class="control-label col-md-4">{t}Séparateur utilisé :{/t}</label>
                 <div class="col-md-8">
                     <select id="separator" name="separator" class="form-control">
+                        <option value="tab" {if $separator=="tab" }selected{/if}>{t}Tabulation{/t}</option>
                         <option value="," {if $separator=="," }selected{/if}>{t}Virgule{/t}</option>
                         <option value=";" {if $separator==";" }selected{/if}>{t}Point-virgule{/t}</option>
-                        <option value="tab" {if $separator=="tab" }selected{/if}>{t}Tabulation{/t}</option>
                     </select>
                 </div>
             </div>

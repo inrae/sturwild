@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Param;
+use App\Models\Status;
 use Ppci\Libraries\PpciException;
-use Ppci\Models\PpciModel;
-
 
 class SturwildImport
 {
@@ -13,8 +13,9 @@ class SturwildImport
     protected array $mandatory = array("");
     protected $separator = ",";
     protected $utf8_encode;
-    protected $paramTables = array();
-    protected $status, $origin, $capture_method, $gear_type, $target_species, $species;
+    protected $paramTables = array("origin", "capture_method", "gear_type", "target_species", "species");
+    protected Status $status;
+    protected $origin, $capture_method, $gear_type, $target_species, $species;
     protected $fileContent = array();
     public $paramToCreate = array();
     public array $errors = array();
@@ -45,11 +46,6 @@ class SturwildImport
             for ($range = 0; $range < count($data); $range++) {
                 $value = $data[$range];
                 $this->fileColumn[$range] = $value;
-                /*if (in_array($value, $this->fields)) {
-                    
-                } else {
-                    throw new SturwildImportException(sprintf(_('La colonne %1$s n\'est pas reconnue (%2$s)'), $range, $value));
-                }*/
             }
             while (($data = $this->readLine()) !== false) {
                 $this->fileContent[] = $data;
@@ -119,6 +115,7 @@ class SturwildImport
      */
     function initParams()
     {
+        $this->status = new Status();
         foreach ($this->paramTables as $tablename) {
             if (!isset($this->$tablename)) {
                 $this->$tablename = new Param($tablename);

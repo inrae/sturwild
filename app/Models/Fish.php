@@ -161,7 +161,8 @@ class Fish extends PpciModel
 		$declarations = $this->declaration->getIdFromParam($param);
 		if (count($declarations) > 0) {
 			$sql = "select fish.*,
-				tag_presence_name, species_name, capture_state_name, fate_name";
+				tag_presence_name, species_name, capture_state_name, fate_name, 
+				(select declaration_uuid from declaration d where d.declaration_id = fish.declaration_id) as declaration_uuid";
 			$from = " from fish
 				left outer join species using (species_id )
 				left outer join capture_state using (capture_state_id)

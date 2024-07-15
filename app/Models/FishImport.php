@@ -92,6 +92,8 @@ class FishImport extends SturwildImport
          * Search for existing record
          */
         $id = 0;
+        unset($row["fish_id"]);
+        unset($row["declaration_id"]);
         if (!empty($row["fish_uuid"])) {
             $id = $this->fish->getIdByUUID($row["fish_uuid"]);
         }

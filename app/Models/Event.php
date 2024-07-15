@@ -51,7 +51,7 @@ class Event extends PpciModel
 			),
 			"login" => array(
 				"type" => 0,
-				"defaultValue" => "getLogin"
+				"defaultValue" => $_SESSION["login"]
 			)
 		);
 
