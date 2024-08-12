@@ -105,6 +105,10 @@ sed -i "s/; max_input_vars = .*/max_input_vars=$max_input_vars/" $PHPINIFILE
 sed -e "s/  <policy domain=\"coder\" rights=\"none\" pattern=\"PDF\" \/>/  <policy domain=\"coder\" rights=\"read|write\" pattern=\"PDF\" \/>/" /etc/ImageMagick-6/policy.xml > /tmp/policy.xml
 cp /tmp/policy.xml /etc/ImageMagick-6/
 
+# adjust locale support
+sed -i "s/#en_GB.UTF-8/en_GB.UTF-8/" /etc/locale.gen
+locale-gen
+
 # creation of virtual host
 echo "creation of virtual site"
 cp install/apache2/sturwild.conf /etc/apache2/sites-available/
