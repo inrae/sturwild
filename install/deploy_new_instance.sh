@@ -53,11 +53,11 @@ cd sturwild
 cp env .env
 # creation of database
 echo "creation of the database"
-cd /install
+cd install
 su postgres -c "psql -f init_by_psql.sql"
 cd ..
 echo "you may verify the configuration of access to postgresql"
-echo "look at /etc/postgresql/11/main/pg_hba.conf (verify your version). Only theses lines must be activate:"
+echo "look at /etc/postgresql/13/main/pg_hba.conf (verify your version). Only theses lines must be activate:"
 echo '# "local" is for Unix domain socket connections only
 local   all             all                                     peer
 # IPv4 local connections:
@@ -106,8 +106,8 @@ sed -e "s/  <policy domain=\"coder\" rights=\"none\" pattern=\"PDF\" \/>/  <poli
 cp /tmp/policy.xml /etc/ImageMagick-6/
 
 # adjust locale support
-sed -i "s/#en_GB.UTF-8/en_GB.UTF-8/" /etc/locale.gen
-locale-gen
+sed -i "s/# en_GB.UTF-8/en_GB.UTF-8/" /etc/locale.gen
+/usr/sbin/locale-gen
 
 # creation of virtual host
 echo "creation of virtual site"

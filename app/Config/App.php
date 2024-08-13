@@ -211,8 +211,8 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $privateKey = ROOTPATH . "id_app";
-    public $pubKey = ROOTPATH . "id_app.pub";
+    public $privateKey = ROOTPATH . "id_sturwild";
+    public $pubKey = ROOTPATH . "id_sturwild.pub";
     /**
      * List of locales date formats
      *

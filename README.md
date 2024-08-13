@@ -1,68 +1,67 @@
-# CodeIgniter 4 Application Starter
+# Sturwild
 
-## What is CodeIgniter?
+## What is Sturwild?
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Sturwild is a software application for recording declarations of accidental sturgeon catches.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+It is written in PHP, and is based on the CodeIgniter framework.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+The database works with Postgresql.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## How to install it?
 
-## Installation & updates
+- install a virtual machine running Debian or Ubuntu
+- define an URL for the application, as **mysturwild.myinstitute.fr**
+- create a https certificate to your application
+- download the installation script, and run it:
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+```bash
+wget https://github.com/inrae/sturwild/raw/main/install/deploy_new_instance.sh
+chmod +x deploy_new_instance.sh
+./deploy_new_instance.sh
+```
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+The script will:
 
-## Setup
+- install Apache2 server, Php, Postgresql and all necessary libraries
+- install the software in the folder `/var/www/sturwildApp/sturwild`
+- create the database
+- add the file `/etc/apache2/sites-available/sturwild.conf` to add the virtual host of your application
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+After that:
 
-## Important Change with index.php
+- edit the file `/etc/apache2/sites-available/sturwild.conf` to specify the URL and the paths to the certificate
+- edit the file `/var/www/sturwildApp/sturwild/.env`, and:
+  - define the address of your app (`app.baseURL`)
+  - configure the identification mode. By default and to configure the app at the first time, you must:
+    - choose an identification mode that contains **BDD** (`Ppci\Config\IdentificationConfig.identificationMode`), for example BDD, CAS-BDD, LDAP-BDD, OIDC-BDD
+    - disable the support of TOTP (`Ppci\Config\IdentificationConfig.disableTotpToAdmin=1`)
+- activate the app:
+  - `a2ensite sturwild`
+  - `systemctl restart apache2`
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+You can now load the app into your browser. The first login is:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- login: *admin*
+- password: *password*
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Edit the database parameters (*Administration > Application Settings*), and particulary:
 
-## Repository Management
+- **APPLI_CODE**: the code of your institute
+- **otp_issuer**: the code of your institute suffixed by STURWILD, to refind the code of the double-identification
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+You can now configure the app, create groups, users, etc. When the configuration is complete, reactive the support of TOTP.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## How to upgrade
 
-## Server Requirements
+```bash
+su
+cd /var/www/sturwildApp/sturwild
+git pull origin main
+./upgradedb.sh
+```
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+This will:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+- download the last version of the app
+- update if necessary the database
