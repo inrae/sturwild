@@ -39,6 +39,7 @@ After that:
 - activate the app:
   - `a2ensite sturwild`
   - `systemctl restart apache2`
+- you must install an email relay: the app send multiple emails when a declaration is created or when it status change. *Postfix* is a good solution for that, but you can use *msmtp*, if you prefer.
 
 You can now load the app into your browser. The first login is:
 
@@ -48,7 +49,7 @@ You can now load the app into your browser. The first login is:
 Edit the database parameters (*Administration > Application Settings*), and particulary:
 
 - **APPLI_CODE**: the code of your institute
-- **otp_issuer**: the code of your institute suffixed by STURWILD, to refind the code of the double-identification
+- **otp_issuer**: the code of your institute suffixed by STURWILD, to refind the code of the double-identification from the TOTP app in your smartphone.
 
 You can now configure the app, create groups, users, etc. When the configuration is complete, reactive the support of TOTP.
 
