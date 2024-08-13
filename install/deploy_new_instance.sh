@@ -48,17 +48,16 @@ git clone https://github.com/inrae/sturwild.git -b main
 
 # update rights on files
 chmod -R 755 sturwild/
-
-# create param.inc.php file
-mkdir param
-cp sturwild/param/param.inc.php.dist param/param.inc.php
+cd sturwild
+# create .env file
+cp env .env
 # creation of database
 echo "creation of the database"
-cd sturwild/install
+cd install
 su postgres -c "psql -f init_by_psql.sql"
-cd ../..
+cd ..
 echo "you may verify the configuration of access to postgresql"
-echo "look at /etc/postgresql/11/main/pg_hba.conf (verify your version). Only theses lines must be activate:"
+echo "look at /etc/postgresql/13/main/pg_hba.conf (verify your version). Only theses lines must be activate:"
 echo '# "local" is for Unix domain socket connections only
 local   all             all                                     peer
 # IPv4 local connections:
@@ -71,7 +70,7 @@ read -p "Enter to continue" answer
 # install backup program
 echo "backup configuration - dump at 20:00 into /var/lib/postgresql/backup"
 echo "please, set up a data transfert mechanism to deport them to another medium"
-cp sturwild/install/pgsql/backup.sh /var/lib/postgresql/
+cp install/pgsql/backup.sh /var/lib/postgresql/
 chown postgres /var/lib/postgresql/backup.sh
 line="0 20 * * * /var/lib/postgresql/backup.sh"
 #(crontab -u postgres -l; echo "$line" ) | crontab -u postgres -
@@ -79,19 +78,15 @@ echo "$line" | crontab -u postgres -
 
 # generate rsa key for encrypted tokens
 echo "generate encryption keys for identification tokens"
-openssl genpkey -algorithm rsa -out param/id_sturwild -pkeyopt rsa_keygen_bits:2048
-openssl rsa -in param/id_sturwild -pubout -out sturwild/param/id_sturwild.pub
-chown www-data param/id_sturwild
-
-# copy local parameters to app
-cp param/* sturwild/param/
+openssl genpkey -algorithm rsa -out id_sturwild -pkeyopt rsa_keygen_bits:2048
+openssl rsa -in id_sturwild -pubout -out id_sturwild.pub
+chown www-data id_sturwild
 
 # update rights to specific software folders
-chmod -R 750 .
-mkdir sturwild/display/templates_c
+find . -type d -exec chmod 750 {} \;
+find . -type f -exec chmod 640 {} \;
 chgrp -R www-data .
-chmod -R 770 sturwild/display/templates_c
-chmod -R 770 sturwild/temp
+chmod -R g+w writable
 
 # adjust php.ini values
 upload_max_filesize="=100M"
@@ -110,9 +105,13 @@ sed -i "s/; max_input_vars = .*/max_input_vars=$max_input_vars/" $PHPINIFILE
 sed -e "s/  <policy domain=\"coder\" rights=\"none\" pattern=\"PDF\" \/>/  <policy domain=\"coder\" rights=\"read|write\" pattern=\"PDF\" \/>/" /etc/ImageMagick-6/policy.xml > /tmp/policy.xml
 cp /tmp/policy.xml /etc/ImageMagick-6/
 
+# adjust locale support
+sed -i "s/# en_GB.UTF-8/en_GB.UTF-8/" /etc/locale.gen
+/usr/sbin/locale-gen
+
 # creation of virtual host
 echo "creation of virtual site"
-cp sturwild/install/apache2/sturwild.conf /etc/apache2/sites-available/
+cp install/apache2/sturwild.conf /etc/apache2/sites-available/
 /usr/sbin/a2ensite sturwild
 echo "you must modify the file /etc/apache2/sites-available/sturwild.conf"
 echo "address of your instance, ssl parameters),"

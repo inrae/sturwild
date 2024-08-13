@@ -1,9 +1,15 @@
 -- Database generated with pgModeler (PostgreSQL Database Modeler).
--- pgModeler version: 1.0.6
--- PostgreSQL version: 13.0
+-- pgModeler version: 1.1.3
+-- PostgreSQL version: 15.0
 -- Project Site: pgmodeler.io
--- Model Author: Éric Quinton
-
+-- Model Author: ---
+-- -- object: pg_database_owner | type: ROLE --
+-- -- DROP ROLE IF EXISTS pg_database_owner;
+-- CREATE ROLE pg_database_owner WITH 
+-- 	INHERIT
+-- 	 PASSWORD '********';
+-- -- ddl-end --
+-- 
 
 -- object: sturwild | type: SCHEMA --
 -- DROP SCHEMA IF EXISTS sturwild CASCADE;
@@ -21,6 +27,7 @@ ALTER SCHEMA sturwildgacl OWNER TO sturwild;
 
 SET search_path TO pg_catalog,public,sturwild,sturwildgacl;
 -- ddl-end --
+
 
 -- object: sturwild.capture_state_capture_state_id_seq | type: SEQUENCE --
 -- DROP SEQUENCE IF EXISTS sturwild.capture_state_capture_state_id_seq CASCADE;
@@ -987,7 +994,7 @@ INSERT INTO sturwildgacl.aclaco (aclappli_id, aco) VALUES (E'1', E'admin');
 -- ddl-end --
 INSERT INTO sturwildgacl.aclaco (aclappli_id, aco) VALUES (E'1', E'consult');
 -- ddl-end --
-INSERT INTO sturwildgacl.aclaco (aclappli_id, aco) VALUES (E'1', E'gestion');
+INSERT INTO sturwildgacl.aclaco (aclappli_id, aco) VALUES (E'1', E'manage');
 -- ddl-end --
 INSERT INTO sturwildgacl.aclaco (aclappli_id, aco) VALUES (E'1', E'param');
 -- ddl-end --
@@ -1061,7 +1068,7 @@ INSERT INTO sturwildgacl.aclgroup (groupe, aclgroup_id_parent) VALUES (E'admin',
 -- ddl-end --
 INSERT INTO sturwildgacl.aclgroup (groupe, aclgroup_id_parent) VALUES (E'consult', DEFAULT);
 -- ddl-end --
-INSERT INTO sturwildgacl.aclgroup (groupe, aclgroup_id_parent) VALUES (E'gestion', E'2');
+INSERT INTO sturwildgacl.aclgroup (groupe, aclgroup_id_parent) VALUES (E'manage', E'2');
 -- ddl-end --
 INSERT INTO sturwildgacl.aclgroup (groupe, aclgroup_id_parent) VALUES (E'param', E'3');
 -- ddl-end --
@@ -1088,6 +1095,7 @@ CREATE TABLE sturwildgacl.acllogin (
 	login character varying NOT NULL,
 	logindetail character varying NOT NULL,
 	totp_key character varying,
+	email varchar,
 	CONSTRAINT acllogin_pk PRIMARY KEY (acllogin_id)
 );
 -- ddl-end --
@@ -1288,60 +1296,6 @@ USING btree
 WITH (FILLFACTOR = 90);
 -- ddl-end --
 
--- object: sturwild.v_location | type: VIEW --
--- DROP VIEW IF EXISTS sturwild.v_location CASCADE;
-CREATE VIEW sturwild.v_location
-AS 
-
-SELECT location.declaration_id,
-    location.geom,
-    location.longitude_dd,
-    location.latitude_dd,
-    country.country_name,
-    ices.ices_name,
-    environment.environment_name,
-    status.status_name,
-    capture_method.capture_method_name,
-    origin.origin_name,
-    gear_type.gear_type_name,
-    capture_state.capture_state_name,
-    fate.fate_name,
-    species.species_name,
-    declaration.capture_date,
-    declaration.year,
-    declaration.caught_number,
-    declaration.estimated_capture_date,
-    declaration.gear_mesh,
-    declaration.target_species,
-    declaration.depth,
-    declaration.depth_min,
-    declaration.depth_max,
-    declaration.length_min,
-    declaration.length_max,
-    declaration.weight_min,
-    declaration.weight_max,
-    declaration.fisher_code,
-    declaration.contact,
-    declaration.harbour_vessel,
-    declaration.declaration_mode,
-    declaration.handling,
-    declaration.identification_quality
-   FROM sturwild.location
-     JOIN sturwild.declaration USING (declaration_id)
-     LEFT JOIN sturwild.status USING (status_id)
-     LEFT JOIN sturwild.species USING (species_id)
-     LEFT JOIN sturwild.capture_method USING (capture_method_id)
-     LEFT JOIN sturwild.origin USING (origin_id)
-     LEFT JOIN sturwild.gear_type USING (gear_type_id)
-     LEFT JOIN sturwild.capture_state USING (capture_state_id)
-     LEFT JOIN sturwild.country USING (country_id)
-     LEFT JOIN sturwild.ices USING (ices_id)
-     LEFT JOIN sturwild.environment USING (environment_id)
-     LEFT JOIN sturwild.fate USING (fate_id);
--- ddl-end --
-ALTER VIEW sturwild.v_location OWNER TO sturwild;
--- ddl-end --
-
 -- object: sturwild.handling | type: TABLE --
 -- DROP TABLE IF EXISTS sturwild.handling CASCADE;
 CREATE TABLE sturwild.handling (
@@ -1410,21 +1364,6 @@ REFERENCES sturwild.target_species (target_species_id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: sturwild.v_declaration_handlings | type: VIEW --
--- DROP VIEW IF EXISTS sturwild.v_declaration_handlings CASCADE;
-CREATE VIEW sturwild.v_declaration_handlings
-AS 
-
-select declaration_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
-array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
-from sturwild.declaration_handling
-join sturwild.handling using (handling_id)
-group by declaration_id;
--- ddl-end --
-ALTER VIEW sturwild.v_declaration_handlings OWNER TO sturwild;
--- ddl-end --
-
 -- object: sturwild.fish_handling | type: TABLE --
 -- DROP TABLE IF EXISTS sturwild.fish_handling CASCADE;
 CREATE TABLE sturwild.fish_handling (
@@ -1434,48 +1373,6 @@ CREATE TABLE sturwild.fish_handling (
 );
 -- ddl-end --
 ALTER TABLE sturwild.fish_handling OWNER TO sturwild;
--- ddl-end --
-
--- object: sturwild.v_fish_handlings | type: VIEW --
--- DROP VIEW IF EXISTS sturwild.v_fish_handlings CASCADE;
-CREATE VIEW sturwild.v_fish_handlings
-AS 
-
-select fish_id, 
-array_to_string(array_agg(handling_name order by handling_name),',') as handlings_name,
-array_to_string(array_agg(handling_exchange order by handling_exchange), ',') as handlings_exchange
-from sturwild.fish_handling
-join sturwild.handling using (handling_id)
-group by fish_id;
--- ddl-end --
-ALTER VIEW sturwild.v_fish_handlings OWNER TO sturwild;
--- ddl-end --
-
--- object: sturwild.v_fish | type: VIEW --
--- DROP VIEW IF EXISTS sturwild.v_fish CASCADE;
-CREATE VIEW sturwild.v_fish
-AS 
-
-select fish_id, declaration_id
-,f.fate_id, fate_name
-,f.species_id, species_name
-,f.capture_state_id, capture_state_name
-,tag_presence_id, tag_presence_name
-,handlings
-,tag_number, fish_length, estimated_cohort, validated_cohort
-,background, f.remarks
-identification_quality_id
-from sturwild.fish f
-join sturwild.declaration d using(declaration_id)
-left outer join sturwild.species s on  (s.species_id = f.species_id)
-left outer join sturwild.capture_state cs on (cs.capture_state_id = f.capture_state_id)
-left outer join sturwild.tag_presence using (tag_presence_id)
-left outer join sturwild.fate fa on (fa.fate_id = f.fate_id)
-left outer join sturwild.v_fish_handlings using (fish_id);
--- ddl-end --
-COMMENT ON VIEW sturwild.v_fish IS E'Detail of a fish';
--- ddl-end --
-ALTER VIEW sturwild.v_fish OWNER TO sturwild;
 -- ddl-end --
 
 -- object: fish_fk | type: CONSTRAINT --
@@ -1747,25 +1644,8 @@ REFERENCES sturwildgacl.logingestion (id) MATCH SIMPLE
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
-INSERT INTO sturwild.mime_type (content_type,"extension") VALUES
-	 ('application/pdf','pdf'),
-	 ('application/zip','zip'),
-	 ('audio/mpeg','mp3'),
-	 ('image/jpeg','jpg'),
-	 ('image/jpeg','jpeg'),
-	 ('image/png','png'),
-	 ('image/tiff','tiff'),
-	 ('application/vnd.oasis.opendocument.text','odt'),
-	 ('application/vnd.oasis.opendocument.spreadsheet','ods'),
-	 ('application/vnd.ms-excel','xls');
-INSERT INTO sturwild.mime_type (content_type,"extension") VALUES
-	 ('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','xlsx'),
-	 ('application/msword','doc'),
-	 ('application/vnd.openxmlformats-officedocument.wordprocessingml.document','docx'),
-	 ('text/csv','csv'),
-	 ('video/mp4','mp4'),
-	 ('video/x-msvideo','avi'),
-	 ('video/3gpp','3gp'),
-	 ('video/x-ms-wmv','wmv'),
-	 ('video/MP2T','ts'),
-	 ('video/quicktime','mov');
+-- object: "grant_CU_26541e8cda" | type: PERMISSION --
+GRANT CREATE,USAGE
+   ON SCHEMA public
+   TO pg_database_owner;
+-- ddl-end --

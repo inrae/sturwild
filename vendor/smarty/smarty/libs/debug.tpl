@@ -112,7 +112,7 @@
         -  {if isset($template_name)}{$template_name|debug_print_var nofilter} {/if}{if !empty($template_data)}Total Time {$execution_time|string_format:"%.5f"}{/if}</h1>
 
     {if !empty($template_data)}
-        <h2>{t}included templates &amp; config files (load time in seconds){/t}</h2>
+        <h2>included templates &amp; config files (load time in seconds)</h2>
         <div>
             {foreach $template_data as $template}
                 <span style="color: brown;">{$template.name}</span>
@@ -124,7 +124,7 @@
         </div>
     {/if}
 
-    <h2>{t}assigned template variables{/t}</h2>
+    <h2>assigned template variables</h2>
 
     <table id="table_assigned_vars">
         {foreach $assigned_vars as $vars}
@@ -147,7 +147,7 @@
          {/foreach}
     </table>
 
-    <h2>{t}assigned config file variables{/t}</h2>
+    <h2>assigned config file variables</h2>
 
     <table id="table_config_vars">
         {foreach $config_vars as $vars}
@@ -167,9 +167,7 @@
     </html>
 {/capture}
 <script type="text/javascript">
-    {$id = '__Smarty__'}
-    {if $display_mode}{$id = "$offset$template_name"|md5}{/if}
-    _smarty_console = window.open("", "console{$id}", "width=1024,height=600,left={$offset},top={$offset},resizable,scrollbars=yes");
+    _smarty_console = window.open("", "console{$targetWindow}", "width=1024,height=600,left={$offset},top={$offset},resizable,scrollbars=yes");
     _smarty_console.document.write("{$debug_output|escape:'javascript' nofilter}");
     _smarty_console.document.close();
 </script>
