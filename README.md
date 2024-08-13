@@ -1,48 +1,68 @@
-# STURWILD
+# Sturwild
 
-STURWILD is an application created by INRAE/EABX to record the by-catches of sturgeons. Wrote with PHP, the database run with PostgreSQL.
+## What is Sturwild?
 
-It's distributed under Affero GPL License.
+Sturwild is a software application for recording declarations of accidental sturgeon catches.
 
-## Install on Debian or Ubuntu
+It is written in PHP, and is based on the CodeIgniter framework.
 
-To install a new machine from scratch, type these commands :
+The database works with Postgresql.
 
-```
-su
+## How to install it?
+
+- install a virtual machine running Debian or Ubuntu
+- define an URL for the application, as **mysturwild.myinstitute.fr**
+- create a https certificate to your application
+- download the installation script, and run it:
+
+```bash
 wget https://github.com/inrae/sturwild/raw/main/install/deploy_new_instance.sh
 chmod +x deploy_new_instance.sh
 ./deploy_new_instance.sh
 ```
 
-This script will :
+The script will:
 
-- install Apache2 and php
-- install postgresql
-- pull the current version of the application in `/var/www/sturwildApp/sturwild`
-- generate the database
-- add a vhost in Apache2
+- install Apache2 server, Php, Postgresql and all necessary libraries
+- install the software in the folder `/var/www/sturwildApp/sturwild`
+- create the database
+- add the file `/etc/apache2/sites-available/sturwild.conf` to add the virtual host of your application
 
-You must adapt the vhost (`/etc/apache2/vhosts/sturwild.conf`) to your environment, and set a certificate. You must have a DNS used only for the application.
+After that:
 
-## Upgrade
+- edit the file `/etc/apache2/sites-available/sturwild.conf` to specify the URL and the paths to the certificate
+- edit the file `/var/www/sturwildApp/sturwild/.env`, and:
+  - define the address of your app (`app.baseURL`)
+  - configure the identification mode. By default and to configure the app at the first time, you must:
+    - choose an identification mode that contains **BDD** (`Ppci\Config\IdentificationConfig.identificationMode`), for example BDD, CAS-BDD, LDAP-BDD, OIDC-BDD
+    - disable the support of TOTP (`Ppci\Config\IdentificationConfig.disableTotpToAdmin=1`)
+- activate the app:
+  - `a2ensite sturwild`
+  - `systemctl restart apache2`
+- you must install an email relay: the app send multiple emails when a declaration is created or when it status change. *Postfix* is a good solution for that, but you can use *msmtp*, if you prefer.
 
-Have you a backup of your database?
+You can now load the app into your browser. The first login is:
 
-The first time:
+- login: *admin*
+- password: *password*
 
-```
-cd /var/www/sturwildApp
-cp sturwild/install/upgradedb.sh .
-chmod +x upgradedb.sh
-```
+Edit the database parameters (*Administration > Application Settings*), and particulary:
 
-Edit the file and verify the parameters.
+- **APPLI_CODE**: the code of your institute
+- **otp_issuer**: the code of your institute suffixed by STURWILD, to refind the code of the double-identification from the TOTP app in your smartphone.
 
-Then:
+You can now configure the app, create groups, users, etc. When the configuration is complete, reactive the support of TOTP.
 
-```
+## How to upgrade
+
+```bash
+su
 cd /var/www/sturwildApp/sturwild
-git pull origin -b main
-../upgradedb.sh
+git pull origin main
+./upgradedb.sh
 ```
+
+This will:
+
+- download the last version of the app
+- update if necessary the database
