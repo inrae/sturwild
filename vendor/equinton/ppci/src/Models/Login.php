@@ -196,18 +196,18 @@ class Login
                                  * Send mail to administrators
                                  */
                                 $APPLI_address = base_url();
-                                $dbparam = service("Dbparam");
-                                $subject = $dbparam->params["APP_title"] . " - " . _("Nouvel utilisateur");
+                                $dbparam = $_SESSION["dbparams"];
+                                $subject = $dbparam->params["APPLI_title"] . " - " . _("Nouvel utilisateur");
                                 $template = "ppci/mail/newUser.tpl";
                                 $data = array(
                                     "login" => $login,
                                     "name" => $this->dacllogin["logindetail"],
-                                    "appName" => $dbparam->params["APP_title"],
+                                    "appName" => $dbparam->params["APPLI_title"],
                                     "organization" => $userparams["organization"],
                                     "link" => $APPLI_address
                                 );
                                 $this->log->sendMailToAdmin($subject, $template, $data, "loginCreateByHeader", $login);
-                                $this->message->set(_("Votre compte a été créé, mais est inactif. Un mail a été adressé aux administrateurs pour son activation"), true);
+                                $_SESSION["filterMessage"][] = _("Votre compte a été créé, mais est inactif. Un mail a été adressé aux administrateurs pour son activation");
                             }
                         } else {
                             $verify = false;
@@ -283,8 +283,8 @@ class Login
         } else if (empty($dacllogin["logindetail"])) {
             $dacllogin["logindetail"] = $login;
         }
-        if (!empty($params["mail"])) {
-            $dacllogin["email"] = $params["mail"];
+        if (!empty(trim($params["mail"]))) {
+            $dacllogin["email"] = trim($params["mail"]);
         }
         $id = $this->acllogin->ecrire($dacllogin);
         $this->dacllogin = $dacllogin;
@@ -462,8 +462,9 @@ class Login
         foreach ($vars as $var) {
             unset($_SESSION[$var]);
         }
+        $oidcIdtoken = $_SESSION["oidcIdToken"];
         // Finalement, on détruit la session.
-        //session()->destroy();
+        session()->destroy();
         //session_unset();
         session_regenerate_id();
         if ($identificationMode == "cas") {
@@ -488,7 +489,7 @@ class Login
                 $this->identificationConfig->OIDC["clientSecret"]
             );
             $redirect = $this->paramApp->baseURL;
-            $oidc->signOut($_SESSION["oidcIdToken"], $redirect);
+            $oidc->signOut($oidcIdtoken, $redirect);
         }
     }
     /**
