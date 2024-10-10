@@ -15,12 +15,12 @@ class Location extends PpciLibrary
 	/**
 	 * @var xx
 	 */
-	protected PpciModel $dataClass;
+	protected PpciModel $dataclass;
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->dataClass = new ModelsLocation();
+		$this->dataclass = new ModelsLocation();
 		$keyName = "declaration_id";
 		if (isset($_REQUEST[$keyName])) {
 			$this->id = $_REQUEST[$keyName];

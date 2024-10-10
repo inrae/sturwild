@@ -13,7 +13,7 @@ class Institute extends PpciLibrary
 	function __construct()
 	{
 		parent::__construct();
-		$this->dataClass = new ModelsInstitute();
+		$this->dataclass = new ModelsInstitute();
 		$keyName = "institute_id";
 		if (isset($_REQUEST[$keyName])) {
 			$this->id = $_REQUEST[$keyName];
@@ -28,7 +28,7 @@ class Institute extends PpciLibrary
 		/*
 		 * Display the list of all records of the table
 		 */
-		$this->vue->set($this->dataClass->getListe(2), "data");
+		$this->vue->set($this->dataclass->getListe(2), "data");
 		$this->vue->set("param/instituteList.tpl", "corps");
 		$this->vue->send();
 	}

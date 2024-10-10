@@ -5,7 +5,7 @@
 {/if}
 <div class="row">
     <div class="col-sm-6">
-        <table id="instituteListe" class="table table-bordered datatable table-hover">
+        <table id="instituteListe" class="table table-bordered datatable display table-hover">
             <thead>
                 <tr>
                     <th>{t}Code{/t}</th>

@@ -13,7 +13,7 @@ class Country extends PpciLibrary
 	function __construct()
 	{
 		parent::__construct();
-		$this->dataClass = new \App\Models\Country();
+		$this->dataclass = new \App\Models\Country();
 		$keyName = "country_id";
 		if (isset($_REQUEST[$keyName])) {
 			$this->id = $_REQUEST[$keyName];
@@ -26,7 +26,7 @@ class Country extends PpciLibrary
 		/*
 		 * Display the list of all records of the table
 		 */
-		$this->vue->set($this->dataClass->getListe(3), "data");
+		$this->vue->set($this->dataclass->getListe(3), "data");
 		$this->vue->set("param/countryList.tpl", "corps");
 	}
 	function change()

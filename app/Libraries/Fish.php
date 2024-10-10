@@ -15,12 +15,12 @@ class Fish extends PpciLibrary
 	/**
 	 * @var ModelsFish
 	 */
-	protected PpciModel $dataClass;
+	protected PpciModel $dataclass;
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->dataClass = new ModelsFish();
+		$this->dataclass = new ModelsFish();
 		$keyName = "fish_id";
 		if (isset($_REQUEST[$keyName])) {
 			$this->id = $_REQUEST[$keyName];
@@ -51,7 +51,7 @@ class Fish extends PpciLibrary
 		/**
 		 * Handlings
 		 */
-		$this->vue->set($this->dataClass->getHandlings($this->id), "handlings");
+		$this->vue->set($this->dataclass->getHandlings($this->id), "handlings");
 		/**
 		 * Documents
 		 */
@@ -128,7 +128,7 @@ class Fish extends PpciLibrary
 		$document = new Document();
 		$document->delete( $_REQUEST["document_id"]);
 		if (isset($_REQUEST["fish_id"]) && $_REQUEST["fish_id"] > 0) {
-			$dfish = $this->dataClass->read($_REQUEST["fish_id"]);
+			$dfish = $this->dataclass->read($_REQUEST["fish_id"]);
 			$_REQUEST["declaration_id"] = $dfish["declaration_id"];
 		}
 		$declaration = new Declaration;
@@ -145,7 +145,7 @@ class Fish extends PpciLibrary
 		if ($_SESSION["searchDeclaration"]->isSearch() == 1) {
 			$this->vue->setFilename("sturwild_fish-" . date('d-m-Y') . ".csv");
 			$this->vue->setDelimiter("tab");
-			$this->vue->set($this->dataClass->getDataToExport($dataSearch));
+			$this->vue->set($this->dataclass->getDataToExport($dataSearch));
 			$this->vue->send();
 		} else {
 			$declaration = new Declaration;
@@ -156,7 +156,7 @@ class Fish extends PpciLibrary
 	{
 		$this->vue = service ("CsvView");
 		if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
-			$data = $this->dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
+			$data = $this->dataclass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
 			if (!empty($data)) {
 				$this->vue->setFilename("sturwild_fishes-" . date('Y-m-d') . ".csv");
 				$this->vue->setDelimiter(",");

@@ -27,7 +27,7 @@
 <div class="row">
     <div class="col-md-12">
         <form method="POST" id="declarationListForm" action="declarationList">
-            <table id="declarationList" data-order='[[0,"desc"]]' class="table table-bordered table-hover datatable ">
+            <table id="declarationList" data-order='[[0,"desc"]]' class="table table-bordered table-hover datatable display">
                 <thead>
                     <tr>
                         {if $rights.manage == 1}

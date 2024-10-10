@@ -9,12 +9,12 @@ use Ppci\Libraries\PpciLibrary;
 class Param extends PpciLibrary
 {
 	protected $tablename;
-	protected $keyName;
+	public $keyName;
 	function __construct($tablename)
 	{
 		parent::__construct();
 		$this->tablename = $tablename;
-		$this->dataClass = new ModelsParam($tablename);
+		$this->dataclass = new ModelsParam($tablename);
 		$this->keyName = $tablename . "_id";
 		if (isset($_REQUEST[$this->keyName])) {
 			$this->id = $_REQUEST[$this->keyName];
@@ -26,14 +26,14 @@ class Param extends PpciLibrary
 		$this->vue->set($this->tablename . "_name", "fieldname");
 		$this->vue->set($this->tablename . "_code", "fieldcode");
 		$this->vue->set($this->tablename . "_exchange", "fieldexchange");
-		$this->vue->set($this->dataClass->getDescription(), "tabledescription");
+		$this->vue->set($this->dataclass->getDescription(), "tabledescription");
 		$this->vue->set($this->tablename, "tablename");
 		$this->vue->set($this->tablename . "_order", "fieldorder");
 	}
 	function list()
 	{
 		$this->vue = service('Smarty');
-		$this->vue->set($this->dataClass->getParams(), "data");
+		$this->vue->set($this->dataclass->getParams(), "data");
 		$this->vue->set("param/paramList.tpl", "corps");
 		$this->generateSet();
 		return $this->vue->send();

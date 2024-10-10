@@ -1,6 +1,6 @@
 <h2>{t}Nombre d'esturgeons capturés par année{/t}</h2>
 <div class="col-sm-6">
-<table  class="table datatable-export table-bordered table-hover" id="nbSturioList">
+<table  class="table datatable-export display table-bordered table-hover" id="nbSturioList">
 <thead>
 <tr><th class="center">{t}Année{/t}</th>
    <th>{t}Espèce{/t}</th>

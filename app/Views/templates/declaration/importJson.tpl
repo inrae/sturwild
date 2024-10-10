@@ -28,7 +28,7 @@
 {if isset($parameters) && count($parameters) > 0}
 <h3>{t}Liste des paramètres qui vont être créés{/t}</h3>
 <div class="row col-md-12">
-    <table id="parametersList" class="table table-bordered table-hover datatable ">
+    <table id="parametersList" class="table table-bordered table-hover datatable display">
         <thead>
             <tr>
                 <th>{t}Table{/t}</th>
@@ -52,7 +52,7 @@
 {/if}
 {if count($errors) > 0}
 <div class="row col-md-12">
-    <table id="errorsList" class="table table-bordered table-hover datatable ">
+    <table id="errorsList" class="table table-bordered table-hover datatable display">
         <thead>
             <tr>
                 <th>{t}N° de ligne{/t}</th>

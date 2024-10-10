@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<table id="paramList" class="table table-bordered table-hover datatable ">
+		<table id="paramList" class="table table-bordered table-hover datatable display display">
 			<thead>
 				<tr>
 					<th>{t}Id{/t}</th>
