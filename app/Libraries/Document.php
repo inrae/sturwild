@@ -12,12 +12,12 @@ class Document extends PpciLibrary
     /**
      * @var ModelsDocument
      */
-    protected PpciModel $dataClass;
+    protected PpciModel $dataclass;
 
     function __construct()
     {
         parent::__construct();
-        $this->dataClass = new ModelsDocument();
+        $this->dataclass = new ModelsDocument();
         $keyName = "document_id";
         if (isset($_REQUEST[$keyName])) {
             $this->id = $_REQUEST[$keyName];
@@ -32,12 +32,12 @@ class Document extends PpciLibrary
          */
         try {
             $this->vue = service('BinaryView');
-            $tmp_name = $this->dataClass->prepareDocument($this->id, $_REQUEST["phototype"]);
+            $tmp_name = $this->dataclass->prepareDocument($this->id, $_REQUEST["phototype"]);
             if (strlen($tmp_name) > 0 && is_file($tmp_name)) {
                 /*
                  * Recuperation du type mime
                  */
-                $data = $this->dataClass->getData($this->id);
+                $data = $this->dataclass->getData($this->id);
 
                 $param = array(
                     "tmp_name" => $tmp_name,

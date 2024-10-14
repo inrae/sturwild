@@ -5,7 +5,7 @@
 {/if}
 <div class="row">
 <div class="col-sm-6">
-<table id="icesListe"  class="table table-bordered datatable table-hover">
+<table id="icesListe"  class="table table-bordered datatable display table-hover">
 	<thead>
 		<tr>
 			<th>{t}Libellé{/t}</th>

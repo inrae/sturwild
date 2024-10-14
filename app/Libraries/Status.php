@@ -12,7 +12,7 @@ class Status extends PpciLibrary
 	function __construct()
 	{
 		parent::__construct();
-		$this->dataClass = new ModelsStatus();
+		$this->dataclass = new ModelsStatus();
 		$keyName = "status_id";
 		if (isset($_REQUEST[$keyName])) {
 			$this->id = $_REQUEST[$keyName];
@@ -25,7 +25,7 @@ class Status extends PpciLibrary
 		/*
 		 * Display the list of all records of the table
 		 */
-		$this->vue->set($this->dataClass->getList(2), "data");
+		$this->vue->set($this->dataclass->getList(2), "data");
 		$this->vue->set("param/statusList.tpl", "corps");
 		$this->vue->send();
 	}

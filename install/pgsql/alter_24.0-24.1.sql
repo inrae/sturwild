@@ -17,3 +17,5 @@ update aclgroup set groupe = 'manage' where groupe = 'gestion';
 update aclaco set aco = 'manage' where aco = 'gestion';
 
 comment on table species is 'List of fish species';
+
+INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'24.1', E'2024-07-15');

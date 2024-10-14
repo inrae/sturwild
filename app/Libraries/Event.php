@@ -13,12 +13,12 @@ class Event extends PpciLibrary
 	/**
 	 * @var ModelsEvent
 	 */
-	protected PpciModel $dataClass;
+	protected PpciModel $dataclass;
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->dataClass = new ModelsEvent();
+		$this->dataclass = new ModelsEvent();
 		$keyName = "event_id";
 		if (isset($_REQUEST[$keyName])) {
 			$this->id = $_REQUEST[$keyName];

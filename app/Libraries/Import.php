@@ -19,7 +19,7 @@ class Import extends PpciLibrary
     /**
      * @var xx
      */
-    protected PpciModel $dataClass;
+    protected PpciModel $dataclass;
     protected DeclarationImport $import;
 
     function __construct()

@@ -12,7 +12,7 @@ class Ices extends PpciLibrary
 	function __construct()
 	{
 		parent::__construct();
-		$this->dataClass = new ModelsIces();
+		$this->dataclass = new ModelsIces();
 		$keyName = "ices_id";
 		if (isset($_REQUEST[$keyName])) {
 			$this->id = $_REQUEST[$keyName];
@@ -25,7 +25,7 @@ class Ices extends PpciLibrary
 		/*
 		 * Display the list of all records of the table
 		 */
-		$this->vue->set($this->dataClass->getListe(2), "data");
+		$this->vue->set($this->dataclass->getListe(2), "data");
 		$this->vue->set("param/icesList.tpl", "corps");
 		return $this->vue->send();
 	}

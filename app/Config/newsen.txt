@@ -1,12 +1,19 @@
 News
 ====================
+Version 24.1.1 of 14 October 2024
+---------------------------------
+Upgrading basic components
+
+Bugs fixes:
+- the display of tables has been optimised
+
 Version 24.1.0 of 15 July 2024
 ---------------------------------
 Porting the application to the CodeIgniter framework, using the equinton/ppci library
 
 Version 24.0.1 of 29 February 2024
 ---------------------------------
-Bug corrections :
+Bug fixes:
 - the map was not displayed correctly from the list of declarations
 - installation or upgrade procedures have been corrected
 
@@ -15,7 +22,7 @@ New features:
 
 Version 24.0.0 of 5 February 2024
 --------------------------------
-Bug corrections :
+Bug fixes:
 - various corrections concerning the registration of declarations
 
 New features :

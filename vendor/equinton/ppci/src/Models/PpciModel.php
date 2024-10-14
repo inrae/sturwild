@@ -23,7 +23,7 @@ class PpciModel extends Model
      */
     public bool $autoFormatDate = true;
     public string $dateFormatMask = 'd/m/Y';
-    public string $datetimeFormat = 'd/m/Y h:i:s';
+    public string $datetimeFormat = 'd/m/Y H:i:s';
     /**
      * If true, for numbers, the comma is transformed in point before write in database
      *
@@ -116,7 +116,7 @@ class PpciModel extends Model
             return $query;
         }
     }
-    protected function executeSQL(string $sql, array $data = null, $onlyExecute = false)
+    public function executeSQL(string $sql, array $data = null, $onlyExecute = false)
     {
         return $this->executeQuery($sql, $data, $onlyExecute);
     }
@@ -201,7 +201,7 @@ class PpciModel extends Model
              * Remove all empty fields
              */
             foreach ($row as $k => $v) {
-                if (empty($v)) {
+                if (!is_array($v) && strlen($v) == 0) {
                     unset($row[$k]);
                 }
             }

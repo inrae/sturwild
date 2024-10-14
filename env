@@ -25,7 +25,7 @@ Ppci\Config\IdentificationConfig.disableTotpToAdmin=0
 #--------------------------------------------------------------------
 # Ppci configuration
 #--------------------------------------------------------------------
-app.baseURL = 'https://myapp.mysociety.com'
+app.baseURL = 'https://sturwild.mysociety.com'
 BASE_DIR = "/var/www/sturwildApp/sturwild"
 FRONT_DIR = "${BASE_DIR}/public"
 # If you have trouble with `.`, you could also use `_`.
@@ -47,7 +47,7 @@ database.default.password = sturwildPassword
 database.default.DBDriver = Postgre
 database.default.DBPrefix =
 database.default.port = 5432
-database.default.searchpath = sturwild,gacl,public
+database.default.searchpath = sturwild,sturwildgacl,public
 database.default.charset = utf8
 
 # Ppci\Config\Ppci.language = fr

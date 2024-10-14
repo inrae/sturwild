@@ -10,7 +10,7 @@ use Ppci\Models\PpciModel;
 class Updateparam extends PpciLibrary
 {
 
-    protected PpciModel $dataClass;
+    protected PpciModel $dataclass;
 
 
     function display()

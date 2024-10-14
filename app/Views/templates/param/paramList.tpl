@@ -7,7 +7,7 @@
 			{t}Nouveau...{/t}
 		</a>
 		{/if}
-		<table id="paramList" class="table table-bordered table-hover datatable " data-order = '[[3,"asc"],[1,"asc"]]'>
+		<table id="paramList" class="table table-bordered table-hover datatable display display" data-order = '[[3,"asc"],[1,"asc"]]'>
 			<thead>
 				<tr>
 					<th>{t}Id{/t}</th>

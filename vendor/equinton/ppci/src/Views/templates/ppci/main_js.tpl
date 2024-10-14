@@ -31,8 +31,8 @@
     type="text/javascript"></script>
 
 <!-- Datatables -->
-<script src="display/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="display/node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
+<script src="display/node_modules/datatables.net/js/dataTables.min.js"></script>
+<script src="display/node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="display/node_modules/datatables.net-bs/css/dataTables.bootstrap.min.css" />
 <script src="display/javascript/intl.js"></script>
 
@@ -101,8 +101,9 @@
         }
     };
     var scroll = "50vh";
+    var myStorage = window.localStorage;
     $(document).ready(function () {
-        var pageLength = Cookies.get("pageLength");
+        var pageLength = myStorage.getItem("pageLength");
         if (!pageLength) {
             pageLength = 10;
         }
@@ -111,21 +112,29 @@
         $.fn.dataTable.ext.order.htmlIntl(locale, { "sensitivity": "base" });
         $.fn.dataTable.moment('{$LANG["date"]["formatdatetime"]}');
         $.fn.dataTable.moment('{$LANG["date"]["formatdate"]}');
+        var lengthMenu = [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]];
         $('.datatable').DataTable({
             "language": dataTableLanguage,
             "searching": false,
-            dom: 'Bfrtip',
+            //dom: 'Bfrtip',
+            layout: { 
+                topStart: {
+                    buttons: ['pageLength']
+                } 
+            },
             "pageLength": pageLength,
-            "lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]],
-            buttons: [
-                "pageLength"
-            ]
+            "lengthMenu": lengthMenu,
+            fixedHeader: {
+                header: true,
+                footer: true
+            }
+            //buttons
         });
         $('.datatable-nopaging-nosearching').DataTable({
             "language": dataTableLanguage,
             "searching": false,
             "paging": false,
-            "scrollY": scroll,
+            //"scrollY": scroll,
             "scrollX": true,
             fixedHeader: {
                 header: true,
@@ -135,12 +144,18 @@
         $('.datatable-searching').DataTable({
             "language": dataTableLanguage,
             "searching": true,
-            dom: 'Bfrtip',
+            //dom: 'Bfrtip',
+            layout: { 
+                topStart: {
+                    buttons: ['pageLength']
+                } 
+            },
             "pageLength": pageLength,
-            "lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]],
-            buttons: [
-                "pageLength"
-            ]
+            "lengthMenu": lengthMenu,
+            fixedHeader: {
+                header: true,
+                footer: true
+            }
         });
         $('.datatable-nopaging').DataTable({
             "language": dataTableLanguage,
@@ -150,8 +165,9 @@
             "scrollX": true,
             fixedHeader: {
                 header: true,
-                footer: true
-            }
+                footer: true,
+            },
+            
         });
         $('.datatable-nopaging-nosort').DataTable({
             "language": dataTableLanguage,
@@ -168,15 +184,31 @@
             "language": dataTableLanguage,
             "searching": false,
             "ordering": false,
-            dom: 'Bfrtip',
+            //dom: 'Bfrtip',
+            layout: { 
+                topStart: {
+                    buttons: ['pageLength']
+                } 
+            },
             "pageLength": pageLength,
-            "lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]],
-            buttons: [
-                "pageLength"
-            ]
+            "lengthMenu": lengthMenu,
+            fixedHeader: {
+                header: true,
+                footer: true
+            }
         });
         $('.datatable-export').DataTable({
-            dom: 'Bfrtip',
+            //dom: 'Bfrtip',
+            layout: { 
+                topStart: {
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'print'
+                    ]
+                } 
+            },
             "language": dataTableLanguage,
             "paging": false,
             /*"scrollY": scroll,*/
@@ -186,38 +218,36 @@
                 footer: true
             },
             "searching": true,
-            buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                /* {
-                     extend: 'pdfHtml5',
-                     orientation: 'landscape'
-                 },*/
-                'print'
-            ]
         });
         $('.datatable-export-paging').DataTable({
-            dom: 'Bfrtip',
+            //dom: 'Bfrtip',
+            layout: { 
+                topStart: {
+                    buttons: [
+                        'pageLength',
+                        'copyHtml5',
+                        'excelHtml5',
+                            {
+                            extend: 'csvHtml5',
+                            filename: 'export_' + new Date().toISOString()
+                            },
+                        'print'
+                    ]
+                } 
+            },
             "language": dataTableLanguage,
             "paging": true,
             "searching": true,
             "pageLength": pageLength,
-            "lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]],
-            buttons: [
-                'pageLength',
-                'copyHtml5',
-                'excelHtml5',
-                {
-                    extend: 'csvHtml5',
-                    filename: 'export_' + new Date().toISOString()
-                },
-                'print'
-            ]
+            "lengthMenu": lengthMenu,
+            fixedHeader: {
+                header: true,
+                footer: true
+            }
         });
 
         $(".datatable, .datatable-export-paging, .datatable-searching, .datatable-nosort").on('length.dt', function (e, settings, len) {
-            Cookies.set('pageLength', len, { expires: 180, secure: true });
+            myStorage.setItem('pageLength', len);
         });
         /* Initialisation for paging datatables */
         $(".datatable, .datatable-export-paging, .datatable-searching, .datatable-nosort").DataTable().page.len(pageLength).draw();
@@ -315,60 +345,6 @@
             return "";
         }
     }
-    /**
-     * Generate a popup for lexical entries, when mouse is over a question icon
-     * the field must have a class lexical and the attribute data-lexical with
-     * the value to found
-     */
-    $(document).ready(function () {
-        var lexicalDelay = 1000, lexicalTimer, tooltipContent;
-        $(".lexical").mouseenter(function () {
-            var objet = $(this);
-            lexicalTimer = setTimeout(function () {
-                var entry = objet.data("lexical");
-                if (entry.length > 0) {
-                    var url = "index.php";
-                    var data = {
-                        "module": "lexicalGet",
-                        "lexical": entry
-                    }
-                    $.ajax({ url: url, data: data })
-                        .done(function (d) {
-                            if (d) {
-                                d = JSON.parse(d);
-                                if (d.lexical) {
-                                    var content = d.lexical.split(" ");
-                                    var length = 0;
-                                    tooltipContent = "";
-                                    content.forEach(function (word) {
-                                        if (length > 40) {
-                                            tooltipContent += "<br>";
-                                            length = 0;
-                                        }
-                                        tooltipContent += word + " ";
-                                        length += word.length + 1;
-                                    });
-                                    tooltipDisplay(objet);
-                                }
-                            }
-                        });
-                }
-            }, lexicalDelay);
-        }).mouseleave(function () {
-            clearTimeout(lexicalTimer);
-            if ($(this).is(':ui-tooltip')) {
-                $(this).tooltip("close");
-            }
-        });
-        function tooltipDisplay(object) {
-            $(object).tooltip({
-                content: tooltipContent
-            });
-            //object.tooltip("option", "content", tooltipContent);
-            $(object).attr("title", tooltipContent);
-            $(object).tooltip("open");
-        }
-    });
     function operationConfirm() {
         return confirm("{t}Confirmez-vous cette opération ?{/t}");
     }

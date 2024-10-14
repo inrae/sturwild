@@ -21,12 +21,12 @@ class Declaration extends PpciLibrary
     /**
      * @var ModelsDeclaration
      */
-    protected PpciModel $dataClass;
+    protected PpciModel $dataclass;
 
     function __construct()
     {
         parent::__construct();
-        $this->dataClass = new ModelsDeclaration();
+        $this->dataclass = new ModelsDeclaration();
         $keyName = "declaration_id";
         if (isset($_REQUEST[$keyName])) {
             $this->id = $_REQUEST[$keyName];
@@ -41,7 +41,7 @@ class Declaration extends PpciLibrary
         $_SESSION["searchDeclaration"]->setParam($_REQUEST);
         $dataSearch = $_SESSION["searchDeclaration"]->getParam();
         if ($_SESSION["searchDeclaration"]->isSearch() == 1) {
-            $data = $this->dataClass->search($dataSearch);
+            $data = $this->dataclass->search($dataSearch);
             $this->vue->set($data, "data");
             $this->vue->set(1, "isSearch");
         }
@@ -101,7 +101,7 @@ class Declaration extends PpciLibrary
         /*
          * Display the detail of the record
          */
-        $this->vue->set($this->dataClass->getDetail($this->id), "data");
+        $this->vue->set($this->dataclass->getDetail($this->id), "data");
         $this->vue->set("declaration/declarationDisplay.tpl", "corps");
 
         /*
@@ -155,7 +155,7 @@ class Declaration extends PpciLibrary
         /**
          * Handlings
          */
-        $this->vue->set($this->dataClass->getHandlings($this->id), "handlings");
+        $this->vue->set($this->dataclass->getHandlings($this->id), "handlings");
         /*
          * Recuperation de la liste des years
          */
@@ -173,7 +173,7 @@ class Declaration extends PpciLibrary
         if ($this->id == 0) {
             $statusOld = 0;
         } else {
-            $dataStatus = $this->dataClass->lire($this->id);
+            $dataStatus = $this->dataclass->lire($this->id);
             $statusOld = $dataStatus["status_id"];
         }
         $this->id = $this->dataWrite($_REQUEST);
@@ -214,7 +214,7 @@ class Declaration extends PpciLibrary
         if ($_SESSION["searchDeclaration"]->isSearch() == 1) {
             $this->vue->setFilename("sturwild_declaration-" . date('Y-m-d') . ".csv");
             $this->vue->setDelimiter("tab");
-            $this->vue->set($this->dataClass->getDataToExport($dataSearch));
+            $this->vue->set($this->dataclass->getDataToExport($dataSearch));
             return $this->vue->send();
         }
     }
@@ -224,7 +224,7 @@ class Declaration extends PpciLibrary
          * Recherche du nombre d'esturgeons captures par year
          */
         $this->vue = service('Smarty');
-        $this->vue->set($this->dataClass->getNbSturioByYear(), "data");
+        $this->vue->set($this->dataclass->getNbSturioByYear(), "data");
         $this->vue->set("declaration/nbSturioByYear.tpl", "corps");
         return $this->vue->send();
     }
@@ -235,7 +235,7 @@ class Declaration extends PpciLibrary
          */
         if ($this->id > 0) {
             try {
-                $newId = $this->dataClass->duplicate($this->id);
+                $newId = $this->dataclass->duplicate($this->id);
                 $_REQUEST["declaration_id"] = $newId;
                 $this->message->set(_("Déclaration dupliquée !"));
                 return $this->change();
@@ -251,7 +251,7 @@ class Declaration extends PpciLibrary
     function exportCSV()
     {
         if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
-            $data = $this->dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
+            $data = $this->dataclass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
             if (!empty($data)) {
                 $this->vue = service ("CsvView");
                 $this->vue->setFilename("sturwild_declarations-" . date('Y-m-d') . ".csv");
@@ -271,7 +271,7 @@ class Declaration extends PpciLibrary
     {
         $fish = new Fish();
         if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
-            $data = $this->dataClass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
+            $data = $this->dataclass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
             if (!empty($data)) {
                 $this->vue = service ("JsonFileView");
                 foreach ($data as $k => $v) {
