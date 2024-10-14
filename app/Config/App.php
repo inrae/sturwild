@@ -182,11 +182,11 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public string $version = "v24.1.0";
+    public string $version = "v24.1.1";
     /**
      * @var string
      */
-    public string $versionDate = "15/07/2024";
+    public string $versionDate = "14/10/2024";
     /**
      * Number of the database version
      *
@@ -250,13 +250,13 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $GACL_aco = "app";
+    public $GACL_aco = "sturwild";
     /**
      * Generic mail used to send messages to the administrators
      *
      * @var string
      */
-    public $APP_mail = "mail@society.com";
+    public $APP_mail = "mail@mysociety.com";
     /**
      * Set true if send mails is enabled
      *
@@ -271,7 +271,7 @@ class App extends BaseConfig
      */
     public $MAIL_param = array(
         "mailTemplate" => "ppci/mail/mail.tpl",
-        "from" => "account@society.com",
+        "from" => "account@mysociety.com",
         "defaultLocale" => "fr",
         "mailDebug" => 0
     );

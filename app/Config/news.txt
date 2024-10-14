@@ -1,5 +1,12 @@
 Nouveautés
 ============
+Version 24.1.1 di 14 octobre 2024
+---------------------------------
+Mise à niveau des composants de base
+
+Corrections de bugs :
+- l'affichage des tableaux a été optimisé
+
 Version 24.1.0 du 15 juillet 2024
 ---------------------------------
 Portage de l'application vers le framework CodeIgniter, en utilisant la bibliothèque equinton/ppci

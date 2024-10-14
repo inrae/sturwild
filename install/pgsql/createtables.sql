@@ -185,7 +185,7 @@ COMMENT ON COLUMN sturwild.dbparam.dbparam_value IS E'Value of the parameter';
 -- ddl-end --
 ALTER TABLE sturwild.dbparam OWNER TO sturwild;
 -- ddl-end --
-
+create unique index if not exists dbparamname_idx on sturwild.dbparam (dbparam_name);
 INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'APPLI_code', E'sturwild');
 -- ddl-end --
 INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'APPLI_title', E'STURWILD');
@@ -197,6 +197,13 @@ INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'mapDefaultY
 INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'mapDefaultZoom', E'7');
 -- ddl-end --
 INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'otp_issuer', E'sturwild.society.com');
+insert into sturwild.dbparam (dbparam_name, dbparam_value)
+values (
+'APPLI_code', 
+'INSTITUTE-CODE'
+) 
+on conflict do nothing;
+
 -- ddl-end --
 
 -- object: sturwild.dbversion_dbversion_id_seq | type: SEQUENCE --
@@ -232,7 +239,7 @@ COMMENT ON COLUMN sturwild.dbversion.dbversion_date IS E'Date de la version';
 ALTER TABLE sturwild.dbversion OWNER TO sturwild;
 -- ddl-end --
 
-INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'24.0', E'2024-02-05');
+INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'24.1', E'2024-07-15');
 -- ddl-end --
 
 -- object: sturwild.declaration_declaration_id_seq | type: SEQUENCE --
