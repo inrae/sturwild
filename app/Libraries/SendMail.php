@@ -33,7 +33,7 @@ class SendMail extends PpciLibrary
             $logins = $aclAco->getLogins("manage");
             $acllogin = new Acllogin();
             foreach ($logins as $login) {
-                $dacllogin = $acllogin->getFromLogin($login);
+                $dacllogin = $acllogin->getFromLogin($login["login"]);
                 if (!empty($dacllogin["email"])) {
                     if (
                         $mail->sendMailSmarty(
