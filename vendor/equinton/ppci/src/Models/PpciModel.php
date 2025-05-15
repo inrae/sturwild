@@ -606,6 +606,15 @@ class PpciModel extends Model
         }
         return $newdate;
     }
+    function formatDateTimeLocaleToDB(string $value)
+    {
+        $newdate = "";
+        $date = date_create_from_format($this->datetimeFormat, $value);
+        if ($date) {
+            $newdate = date_format($date, 'Y-m-d H:i:s');
+        }
+        return $newdate;
+    }
     function formatDateLocaleVersDB($value)
     {
         return $this->formatDateLocaleToDB($value);
@@ -644,10 +653,15 @@ class PpciModel extends Model
     }
     function getBinaryField(int $id, string $fieldName)
     {
-        $sql = "select " . $this->db->escape($fieldName) .
-            "from " . $this->db->escape($this->tablename) .
-            " where " . $this->db->escape($this->key) . " = :id:";
-        return $this->executeQuery($sql, ["id" => $id]);
+        $sql = "select " . $this->escapeField($fieldName) .
+            " as binarycontent from " . $this->escapeField($this->table) .
+            " where " . $this->escapeField($this->primaryKey) . " = :id:";
+        $data = $this->executeQuery($sql, ["id" => $id]);
+        if (!empty($data[0]["binarycontent"])) {
+            return pg_unescape_bytea($data[0]["binarycontent"]);
+        } else {
+            return null;
+        }
     }
 
     /**************************
@@ -672,7 +686,7 @@ class PpciModel extends Model
             if (!empty($row[$field])) {
                 $date = date_create_from_format($this->datetimeFormat, $row[$field]);
                 if ($date) {
-                    $row[$field] = date_format($date, "Y-m-d h:i:s");
+                    $row[$field] = date_format($date, "Y-m-d H:i:s");
                 }
             }
         }
@@ -716,5 +730,15 @@ class PpciModel extends Model
                 break;
             }
         }
+    }
+
+    /**
+     * surround the name of a column or a table with "
+     *
+     * @param string $name
+     * @return string
+     */
+    private function escapeField($name) {
+        return $this->qi.$name.$this->qi;
     }
 }

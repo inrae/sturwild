@@ -3,8 +3,8 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.1.3" use-changelog="false" max-obj-count="44"
-	 last-position="1596,0" last-zoom="1" scene-rect="0,0,3399.25,1817.32"
+<dbmodel pgmodeler-ver="1.1.4" use-changelog="false" max-obj-count="44"
+	 last-position="0,68" last-zoom="0.5" scene-rect="0,-10,3399.25,1827.32"
 	 default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
@@ -194,11 +194,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="sturwild"/>
 </sequence>
 
-<table name="dbparam" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+<table name="dbparam" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
 	<schema name="sturwild"/>
 	<role name="sturwild"/>
 	<comment> <![CDATA[Table of parameters intrinsically associated to the instance]]> </comment>
-	<position x="2180" y="1280"/>
+	<position x="1740" y="1040"/>
 	<column name="dbparam_id" not-null="true" sequence="sturwild.dbparam_dbparam_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -209,6 +209,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="dbparam_value">
 		<type name="character varying" length="0"/>
 		<comment> <![CDATA[Value of the parameter]]> </comment>
+	</column>
+	<column name="dbparam_description">
+		<type name="varchar" length="0"/>
+		<comment> <![CDATA[Description of the parameter]]> </comment>
+	</column>
+	<column name="dbparam_description_en">
+		<type name="varchar" length="0"/>
+		<comment> <![CDATA[Description of the parameter, in English]]> </comment>
 	</column>
 	<constraint name="dbparam_pk" type="pk-constr" table="sturwild.dbparam">
 		<columns names="dbparam_id" ref-type="src-columns"/>
@@ -234,7 +242,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="sturwild"/>
 	<role name="sturwild"/>
 	<comment> <![CDATA[Table des versions de la base de donnees]]> </comment>
-	<position x="2180" y="1460"/>
+	<position x="1280" y="1040"/>
 	<column name="dbversion_id" not-null="true" sequence="sturwild.dbversion_dbversion_id_seq">
 		<type name="integer" length="0"/>
 	</column>
@@ -251,7 +259,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 	<initial-data>
 <![CDATA["dbversion_number";"dbversion_date"
-"24.0";"2024-02-05"
+"24.1";"2024-07-15"
 ]]>
 	</initial-data>
 </table>

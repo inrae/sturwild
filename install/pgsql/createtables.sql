@@ -174,6 +174,8 @@ CREATE TABLE sturwild.dbparam (
 	dbparam_id integer NOT NULL DEFAULT nextval('sturwild.dbparam_dbparam_id_seq'::regclass),
 	dbparam_name character varying NOT NULL,
 	dbparam_value character varying,
+	dbparam_description varchar NULL,
+	dbparam_description_en varchar NULL,
 	CONSTRAINT dbparam_pk PRIMARY KEY (dbparam_id)
 );
 -- ddl-end --
@@ -182,27 +184,19 @@ COMMENT ON TABLE sturwild.dbparam IS E'Table of parameters intrinsically associa
 COMMENT ON COLUMN sturwild.dbparam.dbparam_name IS E'Name of the parameter';
 -- ddl-end --
 COMMENT ON COLUMN sturwild.dbparam.dbparam_value IS E'Value of the parameter';
+COMMENT ON COLUMN sturwild.dbparam.dbparam_description IS 'Description of the parameter';
+COMMENT ON COLUMN sturwild.dbparam.dbparam_description_en IS 'Description of the parameter, in English';
 -- ddl-end --
 ALTER TABLE sturwild.dbparam OWNER TO sturwild;
 -- ddl-end --
 create unique index if not exists dbparamname_idx on sturwild.dbparam (dbparam_name);
-INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'APPLI_code', E'sturwild');
--- ddl-end --
-INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'APPLI_title', E'STURWILD');
--- ddl-end --
-INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'mapDefaultX', E'-0.70');
--- ddl-end --
-INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'mapDefaultY', E'44.77');
--- ddl-end --
-INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'mapDefaultZoom', E'7');
--- ddl-end --
-INSERT INTO sturwild.dbparam (dbparam_name, dbparam_value) VALUES (E'otp_issuer', E'sturwild.society.com');
-insert into sturwild.dbparam (dbparam_name, dbparam_value)
-values (
-'APPLI_code', 
-'INSTITUTE-CODE'
-) 
-on conflict do nothing;
+INSERT INTO sturwild.dbparam (dbparam_name,dbparam_value,dbparam_description,dbparam_description_en) VALUES
+	 ('APPLI_code','Institute','Code de l''institut. Ce code est utilisé pour les échanges d''informations','Code of the institute. This code is used to exchange data'),
+	 ('APPLI_title','STURWILD','Nom de l''instance, affiché dans l''interface','Instance name, displayed in the interface'),
+	 ('mapDefaultX','-0.70','Longitude de positionnement par défaut des cartes','Default positioning longitude for maps'),
+	 ('mapDefaultY','44.77','Latitude de positionnement par défaut des cartes','Default positioning latitude for maps'),
+	 ('mapDefaultZoom','7','Niveau de zoom par défaut dans les cartes','Default zoom level in maps'),
+	 ('otp_issuer','sturwild.mysociety.com','Nom affiché dans les applications de génération de codes uniques pour l''identification à double facteur','Name displayed in applications generating unique codes for two-factor identification');
 
 -- ddl-end --
 
