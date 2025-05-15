@@ -28,6 +28,7 @@ return array(
     'Faker\\' => array($vendorDir . '/fakerphp/faker/src/Faker'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Config\\' => array($baseDir . '/app/Config'),
+    'Composer\\Pcre\\' => array($vendorDir . '/composer/pcre/src'),
     'Complex\\' => array($vendorDir . '/markbaker/complex/classes/src'),
     'CodeIgniter\\' => array($vendorDir . '/codeigniter4/framework/system'),
     'Assert\\' => array($vendorDir . '/beberlei/assert/lib/Assert'),
