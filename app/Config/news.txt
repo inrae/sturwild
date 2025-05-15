@@ -1,6 +1,10 @@
 Nouveautés
 ============
-Version 24.1.1 di 14 octobre 2024
+Version 25.0.0 du 15 mai 2025
+-----------------------------
+- mise à niveau du framework et des bibliothèques tierces
+
+Version 24.1.1 du 14 octobre 2024
 ---------------------------------
 Mise à niveau des composants de base
 
