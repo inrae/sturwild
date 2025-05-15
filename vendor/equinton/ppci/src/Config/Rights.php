@@ -11,6 +11,7 @@ class Rights extends RightsPpci
      */
     protected array $rights = [
         "loginList" => ["admin"],
+        "loginGestionList"=>["admin"],
         "loginChange" => ["admin"],
         "loginWrite" => ["admin"],
         "loginDelete" => ["admin"],
@@ -39,6 +40,7 @@ class Rights extends RightsPpci
         "requestWrite" => ["param"],
         "requestDelete" => ["param"],
         "requestExec" => ["param"],
+        "requestExecCsv" => ["param"],
         "requestExecList" => ["param"],
         "requestWriteExec" => ["param"],
         "requestCopy" => ["param"],
@@ -47,7 +49,8 @@ class Rights extends RightsPpci
         "backupSend" => ["admin"],
         "systemShowServer" => ["admin"],
         "systemShowSession" => ["admin"],
-        "administration" => ["admin"],  
+        "administration" => ["admin"],
+        "totpShowCode" => ["consult"],
     ];
 
 }
