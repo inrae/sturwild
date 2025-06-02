@@ -157,7 +157,7 @@
                 <li><b>tag_presence_name</b> {t}Présence de marque sur le poisson (présent, non signalé, absent){/t}</li>
                 <li><b>capture_state_name</b> {t}État à la capture{/t}</li>
                 <li><b>fate_name</b> {t}Devenir du poisson{/t}</li>
-                <li><b>weight</b> {t}Poids du poisson, en grammes{/t}</li>
+                <li><b>weight</b> {t}Poids du poisson, en kg (séparateur : point){/t}</li>
                 <li><b>handling</b> {t}Manipulations effectuées (forme littéraire){/t}</li>
                 <li><b>handlings_name</b> {t}Liste des manipulations effectuées, séparées par une virgule, pour alimenter la table handling{/t}</li>
                 <li><b>tag_number</b> {t}Numéro de la marque{/t}</li>
