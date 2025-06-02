@@ -173,8 +173,8 @@
                 <li><b>depth_max</b> {t}Profondeur maximale de pêche{/t}</li>
                 <li><b>length_min</b> {t}Longueur minimale des poissons capturés, en millimètres{/t}</li>
                 <li><b>length_max</b> {t}Longueur maximale des poissons capturés{/t}</li>
-                <li><b>weight_min</b> {t}Poids minimum des poissons capturés, en grammes{/t}</li>
-                <li><b>weight_max</b> {t}Poids maximum, en grammes{/t}</li>
+                <li><b>weight_min</b> {t}Poids minimum des poissons capturés, en kg (séparateur : point){/t}</li>
+                <li><b>weight_max</b> {t}Poids maximum, en kg (séparateur : point){/t}</li>
                 <li><b>fisher_code</b> {t}Code du pêcheur{/t}</li>
                 <li><b>contact</b> {t}Nom ou organisme à contacter{/t}</li>
                 <li><b>contact_coordinates</b> {t}Coordonnées complètes du contact{/t}</li>
