@@ -1671,4 +1671,24 @@ REFERENCES sturwildgacl.aclgroup (aclgroup_id) MATCH FULL
 ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
+
+CREATE OR REPLACE FUNCTION sturwild.getgroupsfrominstitute (IN institute_id integer)
+	RETURNS varchar
+	LANGUAGE sql
+	VOLATILE 
+	CALLED ON NULL INPUT
+	SECURITY INVOKER
+	PARALLEL UNSAFE
+	COST 1
+	AS 
+$function$
+select array_to_string(array_agg(groupe),', ') as groups
+from institute_aclgroup
+join aclgroup using (aclgroup_id)
+where institute_id = $1
+$function$;
+-- ddl-end --
+ALTER FUNCTION sturwild.getgroupsfrominstitute(integer) OWNER TO sturwild;
+-- ddl-end --
+
 INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'25.0', E'2025-06-16');

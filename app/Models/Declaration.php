@@ -141,11 +141,20 @@ class Declaration extends PpciModel
             ),
             "target_species_id" => array("type" => 1),
             "origin_identifier" => array("type" => 0),
-            "declaration_uuid" => array("type" => 0, "defaultValue" => "getUUID"),
+            "declaration_uuid" => array("type" => 0),
             "institute_id" => array("type" => 1, "requis" => 1)
         );
 
         parent::__construct();
+    }
+
+    function getDefaultValues($parentKey = 0): array
+    {
+        $data = parent::getDefaultValues($parentKey);
+        $institute = new Institute;
+        $data["institute_id"] = $institute->getIdFromCode($_SESSION["dbparams"]["APPLI_code"]);
+        $data["declaration_uuid"] = $this->getUUID();
+        return $data;
     }
 
     function duplicate(int $id)
@@ -563,5 +572,16 @@ class Declaration extends PpciModel
         } else {
             return (in_array($institute_id, $_SESSION["institutes"]));
         }
+    }
+/**
+ * Calculate the number of declarations attached to an institute
+ *
+ * @param integer $id
+ * @return int
+ */
+    function getNbDeclarationsByInstitute(int $id) {
+        $sql = "SELECT count(*) as nb from declaration where institute_id = :id:";
+        $data = $this->readParam($sql, ["id"=>$id]);
+        return $data["nb"];
     }
 }
