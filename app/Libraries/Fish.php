@@ -2,6 +2,7 @@
 
 namespace App\Libraries;
 
+use App\Models\Declaration as ModelsDeclaration;
 use App\Models\Document;
 use App\Models\Fish as ModelsFish;
 use App\Models\FishImport;
@@ -68,9 +69,15 @@ class Fish extends PpciLibrary
 	}
 	function write()
 	{
+		$declaration = new Declaration;
 		/*
 		 * write record in database
 		 */
+		$decl = new ModelsDeclaration;
+		if (!$decl->isGranted($_REQUEST["declaration_id"])) {
+			$this->message->set(_("Vous ne disposez pas des droits nécessaires pour modifier ce poisson"), true);
+			return $declaration->display();
+		}
 		$this->id = $this->dataWrite($_REQUEST);
 		if ($this->id > 0) {
 			$_REQUEST["fish_id"] = $this->id;
@@ -101,7 +108,6 @@ class Fish extends PpciLibrary
 				if (strlen($file['name']) > 0)
 					$document->documentWrite($file, $this->id, $_REQUEST["document_description"]);
 			}
-			$declaration = new Declaration;
 			return $declaration->display();
 		} else {
 			return $this->change();
@@ -109,12 +115,17 @@ class Fish extends PpciLibrary
 	}
 	function delete()
 	{
+		$declaration = new Declaration;
 		/*
 		 * delete record
 		 */
+		$decl = new ModelsDeclaration;
+		if (!$decl->isGranted($_REQUEST["declaration_id"])) {
+			$this->message->set(_("Vous ne disposez pas des droits nécessaires pour supprimer ce poisson"), true);
+			return $declaration->display();
+		}
 		try {
 			$this->dataDelete($this->id);
-			$declaration = new Declaration;
 			return $declaration->display();
 		} catch (PpciException $e) {
 			return $this->change();
@@ -126,7 +137,7 @@ class Fish extends PpciLibrary
 		 * Supprime le document
 		 */
 		$document = new Document();
-		$document->delete( $_REQUEST["document_id"]);
+		$document->delete($_REQUEST["document_id"]);
 		if (isset($_REQUEST["fish_id"]) && $_REQUEST["fish_id"] > 0) {
 			$dfish = $this->dataclass->read($_REQUEST["fish_id"]);
 			$_REQUEST["declaration_id"] = $dfish["declaration_id"];
@@ -154,7 +165,7 @@ class Fish extends PpciLibrary
 	}
 	function exportCSV()
 	{
-		$this->vue = service ("CsvView");
+		$this->vue = service("CsvView");
 		if (isset($_POST["declaration_ids"]) && count($_POST["declaration_ids"]) > 0) {
 			$data = $this->dataclass->getDataForExport($_POST["declaration_ids"], $_POST["use_exchange_labels"]);
 			if (!empty($data)) {
@@ -177,6 +188,7 @@ class Fish extends PpciLibrary
 	}
 	function csvExec()
 	{
+		$declaration = new Declaration;
 		if (isset($_SESSION["importParameters"])) {
 			if (file_exists($_SESSION["importParameters"]["filename"])) {
 				try {
@@ -184,8 +196,8 @@ class Fish extends PpciLibrary
 					 * Initialize classes
 					 */
 					$import = new FishImport;
-					$import->declaration = new Declaration();
-					$import->fish = new Fish();
+					$import->declaration = new ModelsDeclaration;
+					$import->fish = $this->dataclass;
 					$import->initFileCSV($_SESSION["importParameters"]["filename"], $_SESSION["importParameters"]["separator"], $_SESSION["importParameters"]["utf8_encode"]);
 					$import->initParams();
 					$import->exec($_SESSION["importParameters"]["use_exchange_labels"]);
@@ -197,21 +209,17 @@ class Fish extends PpciLibrary
 						$this->message->set(sprintf(_("Id min traité ou généré : %1s, Id max : %2s"), $import->idMin, $import->idMax));
 						$this->log->setLog($_SESSION["login"], "importDeclarationsCSV", "declaration_id from " . $import->idMin . " to " . $import->idMax);
 					}
-					$declaration = new Declaration;
 					return $declaration->list();
 				} catch (\Exception $e) {
 					$this->message->set($e->getMessage(), true);
-					$declaration = new Declaration;
 					return $declaration->list();
 				}
 			} else {
 				$this->message->set(_("Le fichier n'est plus disponible dans le serveur : recommencez l'opération"), true);
-				$declaration = new Declaration;
 				return $declaration->list();
 			}
 		} else {
 			$this->message->set(_("Une erreur s'est produite, recommencez l'opération"), true);
-			$declaration = new Declaration;
 			return $declaration->list();
 		}
 	}

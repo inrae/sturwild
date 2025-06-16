@@ -3,6 +3,7 @@
 namespace App\Libraries;
 
 use App\Models\Country;
+use App\Models\Declaration as ModelsDeclaration;
 use App\Models\Ices;
 use App\Models\Location as ModelsLocation;
 use App\Models\Param;
@@ -13,7 +14,7 @@ use Ppci\Models\PpciModel;
 class Location extends PpciLibrary
 {
 	/**
-	 * @var xx
+	 * @var ModelsLocation
 	 */
 	protected PpciModel $dataclass;
 
@@ -36,8 +37,9 @@ class Location extends PpciLibrary
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
 		$data = $this->dataRead($this->id, "declaration/locationChange.tpl");
+
 		$data["declaration_id"] = $this->id;
-		$this->vue->set($data,"data");
+		$this->vue->set($data, "data");
 		/**
 		 * Lecture des tables de parametre
 		 */
@@ -66,9 +68,14 @@ class Location extends PpciLibrary
 	}
 	function write()
 	{
+		$declaration = new Declaration;
 		try {
+			$decl = new ModelsDeclaration;
+			if (!$decl->isGranted($_REQUEST["declaration_id"])) {
+				$this->message->set(_("Vous ne disposez pas des droits nécessaires pour modifier cette déclaration"), true);
+				return $declaration->display();
+			}
 			$this->dataWrite($_REQUEST);
-			$declaration = new Declaration;
 			return $declaration->display();
 		} catch (PpciException $e) {
 			return $this->change();

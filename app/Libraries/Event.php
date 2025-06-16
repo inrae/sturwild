@@ -7,6 +7,7 @@ use App\Models\Param;
 use Ppci\Libraries\PpciException;
 use Ppci\Libraries\PpciLibrary;
 use Ppci\Models\PpciModel;
+use App\Models\Declaration as ModelsDeclaration;
 
 class Event extends PpciLibrary
 {
@@ -44,6 +45,11 @@ class Event extends PpciLibrary
 	function write()
 	{
 		$declaration = new Declaration();
+		$decl = new ModelsDeclaration;
+		if (!$decl->isGranted($_REQUEST["declaration_id"])) {
+			$this->message->set(_("Vous ne disposez pas des droits nécessaires pour modifier cet événement"), true);
+			return $declaration->display();
+		}
 		try {
 			$this->id = $this->dataWrite($_REQUEST);
 			$_REQUEST["event_id"] = $this->id;
@@ -55,10 +61,14 @@ class Event extends PpciLibrary
 	}
 	function delete()
 	{
+		$declaration = new Declaration();
 		try {
+			$decl = new ModelsDeclaration;
+			if (!$decl->isGranted($_REQUEST["declaration_id"])) {
+				$this->message->set(_("Vous ne disposez pas des droits nécessaires pour supprimer cet événement"), true);
+				return $declaration->display();
+			}
 			$this->dataDelete($this->id);
-			$declaration = new Declaration();
-			return $declaration->display();
 		} catch (PpciException $e) {
 			return $this->change();
 		}
