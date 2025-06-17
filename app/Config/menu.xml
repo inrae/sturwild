@@ -23,6 +23,9 @@
 	</item>
 
 	<item module="parametre" label="Paramètres" tooltip="Paramètres de l'application" droits="manage">
+			<item module="instituteList" label="Instituts" tooltip="Instituts partenaires"
+		droits="manage" />
+		<item divider="1" droits="param"/>
 		<item module="icesList" label="Zones CIEM" tooltip="Liste des zones CIEM" droits="manage" />
 		<item module="countryList" label="Pays" tooltip="Liste des pays" droits="manage" />
 		<item module="environmentList" label="Milieux" tooltip="Liste des milieux" droits="manage" />
@@ -48,8 +51,6 @@
 		<item module="target_speciesList" label="Espèces ciblées"
 			tooltip="Liste des espèces ciblées" droits="manage" />
 		<item divider="1" />
-		<item module="instituteList" label="Instituts" tooltip="Instituts partenaires"
-			droits="manage" />
 		<item module="event_typeList" label="Types d'événements"
 			tooltip="Liste des types d'événements" droits="manage" />
 		<item module="statusList" label="Statuts" tooltip="Liste des statuts des déclarations"

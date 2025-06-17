@@ -175,7 +175,7 @@ class Fish extends PpciLibrary
 				return $this->vue->send();
 			} else {
 				unset($this->vue);
-				$this->message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true);
+				$this->message->set(_("Aucun poisson ne peut être exporté (pas de poissons attachés aux déclarations, droits insuffisants, ou déclarations non validées)"), true);
 				$declaration = new Declaration;
 				return $declaration->list();
 			}

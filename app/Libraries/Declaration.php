@@ -286,7 +286,6 @@ class Declaration extends PpciLibrary
                 $this->vue->send();
             } else {
                 unset($this->vue);
-                $module_coderetour = -1;
                 $this->message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true);
                 return $this->list();
             }
