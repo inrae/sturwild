@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-04 16:42+0200\n"
+"POT-Creation-Date: 2025-06-17 11:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. (itstool) path: menu/item@tooltip
@@ -84,464 +84,479 @@ msgstr "Settings"
 
 #. (itstool) path: menu/item@tooltip
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:25 ../../Config/menu.xml:69
+#: ../../Config/menu.xml:25 ../../Config/menu.xml:70
 msgid "Paramètres de l'application"
 msgstr "Application Settings"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:26
+#: ../../Config/menu.xml:27
+msgid "Instituts"
+msgstr "Institutes"
+
+#. (itstool) path: item/item@tooltip
+#: ../../Config/menu.xml:27
+msgid "Instituts partenaires"
+msgstr "Partner institutes"
+
+#. (itstool) path: item/item@label
+#: ../../Config/menu.xml:29
 msgid "Zones CIEM"
 msgstr "ICES zones"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:26 ../../../app/Views/templates/param/icesList.tpl:1
+#: ../../Config/menu.xml:29 ../../../app/Views/templates/param/icesList.tpl:1
 msgid "Liste des zones CIEM"
 msgstr "ICES zones"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:27
+#: ../../Config/menu.xml:30
 msgid "Pays"
 msgstr "Country"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:27
+#: ../../Config/menu.xml:30
 #: ../../../app/Views/templates/param/countryList.tpl:1
 msgid "Liste des pays"
 msgstr "Countries"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:28
+#: ../../Config/menu.xml:31
 msgid "Milieux"
 msgstr "Environments"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:28
+#: ../../Config/menu.xml:31
 msgid "Liste des milieux"
 msgstr "Environments"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:30
+#: ../../Config/menu.xml:33
 msgid "Milieux détaillés"
 msgstr "Detailed environments"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:30
+#: ../../Config/menu.xml:33
 msgid "Liste des milieux détaillés"
 msgstr "Detailed environments"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:32
+#: ../../Config/menu.xml:35
 msgid "Précisions des localisations"
 msgstr "Localization accuracies"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:32
+#: ../../Config/menu.xml:35
 msgid "Liste des précisions des localisations"
 msgstr "Accuracy localizations"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:35
+#: ../../Config/menu.xml:38
 msgid "Espèces"
 msgstr "Species"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:35
+#: ../../Config/menu.xml:38
 msgid "Liste des espèces d'esturgeon"
 msgstr "Sturgeons species"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:37
+#: ../../Config/menu.xml:40
 msgid "Devenirs"
 msgstr "Fates"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:37
+#: ../../Config/menu.xml:40
 msgid "Liste des destinations des esturgeons capturés"
 msgstr "List of destinations of catched sturgeons"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:39
+#: ../../Config/menu.xml:42
 msgid "Méthodes de capture"
 msgstr "Methods of capture"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:39
+#: ../../Config/menu.xml:42
 msgid "Liste des méthodes de capture"
 msgstr "Methods of capturing fish"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:41
+#: ../../Config/menu.xml:44
 msgid "Origine des captures"
 msgstr "Origin of captures"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:41
+#: ../../Config/menu.xml:44
 msgid "Liste des origines des captures"
 msgstr "Origins of capture"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:43
+#: ../../Config/menu.xml:46
 msgid "États à la capture"
 msgstr "States at the catch"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:43
+#: ../../Config/menu.xml:46
 msgid "Liste des états à la capture"
 msgstr "States on capture"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:45
+#: ../../Config/menu.xml:48
 msgid "Engins"
 msgstr "Engines"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:45
+#: ../../Config/menu.xml:48
 msgid "Liste des engins utilisés"
 msgstr "List of used gears"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:47
+#: ../../Config/menu.xml:50
 #: ../../../app/Views/templates/declaration/fishList.tpl:13
 msgid "Manipulations"
 msgstr "Handlings"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:47
+#: ../../Config/menu.xml:50
 msgid "Liste des manipulations effectuées sur les poissons"
 msgstr "List of fish handling"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:49
+#: ../../Config/menu.xml:52
 msgid "Espèces ciblées"
 msgstr "Target species"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:49
+#: ../../Config/menu.xml:52
 msgid "Liste des espèces ciblées"
 msgstr "Targeted species"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:52
-msgid "Instituts"
-msgstr "Institutes"
-
-#. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:52
-msgid "Instituts partenaires"
-msgstr "Partner institutes"
-
-#. (itstool) path: item/item@label
-#: ../../Config/menu.xml:54
+#: ../../Config/menu.xml:55
 msgid "Types d'événements"
 msgstr "Event types"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:54
+#: ../../Config/menu.xml:55
 msgid "Liste des types d'événements"
 msgstr "Event types"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:56
+#: ../../Config/menu.xml:57
 msgid "Statuts"
 msgstr "Status"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:56 ../../../app/Views/templates/param/statusList.tpl:1
+#: ../../Config/menu.xml:57 ../../../app/Views/templates/param/statusList.tpl:1
 msgid "Liste des statuts des déclarations"
 msgstr "Status of declarations"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:58
+#: ../../Config/menu.xml:59
 msgid "Importer les paramètres"
 msgstr "Import parameters"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:58
+#: ../../Config/menu.xml:59
 msgid ""
 "Importer ou mettre à jour les paramètres depuis une feuille de calcul ODS"
 msgstr "Import or update parameters from an ODS spreadsheet"
 
 #. (itstool) path: item/item@label
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:60
+#: ../../Config/menu.xml:61
 msgid "Schéma de la base de données"
 msgstr "Database structure"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:61
+#: ../../Config/menu.xml:62
 msgid "Structure de la base de données (HTML)"
 msgstr "Database structure (HTML)"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:61
+#: ../../Config/menu.xml:62
 msgid "Liste des tables et des colonnes"
 msgstr "List of tables and columns"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:62
+#: ../../Config/menu.xml:63
 msgid "Structure de la base de données (Latex)"
 msgstr "Database structure (Latex)"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:62
+#: ../../Config/menu.xml:63
 msgid "Liste des tables et des colonnes sous forme de tableaux Latex"
 msgstr "List of tables and columns in Latex format"
 
 #. (itstool) path: menu/item@label
-#: ../../Config/menu.xml:64
+#: ../../Config/menu.xml:65
 msgid "Administration"
 msgstr "Administration"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../Config/menu.xml:64
+#: ../../Config/menu.xml:65
 msgid "Administration de l'application"
 msgstr "Application administration"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:65
+#: ../../Config/menu.xml:66
 msgid "Liste des comptes locaux"
 msgstr "Local accounts list"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:65
+#: ../../Config/menu.xml:66
 msgid "Liste des logins - identification via la base de données"
 msgstr "List of logins - identification via the database"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:66
+#: ../../Config/menu.xml:67
 msgid "ACL - droits"
 msgstr "ACL - rights"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:66
+#: ../../Config/menu.xml:67
 msgid "applications et droits gérés"
 msgstr "applications and rights managed"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:67
+#: ../../Config/menu.xml:68
 msgid "ACL - logins"
 msgstr "ACL - logins"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:67
+#: ../../Config/menu.xml:68
 msgid "Logins déclarés dans le module de gestion des droits"
 msgstr "Logins declared in the rights management module"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:68
+#: ../../Config/menu.xml:69
 msgid "ACL - groupes de logins"
 msgstr "ACL - login groups"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:68
+#: ../../Config/menu.xml:69
 msgid "Groupes de logins et logins rattachés aux groupes"
 msgstr "Groups of logins and logins attached to groups"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:69
+#: ../../Config/menu.xml:70
 msgid "Liste des paramètres pérennes de l'application"
 msgstr "List of long-term parameters of the application"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:71
+#: ../../Config/menu.xml:72
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/phpinfo.tpl:1
 msgid "PHP info"
 msgstr "PHP info"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:71
+#: ../../Config/menu.xml:72
 msgid "configuration générale du serveur PHP"
 msgstr "general configuration of the PHP server"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:72
+#: ../../Config/menu.xml:73
 msgid "Logs"
 msgstr "Logs"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:72
+#: ../../Config/menu.xml:73
 msgid "Consultation des logs enregistrées"
 msgstr "Consultation of recorded logs"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:73
+#: ../../Config/menu.xml:74
 msgid "Variables SERVER"
 msgstr "SERVER variables"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:73
+#: ../../Config/menu.xml:74
 msgid "Affichage des variables fournies par le serveur"
 msgstr "Display of variables supplied by the server"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:74
+#: ../../Config/menu.xml:75
 msgid "Variables SESSION"
 msgstr "SESSION variables"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:74
+#: ../../Config/menu.xml:75
 msgid "Affichage des variables de session"
 msgstr "Display of the session variables"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:76
+#: ../../Config/menu.xml:77
 msgid "Backup"
 msgstr "Backup"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:76
+#: ../../Config/menu.xml:77
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/backup.tpl:1
 msgid "Sauvegarde de la base de données"
 msgstr "Backup of the database"
 
 #. (itstool) path: menu/item@label
-#: ../../Config/menu.xml:79 ../../Config/menu.xml:84
+#: ../../Config/menu.xml:80 ../../Config/menu.xml:85
 msgid "documentation"
 msgstr "documentation"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../Config/menu.xml:79
+#: ../../Config/menu.xml:80
 msgid "Documentations en ligne en français"
 msgstr "Online documentation in french"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:81 ../../Config/menu.xml:86
+#: ../../Config/menu.xml:82 ../../Config/menu.xml:87
 msgid "Comprendre la double authentification"
 msgstr "Understand dual authentication"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:81 ../../Config/menu.xml:86
+#: ../../Config/menu.xml:82 ../../Config/menu.xml:87
 msgid "Comprendre le mécanisme de double authentification"
 msgstr "Understanding the dual authentication mechanism"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../Config/menu.xml:84
+#: ../../Config/menu.xml:85
 msgid "Documentations en ligne en anglais"
 msgstr "Online documentation in English"
 
 #. (itstool) path: menu/item@label
-#: ../../Config/menu.xml:88
+#: ../../Config/menu.xml:89
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:21
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:41
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:42
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:43
 msgid "Connexion"
 msgstr "Sign in"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../Config/menu.xml:88
+#: ../../Config/menu.xml:89
 msgid "S'identifier dans l'application"
 msgstr "Sign in to the app"
 
 #. (itstool) path: menu/item@label
-#: ../../Config/menu.xml:89
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:37
+#: ../../Config/menu.xml:90
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:38
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:39
 msgid "Déconnexion"
 msgstr "Sign out"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../Config/menu.xml:89
+#: ../../Config/menu.xml:90
 msgid "Déconnexion de l'application"
 msgstr "Sign out of the app"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:90
+#: ../../Config/menu.xml:91
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:32
 msgid "Activer la double authentification"
 msgstr "Enable dual authentication"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:90
+#: ../../Config/menu.xml:91
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:32
 msgid "Activer la double authentification pour votre compte"
 msgstr "Enabling dual authentication for your account"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:91
+#: ../../Config/menu.xml:92
 msgid "Nouvelle version ?"
 msgstr "New version?"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:91
+#: ../../Config/menu.xml:92
 msgid "Rechercher s'il existe une nouvelle version disponible de l'application"
 msgstr "Find out if there is a new version of the application available"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:92
+#: ../../Config/menu.xml:93
 msgid "Dernières connexions"
 msgstr "Last connections"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:92
+#: ../../Config/menu.xml:93
 msgid "Liste des dernières connexions réalisées"
 msgstr "List of last connections"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:93
+#: ../../Config/menu.xml:94
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/loginChangePassword.tpl:86
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:33
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:34
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:35
 msgid "Modifier le mot de passe"
 msgstr "Change your password"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:93
+#: ../../Config/menu.xml:94
 msgid "Modifiez votre mot de passe (identification locale uniquement)"
 msgstr "Change your password (local identification only)"
 
 #. (itstool) path: menu/item@label
-#: ../../Config/menu.xml:95
+#: ../../Config/menu.xml:96
 msgid "?"
 msgstr "?"
 
 #. (itstool) path: menu/item@tooltip
-#: ../../Config/menu.xml:95
+#: ../../Config/menu.xml:96
 msgid "Aide"
 msgstr "Help"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:96
+#: ../../Config/menu.xml:97
 msgid "A propos"
 msgstr "About"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:96
-#, fuzzy
-msgid "A propos de Metabo"
-msgstr "About Otolith"
+#: ../../Config/menu.xml:97
+msgid "A propos de Sturwild"
+msgstr "About Sturwild"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:97
+#: ../../Config/menu.xml:98
 msgid "Nouveautés"
 msgstr "What's new?"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:97
+#: ../../Config/menu.xml:98
 msgid "Quoi de neuf dans l'application ?"
 msgstr "What's new in the app?"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:98
+#: ../../Config/menu.xml:99
 msgid "Français"
 msgstr "French"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:98
+#: ../../Config/menu.xml:99
 msgid "Libellés en français"
 msgstr "Labels in French"
 
 #. (itstool) path: item/item@label
-#: ../../Config/menu.xml:99
+#: ../../Config/menu.xml:100
 msgid "English"
 msgstr "English"
 
 #. (itstool) path: item/item@tooltip
-#: ../../Config/menu.xml:99
+#: ../../Config/menu.xml:100
 msgid "Labels in English"
 msgstr "Labels in English"
 
-#: ../../../app/Libraries/ImportFish.php:116
-#: ../../../app/Libraries/Fish.php:186
+#: ../../../app/Libraries/ImportFish.php:46
+#: ../../../app/Libraries/Import.php:57 ../../../app/Libraries/Import.php:161
+msgid "L'encodage du fichier ne correspond pas à celui que vous avez indiqué"
+msgstr ""
+"The encoding of the file does not correspond to the one you have indicated"
+
+#: ../../../app/Libraries/ImportFish.php:70
+#: ../../../app/Libraries/Import.php:83 ../../../app/Libraries/Import.php:195
+msgid "Impossible de recopier le fichier importé dans le dossier temporaire"
+msgstr "Can not copy the imported file to the temporary folder"
+
+#: ../../../app/Libraries/ImportFish.php:86
+#: ../../../app/Libraries/Import.php:99 ../../../app/Libraries/Import.php:211
+msgid "Aucun fichier n'a été téléchargé vers le serveur"
+msgstr "The file was not downloaded correctly to the server"
+
+#: ../../../app/Libraries/ImportFish.php:111
+#: ../../../app/Libraries/Fish.php:205
 msgid ""
 "Aucun poisson n'a été importé dans la base de données. Il est possible qu'un "
 "problème technique soit survenu"
@@ -549,31 +564,35 @@ msgstr ""
 "No fish have been imported into the database. A technical problem may have "
 "occurred"
 
-#: ../../../app/Libraries/ImportFish.php:120
-#: ../../../app/Libraries/Fish.php:188
+#: ../../../app/Libraries/ImportFish.php:115
+#: ../../../app/Libraries/Import.php:127 ../../../app/Libraries/Import.php:245
+#: ../../../app/Libraries/Fish.php:207
 msgid "Importation effectuée"
 msgstr "Import done"
 
-#: ../../../app/Libraries/ImportFish.php:121
-#: ../../../app/Libraries/Fish.php:189
+#: ../../../app/Libraries/ImportFish.php:116
+#: ../../../app/Libraries/Fish.php:208
 #, php-format
 msgid "%1s poissons importés, dont %2s poissons mis à jour"
 msgstr "%1s imported fish, including %2s updated fish"
 
-#: ../../../app/Libraries/ImportFish.php:122
-#: ../../../app/Libraries/Fish.php:190
+#: ../../../app/Libraries/ImportFish.php:117
+#: ../../../app/Libraries/Import.php:129 ../../../app/Libraries/Import.php:247
+#: ../../../app/Libraries/Fish.php:209
 #, php-format
 msgid "Id min traité ou généré : %1s, Id max : %2s"
 msgstr "Id min processed or generated: %1s, Id max: %2s"
 
-#: ../../../app/Libraries/ImportFish.php:134
-#: ../../../app/Libraries/Fish.php:201
+#: ../../../app/Libraries/ImportFish.php:127
+#: ../../../app/Libraries/Import.php:136 ../../../app/Libraries/Import.php:257
+#: ../../../app/Libraries/Fish.php:218
 msgid ""
 "Le fichier n'est plus disponible dans le serveur : recommencez l'opération"
 msgstr "The file is no longer available on the server: repeat the operation"
 
-#: ../../../app/Libraries/ImportFish.php:139
-#: ../../../app/Libraries/Fish.php:206
+#: ../../../app/Libraries/ImportFish.php:130
+#: ../../../app/Libraries/Import.php:139 ../../../app/Libraries/Import.php:260
+#: ../../../app/Libraries/Fish.php:222
 msgid "Une erreur s'est produite, recommencez l'opération"
 msgstr "An error has occurred, restart the operation"
 
@@ -596,8 +615,26 @@ msgstr "The file could not be downloaded"
 msgid "Traitement de la feuille/table %s"
 msgstr "Processing the %s sheet/table"
 
-#: ../../../app/Libraries/Declaration.php:120
-#: ../../../app/Libraries/Fish.php:63
+#: ../../../app/Libraries/Import.php:123 ../../../app/Libraries/Import.php:241
+msgid ""
+"Aucune déclaration n'a été importée dans la base de données. Il est possible "
+"qu'un problème technique soit survenu"
+msgstr ""
+"No declarations have been imported into the database. It is possible that a "
+"technical problem has occurred"
+
+#: ../../../app/Libraries/Import.php:128 ../../../app/Libraries/Import.php:246
+#, php-format
+msgid "%1s déclarations importées, dont %2s déclarations mises à jour"
+msgstr "%1s declarations imported, including %2s declarations updated"
+
+#: ../../../app/Libraries/Location.php:75
+msgid ""
+"Vous ne disposez pas des droits nécessaires pour modifier cette déclaration"
+msgstr "You do not have the necessary rights to edit this declaration"
+
+#: ../../../app/Libraries/Declaration.php:124
+#: ../../../app/Libraries/Fish.php:64
 msgid ""
 "Problème(s) rencontré(s) pour afficher les photos ou documents. Contactez "
 "l'administrateur du système."
@@ -605,17 +642,16 @@ msgstr ""
 "Problem(s) with displaying photos or documents. Contact the system "
 "administrator."
 
-#: ../../../app/Libraries/Declaration.php:242
+#: ../../../app/Libraries/Declaration.php:244
 msgid "Déclaration dupliquée !"
 msgstr "Duplicate declaration!"
 
-#: ../../../app/Libraries/Declaration.php:245
+#: ../../../app/Libraries/Declaration.php:247
 msgid "Echec de duplication de la déclaration"
 msgstr "Declaration duplication failed"
 
-#: ../../../app/Libraries/Declaration.php:264
-#: ../../../app/Libraries/Declaration.php:286
-#: ../../../app/Libraries/Fish.php:160
+#: ../../../app/Libraries/Declaration.php:266
+#: ../../../app/Libraries/Declaration.php:289
 msgid ""
 "Aucune des déclarations sélectionnées ne peut être exportée : elles doivent "
 "avoir été validées au préalable"
@@ -623,20 +659,45 @@ msgstr ""
 "None of the selected declarations can be exported: they must first be "
 "validated"
 
-#: ../../../app/Libraries/Declaration.php:268
-#: ../../../app/Libraries/Declaration.php:291
-#: ../../../app/Libraries/Fish.php:166
+#: ../../../app/Libraries/Declaration.php:270
+#: ../../../app/Libraries/Declaration.php:294
+#: ../../../app/Libraries/Fish.php:184
 msgid "Aucune déclaration n'a été sélectionnée"
 msgstr "No declaration has been selected"
 
-#: ../../../app/Models/SturwildImport.php:59
-#: ../../../app/Models/SturwildImport.php:75
+#: ../../../app/Libraries/Fish.php:78
+msgid "Vous ne disposez pas des droits nécessaires pour modifier ce poisson"
+msgstr "You do not have the necessary rights to edit this fish"
+
+#: ../../../app/Libraries/Fish.php:124
+msgid "Vous ne disposez pas des droits nécessaires pour supprimer ce poisson"
+msgstr "You do not have the necessary rights to delete this fish"
+
+#: ../../../app/Libraries/Fish.php:178
+msgid ""
+"Aucun poisson ne peut être exporté (pas de poissons attachés aux "
+"déclarations, droits insuffisants, ou déclarations non validées)"
+msgstr ""
+"No fish can be exported (no fish attached to declarations, insufficient "
+"rights, or declarations not validated)"
+
+#: ../../../app/Libraries/Event.php:50
+msgid "Vous ne disposez pas des droits nécessaires pour modifier cet événement"
+msgstr "You do not have the necessary rights to edit this event"
+
+#: ../../../app/Libraries/Event.php:68
+msgid ""
+"Vous ne disposez pas des droits nécessaires pour supprimer cet événement"
+msgstr "You do not have the necessary rights to delete this event"
+
+#: ../../../app/Models/SturwildImport.php:55
+#: ../../../app/Models/SturwildImport.php:71
 #, php-format
 msgid "Le fichier %s n'a pas pu être chargé ou n'est pas lisible"
 msgstr "File %s not found or not readable"
 
 #: ../../../app/Models/FishImport.php:24
-#: ../../../app/Models/DeclarationImport.php:43
+#: ../../../app/Models/DeclarationImport.php:46
 msgid ""
 "L'un des champs origin_identifier ou declaration_uuid doit être renseigné "
 "pour pouvoir importer les poissons associés à la déclaration"
@@ -652,7 +713,7 @@ msgstr ""
 "No declaration corresponds to either the origin_identifier field or the "
 "declaration_uuid field"
 
-#: ../../../app/Models/FishImport.php:114
+#: ../../../app/Models/FishImport.php:116
 msgid "La déclaration correspondante à un poisson n'a pas été trouvée"
 msgstr "The declaration corresponding to a fish has not been found"
 
@@ -665,20 +726,36 @@ msgstr "The requested document does not exist"
 msgid "Impossible de lire la photo %s : "
 msgstr "Unable to read the picture %s:"
 
-#: ../../../app/Models/DeclarationImport.php:23
+#: ../../../app/Models/Institute.php:174
+msgid ""
+"Des déclarations sont attachées à cet institut, sa suppression n'est pas "
+"possible"
+msgstr "Declarations are attached to this institute, which cannot be deleted"
+
+#: ../../../app/Models/DeclarationImport.php:26
 #, php-format
 msgid "Le champ %s est vide et doit être renseigné"
 msgstr "The field %s is required, but has not been filled out"
 
-#: ../../../app/Models/DeclarationImport.php:33
+#: ../../../app/Models/DeclarationImport.php:36
 msgid "La date de capture ou l'année doit être renseignée"
 msgstr "The date of capture or the year must be entered"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Views/PdfView.php:72
+#: ../../../app/Models/Declaration.php:422
+msgid ""
+"Vous ne disposez pas des droits suffisants pour modifier cette déclaration"
+msgstr "You do not have the necessary rights to edit this declaration"
+
+#: ../../../app/Models/Declaration.php:450
+msgid ""
+"Vous ne disposez pas des droits suffisants pour supprimer cette déclaration"
+msgstr "You do not have the necessary rights to delete this declaration"
+
+#: ../../../vendor/equinton/ppci/src/Libraries/Views/PdfView.php:77
 msgid "Le fichier ne peut pas être envoyé au navigateur"
 msgstr "The file cannot be sent to the browser"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Views/PdfView.php:75
+#: ../../../vendor/equinton/ppci/src/Libraries/Views/PdfView.php:80
 msgid "Aucun contenu disponible"
 msgstr "No content available"
 
@@ -686,14 +763,14 @@ msgstr "No content available"
 msgid "Problème rencontré lors de l'ouverture de finfo"
 msgstr "Problem encountered when opening finfo"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Views/SmartyPpci.php:93
+#: ../../../vendor/equinton/ppci/src/Libraries/Views/SmartyPpci.php:94
 #, php-format
 msgid ""
 "Mode développement - base de données : pgsql:host=%1s;dbname=%2s - schema : "
 "%3s"
 msgstr "Development mode - database: pgsql:host=%1s;dbname=%2s - schema: %3s"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Views/FileView.php:38
+#: ../../../vendor/equinton/ppci/src/Libraries/Views/FileView.php:41
 msgid ""
 "Le nom du fichier à exporter n'a pas été renseigné et aucune donnée n'est "
 "disponible pour l'exportation"
@@ -701,16 +778,16 @@ msgstr ""
 "The name of the file to be exported has not been entered and no data is "
 "available for export."
 
-#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:42
+#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:45
 msgid "Erreur de lecture des informations dans la base de données"
 msgstr "Error reading information in the database"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:59
+#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:62
 #: ../../../vendor/equinton/ppci/src/Libraries/Dbparam.php:22
 msgid "Enregistrement effectué"
 msgstr "Saved"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:65
+#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:68
 msgid ""
 "Un problème est survenu lors de l'enregistrement. Si le problème persiste, "
 "contactez votre support"
@@ -718,35 +795,41 @@ msgstr ""
 "A problem is occurred during the registration. If it persist, contact your "
 "support"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:71
+#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:74
 #, php-format
 msgid "La clé n'a pas été retournée lors de l'enregistrement dans %s"
 msgstr "The key was not returned during registration in %s"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:80
+#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:84
 msgid ""
 "Un enregistrement portant déjà ce nom existe déjà dans la base de données."
 msgstr "A record with this name already exists into the database."
 
-#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:97
+#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:101
 msgid "Suppression effectuée"
 msgstr "Deletion done"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:108
+#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:112
 msgid ""
 "La suppression n'est pas possible : des informations sont référencées par "
 "cet enregistrement"
 msgstr "Delete is not possible: some data as referenced by this item"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:113
+#: ../../../vendor/equinton/ppci/src/Libraries/PpciLibrary.php:117
 msgid "Problème lors de la suppression"
 msgstr "Problem when deleting"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/LastRelease.php:35
+#: ../../../vendor/equinton/ppci/src/Libraries/LastRelease.php:18
+#: ../../../vendor/equinton/ppci/src/Libraries/LastRelease.php:38
 msgid "Impossible de récupérer la dernière version publiée de l'application"
 msgstr "Unable to retrieve the latest published version of the application"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:52
+#: ../../../vendor/equinton/ppci/src/Libraries/LastRelease.php:58
+#, php-format
+msgid "La nouvelle version %1s du %2s a été publiée !"
+msgstr "The new %1s version of %2s has been released!"
+
+#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:55
 msgid ""
 "Les informations fournies sont insuffisantes pour valider la création de la "
 "double identification"
@@ -754,28 +837,33 @@ msgstr ""
 "The information provided is insufficient to validate the creation of double "
 "identification"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:62
+#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:65
 msgid "La double authentification est maintenant activée."
 msgstr "The dual authentication is activate now."
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:71
+#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:74
 msgid "Le code fourni n'a pu être vérifié"
 msgstr "The code provided could not be verified"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:103
+#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:106
 msgid "Vous êtes maintenant connecté"
 msgstr "You are now logged in"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:129
+#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:132
+#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:161
 msgid "Le code TOTP rentré n'a pas été reconnu"
 msgstr "The TOTP code entered was not recognised"
+
+#: ../../../vendor/equinton/ppci/src/Libraries/Totp.php:151
+msgid "L'identification TOTP n'a pas été activée"
+msgstr "Token identification was not activated"
 
 #: ../../../vendor/equinton/ppci/src/Libraries/Markdown.php:16
 #, php-format
 msgid "Le fichier %s n'existe pas"
 msgstr "The file %s don't exist"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Markdown.php:23
+#: ../../../vendor/equinton/ppci/src/Libraries/Markdown.php:22
 #, php-format
 msgid "Le fichier %s est vide ou ne peut être lu"
 msgstr "File %s not found or not readable"
@@ -800,7 +888,7 @@ msgstr "Data transmitted :"
 msgid "Un problème a été rencontré lors de l'envoi du mail"
 msgstr "Problem encountered when send email"
 
-#: ../../../vendor/equinton/ppci/src/Libraries/Structure.php:75
+#: ../../../vendor/equinton/ppci/src/Libraries/Structure.php:83
 msgid "Le fichier contenant le schéma de la base de données n'a pas été trouvé"
 msgstr "The file containing the database schema was not found"
 
@@ -846,8 +934,8 @@ msgstr "Password reset is not enabled for this application"
 #: ../../../vendor/equinton/ppci/src/Libraries/PasswordLost.php:82
 #: ../../../vendor/equinton/ppci/src/Libraries/PasswordLost.php:107
 #: ../../../vendor/equinton/ppci/src/Libraries/LoginGestionLib.php:84
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:441
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:494
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:450
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:503
 msgid ""
 "Le mode d'identification utilisé pour votre compte n'autorise pas la "
 "modification du mot de passe depuis cette application"
@@ -881,7 +969,7 @@ msgstr "%s - change password"
 msgid "La modification du mot de passe a été enregistrée"
 msgstr "The password change has been saved"
 
-#: ../../../vendor/equinton/ppci/src/Filters/DbversioncheckFilter.php:42
+#: ../../../vendor/equinton/ppci/src/Filters/DbversioncheckFilter.php:44
 #, php-format
 msgid ""
 "La base de données n'est pas dans la version attendue (%1$s). Version "
@@ -889,7 +977,7 @@ msgid ""
 msgstr ""
 "The database is not in the expected version (%1$s). Current version: %2$s"
 
-#: ../../../vendor/equinton/ppci/src/Filters/AdminFilter.php:42
+#: ../../../vendor/equinton/ppci/src/Filters/AdminFilter.php:46
 msgid ""
 "Vous devez vous ré-identifier avec votre code TOTP pour accéder aux modules "
 "d'administration"
@@ -897,7 +985,7 @@ msgstr ""
 "You must re-identify with your TOTP code to access the administration "
 "modules."
 
-#: ../../../vendor/equinton/ppci/src/Filters/AdminFilter.php:45
+#: ../../../vendor/equinton/ppci/src/Filters/AdminFilter.php:49
 msgid ""
 "Vous devez activer la double identification TOTP pour accéder aux modules "
 "d'administration"
@@ -905,11 +993,11 @@ msgstr ""
 "You must activate dual TOTP identification to access the administration "
 "modules"
 
-#: ../../../vendor/equinton/ppci/src/Filters/StartcallFilter.php:24
+#: ../../../vendor/equinton/ppci/src/Filters/StartcallFilter.php:27
 msgid "La session a expiré, vous devez vous reconnecter"
 msgstr "The session has expired, you need to reconnect"
 
-#: ../../../vendor/equinton/ppci/src/Filters/RightFilter.php:47
+#: ../../../vendor/equinton/ppci/src/Filters/RightFilter.php:52
 msgid ""
 "Vous ne disposez pas des droits nécessaires pour exécuter cette fonction"
 msgstr "You do not have the necessary rights to perform this function"
@@ -930,7 +1018,7 @@ msgstr ""
 msgid "Vous avez été déconnecté"
 msgstr "You have been disconnected"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:189
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:195
 msgid ""
 "Votre mot de passe a expiré. Veuillez contacter l'administrateur de "
 "l'application pour le renouveler"
@@ -938,24 +1026,27 @@ msgstr ""
 "Your password has expired. Please contact the application administrator to "
 "renew it"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:192
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:198
 msgid "Votre mot de passe va expirer. Veuillez le changer immédiatement"
 msgstr "Your password is about to expire. Please, change it immediately"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:263
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:269
 msgid "Mot de passe insuffisamment complexe ou trop petit"
 msgstr "Password not enough complex or too small"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:277
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:283
 msgid ""
-"Une erreur est survenue pendant le chiffrement du jeton d'identification"
-msgstr "An error occurred during the encryption of the token"
+"Une erreur est survenue pendant le chiffrement du jeton d'identification, "
+"qui n'a pas pu être mis à jour"
+msgstr ""
+"An error occurred during the encryption of the identification token, which "
+"could not be updated"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:303
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:310
 msgid "Activation de votre compte"
 msgstr "Activating your account"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:316
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:322
 msgid ""
 "Un message vient d'être envoyé à l'utilisateur pour l'informer de "
 "l'activation de son compte"
@@ -963,20 +1054,20 @@ msgstr ""
 "A message has just been sent to the user to inform them that their account "
 "has been activated."
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:332
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:338
 msgid ""
 "Une erreur est survenue pendant le déchiffrement du jeton d'identification"
 msgstr "An error occurred during the decryption of the token"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:435
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:444
 msgid "La modification du mot de passe a échoué"
 msgstr "Password change failed"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:438
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:447
 msgid "L'ancien mot de passe est incorrect"
 msgstr "The old password is incorrect"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:459
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:468
 msgid ""
 "Le mot de passe que vous avez indiqué n'est pas assez complexe, ou un "
 "problème est survenu lors de l'enregistrement"
@@ -984,11 +1075,11 @@ msgstr ""
 "The password you entered is not complex enough, or a problem has occurred "
 "during registration."
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:489
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:498
 msgid "Le mot de passe a été modifié"
 msgstr "The password has been changed"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:491
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:500
 msgid ""
 "Echec de la modification du mot de passe pour une raison inconnue. Si le "
 "problème persiste, contactez l'assistance"
@@ -996,21 +1087,21 @@ msgstr ""
 "Failed to change the password for an unknown reason. If the problem "
 "persists, contact support"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:543
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:552
 msgid "Le mot de passe n'est pas assez fort"
 msgstr "Password not strong enough"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:546
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:555
 msgid "Le mot de passe n'est pas assez complexe"
 msgstr ""
 "The password is not complex enough (mix 3 character sets among lowercase, "
 "uppercase, numbers, and punctuation)"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:549
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:558
 msgid "Le mot de passe est trop court"
 msgstr "The password is too short (minimum: 10 characters)"
 
-#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:552
+#: ../../../vendor/equinton/ppci/src/Models/LoginGestion.php:561
 msgid "Le mot de passe n'est pas identique dans les deux zones"
 msgstr "Passwords don't match in both fields"
 
@@ -1038,17 +1129,22 @@ msgstr "The email has not been filled in"
 msgid "L'identification par jeton n'a pas abouti"
 msgstr "Token identification was unsuccessful"
 
-#: ../../../vendor/equinton/ppci/src/Models/Login.php:120
+#: ../../../vendor/equinton/ppci/src/Models/Login.php:110
+#, php-format
+msgid "La connexion auprès de l'annuaire LDAP pour l'utilisateur %s a échoué"
+msgstr "Connection to the LDAP directory for user %s has failed"
+
+#: ../../../vendor/equinton/ppci/src/Models/Login.php:124
 msgid ""
 "L'identification n'a pas abouti. Vérifiez votre login et votre mot de passe"
 msgstr "The identification was not successful. Check your login and password"
 
-#: ../../../vendor/equinton/ppci/src/Models/Login.php:200
+#: ../../../vendor/equinton/ppci/src/Models/Login.php:203
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/mail/newUser.tpl:1
 msgid "Nouvel utilisateur"
 msgstr "New user:"
 
-#: ../../../vendor/equinton/ppci/src/Models/Login.php:210
+#: ../../../vendor/equinton/ppci/src/Models/Login.php:213
 msgid ""
 "Votre compte a été créé, mais est inactif. Un mail a été adressé aux "
 "administrateurs pour son activation"
@@ -1056,60 +1152,55 @@ msgstr ""
 "Your account was create, but it's inactive. An email was send to the "
 "administrators for its activation"
 
-#: ../../../vendor/equinton/ppci/src/Models/Login.php:220
+#: ../../../vendor/equinton/ppci/src/Models/Login.php:223
 msgid "Aucun login n'a été fourni, identification refusée"
 msgstr "No login provided, identification refused"
 
-#: ../../../vendor/equinton/ppci/src/Models/Login.php:382
-#: ../../../vendor/equinton/ppci/src/Models/Ldap.php:74
+#: ../../../vendor/equinton/ppci/src/Models/Login.php:385
+#: ../../../vendor/equinton/ppci/src/Models/Ldap.php:75
 msgid "Impossible de se connecter au serveur LDAP"
 msgstr "Unable to connect to LDAP server"
 
-#: ../../../vendor/equinton/ppci/src/Models/Login.php:408
-#, php-format
-msgid "La connexion auprès de l'annuaire LDAP pour l'utilisateur %s a échoué"
-msgstr "Connection to the LDAP directory for user %s has failed"
-
-#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:101
+#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:102
 msgid ""
 "L'identification dans l'annuaire LDAP a échoué pour la récupération des "
 "groupes de l'utilisateur"
 msgstr ""
 "Identification in the LDAP directory failed to retrieve the user's groups"
 
-#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:138
+#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:139
 msgid "Connexion à l'annuaire LDAP impossible"
 msgstr "Cannot connect to the LDAP directory"
 
-#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:318
+#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:319
 msgid "Un groupe ne peut être son propre parent"
 msgstr "A group can't be its own parent"
 
-#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:362
+#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:363
 msgid "Suppression du groupe impossible : d'autres groupes lui sont rattachés"
 msgstr "Can not delete group: other groups are attached to it"
 
-#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:377
+#: ../../../vendor/equinton/ppci/src/Models/Aclgroup.php:378
 msgid ""
 "La suppression du groupe a échoué. Consultez les logs pour en connaître la "
 "raison"
 msgstr "Deleting the group failed. Check the logs to find out the reason"
 
-#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:89
+#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:91
 msgid "Une erreur est survenue pendant le chiffrement de la clé secrète"
 msgstr "An error occurred during the encryption of the secret key"
 
-#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:104
+#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:106
 msgid "Une erreur est survenue pendant le déchiffrement de la clé secrète"
 msgstr "An error occurred during the decryption of the secret key"
 
-#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:150
-#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:155
+#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:152
+#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:157
 msgid "Une erreur est survenue pendant le chiffrement"
 msgstr "An error occurred during the encryption"
 
-#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:173
-#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:178
+#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:175
+#: ../../../vendor/equinton/ppci/src/Models/Gacltotp.php:180
 msgid "Une erreur est survenue pendant le déchiffrement"
 msgstr "An error occurred during the decryption"
 
@@ -1123,25 +1214,22 @@ msgstr "%s is not a recognized field that can be used during import"
 msgid "Fichier %s non trouvé ou non lisible"
 msgstr "File %s not found or not readable"
 
-#: ../../../vendor/equinton/ppci/src/Models/Request.php:57
-msgid ""
-"La requête ne peut pas contenir d'ordres de modification de la base de "
-"données ni porter sur des tables contenant des informations confidentielles"
-msgstr ""
-"The request must not contain any database modification commands or relate to "
-"tables containing confidential information"
+#: ../../../vendor/equinton/ppci/src/Models/Request.php:108
+#, php-format
+msgid "La requête ne peut pas contenir le terme %s"
+msgstr "The request can't contains the word %s"
 
-#: ../../../vendor/equinton/ppci/src/Models/PpciModel.php:145
+#: ../../../vendor/equinton/ppci/src/Models/PpciModel.php:144
 #, php-format
 msgid "Le champ %s est obligatoire mais n'a pas été renseigné"
 msgstr "The field %s is required, but has not been filled out"
 
-#: ../../../vendor/equinton/ppci/src/Models/PpciModel.php:263
+#: ../../../vendor/equinton/ppci/src/Models/PpciModel.php:279
 #, php-format
 msgid "La clé principale %s n'est pas renseignée ou vaut zéro"
 msgstr "The primary key %s is not filled in or is zero"
 
-#: ../../../vendor/equinton/ppci/src/Models/PpciModel.php:267
+#: ../../../vendor/equinton/ppci/src/Models/PpciModel.php:283
 #, php-format
 msgid "Une valeur fournie n'est pas numérique (%s)"
 msgstr "A value supplied is not numeric (%s)"
@@ -1175,7 +1263,7 @@ msgstr ""
 msgid "%s - Trop d'accès à un module"
 msgstr "%s - Too many accesses to a module"
 
-#: ../../../vendor/equinton/ppci/src/Models/Acllogin.php:120
+#: ../../../vendor/equinton/ppci/src/Models/Acllogin.php:122
 msgid ""
 "L'ajout d'un login à la table des comptes (gestion des droits) n'est pas "
 "possible : le login n'est pas fourni"
@@ -1205,10 +1293,14 @@ msgstr "Code"
 #: ../../../app/Views/templates/declaration/documentList.tpl:26
 #: ../../../app/Views/templates/document/documentList.tpl:43
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/dbparamListChange.tpl:11
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:13
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:12
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestList.tpl:10
 msgid "Description"
 msgstr "Description"
+
+#: ../../../app/Views/templates/param/instituteList.tpl:13
+msgid "Groupes autorisés"
+msgstr "Authorized groups"
 
 #: ../../../app/Views/templates/param/icesList.tpl:11
 #: ../../../app/Views/templates/param/statusList.tpl:9
@@ -1244,7 +1336,7 @@ msgstr "Add / edit a parameter:"
 #: ../../../app/Views/templates/param/countryChange.tpl:4
 #: ../../../app/Views/templates/declaration/declarationDisplay.tpl:34
 #: ../../../app/Views/templates/declaration/declarationChange.tpl:6
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:39
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:43
 msgid "Retour à la liste"
 msgstr "Back to the list"
 
@@ -1265,20 +1357,21 @@ msgstr "Display order in the lists:"
 
 #: ../../../app/Views/templates/param/paramChange.tpl:37
 #: ../../../app/Views/templates/param/icesChange.tpl:21
-#: ../../../app/Views/templates/param/instituteChange.tpl:29
+#: ../../../app/Views/templates/param/instituteChange.tpl:48
 #: ../../../app/Views/templates/param/statusChange.tpl:37
 #: ../../../app/Views/templates/param/countryChange.tpl:27
 #: ../../../app/Views/templates/declaration/locationChange.tpl:316
 #: ../../../app/Views/templates/declaration/fishChange.tpl:202
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:311
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:310
 #: ../../../app/Views/templates/declaration/eventChange.tpl:48
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/loginChangePassword.tpl:133
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totp.tpl:36
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/loginsaisie.tpl:220
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totpShowCode.tpl:20
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/dbparamListChange.tpl:34
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/acoChange.tpl:16
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:13
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:28
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:12
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:62
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:25
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/loginChange.tpl:45
 msgid "Valider"
@@ -1286,19 +1379,19 @@ msgstr "Save and return"
 
 #: ../../../app/Views/templates/param/paramChange.tpl:39
 #: ../../../app/Views/templates/param/icesChange.tpl:23
-#: ../../../app/Views/templates/param/instituteChange.tpl:31
+#: ../../../app/Views/templates/param/instituteChange.tpl:50
 #: ../../../app/Views/templates/param/countryChange.tpl:29
 #: ../../../app/Views/templates/declaration/fishChange.tpl:204
 #: ../../../app/Views/templates/declaration/documentList.tpl:30
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:313
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:312
 #: ../../../app/Views/templates/declaration/eventChange.tpl:50
 #: ../../../app/Views/templates/document/documentList.tpl:47
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/loginsaisie.tpl:222
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/acoChange.tpl:18
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:15
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:14
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:27
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/loginChange.tpl:47
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:94
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:99
 msgid "Supprimer"
 msgstr "Delete..."
 
@@ -1306,8 +1399,8 @@ msgstr "Delete..."
 #: ../../../app/Views/templates/param/statusChange.tpl:42
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/loginsaisie.tpl:234
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/acoChange.tpl:51
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:61
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:36
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:60
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:35
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/loginChange.tpl:54
 msgid "Donnée obligatoire"
 msgstr "Mandatory data"
@@ -1321,11 +1414,11 @@ msgid "Libelle de la zone CIEM :"
 msgstr "Name of the ICES zone:"
 
 #: ../../../app/Views/templates/param/icesChange.tpl:29
-#: ../../../app/Views/templates/param/instituteChange.tpl:36
+#: ../../../app/Views/templates/param/instituteChange.tpl:55
 #: ../../../app/Views/templates/param/countryChange.tpl:35
 #: ../../../app/Views/templates/declaration/locationChange.tpl:323
 #: ../../../app/Views/templates/declaration/fishChange.tpl:210
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:322
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:321
 #: ../../../app/Views/templates/declaration/eventChange.tpl:58
 msgid "Champ obligatoire"
 msgstr "Mandatory field"
@@ -1349,9 +1442,13 @@ msgstr "SQL code:"
 #: ../../../app/Views/templates/param/instituteChange.tpl:22
 #: ../../../app/Views/templates/declaration/fishChange.tpl:193
 #: ../../../app/Views/templates/document/documentChange.tpl:15
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:19
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:18
 msgid "Description :"
 msgstr "Description:"
+
+#: ../../../app/Views/templates/param/instituteChange.tpl:30
+msgid "Groupes autorisés à modifier les déclarations de cet institut :"
+msgstr "Groups allowed to modify the declarations of this institute:"
 
 #: ../../../app/Views/templates/param/translateDb.tpl:2
 msgid "Import ou mise à jour des tables de paramètres"
@@ -1505,28 +1602,28 @@ msgstr "Status"
 msgid "Pour les déclarations validées sélectionnées :"
 msgstr "For validated declarations selected :"
 
-#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:109
+#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:110
 msgid "Choisissez"
 msgstr "Select"
 
-#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:110
+#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:113
 msgid "Exporter les déclarations en CSV"
 msgstr "Export declarations in CSV format"
 
-#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:111
+#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:116
 msgid "Exporter les poissons rattachés aux déclarations en CSV"
 msgstr "Export fish attached to declarations in CSV format"
 
-#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:114
+#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:119
 msgid "Exporter les déclarations et les poissons rattachés (JSON)"
 msgstr "Export declarations and attached fish (JSON)"
 
-#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:121
+#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:126
 msgid ""
 "Exporter les libellés des tables de paramètres dans le format d'échange :"
 msgstr "Export parameter table labels in exchange format :"
 
-#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:128
+#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:133
 #: ../../../app/Views/templates/declaration/importJson.tpl:111
 #: ../../../app/Views/templates/declaration/importCsv.tpl:123
 #: ../../../app/Views/templates/declaration/importFishCsv.tpl:123
@@ -1539,7 +1636,7 @@ msgstr "Export parameter table labels in exchange format :"
 msgid "oui"
 msgstr "yes"
 
-#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:135
+#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:140
 #: ../../../app/Views/templates/declaration/importJson.tpl:117
 #: ../../../app/Views/templates/declaration/importCsv.tpl:129
 #: ../../../app/Views/templates/declaration/importFishCsv.tpl:129
@@ -1548,8 +1645,8 @@ msgstr "yes"
 msgid "non"
 msgstr "no"
 
-#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:141
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:93
+#: ../../../app/Views/templates/declaration/declarationListDetail.tpl:146
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:97
 msgid "Exécuter"
 msgstr "Run"
 
@@ -1739,12 +1836,12 @@ msgid "identifiant technique (UUID) :"
 msgstr "technical identifier (UUID):"
 
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:84
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:228
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:227
 msgid "Observations :"
 msgstr "Remarks:"
 
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:88
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:235
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:234
 msgid "Informations sur le lot d'esturgeons"
 msgstr "Sturgeon lot informations"
 
@@ -1755,16 +1852,16 @@ msgstr "Total length:"
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:92
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:98
 #: ../../../app/Views/templates/declaration/declarationChange.tpl:102
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:238
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:244
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:237
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:243
 msgid "de :"
 msgstr "from:"
 
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:92
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:98
 #: ../../../app/Views/templates/declaration/declarationChange.tpl:103
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:239
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:245
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:238
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:244
 msgid "à :"
 msgstr "to:"
 
@@ -1775,18 +1872,18 @@ msgstr "Weight:"
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:102
 #: ../../../app/Views/templates/declaration/fishChange.tpl:89
 #: ../../../app/Views/templates/declaration/declarationSearch.tpl:52
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:249
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:248
 msgid "État à la capture :"
 msgstr "State at the capture:"
 
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:106
 #: ../../../app/Views/templates/declaration/fishChange.tpl:105
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:264
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:263
 msgid "Manipulations effectuées :"
 msgstr "Manipulations carried out:"
 
 #: ../../../app/Views/templates/declaration/declarationGeneral.tpl:114
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:297
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:296
 msgid "Devenir du lot :"
 msgstr "Fate of lot:"
 
@@ -1796,7 +1893,7 @@ msgstr "New event..."
 
 #: ../../../app/Views/templates/declaration/eventList.tpl:8
 #: ../../../app/Views/templates/declaration/fishList.tpl:24
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:11
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:10
 msgid "Modifier"
 msgstr "Edit"
 
@@ -1973,12 +2070,12 @@ msgid "Longueur (mm) :"
 msgstr "Length (mm):"
 
 #: ../../../app/Views/templates/declaration/fishChange.tpl:81
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:243
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:242
 msgid "Masse (kg) :"
 msgstr "Weight (kg):"
 
 #: ../../../app/Views/templates/declaration/fishChange.tpl:132
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:291
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:290
 msgid "Compléments sur les manipulations effectuées :"
 msgstr ""
 "AdditiAdditional information on the manipulations carried out:onal "
@@ -2054,7 +2151,7 @@ msgstr "original document"
 
 #: ../../../app/Views/templates/declaration/documentList.tpl:67
 #: ../../../app/Views/templates/document/documentList.tpl:75
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/main_js.tpl:271
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/main_js.tpl:296
 msgid "Confirmez-vous la suppression ?"
 msgstr "Do you confirm the deletion?"
 
@@ -2125,19 +2222,19 @@ msgstr "Search"
 msgid "Nouvelle déclaration"
 msgstr "New declaration"
 
-#: ../../../app/Views/templates/declaration/declarationList.tpl:34
+#: ../../../app/Views/templates/declaration/declarationList.tpl:35
 msgid "Exporter la liste au format CSV (obsolète)"
 msgstr "Export list in CSV format (obsolete)"
 
-#: ../../../app/Views/templates/declaration/declarationList.tpl:37
+#: ../../../app/Views/templates/declaration/declarationList.tpl:38
 msgid "Exporter les poissons correspondants au format CSV (obsolète)"
 msgstr "Export the corresponding fish in CSV format (obsolete)"
 
-#: ../../../app/Views/templates/declaration/declarationList.tpl:44
+#: ../../../app/Views/templates/declaration/declarationList.tpl:45
 msgid "Liste"
 msgstr "List"
 
-#: ../../../app/Views/templates/declaration/declarationList.tpl:49
+#: ../../../app/Views/templates/declaration/declarationList.tpl:50
 msgid "Carte"
 msgstr "Map"
 
@@ -2205,7 +2302,7 @@ msgstr "Remark on targeted species:"
 msgid "Institut ayant recueilli la déclaration :"
 msgstr "Institute that received the declaration :"
 
-#: ../../../app/Views/templates/declaration/declarationChange.tpl:237
+#: ../../../app/Views/templates/declaration/declarationChange.tpl:236
 msgid "Longueur totale (mm) :"
 msgstr "Total length (mm):"
 
@@ -2359,12 +2456,12 @@ msgid "Longueur maximale des poissons capturés"
 msgstr "Maximum length of fishes:"
 
 #: ../../../app/Views/templates/declaration/importCsv.tpl:176
-msgid "Poids minimum des poissons capturés, en grammes"
-msgstr "Minimum weight of fish caught, in grams"
+msgid "Poids minimum des poissons capturés, en kg (séparateur : point)"
+msgstr "Minimum weight of fish caught, in kilograms (decimal separator: point)"
 
 #: ../../../app/Views/templates/declaration/importCsv.tpl:177
-msgid "Poids maximum, en grammes"
-msgstr "Max weigth, in grams"
+msgid "Poids maximum, en kg (séparateur : point)"
+msgstr "Max weigth, in kilogram (decimal separator: point)"
 
 #: ../../../app/Views/templates/declaration/importCsv.tpl:178
 msgid "Code du pêcheur"
@@ -2527,8 +2624,8 @@ msgid "Devenir du poisson"
 msgstr "Fate of fish"
 
 #: ../../../app/Views/templates/declaration/importFishCsv.tpl:160
-msgid "Poids du poisson, en grammes"
-msgstr "Weight of fish, in grams"
+msgid "Poids du poisson, en kg (séparateur : point)"
+msgstr "Weight of fish, in kilogram (decimal separator: point)"
 
 #: ../../../app/Views/templates/declaration/importFishCsv.tpl:161
 msgid "Manipulations effectuées (forme littéraire)"
@@ -2675,17 +2772,17 @@ msgstr "Show %d entries"
 msgid "Tout afficher"
 msgstr "Display All"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/main_js.tpl:225
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/main_js.tpl:250
 msgid "Valeur numérique..."
 msgstr "Numerical value..."
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/main_js.tpl:290
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/main_js.tpl:373
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/main_js.tpl:315
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/main_js.tpl:344
 msgid "Confirmez-vous cette opération ?"
 msgstr "Do you confirm this operation?"
 
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/dbstructure.tpl:1
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:44
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:48
 msgid "Structure de la base de données"
 msgstr "Database structure"
 
@@ -2829,7 +2926,8 @@ msgstr ""
 "up in your smartphone"
 
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totp.tpl:15
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:22
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totpShowCode.tpl:14
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:56
 msgid "Code généré par le logiciel TOTP :"
 msgstr "TOTP software generated code:"
 
@@ -2990,6 +3088,33 @@ msgstr "Account blocked"
 msgid "Adresses mails :"
 msgstr "Email addresses:"
 
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totpShowCode.tpl:1
+msgid "Affichage de la clé TOTP"
+msgstr "Display the TOTP key"
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totpShowCode.tpl:6
+msgid ""
+"Ce module vous permet de visualiser les paramètres de votre clé TOTP, pour "
+"pouvoir configurer un autre appareil le cas échéant"
+msgstr ""
+"This module allows you to view the parameters of your TOTP key, so that you "
+"can configure another device if necessary"
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totpShowCode.tpl:31
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:40
+msgid "Fournisseur"
+msgstr "Furnisher"
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totpShowCode.tpl:35
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:44
+msgid "Compte"
+msgstr "Account"
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/totpShowCode.tpl:39
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:48
+msgid "Jeton"
+msgstr "Token"
+
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/ident/identMailInput.tpl:2
 msgid "lancement de la procédure de récupération"
 msgstr "start the recovery procedure"
@@ -3125,7 +3250,15 @@ msgid ""
 msgstr ""
 "You are receiving this message because you are the application administrator."
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:35
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:33
+msgid "Afficher le code TOTP pour configurer un autre appareil"
+msgstr "Display TOTP key to configure another device"
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:33
+msgid "Afficher le code TOTP"
+msgstr "Display TOTP code"
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/header.tpl:36
 msgid "Mot de passe"
 msgstr "Password"
 
@@ -3174,7 +3307,7 @@ msgid "Modification du droit d'une application (module de gestion des droits)"
 msgstr "Modify the right of an application (rights management module)"
 
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/acoChange.tpl:5
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:5
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:4
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliDisplay.tpl:3
 msgid "Retour à la liste des applications"
 msgstr "Back to the list of applications"
@@ -3191,47 +3324,60 @@ msgstr "Name of the right used in the application:"
 msgid "Groupes disposant du droit :"
 msgstr "Groups with the right:"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:2
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:1
 msgid "Modification d'un groupe et rattachement des logins"
 msgstr "Edit the group and its attachments to the logins"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:5
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:4
 msgid "Retour à la liste des groupes"
 msgstr "Back to the list of groups"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:20
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:19
 msgid "Nom du groupe :"
 msgstr "Name of the group:"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:26
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:25
 msgid "Groupe de rattachement"
 msgstr "Group of attachment"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:42
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/groupChange.tpl:41
 msgid "Logins rattachés"
 msgstr "Logins attached"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:1
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:8
 msgid "Activation de la double authentification"
 msgstr "Enabling dual authentication"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:5
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:12
 msgid ""
 "La double identification limite les risques d'usurpation de votre compte."
 msgstr ""
 "The double identification limits the risks of usurpation of your account."
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:7
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:14
 msgid ""
 "Pour l'activer, vous devrez installer dans votre smartphone une application "
-"compatible avec l'identificationTOTP, par exemple FreeOTP, Google "
+"compatible avec l'identificationTOTP, par exemple FreeOTP+, Google "
 "Authenticator, etc."
 msgstr ""
 "To activate it, you will need to install in your smartphone an application "
-"that is compatible with the identification TOTP, e.g. FreeOTP, Google "
-"Authenticator, etc."
+"that is compatible with the identification TOTP, e.g. FreeOTP+, etc."
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:9
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:16
+msgid ""
+"Si vous devez travailler dans une pièce à accès restreint (laboratoire "
+"protégé), vous pouvez également utiliser un logiciel qui s'installe dans "
+"votre ordinateur, comme Ente Auth pour Windows ou Authenticator pour Linux. "
+"Ces logiciels vous permettent d'échanger les clés d'un ordinateur à un "
+"autre, pensez simplement à chiffrer les informations quand vous les exportez."
+msgstr ""
+"If you need to work in a room with restricted access (protected laboratory), "
+"you can also use software that installs on your computer, such as Ente Auth "
+"for Windows or Authenticator for Linux. This software allows you to exchange "
+"keys from one computer to another, just remember to encrypt the information "
+"when you export it."
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:18
 msgid ""
 "Une fois l'application installée, scannez le QRCODE, puis tapez le code "
 "généré par l'application pour valider votre double identification."
@@ -3239,11 +3385,15 @@ msgstr ""
 "Once the application has been installed, scan the QRCODE, then enter the "
 "code generated by the application to validate your dual identification."
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:2
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/otpCreate.tpl:33
+msgid "Afficher le contenu du QRCODE pour une saisie manuelle"
+msgstr "Display the content of QRCODE to manual entry"
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:1
 msgid "Modification d'une application (module de gestion des droits)"
 msgstr "Modify the application (rights management module)"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:12
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliChange.tpl:10
 msgid "Nom de l'application :"
 msgstr "Name of the application:"
 
@@ -3303,15 +3453,15 @@ msgstr "Number of logins declared"
 msgid "Rajouter un groupe fils"
 msgstr "Add a child group"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:2
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:1
 msgid "Liste des applications disponibles dans le module de gestion des droits"
 msgstr "List of applications available in the rights management module"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:6
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:5
 msgid "Nouvelle application..."
 msgstr "New application"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:12
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/droits/appliList.tpl:11
 msgid "Nom de l'application"
 msgstr "Name of the application"
 
@@ -3347,39 +3497,43 @@ msgstr "Duplicate the request"
 msgid "Confirmez la suppression de la requête"
 msgstr "Do you confirm the deletion of the request?"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:51
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:55
 msgid "Description de la requête"
 msgstr "Description of the request"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:58
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:62
 msgid "Code SQL :"
 msgstr "SQL code:"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:64
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:68
 msgid "Champs dates de la requête (séparés par une virgule) :"
 msgstr "Date fields of the request (separated by a comma):"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:70
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:74
 msgid "date de création :"
 msgstr "Date of creation:"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:76
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:80
 msgid "par :"
 msgstr "by:"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:82
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:86
 msgid "Date de dernière exécution :"
 msgstr "Date of last execution:"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:90
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:94
 msgid "Enregistrer"
 msgstr "Save"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:92
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:96
 msgid "Enregistrer et exécuter"
 msgstr "Save and run"
 
-#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:126
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:98
+msgid "Exécuter avec export CSV direct"
+msgstr "Execute with direct CSV export"
+
+#: ../../../vendor/equinton/ppci/src/Views/templates/ppci/request/requestChange.tpl:131
 msgid "Aucun résultat n'a été retourné par la requête"
 msgstr "No results were returned by the query"
 
@@ -3445,6 +3599,14 @@ msgstr "Variable name"
 #: ../../../vendor/equinton/ppci/src/Views/templates/ppci/utils/system.tpl:9
 msgid "Contenu"
 msgstr "Content"
+
+#~ msgid ""
+#~ "La requête ne peut pas contenir d'ordres de modification de la base de "
+#~ "données ni porter sur des tables contenant des informations "
+#~ "confidentielles"
+#~ msgstr ""
+#~ "The request must not contain any database modification commands or relate "
+#~ "to tables containing confidential information"
 
 #, fuzzy
 #~ msgid "Tables de paramètres"
@@ -3605,10 +3767,6 @@ msgstr "Content"
 #~ "An unidentified error occurred during the processing of the request. If "
 #~ "the problem persists, please contact the application administrator"
 
-#, php-format
-#~ msgid "La nouvelle version %1s du %2s a été publiée !"
-#~ msgstr "The new %1s version of %2s has been released!"
-
 #, fuzzy
 #~ msgid "La structure de la clé est incorrecte"
 #~ msgstr "The old password is incorrect"
@@ -3668,28 +3826,6 @@ msgstr "Content"
 #, fuzzy, php-format
 #~ msgid "Le fichier %s n'existe pas ou n'est pas lisible"
 #~ msgstr "The file %s don't exist"
-
-#~ msgid ""
-#~ "L'encodage du fichier ne correspond pas à celui que vous avez indiqué"
-#~ msgstr ""
-#~ "The encoding of the file does not correspond to the one you have indicated"
-
-#~ msgid "Impossible de recopier le fichier importé dans le dossier temporaire"
-#~ msgstr "Can not copy the imported file to the temporary folder"
-
-#~ msgid "Aucun fichier n'a été téléchargé vers le serveur"
-#~ msgstr "The file was not downloaded correctly to the server"
-
-#~ msgid ""
-#~ "Aucune déclaration n'a été importée dans la base de données. Il est "
-#~ "possible qu'un problème technique soit survenu"
-#~ msgstr ""
-#~ "No declarations have been imported into the database. It is possible that "
-#~ "a technical problem has occurred"
-
-#, php-format
-#~ msgid "%1s déclarations importées, dont %2s déclarations mises à jour"
-#~ msgstr "%1s declarations imported, including %2s declarations updated"
 
 #~ msgid ""
 #~ "Envoi des mails réalisé pour informer du changement de status de la "
@@ -3798,8 +3934,8 @@ msgstr "Content"
 #~ "mot de passe pour l'application :appli. Si ce n'était pas le cas, "
 #~ "contactez l'administrateur de l'application.\n"
 #~ "                            <br>Pour réinitaliser votre mot de passe, "
-#~ "recopiez le lien suivant dans votre navigateur :<br><a href=':"
-#~ "adresse'>Réinitialisez votre mot de passe</a>\n"
+#~ "recopiez le lien suivant dans votre navigateur :<br><a "
+#~ "href=':adresse'>Réinitialisez votre mot de passe</a>\n"
 #~ "                            <br>Ne répondez pas à ce mail, qui est généré "
 #~ "automatiquement"
 #~ msgstr ""
@@ -5086,8 +5222,8 @@ msgstr "Content"
 #~ msgstr "location of the sample in the container (free text)"
 
 #~ msgid ""
-#~ "les métadonnées rattachées à l'échantillon (au format json, p. e. : &#123;"
-#~ "\"taxon\":\"Alosa alosa\"&#125;)"
+#~ "les métadonnées rattachées à l'échantillon (au format json, p. e. : "
+#~ "&#123;\"taxon\":\"Alosa alosa\"&#125;)"
 #~ msgstr ""
 #~ "metadata attached to the sample (in json format, eg: &#123;\"taxon\":"
 #~ "\"Alosa alosa\"&#125;)"
@@ -5106,13 +5242,13 @@ msgstr "Content"
 #~ msgid ""
 #~ "Dans le cas de multi-valeurs, celles-ci doivent être séparées par une "
 #~ "virgule dans la colonne md_ (exemple : valeur1,valeur2), et entourées de "
-#~ "crochets dans la colonne sample_metadata_json (exemple : &#123;"
-#~ "\"valeurs\":&#91;valeur1,valeur2&#93;&#125;)"
+#~ "crochets dans la colonne sample_metadata_json (exemple : "
+#~ "&#123;\"valeurs\":&#91;valeur1,valeur2&#93;&#125;)"
 #~ msgstr ""
 #~ "In case of multi-values, these must be separated by a comma in the md_ "
 #~ "column (example: value1,value2), and surrounded by square brackets in the "
-#~ "sample_metadata_json column (example: &#123;\"values\":&#91;value1,"
-#~ "value2&#93;&#125;)"
+#~ "sample_metadata_json column (example: "
+#~ "&#123;\"values\":&#91;value1,value2&#93;&#125;)"
 
 #~ msgid ""
 #~ "Les codes informatiques peuvent être consultés à partir du menu "
@@ -5258,8 +5394,8 @@ msgstr "Content"
 #~ "identifiant <b>unique</b> dans la base de données d'origine, sous la "
 #~ "forme : code_base:id"
 #~ msgstr ""
-#~ "<b>unique</b> identifier in the original database, in the form: base_code:"
-#~ "id"
+#~ "<b>unique</b> identifier in the original database, in the form: "
+#~ "base_code:id"
 
 #~ msgid "type d'échantillon"
 #~ msgstr "sample type"
@@ -6635,10 +6771,6 @@ msgstr "Content"
 #~ msgstr "Problem encountered during recording"
 
 #, fuzzy
-#~ msgid "Vous ne disposez pas des droits suffisants pour créer le lot"
-#~ msgstr "You do not have the necessary rights to perform this function"
-
-#, fuzzy
 #~ msgid ""
 #~ "Le type mime pour l'extension %s n'a pas été décrit dans la base de "
 #~ "données"
@@ -6691,28 +6823,12 @@ msgstr "Content"
 #~ msgstr "Problem encountered when opening finfo"
 
 #, fuzzy
-#~ msgid "Vous ne disposez pas des droits pour modifier cet échantillon"
-#~ msgstr "You do not have the necessary rights to perform this function"
-
-#, fuzzy
-#~ msgid ""
-#~ "Vous ne disposez pas des droits nécessaires pour supprimer l'échantillon "
-#~ "%1s"
-#~ msgstr "You do not have the necessary rights to perform this function"
-
-#, fuzzy
 #~ msgid "Le nom de la collection n'a pas été renseigné"
 #~ msgstr "The email has not been filled in"
 
 #, fuzzy
 #~ msgid "Le format de date de %s n'est pas reconnu. "
 #~ msgstr "Password not strong enough"
-
-#, fuzzy
-#~ msgid ""
-#~ "Vous ne disposez pas des droits nécessaires pour modifier l'échantillon "
-#~ "%1s"
-#~ msgstr "You do not have the necessary rights to perform this function"
 
 #, fuzzy
 #~ msgid "Le modèle d'export n'a pas été correctement initialisé"
@@ -6796,10 +6912,6 @@ msgstr "Content"
 #, fuzzy
 #~ msgid "UID ou identifiant"
 #~ msgstr "Dual authentication activate?"
-
-#, fuzzy
-#~ msgid "Afficher le parent"
-#~ msgstr "Show %d entries"
 
 #, fuzzy
 #~ msgid "Collection :"
@@ -7136,10 +7248,6 @@ msgstr "Content"
 #, fuzzy
 #~ msgid "Nom de la collection"
 #~ msgstr "Name of the application"
-
-#, fuzzy
-#~ msgid "Groupes de login autorisés"
-#~ msgstr "ACL - login groups"
 
 #, fuzzy
 #~ msgid "Protocole / opération :"

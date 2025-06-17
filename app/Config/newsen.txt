@@ -1,5 +1,14 @@
 News
 ====================
+Version 25.1.0 of 17 June 2025
+------------------------------
+Bug fixes:
+- retrieving the latest published version did not work
+- when importing data, weights were indicated in grams instead of kilograms
+
+New features:
+- only members of groups associated with an institute can modify or export the corresponding declarations
+
 Version 25.0.0 of 15 may 2025
 -----------------------------
 - upgrading the framework and third-party libraries
