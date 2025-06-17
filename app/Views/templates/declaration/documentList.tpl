@@ -35,7 +35,7 @@ $(document).ready(function() {
 {section name=lst loop=$dataDoc}
 <tr>
 <td class="center">
-{if $rights.manage == 1}
+{if $rights.manage == 1 && $editGranted == 1}
 <a href="fishChange?fish_id={$dataDoc[lst].fish_id}" title="{t}Modifier les informations concernant le poisson{/t}">{$dataDoc[lst].fish_id}</a>
 {else}
 {$dataDoc[lst].fish_id}
@@ -61,7 +61,7 @@ $(document).ready(function() {
 <td>{$dataDoc[lst].document_description}</td>
 <td>{$dataDoc[lst].size}</td>
 <td>{$dataDoc[lst].document_date_import}</td>
-{if $rights["manage"] == 1}
+{if $rights["manage"] == 1 && $editGranted == 1}
 <td>
 <div class="center">
 <a href="documentDelete?document_id={$dataDoc[lst].document_id}&fish_id={$dataDoc[lst].fish_id}" onclick="return confirm('{t}Confirmez-vous la suppression ?{/t}');">

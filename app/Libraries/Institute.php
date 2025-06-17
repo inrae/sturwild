@@ -2,6 +2,7 @@
 
 namespace App\Libraries;
 
+use App\Models\Declaration;
 use App\Models\Institute as ModelsInstitute;
 use Ppci\Libraries\PpciException;
 use Ppci\Libraries\PpciLibrary;
@@ -19,28 +20,30 @@ class Institute extends PpciLibrary
 			$this->id = $_REQUEST[$keyName];
 		}
 	}
-
-
-
 	function list()
 	{
 		$this->vue = service('Smarty');
 		/*
 		 * Display the list of all records of the table
 		 */
-		$this->vue->set($this->dataclass->getListe(2), "data");
+		$this->vue->set($this->dataclass->getList(), "data");
 		$this->vue->set("param/instituteList.tpl", "corps");
 		$this->vue->send();
 	}
 	function change()
 	{
 		$this->vue = service('Smarty');
-		/*
-		 * open the form to modify the record
-		 * If is a new record, generate a new record with default value :
-		 * $_REQUEST["idParent"] contains the identifiant of the parent record
-		 */
 		$this->dataread( $this->id, "param/instituteChange.tpl");
+		$this->vue->set($this->dataclass->getAllGroupsFromInstitute($this->id), "groups");
+		/**
+		 * Search if the institute can be deleted
+		 */
+		$declaration = new Declaration;
+		if ($declaration->getNbDeclarationsByInstitute($this->id) == 0 ) {
+			$this->vue->set(1,"canBeDeleted");
+		} else {
+			$this->vue->set(0,"canBeDeleted");
+		}
 		$this->vue->send();
 	}
 	function write()

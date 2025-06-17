@@ -1,5 +1,5 @@
 <div class="col-sm-12 col-md-6">
-{if $rights.manage ==1}
+{if $rights.manage ==1 && $editGranted == 1}
 <a href="locationChange?declaration_id={$data.declaration_id}">
 <img src="display/images/edit.gif" height="20">{t}Modifier...{/t}</a>
 {/if}

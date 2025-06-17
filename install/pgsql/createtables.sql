@@ -233,9 +233,6 @@ COMMENT ON COLUMN sturwild.dbversion.dbversion_date IS E'Date de la version';
 ALTER TABLE sturwild.dbversion OWNER TO sturwild;
 -- ddl-end --
 
-INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'24.1', E'2024-07-15');
--- ddl-end --
-
 -- object: sturwild.declaration_declaration_id_seq | type: SEQUENCE --
 -- DROP SEQUENCE IF EXISTS sturwild.declaration_declaration_id_seq CASCADE;
 CREATE SEQUENCE sturwild.declaration_declaration_id_seq
@@ -286,7 +283,7 @@ CREATE TABLE sturwild.declaration (
 	declaration_uuid uuid NOT NULL DEFAULT gen_random_uuid(),
 	origin_identifier varchar,
 	target_species_id integer,
-	institute_id integer,
+	institute_id integer not null,
 	CONSTRAINT capture_id PRIMARY KEY (declaration_id)
 );
 -- ddl-end --
@@ -1650,3 +1647,48 @@ GRANT CREATE,USAGE
    ON SCHEMA public
    TO pg_database_owner;
 -- ddl-end --
+
+-- version v25.0 --
+CREATE TABLE sturwild.institute_aclgroup (
+	institute_id integer NOT NULL,
+	aclgroup_id integer NOT NULL,
+	CONSTRAINT institute_aclgroup_pk PRIMARY KEY (institute_id,aclgroup_id)
+);
+
+-- ** [ Created foreign keys ]
+
+-- object: institute_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.institute_aclgroup DROP CONSTRAINT IF EXISTS institute_fk CASCADE;
+ALTER TABLE sturwild.institute_aclgroup ADD CONSTRAINT institute_fk FOREIGN KEY (institute_id)
+REFERENCES sturwild.institute (institute_id) MATCH FULL
+ON DELETE CASCADE ON UPDATE CASCADE;
+-- ddl-end --
+
+-- object: aclgroup_fk | type: CONSTRAINT --
+-- ALTER TABLE sturwild.institute_aclgroup DROP CONSTRAINT IF EXISTS aclgroup_fk CASCADE;
+ALTER TABLE sturwild.institute_aclgroup ADD CONSTRAINT aclgroup_fk FOREIGN KEY (aclgroup_id)
+REFERENCES sturwildgacl.aclgroup (aclgroup_id) MATCH FULL
+ON DELETE CASCADE ON UPDATE CASCADE;
+-- ddl-end --
+
+
+CREATE OR REPLACE FUNCTION sturwild.getgroupsfrominstitute (IN institute_id integer)
+	RETURNS varchar
+	LANGUAGE sql
+	VOLATILE 
+	CALLED ON NULL INPUT
+	SECURITY INVOKER
+	PARALLEL UNSAFE
+	COST 1
+	AS 
+$function$
+select array_to_string(array_agg(groupe),', ') as groups
+from institute_aclgroup
+join aclgroup using (aclgroup_id)
+where institute_id = $1
+$function$;
+-- ddl-end --
+ALTER FUNCTION sturwild.getgroupsfrominstitute(integer) OWNER TO sturwild;
+-- ddl-end --
+
+INSERT INTO sturwild.dbversion (dbversion_number, dbversion_date) VALUES (E'25.0', E'2025-06-16');

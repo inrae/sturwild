@@ -101,9 +101,13 @@ class Declaration extends PpciLibrary
         /*
          * Display the detail of the record
          */
-        $this->vue->set($this->dataclass->getDetail($this->id), "data");
+        $this->vue->set($data = $this->dataclass->getDetail($this->id), "data");
         $this->vue->set("declaration/declarationDisplay.tpl", "corps");
-
+        if ($this->dataclass->isGrantedFromInstitute($data["institute_id"])) {
+            $this->vue->set(1, "editGranted");
+        } else {
+            $this->vue->set(0, "editGranted");
+        }
         /*
          * Recuperation des autres informations a afficher
          */
@@ -151,7 +155,7 @@ class Declaration extends PpciLibrary
         $targetSpecies = new Param("target_species");
         $this->vue->set($targetSpecies->getListe(), "target_species");
         $institute = new Institute();
-        $this->vue->set($institute->getListe(2), "institutes");
+        $this->vue->set($institute->getInstitutesEnabled(), "institutes");
         /**
          * Handlings
          */
@@ -282,7 +286,6 @@ class Declaration extends PpciLibrary
                 $this->vue->send();
             } else {
                 unset($this->vue);
-                $module_coderetour = -1;
                 $this->message->set(_("Aucune des déclarations sélectionnées ne peut être exportée : elles doivent avoir été validées au préalable"), true);
                 return $this->list();
             }

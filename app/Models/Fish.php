@@ -243,6 +243,19 @@ class Fish extends PpciModel
 				$i++;
 			}
 			$where .= ") and (status_id >= 3 )";
+			if (! $_SESSION["userRights"]["param"] == 1) {
+                $in = "";
+                $i = 0;
+                foreach ($_SESSION["institutes"] as $institute_id) {
+                    if ($i > 0) {
+                        $in .= ",";
+                    }
+                    $in .= ":inst" . $i . ":";
+                    $param["inst" . $i] = $institute_id;
+                    $i++;
+                }
+                $where .= " and institute_id in ($in)";
+            }
 			$order = " order by declaration_id";
 			$data = $this->getListeParamAsPrepared($sql . $where . $order, $param);
 		}

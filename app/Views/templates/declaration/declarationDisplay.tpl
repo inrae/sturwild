@@ -32,7 +32,7 @@ $(document).ready(function() {
 <a href="declarationList">
 <img src="display/images/list.png" height="20">
 {t}Retour à la liste{/t}</a>
-{if $rights.manage ==1}
+{if $rights.manage ==1 && $editGranted == 1}
 <a href=declarationChange?declaration_id=0>
 <img src="display/images/new.png" height="25">
 {t}Nouvelle déclaration...{/t}

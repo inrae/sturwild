@@ -10,6 +10,7 @@
                 <tr>
                     <th>{t}Code{/t}</th>
                     <th>{t}Description{/t}</th>
+                    <th>{t}Groupes autorisés{/t}</th>
                 </tr>
             </thead>
             <tbody> {section name=lst loop=$data}
@@ -22,6 +23,7 @@
                         {/if}
                     </td>
                     <td class="tableTextarea">{$data[lst].institute_description}</td>
+                    <td>{$data[lst].groups}</td>
                 </tr>
                 {/section}
             </tbody>

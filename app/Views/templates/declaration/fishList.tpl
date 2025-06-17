@@ -1,4 +1,4 @@
-{if $rights["manage"] == 1}
+{if $rights["manage"] == 1 && $editGranted == 1}
 <a href=fishChange?fish_id=0&declaration_id={$data.declaration_id}>{t}Nouvel esturgeon...{/t}</a>
 {/if}
 <table class="table table-bordered table-hover" id="fishList">
@@ -20,7 +20,7 @@
 {section name=lst loop=$fishs}
 <tr>
 <td class="center">
-{if $rights["manage"] == 1}
+{if $rights["manage"] == 1 && $editGranted == 1}
 <a href="fishChange?fish_id={$fishs[lst].fish_id}&declaration_id={$data.declaration_id}" title="{t}Modifier{/t}">
 <img src="display/images/edit.gif" height="20">
 {$fishs[lst].fish_id}

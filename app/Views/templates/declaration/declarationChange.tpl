@@ -210,11 +210,10 @@ Retour au détail</a>
 				</div>
 				<div class="form-group">
 					<label for="institute_id" class="control-label col-sm-4">
-						{t}Institut ayant recueilli la déclaration :{/t}
+						{t}Institut ayant recueilli la déclaration :{/t}<span class="red">*</span>
 					</label>
 					<div class="col-md-8">
 						<select id="institute_id" name="institute_id" class="form-control">
-							<option value="" {if $data.institute_id == ""}selected{/if}></option>
 							{foreach $institutes as $institute} 
 							<option value="{$institute.institute_id}" {if $institute.institute_id == $data.institute_id}selected{/if}>
 							{$institute.institute_code}

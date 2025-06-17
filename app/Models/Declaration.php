@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Fish;
+use Ppci\Libraries\PpciException;
 use Ppci\Models\PpciModel;
 
 
@@ -140,11 +141,20 @@ class Declaration extends PpciModel
             ),
             "target_species_id" => array("type" => 1),
             "origin_identifier" => array("type" => 0),
-            "declaration_uuid" => array("type" => 0, "defaultValue" => "getUUID"),
-            "institute_id" => array("type" => 1)
+            "declaration_uuid" => array("type" => 0),
+            "institute_id" => array("type" => 1, "requis" => 1)
         );
 
         parent::__construct();
+    }
+
+    function getDefaultValues($parentKey = 0): array
+    {
+        $data = parent::getDefaultValues($parentKey);
+        $institute = new Institute;
+        $data["institute_id"] = $institute->getIdFromCode($_SESSION["dbparams"]["APPLI_code"]);
+        $data["declaration_uuid"] = $this->getUUID();
+        return $data;
     }
 
     function duplicate(int $id)
@@ -402,6 +412,15 @@ class Declaration extends PpciModel
          * Teste s'il s'agit d'une creation
          */
         $data["declaration_id"] == 0 ? $creation = true : $creation = false;
+        if (!$creation) {
+            $old = $this->read($data["declaration_id"]);
+            $institute_id = $old["institute_id"];
+        } else {
+            $institute_id = $_REQUEST["institute_id"];
+        }
+        if (!$this->isGrantedFromInstitute($institute_id)) {
+            throw new PpciException(_("Vous ne disposez pas des droits suffisants pour modifier cette déclaration"));
+        }
         $id = parent::write($data);
         /**
          * Add the handlings
@@ -426,6 +445,10 @@ class Declaration extends PpciModel
     function delete($id = null, bool $purge = false)
     {
         if ($id > 0 && is_numeric($id)) {
+            $old = $this->read($id);
+            if (!$this->isGrantedFromInstitute($old["institute_id"])) {
+                throw new PpciException(_("Vous ne disposez pas des droits suffisants pour supprimer cette déclaration"));
+            }
             /*
              * Suppression des informations liees
              */
@@ -501,9 +524,64 @@ class Declaration extends PpciModel
                 $i++;
             }
             $where .= ") and (status_id >= 3 )";
+            if (! $_SESSION["userRights"]["param"] == 1) {
+                $in = "";
+                $i = 0;
+                foreach ($_SESSION["institutes"] as $institute_id) {
+                    if ($i > 0) {
+                        $in .= ",";
+                    }
+                    $in .= ":inst" . $i . ":";
+                    $param["inst" . $i] = $institute_id;
+                    $i++;
+                }
+                $where .= " and institute_id in ($in)";
+            }
+
             $order = " order by declaration_id";
             $data = $this->getListeParamAsPrepared($sql . $this->fromSearch . $where . $order, $param);
         }
         return $data;
+    }
+    /**
+     * Verify if the user can edit a declaration
+     *
+     * @param int $declaration_id
+     * @return boolean
+     */
+    function isGranted(int $declaration_id)
+    {
+        if ($_SESSION["userRights"]["param"] == 1) {
+            return true;
+        } else {
+            $sql = "select institute_id from declaration where declaration_id = :id:";
+            $data = $this->readParam($sql, ["id" => $declaration_id]);
+            return $this->isGrantedFromInstitute($data["institute_id"]);
+        }
+    }
+    /**
+     * Verify if the institute is granted for the current user
+     *
+     * @param int $institute_id
+     * @return boolean
+     */
+    function isGrantedFromInstitute(int $institute_id)
+    {
+        if ($_SESSION["userRights"]["param"] == 1) {
+            return true;
+        } else {
+            return (in_array($institute_id, $_SESSION["institutes"]));
+        }
+    }
+/**
+ * Calculate the number of declarations attached to an institute
+ *
+ * @param integer $id
+ * @return int
+ */
+    function getNbDeclarationsByInstitute(int $id) {
+        $sql = "SELECT count(*) as nb from declaration where institute_id = :id:";
+        $data = $this->readParam($sql, ["id"=>$id]);
+        return $data["nb"];
     }
 }

@@ -1,5 +1,14 @@
 Nouveautés
 ============
+Version 25.1.0 du 17 juin 2025
+------------------------------
+Correction de bugs :
+- la récupération de la dernière version publiée ne fonctionnait pas
+- lors de l'importation des données, les poids étaient indiqués en grammes au lieu de kilogrammes
+
+Nouveautés :
+- seuls les membres des groupes associés à un institut peuvent modifier ou exporter les déclarations correspondantes
+
 Version 25.0.0 du 15 mai 2025
 -----------------------------
 - mise à niveau du framework et des bibliothèques tierces
